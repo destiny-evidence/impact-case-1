@@ -40,4 +40,4 @@ with Client() as client:
             ],
         )
 
-(pd.DataFrame(stats).sort_values(['prefix', 'df'], ascending=False).to_csv('notes/2025-12-02_wildcards.csv', index=False))
+(pd.DataFrame(stats).sort_values(['prefix', 'df'], ascending=False).to_csv('notes/2025-12-02_wildcards-old_index.csv', index=False))
