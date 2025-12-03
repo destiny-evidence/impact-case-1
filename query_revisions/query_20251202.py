@@ -1,13 +1,13 @@
 CLIMATE = {
     # General climate change terms
-    'General climate change': """(
+    'General climate change': '''(
            climat*
         OR "global warming"
         OR "greenhouse effect*"
-    )""",
+    )''',
     # Greenhouse gasses, including short-lived greenhouse gasses, when linked to emission or mitigation. Some astronomy results are filtered out.
     # Including direct and indirect climate forcers.Note: the combination with W/2 (emit* OR emission OR releas* OR mitigat*) is too restrictive.
-    'Greenhouse gasses': """(
+    'Greenhouse gasses': '''(
         (
               "carbon dioxide"
             OR co2
@@ -54,7 +54,7 @@ CLIMATE = {
             OR pm10
             OR "pm 10"
           #  OR "pm2.5"  <-- one of these produces errors (?)
-          #  OR "pm 2*”
+          #  OR "pm 2*"
           #  OR pm2*  <-- redundant
             OR "carbon emissions"
         )
@@ -62,9 +62,9 @@ CLIMATE = {
                star
             OR "solar system"
         )
-    )""",
+    )''',
     # Climate variability indicators/climate indices
-    'Climate variability': """(
+    'Climate variability': '''(
            temperature*
         OR precipitat*
         OR rainfall*
@@ -97,9 +97,9 @@ CLIMATE = {
         OR "weather indicator*"
         OR "weather variable*"
         OR "weather related"
-    )""",
+    )''',
     # Complex climate indices, including extreme weather events, floods, wildfire, and coastal changes. Some paleo-climatic events are excluded.
-    'Complex climate indices': """(
+    'Complex climate indices': '''(
            snowmelt*
         OR flood*
         OR storm*
@@ -132,18 +132,18 @@ CLIMATE = {
                 OR prevent*
             )
         )
-    )""",
+    )''',
     # Fossil fuels
-    'Fossil fuels': """(
+    'Fossil fuels': '''(
            "fossil fuel*"
         OR coal
         OR oil
         OR petroleum
         OR "natural gas"
         OR LNG
-    )""",
+    )''',
     # Activities that produce climate forcers
-    'Climate drivers': """(
+    'Climate drivers': '''(
            "energy production"
         OR "energy use"
         OR "energy consumption"
@@ -164,9 +164,9 @@ CLIMATE = {
         OR fertilizer*
         OR "meat consum*"
         OR "consume meat*"
-    )""",
+    )''',
     # Activities that reduce climate forcers
-    'Mitigation': """(
+    'Mitigation': '''(
            "energy transition"
         OR "renewable*"
         OR "clean energy"
@@ -186,7 +186,7 @@ CLIMATE = {
         OR "solar energy"
         OR "alternative fuel*"
         OR "carbon pricing"
-        OR “carbon capture”
+        OR "carbon capture"
         OR "carbon storage"
         OR CCS
         OR "carbon dioxide removal"
@@ -200,7 +200,7 @@ CLIMATE = {
         OR bicycle*
         OR "electric vehicle*"
         OR "electric car*"
-        OR "mobility shift*"
+        OR "mobility shift*"  # could also be "shift* mobility"
         OR "carbon neutral*"
         OR "low carbon"
         OR decarb*
@@ -217,11 +217,11 @@ CLIMATE = {
         OR "reduce carbon"
         OR "reduction of carbon"
         OR "carbon footprint"
-    )""",
+    )''',
 }
 HEALTH = {
     # General health terms
-    'General health terms': """(
+    'General health terms': '''(
            health*
         OR "well being"
         OR wellbeing
@@ -232,9 +232,9 @@ HEALTH = {
         OR infect*
         OR medical*
         OR medicine
-    )""",
-    # General health outcomesNote: Unclear what “{a&e}” stands for; also added “intensive care”, ICU” fatalities
-    'General health outcomes': """(
+    )''',
+    # General health outcomesNote: Unclear what "{a&e}" stands for; also added "intensive care", ICU" fatalities
+    'General health outcomes': '''(
            mortality
         OR daly
         OR dalys
@@ -246,7 +246,7 @@ HEALTH = {
         OR pandemic*
         OR wound*
         OR hospital*
-        OR medical cent*
+        OR "medical cent*"
         OR clinic*
         OR fatalities
         OR emergency
@@ -261,13 +261,14 @@ HEALTH = {
         OR surger*
         OR "general practi*"
         OR nurs*
-    )""",
+    )''',
     # Nutrition/food quality and quantity, including obesity and undernutrition Note: this can be both outcome and exposure
-    'Nutrition/food quality': """(
+    'Nutrition/food quality': '''(
            obes*
-        OR overweight "overweight"
+        OR overweight
+      # OR "overweight"
         OR underweight
-        OR "underweight"
+      # OR "underweight"
         OR hunger
         OR stunt*
         OR wasting
@@ -291,9 +292,9 @@ HEALTH = {
         OR "food system*"
         OR "food quality"
         OR "food quantity"
-    )""",
+    )''',
     # Cardio-vascular terms. Some studies on Chemical Vapour Deposition (CVD) are excluded.
-    'Cardio-vascular': """(
+    'Cardio-vascular': '''(
            hypertens*
         OR "blood pressure"
         OR stroke
@@ -313,9 +314,9 @@ HEALTH = {
                 OR vapor
             )
         )
-    )""",
-    # Renal health terms and cancer  Note: added “calculi/calculus”
-    'Renal health': """(
+    )''',
+    # Renal health terms and cancer  Note: added "calculi/calculus"
+    'Renal health': '''(
            ckd
         OR renal
         OR cancer
@@ -326,9 +327,9 @@ HEALTH = {
         OR calculus
         OR calculi
         OR lithogenes*
-    )""",
-    # Effects of temperature extremesNote: added “thermal stability” (for heat effects on drugs)
-    'Effects of temperature extremes': """(
+    )''',
+    # Effects of temperature extremesNote: added "thermal stability" (for heat effects on drugs)
+    'Effects of temperature extremes': '''(
         (
             heat 
             W/2 (
@@ -348,13 +349,13 @@ HEALTH = {
         OR hypertherm*
         OR hypotherm*
         OR "thermal stability"
-    )""",
+    )''',
     # Maternal health outcomes
-    'Maternal health outcomes': """(
+    'Maternal health outcomes': '''(
            preterm
         OR "pre term"
         OR stillbirth
-        OR birth?weight
+        OR "birth weight"
         OR maternal
         OR pregnan*
         OR gestation*
@@ -364,9 +365,9 @@ HEALTH = {
         OR placenta*
         OR haemorrhag*
         OR hemorrhag*
-    )""",
+    )''',
     # Vector-borne diseasesNote: added "rift valley" OR "ross river" (both diseases)
-    'Vector-borne diseases': """(
+    'Vector-borne diseases': '''(
            malaria
         OR dengue*
         OR mosquito*
@@ -386,9 +387,9 @@ HEALTH = {
         OR tickborne
         OR "rift valley"
         OR "ross river"
-    )""",
+    )''',
     # Bacterial, parasitic and viral infections, including waterborne and foodborne diseasesNote: also added cryptosporidiosis, leptospirosis, typhoid, melioidosis, "hepatitis E", dysentery
-    'Bacterial, parasitic and viral infections': """(
+    'Bacterial, parasitic and viral infections': '''(
            waterborne
         OR "water borne"
         OR diarrhoea*
@@ -427,9 +428,9 @@ HEALTH = {
             ) 
             W/2 bite*
         )
-    )""",
+    )''',
     # Air quality and allergens
-    'Air quality and allergens': """(
+    'Air quality and allergens': '''(
            "air pollution"
         OR "air quality"
         OR smoke
@@ -442,9 +443,9 @@ HEALTH = {
         OR spores
         OR pm10
         OR pm2*
-    )""",
+    )''',
     # Respiratory outcomesNote: also added bacterial meningitis
-    'Respiratory outcomes': """(
+    'Respiratory outcomes': '''(
            respiratory
         OR allerg*
         OR lung*
@@ -455,9 +456,9 @@ HEALTH = {
         OR rhinitis
         OR wheez*
         OR "bacterial meningitis"
-    )""",
+    )''',
     # Mental health outcomesNote: also added psychiat*
-    'Mental health outcomes': """(
+    'Mental health outcomes': '''(
            mental
         OR depress*
         OR *stress*
@@ -468,9 +469,9 @@ HEALTH = {
         OR suicid*
         OR solastalgi*
         OR psychiatr*
-    )""",
+    )''',
     # Water quality and quantity
-    'Water quality and quantity': """(
+    'Water quality and quantity': '''(
            "water security"
         OR "water insecurity"
         OR "water quantity"
@@ -478,9 +479,9 @@ HEALTH = {
         OR "water quality"
         OR "contaminated water"
         OR "water contamination*"
-    )""",
+    )''',
     # Social factors and vulnerability
-    'Social factors and vulnerability': """(
+    'Social factors and vulnerability': '''(
            migrat*
         OR displace*
         OR conflict*
@@ -493,13 +494,13 @@ HEALTH = {
         OR elder*
         OR frail*
         OR disab*
-    )""",
+    )''',
     # Health systems
     # 'Health systems': '''[no additional terms needed]''',
 }
 
 MERGED = {
-    'CLIMATE AND HEALTH': '(' + (' OR '.join(CLIMATE.values())) + ') AND (' + (' OR '.join(CLIMATE.values())) + ')',
+    'CLIMATE AND HEALTH': '(' + (' OR '.join(CLIMATE.values())) + ') AND (' + (' OR '.join(HEALTH.values())) + ')',
     'CLIMATE': ' OR '.join(CLIMATE.values()),
     'HEALTH': ' OR '.join(HEALTH.values()),
 }
