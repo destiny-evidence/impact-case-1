@@ -16,7 +16,7 @@ logger = logging.getLogger('query')
 logger.setLevel(600)
 
 conf = load_settings('.conf/secret.env')
-#print(conf.OPENALEX)
+# print(conf.OPENALEX)
 
 comm = re.compile(r'# .*\n')
 ws = re.compile(r'\s+')
@@ -26,6 +26,24 @@ phrase = re.compile(r'"([^"]+)"')
 
 oa_api = OpenAlexAPI(logger=logger)
 oa_solr = OpenAlexSolrAPI(openalex_conf=conf.OPENALEX, logger=logger)
+
+
+def count(q: str) -> int:
+    try:
+        res = httpx.post(
+            f'{conf.OPENALEX.solr_url}/select', data={
+                'df': 'title_abstract',
+                'defType': 'lucene',
+                'q': q,
+                'q.op': 'AND',
+                'rows': 5,
+            }, timeout=120,
+        ).json()
+        return res['response']['numFound']
+    except KeyError:
+        print(res['error'])
+        return -1
+
 
 for QUERIES in [MERGED, CLIMATE, HEALTH]:
     for k, query in QUERIES.items():
@@ -47,6 +65,12 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
         query_solr = near.sub(lambda m: f'{int(m.group(1)) + 1}W', query_solr)
         print(f'  -> solr: {query_solr}')
 
+        query_solr_quoted = query.replace('AND NOT', 'NOT')
+        query_solr_quoted = query_solr_quoted.replace('$', '?')
+        query_solr_quoted = query_solr_quoted.replace(' *', ' ')
+        query_solr_quoted = near.sub(lambda m: f'{int(m.group(1)) + 1}W', query_solr_quoted)
+        print(f'  -> solr: {query_solr}')
+
         query_solr_nowc = wild.sub('', query_solr)
         print(f'  -> solr w/o wildcards: {query_solr_nowc}')
 
@@ -61,41 +85,11 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
         except httpx.HTTPStatusError:
             print('  -> API + xpac: -ERROR-')
 
-        try:
-            res = httpx.post(
-                f'{conf.OPENALEX.solr_url}/select', data={
-                    'df': 'title_abstract',
-                    'defType': 'lucene',
-                    'q': query_api,
-                    'q.op': 'AND',
-                    'rows': 5,
-                }, timeout=120,
-            ).json()
-            print(f'  -> solr (with API query):  {res['response']['numFound']:,}')
-
-            res = httpx.post(
-                f'{conf.OPENALEX.solr_url}/select', data={
-                    'df': 'title_abstract',
-                    'defType': 'lucene',
-                    'q': f'{{!complexphrase v=\'{query_solr}\'}}',
-                    'q.op': 'AND',
-                    'rows': 5,
-                }, timeout=120,
-            ).json()
-            print(f'  -> solr: {res['response']['numFound']:,}')
-
-            res = httpx.post(
-                f'{conf.OPENALEX.solr_url}/select', data={
-                    'df': 'title_abstract',
-                    'defType': 'lucene',
-                    'q': f'{{!surround v=\'{query_solr_nowc}\'}}',
-                    'q.op': 'AND',
-                    'rows': 5,
-                }, timeout=120,
-            ).json()
-            print(f'  -> solr w/o wildcards:  {res['response']['numFound']:,}')
-
-        except KeyError as e:
-            logging.exception(e)
-            logging.error(res)
-            raise e
+        cnt = count(query_api)
+        print(f'  -> solr (with API query):  {cnt:,}')
+        cnt = count(f'{{!complexphrase v=\'{query_solr}\'}}')
+        print(f'  -> solr (phrases as W): {cnt:,}')
+        cnt = count(f'{{!complexphrase v=\'{query_solr_nowc}\'}}')
+        print(f'  -> solr (phrases as W w/o wildcards): {cnt:,}')
+        cnt = count(f'{{!complexphrase v=\'{query_solr_quoted}\'}}')
+        print(f'  -> solr (phrases as quote): {cnt:,}')
