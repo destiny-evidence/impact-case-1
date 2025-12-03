@@ -63,16 +63,16 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
         query_solr = query_solr.replace('$', '?')
         query_solr = query_solr.replace(' *', ' ')
         query_solr = near.sub(lambda m: f'{int(m.group(1)) + 1}W', query_solr)
-        print(f'  -> solr: {query_solr}')
+        print(f'  -> solr (phrases as W): {query_solr}')
+        query_solr_nowc = wild.sub('', query_solr)
+        print(f'  -> solr (phrases as W w/o wildcards): {query_solr_nowc}')
 
         query_solr_quoted = query.replace('AND NOT', 'NOT')
         query_solr_quoted = query_solr_quoted.replace('$', '?')
         query_solr_quoted = query_solr_quoted.replace(' *', ' ')
         query_solr_quoted = near.sub(lambda m: f'{int(m.group(1)) + 1}W', query_solr_quoted)
-        print(f'  -> solr: {query_solr}')
+        print(f'  -> solr (phrases as quotes): {query_solr_quoted}')
 
-        query_solr_nowc = wild.sub('', query_solr)
-        print(f'  -> solr w/o wildcards: {query_solr_nowc}')
 
         print('  ---')
 
