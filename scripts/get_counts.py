@@ -28,7 +28,7 @@ oa_api = OpenAlexAPI(logger=logger)
 oa_solr = OpenAlexSolrAPI(openalex_conf=conf.OPENALEX, logger=logger)
 
 
-def count(q: str) -> int:
+def count(q: str) -> str:
     try:
         res = httpx.post(
             f'{conf.OPENALEX.solr_url}/select', data={
@@ -39,10 +39,9 @@ def count(q: str) -> int:
                 'rows': 5,
             }, timeout=120,
         ).json()
-        return res['response']['numFound']
+        return f'{res['response']['numFound']:,}'
     except KeyError:
-        print(res['error'])
-        return -1
+        return res['error']
 
 
 for QUERIES in [MERGED, CLIMATE, HEALTH]:
@@ -63,16 +62,17 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
         query_solr = query_solr.replace('$', '?')
         query_solr = query_solr.replace(' *', ' ')
         query_solr = near.sub(lambda m: f'{int(m.group(1)) + 1}W', query_solr)
-        print(f'  -> solr (phrases as W): {query_solr}')
+        print(f'  -> phrases as W: {query_solr}')
         query_solr_nowc = wild.sub('', query_solr)
-        print(f'  -> solr (phrases as W w/o wildcards): {query_solr_nowc}')
+        print(f'  -> phrases as W w/o wildcards: {query_solr_nowc}')
 
         query_solr_quoted = query.replace('AND NOT', 'NOT')
         query_solr_quoted = query_solr_quoted.replace('$', '?')
         query_solr_quoted = query_solr_quoted.replace(' *', ' ')
         query_solr_quoted = near.sub(lambda m: f'{int(m.group(1)) + 1}W', query_solr_quoted)
-        print(f'  -> solr (phrases as quotes): {query_solr_quoted}')
-
+        print(f'  -> phrases as quotes: {query_solr_quoted}')
+        query_solr_quoted_nowc = wild.sub('', query_solr_quoted)
+        print(f'  -> phrases as quotes w/o wildcards: {query_solr_quoted_nowc}')
 
         print('  ---')
 
@@ -85,11 +85,18 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
         except httpx.HTTPStatusError:
             print('  -> API + xpac: -ERROR-')
 
-        cnt = count(query_api)
-        print(f'  -> solr (with API query):  {cnt:,}')
-        cnt = count(f'{{!complexphrase v=\'{query_solr}\'}}')
-        print(f'  -> solr (phrases as W): {cnt:,}')
-        cnt = count(f'{{!complexphrase v=\'{query_solr_nowc}\'}}')
-        print(f'  -> solr (phrases as W w/o wildcards): {cnt:,}')
-        cnt = count(f'{{!complexphrase v=\'{query_solr_quoted}\'}}')
-        print(f'  -> solr (phrases as quote): {cnt:,}')
+        Qs = [
+            ('phrases as W', query_solr),
+            ('phrases as W w/o wildcards', query_solr_nowc),
+            ('phrases as quotes', query_solr_quoted),
+            ('phrases as quotes w/o wildcards', query_solr_quoted_nowc)
+        ]
+
+        for desc, q in Qs:
+            print(f'  -> standard | {desc}: ', end='')
+            print(count(q))
+
+        for desc, q in Qs:
+            print(f'  -> complexphrase | {desc}: ', end='')
+            print(count(f'{{!complexphrase v=\'{q}\'}}'))
+
