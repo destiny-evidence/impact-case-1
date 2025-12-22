@@ -1,4 +1,4 @@
 # latest version
-from .query_20251202 import CLIMATE, HEALTH, MERGED
+from .query_20251222 import CLIMATE, HEALTH, MERGED, expansions
 
-__all__ = ['CLIMATE', 'HEALTH', 'MERGED']
+__all__ = ['CLIMATE', 'HEALTH', 'MERGED', 'expansions']

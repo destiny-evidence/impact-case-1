@@ -4,7 +4,8 @@ import httpx
 
 from nacsos_data.util.academic.apis import OpenAlexAPI, OpenAlexSolrAPI
 from nacsos_data.util.conf import load_settings
-from query_revisions import CLIMATE, HEALTH, MERGED
+from query_revisions import CLIMATE, HEALTH, MERGED, expansions
+from query_revisions.grammar import parse
 
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(name)s (%(process)d): %(message)s', level='INFO')
 logging.getLogger('matplotlib').setLevel(logging.WARNING)
@@ -85,6 +86,10 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
         except httpx.HTTPStatusError:
             print('  -> API + xpac: -ERROR-')
 
+        q = parse(query, expansions=expansions)
+        print(f'  -> surround | processed: ', end='')
+        print(count(f'{{!surround maxBasicQueries=100000}} {q}'))
+
         Qs = [
             ('phrases as W', query_solr),
             ('phrases as W w/o wildcards', query_solr_nowc),
@@ -100,3 +105,8 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
             print(f'  -> complexphrase | {desc}: ', end='')
             print(count(f'{{!complexphrase v=\'{q}\'}}'))
 
+        for desc, q in Qs:
+            if desc != 'phrases as W':
+                continue
+            print(f'  -> surround | {desc}: ', end='')
+            print(count(f'{{!surround maxBasicQueries=100000}} {q}'))

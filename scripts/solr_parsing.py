@@ -42,6 +42,8 @@ endings = [
     '',
     '?',
     '??',
+    'ed',
+    's',
     '*',
     '~',
     '~1',
@@ -75,6 +77,7 @@ QUERIES = [
               f'{{!surround v=\'school N uniform{ending}\'}}' for ending in endings
           ] + [
               'uniform',
+              'uniforms',
               'uniform?',
               'uniform??',
               'uniforme?',
