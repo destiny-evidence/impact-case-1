@@ -43,9 +43,9 @@ with Client(timeout=120) as client:
 (
     pd.DataFrame(stats)
     .sort_values(['prefix', 'df'], ascending=False)
-    .to_csv('notes/2025-12-22_wildcards-new_index.csv', index=False)
+    .to_csv('notes/2026-02-12_wildcards-new_index.csv', index=False)
 )
 
-df = pd.read_csv('notes/2025-12-22_wildcards-new_index.csv')
+df = pd.read_csv('notes/2026-02-12_wildcards-new_index.csv')
 for g, vs in df[df['df'] > 10].groupby('prefix'):
     print(f"'{g}': {vs['term'].tolist()}")
