@@ -1,13 +1,13 @@
 # This query was used for the Lancet Countdown 2026 edition
-QUERY = '''
+QUERY = """
 (
   (
        climat* OR "global warming" OR "greenhouse effect" OR "greenhouse effects" OR temperature* OR precipitat*
-    OR rainfall OR "heat index" OR "heat indices" OR "extreme heat event" OR "extreme heat events" OR "heat-wave" 
-    OR heatwave OR "extreme-cold*" OR "cold index" OR "cold indices" OR humidity OR drought* OR hydroclim* OR monsoon 
-    OR "el nino" OR ENSO OR "la nina" OR "la niña" OR "sea surface temperature" OR "sea surface temperatures" OR SST OR snowmelt* OR flood* OR storm* 
+    OR rainfall OR "heat index" OR "heat indices" OR "extreme heat event" OR "extreme heat events" OR "heat-wave"
+    OR heatwave OR "extreme-cold*" OR "cold index" OR "cold indices" OR humidity OR drought* OR hydroclim* OR monsoon
+    OR "el nino" OR ENSO OR "la nina" OR "la niña" OR "sea surface temperature" OR "sea surface temperatures" OR SST OR snowmelt* OR flood* OR storm*
     OR cyclone* OR hurricane* OR typhoon* OR "sea-level" OR "sea level" OR wildfire* OR "wild-fire" OR "forest-fire" OR "forest fire" OR "forest fires"
-  ) 
+  )
   OR (
     {!surround v="(disaster) 3N (risk OR management OR manage OR managing OR natural)"}
   )
@@ -19,8 +19,8 @@ QUERY = '''
   )
   OR (
     {!surround v="(
-           hydrochloroflourocarbons OR pm2.5 OR ammonia OR VOCs OR nox OR hydrochloroflourocarbon OR HFCs OR SO4 OR carbon OR n20 OR halogen 
-        OR chlorocarbon OR pm25 OR nh3 OR SOX OR O3 OR ccl4 OR NMVOC OR SO2 OR HFC OR CO OR nitrous OR methane OR ch4 OR co2 OR sulphur OR VOC OR ozone 
+           hydrochloroflourocarbons OR pm2.5 OR ammonia OR VOCs OR nox OR hydrochloroflourocarbon OR HFCs OR SO4 OR carbon OR n20 OR halogen
+        OR chlorocarbon OR pm25 OR nh3 OR SOX OR O3 OR ccl4 OR NMVOC OR SO2 OR HFC OR CO OR nitrous OR methane OR ch4 OR co2 OR sulphur OR VOC OR ozone
         OR chlorocarbons
       ) 3N (
         emissions OR emitter OR emitting OR mitigate OR emission OR mitigation
@@ -40,7 +40,7 @@ AND (
     OR hypertherm* OR hypotherm* OR pre*term OR stillbirth OR birth*weight OR LBW OR maternal OR pregnan* OR gestation*
     OR "pre-eclampsia" OR "preeclampsia" OR sepsis OR oligohydramnios OR placenta* OR haemorrhage OR hemorrhage OR malaria
     OR dengue* OR mosquito* OR chikungunya OR leishmaniasis OR encephalit* OR vector-borne OR pathogen OR zoonos* OR zika*
-    OR "west nile" OR onchocerciasis OR filiariasis OR waterborne OR diarrhoeal OR diarrheal OR gastro* 
+    OR "west nile" OR onchocerciasis OR filiariasis OR waterborne OR diarrhoeal OR diarrheal OR gastro*
     OR "vibrio bacteria" OR cyanobacteria OR parasit* OR borrelia
     OR paraly* OR neurotoxi* OR viral OR rotavirus OR noravirus OR norovirus OR hantavirus OR cholera OR protozoa* OR lyme OR tick*borne
     OR salmonella OR giardia OR shigella OR campylobacter OR food*borne OR aflatoxin OR poison* OR ciguatera OR respiratory
@@ -50,14 +50,14 @@ AND (
       enteric NOT (
         fermentation OR "enteric CH4" OR "enteric methane"
       )
-    ) 
-  ) 
+    )
+  )
   OR (
-    {!surround v="(heat) 3N (stress OR fatigue OR burn OR burns OR stroke OR exhaustion OR cramp)"} 
+    {!surround v="(heat) 3N (stress OR fatigue OR burn OR burns OR stroke OR exhaustion OR cramp)"}
     NOT cattle
   )
 )
-'''
+"""
 
 # Based on feedback by Tanya (see email 22.12.2025)
 # Add la nina

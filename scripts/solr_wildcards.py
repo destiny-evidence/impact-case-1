@@ -4,7 +4,7 @@ from httpx import Client
 from nacsos_data.util.conf import load_settings
 from query_revisions import MERGED
 
-wc = re.compile(r'[" *](\w+?)\*')
+wc = re.compile(r'["*\-\s](\w+?)\*')
 
 conf = load_settings('.conf/secret.env')
 stats = []
@@ -40,11 +40,7 @@ with Client(timeout=120) as client:
             ],
         )
 
-(
-    pd.DataFrame(stats)
-    .sort_values(['prefix', 'df'], ascending=False)
-    .to_csv('notes/2026-02-12_wildcards-new_index.csv', index=False)
-)
+(pd.DataFrame(stats).sort_values(['prefix', 'df'], ascending=False).to_csv('notes/2026-02-12_wildcards-new_index.csv', index=False))
 
 df = pd.read_csv('notes/2026-02-12_wildcards-new_index.csv')
 for g, vs in df[df['df'] > 10].groupby('prefix'):

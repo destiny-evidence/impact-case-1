@@ -3,26 +3,26 @@ import re
 from lark import Lark, Tree, Token, Transformer
 
 grammar = Lark(
-    '''
+    """
     ?start: op_or
-    
-    ?op_or: op_and 
+
+    ?op_or: op_and
         | op_or "OR" op_and           -> op_or
         | op_or near op_and           -> near
-    
+
     ?near: "NEAR/" NUMBER
          | "W/" NUMBER
-    
+
     ?op_and: atom
         | op_and "AND NOT" atom    -> op_not
         | op_and "NOT" atom        -> op_not
         | op_and "AND" atom        -> op_and
-    
+
     ?phrase_inner: token
          | token phrase_inner
          | token "-" token
     ?phrase: _QUOT phrase_inner _QUOT
-    
+
     ?token: WORD
          | WORD "*"             -> wild_pre
          | WORD "?"             -> wild_one
@@ -30,31 +30,33 @@ grammar = Lark(
          | "*" WORD "*"         -> wild_prepost
          | WORD "$" WORD        -> wild_in
          | WORD "?" WORD        -> wild_in
-    
+
     ?atom: token
          | phrase
          | "(" op_or ")"
-    
+
     _QUOT : "\\""
-    
-    
+
+
     DIGIT: "0".."9"
     INT: DIGIT+
     SIGNED_INT: ["+"|"-"] INT
     DECIMAL: INT "." INT? | "." INT
     FLOAT: DECIMAL
     NUMBER: FLOAT | INT
-    
+
     LCASE_LETTER: "a".."z"
     UCASE_LETTER: "A".."Z"
-    
+
     LETTER: UCASE_LETTER | LCASE_LETTER | NUMBER | "."
     WORD: LETTER+
-    
+
     %import common.WS
-    
+
     %ignore WS
-    ''', parser='earley', start='start',
+    """,
+    parser='earley',
+    start='start',
 )
 
 NEAR_OFFSET = 0
@@ -71,12 +73,12 @@ class Node:
             return self.label
         lines = [child.render(indent + 1) for child in self.children]
 
-        return f'{pad}(\n'+(f'\n{pad} {self.label} '.join(lines))+f'\n{pad})'
+        return f'{pad}(\n' + (f'\n{pad} {self.label} '.join(lines)) + f'\n{pad})'
 
 
 def expand_wildcard(token: str, prefix: str, postfix: str, expansions: dict[str, list[str]]):
     if token in expansions:
-        return f'({' OR '.join(expansions[token])})'
+        return f'({" OR ".join(expansions[token])})'
     return f'{prefix}{token}{postfix}'
 
 
@@ -127,12 +129,12 @@ class QueryTransformer(Transformer):
         return Node('W' if distance < 2 else f'{distance}W', items[:1] + items[2:])
 
 
-def parse(query, expansions: dict[str, list[str]] | None = None, parent: str | None = None):
+def parse(query, expansions: dict[str, list[str]] | None = None, parent: str | None = None):  # noqa: C901
     comm = re.compile(r'# .*\n')
     tree = grammar.parse(comm.sub('', query))
     expansions = {} if expansions is None else expansions
 
-    def recurse(subtree: Tree | Token, indent: str = '') -> str:
+    def recurse(subtree: Tree | Token, indent: str = '') -> str:  # noqa: C901
         if isinstance(subtree, Token):
             return subtree.value
 
@@ -142,24 +144,24 @@ def parse(query, expansions: dict[str, list[str]] | None = None, parent: str | N
         if subtree.data == 'op_or':
             return (
                 '(\n'
-                f'{indent}   {recurse(subtree.children[0], indent=indent + '  ')}\n'
-                f'{indent}OR {recurse(subtree.children[1], indent=indent + '  ')}\n'
+                f'{indent}   {recurse(subtree.children[0], indent=indent + "  ")}\n'
+                f'{indent}OR {recurse(subtree.children[1], indent=indent + "  ")}\n'
                 f'{indent[:-2]})'
             )
 
         if subtree.data == 'op_and':
             return (
                 '(\n'
-                f'{indent}    {recurse(subtree.children[0], indent=indent + '  ')}\n'
-                f'{indent}AND {recurse(subtree.children[1], indent=indent + '  ')}\n'
+                f'{indent}    {recurse(subtree.children[0], indent=indent + "  ")}\n'
+                f'{indent}AND {recurse(subtree.children[1], indent=indent + "  ")}\n'
                 f'{indent[:-2]})'
             )
 
         if subtree.data == 'op_not':
             return (
                 '(\n'
-                f'{indent}    {recurse(subtree.children[0], indent=indent + '  ')}\n'
-                f'{indent}NOT {recurse(subtree.children[1], indent=indent + '  ')}\n'
+                f'{indent}    {recurse(subtree.children[0], indent=indent + "  ")}\n'
+                f'{indent}NOT {recurse(subtree.children[1], indent=indent + "  ")}\n'
                 f'{indent[:-2]})'
             )
 
@@ -168,14 +170,14 @@ def parse(query, expansions: dict[str, list[str]] | None = None, parent: str | N
             near_str = 'W' if near < 2 else f'{near}W'
             return (
                 '(\n'
-                f'{indent}  {recurse(subtree.children[0], indent=indent + '  ')}\n'
+                f'{indent}  {recurse(subtree.children[0], indent=indent + "  ")}\n'
                 f'{indent}{near_str} '
-                f'{recurse(subtree.children[2], indent=indent + '  ')}\n'
+                f'{recurse(subtree.children[2], indent=indent + "  ")}\n'
                 f'{indent[:-2]})'
             )
 
         if subtree.data == 'phrase_inner':
-            return f'({' W '.join([recurse(child) for child in subtree.children])})'
+            return f'({" W ".join([recurse(child) for child in subtree.children])})'
 
         if subtree.data == 'wild_pre':
             return expand_wildcard(subtree.children[0].value, prefix='', postfix='*', expansions=expansions)
@@ -199,10 +201,10 @@ def parse(query, expansions: dict[str, list[str]] | None = None, parent: str | N
 
 
 if __name__ == '__main__':
-    q = '''
+    q = """
     (
         (
-            heat 
+            heat
             W/2 (
                    stress
                 OR fatigue
@@ -220,7 +222,7 @@ if __name__ == '__main__':
         OR hypertherm*
         OR hypotherm*
         OR "thermal stability"
-    )'''
+    )"""
     # print(parse(q))
     print('--------------')
     prepared = re.compile(r'# .*\n').sub('', q)

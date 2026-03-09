@@ -20,14 +20,14 @@
 # TODO: verify drought*
 # TODO: verify flood*
 # TODO: verify storm*
-q1 = '''
+q1 = """
 climate OR "global warming" OR "greenhouse effect" OR "greenhouse gas" OR "greenhouse emission" OR
-GHG OR temperature OR precipitation OR rainfall OR "heat index" OR "heat indices" OR 
+GHG OR temperature OR precipitation OR rainfall OR "heat index" OR "heat indices" OR
 "extreme heat event" OR "heat wave" OR heatwave OR "extreme cold" OR "cold index" OR "cold indices" OR
 humidity OR drought OR hydroclimate OR hydroclimatic OR hydroclimatology OR hydroclimatological OR
-monsoon OR "el nino" OR ENSO OR "sea surface temperature" OR SST OR snowmelt OR flood OR storm OR cyclone OR 
+monsoon OR "el nino" OR ENSO OR "sea surface temperature" OR SST OR snowmelt OR flood OR storm OR cyclone OR
 hurricane OR typhoon OR "sea level" OR wildfire OR "wild fire" OR "forest fire"
-'''
+"""
 
 # health OR wellbeing OR "well-being" OR ill OR illness OR disease* OR syndrome* OR infect* OR
 # medical* OR mortality OR DALY OR morbidity OR injur* OR death* OR hospital* OR acciden* OR
@@ -54,32 +54,32 @@ hurricane OR typhoon OR "sea level" OR wildfire OR "wild fire" OR "forest fire"
 # TODO: check parasit*
 # TODO: check bronchi*
 # TODO: check psycho*
-q2 = '''
+q2 = """
 health OR wellbeing OR "well being" OR ill OR illness OR disease OR syndrome OR infect OR infection OR infectious OR
 medical OR mortality OR DALY OR morbidity OR injury OR death OR hospital OR hospitalization OR hospitalisation OR
 accident OR accidental OR emergency OR emergent OR doctor OR GP OR obesity OR obese OR overweight OR "over weight" OR
-underweight OR "under weight" OR hunger OR stunting OR wasting OR undernourishment OR undernourish OR 
+underweight OR "under weight" OR hunger OR stunting OR wasting OR undernourishment OR undernourish OR
 undernutrition OR anthropometric OR anthropometry OR malnutrition OR malnourishment OR malnourish OR
-anemia OR anaemia OR "micro nutrient" OR hypertension OR "blood pressure" OR stroke OR renovascular OR 
-cerebrovascular OR "heart disease" OR cardiovascular OR "cardio vascular" OR "heart attack" OR 
-ischemic OR ischaemic OR coronary OR CHD OR diabetes OR diabetic OR CKD OR renal OR cancer OR 
+anemia OR anaemia OR "micro nutrient" OR hypertension OR "blood pressure" OR stroke OR renovascular OR
+cerebrovascular OR "heart disease" OR cardiovascular OR "cardio vascular" OR "heart attack" OR
+ischemic OR ischaemic OR coronary OR CHD OR diabetes OR diabetic OR CKD OR renal OR cancer OR
 kidney OR lithogenesis OR lithogenes OR skin OR fever OR feverish OR renal OR rash OR eczema OR
 eczematous OR "thermal stress" OR hyperthermia OR hyperthermic OR hypothermia OR hypothermic OR
 preterm OR stillbirth OR "birth weight" OR LBW OR maternal OR pregnant OR pregnancy OR gestation OR "pre eclampsia" OR
-preeclampsia OR sepsis OR oligohydramnios OR encephalitis OR encephalitic OR 
+preeclampsia OR sepsis OR oligohydramnios OR encephalitis OR encephalitic OR
 placenta OR haemorrhage OR hemorrhage OR malaria OR dengue OR mosquito OR chikungunya OR leishmaniasis OR
-"vector borne" OR pathogen OR zoonosis OR zoonose OR zika OR "west nile" OR onchocerciasis OR filiariasis OR 
+"vector borne" OR pathogen OR zoonosis OR zoonose OR zika OR "west nile" OR onchocerciasis OR filiariasis OR
 waterborne OR diarrhoeal OR diarrheal OR gastrointestinal OR gastroenterology OR gastroesophageal OR
 "vibrio bacteria" OR cyanobacteria OR parasitic OR borrelia OR paralysis OR paralyzed OR paralytic OR
-paralysed OR neurotoxic OR neurotoxicity OR neurotoxin OR viral OR rotavirus OR noravirus OR hantavirus OR cholera OR 
-protozoa OR protozoan OR protozoal OR lyme OR "tick borne" OR salmonella OR giardia OR shigella OR campylobacter OR 
-"food borne" OR aflatoxin OR poison OR poisonous OR ciguatera OR respiratory OR allergic OR allergen OR allergy OR 
-lung OR asthma OR asthmatic OR bronchial OR bronchitis OR pulmonary OR COPD OR rhinitis OR wheezing OR wheeze OR 
+paralysed OR neurotoxic OR neurotoxicity OR neurotoxin OR viral OR rotavirus OR noravirus OR hantavirus OR cholera OR
+protozoa OR protozoan OR protozoal OR lyme OR "tick borne" OR salmonella OR giardia OR shigella OR campylobacter OR
+"food borne" OR aflatoxin OR poison OR poisonous OR ciguatera OR respiratory OR allergic OR allergen OR allergy OR
+lung OR asthma OR asthmatic OR bronchial OR bronchitis OR pulmonary OR COPD OR rhinitis OR wheezing OR wheeze OR
 mental OR depression OR depressive OR depressed OR anxiety OR PTSD OR psychological OR psychosocial OR psychometric OR
 psychotic OR suicide OR "pre trauma" OR pretrauma OR "post trauma" OR posttrauma OR (CVD NOT (vapor OR vapour))
-'''
+"""
 
-query = f'''
+query = f"""
 (
     {q1}
     OR
@@ -111,4 +111,4 @@ AND
         NOT cattle
     )
 )
-'''
+"""

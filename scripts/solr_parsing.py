@@ -3,7 +3,6 @@ import logging
 
 import httpx
 
-from nacsos_data.util.academic.apis import OpenAlexAPI, OpenAlexSolrAPI
 from nacsos_data.util.conf import load_settings
 
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(name)s (%(process)d): %(message)s', level='INFO')
@@ -23,66 +22,50 @@ wild = re.compile(r'[*?]+')
 near = re.compile(r'W/\d')
 phrase = re.compile(r'"([^"]+)"')
 
+
 def count(q: str) -> str:
     try:
         res = httpx.post(
-            f'{conf.OPENALEX.solr_url}/select', data={
+            f'{conf.OPENALEX.solr_url}/select',
+            data={
                 'df': 'title_abstract',
                 'defType': 'lucene',
                 'q': q,
                 'q.op': 'AND',
                 'rows': 5,
-            }, timeout=120,
+            },
+            timeout=120,
         ).json()
-        return f'{res['response']['numFound']:,}'
+        return f'{res["response"]["numFound"]:,}'
     except KeyError:
         return res['error']['msg']
 
-endings = [
-    '',
-    '?',
-    '??',
-    'ed',
-    's',
-    '*',
-    '~',
-    '~1',
-    '~2'
-]
+
+endings = ['', '?', '??', 'ed', 's', '*', '~', '~1', '~2']
 endings += [f's{e}' for e in endings]
 
-QUERIES = [
-              f'school uniform{ending}' for ending in endings
-          ] + [
-              f'"school uniform{ending}"' for ending in endings
-          ] + [
-              f'school W uniform{ending}' for ending in endings
-          ] + [
-              f'school N uniform{ending}' for ending in endings
-          ] + [
-              f'"school uniform{ending}"~2' for ending in endings
-          ] + [
-              f'school 2W uniform{ending}' for ending in endings
-          ] + [
-              f'{{!complexphrase v=\'"school uniform{ending}"\'}}' for ending in endings
-          ] + [
-              f'{{!complexphrase v=\'school W uniform{ending}\'}}' for ending in endings
-          ] + [
-              f'{{!complexphrase v=\'school N uniform{ending}\'}}' for ending in endings
-          ] + [
-              f'{{!surround v=\'"school uniform{ending}"\'}}' for ending in endings
-          ] + [
-              f'{{!surround v=\'school W uniform{ending}\'}}' for ending in endings
-          ] + [
-              f'{{!surround v=\'school N uniform{ending}\'}}' for ending in endings
-          ] + [
-              'uniform',
-              'uniforms',
-              'uniform?',
-              'uniform??',
-              'uniforme?',
-              'uniformed',
-          ]
+QUERIES = (
+    [f'school uniform{ending}' for ending in endings]
+    + [f'"school uniform{ending}"' for ending in endings]
+    + [f'school W uniform{ending}' for ending in endings]
+    + [f'school N uniform{ending}' for ending in endings]
+    + [f'"school uniform{ending}"~2' for ending in endings]
+    + [f'school 2W uniform{ending}' for ending in endings]
+    + [f'{{!complexphrase v=\'"school uniform{ending}"\'}}' for ending in endings]
+    + [f"{{!complexphrase v='school W uniform{ending}'}}" for ending in endings]
+    + [f"{{!complexphrase v='school N uniform{ending}'}}" for ending in endings]
+    + [f'{{!surround v=\'"school uniform{ending}"\'}}' for ending in endings]
+    + [f"{{!surround v='school W uniform{ending}'}}" for ending in endings]
+    + [f"{{!surround v='school N uniform{ending}'}}" for ending in endings]
+    + [
+        'uniform',
+        'uniforms',
+        'uniform?',
+        'uniform??',
+        'uniforme?',
+        'uniformed',
+    ]
+)
 
 for q in QUERIES:
     print(f'{q}   -> ', end='')

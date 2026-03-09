@@ -1,11 +1,11 @@
 # This query was used for the Lancet Countdown 2025 edition
-QUERY = '''
+QUERY = """
 (
   (
-    climat* OR "global warming" OR "greenhouse effect" OR "greenhouse effects" OR temperature* OR precipitat* OR 
-    rainfall OR "heat index" OR "heat indices" OR "extreme heat event" OR "extreme heat events" OR "heat-wave" OR 
-    heatwave OR "extreme-cold*" OR "cold index" OR "cold indices" OR humidity OR drought* OR hydroclim* OR monsoon OR 
-    "el nino" OR ENSO OR "sea surface temperature" OR "sea surface temperatures" OR SST OR snowmelt* OR flood* OR storm* OR 
+    climat* OR "global warming" OR "greenhouse effect" OR "greenhouse effects" OR temperature* OR precipitat* OR
+    rainfall OR "heat index" OR "heat indices" OR "extreme heat event" OR "extreme heat events" OR "heat-wave" OR
+    heatwave OR "extreme-cold*" OR "cold index" OR "cold indices" OR humidity OR drought* OR hydroclim* OR monsoon OR
+    "el nino" OR ENSO OR "sea surface temperature" OR "sea surface temperatures" OR SST OR snowmelt* OR flood* OR storm* OR
     cyclone* OR hurricane* OR typhoon* OR "sea-level" OR "sea level" OR wildfire* OR "wild-fire" OR "forest-fire" OR "forest fire" OR "forest fires"
     )
   OR
@@ -14,8 +14,8 @@ QUERY = '''
   (({!surround v="extreme 3N event"}) NOT paleo)
   OR
 
-    ({!surround v="(hydrochloroflourocarbons OR pm2.5 OR ammonia OR VOCs OR nox OR hydrochloroflourocarbon OR HFCs OR SO4 OR carbon OR n20 OR halogen OR 
-    chlorocarbon OR pm25 OR nh3 OR SOX OR O3 OR ccl4 OR NMVOC OR SO2 OR HFC OR CO OR nitrous OR methane OR ch4 OR co2 OR sulphur OR VOC OR ozone OR 
+    ({!surround v="(hydrochloroflourocarbons OR pm2.5 OR ammonia OR VOCs OR nox OR hydrochloroflourocarbon OR HFCs OR SO4 OR carbon OR n20 OR halogen OR
+    chlorocarbon OR pm25 OR nh3 OR SOX OR O3 OR ccl4 OR NMVOC OR SO2 OR HFC OR CO OR nitrous OR methane OR ch4 OR co2 OR sulphur OR VOC OR ozone OR
     chlorocarbons) 3N (emissions OR emitter OR emitting OR mitigate OR emission OR mitigation)"})
 )
 AND
@@ -36,9 +36,9 @@ AND
       OR salmonella OR giardia OR shigella OR campylobacter OR food*borne OR aflatoxin OR poison* OR ciguatera OR respiratory
       OR allerg* OR lung* OR asthma* OR bronchi* OR pulmonary* OR COPD OR rhinitis OR wheez* OR mental OR depress* OR anxi*
        OR PTSD OR psycho* OR "post*trauma*" OR "pre-trauma*" OR "pretrauma*" OR suicide*
-  ) OR 
+  ) OR
   (
     {!surround v="(heat) 3N (stress OR fatigue OR burn OR burns OR stroke OR exhaustion OR cramp)"} NOT cattle
   )
 )
-'''
+"""

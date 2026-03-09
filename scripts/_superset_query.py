@@ -39,14 +39,14 @@ with open(FILE, 'w') as f:
                 ),
                 'select': 'id',
                 'cursor': cursor,
-                'per-page': 200
+                'per-page': 200,
             },
             headers={'api_key': os.getenv('API_KEY')},
             timeout=None,
         )
         page = res.json()
         cursor = page['meta']['next_cursor']
-        logging.info(f'Retrieved {ids:,}/{page['meta']['count']:,}; currently on page {page_i}')
+        logging.info(f'Retrieved {ids:,}/{page["meta"]["count"]:,}; currently on page {page_i}')
 
         # print(res.status_code)
         # print(json.dumps(dict(res.headers), indent=2))
