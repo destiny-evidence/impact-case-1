@@ -59,45 +59,45 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
         print(f'  -> OpenAlex API query: {query_api}')
 
         queries = {
-            'title_abstract (-xpac)': lambda : httpx.get(
-            'https://api.openalex.org/works',
+            'title_abstract (-xpac)': lambda: httpx.get(
+                'https://api.openalex.org/works',
                 params={
-                       'filter': f'title_and_abstract.search:{query_api}',
-                       'select': 'id',
-                       'per-page': 1,
-                'include_xpac': False,
-                       },
+                    'filter': f'title_and_abstract.search:{query_api}',
+                    'select': 'id',
+                    'per-page': 1,
+                    'include_xpac': False,
+                },
                 headers={'api_key': conf.OPENALEX.API_KEY},
             ),
-            'title_abstract (+xpac)': lambda : httpx.get(
-            'https://api.openalex.org/works',
+            'title_abstract (+xpac)': lambda: httpx.get(
+                'https://api.openalex.org/works',
                 params={
-                       'filter': f'title_and_abstract.search:{query_api}',
-                       'select': 'id',
-                       'per-page': 1,
-                'include_xpac': True,
-                       },
+                    'filter': f'title_and_abstract.search:{query_api}',
+                    'select': 'id',
+                    'per-page': 1,
+                    'include_xpac': True,
+                },
                 headers={'api_key': conf.OPENALEX.API_KEY},
             ),
-            'search (+xpac)': lambda : httpx.get(
-            'https://api.openalex.org/works',
+            'search (+xpac)': lambda: httpx.get(
+                'https://api.openalex.org/works',
                 params={
-                       'search': query_api,
-                       'select': 'id',
-                       'per-page': 1,
-                'include_xpac': True,
+                    'search': query_api,
+                    'select': 'id',
+                    'per-page': 1,
+                    'include_xpac': True,
                     'api_key': conf.OPENALEX.API_KEY,
-                       },
+                },
             ),
-            'search.exact (+xpac)': lambda : httpx.get(
-            'https://api.openalex.org/works',
+            'search.exact (+xpac)': lambda: httpx.get(
+                'https://api.openalex.org/works',
                 params={
-                       'search.exact': query_api,
-                       'select': 'id',
-                       'per-page': 1,
-                'include_xpac': True,
+                    'search.exact': query_api,
+                    'select': 'id',
+                    'per-page': 1,
+                    'include_xpac': True,
                     'api_key': conf.OPENALEX.API_KEY,
-                       },
+                },
             ),
         }
 
