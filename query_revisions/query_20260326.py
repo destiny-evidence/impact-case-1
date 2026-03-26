@@ -15,45 +15,58 @@ CLIMATE = {
     'Greenhouse gasses': """(
         (
                 "greenhouse gas"
-	     OR "greenhouse gases"			
+	         OR "greenhouse gases"	
+			 OR GHG
              OR "carbon dioxide"
              OR co2
              OR methane
              OR ch4
              OR "nitrous oxide"
              OR n2o 
-	     OR no2
+	     	 OR no2
              OR "nitric oxide"
              OR "nitrogen dioxide"
              OR nox
-             OR chlorofluorocarbon
-	     OR chlorofluorocarbons	
+      		 OR perfluorocarbons
+			 OR PFCs
+			 OR "sulfur hexafluoride" 
+			 OR SF6
+			 OR "nitrogen trifluoride"
+			 OR NF3
+			 OR "fluorinated ethers"
+			 OR HFEs
+			 OR chlorofluorocarbon
+	         OR chlorofluorocarbons	
              OR cfc
+			 OR cfcs
              OR refrigerant
+			 OR refrigerants
              OR hydrofluorocarbon
-	     OR hydrofluorocarbons
+	         OR hydrofluorocarbons
              OR hfc
+			 OR hfcs
              OR chlorocarbon
        	     OR chlorocarbons
              OR "carbon tetrachloride"
              OR ccl4
              OR halogen
-	     OR halogens
+	         OR halogens
              OR ozone
              OR o3
              OR ammonia
              OR nh3
              OR "carbon monoxide"
-             OR "volatile organic compounds"
-             OR VOCs
+             OR "volatile organic compound"
+			 OR "volatile organic compounds"
+			 OR VOCs
              OR nmvoc
              OR "hydroxyl radical"
              OR "oh"
              OR aerosol
-	     OR aerosols
+	         OR aerosols
              OR "black carbon"
              OR soot 
-	     OR "organic carbon"
+	         OR "organic carbon"
              OR "sulfur dioxide"
              OR "sulphur dioxide"
              OR "oxidized sulfur"
@@ -63,25 +76,36 @@ CLIMATE = {
              OR "sulphuric acid"
              OR "sulfuric acid"
              OR so4
-	     OR sulfate
-	     OR sulfates
+	         OR sulfate
+	         OR sulfates
              OR "fluorinated gas"
-	     OR "fluorinated gases"    
+	         OR "fluorinated gases" 
+			 OR "radiative forcing gas"
+			 OR "radiative forcing gases"
+			 OR "f gases"
              OR "particulate matter"
-             OR pm10
+             OR pm01
+			 OR "pm 01"
+			 OR "pm0.1"
+             OR "pm 0.1"
+			 OR pm10
              OR "pm 10"
-	     OR pm2	
-	     OR "pm 2"	
+	         OR pm2	
+	         OR "pm 2"	
              OR "pm2.5"
              OR "pm 2.5"
-  	     OR "pm25"
+  	         OR "pm25"
              OR "pm 25"
              OR "carbon emissions"
              OR "ghg emissions"
              OR "climate forcer"
-	     OR "climate forcers"     
+	         OR "climate forcers"   
+			 OR "climate forcing"    
              OR slcf
+			 OR slcp
              OR slcfs
+			 OR slcps
+			 OR "short lived climate"
         )
         AND NOT (
              star
@@ -90,20 +114,38 @@ CLIMATE = {
     )""",
     # Climate variability indicators/climate indices
     'Climate variability': """(
-           temperature*
-        OR precipitat*
-        OR rainfall*
-        OR "heavy rain*"      # alternatives ("heavy rain", "heavy rains", "heavy rainfall", "heavy rainfalls", "heavy raining",""heavy rainings","heavy rainstorm", "heavy rainstorms")
-        OR "extreme rain*"    # alternatives ("extreme rain", "extreme rains", "extreme rainfall", "extreme rainfalls", "extreme raining",""extreme rainings","extreme rainstorm", "extreme rainstorms")
-        OR "heat ind*"        # alternatives ("heat index","heat indexes", "heat indexs")
+           temperature
+		OR  temperatures
+        OR precipitation
+		OR precipitations
+        OR rainfall
+		OR rainfalls
+        OR rain 
+		OR rains
+		OR raining 
+		OR rainstorm 
+		OR rainstorms
+        OR "heat index"
+		OR "heat indexes"  
+		OR "heat indices" 
+		OR "heat indicator"
+		OR "heat indicators"
+		OR "heat induced"
         OR "extreme heat"
-        OR "heat wave*"       # alternatives ("heat wave","heat waves")
-        OR heatwave*          # alternatives ("heatwave","heatwaves")
-        OR "heat related"
+        OR "heat wave"
+		OR "heat waves"
+        OR heatwave
+		OR heatwaves
+		OR "heat related"
         OR "urban heat"
-        OR "extreme cold*" # alternatives ("extreme cold","extreme colds","extreme coldness")
-        OR "cold index*" # alternatives ("cold index","cold indexes", "cold indexs")
-        OR "cold indic*" # alternatives("cold indicator","cold indicators","cold indices","cold indicative")
+        OR "extreme cold"
+		OR "extreme colds"
+		OR "extreme coldness"
+        OR "cold index"
+		OR "cold indexes"
+		OR "cold indices"
+		OR "cold indicator"
+		OR "cold indicators"
         OR "cold induced"
         OR "cold wave*" # alternatives("cold wave", "cold waves")
         OR "cold spell*" # alternatives ("cold spell", "cold spells")
