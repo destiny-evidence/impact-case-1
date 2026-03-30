@@ -6,11 +6,12 @@ CLIMATE = {
 	OR climatically
 	OR climatology  
 	OR climatogenic
-        OR "global warming"
-        OR "greenhouse effect" 
+    OR "global warming"
+	OR "global heating"
+    OR "greenhouse effect" 
 	OR "greenhouse effects"      
     )""",
-    # Greenhouse gasses, including short-lived greenhouse gasses, when linked to emission or mitigation. Some astronomy results are filtered out.
+    # Greenhouse gasses, including short-lived greenhouse gasses. Some astronomy results are filtered out.
     # Including direct and indirect climate forcers.
     'Greenhouse gasses': """(
         (
@@ -19,6 +20,7 @@ CLIMATE = {
 			 OR GHG
              OR "carbon dioxide"
              OR co2
+			 OR co2e
              OR methane
              OR ch4
              OR "nitrous oxide"
@@ -49,8 +51,13 @@ CLIMATE = {
        	     OR chlorocarbons
              OR "carbon tetrachloride"
              OR ccl4
+			 OR "methyl chloroform" 
+			 OR "methyl bromide" 
+			 OR bromochlormethane  
+			 OR halons
              OR halogen
 	         OR halogens
+			 OR halogenated
              OR ozone
              OR o3
              OR ammonia
@@ -97,15 +104,10 @@ CLIMATE = {
   	         OR "pm25"
              OR "pm 25"
              OR "carbon emissions"
-             OR "ghg emissions"
-             OR "climate forcer"
-	         OR "climate forcers"   
-			 OR "climate forcing"    
              OR slcf
 			 OR slcp
              OR slcfs
 			 OR slcps
-			 OR "short lived climate"
         )
         AND NOT (
              star
@@ -147,70 +149,106 @@ CLIMATE = {
 		OR "cold indicator"
 		OR "cold indicators"
         OR "cold induced"
-        OR "cold wave*" # alternatives("cold wave", "cold waves")
-        OR "cold spell*" # alternatives ("cold spell", "cold spells")
+        OR "cold wave" 
+		OR "cold waves"
+        OR "cold spell" 
+		OR "cold spells"
         OR humidity
-        OR drought*
-        OR hydroclim*
+        OR drought
+		OR droughts
+     	OR hydroclimate 
+		OR hydroclimatic 
+		OR hydroclimatically
         OR monsoon
         OR "el nino"
         OR "el niño"
         OR enso
-        OR "southern oscillation index"
+        OR "southern oscillation"
         OR "la nina"
         OR "la niña"
-        OR "sea surface temperature*" # alternatives ("sea surface temperature","sea surface temperatures")
-        OR "meteorological condition*"  # alternatives("meteorological condition","meteorological conditions")
+		OR  "north atlantic oscillation"
+		OR "meteorological condition"  
+		OR "meteorological conditions"
         OR "meteorological data"
-        OR "meteorological factor*"  # alternatives("meteorological factor","meteorological factors")
-        OR "meteorological indicator*"  # alternatives("meteorological indicator","meteorological indicators")
-        OR "meteorological variable*"  # alternatives("meteorological variable","meteorological variables")
-        OR "weather condition*" # alternatives ("weather condition","meteorological conditions")
-        OR "weather factor*" #  alternatives ("weather factor", "weather factors")
-        OR "weather indicator*" # alternatives ("weather indicator", "wweather indicators")
-        OR "weather variable*" # alternatives ("weather variable", "weather variables")
+        OR "meteorological factor" 
+		OR "meteorological factors"
+        OR "meteorological indicator" 
+		OR "meteorological indicators"
+        OR "meteorological variable"
+		OR "meteorological variables"
+        OR "weather condition" 
+		OR "weather conditions"
+        OR "weather factor
+		OR "weather factors"
+        OR "weather indicator" 
+		OR "weather indicators"
+        OR "weather variable"
+		OR "weather variables"
         OR "weather related"
         OR "weather induced"
-        OR "climatic extreme*"   # alternatives ("climatic extreme", "climatic extremes")
+		OR cloudiness
+		OR "cloud cover"
+		)
     )""",
     # Complex climate indices, including extreme weather events, floods, wildfire, and coastal changes. Some paleo-climatic events are excluded.
     #
     'Complex climate indices': """(
-           snowmelt*
-        OR landslide*
-        OR mudslide*
-        OR flood*
-        OR storm*
-        OR cyclone*
-        OR hurricane*
-        OR typhoon*
-        OR "sea level*"# alternatives ("sea level", "sea levels")
-        OR sealevel*
-        OR wildfire*
-        OR "wild fire*" # alternatives ("wild fire", "wild fires")
-        OR bushfire*
-        OR "bush fire*"
-        OR "forest fire*" # alternatives ("forest fire", "forest fires")
-        OR river*
+           snowmelt
+		OR snowmelts   
+        OR landslide
+		OR landslides
+        OR mudslide
+		OR mudslides
+        OR flood
+		OR floods
+		OR flooding
+		OR floodings
+        OR storm
+		OR storms
+        OR cyclone
+		OR cyclones
+        OR hurricane
+		OR hurricanes
+        OR typhoon
+		OR typhoons
+        OR "sea level"
+		OR "sea levels"
+        OR sealevel
+		OR sealevels
+        OR wildfire
+		OR wildfires
+        OR "wild fire"
+		OR "wild fires"
+        OR bushfire
+		OR bushfires
+        OR "bush fire"
+		OR "bush fires"
+		OR "forest fire"
+		OR "forest fires"
+        OR river
+		OR rivers
         OR (
-            ("extreme event*") # alternatives ("extreme event", "extreme events")
+            ("extreme event" OR "extreme events") 
             AND NOT paleo*
         )
-        OR "extreme weather event*" # alternatives ("extreme weather event", "extreme weather events")
+        OR "extreme weather"
+		OR "weather extreme"
+		OR "weather extremes"
         OR "coast erosion"
         OR "coastal erosion"
-        OR "coastal change*" # alternatives ("coastal change", "coastal changes")
-        OR "coastal inundation*" # alternatives ("coastal inundation", "coastal inundations")
+        OR "coastal change"
+		OR "coastal changes"
+        OR "coastal inundation"
+		OR "coastal inundations"
         OR "saltwater intrusion"
-        OR "natural disaster*" # alternatives ("natural disaster", "natural disasters")
-        OR "climate disaster*" # alternatives ("climate disaster", "climate disasters")
-        OR "climate related disaster*" # alternatives ("climate related disaster", "climate relatd disasters")
-        OR "climate hazard*"  # alternatives ("climate hazard", "climate hazards")
-        OR "climate related hazard*" # alternatives ("climate related hazard", "climate related hazards")
-        OR "weather related disaster*" # alternatives ("weather related disaster", "weather related disasters")
-        OR "climate related disaster*" # alternatives ("climate related disaster", "climate related disasters")
-        OR "weather driven disaster*"  # alternatives ("weather driven disaster", "weather driven disasters")
-        OR "climate driven disaster*" # alternatives ("climate driven disaster", "climate driven disasters")
+        OR "natural disaster"
+		OR "natural disasters"
+        OR "weather related disaster"
+		OR "weather related disasters"
+        OR "weather driven disaster"
+		OR "weather driven disasters"
+		OR "hydrometeorological disaster" 
+		OR "hydrometeorological disasters" 
     )""",
     # Fossil fuels
     'Fossil fuels': """(
