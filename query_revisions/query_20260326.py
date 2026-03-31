@@ -108,6 +108,17 @@ CLIMATE = {
 			 OR slcp
              OR slcfs
 			 OR slcps
+			 OR "air pollution"
+			 OR "air pollutants"
+			 OR "fine particles"
+			 OR "ultrafine particles"
+			 OR "airborne particles"
+			 OR "suspended particles"
+			 OR "fine dust"
+			 OR "airborn dust"
+			 OR "PM emissions"
+			 OR smoke 
+			 OR haze			 
         )
         AND NOT (
              star
@@ -252,12 +263,31 @@ CLIMATE = {
     )""",
     # Fossil fuels
     'Fossil fuels': """(
-          "fossil fuel*" # alternatives ("fossil fuel", "fossil fuels","fossil fueling")
+          "fossil fuel" 
+		OR "fossil fuels"
         OR coal
         OR oil
-        OR petrol*
+        OR petrol
+		OR petroleum
         OR "natural gas"
         OR LNG
+		OR CNG
+		OR "carbon fuel"
+		OR "carbon fuels"
+		OR "solid fuel"
+		OR "solid fuels"
+		OR lignite 
+		OR diesel
+		OR kerosene
+		OR gasoline
+		OR "fracking gas"
+		OR "fossil energy"
+		OR "carbon based fuels"
+		OR "mineral fuels"
+		OR "jet fuel"
+		OR "jet fuels"
+		OR "shipping fuel"
+		OR "shipping fuels"
     )""",
     # Activities that produce climate forcers
     'Climate forcers production': """(
@@ -271,98 +301,160 @@ CLIMATE = {
        OR "concrete production"
        OR heating
        OR cooling
-       OR "air condition*"
-       OR refrigerat*
+	   OR refrigerating
+       OR "air condition"
+	   OR "air conditioning"
+       OR refrigeration
+	   OR refrigerator
+	   OR refrigerators
        OR cooking
-       OR transport*
-       OR gasoline
-       OR diesel
-       OR "jet fuel*" # alternatives ("jet fuel", "jet fuels","jet fueling")
-       OR "shipping fuel*" # alternatives  ("shipping fuel", "shippingfuels","shipping fueling")
-       OR industr*
-       OR agricultur*
+       OR transport
+	   OR transportation
+	   OR transporting
+	   OR transported
+	   OR industry
+	   OR industries 
+	   OR industrial 
+	   OR industrialization
+	   OR industrialized 
+       OR agriculture
+	   OR agricultural
        OR waste
-       OR building*
-       OR fertilizer*
-       OR "meat consum*" # alternatives  ("meat consumption", "meat consumer","meat consumers", "meat consumptions", "meat consumed")
-       OR "consume meat"
+       OR buildings
+	   OR building
+       OR fertilizer
+	   OR fertilizers
+       OR "meat consumption"
+	   OR "meat consumer"
+	   OR "meat consumers"
+	   OR "meat production"
+	   OR "consume meat"
        OR beef
        OR "red meat"
-       OR "agricultural livestock production"
-       OR "livestock diet modification*" # alternatives  ("livestock diet modification", "livestock diet modifications")
-       OR "methane leak detection"
+       OR "livestock production"
+       OR "livestock diet" 
+       OR "leak detection"
        OR "biomass burning"
-       OR deforest*
+       OR deforestation
        OR aviation
        OR "marine shipping"
        OR "open burning"
        OR "gas flaring"
        OR "road construction"
        OR "asphalt production"
-       OR "construction material*" # alternatives ( "construction material", "construction materials")
+       OR "construction material"
+	   OR "construction materials"
        OR cement
     )""",
     # Activities that reduce climate forcers
     'Mitigation': """(
            "energy transition"
-        OR renewable*
+        OR renewable
+		Or renewables
         OR "clean energy"
-        OR "emission control*"
-        OR "particle filter*"
+        OR "emission control"
+		OR "emission controls"
+        OR "particle filter"
+		OR "particle filters"
         OR reforestation
         OR afforestation
         OR "livestock management"
         OR "livestock manure management"
         OR "reduction of meat"
+		OR "meat reduction" 
+		OR "meat reductions" 
         OR "plant based"
         OR "sustainable diet"
-        OR "plant rich diet*"
+		OR "sustainable diets"
+        OR "plant rich diet"
         OR "planetary health diet"
         OR "food waste"
         OR "circular economy"
-        OR "energy efficien*"
-        OR recycl*
+        OR "energy efficieny"
+	    OR "energy efficient"
+        OR recycling
+		OR recycled
         OR reuse
         OR reusing
+		OR reused
+		OR upcycling
         OR "improved wastewater treatment"
-        OR "improved agricultural practic*"
+        OR "improved agricultural practice"
+		OR "improved agricultural practices"
         OR "precision farming"
         OR insulation
-        OR "heat pump*"
-        OR "solar panel*"
+		OR insulate
+        OR "heat pump"
+		OR "heat pumps"
+        OR "solar panel"
+		OR "solar panels"
         OR "solar energy"
-        OR "solar system*"
-        OR "alternative fuel*"
+        OR "solar system"
+		OR "solar systems"
+        OR "alternative fuel"
+		OR "alternative fuels"
         OR "carbon pricing"
         OR "carbon capture"
         OR "carbon storage"
         OR "carbon dioxide removal"
-        OR "grid moderni*"
-        OR "active travel*"
+        OR "grid modernization"
+		OR "grid modernizations"
+        OR "active travel"
+		OR "active travelling"
+		OR "active transport"
+		OR "active transportation"
         OR "active mobility"
         OR cycling
         OR bike
         OR bikes
-        OR bicycle*
-        OR "electric vehicle*"
-        OR "electric car*"
+        OR bicycle
+		OR bicycles
+        OR "electric vehicle"
+		OR "electric vehicles"
+        OR "electric car"
+		OR "electric cars"
         OR "electric mobility"
-        OR "mobility shift*"
-        OR "carbon neutral*"
+        OR "mobility shift"
+	    OR "mobility shifts"
+        OR "carbon neutral"
         OR "low carbon"
-        OR decarb*
-        OR "green infrastructure*"
+        OR decarbonization
+		OR decarbonisation
+		OR decarbonized
+		OR decarbonised
+		OR decarbonizing
+		OR decarbonising
+		OR decarbonize
+		OR decarbonise
+		OR decarbonising		
+        OR "green infrastructure"
+		OR "green infrastructures"
         OR "green urban"
-        OR "urban green*"
+        OR "urban green"
         OR "green space"
+		OR "green spaces"
         OR greenspace
+		OR greenspaces
         OR "nature based"
-        OR sustainab*
-        OR "emission reduc*"
-        OR "reduce emission*"
-        OR "reduction of emission*"
-        OR "carbon reduc*"
-        OR "reduce carbon"
+        OR sustainable
+		OR sustainability
+		OR sustainably
+        OR "emission reduction"
+		OR "emission reductions"
+		OR "emissions reduction"
+		OR "emissions reductions"
+		OR "GHG reduction"
+		OR "GHG reductions"
+        OR "reduce emission"
+		OR "reduce emissions"
+		OR "reduced emission"
+		OR "reduced emissions"
+        OR "reduction of emission"
+	    OR "reduction of emissions"
+        OR "carbon reduction"
+		OR "carbon reductions"
+		OR "reduce carbon"
+        OR "reduced carbon"
         OR "reduction of carbon"
         OR "carbon footprint"
     )""",
