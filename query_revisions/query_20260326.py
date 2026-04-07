@@ -756,54 +756,76 @@ HEALTH = {
 		OR oropouche 
     )""",
     # Bacterial, parasitic and viral infections, including waterborne and foodborne diseases
-    # Note: also added cryptosporidiosis, leptospirosis, typhoid, melioidosis, "hepatitis E", dysentery
-    'Bacterial, parasitic and viral infections': """(
+      'Bacterial, parasitic and viral infections': """(
            "water related"
         OR waterborne
         OR "water borne"
-        OR diarrhea
+	    OR diarrhea
 		OR diarrheas
 		OR diarrheal
 		OR diarrhoea 
 		OR diarrhoeas 
 		OR diarrhoeal 
-       
-		OR gastro*
+		OR "gastrointestinal illness"
+		OR "gastrointestinal illnesses"
+		OR "gastrointestinal disease" 
+		OR "gastrointestinal diseases" 
         OR enteric
-        OR bacteria*
+        OR bacteria
+		OR bacterial
         OR viral
-        OR virus*
-        OR arbovirus*
+        OR virus
+		OR viruses
+        OR arbovirus
+		OR arboviruses
         OR norovirus
         OR rotavirus
         OR "barmah forest"
         OR lassa
-        OR parasit*
-        OR vibrio*
-        OR cholera*
+        OR parasite
+		OR parsites
+		OR parasitic
+        OR vibrio
+		OR vibriosis
+        OR cholera
+		OR cholerae
         OR "e.coli"
         OR "Escherichia coli"
-        OR protozoa*
-        OR salmonel*
-        OR giardia*
-        OR shigell*
-        OR campylobacter*
-        OR cryptosporid*
-        OR legionell*
+        OR protozoa
+		OR protozoae 
+		OR protozoan 
+		OR protozoon 
+		OR protozoans
+        OR salmonella
+		OR salmonellosis
+        OR giardia
+		OR giardiasis
+        OR shigella
+		OR campylobacter
+		OR campylobacteriosis
+        OR cryptosporidium
+		OR cryptosporidia
+		OR cryptosporidiosis
+        OR legionella
+		OR legionellosis
         OR "food related"
         OR "food borne"
         OR foodborne
         OR aflatoxin
-        OR poison*
+        OR poisoning
         OR ciguatera
-        OR "algal bloom*"
-        OR cryptosporidiosis
-        OR leptospir*
+        OR "algal bloom"
+		OR "algal blooms"
         OR typhoid
         OR melioidosis
         OR "hepatitis A"
         OR "hepatitis E"
         OR dysentery
+		OR enterohemorrhagic 
+		OR enterohaemorrhagic
+		OR mycotoxin 
+		OR mycotoxins
+		OR "food safety"
     )""",
     # Air quality and allergens (many words already covered in exposure part)
     'Air quality and allergens': """(
@@ -836,52 +858,104 @@ HEALTH = {
 		OR bronchia
         OR bronchial
 		OR pulmonary
-        OR copd
         OR rhinitis
-        OR wheez*
         OR "bacterial meningitis"
     )""",
     # Mental health outcomes
     'Mental health outcomes': """(
            mental
-        OR depress*
-        OR stress*
-        OR anxiet*
-        OR ecoanxiet*
+        OR depression
+		OR depressed
+        OR stress
+        OR anxiety
+        OR ecoanxiety
         OR ptsd
-        OR psycho*
-        OR trauma*
-        OR suicid*
-        OR solastalgi*
-        OR psychiatr*
+        OR psychological
+		OR psychosocial 
+		OR psychosis 
+		OR psychoses 
+		OR psychopathology 
+		OR psychopathologies 
+		OR psychotherapy 
+		OR psychotherapeutic 
+		OR psychotherapeutical 
+		OR psychotherapist 
+		OR psychotherapists
+        OR trauma
+		OR traumata
+		OR traumatic
+		OR posttraumatic
+		OR traumatized
+		OR traumatised
+        OR suicide
+		OR suicides 
+		OR suicidal 
+        OR solastalgia
+		OR psychiatry
+        OR psychiatric
+		OR psychiatrist
+		OR psychiatrists
     )""",
     # Water quality and quantity
     'Water quality and quantity': """(
            "water security"
-        OR "water suppl*"
+        OR "water supply"
+		OR "water supplies"
         OR "water resources"
         OR "water insecurity"
         OR "water quantity"
         OR "water scarcity"
         OR "water quality"
         OR "contaminated water"
-        OR "water contamination*"
+        OR "water contamination"
     )""",
     # Social factors and vulnerability
     'Social factors and vulnerability': """(
-           migra*
-        OR displace*
-        OR conflict*
-        OR violen*
-        OR homeless*
+           migration
+		OR migrant
+		OR migrants
+		OR migrate
+		OR migrated
+		OR immigrant
+		OR immigrants
+        OR displaced
+		OR displacement
+        OR conflict
+		OR conflicts
+        OR violence
+		OR violent
+        OR homeless
+		OR homelessness
         OR poverty
         OR poor
         OR disadvantaged
-        OR vulnerab*
-        OR elder*
-        OR frail*
-        OR disab*
-        OR "informal settlement*"
+        OR vulnerability
+		OR vulnerable
+        OR elderly
+		OR geriatric
+		OR "old people"
+		OR "older adults"
+		OR "aging population"
+        OR frail
+		OR frailty
+        OR disability
+		OR disabilities
+		OR disabled
+        OR "informal settlement"
+		OR "informal settlements"
+		OR slum 
+		OR slums
+		OR disadvantaged
+		OR indigenous
+		OR "ethnic minority"
+		OR "ethnic minorities"
+		OR "low income"
+		OR infant
+		OR infants
+		OR child
+		OR children
+		OR newborn
+		OR newborns
     )""",
     # Adaptation or mitigation
     'Adaptation or mitigation': """(
@@ -898,19 +972,25 @@ HEALTH = {
 ADAPTATION = {
     # Adaptation
     'Adaptation': """(
-           "climate resilien*"
+           "climate resilience"
+		OR "climate resilient"
         OR "health care resilience"
-        OR "resilient health*"
+        OR "resilient health"
+		OR "resilient healthcare"
         OR "healthcare resilience"
         OR "health system resilience"
         OR "health care system resilience"
         OR "healthcare system resilience"
-        OR "eco friendly health*"
-        OR "green health*"
-        OR "circular health*"
-        OR "low impact health*"
-        OR "disaster risk reduction"
-        OR "disaster manag*"
+        OR "eco friendly health"
+		OR "eco friendly healthcare"
+        OR "green health"
+	    OR "green healthcare"
+        OR "circular health"
+		OR "circular healthcare"
+        OR "low impact health"
+        OR "low impact healthcare"
+		OR "disaster risk reduction"
+        OR "disaster management"
         OR "disaster prepare*"
         OR "disaster prevent*"
         OR "disaster risk prevent*"
