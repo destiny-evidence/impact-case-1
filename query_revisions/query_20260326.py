@@ -114,8 +114,7 @@ CLIMATE = {
 			 OR "ultrafine particles"
 			 OR "airborne particles"
 			 OR "suspended particles"
-			 OR "fine dust"
-			 OR "airborn dust"
+			 OR dust
 			 OR "PM emissions"
 			 OR smoke 
 			 OR haze			 
@@ -346,7 +345,7 @@ CLIMATE = {
 	   OR "construction materials"
        OR cement
     )""",
-    # Activities that reduce climate forcers
+    # Activities that reduce climate forcers, note: "GHG" already included above
     'Mitigation': """(
            "energy transition"
         OR renewable
@@ -367,6 +366,7 @@ CLIMATE = {
         OR "sustainable diet"
 		OR "sustainable diets"
         OR "plant rich diet"
+		OR "plant rich diets"
         OR "planetary health diet"
         OR "food waste"
         OR "circular economy"
@@ -378,6 +378,7 @@ CLIMATE = {
         OR reusing
 		OR reused
 		OR upcycling
+		OR upcycled
         OR "improved wastewater treatment"
         OR "improved agricultural practice"
 		OR "improved agricultural practices"
@@ -399,6 +400,8 @@ CLIMATE = {
         OR "carbon dioxide removal"
         OR "grid modernization"
 		OR "grid modernizations"
+		OR "grid modernisation"
+		OR "grid modernisations"
         OR "active travel"
 		OR "active travelling"
 		OR "active transport"
@@ -431,6 +434,7 @@ CLIMATE = {
 		OR "green infrastructures"
         OR "green urban"
         OR "urban green"
+		OR "urban greening"
         OR "green space"
 		OR "green spaces"
         OR greenspace
@@ -443,8 +447,6 @@ CLIMATE = {
 		OR "emission reductions"
 		OR "emissions reduction"
 		OR "emissions reductions"
-		OR "GHG reduction"
-		OR "GHG reductions"
         OR "reduce emission"
 		OR "reduce emissions"
 		OR "reduced emission"
@@ -457,176 +459,278 @@ CLIMATE = {
         OR "reduced carbon"
         OR "reduction of carbon"
         OR "carbon footprint"
+		OR "carbon footprints"
     )""",
 }
 HEALTH = {
     # General health terms
     'General health terms': """(
-           health*
+           health
         OR "well being"
         OR wellbeing
-        OR medical*
+        OR medical
+		OR medically
         OR medicine
-        OR clinic*
-        OR hospital*
-        OR fatalities
-        OR emergenc*
+		OR medicinal
+        OR clinic
+		OR clinics
+        OR hospital
+		OR hospitals
+        OR emergency
+		OR emergencies
         OR ICU
+		OR ICUs
         OR "intensive care"
-        OR "stroke unit*"
+        OR "stroke unit"
+		OR "stroke units"
+		OR "stroke center"
+		OR "stroke centers"
+		OR "burn unit"
+		OR "burn units"
+		OR "burn center"
+		OR "burn centers"
         OR doctor
         OR doctors
-        OR clinician*
-        OR surgeon*
-        OR surger*
-        OR "general practi*"
-        OR nurs*
-        OR "primary care*"
-        OR "secondary care*"
-        OR "tertiary care*"
+        OR clinician
+		OR clinicians
+		OR physician 
+		OR physicians
+        OR surgeon
+		OR surgeons
+        OR surgery
+		OR surgeries
+        OR "general practitioner"
+		OR "general practitioners"
+		OR "general practice"
+		OR "general practices"
+        OR nurse
+		OR nurses
+		OR nursing
+		OR midwife
+		OR midwives
+        OR "primary care"
+        OR "secondary care"
+        OR "tertiary care"
+		OR healthcare
     )""",
     # General health outcomes
     #
-    # Note: Unclear what "{a&e}" stands for; also added "intensive care", ICU" fatalities
+    # Note: 
     'General health outcomes': """(
            mortality
+        OR fatalities
         OR daly
         OR dalys
-        OR disease*
-        OR morbid*
-        OR injur*
-        OR death*
-        OR acciden*
-        OR epidemic*
-        OR pandemic*
-        OR wound*
-        OR burn*
+        OR disease
+		OR disease
+		OR diseased
+        OR morbidity
+		OR morbidities
+		OR comorbidity
+		OR comorbidities
+        OR injury
+		OR injuries
+		OR injured
+        OR death
+		OR deaths
+        OR accident
+		OR accidents
+        OR epidemic
+		OR epidemica
+        OR pandemic
+		OR pandemics
+        OR wound
+		OR wounds
+		OR wounded
+        OR burn
+		OR burns
+		OR burned
+		OR burnt
         OR "quality of life"
         OR qol
         OR hrqol
         OR ill
         OR illness
-        OR syndrome*
-        OR infect*
+		OR illnesses
+        OR syndrome
+		OR syndromes
+		OR symptom
+		OR symptoms
+        OR infection
+		OR infections
+		OR infectious
+		OR infected
     )""",
     # Nutrition/food quality and quantity, including obesity and undernutrition
     # Note: this can be both outcome and exposure
     'Nutrition/food quality': """(
-           obes*
+           obese
+		OR obesity
         OR overweight
         OR "over weight"
         OR underweight
         OR "under weight"
         OR hunger
-        OR stunt*
+        OR stunting
+		OR stunted
         OR wasting
-        OR undernourish*
+        OR undernourished
+		OR undernourishing
+		OR undernourished
         OR undernutrition
-        OR anthropometr*
+        OR anthropometric
         OR malnutrition
-        OR malnour*
+        OR malnourished
+		OR malnourishment
         OR anemia
         OR anaemia
-        OR "micronutrient*"
-        OR "micro nutrient*"
-        OR diabet*
-        OR T2D*
-        OR T1D*
+        OR micronutrient
+		OR micronutrients
+        OR "micro nutrient"
+		OR "micro nutrients"
+        OR diabetes
+		OR diabetic
+		OR T2D
+		OR T2DM
+        OR T1D
+		OR T1DM
         OR "food insecurity"
         OR "food security"
         OR "food production"
         OR "food scarcity"
         OR "food supply"
-        OR "food system*"
-        OR "food quality"
+	    OR "food supplies"
+        OR "food system"
+        OR "food systems"
+	    OR "food quality"
         OR "food quantity"
         OR "food industry"
+		OR "food industries"
     )""",
-    # Cardio-vascular terms. Some studies on Chemical Vapour Deposition (CVD) are excluded.
+    # Cardio-vascular terms
     'Cardio-vascular': """(
-           hypertens*
+           hypertension
+		OR hypertensive
         OR "blood pressure"
         OR stroke
+		OR strokes
         OR vascular
         OR macrovascular
         OR microvascular
         OR "heart disease"
+		OR "heart diseases"
         OR ischemic
         OR ischaemic
         OR cardiovascular
         OR "cardio vascular"
-        OR "heart attack*"
+        OR "heart attack"
+		OR "heart attacks"
         OR "coronary heart"
-        OR infarct*
+        OR infarct
+		OR infarction
+		OR infarctions
     )""",
-    # Renal health terms and cancer  Note: added "calculi/calculus"
+    # Renal health terms and cancer  
     'Renal health': """(
            renal
         OR kidney
+		OR kidneys
         OR calculus
         OR calculi
-        OR lithogenes*
+        OR lithogenesis
         OR cancer
-        OR neoplasm*
-        OR tumor*
+        OR neoplasm
+        OR neoplasms
+		OR tumor
+		OR tumors
         OR tumour
+		OR tumours
+		OR carcinoma
+		OR carcinomas
     )""",
     # Effects of temperature extremes
     #
     # Note: added "thermal stability" (for heat effects on drugs)
     'Effects of temperature extremes': """(
            "heat stress"
-        OR "heat illness*"
-        OR "heat fatigue*"
-        OR "heat burden*"
-        OR "heat stroke*"
+        OR "heat illness"
+		OR "heat illnesses"
+        OR "heat fatigue"
+        OR "heat burden"
+        OR "heat stroke"
+		OR "heat strokes"
         OR "heat exhaustion"
-        OR "heat cramp*"
+        OR "heat cramp"
+		OR "heat cramps"
         OR "heat syncope"
+		OR "heat syncopes"
+		OR "heat related"
         OR skin
         OR dermal
-        OR rash*
-        OR eczema*
-        OR "thermal stress*"
-        OR hypertherm*
-        OR hypotherm*
+        OR rash
+		OR rashes
+        OR eczema
+		OR eczemas
+        OR "thermal stress"
+        OR hyperthermia
+		OR hyperthermal
+        OR hypothermia
+		OR hypothermal
         OR "thermal stability"
+		OR "drug stability"
     )""",
     # Maternal health outcomes
     'Maternal health outcomes': """(
            preterm
         OR "pre term"
-        OR prematur*
-        OR stillbirth*
+        OR premature
+		OR prematurity
+        OR stillbirth
+		OR stillbirths
         OR birthweight
         OR "birth weight"
         OR maternal
-        OR pregnan*
-        OR gestation*
+        OR pregnant
+		OR pregnancy
+		OR pregnancies
+        OR gestation
+		OR gestational
         OR eclampsia
         OR preeclampsia
         OR sepsis
+		OR septic
         OR oligohydramnios
-        OR placenta*
-        OR haemorrhag*
-        OR hemorrhag*
+        OR placenta
+		OR placental
+        OR haemorrhage
+		OR haemorrhages
+		OR haemorrhaged
+		OR haemorrhagic 
+        OR hemorrhage
+		OR hemorrhages
+		OR hemorrhaged
+		OR hemorrhagic 
     )""",
     # Vector-borne diseases
     # Note: added "rift valley" OR "ross river" (both diseases)
     'Vector-borne diseases': """(
            malaria
-        OR dengue*
-        OR mosquito*
-        OR anopheles
+        OR dengue
+        OR mosquito
+        OR mosquitos 
+		OR anopheles
         OR aedes
         OR culex
         OR chikungunya
         OR leishmaniasis
-        OR encephalit*
+        OR encephalitis
         OR "vector borne"
         OR vectorborne
-        OR pathogen*
-        OR zoonos*
+        OR pathogen
+		OR pathogens
+		OR pathogenic
+        OR zoonosis
+		OR zoonoses
         OR zika
         OR "west nile"
         OR "crimean congo"
@@ -648,6 +752,8 @@ HEALTH = {
         OR "rabbit fever"
         OR "Q fever"
         OR "yellow fever"
+		OR hantavirus 
+		OR oropouche 
     )""",
     # Bacterial, parasitic and viral infections, including waterborne and foodborne diseases
     # Note: also added cryptosporidiosis, leptospirosis, typhoid, melioidosis, "hepatitis E", dysentery
@@ -655,8 +761,14 @@ HEALTH = {
            "water related"
         OR waterborne
         OR "water borne"
-        OR diarrh*
-        OR gastro*
+        OR diarrhea
+		OR diarrheas
+		OR diarrheal
+		OR diarrhoea 
+		OR diarrhoeas 
+		OR diarrhoeal 
+       
+		OR gastro*
         OR enteric
         OR bacteria*
         OR viral
@@ -693,29 +805,37 @@ HEALTH = {
         OR "hepatitis E"
         OR dysentery
     )""",
-    # Air quality and allergens
+    # Air quality and allergens (many words already covered in exposure part)
     'Air quality and allergens': """(
-           air pollution"
         OR "air quality"
-        OR smoke
-        OR dust
-        OR haze
         OR ambrosia
         OR ragweed
-        OR mold*
+        OR mold
+		OR moldy
         OR pollen
         OR spores
-        OR pm10
-        OR pm2*
+		
     )""",
     # Respiratory outcomes
     'Respiratory outcomes': """(
            espiratory
-        OR allerg*
-        OR lung*
-        OR asthma*
-        OR bronchi*
-        OR pulmonary
+        OR allergy
+		OR allergies
+		OR allergic
+		OR allergical
+		OR allergen		
+		OR allergens
+        OR lung
+		OR lungs
+        OR asthma
+		OR asthmatic   
+		OR asthmatics 
+		OR COPD
+		OR "chronic obstructive pulmonary disease"
+        OR bronchitis
+		OR bronchia
+        OR bronchial
+		OR pulmonary
         OR copd
         OR rhinitis
         OR wheez*
