@@ -239,7 +239,7 @@ CLIMATE = {
 		OR rivers
         OR (
             ("extreme event" OR "extreme events") 
-            AND NOT paleo*
+            AND NOT paleocene OR paleoclimate OR paleontology
         )
         OR "extreme weather"
 		OR "weather extreme"
@@ -965,6 +965,16 @@ HEALTH = {
         OR mitigate
         OR mitigated
         OR mitigation
+		OR resilience 
+		OR resilience 
+		OR "warning system" 
+		OR "warning systems"
+		OR "vector surveillance"
+		OR "vector monitoring" 
+		OR "vector population surveillance" 
+		OR "entomological surveillance"
+		OR "vulnerability reduction"
+		OR "redcution of vulnerability"
     )""",
 }
 
@@ -993,7 +1003,7 @@ ADAPTATION = {
         OR "disaster management"
         OR "disaster preparedness"
         OR "disaster prevention"
-        OR "disaster risk prevent*"
+        OR "disaster risk prevention"
         OR "heat prevention"
         OR "heat protection"
 		OR "heat health"
@@ -1005,21 +1015,41 @@ ADAPTATION = {
         OR "heat action"
         OR "heat stress management"
         OR "heat warning"
+		OR "heat warnings"
         OR "heat risk reduction"
         OR "heat preparedness"
         OR "cooling area"
 		OR "cooling areas"
         OR "cooling access"
-        OR "cooling shelter*"
-        OR "cooling center*"
-        OR "cooling centre*"
+        OR "cooling shelter"
+		OR "cooling shelters"
+        OR "cooling center"
+		OR "cooling centers"
+        OR "cooling centre"
+		OR "cooling centres"
         OR "passive cooling"
         OR "urban cooling"
         OR "climate smart"
-        OR "nature based solution*"
-        OR "climate risk*"
-        OR "wildfire risk reduction*"
-        OR "bushfire risk reduction*"
+        OR "nature based solution"
+		OR "nature based solutions"
+        OR "climate risk"
+		OR "climate risks"
+        OR "wildfire risk"
+        OR "bushfire risk"
+		OR "climate related hazard" 
+		OR "climate related hazards" 
+		OR "climate change related hazard" 
+		OR "climate change related hazards" 
+		OR "weather related disaster" 
+		OR "weather related disasters" 
+		OR "climate related disaster" 
+		OR "climate related disasters" 
+		OR "climate change related disaster" 
+		OR "climate change related disasters" 
+		OR "weather driven disaster" 
+		OR "weather driven disasters" 
+		OR "climate driven disaster" 
+		OR "climate driven disasters"
     )""",
 }
 
