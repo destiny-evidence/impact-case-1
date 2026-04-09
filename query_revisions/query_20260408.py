@@ -1,79 +1,79 @@
 CLIMATE = {
     # General climate change terms
-    'General climate change': """(
+    'General climate change': """
            climate
-	OR climatic
-	OR climatically
-	OR climatology  
-	OR climatogenic
-    OR "global warming"
-	OR "global heating"
-    OR "greenhouse effect" 
-	OR "greenhouse effects"      
-    )""",
+        OR climatic
+        OR climatically
+        OR climatology
+        OR climatogenic
+        OR "global warming"
+        OR "global heating"
+        OR "greenhouse effect"
+        OR "greenhouse effects"
+    """,
     # Greenhouse gasses, including short-lived greenhouse gasses. Some astronomy results are filtered out.
     # Including direct and indirect climate forcers.
-    'Greenhouse gasses': """(
+    'Greenhouse gasses': """
         (
                 "greenhouse gas"
-	         OR "greenhouse gases"	
-			 OR GHG
+             OR "greenhouse gases"
+             OR GHG
              OR "carbon dioxide"
              OR co2
-			 OR co2e
+             OR co2e
              OR methane
              OR ch4
              OR "nitrous oxide"
-             OR n2o 
-	     	 OR no2
+             OR n2o
+             OR no2
              OR "nitric oxide"
              OR "nitrogen dioxide"
              OR nox
-      		 OR perfluorocarbons
-			 OR PFCs
-			 OR "sulfur hexafluoride" 
-			 OR SF6
-			 OR "nitrogen trifluoride"
-			 OR NF3
-			 OR "fluorinated ethers"
-			 OR HFEs
-			 OR chlorofluorocarbon
-	         OR chlorofluorocarbons	
+             OR perfluorocarbons
+             OR PFCs
+             OR "sulfur hexafluoride"
+             OR SF6
+             OR "nitrogen trifluoride"
+             OR NF3
+             OR "fluorinated ethers"
+             OR HFEs
+             OR chlorofluorocarbon
+             OR chlorofluorocarbons
              OR cfc
-			 OR cfcs
+             OR cfcs
              OR refrigerant
-			 OR refrigerants
+             OR refrigerants
              OR hydrofluorocarbon
-	         OR hydrofluorocarbons
+             OR hydrofluorocarbons
              OR hfc
-			 OR hfcs
+             OR hfcs
              OR chlorocarbon
-       	     OR chlorocarbons
+             OR chlorocarbons
              OR "carbon tetrachloride"
              OR ccl4
-			 OR "methyl chloroform" 
-			 OR "methyl bromide" 
-			 OR bromochlormethane  
-			 OR halons
+             OR "methyl chloroform"
+             OR "methyl bromide"
+             OR bromochlormethane
+             OR halons
              OR halogen
-	         OR halogens
-			 OR halogenated
+             OR halogens
+             OR halogenated
              OR ozone
              OR o3
              OR ammonia
              OR nh3
              OR "carbon monoxide"
              OR "volatile organic compound"
-			 OR "volatile organic compounds"
-			 OR VOCs
+             OR "volatile organic compounds"
+             OR VOCs
              OR nmvoc
              OR "hydroxyl radical"
              OR "oh"
              OR aerosol
-	         OR aerosols
+             OR aerosols
              OR "black carbon"
-             OR soot 
-	         OR "organic carbon"
+             OR soot
+             OR "organic carbon"
              OR "sulfur dioxide"
              OR "sulphur dioxide"
              OR "oxidized sulfur"
@@ -83,92 +83,92 @@ CLIMATE = {
              OR "sulphuric acid"
              OR "sulfuric acid"
              OR so4
-	         OR sulfate
-	         OR sulfates
+             OR sulfate
+             OR sulfates
              OR "fluorinated gas"
-	         OR "fluorinated gases" 
-			 OR "radiative forcing gas"
-			 OR "radiative forcing gases"
-			 OR "f gases"
+             OR "fluorinated gases"
+             OR "radiative forcing gas"
+             OR "radiative forcing gases"
+             OR "f gases"
              OR "particulate matter"
              OR pm01
-			 OR "pm 01"
-			 OR "pm0.1"
+             OR "pm 01"
+             OR "pm0.1"
              OR "pm 0.1"
-			 OR pm10
+             OR pm10
              OR "pm 10"
-	         OR pm2	
-	         OR "pm 2"	
+             OR pm2
+             OR "pm 2"
              OR "pm2.5"
              OR "pm 2.5"
-  	         OR "pm25"
+             OR "pm25"
              OR "pm 25"
              OR "carbon emissions"
              OR slcf
-			 OR slcp
+             OR slcp
              OR slcfs
-			 OR slcps
-			 OR "air pollution"
-			 OR "air pollutants"
-			 OR "fine particles"
-			 OR "ultrafine particles"
-			 OR "airborne particles"
-			 OR "suspended particles"
-			 OR dust
-			 OR "PM emissions"
-			 OR smoke 
-			 OR haze			 
+             OR slcps
+             OR "air pollution"
+             OR "air pollutants"
+             OR "fine particles"
+             OR "ultrafine particles"
+             OR "airborne particles"
+             OR "suspended particles"
+             OR dust
+             OR "PM emissions"
+             OR smoke
+             OR haze
         )
         AND NOT (
-             star
+                star
              OR "solar system"
         )
-    )""",
+    """,
     # Climate variability indicators/climate indices
-    'Climate variability': """(
+    'Climate variability': """
            temperature
-		OR  temperatures
+        OR temperatures
         OR precipitation
-		OR precipitations
+        OR precipitations
         OR rainfall
-		OR rainfalls
-        OR rain 
-		OR rains
-		OR raining 
-		OR rainstorm 
-		OR rainstorms
+        OR rainfalls
+        OR rain
+        OR rains
+        OR raining
+        OR rainstorm
+        OR rainstorms
         OR "heat index"
-		OR "heat indexes"  
-		OR "heat indices" 
-		OR "heat indicator"
-		OR "heat indicators"
-		OR "heat induced"
+        OR "heat indexes"
+        OR "heat indices"
+        OR "heat indicator"
+        OR "heat indicators"
+        OR "heat induced"
         OR "extreme heat"
         OR "heat wave"
-		OR "heat waves"
+        OR "heat waves"
         OR heatwave
-		OR heatwaves
-		OR "heat related"
+        OR heatwaves
+        OR "heat related"
         OR "urban heat"
         OR "extreme cold"
-		OR "extreme colds"
-		OR "extreme coldness"
+        OR "extreme colds"
+        OR "extreme coldness"
         OR "cold index"
-		OR "cold indexes"
-		OR "cold indices"
-		OR "cold indicator"
-		OR "cold indicators"
+        OR "cold indexes"
+        OR "cold indices"
+        OR "cold indicator"
+        OR "cold indicators"
         OR "cold induced"
-        OR "cold wave" 
-		OR "cold waves"
-        OR "cold spell" 
-		OR "cold spells"
+        OR "cold wave"
+        OR "cold waves"
+        OR "cold spell"
+        OR "cold spells"
         OR humidity
         OR drought
-		OR droughts
-     	OR hydroclimate 
-		OR hydroclimatic 
-		OR hydroclimatically
+        OR droughts
+        OR hydroclimate
+        OR hydroclimatic
+        OR hydroclimatically
         OR monsoon
         OR "el nino"
         OR "el niño"
@@ -176,120 +176,126 @@ CLIMATE = {
         OR "southern oscillation"
         OR "la nina"
         OR "la niña"
-		OR  "north atlantic oscillation"
-		OR "meteorological condition"  
-		OR "meteorological conditions"
+        OR "north atlantic oscillation"
+        OR "meteorological condition"
+        OR "meteorological conditions"
         OR "meteorological data"
-        OR "meteorological factor" 
-		OR "meteorological factors"
-        OR "meteorological indicator" 
-		OR "meteorological indicators"
+        OR "meteorological factor"
+        OR "meteorological factors"
+        OR "meteorological indicator"
+        OR "meteorological indicators"
         OR "meteorological variable"
-		OR "meteorological variables"
-        OR "weather condition" 
-		OR "weather conditions"
-        OR "weather factor
-		OR "weather factors"
-        OR "weather indicator" 
-		OR "weather indicators"
+        OR "meteorological variables"
+        OR "weather condition"
+        OR "weather conditions"
+        OR "weather factor"
+        OR "weather factors"
+        OR "weather indicator"
+        OR "weather indicators"
         OR "weather variable"
-		OR "weather variables"
+        OR "weather variables"
         OR "weather related"
         OR "weather induced"
-		OR cloudiness
-		OR "cloud cover"
-		)
-    )""",
+        OR cloudiness
+        OR "cloud cover"
+    """,
     # Complex climate indices, including extreme weather events, floods, wildfire, and coastal changes. Some paleo-climatic events are excluded.
     #
-    'Complex climate indices': """(
+    'Complex climate indices': """
            snowmelt
-		OR snowmelts   
+        OR snowmelts
         OR landslide
-		OR landslides
+        OR landslides
         OR mudslide
-		OR mudslides
+        OR mudslides
         OR flood
-		OR floods
-		OR flooding
-		OR floodings
+        OR floods
+        OR flooding
+        OR floodings
         OR storm
-		OR storms
+        OR storms
         OR cyclone
-		OR cyclones
+        OR cyclones
         OR hurricane
-		OR hurricanes
+        OR hurricanes
         OR typhoon
-		OR typhoons
+        OR typhoons
         OR "sea level"
-		OR "sea levels"
+        OR "sea levels"
         OR sealevel
-		OR sealevels
+        OR sealevels
         OR wildfire
-		OR wildfires
+        OR wildfires
         OR "wild fire"
-		OR "wild fires"
+        OR "wild fires"
         OR bushfire
-		OR bushfires
+        OR bushfires
         OR "bush fire"
-		OR "bush fires"
-		OR "forest fire"
-		OR "forest fires"
+        OR "bush fires"
+        OR "forest fire"
+        OR "forest fires"
         OR river
-		OR rivers
+        OR rivers
         OR (
-            ("extreme event" OR "extreme events") 
-            AND NOT paleocene OR paleoclimate OR paleontology
+            (
+                   "extreme event" 
+                OR "extreme events"
+            )
+            NOT (
+                   paleocene 
+                OR paleoclimate 
+                OR paleontology
+            )
         )
         OR "extreme weather"
-		OR "weather extreme"
-		OR "weather extremes"
+        OR "weather extreme"
+        OR "weather extremes"
         OR "coast erosion"
         OR "coastal erosion"
         OR "coastal change"
-		OR "coastal changes"
+        OR "coastal changes"
         OR "coastal inundation"
-		OR "coastal inundations"
+        OR "coastal inundations"
         OR "saltwater intrusion"
         OR "natural disaster"
-		OR "natural disasters"
+        OR "natural disasters"
         OR "weather related disaster"
-		OR "weather related disasters"
+        OR "weather related disasters"
         OR "weather driven disaster"
-		OR "weather driven disasters"
-		OR "hydrometeorological disaster" 
-		OR "hydrometeorological disasters" 
-    )""",
+        OR "weather driven disasters"
+        OR "hydrometeorological disaster"
+        OR "hydrometeorological disasters"
+    """,
     # Fossil fuels
-    'Fossil fuels': """(
-          "fossil fuel" 
-		OR "fossil fuels"
+    'Fossil fuels': """
+           "fossil fuel"
+        OR "fossil fuels"
         OR coal
         OR oil
         OR petrol
-		OR petroleum
+        OR petroleum
         OR "natural gas"
         OR LNG
-		OR CNG
-		OR "carbon fuel"
-		OR "carbon fuels"
-		OR "solid fuel"
-		OR "solid fuels"
-		OR lignite 
-		OR diesel
-		OR kerosene
-		OR gasoline
-		OR "fracking gas"
-		OR "fossil energy"
-		OR "carbon based fuels"
-		OR "mineral fuels"
-		OR "jet fuel"
-		OR "jet fuels"
-		OR "shipping fuel"
-		OR "shipping fuels"
-    )""",
+        OR CNG
+        OR "carbon fuel"
+        OR "carbon fuels"
+        OR "solid fuel"
+        OR "solid fuels"
+        OR lignite
+        OR diesel
+        OR kerosene
+        OR gasoline
+        OR "fracking gas"
+        OR "fossil energy"
+        OR "carbon based fuels"
+        OR "mineral fuels"
+        OR "jet fuel"
+        OR "jet fuels"
+        OR "shipping fuel"
+        OR "shipping fuels"
+    """,
     # Activities that produce climate forcers
-    'Climate forcers production': """(
+    'Climate forcers production': """
           "energy production"
        OR "energy use"
        OR "energy consumption"
@@ -300,38 +306,38 @@ CLIMATE = {
        OR "concrete production"
        OR heating
        OR cooling
-	   OR refrigerating
+       OR refrigerating
        OR "air condition"
-	   OR "air conditioning"
+       OR "air conditioning"
        OR refrigeration
-	   OR refrigerator
-	   OR refrigerators
+       OR refrigerator
+       OR refrigerators
        OR cooking
        OR transport
-	   OR transportation
-	   OR transporting
-	   OR transported
-	   OR industry
-	   OR industries 
-	   OR industrial 
-	   OR industrialization
-	   OR industrialized 
+       OR transportation
+       OR transporting
+       OR transported
+       OR industry
+       OR industries
+       OR industrial
+       OR industrialization
+       OR industrialized
        OR agriculture
-	   OR agricultural
+       OR agricultural
        OR waste
        OR buildings
-	   OR building
+       OR building
        OR fertilizer
-	   OR fertilizers
+       OR fertilizers
        OR "meat consumption"
-	   OR "meat consumer"
-	   OR "meat consumers"
-	   OR "meat production"
-	   OR "consume meat"
+       OR "meat consumer"
+       OR "meat consumers"
+       OR "meat production"
+       OR "consume meat"
        OR beef
        OR "red meat"
        OR "livestock production"
-       OR "livestock diet" 
+       OR "livestock diet"
        OR "leak detection"
        OR "biomass burning"
        OR deforestation
@@ -342,383 +348,383 @@ CLIMATE = {
        OR "road construction"
        OR "asphalt production"
        OR "construction material"
-	   OR "construction materials"
+       OR "construction materials"
        OR cement
-    )""",
+    """,
     # Activities that reduce climate forcers, note: "GHG" already included above
-    'Mitigation': """(
+    'Mitigation': """
            "energy transition"
         OR renewable
-		Or renewables
+        OR renewables
         OR "clean energy"
         OR "emission control"
-		OR "emission controls"
+        OR "emission controls"
         OR "particle filter"
-		OR "particle filters"
+        OR "particle filters"
         OR reforestation
         OR afforestation
         OR "livestock management"
         OR "livestock manure management"
         OR "reduction of meat"
-		OR "meat reduction" 
-		OR "meat reductions" 
+        OR "meat reduction"
+        OR "meat reductions"
         OR "plant based"
         OR "sustainable diet"
-		OR "sustainable diets"
+        OR "sustainable diets"
         OR "plant rich diet"
-		OR "plant rich diets"
+        OR "plant rich diets"
         OR "planetary health diet"
         OR "food waste"
         OR "circular economy"
-        OR "energy efficieny"
-	    OR "energy efficient"
+        OR "energy efficiency"
+        OR "energy efficient"
         OR recycling
-		OR recycled
+        OR recycled
         OR reuse
         OR reusing
-		OR reused
-		OR upcycling
-		OR upcycled
+        OR reused
+        OR upcycling
+        OR upcycled
         OR "improved wastewater treatment"
         OR "improved agricultural practice"
-		OR "improved agricultural practices"
+        OR "improved agricultural practices"
         OR "precision farming"
         OR insulation
-		OR insulate
+        OR insulate
         OR "heat pump"
-		OR "heat pumps"
+        OR "heat pumps"
         OR "solar panel"
-		OR "solar panels"
+        OR "solar panels"
         OR "solar energy"
         OR "solar system"
-		OR "solar systems"
+        OR "solar systems"
         OR "alternative fuel"
-		OR "alternative fuels"
+        OR "alternative fuels"
         OR "carbon pricing"
         OR "carbon capture"
         OR "carbon storage"
         OR "carbon dioxide removal"
         OR "grid modernization"
-		OR "grid modernizations"
-		OR "grid modernisation"
-		OR "grid modernisations"
+        OR "grid modernizations"
+        OR "grid modernisation"
+        OR "grid modernisations"
         OR "active travel"
-		OR "active travelling"
-		OR "active transport"
-		OR "active transportation"
+        OR "active travelling"
+        OR "active transport"
+        OR "active transportation"
         OR "active mobility"
         OR cycling
         OR bike
         OR bikes
         OR bicycle
-		OR bicycles
+        OR bicycles
         OR "electric vehicle"
-		OR "electric vehicles"
+        OR "electric vehicles"
         OR "electric car"
-		OR "electric cars"
+        OR "electric cars"
         OR "electric mobility"
         OR "mobility shift"
-	    OR "mobility shifts"
+        OR "mobility shifts"
         OR "carbon neutral"
         OR "low carbon"
+        OR decarbonize
+        OR decarbonise
+        OR decarbonized
+        OR decarbonised
+        OR decarbonizing
+        OR decarbonising
         OR decarbonization
-		OR decarbonisation
-		OR decarbonized
-		OR decarbonised
-		OR decarbonizing
-		OR decarbonising
-		OR decarbonize
-		OR decarbonise
-		OR decarbonising		
+        OR decarbonisation
         OR "green infrastructure"
-		OR "green infrastructures"
+        OR "green infrastructures"
         OR "green urban"
         OR "urban green"
-		OR "urban greening"
+        OR "urban greening"
         OR "green space"
-		OR "green spaces"
+        OR "green spaces"
         OR greenspace
-		OR greenspaces
+        OR greenspaces
         OR "nature based"
         OR sustainable
-		OR sustainability
-		OR sustainably
+        OR sustainability
+        OR sustainably
         OR "emission reduction"
-		OR "emission reductions"
-		OR "emissions reduction"
-		OR "emissions reductions"
+        OR "emission reductions"
+        OR "emissions reduction"
+        OR "emissions reductions"
         OR "reduce emission"
-		OR "reduce emissions"
-		OR "reduced emission"
-		OR "reduced emissions"
+        OR "reduce emissions"
+        OR "reduced emission"
+        OR "reduced emissions"
         OR "reduction of emission"
-	    OR "reduction of emissions"
+        OR "reduction of emissions"
         OR "carbon reduction"
-		OR "carbon reductions"
-		OR "reduce carbon"
+        OR "carbon reductions"
+        OR "reduce carbon"
         OR "reduced carbon"
         OR "reduction of carbon"
         OR "carbon footprint"
-		OR "carbon footprints"
-    )""",
+        OR "carbon footprints"
+    """,
 }
 HEALTH = {
     # General health terms
-    'General health terms': """(
+    'General health terms': """
            health
         OR "well being"
         OR wellbeing
         OR medical
-		OR medically
+        OR medically
         OR medicine
-		OR medicinal
+        OR medicinal
         OR clinic
-		OR clinics
+        OR clinics
         OR hospital
-		OR hospitals
+        OR hospitals
         OR emergency
-		OR emergencies
+        OR emergencies
         OR ICU
-		OR ICUs
+        OR ICUs
         OR "intensive care"
         OR "stroke unit"
-		OR "stroke units"
-		OR "stroke center"
-		OR "stroke centers"
-		OR "burn unit"
-		OR "burn units"
-		OR "burn center"
-		OR "burn centers"
+        OR "stroke units"
+        OR "stroke center"
+        OR "stroke centers"
+        OR "burn unit"
+        OR "burn units"
+        OR "burn center"
+        OR "burn centers"
         OR doctor
         OR doctors
         OR clinician
-		OR clinicians
-		OR physician 
-		OR physicians
+        OR clinicians
+        OR physician
+        OR physicians
         OR surgeon
-		OR surgeons
+        OR surgeons
         OR surgery
-		OR surgeries
+        OR surgeries
         OR "general practitioner"
-		OR "general practitioners"
-		OR "general practice"
-		OR "general practices"
+        OR "general practitioners"
+        OR "general practice"
+        OR "general practices"
         OR nurse
-		OR nurses
-		OR nursing
-		OR midwife
-		OR midwives
+        OR nurses
+        OR nursing
+        OR midwife
+        OR midwives
         OR "primary care"
         OR "secondary care"
         OR "tertiary care"
-		OR healthcare
-    )""",
+        OR healthcare
+    """,
     # General health outcomes
     #
-    # Note: 
-    'General health outcomes': """(
+    # Note:
+    'General health outcomes': """
            mortality
         OR fatalities
         OR daly
         OR dalys
         OR disease
-		OR disease
-		OR diseased
+        OR disease
+        OR diseased
         OR morbidity
-		OR morbidities
-		OR comorbidity
-		OR comorbidities
+        OR morbidities
+        OR comorbidity
+        OR comorbidities
         OR injury
-		OR injuries
-		OR injured
+        OR injuries
+        OR injured
         OR death
-		OR deaths
+        OR deaths
         OR accident
-		OR accidents
+        OR accidents
         OR epidemic
-		OR epidemica
+        OR epidemica
+        OR epidemics
         OR pandemic
-		OR pandemics
+        OR pandemics
         OR wound
-		OR wounds
-		OR wounded
+        OR wounds
+        OR wounded
         OR burn
-		OR burns
-		OR burned
-		OR burnt
+        OR burns
+        OR burned
+        OR burnt
         OR "quality of life"
         OR qol
         OR hrqol
         OR ill
         OR illness
-		OR illnesses
+        OR illnesses
         OR syndrome
-		OR syndromes
-		OR symptom
-		OR symptoms
+        OR syndromes
+        OR symptom
+        OR symptoms
         OR infection
-		OR infections
-		OR infectious
-		OR infected
-    )""",
+        OR infections
+        OR infectious
+        OR infected
+    """,
     # Nutrition/food quality and quantity, including obesity and undernutrition
     # Note: this can be both outcome and exposure
-    'Nutrition/food quality': """(
+    'Nutrition/food quality': """
            obese
-		OR obesity
+        OR obesity
         OR overweight
         OR "over weight"
         OR underweight
         OR "under weight"
         OR hunger
         OR stunting
-		OR stunted
+        OR stunted
         OR wasting
         OR undernourished
-		OR undernourishing
-		OR undernourished
+        OR undernourishing
+        OR undernourished
         OR undernutrition
         OR anthropometric
         OR malnutrition
         OR malnourished
-		OR malnourishment
+        OR malnourishment
         OR anemia
         OR anaemia
         OR micronutrient
-		OR micronutrients
+        OR micronutrients
         OR "micro nutrient"
-		OR "micro nutrients"
+        OR "micro nutrients"
         OR diabetes
-		OR diabetic
-		OR T2D
-		OR T2DM
+        OR diabetic
+        OR T2D
+        OR T2DM
         OR T1D
-		OR T1DM
+        OR T1DM
         OR "food insecurity"
         OR "food security"
         OR "food production"
         OR "food scarcity"
         OR "food supply"
-	    OR "food supplies"
+        OR "food supplies"
         OR "food system"
         OR "food systems"
-	    OR "food quality"
+        OR "food quality"
         OR "food quantity"
         OR "food industry"
-		OR "food industries"
-    )""",
+        OR "food industries"
+    """,
     # Cardio-vascular terms
-    'Cardio-vascular': """(
+    'Cardio-vascular': """
            hypertension
-		OR hypertensive
+        OR hypertensive
         OR "blood pressure"
         OR stroke
-		OR strokes
+        OR strokes
         OR vascular
         OR macrovascular
         OR microvascular
         OR "heart disease"
-		OR "heart diseases"
+        OR "heart diseases"
         OR ischemic
         OR ischaemic
         OR cardiovascular
         OR "cardio vascular"
         OR "heart attack"
-		OR "heart attacks"
+        OR "heart attacks"
         OR "coronary heart"
         OR infarct
-		OR infarction
-		OR infarctions
-    )""",
-    # Renal health terms and cancer  
-    'Renal health': """(
+        OR infarction
+        OR infarctions
+    """,
+    # Renal health terms and cancer
+    'Renal health': """
            renal
         OR kidney
-		OR kidneys
+        OR kidneys
         OR calculus
         OR calculi
         OR lithogenesis
         OR cancer
         OR neoplasm
         OR neoplasms
-		OR tumor
-		OR tumors
+        OR tumor
+        OR tumors
         OR tumour
-		OR tumours
-		OR carcinoma
-		OR carcinomas
-    )""",
+        OR tumours
+        OR carcinoma
+        OR carcinomas
+    """,
     # Effects of temperature extremes
     #
     # Note: added "thermal stability" (for heat effects on drugs)
-    'Effects of temperature extremes': """(
+    'Effects of temperature extremes': """
            "heat stress"
         OR "heat illness"
-		OR "heat illnesses"
+        OR "heat illnesses"
         OR "heat fatigue"
         OR "heat burden"
         OR "heat stroke"
-		OR "heat strokes"
+        OR "heat strokes"
         OR "heat exhaustion"
         OR "heat cramp"
-		OR "heat cramps"
+        OR "heat cramps"
         OR "heat syncope"
-		OR "heat syncopes"
-		OR "heat related"
+        OR "heat syncopes"
+        OR "heat related"
         OR skin
         OR dermal
         OR rash
-		OR rashes
+        OR rashes
         OR eczema
-		OR eczemas
+        OR eczemas
         OR "thermal stress"
         OR hyperthermia
-		OR hyperthermal
+        OR hyperthermal
         OR hypothermia
-		OR hypothermal
+        OR hypothermal
         OR "thermal stability"
-		OR "drug stability"
-    )""",
+        OR "drug stability"
+    """,
     # Maternal health outcomes
-    'Maternal health outcomes': """(
+    'Maternal health outcomes': """
            preterm
         OR "pre term"
         OR premature
-		OR prematurity
+        OR prematurity
         OR stillbirth
-		OR stillbirths
+        OR stillbirths
         OR birthweight
         OR "birth weight"
         OR maternal
         OR pregnant
-		OR pregnancy
-		OR pregnancies
+        OR pregnancy
+        OR pregnancies
         OR gestation
-		OR gestational
+        OR gestational
         OR eclampsia
         OR preeclampsia
         OR sepsis
-		OR septic
+        OR septic
         OR oligohydramnios
         OR placenta
-		OR placental
+        OR placental
         OR haemorrhage
-		OR haemorrhages
-		OR haemorrhaged
-		OR haemorrhagic 
+        OR haemorrhages
+        OR haemorrhaged
+        OR haemorrhagic
         OR hemorrhage
-		OR hemorrhages
-		OR hemorrhaged
-		OR hemorrhagic 
-    )""",
+        OR hemorrhages
+        OR hemorrhaged
+        OR hemorrhagic
+    """,
     # Vector-borne diseases
     # Note: added "rift valley" OR "ross river" (both diseases)
-    'Vector-borne diseases': """(
+    'Vector-borne diseases': """
            malaria
         OR dengue
         OR mosquito
-        OR mosquitos 
-		OR anopheles
+        OR mosquitos
+        OR anopheles
         OR aedes
         OR culex
         OR chikungunya
@@ -727,10 +733,10 @@ HEALTH = {
         OR "vector borne"
         OR vectorborne
         OR pathogen
-		OR pathogens
-		OR pathogenic
+        OR pathogens
+        OR pathogenic
         OR zoonosis
-		OR zoonoses
+        OR zoonoses
         OR zika
         OR "west nile"
         OR "crimean congo"
@@ -752,62 +758,63 @@ HEALTH = {
         OR "rabbit fever"
         OR "Q fever"
         OR "yellow fever"
-		OR hantavirus 
-		OR oropouche 
-    )""",
+        OR hantavirus
+        OR oropouche
+    """,
     # Bacterial, parasitic and viral infections, including waterborne and foodborne diseases
-      'Bacterial, parasitic and viral infections': """(
+    'Bacterial, parasitic and viral infections': """
            "water related"
         OR waterborne
         OR "water borne"
-	    OR diarrhea
-		OR diarrheas
-		OR diarrheal
-		OR diarrhoea 
-		OR diarrhoeas 
-		OR diarrhoeal 
-		OR "gastrointestinal illness"
-		OR "gastrointestinal illnesses"
-		OR "gastrointestinal disease" 
-		OR "gastrointestinal diseases" 
+        OR diarrhea
+        OR diarrheas
+        OR diarrheal
+        OR diarrhoea
+        OR diarrhoeas
+        OR diarrhoeal
+        OR "gastrointestinal illness"
+        OR "gastrointestinal illnesses"
+        OR "gastrointestinal disease"
+        OR "gastrointestinal diseases"
         OR enteric
         OR bacteria
-		OR bacterial
+        OR bacterial
         OR viral
         OR virus
-		OR viruses
+        OR viruses
         OR arbovirus
-		OR arboviruses
+        OR arboviruses
         OR norovirus
         OR rotavirus
         OR "barmah forest"
         OR lassa
         OR parasite
-		OR parsites
-		OR parasitic
+        OR parasites
+        OR parsites
+        OR parasitic
         OR vibrio
-		OR vibriosis
+        OR vibriosis
         OR cholera
-		OR cholerae
+        OR cholerae
         OR "e.coli"
         OR "Escherichia coli"
         OR protozoa
-		OR protozoae 
-		OR protozoan 
-		OR protozoon 
-		OR protozoans
+        OR protozoae
+        OR protozoan
+        OR protozoon
+        OR protozoans
         OR salmonella
-		OR salmonellosis
+        OR salmonellosis
         OR giardia
-		OR giardiasis
+        OR giardiasis
         OR shigella
-		OR campylobacter
-		OR campylobacteriosis
+        OR campylobacter
+        OR campylobacteriosis
         OR cryptosporidium
-		OR cryptosporidia
-		OR cryptosporidiosis
+        OR cryptosporidia
+        OR cryptosporidiosis
         OR legionella
-		OR legionellosis
+        OR legionellosis
         OR "food related"
         OR "food borne"
         OR foodborne
@@ -815,92 +822,91 @@ HEALTH = {
         OR poisoning
         OR ciguatera
         OR "algal bloom"
-		OR "algal blooms"
+        OR "algal blooms"
         OR typhoid
         OR melioidosis
         OR "hepatitis A"
         OR "hepatitis E"
         OR dysentery
-		OR enterohemorrhagic 
-		OR enterohaemorrhagic
-		OR mycotoxin 
-		OR mycotoxins
-		OR "food safety"
-    )""",
+        OR enterohemorrhagic
+        OR enterohaemorrhagic
+        OR mycotoxin
+        OR mycotoxins
+        OR "food safety"
+    """,
     # Air quality and allergens (many words already covered in exposure part)
-    'Air quality and allergens': """(
-        OR "air quality"
+    'Air quality and allergens': """
+           "air quality"
         OR ambrosia
         OR ragweed
         OR mold
-		OR moldy
+        OR moldy
         OR pollen
         OR spores
-		
-    )""",
+    """,
     # Respiratory outcomes
-    'Respiratory outcomes': """(
+    'Respiratory outcomes': """
            espiratory
         OR allergy
-		OR allergies
-		OR allergic
-		OR allergical
-		OR allergen		
-		OR allergens
+        OR allergies
+        OR allergic
+        OR allergical
+        OR allergen
+        OR allergens
         OR lung
-		OR lungs
+        OR lungs
         OR asthma
-		OR asthmatic   
-		OR asthmatics 
-		OR COPD
-		OR "chronic obstructive pulmonary disease"
+        OR asthmatic
+        OR asthmatics
+        OR COPD
+        OR "chronic obstructive pulmonary disease"
         OR bronchitis
-		OR bronchia
+        OR bronchia
         OR bronchial
-		OR pulmonary
+        OR pulmonary
         OR rhinitis
         OR "bacterial meningitis"
-    )""",
+    """,
     # Mental health outcomes
-    'Mental health outcomes': """(
+    'Mental health outcomes': """
            mental
         OR depression
-		OR depressed
+        OR depressed
         OR stress
         OR anxiety
         OR ecoanxiety
         OR ptsd
         OR psychological
-		OR psychosocial 
-		OR psychosis 
-		OR psychoses 
-		OR psychopathology 
-		OR psychopathologies 
-		OR psychotherapy 
-		OR psychotherapeutic 
-		OR psychotherapeutical 
-		OR psychotherapist 
-		OR psychotherapists
+        OR psychosocial
+        OR psychosis
+        OR psychoses
+        OR psychopathology
+        OR psychopathologies
+        OR psychotherapy
+        OR psychotherapeutic
+        OR psychotherapeutical
+        OR psychotherapist
+        OR psychotherapists
         OR trauma
-		OR traumata
-		OR traumatic
-		OR posttraumatic
-		OR traumatized
-		OR traumatised
+        OR traumata
+        OR traumatic
+        OR posttraumatic
+        OR traumatized
+        OR traumatised
         OR suicide
-		OR suicides 
-		OR suicidal 
+        OR suicides
+        OR suicidal
         OR solastalgia
-		OR psychiatry
+        OR psychiatry
         OR psychiatric
-		OR psychiatrist
-		OR psychiatrists
-    )""",
+        OR psychiatrist
+        OR psychiatrists
+    """,
     # Water quality and quantity
-    'Water quality and quantity': """(
+    'Water quality and quantity': """
            "water security"
         OR "water supply"
-		OR "water supplies"
+        OR "water supplies"
         OR "water resources"
         OR "water insecurity"
         OR "water quantity"
@@ -908,157 +914,160 @@ HEALTH = {
         OR "water quality"
         OR "contaminated water"
         OR "water contamination"
-    )""",
+    """,
     # Social factors and vulnerability
-    'Social factors and vulnerability': """(
+    'Social factors and vulnerability': """
            migration
-		OR migrant
-		OR migrants
-		OR migrate
-		OR migrated
-		OR immigrant
-		OR immigrants
+        OR migrant
+        OR migrants
+        OR migrate
+        OR migrated
+        OR immigrant
+        OR immigrants
         OR displaced
-		OR displacement
+        OR displacement
         OR conflict
-		OR conflicts
+        OR conflicts
         OR violence
-		OR violent
+        OR violent
         OR homeless
-		OR homelessness
+        OR homelessness
         OR poverty
         OR poor
         OR disadvantaged
         OR vulnerability
-		OR vulnerable
+        OR vulnerable
         OR elderly
-		OR geriatric
-		OR "old people"
-		OR "older adults"
-		OR "aging population"
+        OR geriatric
+        OR "old people"
+        OR "older adults"
+        OR "aging population"
         OR frail
-		OR frailty
+        OR frailty
         OR disability
-		OR disabilities
-		OR disabled
+        OR disabilities
+        OR disabled
         OR "informal settlement"
-		OR "informal settlements"
-		OR slum 
-		OR slums
-		OR disadvantaged
-		OR indigenous
-		OR "ethnic minority"
-		OR "ethnic minorities"
-		OR "low income"
-		OR infant
-		OR infants
-		OR child
-		OR children
-		OR newborn
-		OR newborns
-    )""",
+        OR "informal settlements"
+        OR slum
+        OR slums
+        OR disadvantaged
+        OR indigenous
+        OR "ethnic minority"
+        OR "ethnic minorities"
+        OR "low income"
+        OR infant
+        OR infants
+        OR child
+        OR children
+        OR newborn
+        OR newborns
+    """,
     # Adaptation or mitigation
-    'Adaptation or mitigation': """(
+    'Adaptation or mitigation': """
            adapt
         OR adapted
         OR adaptation
         OR mitigate
         OR mitigated
         OR mitigation
-		OR resilience 
-		OR resilience 
-		OR "warning system" 
-		OR "warning systems"
-		OR "vector surveillance"
-		OR "vector monitoring" 
-		OR "vector population surveillance" 
-		OR "entomological surveillance"
-		OR "vulnerability reduction"
-		OR "redcution of vulnerability"
-    )""",
+        OR resilience
+        OR resilience
+        OR "warning system"
+        OR "warning systems"
+        OR "vector surveillance"
+        OR "vector monitoring"
+        OR "vector population surveillance"
+        OR "entomological surveillance"
+        OR "vulnerability reduction"
+        OR "reduction of vulnerability"
+    """,
 }
 
 # OR ( without combination with climate or health)
 ADAPTATION = {
     # Adaptation
-    'Adaptation': """(
+    'Adaptation': """
            "climate resilience"
-		OR "climate resilient"
+        OR "climate resilient"
         OR "health care resilience"
         OR "resilient health"
-		OR "resilient healthcare"
+        OR "resilient healthcare"
         OR "healthcare resilience"
         OR "health system resilience"
         OR "health care system resilience"
         OR "healthcare system resilience"
         OR "eco friendly health"
-		OR "eco friendly healthcare"
+        OR "eco friendly healthcare"
         OR "green health"
-	    OR "green healthcare"
+        OR "green healthcare"
         OR "circular health"
-		OR "circular healthcare"
+        OR "circular healthcare"
         OR "low impact health"
         OR "low impact healthcare"
-		OR "disaster risk reduction"
+        OR "disaster risk reduction"
         OR "disaster management"
         OR "disaster preparedness"
         OR "disaster prevention"
         OR "disaster risk prevention"
         OR "heat prevention"
         OR "heat protection"
-		OR "heat health"
+        OR "heat health"
         OR "heat resilience"
-		OR "heat resilient"
+        OR "heat resilient"
         OR "heat adaptation"
         OR "heat mitigation"
         OR "heat stress prevention"
         OR "heat action"
         OR "heat stress management"
         OR "heat warning"
-		OR "heat warnings"
+        OR "heat warnings"
         OR "heat risk reduction"
         OR "heat preparedness"
         OR "cooling area"
-		OR "cooling areas"
+        OR "cooling areas"
         OR "cooling access"
         OR "cooling shelter"
-		OR "cooling shelters"
+        OR "cooling shelters"
         OR "cooling center"
-		OR "cooling centers"
+        OR "cooling centers"
         OR "cooling centre"
-		OR "cooling centres"
+        OR "cooling centres"
         OR "passive cooling"
         OR "urban cooling"
         OR "climate smart"
         OR "nature based solution"
-		OR "nature based solutions"
+        OR "nature based solutions"
         OR "climate risk"
-		OR "climate risks"
+        OR "climate risks"
         OR "wildfire risk"
         OR "bushfire risk"
-		OR "climate related hazard" 
-		OR "climate related hazards" 
-		OR "climate change related hazard" 
-		OR "climate change related hazards" 
-		OR "weather related disaster" 
-		OR "weather related disasters" 
-		OR "climate related disaster" 
-		OR "climate related disasters" 
-		OR "climate change related disaster" 
-		OR "climate change related disasters" 
-		OR "weather driven disaster" 
-		OR "weather driven disasters" 
-		OR "climate driven disaster" 
-		OR "climate driven disasters"
-    )""",
+        OR "climate related hazard"
+        OR "climate related hazards"
+        OR "climate change related hazard"
+        OR "climate change related hazards"
+        OR "weather related disaster"
+        OR "weather related disasters"
+        OR "climate related disaster"
+        OR "climate related disasters"
+        OR "climate change related disaster"
+        OR "climate change related disasters"
+        OR "weather driven disaster"
+        OR "weather driven disasters"
+        OR "climate driven disaster"
+        OR "climate driven disasters"
+    """,
 }
+
+def join_parts(subqueries: list[str], join:str) -> str:
+    return join.join([f'({sub})' for sub in subqueries])
 
 expansions = {
     # 'acciden': [],
 }
 MERGED = {
-    'CLIMATE': ' OR '.join(CLIMATE.values()),
-    'HEALTH': ' OR '.join(HEALTH.values()),
-    'ADAPTATION': ' OR '.join(ADAPTATION.values()),
+    'CLIMATE': join_parts(list(CLIMATE.values()), ' OR '),
+    'HEALTH': join_parts(list(HEALTH.values()), ' OR '),
+    'ADAPTATION': join_parts(list(ADAPTATION.values()), ' OR '),
 }
 MERGED['(CLIMATE AND HEALTH) OR ADAPTATION'] = f'(({MERGED["CLIMATE"]}) AND ({MERGED["HEALTH"]})) OR {MERGED["ADAPTATION"]}'

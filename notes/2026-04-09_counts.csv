@@ -1,0 +1,28 @@
+,,Query size
+CLIMATE,General climate change,2955299
+CLIMATE,Greenhouse gasses,48989782
+CLIMATE,Climate variability,13947823
+CLIMATE,Complex climate indices,3296112
+CLIMATE,Fossil fuels,3600757
+CLIMATE,Climate forcers production,22627152
+CLIMATE,Mitigation,7675094
+HEALTH,General health terms,25456789
+HEALTH,General health outcomes,25265172
+HEALTH,Nutrition/food quality,9621834
+HEALTH,Cardio-vascular,5438728
+HEALTH,Renal health,11008164
+HEALTH,Effects of temperature extremes,2372675
+HEALTH,Maternal health outcomes,3691251
+HEALTH,Vector-borne diseases,2506539
+HEALTH,"Bacterial, parasitic and viral infections",7390682
+HEALTH,Air quality and allergens,687295
+HEALTH,Respiratory outcomes,3576077
+HEALTH,Mental health outcomes,11189435
+HEALTH,Water quality and quantity,801234
+HEALTH,Social factors and vulnerability,18650372
+HEALTH,Adaptation or mitigation,4719426
+ADAPTATION,Adaptation,179816
+MERGED,CLIMATE,84933675
+MERGED,HEALTH,82223996
+MERGED,ADAPTATION,179816
+MERGED,(CLIMATE AND HEALTH) OR ADAPTATION,20042692
