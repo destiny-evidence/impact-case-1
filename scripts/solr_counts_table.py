@@ -23,6 +23,7 @@ def count(q: str) -> str:
             f'{conf.OPENALEX.solr_url}/select',
             data={
                 'df': 'title_abstract',
+                'fq': ['is_xpac:false'],
                 'defType': 'lucene',
                 'q': q,
                 'q.op': 'AND',
