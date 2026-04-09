@@ -17,13 +17,13 @@ logger = logging.getLogger('counting')
 conf = load_settings('.conf/secret.env')
 
 
-def count(q: str) -> str:
+def count(q: str, filters: list[str]) -> str:
     try:
         res = httpx.post(
             f'{conf.OPENALEX.solr_url}/select',
             data={
                 'df': 'title_abstract',
-                'fq': ['is_xpac:false'],
+                'fq': filters,
                 'defType': 'lucene',
                 'q': q,
                 'q.op': 'AND',
@@ -43,14 +43,20 @@ for group, (name, query) in chain(
     zip_longest([], ADAPTATION.items(), fillvalue='ADAPTATION'),
     zip_longest([], MERGED.items(), fillvalue='MERGED'),
 ):
-    start = time.time()
-    cnt = count(query)
-    if type(cnt) is int:
-        counts[(group, name)] = {'Query size': cnt}
-        cnt = f'{cnt:,}'
-    else:
-        counts[(group, name)] = {'Query size': pd.NA}
-
-    logger.info(f'{group} ({name}): {cnt}   | took {time.time() - start:2f} seconds')
+    counts[(group, name)] = {}
+    for (selection, fqs) in [
+        ('Count (#nofilter)', []),
+        ('Count (excl xpac)', ['is_xpac:false']),
+        ('Count (excl xpac, 1990–2024)', ['is_xpac:false', 'publication_year:[1990 TO 2024]']),
+    ]:
+        start = time.time()
+        cnt = count(query, filters=fqs)
+        end = time.time()
+        if type(cnt) is int:
+            counts[(group, name)] |= {selection: cnt}
+            cnt = f'{cnt:,}'
+        else:
+            counts[(group, name)] |= {selection: pd.NA}
+        logger.info(f'{group} ({name}): {cnt}   | took {time.time() - start:2f} seconds')
 
 pd.DataFrame(counts).T.to_csv('notes/2026-04-09_counts.csv', index=True, header=True)
