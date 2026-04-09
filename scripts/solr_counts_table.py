@@ -48,6 +48,7 @@ for group, (name, query) in chain(
         ('Count (#nofilter)', []),
         ('Count (excl xpac)', ['is_xpac:false']),
         ('Count (excl xpac, 1990–2024)', ['is_xpac:false', 'publication_year:[1990 TO 2024]']),
+        ('Count (excl xpac, 1990–2024, language:en)', ['is_xpac:false', 'publication_year:[1990 TO 2024]', 'language:en']),
     ]:
         start = time.time()
         cnt = count(query, filters=fqs)
