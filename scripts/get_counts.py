@@ -67,6 +67,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
                     'per-page': 1,
                     'include_xpac': False,
                 },
+                timeout=120,
                 headers={'api_key': conf.OPENALEX.API_KEY},
             ),
             'title_abstract (+xpac)': lambda: httpx.get(
@@ -77,6 +78,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
                     'per-page': 1,
                     'include_xpac': True,
                 },
+                timeout=120,
                 headers={'api_key': conf.OPENALEX.API_KEY},
             ),
             'search (+xpac)': lambda: httpx.get(
@@ -88,6 +90,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
                     'include_xpac': True,
                     'api_key': conf.OPENALEX.API_KEY,
                 },
+                timeout=120,
             ),
             'search.exact (+xpac)': lambda: httpx.get(
                 'https://api.openalex.org/works',
@@ -98,6 +101,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
                     'include_xpac': True,
                     'api_key': conf.OPENALEX.API_KEY,
                 },
+                timeout=120,
             ),
         }
 
