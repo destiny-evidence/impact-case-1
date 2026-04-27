@@ -46,7 +46,9 @@ for group, (name, query) in chain(
     counts[(group, name)] = {}
     for (selection, fqs) in [
         ('Count (#nofilter)', []),
+        ('Count (w/ abstract)', ['abstract:*']),
         ('Count (excl xpac)', ['is_xpac:false']),
+        ('Count (w/ abstract, excl xpac)', ['abstract:*', 'is_xpac:false']),
         ('Count (excl xpac, 1990–2024)', ['is_xpac:false', 'publication_year:[1990 TO 2024]']),
         ('Count (excl xpac, 1990–2024, language:en)', ['is_xpac:false', 'publication_year:[1990 TO 2024]', 'language:en']),
     ]:
@@ -60,4 +62,4 @@ for group, (name, query) in chain(
             counts[(group, name)] |= {selection: pd.NA}
         logger.info(f'{group} ({name}): {cnt}   | took {time.time() - start:2f} seconds')
 
-pd.DataFrame(counts).T.to_csv('notes/2026-04-09_counts.csv', index=True, header=True)
+pd.DataFrame(counts).T.to_csv('notes/2026-04-27_counts.csv', index=True, header=True)
