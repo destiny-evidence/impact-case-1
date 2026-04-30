@@ -20,7 +20,7 @@ nacsos_data = [
 
 [dependency-groups]
 dev = [
-    "ruff>=0.15.5",
+    "ruff>=0.15.12",
 ]
 
 [tool.ruff]

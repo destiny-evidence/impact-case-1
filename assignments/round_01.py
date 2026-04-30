@@ -6,7 +6,8 @@ from typing import Annotated
 
 import typer
 from nacsos_data.db import get_engine, get_engine_async
-from nacsos_data.db.schemas import AssignmentScope
+from nacsos_data.db.schemas import AssignmentScope, Assignment
+from nacsos_data.models.annotations import AssignmentConfigRandom
 from nacsos_data.models.nql import AssignmentFilter
 from nacsos_data.util.annotations.assignments import get_db_sample, distribute_assignments
 from nacsos_data.util.conf import load_settings
@@ -50,6 +51,7 @@ def main(
     scheme_id: Annotated[str, typer.Option(help='Annotation scheme ID')] = '0689d927-f78d-46aa-bbcf-190ce156f707',
     batch_size: Annotated[int, typer.Option(help='Batch size for processing')] = 250,
     num_batches: Annotated[int, typer.Option(help='Number of batches')] = 4,
+    batch_offset: Annotated[int, typer.Option(help='Number of first batch')] = 1,
     random_seed: Annotated[int, typer.Option(help='Random seed for reproducibility')] = 4243,
     loglevel: Annotated[str, typer.Option(help='Path to config file')] = 'INFO',
 ):
@@ -62,21 +64,29 @@ def main(
     logger = logging.getLogger('retrieve')
 
     settings = load_settings(config.resolve())
-
     async def _main():
         db_engine = get_engine_async(settings=settings.DB, debug=False)
         async with db_engine.session() as session:
+            first = True
             for group, users in ANNOTATOR_GROUPS.items():
-                for batch in range(num_batches):
+                for batch in range(batch_offset, num_batches + batch_offset):
                     logger.info(f'Preparing batch {batch}/{num_batches} for {group}')
+                    setup = AssignmentConfigRandom(
+                            users={user: batch_size for user in users},
+                            overlaps={len(users): batch_size},
+                            random_seed=random_seed,
+                            nql='NOT IS ASSIGNED WITH 0689d927-f78d-46aa-bbcf-190ce156f707',
+                            nql_parsed=AssignmentFilter(scheme=scheme_id, mode=6),
+                        )
+
                     scope_id = uuid.uuid4()
                     scope = AssignmentScope(
                         assignment_scope_id=scope_id,
                         annotation_scheme_id=scheme_id,
-                        name=f'Round 01 | {group} | Batch {batch + 1:02d}/{num_batches:02d}',
-                        description=f'Initial round of assignments for {group}, batch {batch + 1:02d}/{num_batches:02d}\n'
+                        name=f'Round 01 | {group} | Batch {batch}/{num_batches}',
+                        description=f'Initial round of assignments for {group}, batch {batch:02d}/{num_batches:02d}\n'
                                     f'Data was sampled from backfilled random sample of OpenAlex.',
-                        config=None,
+                        config=setup.model_dump(),
                     )
                     session.add(scope)
                     await session.flush()
@@ -85,24 +95,26 @@ def main(
                         session=session,
                         project_id=project_id,
                         num_items=batch_size,
-                        nql=AssignmentFilter(scheme=scheme_id, mode=6),
+                        nql=setup.nql_parsed if not first else None,
                     )
                     assignments = distribute_assignments(
-                        users={user: batch_size for user in users},
+                        users=setup.users,
                         item_ids=item_ids,
-                        overlaps={len(users): batch_size},
-                        random_seed=random_seed,
-                        assignment_scope_id='',
+                        overlaps=setup.overlaps,
+                        random_seed=setup.random_seed,
+                        assignment_scope_id=str(scope_id),
                         annotation_scheme_id=scheme_id,
                     )
-                    session.add_all(assignments)
+                    session.add_all([Assignment(**assignment.model_dump()) for assignment in assignments])
                     await session.flush()
+                    first = False
 
             logger.info(f'Final commit')
             await session.commit()
 
     asyncio.run(_main())
     logger.info('All done')
+
 
 if __name__ == '__main__':
     typer.run(main)

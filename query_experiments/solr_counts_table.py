@@ -62,4 +62,4 @@ for group, (name, query) in chain(
             counts[(group, name)] |= {selection: pd.NA}
         logger.info(f'{group} ({name}): {cnt}   | took {time.time() - start:2f} seconds')
 
-pd.DataFrame(counts).T.to_csv('notes/2026-04-27_counts.csv', index=True, header=True)
+pd.DataFrame(counts).T.to_csv('notes/2026-04-29_counts.csv', index=True, header=True)
