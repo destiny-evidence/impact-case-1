@@ -5,10 +5,10 @@ from pathlib import Path
 from typing import Annotated
 
 import typer
-from nacsos_data.db import get_engine, get_engine_async
+from nacsos_data.db import get_engine_async
 from nacsos_data.db.schemas import AssignmentScope, Assignment
 from nacsos_data.models.annotations import AssignmentConfigRandom
-from nacsos_data.models.nql import AssignmentFilter
+from nacsos_data.models.nql import AssignmentFilter, SubQuery
 from nacsos_data.util.annotations.assignments import get_db_sample, distribute_assignments
 from nacsos_data.util.conf import load_settings
 
@@ -49,8 +49,8 @@ def main(
     config: Annotated[Path, typer.Option(help='Path to config file')],
     project_id: Annotated[str, typer.Option(help='project uuid')] = 'db6ee519-afb5-4813-822b-bfbc7dfd2237',
     scheme_id: Annotated[str, typer.Option(help='Annotation scheme ID')] = '0689d927-f78d-46aa-bbcf-190ce156f707',
-    batch_size: Annotated[int, typer.Option(help='Batch size for processing')] = 250,
-    num_batches: Annotated[int, typer.Option(help='Number of batches')] = 4,
+    batch_size: Annotated[int, typer.Option(help='Batch size for processing')] = 200,
+    num_batches: Annotated[int, typer.Option(help='Number of batches')] = 5,
     batch_offset: Annotated[int, typer.Option(help='Number of first batch')] = 1,
     random_seed: Annotated[int, typer.Option(help='Random seed for reproducibility')] = 4243,
     loglevel: Annotated[str, typer.Option(help='Path to config file')] = 'INFO',
@@ -64,20 +64,21 @@ def main(
     logger = logging.getLogger('retrieve')
 
     settings = load_settings(config.resolve())
+
     async def _main():
         db_engine = get_engine_async(settings=settings.DB, debug=False)
         async with db_engine.session() as session:
-            first = True
+            first = False  # True
             for group, users in ANNOTATOR_GROUPS.items():
                 for batch in range(batch_offset, num_batches + batch_offset):
                     logger.info(f'Preparing batch {batch}/{num_batches} for {group}')
                     setup = AssignmentConfigRandom(
-                            users={user: batch_size for user in users},
-                            overlaps={len(users): batch_size},
-                            random_seed=random_seed,
-                            nql='NOT IS ASSIGNED WITH 0689d927-f78d-46aa-bbcf-190ce156f707',
-                            nql_parsed=AssignmentFilter(scheme=scheme_id, mode=6),
-                        )
+                        users={user: batch_size for user in users},
+                        overlaps={len(users): batch_size},
+                        random_seed=random_seed,
+                        nql='NOT IS ASSIGNED WITH 0689d927-f78d-46aa-bbcf-190ce156f707',
+                        nql_parsed=SubQuery(not_=AssignmentFilter(scheme=scheme_id, mode=6)),
+                    )
 
                     scope_id = uuid.uuid4()
                     scope = AssignmentScope(

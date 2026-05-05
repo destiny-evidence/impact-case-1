@@ -1071,3 +1071,7 @@ MERGED = {
     'ADAPTATION': join_parts(list(ADAPTATION.values()), ' OR '),
 }
 MERGED['(CLIMATE AND HEALTH) OR ADAPTATION'] = f'(({MERGED["CLIMATE"]}) AND ({MERGED["HEALTH"]})) OR {MERGED["ADAPTATION"]}'
+
+if __name__=='__main__':
+    import re
+    print(re.sub(r'\s+', ' ', MERGED['(CLIMATE AND HEALTH) OR ADAPTATION']))
