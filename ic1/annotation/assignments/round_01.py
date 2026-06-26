@@ -11,6 +11,7 @@ from nacsos_data.models.annotations import AssignmentConfigRandom
 from nacsos_data.models.nql import AssignmentFilter, SubQuery
 from nacsos_data.util.annotations.assignments import get_db_sample, distribute_assignments
 from nacsos_data.util.conf import load_settings
+from ic1.core.ids import PROJECT_ID
 
 ANNOTATOR_GROUPS = {
     'Group 01 (EM,IK,NS)': [
@@ -47,7 +48,7 @@ ANNOTATOR_GROUPS = {
 
 def main(
     config: Annotated[Path, typer.Option(help='Path to config file')],
-    project_id: Annotated[str, typer.Option(help='project uuid')] = 'db6ee519-afb5-4813-822b-bfbc7dfd2237',
+    project_id: Annotated[str, typer.Option(help='project uuid')] = PROJECT_ID,
     scheme_id: Annotated[str, typer.Option(help='Annotation scheme ID')] = '0689d927-f78d-46aa-bbcf-190ce156f707',
     batch_size: Annotated[int, typer.Option(help='Batch size for processing')] = 200,
     num_batches: Annotated[int, typer.Option(help='Number of batches')] = 5,

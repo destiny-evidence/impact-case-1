@@ -4,7 +4,7 @@ from pathlib import Path
 
 import httpx
 
-from query_revisions.query_20250101_api import query
+from ic1.query.revisions.query_20250101_api import query
 
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(name)s (%(process)d): %(message)s', level='DEBUG')
 logging.getLogger('httpcore').setLevel(logging.WARNING)

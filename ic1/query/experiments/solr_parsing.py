@@ -4,6 +4,7 @@ import logging
 import httpx
 
 from nacsos_data.util.conf import load_settings
+from ic1.core.config import CONF_FILE
 
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(name)s (%(process)d): %(message)s', level='INFO')
 logging.getLogger('matplotlib').setLevel(logging.WARNING)
@@ -13,7 +14,7 @@ logging.getLogger('httpx').setLevel(logging.WARNING)
 # logging.getLogger('root').setLevel(logging.WARNING)
 logger = logging.getLogger('query')
 
-conf = load_settings('.conf/secret.env')
+conf = load_settings(CONF_FILE)
 
 logger.setLevel(60)
 comm = re.compile(r'# .*\n')

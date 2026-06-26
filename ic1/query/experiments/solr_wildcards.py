@@ -2,11 +2,12 @@ import re
 import pandas as pd
 from httpx import Client
 from nacsos_data.util.conf import load_settings
-from query_revisions import MERGED
+from ic1.core.config import CONF_FILE
+from ic1.query.revisions import MERGED
 
 wc = re.compile(r'["*\-\s](\w+?)\*')
 
-conf = load_settings('.conf/secret.env')
+conf = load_settings(CONF_FILE)
 stats = []
 with Client(timeout=120) as client:
     for term in set(wc.findall(MERGED['CLIMATE AND HEALTH'])):
