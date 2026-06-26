@@ -5,7 +5,8 @@ from itertools import chain, zip_longest
 import httpx
 import pandas as pd
 from nacsos_data.util.conf import load_settings
-from query_revisions.query_20260408 import CLIMATE, HEALTH, ADAPTATION, MERGED
+from ic1.core.config import CONF_FILE
+from ic1.query.revisions.query_20260408 import CLIMATE, HEALTH, ADAPTATION, MERGED
 
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(name)s (%(process)d): %(message)s', level='INFO')
 logging.getLogger('matplotlib').setLevel(logging.WARNING)
@@ -15,7 +16,7 @@ logging.getLogger('httpx').setLevel(logging.WARNING)
 # logging.getLogger('root').setLevel(logging.WARNING)
 logger = logging.getLogger('counting')
 
-conf = load_settings('.conf/secret.env')
+conf = load_settings(CONF_FILE)
 
 
 def count(q: str, filters: list[str]) -> str:

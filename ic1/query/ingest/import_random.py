@@ -12,7 +12,8 @@ import sqlalchemy as sa
 from nacsos_data.db import get_engine
 from nacsos_data.util.academic.apis import OpenAlexSolrAPI
 from nacsos_data.util.conf import load_settings
-from query_revisions.query_20260408 import MERGED
+from ic1.core.ids import PROJECT_ID
+from ic1.query.revisions.query_20260408 import MERGED
 
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(name)s (%(process)d): %(message)s', level='INFO')
 # logging.getLogger('root').setLevel(logging.WARNING)
@@ -25,7 +26,7 @@ logging.getLogger('httpx').setLevel(logging.WARNING)
 def main(
     config: Annotated[Path, typer.Option(help='Path to config file')],
     target: Annotated[Path, typer.Option(help='Path to target file')],
-    project_id: Annotated[str, typer.Option(help='project uuid')] = 'db6ee519-afb5-4813-822b-bfbc7dfd2237',
+    project_id: Annotated[str, typer.Option(help='project uuid')] = PROJECT_ID,
     check_existing: Annotated[bool, typer.Option(help='Check if OpenAlex IDs are already in project')] = True,
     batch_size: Annotated[int, typer.Option(help='Batch size for processing')] = 500,
     random_seed: Annotated[int, typer.Option(help='Random seed for reproducibility')] = 4243,

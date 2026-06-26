@@ -1,9 +1,5 @@
 """Export annotations for a NACSOS annotation scheme to CSV.
 
-Companion to ``import_taxonomy.py``: use this to inspect the *exact* column naming
-NACSOS produces for an export, so we can confirm the concept<->scheme mapping joins
-on the right keys.
-
 NACSOS names each annotation column by the label ``key`` and the choice ``value``.
 There are two export code paths in nacsos_data:
 
@@ -20,9 +16,6 @@ There are two export code paths in nacsos_data:
 
 We build that complete ``labels`` list by reading the scheme back from the database
 (the authoritative definition) and walking every label / nested child label.
-
-The scheme id (SCHEME_ID) is imported from import_taxonomy.py so there is a single
-source of truth; run the import there first.
 """
 
 import asyncio
@@ -38,16 +31,12 @@ from nacsos_data.models.annotations import AnnotationSchemeLabel
 from nacsos_data.models.nql import FieldFilters
 from nacsos_data.util.annotations.export import LabelOptions, prepare_export_table
 
-# Single source of truth: the scheme id is defined by the import script.
-from import_taxonomy import ANNOTATION_SCHEME_ID as SCHEME_ID
+from ic1.core.config import CONF_FILE
+from ic1.core.ids import TAXONOMY_SCHEME_ID as SCHEME_ID
 
-# secret.env lives at the repo root (one level above taxonomy/)
-CONF_FILE = str(Path(__file__).resolve().parents[1] / "secret.env")
-OUT_CSV = Path(__file__).resolve().parent / "annotation_export.csv"
+OUT_CSV = Path("ic1/annotation/export/annotation_export.csv")
 
-# Lightweight base columns to keep. The export otherwise carries the full document
-# `text` (and keywords/authors) for *every* row, which bloats the file to hundreds of
-# MB. None of that is needed to link an annotation back to an item or the taxonomy.
+
 KEEP_BASE_COLS = [
     "item_id", "doi", "wos_id", "scopus_id", "openalex_id", "s2_id", "pubmed_id",
     "dimensions_id", "publication_year", "source", "title", "user_id", "username",
@@ -80,7 +69,7 @@ def collect_label_options(labels: list[AnnotationSchemeLabel]) -> list[LabelOpti
 
 
 def expected_label_columns(label_options: list[LabelOptions]) -> list[str]:
-    """The full, deterministic set of `<key>|<value>` columns prepare_export_table emits."""
+    """Get the full, deterministic set of `<key>|<value>` columns prepare_export_table emits."""
     cols: list[str] = []
     for lo in label_options:
         for v in (lo.options_int or []):
@@ -95,7 +84,6 @@ def expected_label_columns(label_options: list[LabelOptions]) -> list[str]:
 async def main() -> None:
     db_engine = get_engine_async(conf_file=CONF_FILE)
 
-    # 1. Resolve scheme -> project + labels, and gather its assignment scopes.
     async with db_engine.session() as session:
         scheme = (
             await session.execute(
@@ -119,11 +107,6 @@ async def main() -> None:
             ).scalars().all()
         ]
 
-        # Items actually assigned in this scheme's scopes. Without a filter, the export
-        # spans the *whole project corpus* (one row per item, annotations left-joined on).
-        # We push these ids into the items query (item_id IN ...) so the DB only touches
-        # the assigned documents -- incl. assigned-but-unannotated -- instead of scanning
-        # all ~35k project items.
         assigned_item_ids = [
             str(i)
             for i in (
@@ -150,9 +133,6 @@ async def main() -> None:
             "assignments first if you want populated rows.[/yellow]"
         )
 
-    # 2. Build the export table with the *explicit, complete* label set, restricting the
-    #    items query to assigned documents (item_id IN ...) so we never scan the corpus.
-    #    ignore_hierarchy=True -> flat columns; ignore_repeat=True -> `<key>|<value>` (no repeat suffix).
     item_filter = FieldFilters(field="item_id", values=assigned_item_ids)
     async with db_engine.session() as session:
         rows = await prepare_export_table(
@@ -169,16 +149,13 @@ async def main() -> None:
 
     df = pd.DataFrame(rows)
 
-    # 3. Relabel no-annotator rows. prepare_export_table sets username via
+    # Relabel no-annotator rows. prepare_export_table sets username via
     #    coalesce(User.username, 'RESOLVED'), so assigned-but-unannotated documents
     #    (NULL user_id) read as 'RESOLVED' despite not being resolved. We pass no bot
     #    scopes here, so NULL user_id unambiguously means "no annotation yet".
     if "username" in df.columns and "user_id" in df.columns:
         df.loc[df["user_id"].isna(), "username"] = "(unannotated)"
 
-    # 4. Keep only lightweight base columns + the full, deterministic concept column set.
-    #    Every concept column is present even if prepare_export_table omitted one
-    #    (e.g. zero matching rows), filled with NA -> stable schema for downstream.
     base_cols = [c for c in KEEP_BASE_COLS if c in df.columns]
     for c in label_cols:
         if c not in df.columns:

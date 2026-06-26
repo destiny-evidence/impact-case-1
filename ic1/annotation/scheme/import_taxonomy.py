@@ -39,20 +39,19 @@ from nacsos_data.models.annotations import (
 from nacsos_data.db.connection import get_engine_async
 from nacsos_data.db.crud.annotations import upsert_annotation_scheme
 
+from ic1.core.config import CONF_FILE
+from ic1.core.ids import PROJECT_ID, TAXONOMY_SCHEME_ID
+
 # --- configuration -----------------------------------------------------------------
-TARGET_PROJECT_ID = "db6ee519-afb5-4813-822b-bfbc7dfd2237"
+# TAXONOMY_SCHEME_ID is a fixed id (in ic1.core.ids) so re-imports UPDATE the same
+# scheme in place and the mapping references a stable scheme. Re-running overwrites this
+# scheme's structure with the latest taxonomy, so regenerate exports/mapping together.
 
-# Fixed scheme id so re-imports UPDATE the same scheme in place (rather than minting a
-# new one each run) and the mapping references a stable scheme. Keep this in sync with
-# SCHEME_ID in export_annotations.py. Re-running overwrites this scheme's structure with
-# the latest taxonomy, so regenerate exports/mapping together after re-importing.
-ANNOTATION_SCHEME_ID = "6a87c376-24c8-4a89-8154-efc70e619f8b"
-
-HERE = Path(__file__).resolve().parent
-VOCAB_FILE = str(HERE / "destiny-1-2-destiny-taxonomy-v1-2-full.ttl")
-CONF_FILE = str(HERE.parent / "secret.env")
-MAPPING_CSV = HERE / "destiny_taxonomy_nacsos_mapping.csv"
-MAPPING_JSON = HERE / "destiny_taxonomy_nacsos_mapping.json"
+# Paths are relative to the repo root (scripts are run from there, e.g. `python -m ic1...`).
+SCHEME_DIR = Path("ic1/annotation/scheme")
+VOCAB_FILE = str(SCHEME_DIR / "destiny-1-2-destiny-taxonomy-v1-2-full.ttl")
+MAPPING_CSV = SCHEME_DIR / "destiny_taxonomy_nacsos_mapping.csv"
+MAPPING_JSON = SCHEME_DIR / "destiny_taxonomy_nacsos_mapping.json"
 
 # Set False to build + validate + write the mapping without touching the database.
 WRITE_TO_DB = True
@@ -266,7 +265,7 @@ def write_mapping(mapping: list[dict]) -> None:
 
 
 async def main() -> None:
-    scheme, mapping = parse_vocabulary_to_nacsos(VOCAB_FILE, TARGET_PROJECT_ID, ANNOTATION_SCHEME_ID)
+    scheme, mapping = parse_vocabulary_to_nacsos(VOCAB_FILE, PROJECT_ID, TAXONOMY_SCHEME_ID)
 
     n_labels = len(scheme.labels)
     n_sub = sum(1 for m in mapping if m["sub_label_key"])

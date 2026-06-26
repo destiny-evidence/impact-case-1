@@ -28,7 +28,7 @@ dev = [
 line-length = 160
 indent-width = 4
 target-version = "py313"
-include = ["pyproject.toml", "query_revisions/**/*.py", "scripts/**/*.py"]
+include = ["pyproject.toml", "ic1/**/*.py"]
 exclude = []
 
 [tool.ruff.lint]
@@ -81,7 +81,7 @@ plugins = ["pydantic.mypy", "sqlalchemy.ext.mypy.plugin"]
 strict = true
 follow_imports = "silent"
 
-files = ["server"]
+files = ["ic1"]
 exclude = []
 
 check_untyped_defs = true

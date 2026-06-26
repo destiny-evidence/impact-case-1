@@ -11,7 +11,7 @@ from typing import Annotated
 import typer
 from nacsos_data.util.academic.apis import OpenAlexSolrAPI
 from nacsos_data.util.conf import load_settings
-from query_revisions.query_20260408 import MERGED
+from ic1.query.revisions.query_20260408 import MERGED
 
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(name)s (%(process)d): %(message)s', level='INFO')
 # logging.getLogger('root').setLevel(logging.WARNING)

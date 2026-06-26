@@ -5,7 +5,8 @@ from httpx import HTTPStatusError
 
 # from nacsos_data.util.academic.apis import OpenAlexAPI, OpenAlexSolrAPI
 from nacsos_data.util.conf import load_settings
-from query_revisions import CLIMATE, HEALTH, MERGED
+from ic1.core.config import CONF_FILE
+from ic1.query.revisions import CLIMATE, HEALTH, MERGED
 
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(name)s (%(process)d): %(message)s', level='INFO')
 logging.getLogger('matplotlib').setLevel(logging.WARNING)
@@ -16,7 +17,7 @@ logging.getLogger('root').setLevel(logging.WARNING)
 logger = logging.getLogger('query')
 logger.setLevel(600)
 
-conf = load_settings('.conf/secret.env')
+conf = load_settings(CONF_FILE)
 # print(conf.OPENALEX)
 
 comm = re.compile(r'# .*\n')
