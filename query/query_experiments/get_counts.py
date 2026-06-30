@@ -62,7 +62,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
             'title_abstract (-xpac)': lambda: httpx.get(
                 'https://api.openalex.org/works',
                 params={
-                    'filter': f'title_and_abstract.search:{query_api}',
+                    'filter': f'title_and_abstract.search:{query_api}',  # noqa: B023
                     'select': 'id',
                     'per-page': 1,
                     'include_xpac': False,
@@ -73,7 +73,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
             'title_abstract (+xpac)': lambda: httpx.get(
                 'https://api.openalex.org/works',
                 params={
-                    'filter': f'title_and_abstract.search:{query_api}',
+                    'filter': f'title_and_abstract.search:{query_api}',  # noqa: B023
                     'select': 'id',
                     'per-page': 1,
                     'include_xpac': True,
@@ -84,7 +84,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
             'search (+xpac)': lambda: httpx.get(
                 'https://api.openalex.org/works',
                 params={
-                    'search': query_api,
+                    'search': query_api,  # noqa: B023
                     'select': 'id',
                     'per-page': 1,
                     'include_xpac': True,
@@ -95,7 +95,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
             'search.exact (+xpac)': lambda: httpx.get(
                 'https://api.openalex.org/works',
                 params={
-                    'search.exact': query_api,
+                    'search.exact': query_api,  # noqa: B023
                     'select': 'id',
                     'per-page': 1,
                     'include_xpac': True,
@@ -111,7 +111,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
                 page.raise_for_status()
                 res = page.json()
                 print(f'  -> {kq}: {res["meta"]["count"]:,}')
-            except HTTPStatusError as e:
+            except HTTPStatusError:
                 print(f'  -> {kq}: -ERROR-  -> {ws.sub(" ", page.text)}')
 
         #

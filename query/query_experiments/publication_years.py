@@ -1,11 +1,8 @@
 import logging
 import re
-import time
-from itertools import chain, zip_longest
 import httpx
-import pandas as pd
 from nacsos_data.util.conf import load_settings
-from query_revisions.query_20260408 import CLIMATE, HEALTH, ADAPTATION, MERGED
+from query_revisions.query_20260408 import MERGED
 
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(name)s (%(process)d): %(message)s', level='INFO')
 logging.getLogger('matplotlib').setLevel(logging.WARNING)
@@ -32,7 +29,7 @@ def count(q: str, filters: list[str]) -> str:
             },
             timeout=120,
         ).json()
-        return res["response"]["numFound"]
+        return res['response']['numFound']
     except KeyError:
         return res['error']['msg']
 

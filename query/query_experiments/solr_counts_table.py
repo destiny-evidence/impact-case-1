@@ -31,7 +31,7 @@ def count(q: str, filters: list[str]) -> str:
             },
             timeout=120,
         ).json()
-        return res["response"]["numFound"]
+        return res['response']['numFound']
     except KeyError:
         return res['error']['msg']
 
@@ -44,7 +44,7 @@ for group, (name, query) in chain(
     zip_longest([], MERGED.items(), fillvalue='MERGED'),
 ):
     counts[(group, name)] = {}
-    for (selection, fqs) in [
+    for selection, fqs in [
         ('Count (#nofilter)', []),
         ('Count (w/ abstract)', ['abstract:*']),
         ('Count (excl xpac)', ['is_xpac:false']),
