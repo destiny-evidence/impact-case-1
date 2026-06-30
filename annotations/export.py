@@ -115,7 +115,7 @@ def main(
                     'keywords',
                     'authors',
                     'meta',
-                ]
+                ],
             ).astype(
                 {
                     'publication_year': 'Int32',
@@ -124,11 +124,11 @@ def main(
                     'reason|0': 'Int8',
                     'reason|1': 'Int8',
                     'reason|2': 'Int8',
-                }
+                },
             )
             data.to_csv(target_rows, index=False)
 
-            (
+            data = (
                 data[data['username'] == 'RESOLVED']
                 .drop(columns=['username', 'user_id'])
                 .merge(
@@ -138,7 +138,18 @@ def main(
                     suffixes=('_res', ''),
                     how='outer',
                 )
-            ).to_csv(target_trans, index=False)
+            )
+
+            print('unanimous:', ((data['incl|0'] == 0) | (data['incl|1'] == 0)).sum())
+            print('total:', data.shape)
+
+            print('Number of records per agreement overlap (not normalised)')
+            print(data.groupby('incl|1')['item_id'].count())
+
+            print('Number of inclusion labels (resolved) per agreement overlap (not normalised)')
+            print(data.groupby(['incl|1', 'incl|1_res'])['item_id'].count())
+
+            data.to_csv(target_trans, index=False)
 
             logger.info('Exporting wide-table format')
             base_cols, label_cols, data = await wide_export_table(
