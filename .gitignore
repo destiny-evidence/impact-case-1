@@ -7,5 +7,4 @@ data/
 .conf/
 *.env
 .venv/
-uv.lock
 Documents/
