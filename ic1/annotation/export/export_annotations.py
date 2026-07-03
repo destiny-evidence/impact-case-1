@@ -39,7 +39,7 @@ from frictionless import Package as FPackage, Resource as FResource, validate as
 
 from ic1.core.config import CONF_FILE
 from ic1.core.ids import INOUT_SCHEME_ID, TAXONOMY_SCHEME_ID, TAXONOMY_SCOPE_IDS, INOUT_SCOPE_IDS
-
+from ic1.annotation.scheme.import_taxonomy import MAPPING_JSON
 
 class TaskConfig(TypedDict):
     scheme_id: str
@@ -165,6 +165,22 @@ def write_datapackage(manifests: list[dict | None]) -> None:
             for field in d["schema"]["fields"]:
                 if field["name"] in field_lookup:
                     field.update(field_lookup[field['name']])
+
+            if m['task']=='taxonomy':
+                mapping: list[dict] = json.loads(MAPPING_JSON.read_text())
+                taxonomy_lookup = {
+                    concept['col_pipe']: concept
+                    for concept in mapping
+                }
+                for field in d["schema"]["fields"]:
+                    rec = taxonomy_lookup.get(field['name'])
+                    if rec:
+                        field['title'] = rec['pref_label']
+                        if rec['definition']:
+                            field['description'] = rec['definition']
+                        field['concept_id'] = rec['concept_id']
+                        field['concept_uri'] = rec['concept_uri']
+                        field['scheme_name'] = rec['scheme_name']
             d.update({
                 'scope_ids': m['scope_ids'],
                 'exported': m['created'],
