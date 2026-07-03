@@ -35,7 +35,7 @@ from nacsos_data.db.schemas.bot_annotations import BotAnnotationMetaData
 from nacsos_data.models.annotations import AnnotationSchemeLabel
 from nacsos_data.models.nql import FieldFilters
 from nacsos_data.util.annotations.export import LabelOptions, prepare_export_table
-from frictionless import Package as FPackage, Resource as FResource
+from frictionless import Package as FPackage, Resource as FResource, validate as f_validate
 
 from ic1.core.config import CONF_FILE
 from ic1.core.ids import INOUT_SCHEME_ID, TAXONOMY_SCHEME_ID, TAXONOMY_SCOPE_IDS, INOUT_SCOPE_IDS
@@ -70,12 +70,11 @@ SHAREABLE_FIELDS = [
     {'name': 'source', 'type':'string', 'description': 'Journal (or other publication venue)'}
 ]
 SHAREABLE_META = [f["name"] for f in SHAREABLE_FIELDS]
-FULL_FIELDS = SHAREABLE_FIELDS.extend([
+FULL_FIELDS = SHAREABLE_FIELDS + [
     {'name': 'text', 'type': 'string', 'description':'Abstract'},
     {'name': 'user_id', 'type': 'string', 'description': 'ID of user making annotation'}
-])
-FULL_META = SHAREABLE_META + ['text', 'user_id']
-
+]
+FULL_META = [f["name"] for f in FULL_FIELDS]
 # Rows with no annotator (NULL user_id) are relabelled to this (not a real coder).
 UNANNOTATED = '(unannotated)'
 
@@ -154,12 +153,18 @@ def write_datapackage(manifests: list[dict | None]) -> None:
     for m in valid:
         for (root, fields) in zip([SHAREABLE_ROOT, SENSITIVE_ROOT], [SHAREABLE_FIELDS, FULL_FIELDS], strict=True):
 
-            path = str(root / m['task'] / 'shareable.csv')
-            r = FResource(name=f'{m["task"]}-annotations', path=path)
+            path = str(root / f'{m["task"]}.csv')
+            name = f'{m["task"]}-annotations'
+            if root==SENSITIVE_ROOT:
+                name+="-private"
+            r = FResource(name=name, path=path)
+            r.infer()
             d = r.to_descriptor()
-            d['schema'] = {
-                'fields': fields
-            }
+            manual_fields = fields + m["label_field_metadata"]
+            field_lookup = {f['name']: f for f in manual_fields}
+            for field in d["schema"]["fields"]:
+                if field["name"] in field_lookup:
+                    field.update(field_lookup[field['name']])
             d.update({
                 'scope_ids': m['scope_ids'],
                 'exported': m['created'],
@@ -167,11 +172,42 @@ def write_datapackage(manifests: list[dict | None]) -> None:
                 'n_coders': m['n_coders'],
                 'n_label_columns': m['n_label_columns'],
             })
+            if root==SENSITIVE_ROOT:
+                d.update({"access": "restricted"})
             resource_descriptors.append(d)
     pkg = FPackage(name='impact-case-1-annotations').to_descriptor()
     pkg['resources'] = resource_descriptors
     DATAPACKAGE.write_text(json.dumps(pkg, indent=2), encoding='utf-8')
     print(f'[green]  wrote[/green] {DATAPACKAGE}')
+
+def label_field_metadata(labels: list[AnnotationSchemeLabel]) -> list[dict]:
+    meta = []
+    def walk(labs):
+        for lab in labs:
+            if lab.choices:
+                for choice in lab.choices:
+                    meta.append({
+                        'name': f'{lab.key}|{choice.value}',
+                        'title': f'{lab.name} - {choice.name}',
+                        'type': 'boolean',
+                        "trueValues": ["1", "1.0", "true", "True"],
+                        "falseValues": ["0", "0.0", "false", "False"],
+                        'description': choice.hint or lab.hint or '',
+                    })
+                    if choice.children:
+                        walk(choice.children)
+            elif lab.kind == 'bool':
+                for v, label_str in [(0, 'No'), (1, 'Yes')]:
+                    meta.append({
+                        'name': f'{lab.key}|{v}',
+                        'title': f'{lab.name} - {label_str}',
+                        'type': 'boolean',
+                        "trueValues": ["1", "1.0", "true", "True"],
+                        "falseValues": ["0", "0.0", "false", "False"],
+                        'description': lab.hint or '',
+                    })
+    walk(labels)
+    return meta
 
 async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -> dict | None:
     """Export one scheme into a versioned sensitive + shareable pair; return the manifest."""
@@ -239,21 +275,23 @@ async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -
         if c not in df.columns:
             df[c] = pd.NA
 
-    sensitive_dir = SENSITIVE_ROOT / task
-    shareable_dir = SHAREABLE_ROOT / task
-    sensitive_dir.mkdir(parents=True, exist_ok=True)
-    shareable_dir.mkdir(parents=True, exist_ok=True)
+    df = df.sort_values(['item_id','username']).reset_index(drop=True)
+
+    sensitive_path = SENSITIVE_ROOT / f'{task}.csv'
+    shareable_path = SHAREABLE_ROOT / f'{task}.csv'
+    SENSITIVE_ROOT.mkdir(parents=True, exist_ok=True)
+    SHAREABLE_ROOT.mkdir(parents=True, exist_ok=True)
 
     # --- sensitive tier: everything, real usernames + text/title ---
     full_cols = [c for c in FULL_META if c not in label_cols] + label_cols
-    df.reindex(columns=full_cols).to_csv(sensitive_dir / 'full.csv', index=False)
+    df.reindex(columns=full_cols).to_csv(sensitive_path, index=False)
 
     # --- shareable tier: obfuscated coders, no text/title ---
     pseudo = pseudonymise(df['username'].dropna().tolist() if 'username' in df.columns else [])
     shareable = df.copy()
     shareable['coder'] = shareable['username'].map(lambda u: pseudo.get(u, u)) if 'username' in shareable else UNANNOTATED
     share_cols = [c for c in SHAREABLE_META if c in shareable.columns] + ['coder'] + label_cols
-    shareable.reindex(columns=share_cols).to_csv(shareable_dir / 'shareable.csv', index=False)
+    shareable.reindex(columns=share_cols).to_csv(shareable_path, index=False)
 
     # --- provenance manifest (committed; non-sensitive) ---
     n_coders = sum(1 for u in (pseudo) if u not in {UNANNOTATED, 'RESOLVED'})
@@ -268,10 +306,11 @@ async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -
         'n_items': int(df['item_id'].nunique()) if 'item_id' in df.columns else 0,
         'n_coders': n_coders,
         'n_label_columns': len(label_cols),
+        'label_field_metadata': label_field_metadata(labels)
     }
 
     print(
-        f'[green]  wrote[/green] {sensitive_dir}/full.csv + {shareable_dir}/shareable.csv  '
+        f'[green]  wrote[/green] {sensitive_path} + {shareable_path}  '
         f'({manifest["n_rows"]} rows, {manifest["n_items"]} items, {n_coders} coders)'
     )
     return manifest
@@ -281,6 +320,12 @@ async def _run(tasks: dict[str, TaskConfig], show_scopes) -> None:
     results = await asyncio.gather(*[export_scheme(t, conf, show_scopes=show_scopes) for t, conf in tasks.items()])
     if not show_scopes:
         write_datapackage(list(results))
+        report = f_validate(str(DATAPACKAGE))
+        if report.valid:
+            print('[green]datapackage valid[/green]')
+        else:
+            for err in report.flatten(['message']):
+                print(f'[yellow]validation warning:[/yellow] {err[0]}')
 
 
 def main(
