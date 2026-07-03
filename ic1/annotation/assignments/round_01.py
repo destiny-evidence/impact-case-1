@@ -11,7 +11,7 @@ from nacsos_data.models.annotations import AssignmentConfigRandom
 from nacsos_data.models.nql import AssignmentFilter, SubQuery
 from nacsos_data.util.annotations.assignments import get_db_sample, distribute_assignments
 from nacsos_data.util.conf import load_settings
-from ic1.core.ids import PROJECT_ID
+from ic1.core.ids import PROJECT_ID, INOUT_SCHEME_ID
 
 ANNOTATOR_GROUPS = {
     'Group 01 (EM,IK,NS)': [
@@ -39,7 +39,7 @@ ANNOTATOR_GROUPS = {
         '07646efa-1312-4ea8-ba31-00aa5628c2d6',  # jayshrita.bhagabati
         'b4c20ee5-e415-4ac8-8e9d-77770311e38c',  # max.callaghan
         '6edee3b7-f0ac-4b3b-9ad2-ef9c162a4399',  # promise.nduku
-    ]
+    ],
     # Fallback
     # 'fc6127d9-e07c-4e70-97c2-f279899e689f',  # maria-inti.metzendorf
     # '34536463-6250-43f4-8318-2595c273fa7e',  # andres.mena
@@ -49,7 +49,7 @@ ANNOTATOR_GROUPS = {
 def main(
     config: Annotated[Path, typer.Option(help='Path to config file')],
     project_id: Annotated[str, typer.Option(help='project uuid')] = PROJECT_ID,
-    scheme_id: Annotated[str, typer.Option(help='Annotation scheme ID')] = '0689d927-f78d-46aa-bbcf-190ce156f707',
+    scheme_id: Annotated[str, typer.Option(help='Annotation scheme ID')] = INOUT_SCHEME_ID,
     batch_size: Annotated[int, typer.Option(help='Batch size for processing')] = 200,
     num_batches: Annotated[int, typer.Option(help='Number of batches')] = 5,
     batch_offset: Annotated[int, typer.Option(help='Number of first batch')] = 1,
@@ -74,10 +74,10 @@ def main(
                 for batch in range(batch_offset, num_batches + batch_offset):
                     logger.info(f'Preparing batch {batch}/{num_batches} for {group}')
                     setup = AssignmentConfigRandom(
-                        users={user: batch_size for user in users},
+                        users=dict.fromkeys(users, batch_size),
                         overlaps={len(users): batch_size},
                         random_seed=random_seed,
-                        nql='NOT IS ASSIGNED WITH 0689d927-f78d-46aa-bbcf-190ce156f707',
+                        nql=f'NOT IS ASSIGNED WITH {scheme_id}',
                         nql_parsed=SubQuery(not_=AssignmentFilter(scheme=scheme_id, mode=6)),
                     )
 
@@ -87,7 +87,7 @@ def main(
                         annotation_scheme_id=scheme_id,
                         name=f'Round 01 | {group} | Batch {batch}/{num_batches}',
                         description=f'Initial round of assignments for {group}, batch {batch:02d}/{num_batches:02d}\n'
-                                    f'Data was sampled from backfilled random sample of OpenAlex.',
+                        f'Data was sampled from backfilled random sample of OpenAlex.',
                         config=setup.model_dump(),
                     )
                     session.add(scope)
@@ -111,7 +111,7 @@ def main(
                     await session.flush()
                     first = False
 
-            logger.info(f'Final commit')
+            logger.info('Final commit')
             await session.commit()
 
     asyncio.run(_main())

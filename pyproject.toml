@@ -8,6 +8,9 @@ dependencies = [
     "nacsos_data[utils,scripts]",
     "lark==1.3.1",
     "rdflib>=7.6.0",
+    "dvc>=3.67.1",
+    "dvc-ssh>=4.3.0",
+    "frictionless[pandas]>=5.19.0",
 ]
 
 [tool.uv.sources]
