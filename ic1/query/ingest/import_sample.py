@@ -3,6 +3,7 @@
 This assumes, that you already constructed a list of (random) OpenAlex IDs and stored them in a file (one ID per line, no URL prefix).
 For example, this might be the case when running the nacsos-academic-search backfilling pipeline.
 """
+
 import logging
 from itertools import batched
 from pathlib import Path
@@ -61,7 +62,7 @@ def main(
             for item in api.fetch_translated(
                 query=query,
                 project_id=project_id,
-                params={'fq': [f'id: ({' '.join(batch_ids)})'] + filters},
+                params={'fq': [f'id: ({" ".join(batch_ids)})'] + filters},
             ):
                 f_target.write(item.model_dump_json() + '\n')
                 n_found += 1

@@ -3,6 +3,7 @@
 This repeatedly draws random samples from solr until a target size is reached (unique on OpenAlex ID).
 Optionally, you can specify a project so that already existing records are excluded from this sample.
 """
+
 import logging
 from pathlib import Path
 from typing import Annotated
@@ -56,7 +57,9 @@ def main(
                 session.execute(
                     sa.text('SELECT openalex_id FROM academic_item WHERE project_id = :project_id AND openalex_id IS NOT NULL;'),
                     params={'project_id': project_id},
-                ).scalars().all(),
+                )
+                .scalars()
+                .all(),
             )
         logger.info(f'Found {len(known_ids)} IDs in project')
 
@@ -68,7 +71,7 @@ def main(
             for item in api.fetch_translated(
                 query=query,
                 project_id=project_id,
-                params={'fq': ['is_xpac:false'], 'rows': batch_size, 'sort': f'random_{random_seed+it} asc', 'cursorMark': None},
+                params={'fq': ['is_xpac:false'], 'rows': batch_size, 'sort': f'random_{random_seed + it} asc', 'cursorMark': None},
             ):
                 n_sampled += 1
                 if item.openalex_id in known_ids:
@@ -85,6 +88,7 @@ def main(
 
             if n_total >= target_size:
                 break
+
 
 if __name__ == '__main__':
     typer.run(main)

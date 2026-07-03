@@ -1059,8 +1059,10 @@ ADAPTATION = {
     """,
 }
 
-def join_parts(subqueries: list[str], join:str) -> str:
+
+def join_parts(subqueries: list[str], join: str) -> str:
     return join.join([f'({sub})' for sub in subqueries])
+
 
 expansions = {
     # 'acciden': [],
@@ -1072,6 +1074,7 @@ MERGED = {
 }
 MERGED['(CLIMATE AND HEALTH) OR ADAPTATION'] = f'(({MERGED["CLIMATE"]}) AND ({MERGED["HEALTH"]})) OR {MERGED["ADAPTATION"]}'
 
-if __name__=='__main__':
+if __name__ == '__main__':
     import re
+
     print(re.sub(r'\s+', ' ', MERGED['(CLIMATE AND HEALTH) OR ADAPTATION']))

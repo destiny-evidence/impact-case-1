@@ -112,7 +112,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
                 page.raise_for_status()
                 res = page.json()
                 print(f'  -> {kq}: {res["meta"]["count"]:,}')
-            except HTTPStatusError as e:
+            except HTTPStatusError:
                 print(f'  -> {kq}: -ERROR-  -> {ws.sub(" ", page.text)}')
 
         #

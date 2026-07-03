@@ -1,7 +1,7 @@
 .idea/
 __pycache__
 build/
-data/
+data/private/
 *.egg-info
 .mypy_cache/
 .conf/
