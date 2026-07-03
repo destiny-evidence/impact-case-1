@@ -1,0 +1,5 @@
+[core]
+    remote = origin
+    analytics = false
+['remote "origin"']
+    url = ssh://ts01.pik-potsdam.de/data/rd5/ecs/DVC/impact-case-1
