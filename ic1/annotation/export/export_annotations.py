@@ -56,19 +56,24 @@ SHAREABLE_ROOT = Path('data/exports')  # git-tracked; Frictionless-described
 PSEUDONYM_MAP = Path('.conf/coder_pseudonyms.json')  # gitignored; sensitive, stable
 
 # Non-sensitive item metadata kept in the shareable tier (NEVER text/title/authors/abstract).
-SHAREABLE_META = [
-    'item_id',
-    'title',
-    'doi',
-    'wos_id',
-    'scopus_id',
-    'openalex_id',
-    's2_id',
-    'pubmed_id',
-    'dimensions_id',
-    'publication_year',
-    'source',
+SHAREABLE_FIELDS = [
+    {'name': 'item_id', 'type':'string', 'description': 'NACSOS item id (UUID) of item being annotated'},
+    {'name': 'title', 'type':'string', 'description': 'Title of the record'},
+    {'name': 'doi', 'type':'string', 'description': 'DOI (if known/present)'},
+    {'name': 'wos_id', 'type':'string', 'description': 'Web of Science ID (if known/present)'},
+    {'name': 'scopus_id', 'type':'string', 'description': 'Scopus ID (if known/present)'},
+    {'name': 'openalex_id', 'type':'string', 'description': 'Openalex ID (if known/present)'},
+    {'name': 's2_id', 'type':'string', 'description': 'SemanticScholar ID (if known/present)'},
+    {'name': 'pubmed_id', 'type':'string', 'description': 'PubMed ID (if known/present)'},
+    {'name': 'dimensions_id}', 'type':'string', 'description': 'Dimensions ID (if known/present)'},
+    {'name': 'publication_year', 'type':'string', 'description': 'Publication year'},
+    {'name': 'source', 'type':'string', 'description': 'Journal (or other publication venue)'}
 ]
+SHAREABLE_META = [f["name"] for f in SHAREABLE_FIELDS]
+FULL_FIELDS = SHAREABLE_FIELDS.extend([
+    {'name': 'text', 'type': 'string', 'description':'Abstract'},
+    {'name': 'user_id', 'type': 'string', 'description': 'ID of user making annotation'}
+])
 FULL_META = SHAREABLE_META + ['text', 'user_id']
 
 # Rows with no annotator (NULL user_id) are relabelled to this (not a real coder).
@@ -147,18 +152,22 @@ def write_datapackage(manifests: list[dict | None]) -> None:
         return
     resource_descriptors = []
     for m in valid:
-        path = str(SHAREABLE_ROOT / m['task'] / 'shareable.csv')
-        r = FResource(name=f'{m["task"]}-annotations', path=path)
-        r.infer()
-        d = r.to_descriptor()
-        d.update({
-            'scope_ids': m['scope_ids'],
-            'exported': m['created'],
-            'n_items': m['n_items'],
-            'n_coders': m['n_coders'],
-            'n_label_columns': m['n_label_columns'],
-        })
-        resource_descriptors.append(d)
+        for (root, fields) in zip([SHAREABLE_ROOT, SENSITIVE_ROOT], [SHAREABLE_FIELDS, FULL_FIELDS], strict=True):
+
+            path = str(root / m['task'] / 'shareable.csv')
+            r = FResource(name=f'{m["task"]}-annotations', path=path)
+            d = r.to_descriptor()
+            d['schema'] = {
+                'fields': fields
+            }
+            d.update({
+                'scope_ids': m['scope_ids'],
+                'exported': m['created'],
+                'n_items': m['n_items'],
+                'n_coders': m['n_coders'],
+                'n_label_columns': m['n_label_columns'],
+            })
+            resource_descriptors.append(d)
     pkg = FPackage(name='impact-case-1-annotations').to_descriptor()
     pkg['resources'] = resource_descriptors
     DATAPACKAGE.write_text(json.dumps(pkg, indent=2), encoding='utf-8')
