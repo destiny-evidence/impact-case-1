@@ -1,0 +1,6 @@
+outs:
+- md5: b76bcedbb9f45a67bf079d03e0527079.dir
+  size: 38708539
+  nfiles: 2
+  hash: md5
+  path: private
