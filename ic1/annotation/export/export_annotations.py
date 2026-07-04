@@ -7,20 +7,18 @@ and [[nacsos-choice-value-contiguous]]). Rows are long-format: one per (item, co
 
 Each run writes a *versioned snapshot* with two tiers (see ic1-export-splits-design):
 
-  * sensitive  -> data/exports/<task>/<version>/full.csv
+  * sensitive  -> data/exports/<task>.csv
       Full table incl. item text/title and REAL usernames. gitignored; DVC-tracked.
-  * shareable  -> data/exports/<task>/<version>/shareable.csv
+  * shareable  -> data/exports/<task>.csv
       Obfuscated: pseudonymous coders, keyed on item_id, label columns + non-sensitive
       metadata only (ids, publication_year, source); NO text/title. Publishable.
 
-A tiny, non-sensitive provenance manifest is committed to git per version under
-ic1/annotation/export/manifests/. The username->pseudonym map is stable across versions
-and stored in .conf/ (sensitive, gitignored).
+A datapackage.json is written using frictionless, with columns defined by annotation scheme info, or vocabulary, in the case of the taxonomy.
 """
 
 import asyncio
 import json
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Annotated, TypedDict
 
@@ -41,6 +39,7 @@ from ic1.core.config import CONF_FILE
 from ic1.core.ids import INOUT_SCHEME_ID, TAXONOMY_SCHEME_ID, TAXONOMY_SCOPE_IDS, INOUT_SCOPE_IDS
 from ic1.annotation.scheme.import_taxonomy import MAPPING_JSON
 
+
 class TaskConfig(TypedDict):
     scheme_id: str
     scope_ids: list[str]
@@ -57,24 +56,24 @@ PSEUDONYM_MAP = Path('.conf/coder_pseudonyms.json')  # gitignored; sensitive, st
 
 # Non-sensitive item metadata kept in the shareable tier (NEVER text/title/authors/abstract).
 SHAREABLE_FIELDS = [
-    {'name': 'item_id', 'type':'string', 'description': 'NACSOS item id (UUID) of item being annotated'},
-    {'name': 'title', 'type':'string', 'description': 'Title of the record'},
-    {'name': 'doi', 'type':'string', 'description': 'DOI (if known/present)'},
-    {'name': 'wos_id', 'type':'string', 'description': 'Web of Science ID (if known/present)'},
-    {'name': 'scopus_id', 'type':'string', 'description': 'Scopus ID (if known/present)'},
-    {'name': 'openalex_id', 'type':'string', 'description': 'Openalex ID (if known/present)'},
-    {'name': 's2_id', 'type':'string', 'description': 'SemanticScholar ID (if known/present)'},
-    {'name': 'pubmed_id', 'type':'string', 'description': 'PubMed ID (if known/present)'},
-    {'name': 'dimensions_id}', 'type':'string', 'description': 'Dimensions ID (if known/present)'},
-    {'name': 'publication_year', 'type':'string', 'description': 'Publication year'},
-    {'name': 'source', 'type':'string', 'description': 'Journal (or other publication venue)'}
+    {'name': 'item_id', 'type': 'string', 'description': 'NACSOS item id (UUID) of item being annotated'},
+    {'name': 'title', 'type': 'string', 'description': 'Title of the record'},
+    {'name': 'doi', 'type': 'string', 'description': 'DOI (if known/present)'},
+    {'name': 'wos_id', 'type': 'string', 'description': 'Web of Science ID (if known/present)'},
+    {'name': 'scopus_id', 'type': 'string', 'description': 'Scopus ID (if known/present)'},
+    {'name': 'openalex_id', 'type': 'string', 'description': 'Openalex ID (if known/present)'},
+    {'name': 's2_id', 'type': 'string', 'description': 'SemanticScholar ID (if known/present)'},
+    {'name': 'pubmed_id', 'type': 'string', 'description': 'PubMed ID (if known/present)'},
+    {'name': 'dimensions_id}', 'type': 'string', 'description': 'Dimensions ID (if known/present)'},
+    {'name': 'publication_year', 'type': 'string', 'description': 'Publication year'},
+    {'name': 'source', 'type': 'string', 'description': 'Journal (or other publication venue)'},
 ]
-SHAREABLE_META = [f["name"] for f in SHAREABLE_FIELDS]
+SHAREABLE_META = [f['name'] for f in SHAREABLE_FIELDS]
 FULL_FIELDS = SHAREABLE_FIELDS + [
-    {'name': 'text', 'type': 'string', 'description':'Abstract'},
-    {'name': 'user_id', 'type': 'string', 'description': 'ID of user making annotation'}
+    {'name': 'text', 'type': 'string', 'description': 'Abstract'},
+    {'name': 'user_id', 'type': 'string', 'description': 'ID of user making annotation'},
 ]
-FULL_META = [f["name"] for f in FULL_FIELDS]
+FULL_META = [f['name'] for f in FULL_FIELDS]
 # Rows with no annotator (NULL user_id) are relabelled to this (not a real coder).
 UNANNOTATED = '(unannotated)'
 
@@ -145,34 +144,31 @@ def pseudonymise(usernames: list[str]) -> dict[str, str]:
     # Sentinels map to themselves.
     return {**mapping, UNANNOTATED: UNANNOTATED, 'RESOLVED': 'RESOLVED'}
 
+
 def write_datapackage(manifests: list[dict | None]) -> None:
     valid = [m for m in manifests if m is not None]
     if not valid:
         return
     resource_descriptors = []
     for m in valid:
-        for (root, fields) in zip([SHAREABLE_ROOT, SENSITIVE_ROOT], [SHAREABLE_FIELDS, FULL_FIELDS], strict=True):
-
+        for root, fields in zip([SHAREABLE_ROOT, SENSITIVE_ROOT], [SHAREABLE_FIELDS, FULL_FIELDS], strict=True):
             path = str(root / f'{m["task"]}.csv')
             name = f'{m["task"]}-annotations'
-            if root==SENSITIVE_ROOT:
-                name+="-private"
+            if root == SENSITIVE_ROOT:
+                name += '-private'
             r = FResource(name=name, path=path)
             r.infer()
             d = r.to_descriptor()
-            manual_fields = fields + m["label_field_metadata"]
+            manual_fields = fields + m['label_field_metadata']
             field_lookup = {f['name']: f for f in manual_fields}
-            for field in d["schema"]["fields"]:
-                if field["name"] in field_lookup:
+            for field in d['schema']['fields']:
+                if field['name'] in field_lookup:
                     field.update(field_lookup[field['name']])
 
-            if m['task']=='taxonomy':
+            if m['task'] == 'taxonomy':
                 mapping: list[dict] = json.loads(MAPPING_JSON.read_text())
-                taxonomy_lookup = {
-                    concept['col_pipe']: concept
-                    for concept in mapping
-                }
-                for field in d["schema"]["fields"]:
+                taxonomy_lookup = {concept['col_pipe']: concept for concept in mapping}
+                for field in d['schema']['fields']:
                     rec = taxonomy_lookup.get(field['name'])
                     if rec:
                         field['title'] = rec['pref_label']
@@ -181,49 +177,59 @@ def write_datapackage(manifests: list[dict | None]) -> None:
                         field['concept_id'] = rec['concept_id']
                         field['concept_uri'] = rec['concept_uri']
                         field['scheme_name'] = rec['scheme_name']
-            d.update({
-                'scope_ids': m['scope_ids'],
-                'exported': m['created'],
-                'n_items': m['n_items'],
-                'n_coders': m['n_coders'],
-                'n_label_columns': m['n_label_columns'],
-            })
-            if root==SENSITIVE_ROOT:
-                d.update({"access": "restricted"})
+            d.update(
+                {
+                    'scope_ids': m['scope_ids'],
+                    'exported': m['created'],
+                    'n_items': m['n_items'],
+                    'n_coders': m['n_coders'],
+                    'n_label_columns': m['n_label_columns'],
+                }
+            )
+            if root == SENSITIVE_ROOT:
+                d.update({'access': 'restricted'})
             resource_descriptors.append(d)
     pkg = FPackage(name='impact-case-1-annotations').to_descriptor()
     pkg['resources'] = resource_descriptors
     DATAPACKAGE.write_text(json.dumps(pkg, indent=2), encoding='utf-8')
     print(f'[green]  wrote[/green] {DATAPACKAGE}')
 
+
 def label_field_metadata(labels: list[AnnotationSchemeLabel]) -> list[dict]:
     meta = []
+
     def walk(labs):
         for lab in labs:
             if lab.choices:
                 for choice in lab.choices:
-                    meta.append({
-                        'name': f'{lab.key}|{choice.value}',
-                        'title': f'{lab.name} - {choice.name}',
-                        'type': 'boolean',
-                        "trueValues": ["1", "1.0", "true", "True"],
-                        "falseValues": ["0", "0.0", "false", "False"],
-                        'description': choice.hint or lab.hint or '',
-                    })
+                    meta.append(
+                        {
+                            'name': f'{lab.key}|{choice.value}',
+                            'title': f'{lab.name} - {choice.name}',
+                            'type': 'boolean',
+                            'trueValues': ['1', '1.0', 'true', 'True'],
+                            'falseValues': ['0', '0.0', 'false', 'False'],
+                            'description': choice.hint or lab.hint or '',
+                        }
+                    )
                     if choice.children:
                         walk(choice.children)
             elif lab.kind == 'bool':
                 for v, label_str in [(0, 'No'), (1, 'Yes')]:
-                    meta.append({
-                        'name': f'{lab.key}|{v}',
-                        'title': f'{lab.name} - {label_str}',
-                        'type': 'boolean',
-                        "trueValues": ["1", "1.0", "true", "True"],
-                        "falseValues": ["0", "0.0", "false", "False"],
-                        'description': lab.hint or '',
-                    })
+                    meta.append(
+                        {
+                            'name': f'{lab.key}|{v}',
+                            'title': f'{lab.name} - {label_str}',
+                            'type': 'boolean',
+                            'trueValues': ['1', '1.0', 'true', 'True'],
+                            'falseValues': ['0', '0.0', 'false', 'False'],
+                            'description': lab.hint or '',
+                        }
+                    )
+
     walk(labels)
     return meta
+
 
 async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -> dict | None:
     """Export one scheme into a versioned sensitive + shareable pair; return the manifest."""
@@ -291,7 +297,7 @@ async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -
         if c not in df.columns:
             df[c] = pd.NA
 
-    df = df.sort_values(['item_id','username']).reset_index(drop=True)
+    df = df.sort_values(['item_id', 'username']).reset_index(drop=True)
 
     sensitive_path = SENSITIVE_ROOT / f'{task}.csv'
     shareable_path = SHAREABLE_ROOT / f'{task}.csv'
@@ -322,13 +328,10 @@ async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -
         'n_items': int(df['item_id'].nunique()) if 'item_id' in df.columns else 0,
         'n_coders': n_coders,
         'n_label_columns': len(label_cols),
-        'label_field_metadata': label_field_metadata(labels)
+        'label_field_metadata': label_field_metadata(labels),
     }
 
-    print(
-        f'[green]  wrote[/green] {sensitive_path} + {shareable_path}  '
-        f'({manifest["n_rows"]} rows, {manifest["n_items"]} items, {n_coders} coders)'
-    )
+    print(f'[green]  wrote[/green] {sensitive_path} + {shareable_path}  ({manifest["n_rows"]} rows, {manifest["n_items"]} items, {n_coders} coders)')
     return manifest
 
 
