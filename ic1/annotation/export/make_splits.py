@@ -24,10 +24,7 @@ import pandas as pd
 import typer
 from rich import print
 
-from ic1.annotation.export.export_annotations import TASKS
-
-EXPORT_ROOT = Path('data/exports')
-DATASETS_DIR = Path('ic1/annotation/datasets')
+from ic1.core.config import TASKS, SHAREABLE_ROOT, DATASETS_DIR
 
 # PROVISIONAL split fractions (insertion order defines the cumulative boundaries; must sum
 # to ~1.0). The final ratios / phased (wave) strategy are tied to issues #1 and #5 and
@@ -55,8 +52,8 @@ def assign_split(u: float, fractions: dict[str, float]) -> str:
 def exported_item_ids(task: str) -> set[str]:
     """Union of item_ids across every exported version for this task."""
     ids: set[str] = set()
-    for f in sorted((EXPORT_ROOT / task).glob('*/shareable.csv')):
-        ids |= set(pd.read_csv(f, usecols=['item_id'])['item_id'].astype(str))
+    f = SHAREABLE_ROOT / f'{task}.csv'
+    ids = set(pd.read_csv(f, usecols=['item_id'])['item_id'].astype(str))
     return ids
 
 

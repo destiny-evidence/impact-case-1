@@ -35,24 +35,18 @@ from nacsos_data.models.nql import FieldFilters
 from nacsos_data.util.annotations.export import LabelOptions, prepare_export_table
 from frictionless import Package as FPackage, Resource as FResource, validate as f_validate
 
-from ic1.core.config import CONF_FILE
-from ic1.core.ids import INOUT_SCHEME_ID, TAXONOMY_SCHEME_ID, TAXONOMY_SCOPE_IDS, INOUT_SCOPE_IDS
+from ic1.core.config import (
+    CONF_FILE,
+    DATAPACKAGE,
+    PSEUDONYM_MAP,
+    SENSITIVE_ROOT,
+    SHAREABLE_ROOT,
+    TASKS
+)
 from ic1.annotation.scheme.import_taxonomy import MAPPING_JSON
+from ic1.annotation.export.make_splits import make_splits
 
 
-class TaskConfig(TypedDict):
-    scheme_id: str
-    scope_ids: list[str]
-
-
-TASKS: dict[str, TaskConfig] = {
-    'inout': {'scheme_id': INOUT_SCHEME_ID, 'scope_ids': INOUT_SCOPE_IDS},
-    'taxonomy': {'scheme_id': TAXONOMY_SCHEME_ID, 'scope_ids': TAXONOMY_SCOPE_IDS},
-}
-
-SENSITIVE_ROOT = Path('data/private/exports')  # gitignored; never committed
-SHAREABLE_ROOT = Path('data/exports')  # git-tracked; Frictionless-described
-PSEUDONYM_MAP = Path('.conf/coder_pseudonyms.json')  # gitignored; sensitive, stable
 
 # Non-sensitive item metadata kept in the shareable tier (NEVER text/title/authors/abstract).
 SHAREABLE_FIELDS = [
@@ -77,7 +71,6 @@ FULL_META = [f['name'] for f in FULL_FIELDS]
 # Rows with no annotator (NULL user_id) are relabelled to this (not a real coder).
 UNANNOTATED = '(unannotated)'
 
-DATAPACKAGE = Path('datapackage.json')
 
 
 def collect_label_options(labels: list[AnnotationSchemeLabel]) -> list[LabelOptions]:
