@@ -19,8 +19,7 @@ A datapackage.json is written using frictionless, with columns defined by annota
 import asyncio
 import json
 from datetime import datetime, timezone
-from pathlib import Path
-from typing import Annotated, TypedDict
+from typing import Annotated
 
 import pandas as pd
 import sqlalchemy as sa
@@ -41,10 +40,11 @@ from ic1.core.config import (
     PSEUDONYM_MAP,
     SENSITIVE_ROOT,
     SHAREABLE_ROOT,
-    TASKS
+    TASKS,
+    TaskName,
+    TaskConfig
 )
 from ic1.annotation.scheme.import_taxonomy import MAPPING_JSON
-from ic1.annotation.export.make_splits import make_splits
 
 
 
@@ -230,7 +230,7 @@ async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -
 
     async with db_engine.session() as session:
         scheme = (
-            await session.execute(sa.select(AnnotationScheme).where(AnnotationScheme.annotation_scheme_id == task_config['scheme_id']))
+            await session.execute(sa.select(AnnotationScheme).where(AnnotationScheme.annotation_scheme_id == task_config.scheme_id))
         ).scalar_one_or_none()
         if scheme is None:
             print(f'[red]No annotation scheme with id={task_config["scheme_id"]!r} ({task}); skipping.[/red]')
@@ -241,7 +241,7 @@ async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -
         scope_ids = [
             str(s)
             for s in (
-                await session.execute(sa.select(AssignmentScope.assignment_scope_id).where(AssignmentScope.annotation_scheme_id == task_config['scheme_id']))
+                await session.execute(sa.select(AssignmentScope.assignment_scope_id).where(AssignmentScope.annotation_scheme_id == task_config.scheme_id))
             )
             .scalars()
             .all()
@@ -251,7 +251,7 @@ async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -
             print(scope_ids)
             return
         else:
-            scope_ids = task_config['scope_ids']
+            scope_ids = task_config.scope_ids
         assigned_item_ids = [
             str(i)
             for i in (await session.execute(sa.select(Assignment.item_id).distinct().where(Assignment.assignment_scope_id.in_(scope_ids)))).scalars().all()
@@ -292,27 +292,25 @@ async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -
 
     df = df.sort_values(['item_id', 'username']).reset_index(drop=True)
 
-    sensitive_path = SENSITIVE_ROOT / f'{task}.csv'
-    shareable_path = SHAREABLE_ROOT / f'{task}.csv'
-    SENSITIVE_ROOT.mkdir(parents=True, exist_ok=True)
-    SHAREABLE_ROOT.mkdir(parents=True, exist_ok=True)
+    task_config.sensitive_path.parent.mkdir(parents=True, exist_ok=True)
+    task_config.shareable_path.parent.mkdir(parents=True, exist_ok=True)
 
     # --- sensitive tier: everything, real usernames + text/title ---
     full_cols = [c for c in FULL_META if c not in label_cols] + label_cols
-    df.reindex(columns=full_cols).to_csv(sensitive_path, index=False)
+    df.reindex(columns=full_cols).to_csv(task_config.sensitive_path, index=False)
 
     # --- shareable tier: obfuscated coders, no text/title ---
     pseudo = pseudonymise(df['username'].dropna().tolist() if 'username' in df.columns else [])
     shareable = df.copy()
     shareable['coder'] = shareable['username'].map(lambda u: pseudo.get(u, u)) if 'username' in shareable else UNANNOTATED
     share_cols = [c for c in SHAREABLE_META if c in shareable.columns] + ['coder'] + label_cols
-    shareable.reindex(columns=share_cols).to_csv(shareable_path, index=False)
+    shareable.reindex(columns=share_cols).to_csv(task_config.shareable_path, index=False)
 
     # --- provenance manifest (committed; non-sensitive) ---
     n_coders = sum(1 for u in (pseudo) if u not in {UNANNOTATED, 'RESOLVED'})
     manifest = {
         'task': task,
-        'scheme_id': task_config['scheme_id'],
+        'scheme_id': task_config.scheme_id,
         'scheme_name': scheme.name,
         'project_id': project_id,
         'created': datetime.now(timezone.utc).isoformat(),
@@ -324,7 +322,7 @@ async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -
         'label_field_metadata': label_field_metadata(labels),
     }
 
-    print(f'[green]  wrote[/green] {sensitive_path} + {shareable_path}  ({manifest["n_rows"]} rows, {manifest["n_items"]} items, {n_coders} coders)')
+    print(f'[green]  wrote[/green] {task_config.sensitive_path} + {task_config.shareable_path}  ({manifest["n_rows"]} rows, {manifest["n_items"]} items, {n_coders} coders)')
     return manifest
 
 
@@ -341,16 +339,14 @@ async def _run(tasks: dict[str, TaskConfig], show_scopes) -> None:
 
 
 def main(
-    task: Annotated[str, typer.Option(help="'inout', 'taxonomy', or 'all'")] = 'all',
+    task: Annotated[TaskName, typer.Option(help="The annotation task task to be exported")] = TaskName.ALL,
     show_scopes: Annotated[bool, typer.Option(help='show scopes and exit')] = False,
 ) -> None:
 
     if task == 'all':
         selected = TASKS
-    elif task in TASKS:
-        selected = {task: TASKS[task]}
     else:
-        raise typer.BadParameter(f'task must be one of {list(TASKS) + ["all"]}')
+        selected = {task.value: TASKS[task.value]}
     asyncio.run(_run(selected, show_scopes=show_scopes))
 
 
