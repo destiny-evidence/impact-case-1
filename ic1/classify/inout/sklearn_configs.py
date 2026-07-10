@@ -40,7 +40,7 @@ class SklearnClassifier(BaseClassifier):
         for combination in product(*values):
             params = dict(zip(param_keys, combination, strict=True))
             self.pipeline.set_params(**params)
-            self.pipeline.fit(x_train, y_train)
+            self.fit(x_train, y_train)
             val_proba = self.pipeline.predict_proba(x_val)[:, 1]
             for threshold in self.thresholds:
                 metrics = score(y_val, val_proba, threshold)

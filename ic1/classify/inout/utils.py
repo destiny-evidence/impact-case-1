@@ -50,22 +50,23 @@ def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
         print('[yellow bold]DEV MODE[/yellow bold]: val/test borrowed from train')
         ids = sorted(train_df['item_id'].tolist(), key=lambda x: uniform(x, 'dev_split'))
         n = len(ids)
-        n_val = int(n * 0.1)
-        n_test = int(n * 0.1)
-        n_train = int(n * 0.1)
+        n_val = int(n * 0.15)
+        n_test = int(n * 0.15)
+        n_train = int(n * 0.7)
         val_ids  = set(ids[:n_val])
         test_ids = set(ids[n_val : n_val + n_test])
-        train_ids = set(ids[n_test: n_test + n_train])
+        train_ids = set(ids[n_val + n_test: n_val+n_test+n_train])
         val_df   = train_df[train_df['item_id'].isin(val_ids)].reset_index(drop=True)
         test_df  = train_df[train_df['item_id'].isin(test_ids)].reset_index(drop=True)
         train_df = train_df[train_df['item_id'].isin(train_ids)].reset_index(drop=True)
 
+
     print(
-        f'train_df: {train_df.shape}\n'
-        f'val_df: {val_df.shape}\n'
-        f'test_df: {test_df.shape}'
+        f'train_df: {train_df.shape} - {train_df['label'].sum()/train_df.shape[0]} relevant\n'
+        f'val_df: {val_df.shape} - {val_df['label'].sum()/val_df.shape[0]} relevant\n'
+        f'test_df: {test_df.shape} - {test_df['label'].sum()/test_df.shape[0]} relevant'
     )
 
-    return train_df, val_df, test_df
+    print(train_df['label'].sum()/train_df.shape[0])
 
     return train_df, val_df, test_df
