@@ -52,6 +52,16 @@ class TaskConfig:
     def splits_path(self) -> Path:
         return Path('ic1/evaluation_splits') / f'{self.name}_splits.json'
 
+    @property
+    def classifier_results_path(self) -> Path:
+        """The place where classifier results are stored."""
+        return Path('ic1/classify') / self.name / 'results'
+
+    @property
+    def ml_model_runs_path(self) -> Path:
+        """Path to a file containing model run results."""
+        return self.classifier_results_path / 'model_runs.jsonl'
+
 
 TASKS: dict[str, TaskConfig] = {
     'inout': TaskConfig(

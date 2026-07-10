@@ -2,6 +2,7 @@
 
 from pydantic import BaseModel, Field
 from datetime import datetime, timezone
+from pathlib import Path
 
 from ic1.core.config import TaskName
 
@@ -12,6 +13,10 @@ class EvaluationSplits(BaseModel):
     train: list[str] = []
     validation: list[str] = []
     test: list[str] = []
+
+    @classmethod
+    def load(cls, path: Path) -> 'EvaluationSplits':
+        return cls.model_validate_json(path.read_text())
 
     def add_items(
         self,

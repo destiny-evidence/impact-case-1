@@ -22,7 +22,7 @@ def main(
             for document in deet_project.process_data().documents
         }
 
-        splits = EvaluationSplits.model_validate_json(task_config.splits_path.read_text())
+        splits = EvaluationSplits.load(task_config.splits_path)
         validation_ids = [
             internal_external_id_map[iid]
             for iid in deet_splits.development_ids + deet_splits.validation_ids

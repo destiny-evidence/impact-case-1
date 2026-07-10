@@ -26,6 +26,7 @@ data-extraction-evaluation-toolkit = { git = "https://github.com/destiny-evidenc
 
 [dependency-groups]
 dev = [
+    "mypy>=2.2.0",
     "ruff>=0.15.20",
 ]
 
@@ -33,7 +34,7 @@ dev = [
 line-length = 160
 indent-width = 4
 target-version = "py313"
-include = ["pyproject.toml", "query/**/*.py", "annotations/**/*.py", "taxonomy/**/*.py"]
+include = ["pyproject.toml", "ic1/**/*.py"]
 exclude = []
 
 [tool.ruff.lint]
@@ -86,7 +87,7 @@ plugins = ["pydantic.mypy", "sqlalchemy.ext.mypy.plugin"]
 strict = true
 follow_imports = "silent"
 
-files = ["server"]
+files = ["ic1/classify"]
 exclude = []
 
 check_untyped_defs = true

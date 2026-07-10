@@ -66,13 +66,7 @@ Writes `data/exports/inout.csv` (shareable) and `data/private/exports/inout.csv`
 
 This calls `ic1.annotation.export.resolve_annotations.resolve_annotations()`, but this can also be called as a separate script.
 
-### 3. Resolve annotations
-
-```bash
-python ic1/annotation/export/resolve_annotations.py --task inout
-```
-
-Filters the sensitive export to RESOLVED rows only → `data/private/exports/inout_resolved.csv`.
+Resolving filters the sensitive export to RESOLVED rows only → `data/private/exports/inout_resolved.csv`.
 
 ### 4. Create deet project
 

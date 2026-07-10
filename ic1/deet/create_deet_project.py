@@ -34,9 +34,9 @@ def main(
         train_ids = sorted_ids[DEET_N:]
 
         if task_config.splits_path.exists():
-            splits = EvaluationSplits.model_validate_json(task_config.splits_path.read_text())
+            splits = EvaluationSplits.load(task_config.splits_path)
         else:
-            splits = EvaluationSplits(task=task_config.name)
+            splits = EvaluationSplits(task=task_config.task)
 
         splits.add_items(deet_ids=deet_ids, train_ids=train_ids)
         task_config.splits_path.write_text(splits.model_dump_json(indent=2))
