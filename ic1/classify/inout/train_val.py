@@ -2,6 +2,7 @@
 
 import typer
 from ic1.classify.inout.sklearn_configs import CONFIGS as SKLEARN_CONFIGS
+from ic1.classify.inout.transformer_configs import CONFIGS as TRANSFORMER_CONFIGS
 from ic1.classify.inout.utils import load_data
 from ic1.classify.base import ModelRun
 from ic1.core.config import TASKS, TaskName
@@ -9,7 +10,7 @@ from rich import print
 
 INOUT = TASKS[TaskName.INOUT]
 
-ALL_CONFIGS = SKLEARN_CONFIGS
+ALL_CONFIGS = SKLEARN_CONFIGS + TRANSFORMER_CONFIGS
 
 def append_run(run: ModelRun) -> None:
     INOUT.classifier_results_path.mkdir(parents=True, exist_ok=True)

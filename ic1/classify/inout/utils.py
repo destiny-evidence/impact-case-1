@@ -2,17 +2,24 @@
 
 from ic1.core.config import TASKS, TaskName
 from ic1.evaluation_splits.splits_model import EvaluationSplits
-from ic1.classify.inout.sklearn_configs import CONFIGS as SKLEARN_CONFIGS
+from ic1.classify.inout.sklearn_configs import CONFIGS as SKLEARN_CONFIGS, SklearnClassifier
+from ic1.classify.inout.transformer_configs import CONFIGS as TRANSFORMER_CONFIGS
 from ic1.classify.base import ModelRun, BaseClassifier
 import pandas as pd
 
+CONFIGS = SKLEARN_CONFIGS + TRANSFORMER_CONFIGS
 
-REGISTRY = {clf.name: clf for clf in SKLEARN_CONFIGS}
+
+REGISTRY = {clf.name: clf for clf in CONFIGS}
 INOUT = TASKS[TaskName.INOUT]
 
 def get_classifier(run: ModelRun) -> BaseClassifier:
     clf = REGISTRY[run.model]
-    clf.pipeline.set_params(**run.config)
+    if isinstance(clf, SklearnClassifier):
+        clf.pipeline.set_params(**run.config)
+    else:
+        # TODO: set parameters for TransformerClassifier
+        pass
     return clf
 
 def load_data() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
