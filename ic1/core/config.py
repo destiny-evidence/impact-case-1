@@ -73,6 +73,10 @@ CONF_FILE = '.conf/secret.env'
 DATAPACKAGE = Path('datapackage.json')
 
 DATASETS_DIR = Path('ic1/annotation/datasets')
+SCHEME_DIR = Path('ic1/annotation/scheme')
+VOCAB_FILE = str(SCHEME_DIR / 'destiny-1-2-destiny-taxonomy-v1-2-full.ttl')
+MAPPING_CSV = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.csv'
+MAPPING_JSON = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.json'
 SENSITIVE_ROOT = Path('data/private/exports')  # gitignored; never committed
 SHAREABLE_ROOT = Path('data/exports')  # git-tracked; Frictionless-described
 PSEUDONYM_MAP = Path('.conf/coder_pseudonyms.json')  # gitignored; sensitive, stable
