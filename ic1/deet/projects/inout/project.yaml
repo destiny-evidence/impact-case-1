@@ -1,0 +1,7 @@
+project:
+  created_at: '2026-07-10T15:06:40.317140Z'
+  evaluation_strategy: none
+  gold_standard_data_format: generic_csv
+  gold_standard_data_path: ../../../../data/private/exports/inout_deet.csv
+  name: IC1-inout
+  pdf_dir: null

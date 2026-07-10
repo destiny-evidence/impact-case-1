@@ -12,12 +12,14 @@ INOUT = TASKS[TaskName.INOUT]
 
 ALL_CONFIGS = SKLEARN_CONFIGS + TRANSFORMER_CONFIGS
 
-def append_run(run: ModelRun) -> None:
+def append_run(run: ModelRun, dev_mode: bool) -> None:
+    INOUT.dev_mode = dev_mode
     INOUT.classifier_results_path.mkdir(parents=True, exist_ok=True)
     with INOUT.ml_model_runs_path.open('a', encoding='utf-8') as f:
         f.write(run.model_dump_json() + '\n')
 
-def main() -> None:
+def main(dev_mode=True) -> None:
+
     train, val, _ = load_data()
     if val.empty:
         print('val split empty!')
@@ -31,7 +33,7 @@ def main() -> None:
             y_val = val['label'].tolist()
         )
         for model_run in model_runs:
-            append_run(model_run)
+            append_run(model_run, dev_mode=dev_mode)
 
 
 if __name__ == '__main__':

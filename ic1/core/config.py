@@ -11,7 +11,7 @@ from ic1.core.ids import (
     TAXONOMY_SCOPE_IDS
 )
 
-DEET_N = 100
+DEET_N = 1000
 
 class TaskName(str, Enum):
     INOUT = 'inout'
@@ -23,6 +23,8 @@ class TaskConfig:
     task: TaskName
     scheme_id: str
     scope_ids: list[str]
+
+    dev_mode: bool = False
 
     @property
     def name(self) -> str:
@@ -55,7 +57,10 @@ class TaskConfig:
     @property
     def classifier_results_path(self) -> Path:
         """The place where classifier results are stored."""
-        return Path('ic1/classify') / self.name / 'results'
+        if self.dev_mode:
+            return Path('ic1/classify/testing') / self.name / 'results'
+        else:
+            return Path('ic1/classify') / self.name / 'results'
 
     @property
     def ml_model_runs_path(self) -> Path:

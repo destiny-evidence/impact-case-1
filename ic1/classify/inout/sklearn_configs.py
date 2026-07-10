@@ -5,6 +5,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from itertools import product
 from typing import Any
 
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.svm import SVC
 from ic1.classify.base import BaseClassifier, ModelRun, score, hash_ids
 from numpy.typing import NDArray
@@ -73,15 +74,15 @@ CONFIGS: list[SklearnClassifier] = [
         pipeline=Pipeline(
             steps=[
                 ('vect', TfidfVectorizer()),
-                ('clf', SVC(probability=True, class_weight='balanced')),
+                ('clf', CalibratedClassifierCV(SVC(class_weight='balanced'), ensemble=False)),
             ]
         ),
         param_grid={
             'vect__max_df': (0.5, 0.8),
             'vect__min_df': (5, 15),
             'vect__ngram_range': ((1, 1), (1, 2)),
-            'clf__kernel': ['linear'],
-            'clf__C': [10, 1, 1e2, 1e3],
+            'clf__estimator__kernel': ['linear'],
+            'clf__estimator__C': [10, 1, 1e2, 1e3],
         },
     )
 ]

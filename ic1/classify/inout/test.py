@@ -25,8 +25,9 @@ def find_best_model(path: Path) -> ModelRun:
         raise FileNotFoundError(f'No runs found in {path} — run train_val.py first')
     return max(runs, key=selection_score)
 
-def main():
+def main(dev_mode: bool=True):
     """Find the best model."""
+    INOUT.dev_mode = dev_mode
     best_model = find_best_model(INOUT.ml_model_runs_path)
     clf = get_classifier(best_model)
     train, val, test = load_data()

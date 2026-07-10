@@ -9,6 +9,8 @@ import numpy as np
 import time
 from typing import Any
 from pathlib import Path
+import hashlib
+import json
 
 class ModelRun(BaseModel):
     model: str
