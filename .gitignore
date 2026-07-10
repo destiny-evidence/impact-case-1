@@ -9,3 +9,4 @@ data/private/
 .venv/
 uv.lock
 Documents/
+deet.log

@@ -11,12 +11,14 @@ dependencies = [
     "dvc>=3.67.1",
     "dvc-ssh>=4.3.0",
     "frictionless[pandas]>=5.19.0",
+    "data-extraction-evaluation-toolkit",
 ]
 
 [tool.uv.sources]
 nacsos_data = [
     { git = "git+ssh://git@gitlab.pik-potsdam.de/mcc-apsis/nacsos/nacsos-data.git", tag = "v0.24.43" },
 ]
+data-extraction-evaluation-toolkit = { git = "https://github.com/destiny-evidence/data-extraction-evaluation-toolkit.git", rev = "feature/%2317-train-test-splits" }
 #nacsos_data = { path = "../../nacsos_data", editable = true }
 #[build-system]
 #requires = ["uv-build>=0.9.10,<0.10.0"]

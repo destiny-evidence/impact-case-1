@@ -38,12 +38,11 @@ from ic1.core.config import (
     CONF_FILE,
     DATAPACKAGE,
     PSEUDONYM_MAP,
-    SENSITIVE_ROOT,
-    SHAREABLE_ROOT,
     TASKS,
     TaskName,
     TaskConfig
 )
+from ic1.annotation.export.resolve_annotations import resolve_annotations
 from ic1.annotation.scheme.import_taxonomy import MAPPING_JSON
 
 
@@ -66,6 +65,7 @@ SHAREABLE_META = [f['name'] for f in SHAREABLE_FIELDS]
 FULL_FIELDS = SHAREABLE_FIELDS + [
     {'name': 'text', 'type': 'string', 'description': 'Abstract'},
     {'name': 'user_id', 'type': 'string', 'description': 'ID of user making annotation'},
+    {'name': 'username', 'type': 'string', 'description': 'Username of user making annotation'},
 ]
 FULL_META = [f['name'] for f in FULL_FIELDS]
 # Rows with no annotator (NULL user_id) are relabelled to this (not a real coder).
@@ -144,11 +144,13 @@ def write_datapackage(manifests: list[dict | None]) -> None:
         return
     resource_descriptors = []
     for m in valid:
-        for root, fields in zip([SHAREABLE_ROOT, SENSITIVE_ROOT], [SHAREABLE_FIELDS, FULL_FIELDS], strict=True):
-            path = str(root / f'{m["task"]}.csv')
-            name = f'{m["task"]}-annotations'
-            if root == SENSITIVE_ROOT:
-                name += '-private'
+        tc = TASKS[m["task"]]
+        for path, fields, name_suffix, access in [
+            (str(tc.shareable_path), SHAREABLE_FIELDS, '', None),
+            (str(tc.sensitive_path), FULL_FIELDS, '-full', 'restricted'),
+            (str(tc.resolved_path), FULL_FIELDS, '-resolved', 'restricted'),
+        ]:
+            name = f'{m["task"]}-annotations{name_suffix}'
             r = FResource(name=name, path=path)
             r.infer()
             d = r.to_descriptor()
@@ -179,8 +181,8 @@ def write_datapackage(manifests: list[dict | None]) -> None:
                     'n_label_columns': m['n_label_columns'],
                 }
             )
-            if root == SENSITIVE_ROOT:
-                d.update({'access': 'restricted'})
+            if access:
+                d["access"] = access
             resource_descriptors.append(d)
     pkg = FPackage(name='impact-case-1-annotations').to_descriptor()
     pkg['resources'] = resource_descriptors
@@ -329,6 +331,8 @@ async def export_scheme(task: str, task_config: TaskConfig, show_scopes: bool) -
 async def _run(tasks: dict[str, TaskConfig], show_scopes) -> None:
     results = await asyncio.gather(*[export_scheme(t, conf, show_scopes=show_scopes) for t, conf in tasks.items()])
     if not show_scopes:
+        for task in tasks.values():
+            resolve_annotations(task)
         write_datapackage(list(results))
         report = f_validate(str(DATAPACKAGE))
         if report.valid:
@@ -343,7 +347,7 @@ def main(
     show_scopes: Annotated[bool, typer.Option(help='show scopes and exit')] = False,
 ) -> None:
 
-    if task == 'all':
+    if task == TaskName.ALL:
         selected = TASKS
     else:
         selected = {task.value: TASKS[task.value]}
