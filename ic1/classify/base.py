@@ -8,7 +8,7 @@ from numpy.typing import NDArray, ArrayLike
 import numpy as np
 import time
 from typing import Any
-import hashlib, json
+from pathlib import Path
 
 class ModelRun(BaseModel):
     model: str
@@ -21,6 +21,9 @@ class ModelRun(BaseModel):
     val_hash: str
     fit_time: float
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+class TestResult(ModelRun):
+    selected_run: ModelRun
 
 class BaseClassifier(ABC):
     name: str
@@ -47,11 +50,25 @@ class BaseClassifier(ABC):
     ) -> list[ModelRun]:
         """Try out a load of configs, and return a model run for each."""
 
-    @abstractmethod
-    def predict(self, x: list[str]) -> NDArray[np.int_]: ...
+    def predict(
+        self,
+        x: list[str],
+        threshold: float
+    ) -> NDArray[np.int_]:
+        """Return binary predictions given a threshold."""
+        return (np.asarray(self.predict_proba(x)) >= threshold).astype(int)
 
     @abstractmethod
     def predict_proba(self, x: list[str]) -> NDArray[np.float16]: ...
+
+    @abstractmethod
+    def save(self, path: Path) -> None:
+        """Persist model for re-use and deployment."""
+
+    @classmethod
+    @abstractmethod
+    def load(cls, path: Path) -> 'BaseClassifier':
+        """Load model saved by cls.save()"""
 
 def score(
     y_true: ArrayLike,

@@ -62,6 +62,19 @@ class TaskConfig:
         """Path to a file containing model run results."""
         return self.classifier_results_path / 'model_runs.jsonl'
 
+    @property
+    def ml_test_result_path(self) -> Path:
+        """Path to a file with test results."""
+        return self.classifier_results_path / "test.json"
+
+    @property
+    def ml_model_path(self) -> Path:
+        return self.classifier_results_path / 'model'
+
+    @property
+    def ml_model_predictions_path(self) -> Path:
+        return self.classifier_results_path / 'ml_predictions.csv'
+
 
 TASKS: dict[str, TaskConfig] = {
     'inout': TaskConfig(

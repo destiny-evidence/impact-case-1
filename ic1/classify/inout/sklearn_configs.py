@@ -9,6 +9,8 @@ from sklearn.svm import SVC
 from ic1.classify.base import BaseClassifier, ModelRun, score, hash_ids
 from numpy.typing import NDArray
 import numpy as np
+from pathlib import Path
+import joblib
 
 class SklearnClassifier(BaseClassifier):
     def __init__(self, name: str, pipeline: Pipeline, param_grid: dict[str, Any], thresholds: list[float] = []):
@@ -22,17 +24,13 @@ class SklearnClassifier(BaseClassifier):
     def _fit(self, x: list[str], y: list[int]) -> None:
         self.pipeline.fit(x, y)
 
-    def predict(self, x: list[str]) -> NDArray[np.int_]:
-        result = self.pipeline.predict(x)
-        assert isinstance(result, np.ndarray)
-        return result
-
     def predict_proba(self, x: list[str]) -> NDArray[np.float16]:
         result = self.pipeline.predict_proba(x)[:, 1]
         assert isinstance(result, np.ndarray)
         return result
 
     def tune(self, x_train: list[str], y_train: list[int], x_val: list[str], y_val: list[int]) -> list[ModelRun]:
+        """Run through all parameters and thresholds, saving results as ModelRuns."""
         param_keys = list(self.param_grid.keys())
         values = list(self.param_grid.values())
         runs: list[ModelRun] = []
@@ -58,6 +56,15 @@ class SklearnClassifier(BaseClassifier):
                 ))
 
         return runs
+
+    def save(self, path: Path) -> None:
+        """save model to disk"""
+        path.mkdir(parents=True, exist_ok=True)
+        joblib.dump(self, path / 'model.joblib')
+
+    @classmethod
+    def load(cls, path: Path) -> 'SklearnClassifier':
+        return joblib.load(path / 'model.joblib')
 
 
 CONFIGS: list[SklearnClassifier] = [
