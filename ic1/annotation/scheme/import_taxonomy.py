@@ -42,6 +42,8 @@ from nacsos_data.db.crud.annotations import upsert_annotation_scheme
 from ic1.core.ids import PROJECT_ID, TAXONOMY_SCHEME_ID
 from ic1.core.config import CONF_FILE, VOCAB_FILE, MAPPING_CSV, MAPPING_JSON
 
+import string
+
 # --- configuration -----------------------------------------------------------------
 
 # Set False to build + validate + write the mapping without touching the database.
@@ -78,7 +80,8 @@ class KeyRegistry:
         base_clean = clean
         counter = 1
         while clean in self.used_keys:
-            clean = f'{base_clean}_{counter}'
+            counter_letter = string.ascii_lowercase[counter - 1]
+            clean = f'{base_clean}_{counter_letter}'
             counter += 1
         self.used_keys.add(clean)
         return clean
@@ -148,7 +151,7 @@ def parse_vocabulary_to_nacsos(ttl_filepath: str, project_id: str, scheme_id: st
 
             sub_label_key = None
             if c['children']:
-                sub_label_key = registry.make_key(f'{c["code"].lower()}_sub')
+                sub_label_key = registry.make_key(f'{label_key}_sub')
                 child_label = AnnotationSchemeLabel(
                     name=f'{c["name"]} Category',
                     key=sub_label_key,

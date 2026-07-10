@@ -7,7 +7,7 @@ PROJECT_ID = 'db6ee519-afb5-4813-822b-bfbc7dfd2237'
 INOUT_SCHEME_ID = '0689d927-f78d-46aa-bbcf-190ce156f707'
 
 # The DESTINY taxonomy annotation scheme (see ic1/annotation/scheme/import_taxonomy.py).
-TAXONOMY_SCHEME_ID = '6a87c376-24c8-4a89-8154-efc70e619f8b'
+TAXONOMY_SCHEME_ID = '9d5d7fac-188c-4467-a1ad-021bebec69c1'
 
 INOUT_SCOPE_IDS = [
     '3690621f-f573-441d-b570-40ec9793873e',

@@ -97,7 +97,7 @@ DATAPACKAGE = Path('datapackage.json')
 
 DATASETS_DIR = Path('ic1/annotation/datasets')
 SCHEME_DIR = Path('ic1/annotation/scheme')
-VOCAB_FILE = str(SCHEME_DIR / 'destiny-1-2-destiny-taxonomy-v1-2-full.ttl')
+VOCAB_FILE = str(SCHEME_DIR / 'destiny-1-4-version-1-4-of-the-destiny-taxonomy.ttl')
 MAPPING_CSV = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.csv'
 MAPPING_JSON = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.json'
 SENSITIVE_ROOT = Path('data/private/exports')  # gitignored; never committed
