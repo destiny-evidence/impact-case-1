@@ -68,7 +68,7 @@ This calls `ic1.annotation.export.resolve_annotations.resolve_annotations()`, bu
 
 Resolving filters the sensitive export to RESOLVED rows only → `data/private/exports/inout_resolved.csv`.
 
-### 4. Create deet project
+### 3. Create deet project
 
 ```bash
 python ic1/deet/create_deet_project.py --task inout
@@ -78,15 +78,45 @@ Assigns 1000 docs to `deet` split (deterministic hash), remainder to `train`. Wr
 `ic1/evaluation_splits/inout_splits.json` and creates the deet project under
 `ic1/deet/projects/inout/`.
 
-### 4. Sync deet splits
+### 4. Run prompt development in deet
 
-*(Run after deet annotation is complete)*
+see deet [docs](https://destiny-evidence.github.io/data-extraction-evaluation-toolkit/development/).
+
+### 5. Sync deet splits
+
+*(Run after deet prompt development is complete)*
 
 ```bash
 python ic1/deet/sync_deet_splits.py --task inout
 ```
 
 Reads deet's output, promotes deet docs to `validation`/`test` in the splits JSON.
+
+### 5. Train and evaluate ML Classifier
+
+#### Tune hyperparameters
+
+A set of models and their parameter spaces are defined in `ic1.classify.inout.sklearn_configs.py` and `ic1.classify.inout.transformer_configs.py`)
+
+Tuning searches the parameter space (and within each parameter combination different thresholds for inclusion), and saves the performance of each validated model-parameter-threshold combination to a jsonl file. By default this runs in dev-mode, where the training data is split into train/val/test, to allow for testing without burning the official test data (still to be decided by how deet is used). In dev-mode, outputs are saved to a .gitignored `ic1.classify.inout.testing` directory
+
+```
+python -m ic1.classify.inout.train_val
+```
+
+Run with --no-dev-mode to use the real test data. 
+
+#### Test and save best model
+
+```
+python -m ic1.classify.inout.test
+```
+
+Selects the best model (selection criteria to be refined beyond current f1_score) from train_val, and tests it on the test data, saving the model and test scores.
+
+As before, run with `--no-dev-mode` to run with real test data.
+
+
 
 ## Data
 
