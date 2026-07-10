@@ -8,4 +8,4 @@ data/private/
 *.env
 .venv/
 Documents/
-*.csv
+deet.log

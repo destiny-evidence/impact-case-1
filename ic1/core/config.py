@@ -1,8 +1,8 @@
 """config for IC1 scripts."""
-from typing import TypedDict
 from pathlib import Path
 from enum import Enum
 from dataclasses import dataclass
+
 
 from ic1.core.ids import (
     INOUT_SCHEME_ID,
@@ -11,6 +11,8 @@ from ic1.core.ids import (
     TAXONOMY_SCOPE_IDS
 )
 
+DEET_N = 100
+
 class TaskName(str, Enum):
     INOUT = 'inout'
     TAXONOMY = 'taxonomy'
@@ -18,9 +20,13 @@ class TaskName(str, Enum):
 
 @dataclass
 class TaskConfig:
-    name: str
+    task: TaskName
     scheme_id: str
     scope_ids: list[str]
+
+    @property
+    def name(self) -> str:
+        return self.task.value
 
     @property
     def shareable_path(self) -> Path:
@@ -34,19 +40,33 @@ class TaskConfig:
     def resolved_path(self) -> Path:
         return SENSITIVE_ROOT / f'{self.name}_resolved.csv'
 
+    @property
+    def deet_data_path(self) -> Path:
+        return SENSITIVE_ROOT / f'{self.name}_deet.csv'
+
+    @property
+    def deet_project_path(self) -> Path:
+        return Path('ic1/deet/projects') / self.name
+
+    @property
+    def splits_path(self) -> Path:
+        return Path('ic1/evaluation_splits') / f'{self.name}_splits.json'
+
 
 TASKS: dict[str, TaskConfig] = {
     'inout': TaskConfig(
-        name= "inout",
+        task= TaskName.INOUT,
         scheme_id = INOUT_SCHEME_ID,
         scope_ids = INOUT_SCOPE_IDS
     ),
     'taxonomy': TaskConfig(
-        name="taxonomy",
+        task=TaskName.TAXONOMY,
         scheme_id=TAXONOMY_SCHEME_ID,
         scope_ids=TAXONOMY_SCOPE_IDS
     )
 }
+
+
 
 CONF_FILE = '.conf/secret.env'
 
