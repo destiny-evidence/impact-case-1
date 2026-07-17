@@ -12,11 +12,13 @@ INOUT = TASKS[TaskName.INOUT]
 
 ALL_CONFIGS = SKLEARN_CONFIGS + TRANSFORMER_CONFIGS
 
+
 def append_run(run: ModelRun, dev_mode: bool) -> None:
     INOUT.dev_mode = dev_mode
     INOUT.classifier_results_path.mkdir(parents=True, exist_ok=True)
     with INOUT.ml_model_runs_path.open('a', encoding='utf-8') as f:
         f.write(run.model_dump_json() + '\n')
+
 
 def main(dev_mode=True) -> None:
 
@@ -26,12 +28,7 @@ def main(dev_mode=True) -> None:
         return
     for clf in ALL_CONFIGS:
         print(f'[bold]tuning[/bold] {clf.name}...')
-        model_runs = clf.tune(
-            x_train = train['text'].tolist(),
-            y_train = train['label'].tolist(),
-            x_val = val['text'].tolist(),
-            y_val = val['label'].tolist()
-        )
+        model_runs = clf.tune(x_train=train['text'].tolist(), y_train=train['label'].tolist(), x_val=val['text'].tolist(), y_val=val['label'].tolist())
         for model_run in model_runs:
             append_run(model_run, dev_mode=dev_mode)
 

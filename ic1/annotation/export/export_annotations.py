@@ -26,24 +26,24 @@ source of truth; run the import there first.
 """
 
 import asyncio
+import json
 from pathlib import Path
+from typing import Annotated
 
 import pandas as pd
 import sqlalchemy as sa
+from nacsos_data.db.schemas import BotAnnotationMetaData
 from rich import print
+import typer
 
 from nacsos_data.db.connection import get_engine_async
 from nacsos_data.db.schemas.annotations import AnnotationScheme, Assignment, AssignmentScope
 from nacsos_data.models.annotations import AnnotationSchemeLabel
-from nacsos_data.models.nql import FieldFilters
+from nacsos_data.models.nql import FieldFilters, AnnotationFilter
 from nacsos_data.util.annotations.export import LabelOptions, prepare_export_table
 
 # Single source of truth: the scheme id is defined by the import script.
-from import_taxonomy import ANNOTATION_SCHEME_ID as SCHEME_ID
-
-# secret.env lives at the repo root (one level above taxonomy/)
-CONF_FILE = str(Path(__file__).resolve().parents[1] / 'secret.env')
-OUT_CSV = Path(__file__).resolve().parent / 'annotation_export.csv'
+from ic1.core.config import settings, TaskName, TASKS
 
 # Lightweight base columns to keep. The export otherwise carries the full document
 # `text` (and keywords/authors) for *every* row, which bloats the file to hundreds of
@@ -103,92 +103,126 @@ def expected_label_columns(label_options: list[LabelOptions]) -> list[str]:
     return cols
 
 
-async def main() -> None:
-    db_engine = get_engine_async(conf_file=CONF_FILE)
+def pseudonymize(df: pd.DataFrame, pseudonym_map: dict[str, str] | None = None):
+    if pseudonym_map is None:
+        if settings.PSEUDONYM_MAP.exists():
+            with open(settings.PSEUDONYM_MAP, 'r') as fp:
+                pseudonym_map = json.load(fp)
+        else:
+            pseudonym_map = {username: f'coder_{ui:03}' for ui, username in enumerate(df['username'].unique())}
+            with open(settings.PSEUDONYM_MAP, 'w') as fp:
+                json.dump(pseudonym_map, fp, indent=2)
 
-    # 1. Resolve scheme -> project + labels, and gather its assignment scopes.
-    async with db_engine.session() as session:
-        scheme = (await session.execute(sa.select(AnnotationScheme).where(AnnotationScheme.annotation_scheme_id == SCHEME_ID))).scalar_one_or_none()
-        if scheme is None:
-            raise SystemExit(f'No annotation scheme with id={SCHEME_ID!r} found in the database.')
+    if len(set(df['username'].unique()) - set(pseudonym_map)) > 0:
+        raise AssertionError('Pseudonymization map does not cover all users in the dataframe')
 
-        project_id = str(scheme.project_id)
-        labels = [AnnotationSchemeLabel.model_validate(label_def) for label_def in (scheme.labels or [])]
+    return df.replace(pseudonym_map).drop(columns=['user_id'], errors='ignore')
 
-        scope_ids = [
-            str(s)
-            for s in (await session.execute(sa.select(AssignmentScope.assignment_scope_id).where(AssignmentScope.annotation_scheme_id == SCHEME_ID)))
-            .scalars()
-            .all()
-        ]
 
-        # Items actually assigned in this scheme's scopes. Without a filter, the export
-        # spans the *whole project corpus* (one row per item, annotations left-joined on).
-        # We push these ids into the items query (item_id IN ...) so the DB only touches
-        # the assigned documents -- incl. assigned-but-unannotated -- instead of scanning
-        # all ~35k project items.
-        assigned_item_ids = [
-            str(i)
-            for i in (await session.execute(sa.select(Assignment.item_id).distinct().where(Assignment.assignment_scope_id.in_(scope_ids)))).scalars().all()
-        ]
+def main(
+    kind: Annotated[TaskName, typer.Option(help='Type of annotations to export')] = TaskName.INOUT,
+    export_all: Annotated[bool, typer.Option(help='Instead of using only configured scopes, export everything for in/out scheme')] = False,
+) -> None:
+    task = TASKS[kind]
 
-    label_options = collect_label_options(labels)
-    label_cols = expected_label_columns(label_options)
+    async def _main() -> None:
+        db_engine = get_engine_async(settings=settings.DB)
 
-    print(f'[bold]Scheme:[/bold] {scheme.name}  (project={project_id})')
-    print(f'[bold]Labels:[/bold] {len(label_options)}  [bold]Concept columns:[/bold] {len(label_cols)}')
-    print(f'[bold]Assignment scopes:[/bold] {len(scope_ids)} -> {scope_ids}')
-    print(f'[bold]Assigned documents:[/bold] {len(assigned_item_ids)}')
+        # 1. Resolve scheme -> project + labels, and gather its assignment scopes.
+        async with db_engine.session() as session:
+            scheme = (await session.execute(sa.select(AnnotationScheme).where(AnnotationScheme.annotation_scheme_id == task.scheme_id))).scalar_one_or_none()
+            if scheme is None:
+                raise SystemExit(f'No annotation scheme with id={task.scheme_id!r} found in the database.')
 
-    if not scope_ids:
-        print(
-            '[yellow]No assignment scopes exist for this scheme yet. The export would have the '
-            'full set of (empty) concept columns but no annotated rows. Create a scope + '
-            'assignments first if you want populated rows.[/yellow]'
-        )
+            project_id = str(scheme.project_id)
+            labels = [AnnotationSchemeLabel.model_validate(label_def) for label_def in (scheme.labels or [])]
 
-    # 2. Build the export table with the *explicit, complete* label set, restricting the
-    #    items query to assigned documents (item_id IN ...) so we never scan the corpus.
-    #    ignore_hierarchy=True -> flat columns; ignore_repeat=True -> `<key>|<value>` (no repeat suffix).
-    item_filter = FieldFilters(field='item_id', values=assigned_item_ids)
-    async with db_engine.session() as session:
-        rows = await prepare_export_table(
-            session=session,
-            nql_filter=item_filter,
-            bot_annotation_metadata_ids=None,
-            assignment_scope_ids=scope_ids,
-            user_ids=None,
-            project_id=project_id,
-            labels=label_options,
-            ignore_hierarchy=True,
-            ignore_repeat=True,
-        )
+            if export_all:
+                scope_ids = list(
+                    (
+                        await session.execute(
+                            sa.select(sa.cast(AssignmentScope.assignment_scope_id, sa.TEXT)).where(AssignmentScope.annotation_scheme_id == task.scheme_id),
+                        )
+                    )
+                    .scalars()
+                    .all(),
+                )
+                resolved_ids = list(
+                    (
+                        await session.execute(
+                            sa.select(sa.cast(BotAnnotationMetaData.bot_annotation_metadata_id, sa.TEXT)).where(
+                                BotAnnotationMetaData.annotation_scheme_id == task.scheme_id,
+                            ),
+                        )
+                    )
+                    .scalars()
+                    .all(),
+                )
+            else:
+                scope_ids = task.scope_ids
+                resolved_ids = task.resolved_ids
 
-    df = pd.DataFrame(rows)
+        label_options = collect_label_options(labels)
+        label_cols = expected_label_columns(label_options)
 
-    # 3. Relabel no-annotator rows. prepare_export_table sets username via
-    #    coalesce(User.username, 'RESOLVED'), so assigned-but-unannotated documents
-    #    (NULL user_id) read as 'RESOLVED' despite not being resolved. We pass no bot
-    #    scopes here, so NULL user_id unambiguously means "no annotation yet".
-    if 'username' in df.columns and 'user_id' in df.columns:
-        df.loc[df['user_id'].isna(), 'username'] = '(unannotated)'
+        print(f'[bold]Scheme:[/bold] {scheme.name}  (project={project_id})')
+        print(f'[bold]Labels:[/bold] {len(label_options)}  [bold]Concept columns:[/bold] {len(label_cols)}')
+        print(f'[bold]Assignment scopes:[/bold] {len(scope_ids)} -> {scope_ids}')
+        print(f'[bold]Resolution scopes:[/bold] {len(resolved_ids)} -> {resolved_ids}')
 
-    # 4. Keep only lightweight base columns + the full, deterministic concept column set.
-    #    Every concept column is present even if prepare_export_table omitted one
-    #    (e.g. zero matching rows), filled with NA -> stable schema for downstream.
-    base_cols = [c for c in KEEP_BASE_COLS if c in df.columns]
-    for c in label_cols:
-        if c not in df.columns:
-            df[c] = pd.NA
-    df = df.reindex(columns=base_cols + label_cols)
+        if not scope_ids:
+            print(
+                '[yellow]No assignment scopes exist for this scheme yet. The export would have the '
+                'full set of (empty) concept columns but no annotated rows. Create a scope + '
+                'assignments first if you want populated rows.[/yellow]',
+            )
 
-    print(f'[bold]Rows:[/bold] {df.shape[0]}  [bold]Total columns:[/bold] {df.shape[1]}')
-    print(f'[bold]Base columns:[/bold] {base_cols}')
-    print(f'[bold]Concept (label) columns:[/bold] {label_cols[:10]}{" ..." if len(label_cols) > 10 else ""}')
+        async with db_engine.session() as session:
+            rows = await prepare_export_table(
+                session=session,
+                nql_filter=AnnotationFilter(incl=True, scopes=task.scope_ids),
+                bot_annotation_metadata_ids=resolved_ids,
+                assignment_scope_ids=scope_ids,
+                user_ids=None,
+                project_id=project_id,
+                labels=label_options,
+                ignore_hierarchy=True,
+                ignore_repeat=True,
+            )
 
-    df.to_csv(OUT_CSV, index=False)
-    print(f'[green]Wrote export ({df.shape[0]} rows x {df.shape[1]} cols) to {OUT_CSV}[/green]')
+        df = pd.DataFrame(rows)
+
+        # 4. Keep only lightweight base columns + the full, deterministic concept column set.
+        #    Every concept column is present even if prepare_export_table omitted one
+        #    (e.g. zero matching rows), filled with NA -> stable schema for downstream.
+        base_cols = [c for c in KEEP_BASE_COLS if c in df.columns]
+        for c in label_cols:
+            if c not in df.columns:
+                df[c] = pd.NA
+        df = df.reindex(columns=base_cols + label_cols)
+
+        df[label_cols] = df[label_cols].astype('Int8')
+        df['publication_year'] = df['publication_year'].astype('Int16')
+        # df['item_order'] = df['item_order'].astype('Int64').astype('Int32')
+        # df['scope_order'] = df['scope_order'].astype('Int64').astype('Int16')
+
+        print(f'[bold]Rows:[/bold] {df.shape[0]}  [bold]Total columns:[/bold] {df.shape[1]}')
+        print(f'[bold]Base columns:[/bold] {base_cols}')
+        print(f'[bold]Concept (label) columns:[/bold] {label_cols[:10]}{" ..." if len(label_cols) > 10 else ""}')
+
+        df.to_csv(task.sensitive_path, index=False)
+        print(f'[green]Wrote raw export ({df.shape[0]:,} rows x {df.shape[1]:,} cols) to {task.sensitive_path}[/green]')
+
+        df[df['username'] == 'RESOLVED'].to_csv(task.resolved_path, index=False)
+        shape = df[df['username'] == 'RESOLVED'].shape
+        print(f'[green]Wrote resolved export ({shape[0]:,} rows x {shape[1]:,} cols) to {task.resolved_path}[/green]')
+
+        df_pseudo = pseudonymize(df[df['username'] != 'RESOLVED'])
+        df_pseudo.drop(columns=['user_id'], errors='ignore').to_csv(task.shareable_path, index=False)
+        print(f'[green]Wrote resolved export ({df_pseudo.shape[0]:,} rows x {df_pseudo.shape[1]:,} cols) to {task.shareable_path}[/green]')
+
+    asyncio.run(_main())
 
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    typer.run(main)

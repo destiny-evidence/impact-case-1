@@ -12,6 +12,7 @@ from pathlib import Path
 import hashlib
 import json
 
+
 class ModelRun(BaseModel):
     model: str
     config: dict[str, Any]
@@ -24,8 +25,10 @@ class ModelRun(BaseModel):
     fit_time: float
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
+
 class TestResult(ModelRun):
     selected_run: ModelRun
+
 
 class BaseClassifier(ABC):
     name: str
@@ -44,19 +47,10 @@ class BaseClassifier(ABC):
     def _fit(self, x: list[str], y: list[int]) -> None: ...
 
     @abstractmethod
-    def tune(self,
-        x_train: list[str],
-        y_train: list[int],
-        x_val: list[str],
-        y_val: list[int]
-    ) -> list[ModelRun]:
+    def tune(self, x_train: list[str], y_train: list[int], x_val: list[str], y_val: list[int]) -> list[ModelRun]:
         """Try out a load of configs, and return a model run for each."""
 
-    def predict(
-        self,
-        x: list[str],
-        threshold: float
-    ) -> NDArray[np.int_]:
+    def predict(self, x: list[str], threshold: float) -> NDArray[np.int_]:
         """Return binary predictions given a threshold."""
         return (np.asarray(self.predict_proba(x)) >= threshold).astype(int)
 
@@ -72,18 +66,12 @@ class BaseClassifier(ABC):
     def load(cls, path: Path) -> 'BaseClassifier':
         """Load model saved by cls.save()"""
 
-def score(
-    y_true: ArrayLike,
-    y_proba: ArrayLike,
-    threshold: float
-) -> dict[str, float]:
+
+def score(y_true: ArrayLike, y_proba: ArrayLike, threshold: float) -> dict[str, float]:
     """Turn probs into ints using threshold, and score"""
     y_pred = (np.asarray(y_proba) >= threshold).astype(int)
-    return {
-        'precision': float(precision_score(y_true, y_pred)),
-        'recall': float(recall_score(y_true, y_pred)),
-        'f1': float(f1_score(y_true, y_pred))
-    }
+    return {'precision': float(precision_score(y_true, y_pred)), 'recall': float(recall_score(y_true, y_pred)), 'f1': float(f1_score(y_true, y_pred))}
+
 
 def hash_ids(ids: list[str]) -> str:
     return hashlib.sha256(json.dumps(sorted(ids)).encode()).hexdigest()[:16]

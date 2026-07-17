@@ -28,7 +28,22 @@ data-extraction-evaluation-toolkit = { git = "https://github.com/destiny-evidenc
 dev = [
     "mypy>=2.2.0",
     "ruff>=0.15.20",
+    "pandas-stubs~=3.0.3",
 ]
+
+[tool.uv.workspace]
+members = [
+    ".",
+]
+
+[build-system]
+requires = ["uv-build>=0.9.10,<=0.11.2"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "ic1"
+module-root = ""
+
 
 [tool.ruff]
 line-length = 160

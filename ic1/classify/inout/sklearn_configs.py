@@ -13,6 +13,7 @@ import numpy as np
 from pathlib import Path
 import joblib
 
+
 class SklearnClassifier(BaseClassifier):
     def __init__(self, name: str, pipeline: Pipeline, param_grid: dict[str, Any], thresholds: list[float] = []):
         self.name = name
@@ -44,17 +45,19 @@ class SklearnClassifier(BaseClassifier):
             val_proba = self.pipeline.predict_proba(x_val)[:, 1]
             for threshold in self.thresholds:
                 metrics = score(y_val, val_proba, threshold)
-                runs.append(ModelRun(
-                    model=self.name,
-                    config=params,
-                    precision=metrics['precision'],
-                    recall=metrics['recall'],
-                    f1=metrics['f1'],
-                    threshold=threshold,
-                    train_hash=train_hash,
-                    val_hash=val_hash,
-                    fit_time = self.fit_time
-                ))
+                runs.append(
+                    ModelRun(
+                        model=self.name,
+                        config=params,
+                        precision=metrics['precision'],
+                        recall=metrics['recall'],
+                        f1=metrics['f1'],
+                        threshold=threshold,
+                        train_hash=train_hash,
+                        val_hash=val_hash,
+                        fit_time=self.fit_time,
+                    )
+                )
 
         return runs
 

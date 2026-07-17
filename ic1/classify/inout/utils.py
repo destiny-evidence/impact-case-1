@@ -15,10 +15,12 @@ CONFIGS = SKLEARN_CONFIGS + TRANSFORMER_CONFIGS
 REGISTRY = {clf.name: clf for clf in CONFIGS}
 INOUT = TASKS[TaskName.INOUT]
 
+
 def _to_tuple(v):
     if isinstance(v, list):
         return tuple(_to_tuple(x) for x in v)
     return v
+
 
 def get_classifier(run: ModelRun) -> BaseClassifier:
     clf = REGISTRY[run.model]
@@ -28,6 +30,7 @@ def get_classifier(run: ModelRun) -> BaseClassifier:
         # TODO: set parameters for TransformerClassifier
         pass
     return clf
+
 
 def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
@@ -39,7 +42,7 @@ def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
 
     splits = EvaluationSplits.load(INOUT.splits_path)
 
-    df = df.rename(columns={'incl|1': 'label'})[['item_id','text','label']]
+    df = df.rename(columns={'incl|1': 'label'})[['item_id', 'text', 'label']]
     df = df.dropna(subset='label')
 
     train_df = df[df['item_id'].isin(splits.train)].reset_index()
@@ -53,20 +56,19 @@ def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
         n_val = int(n * 0.15)
         n_test = int(n * 0.15)
         n_train = int(n * 0.7)
-        val_ids  = set(ids[:n_val])
+        val_ids = set(ids[:n_val])
         test_ids = set(ids[n_val : n_val + n_test])
-        train_ids = set(ids[n_val + n_test: n_val+n_test+n_train])
-        val_df   = train_df[train_df['item_id'].isin(val_ids)].reset_index(drop=True)
-        test_df  = train_df[train_df['item_id'].isin(test_ids)].reset_index(drop=True)
+        train_ids = set(ids[n_val + n_test : n_val + n_test + n_train])
+        val_df = train_df[train_df['item_id'].isin(val_ids)].reset_index(drop=True)
+        test_df = train_df[train_df['item_id'].isin(test_ids)].reset_index(drop=True)
         train_df = train_df[train_df['item_id'].isin(train_ids)].reset_index(drop=True)
 
-
     print(
-        f'train_df: {train_df.shape} - {train_df['label'].sum()/train_df.shape[0]} relevant\n'
-        f'val_df: {val_df.shape} - {val_df['label'].sum()/val_df.shape[0]} relevant\n'
-        f'test_df: {test_df.shape} - {test_df['label'].sum()/test_df.shape[0]} relevant'
+        f'train_df: {train_df.shape} - {train_df["label"].sum() / train_df.shape[0]} relevant\n'
+        f'val_df: {val_df.shape} - {val_df["label"].sum() / val_df.shape[0]} relevant\n'
+        f'test_df: {test_df.shape} - {test_df["label"].sum() / test_df.shape[0]} relevant'
     )
 
-    print(train_df['label'].sum()/train_df.shape[0])
+    print(train_df['label'].sum() / train_df.shape[0])
 
     return train_df, val_df, test_df
