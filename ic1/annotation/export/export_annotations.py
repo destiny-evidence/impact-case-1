@@ -27,7 +27,6 @@ source of truth; run the import there first.
 
 import asyncio
 import json
-from pathlib import Path
 from typing import Annotated
 
 import pandas as pd
@@ -37,9 +36,9 @@ from rich import print
 import typer
 
 from nacsos_data.db.connection import get_engine_async
-from nacsos_data.db.schemas.annotations import AnnotationScheme, Assignment, AssignmentScope
+from nacsos_data.db.schemas.annotations import AnnotationScheme, AssignmentScope
 from nacsos_data.models.annotations import AnnotationSchemeLabel
-from nacsos_data.models.nql import FieldFilters, AnnotationFilter
+from nacsos_data.models.nql import AnnotationFilter
 from nacsos_data.util.annotations.export import LabelOptions, prepare_export_table
 
 # Single source of truth: the scheme id is defined by the import script.

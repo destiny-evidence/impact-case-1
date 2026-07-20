@@ -15,12 +15,11 @@ import joblib
 
 
 class SklearnClassifier(BaseClassifier):
-    def __init__(self, name: str, pipeline: Pipeline, param_grid: dict[str, Any], thresholds: list[float] = []):
+    def __init__(self, name: str, pipeline: Pipeline, param_grid: dict[str, Any], thresholds: list[float] | None = None):
         self.name = name
         self.pipeline = pipeline
         self.param_grid = param_grid
-        if thresholds:
-            self.thresholds = thresholds
+        self.thresholds = thresholds or []
         self.config = {}
 
     def _fit(self, x: list[str], y: list[int]) -> None:
@@ -56,7 +55,7 @@ class SklearnClassifier(BaseClassifier):
                         train_hash=train_hash,
                         val_hash=val_hash,
                         fit_time=self.fit_time,
-                    )
+                    ),
                 )
 
         return runs
@@ -78,7 +77,7 @@ CONFIGS: list[SklearnClassifier] = [
             steps=[
                 ('vect', TfidfVectorizer()),
                 ('clf', CalibratedClassifierCV(SVC(class_weight='balanced'), ensemble=False)),
-            ]
+            ],
         ),
         param_grid={
             'vect__max_df': (0.5, 0.8),

@@ -31,6 +31,9 @@ dev = [
     "pandas-stubs~=3.0.3",
 ]
 
+[project.scripts]
+ic1 = "ic1:main"
+
 [tool.uv.workspace]
 members = [
     ".",
