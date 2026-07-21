@@ -55,7 +55,7 @@ class _SklearnClassifierConfig(_ClassifierConfig, ABC):
     def get_model(cls, **kwargs: Any) -> 'SklearnClassifier':
         from ..classifiers import SklearnClassifier
 
-        return SklearnClassifier(pipeline=cls.get_pipeline, **(cls.get_params() | kwargs))
+        return SklearnClassifier(pipeline=cls.get_pipeline, model_params=cls.get_params() | kwargs)
 
     @classmethod
     def params_base(cls, trial: 'Trial | None' = None) -> dict[str, Any]:
@@ -76,8 +76,8 @@ class _HuggingfaceClassifierConfig(_ClassifierConfig, ABC):
     @classmethod
     def get_model(cls, **kwargs: Any) -> 'HuggingfaceClassifier':
         from ..classifiers import HuggingfaceClassifier
-
-        return HuggingfaceClassifier(**(cls.get_params() | kwargs))
+        params = cls.get_params() | kwargs
+        return HuggingfaceClassifier(model_name=params['model_name'], model_params=params)
 
     @classmethod
     def params_base(cls, trial: 'Trial | None' = None) -> dict[str, Any]:

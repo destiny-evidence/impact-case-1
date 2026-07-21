@@ -1,7 +1,13 @@
 import hashlib
+from datetime import datetime
+from enum import Enum
+from json import JSONEncoder
+from pathlib import Path
 from typing import Any
+from uuid import UUID
 
 import numpy as np
+from pydantic import BaseModel
 
 
 def uniform(task: str, item_id: str) -> float:
@@ -58,3 +64,34 @@ def to_tuple(v: object):
     if isinstance(v, tuple):
         return v
     raise RuntimeError(f'Cannot convert {v} to tuple')
+
+
+class DictLikeEncoder(JSONEncoder):
+    def default(self, o: Any) -> Any:
+        # Translate datetime into a string
+        if isinstance(o, datetime):
+            return o.strftime('%Y-%m-%dT%H:%M:%S')
+
+        # Translate Path into a string
+        if isinstance(o, Path):
+            return str(o)
+
+        # Translate pydantic models into dict
+        if isinstance(o, BaseModel):
+            return o.model_dump()
+
+        # Translate UUID to str
+        if isinstance(o, UUID):
+            return str(o)
+
+        # Translate Enum to str
+        if isinstance(o, Enum):
+            return o.value
+
+        if isinstance(o, np.ndarray):
+            return o.tolist()
+
+        if isinstance(o, np.generic):
+            return o.item()
+
+        return JSONEncoder.default(self, o)

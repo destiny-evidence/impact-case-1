@@ -118,6 +118,7 @@ As before, run with `--no-dev-mode` to run with real test data.
 
 
 
+
 ## Data
 
 `datapackage.json` at the repo root describes all resources (shareable and restricted).
@@ -132,4 +133,26 @@ dvc add data/private
 git add data/private.dvc
 git commit -m "update private export"
 dvc push
+```
+
+# TODO updated workflow with typer
+```bash
+uv run ic1 --help
+╭─ Commands ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ export-labels    Export annotations and resolutions for in/out and taxonomy schemes                                                                                                                                                                                                                                                           │
+│ split-data       Split data into train, validation, and test sets                                                                                                                                                                                                                                                                             │
+│ import-taxonomy  Import *.ttl as annotation scheme into NACSOS                                                                                                                                                                                                                                                                                │
+│ classify-inout   Inclusion classification model tuning and training                                                                                                                                                                                                                                                                           │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# get data from database and pseudonomise
+uv run ic1 export-labels
+# generate a split
+uv run ic1 split-data --task inout --seed 42
+# test all sorts of models and tune them (incl k-fold validation)
+uv run ic1 classify-inout tune --num-trials 100
+# use best config from before to train and save a model
+uv run ic1 classify-inout train
+
+# TODO: reorganise imports, so torch/datasets is only imported when absolutely needed
 ```

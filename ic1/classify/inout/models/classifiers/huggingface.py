@@ -201,7 +201,7 @@ class HuggingfaceClassifier(ClassifierBase):
 
     # def best_from_study(self, study: Study) -> 'TransformerClassifier':
     #     params = self._get_params(preview=False)
-    #     params['model_params'] |= study.best_params
+    #     params['model_params'] |= study.best_trial.user_attrs['model_params']
     #     return TransformerClassifier(**params)
     #
     # def _run_trial(self, trial: Trial, x: list[str], y: list[int]) -> float:

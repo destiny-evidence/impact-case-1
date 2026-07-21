@@ -59,6 +59,7 @@ KEEP_BASE_COLS = [
     'publication_year',
     'source',
     'title',
+    'text',
     'user_id',
     'username',
 ]

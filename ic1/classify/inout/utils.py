@@ -12,7 +12,7 @@ from pydantic import BaseModel, Field
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, roc_auc_score
 
 from ic1.core.config import settings, TASKS, TaskName
-from ic1.core.utils import uniform
+from ic1.core.utils import uniform, DictLikeEncoder
 from ic1.evaluation_splits.splits_model import EvaluationSplits
 
 if TYPE_CHECKING:
@@ -92,7 +92,7 @@ def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
 
 
 def hash_ids(ids: list[str]) -> str:
-    return hashlib.sha256(json.dumps(sorted(ids)).encode()).hexdigest()[:16]
+    return hashlib.sha256(json.dumps(sorted(ids), cls=DictLikeEncoder).encode()).hexdigest()[:16]
 
 
 def compute_class_weights(labels: np.ndarray | list[int]) -> np.ndarray:

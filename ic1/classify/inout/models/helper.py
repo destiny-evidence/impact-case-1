@@ -63,7 +63,7 @@ class ClassifierHelper:
             n_trials=self.tuning_trials,
             n_jobs=self.tuning_jobs,
         )
-        logger.info(f'Best trial: {study.best_trial.params}')
+        logger.info(f'Best trial: {study.best_trial.user_attrs['model_params']}')
         logger.debug(f'Hyper-parameter-tuning for {self.config.name} done with best score {study.best_value}')
         return study
 
@@ -71,9 +71,10 @@ class ClassifierHelper:
         self, trial: Trial, X_train: list[str], y_train: list[int], X_test: list[str], y_test: list[int], scoring: str = 'F1', threshold: float = 0.5
     ) -> float:
         model_params = self._train_params(trial=trial)
+        sampling = model_params.pop('downsampling', 0)
+
         model = self.config.get_model(**model_params)
 
-        sampling = model_params.pop('downsampling', 0)
         if sampling > 0:
             y = np.array(y_train)
             mask = downsampling_mask(y, sampling=sampling)
@@ -97,12 +98,13 @@ class ClassifierHelper:
 
         trial.set_user_attr('scores_self', scores_self)
         trial.set_user_attr('scores_test', scores_test)
+        trial.set_user_attr('model_params', model_params)
 
         objective = scores_test[scoring]
         return 0 if np.isnan(objective) else objective
 
-    def best_from_study(self, study: Study, X: list[str], y: list[int]):
-        return self.train(X=X, y=y, model_params=study.best_params)
+    def best_from_study(self, study: Study, X: list[str], y: list[int])-> 'Classifier':
+        return self.train(X=X, y=y, model_params=study.best_trial.user_attrs['model_params'])
 
     @classmethod
     def from_run(cls, run: TuningFold) -> 'ClassifierHelper':

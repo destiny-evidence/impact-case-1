@@ -73,9 +73,8 @@ def hyperparameter_tuning(
             best_trial = study.best_trial
 
             logger.info(f'Training model with best parameters for fold {fold + 1} of model {name.upper()}')
-            helper = config.get_model(**best_trial.params)
             start_time = time.time()
-            model = helper.fit([x[i] for i in train_idx], y[train_idx])
+            model = helper.best_from_study(study, X=[x[i] for i in train_idx], y=y[train_idx])
             fit_time = time.time() - start_time
 
             logger.info(f'Testing model trained with best parameters for fold {fold + 1} of model {name.upper()}')
@@ -85,8 +84,8 @@ def hyperparameter_tuning(
             with open(result_file, 'w') as fp:
                 fp.write(
                     TuningFold(
-                        model=model,
-                        params=best_trial.params,
+                        model=name,
+                        params=best_trial.user_attrs['model_params'],
                         scores_self=Result.model_validate(best_trial.user_attrs['scores_self']),
                         scores_test=Result.model_validate(best_trial.user_attrs['scores_test']),
                         scores_val=[Result.model_validate(result) for result in scores_val],
