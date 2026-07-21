@@ -1,22 +1,17 @@
 """Read exports, split out chunk for deet, and create a deet project."""
 
-import typer
 from typing import Annotated
+import typer
 import pandas as pd
 
-from ic1.core.config import TASKS, TaskName, DEET_N
+from ic1.core.config import TASKS, TaskName, settings
+from ic1.core.util import uniform
 from ic1.evaluation_splits.splits_model import EvaluationSplits
-from deet.scripts.project_utils import create_project, SupportedImportFormat
-import hashlib
-
-
-def uniform(task: str, item_id: str) -> float:
-    """Stable, language-independent uniform value in [0, 1) for (task, item_id)."""
-    h = hashlib.sha256(f'{task}:{item_id}'.encode()).hexdigest()
-    return int(h, 16) / 16**64
 
 
 def main(task: Annotated[TaskName, typer.Option(help='The annotation task task to be exported')] = TaskName.ALL):
+    from deet.scripts.project_utils import create_project, SupportedImportFormat
+
     if task == TaskName.ALL:
         selected = TASKS
     else:
@@ -26,8 +21,8 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
         resolved = pd.read_csv(task_config.resolved_path)
         item_ids = set(resolved['item_id'])
         sorted_ids = sorted(item_ids, key=lambda iid: uniform(task_config.name, iid))
-        deet_ids = sorted_ids[:DEET_N]
-        train_ids = sorted_ids[DEET_N:]
+        deet_ids = sorted_ids[: settings.DEET_N]
+        train_ids = sorted_ids[settings.DEET_N :]
 
         if task_config.splits_path.exists():
             splits = EvaluationSplits.load(task_config.splits_path)

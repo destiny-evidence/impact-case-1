@@ -1,17 +1,36 @@
 [project]
-name = "climate-health-query"
+name = "climate-health"
 version = "0.0.1"
-description = "Climate & health query, ready to use in scripts"
+description = "Climate & health map (DESTinY IC1)"
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
 dependencies = [
     "nacsos_data[utils,scripts]",
-    "lark==1.3.1",
     "rdflib>=7.6.0",
     "dvc>=3.67.1",
     "dvc-ssh>=4.3.0",
     "frictionless[pandas]>=5.19.0",
+]
+
+[project.optional-dependencies]
+classify = [
+    "optuna==4.9.0",
+    "transformers==5.14.1",
+    "datasets==5.0.0",
+    "torch==2.13.0",
+    "lightgbm==4.7.0",
+]
+deet = [
     "data-extraction-evaluation-toolkit",
+]
+querying = [
+    "lark==1.3.1",
+]
+[dependency-groups]
+dev = [
+    "mypy>=2.2.0",
+    "ruff>=0.15.20",
+    "pandas-stubs~=3.0.3",
 ]
 
 [tool.uv.sources]
@@ -19,16 +38,13 @@ nacsos_data = [
     { git = "git+ssh://git@gitlab.pik-potsdam.de/mcc-apsis/nacsos/nacsos-data.git", tag = "v0.24.50" },
 ]
 data-extraction-evaluation-toolkit = { git = "https://github.com/destiny-evidence/data-extraction-evaluation-toolkit.git", rev = "feature/%2317-train-test-splits" }
-#nacsos_data = { path = "../../nacsos_data", editable = true }
-#[build-system]
-#requires = ["uv-build>=0.9.10,<0.10.0"]
-#build-backend = "uv_build"
 
-[dependency-groups]
-dev = [
-    "mypy>=2.2.0",
-    "ruff>=0.15.20",
-    "pandas-stubs~=3.0.3",
+[tool.uv]
+conflicts = [
+    [
+        { extra = "classify" },
+        { extra = "deet" },
+    ],
 ]
 
 [project.scripts]

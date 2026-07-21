@@ -49,9 +49,12 @@ class Config(BaseSettings):
     VOCAB_FILE: Path = str(SCHEME_DIR / 'destiny-1-4-version-1-4-of-the-destiny-taxonomy.ttl')
     MAPPING_CSV: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.csv'
     MAPPING_JSON: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.json'
+    MODELS_ROOT: Path = Path('data/models')
     SENSITIVE_ROOT: Path = Path('data/private/exports')  # gitignored; never committed
     SHAREABLE_ROOT: Path = Path('data/exports')  # git-tracked; Frictionless-described
     PSEUDONYM_MAP: Path = Path('.conf/coder_pseudonyms.json')  # gitignored; sensitive, stable
+
+    OFFLINE_MODELS_DIR: Path  = Path('data/.cache/models')
 
 
 settings = Config()
@@ -92,15 +95,23 @@ class TaskConfig:
 
     @property
     def splits_path(self) -> Path:
-        return Path('ic1/evaluation_splits') / f'{self.name}_splits.json'
+        return settings.SHAREABLE_ROOT / f'{self.name}_splits.json'
 
     @property
     def classifier_results_path(self) -> Path:
         """The place where classifier results are stored."""
         if self.dev_mode:
-            return Path('ic1/classify/testing') / self.name / 'results'
+            return settings.MODELS_ROOT / 'testing' / self.name / 'results'
         else:
-            return Path('ic1/classify') / self.name / 'results'
+            return settings.MODELS_ROOT / self.name / 'results'
+
+    @property
+    def tuning_results_path(self) -> Path:
+        """The place where tuning results are stored."""
+        if self.dev_mode:
+            return settings.MODELS_ROOT / 'testing' / self.name / 'tuning'
+        else:
+            return settings.MODELS_ROOT / self.name / 'tuning'
 
     @property
     def ml_model_runs_path(self) -> Path:
