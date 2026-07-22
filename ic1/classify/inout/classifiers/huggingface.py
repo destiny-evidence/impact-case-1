@@ -172,14 +172,14 @@ class HuggingfaceClassifier(ClassifierBase):
                     cache_dir=settings.OFFLINE_MODELS_DIR,
                 )
             except ValueError:
-                # from transformers import BertTokenizerFast
-                # tokenizer = BertTokenizerFast.from_pretrained(model_name, cache_dir=settings.OFFLINE_MODELS_DIR)
-                self.tokenizer_ = AutoTokenizer.from_pretrained(  # type: ignore[assignment]
+                from transformers import BertTokenizerFast
+
+                self.tokenizer_ = BertTokenizerFast.from_pretrained(
                     self.model_name,
                     model_max_length=self.model_max_length,
                     cache_dir=settings.OFFLINE_MODELS_DIR,
-                    use_fast=False,
                 )
+                # self.tokenizer_ = AutoTokenizer.from_pretrained(self.model_name, model_max_length=self.model_max_length, cache_dir=settings.OFFLINE_MODELS_DIR, use_fast=False)
 
         params: dict[str, Any] = {'text': texts}
         if labels is not None:
