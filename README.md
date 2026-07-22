@@ -149,6 +149,8 @@ uv run ic1 --help
 uv run ic1 export-labels
 # generate a split
 uv run ic1 split-data --task inout --seed 42
+
+uv sync --extra classify
 # test all sorts of models and tune them (incl k-fold validation)
 uv run ic1 classify-inout tune --num-trials 100
 # use best config from before to train and save a model

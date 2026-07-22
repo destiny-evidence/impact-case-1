@@ -25,13 +25,6 @@ class SchemeFilesConfig(BaseSettings):
     JSON: Path = Field(default_factory=lambda data: data['BASE'] / 'destiny_taxonomy_nacsos_mapping.json')
 
 
-class TaskFilesConfig(BaseSettings):
-    NAME: TaskName
-    BASE: Path
-    TARGET_SHAREABLE: Path = Field(default_factory=lambda data: data['BASE'] / data['NAME'])
-    TARGET_SENSITIVE: Path = Field(default_factory=lambda data: Path('data/private') / data['NAME'])
-
-
 class Config(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=os.getenv('CONF_FILE', '.conf/secret.env'),
@@ -52,7 +45,7 @@ class Config(BaseSettings):
     MODELS_ROOT: Path = Path('data/models')
     SENSITIVE_ROOT: Path = Path('data/private/exports')  # gitignored; never committed
     SHAREABLE_ROOT: Path = Path('data/exports')  # git-tracked; Frictionless-described
-    PSEUDONYM_MAP: Path = Path('.conf/coder_pseudonyms.json')  # gitignored; sensitive, stable
+    PSEUDONYM_MAP: Path = Field(default_factory=lambda data: data['SENSITIVE_ROOT'] / 'coder_pseudonyms.json')  # gitignored; sensitive, stable
 
     OFFLINE_MODELS_DIR: Path  = Path('data/.cache/models')
 

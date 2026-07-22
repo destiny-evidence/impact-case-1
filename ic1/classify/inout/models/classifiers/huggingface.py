@@ -2,73 +2,86 @@
 A list of transformer Classifiers and parameter spaces to validate.
 """
 
+from __future__ import annotations
+
 import logging
 import warnings
 from dataclasses import dataclass, field
-from typing import Any
+from typing import TYPE_CHECKING, Any
 from pathlib import Path
 import json
 import numpy as np
 
-
-import torch
-from torch import tensor, nn
-
 from sklearn.exceptions import UndefinedMetricWarning
 
-from datasets import Dataset
-from transformers import Trainer, TrainingArguments, AutoModelForSequenceClassification, AutoTokenizer, TokenizersBackend
-from transformers.trainer_utils import PredictionOutput
-from transformers.utils.logging import disable_progress_bar
-
-
 from ic1.core.config import settings
-from ._abc import ClassifierBase
 from ic1.classify.inout.utils import compute_class_weights, evaluate
+from ._abc import ClassifierBase
+
+if TYPE_CHECKING:
+    from datasets import Dataset
+    from transformers import TokenizersBackend
+    from transformers.trainer_utils import PredictionOutput
 
 logger = logging.getLogger('classify.inout.transformer')
 logging.getLogger('urllib3').setLevel(logging.ERROR)
 warnings.filterwarnings('ignore', category=UndefinedMetricWarning)
-disable_progress_bar()
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+_custom_classes = None
+
+
+def _get_custom_classes():
+    global _custom_classes
+    if _custom_classes is not None:
+        return _custom_classes
+
+    import torch
+    from torch import nn
+    from transformers import Trainer, TrainingArguments
+    from transformers.utils.logging import disable_progress_bar
+
+    disable_progress_bar()
+
+    @dataclass
+    class CustomTrainingArguments(TrainingArguments):
+        use_class_weights: bool | int = field(default=False, metadata={'help': 'Whether to use class weights in loss function'})
+        class_weights: list[float] | np.ndarray | None = field(default=None, metadata={'help': 'The weights for each class to be passed to the loss function'})
+        model_name: str = field(default='prajjwal1/bert-tiny', metadata={'help': 'Name of the huggingface model'})
+
+    class CustomTrainer(Trainer):
+        args: CustomTrainingArguments
+
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.activation = nn.Softmax(dim=1)
+            self.loss = nn.CrossEntropyLoss
+
+        def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+            y_true = inputs.pop('labels')
+            outputs = model(**inputs)
+            y_pred = self.activation(outputs.logits)
+
+            criterion = self.loss(weight=self.args.class_weights if self.args.use_class_weights else None)
+            loss = criterion(y_pred, y_true)
+
+            return (loss, outputs) if return_outputs else loss
+
+        def predict_proba(self, test_dataset: Dataset) -> np.array:
+            predictions = self.predict(test_dataset).predictions
+            logits = predictions if torch.is_tensor(predictions) else torch.tensor(predictions)
+            # return self.activation(logits).numpy()
+            return logits.numpy()  # FIXME: does this still work? returning unscaled logits should be better for ranking
+
+    _custom_classes = (CustomTrainingArguments, CustomTrainer)
+    return _custom_classes
 
 
 def evaluate_trainer(predictions: PredictionOutput):
+    import torch
+    from torch import tensor
+
     with torch.no_grad():
         return evaluate(y_true=tensor(predictions.label_ids), y_pred=torch.softmax(tensor(predictions.predictions), dim=1)[:, 1])
-
-
-@dataclass
-class CustomTrainingArguments(TrainingArguments):
-    use_class_weights: bool | int = field(default=False, metadata={'help': 'Whether to use class weights in loss function'})
-    class_weights: list[float] | np.ndarray | None = field(default=None, metadata={'help': 'The weights for each class to be passed to the loss function'})
-    model_name: str = field(default='prajjwal1/bert-tiny', metadata={'help': 'Name of the huggingface model'})
-
-
-class CustomTrainer(Trainer):
-    args: CustomTrainingArguments
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.activation = nn.Softmax(dim=1)
-        self.loss = nn.CrossEntropyLoss
-
-    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
-        y_true = inputs.pop('labels')
-        outputs = model(**inputs)
-        y_pred = self.activation(outputs.logits)
-
-        criterion = self.loss(weight=self.args.class_weights if self.args.use_class_weights else None)
-        loss = criterion(y_pred, y_true)
-
-        return (loss, outputs) if return_outputs else loss
-
-    def predict_proba(self, test_dataset: Dataset) -> np.array:
-        predictions = self.predict(test_dataset).predictions
-        logits = predictions if torch.is_tensor(predictions) else tensor(predictions)
-        # return self.activation(logits).numpy()
-        return logits.numpy()  # FIXME: does this still work? returning unscaled logits should be better for ranking
 
 
 class HuggingfaceClassifier(ClassifierBase):
@@ -82,7 +95,7 @@ class HuggingfaceClassifier(ClassifierBase):
         self.model_name = model_name
         self.model_max_length = model_max_length
 
-        self.model_: CustomTrainer | None = None
+        self.model_: CustomTrainer | None = None  # noqa: F821
         self.tokenizer_: TokenizersBackend | None = None
         self.classes_: np.ndarray | None = None
 
@@ -102,8 +115,15 @@ class HuggingfaceClassifier(ClassifierBase):
         y: list[int] | None = None,
         dataset: Dataset | None = None,
     ):
+        import torch
+        from transformers import AutoModelForSequenceClassification
+
+        CustomTrainingArguments, CustomTrainer = _get_custom_classes()
+
         if dataset is None and x is None:
             raise RuntimeError('Must provide dataset or list of texts')
+
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
         model_params = self.model_params_
         if dataset is not None:
@@ -138,6 +158,9 @@ class HuggingfaceClassifier(ClassifierBase):
         Returns tokenised dataset from texts and labels using the given model name or filepath
         If using direct path, don't forget to use `--tokenizer` postfix: `{/path/to/model}--tokenizer`
         """
+        from datasets import Dataset
+        from transformers import AutoTokenizer
+
         if not self.tokenizer_:
             self.tokenizer_ = AutoTokenizer.from_pretrained(self.model_name, model_max_length=self.model_max_length, cache_dir=settings.OFFLINE_MODELS_DIR)
 
@@ -165,6 +188,8 @@ class HuggingfaceClassifier(ClassifierBase):
         }
 
     def predict_proba(self, X: list[str]):
+        import torch
+
         logger.debug(f'Tokenising {len(X):,} texts')
 
         dataset = self.tokenize(texts=X, labels=None)
@@ -188,7 +213,9 @@ class HuggingfaceClassifier(ClassifierBase):
             json.dump(self.get_params(), fp=fp, indent=2)
 
     @classmethod
-    def load(cls, path: Path) -> 'HuggingfaceClassifier':
+    def load(cls, path: Path) -> HuggingfaceClassifier:
+        from transformers import AutoModelForSequenceClassification
+
         source = str(path.resolve())
         logger.info(f'Loading trained model from {source}')
         with open(path / 'model_info.json', 'r') as fp:
