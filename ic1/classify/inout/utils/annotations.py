@@ -26,8 +26,7 @@ def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
 
     splits = EvaluationSplits.load(TASK.splits_path)
 
-    df = df.rename(columns={'incl|1': 'label'})[['item_id', 'text', 'label']]
-    df = df.dropna(subset='label')
+    df = df.rename(columns={'incl|1': 'label'})[['item_id', 'text', 'label']].dropna(subset='label').astype({'label': int})
 
     train_df = df[df['item_id'].isin(splits.train)].reset_index()
     val_df = df[df['item_id'].isin(splits.validation)].reset_index()

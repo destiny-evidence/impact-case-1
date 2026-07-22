@@ -14,7 +14,7 @@ dependencies = [
 
 [project.optional-dependencies]
 classify = [
-    "transformers[torch,transformers,optuna,sentencepiece]==5.14.1",
+    "transformers[torch,optuna,sentencepiece]==5.14.1",
     "datasets==5.0.0",
     "lightgbm==4.7.0",
 ]

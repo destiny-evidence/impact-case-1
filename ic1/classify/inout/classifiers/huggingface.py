@@ -166,6 +166,7 @@ class HuggingfaceClassifier(ClassifierBase):
         """
         from datasets import Dataset
         from transformers import AutoTokenizer
+        from torch import tensor, long
 
         if self.tokenizer_ is None:
             self.tokenizer_ = AutoTokenizer.from_pretrained(self.model_name, model_max_length=self.model_max_length, cache_dir=settings.OFFLINE_MODELS_DIR)  # type: ignore[assignment]
@@ -173,7 +174,8 @@ class HuggingfaceClassifier(ClassifierBase):
         dataset = Dataset.from_dict(
             {
                 'text': texts,
-                'labels': labels,
+                # should be unnecessary if inputs are properly typed, but pandas defaults int back to float
+                'labels': tensor(labels, dtype=long) if labels is not None else None,
             },
         )
 
