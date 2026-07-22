@@ -160,24 +160,31 @@ class HuggingfaceClassifier(ClassifierBase):
         logger.debug(f'Samples/second: {result.metrics["train_samples_per_second"]:.2f}')
 
     def tokenize(self, texts: list[str], labels: np.ndarray | None) -> Dataset:
-        """
-        Returns tokenised dataset from texts and labels using the given model name or filepath
-        If using direct path, don't forget to use `--tokenizer` postfix: `{/path/to/model}--tokenizer`
-        """
         from datasets import Dataset
         from transformers import AutoTokenizer
         from torch import tensor, long
 
         if self.tokenizer_ is None:
-            self.tokenizer_ = AutoTokenizer.from_pretrained(self.model_name, model_max_length=self.model_max_length, cache_dir=settings.OFFLINE_MODELS_DIR)  # type: ignore[assignment]
+            try:
+                self.tokenizer_ = AutoTokenizer.from_pretrained(  # type: ignore[assignment]
+                    self.model_name,
+                    model_max_length=self.model_max_length,
+                    cache_dir=settings.OFFLINE_MODELS_DIR,
+                )
+            except ValueError:
+                # from transformers import BertTokenizerFast
+                # tokenizer = BertTokenizerFast.from_pretrained(model_name, cache_dir=settings.OFFLINE_MODELS_DIR)
+                self.tokenizer_ = AutoTokenizer.from_pretrained(  # type: ignore[assignment]
+                    self.model_name,
+                    model_max_length=self.model_max_length,
+                    cache_dir=settings.OFFLINE_MODELS_DIR,
+                    use_fast=False,
+                )
 
-        dataset = Dataset.from_dict(
-            {
-                'text': texts,
-                # should be unnecessary if inputs are properly typed, but pandas defaults int back to float
-                'labels': tensor(labels, dtype=long) if labels is not None else None,
-            },
-        )
+        params = {'text': texts}
+        if labels is not None:
+            params['labels'] = tensor(labels, dtype=long)
+        dataset = Dataset.from_dict(labels)
 
         dataset = dataset.map(lambda x: self.tokenizer_(x['text'], padding='max_length', truncation=True), batched=True)  # type: ignore[misc]
         dataset.set_format('torch')
