@@ -25,7 +25,7 @@ class SklearnClassifier(ClassifierBase):
         self.classes_: np.ndarray | None = None
 
     def fit(self, X, y):
-        self.model_ = self.get_pipeline(**{k:v for k,v in self.model_params_.items() if k not in {'downsampling', 'ngram_range_max'}})
+        self.model_ = self.get_pipeline(**{k: v for k, v in self.model_params_.items() if k not in {'downsampling', 'ngram_range_max'}})
         self.model_.fit(X, y)
         return self
 

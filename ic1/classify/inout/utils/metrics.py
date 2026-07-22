@@ -1,23 +1,13 @@
-
-import json
-import hashlib
 import logging
-from pathlib import Path
-from typing import Any, TYPE_CHECKING
-from datetime import datetime, timezone
+from typing import TYPE_CHECKING
 
-import pandas as pd
 import numpy as np
-from pydantic import BaseModel, Field
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, roc_auc_score
 
-from ic1.core.config import settings, TASKS, TaskName
-from ic1.core.utils import uniform, DictLikeEncoder
-from ic1.evaluation_splits.splits_model import EvaluationSplits
-logger= logging.getLogger(__name__)
+
+logger = logging.getLogger(__name__)
 if TYPE_CHECKING:
     from torch import Tensor
-
 
 
 def evaluate(

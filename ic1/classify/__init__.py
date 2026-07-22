@@ -1,5 +1,3 @@
-from typing import Annotated
-
 import typer
 
 from ic1.core.config import TaskName

@@ -46,8 +46,8 @@ class Config(BaseSettings):
     SENSITIVE_ROOT: Path = Path('data/private/exports')  # gitignored; never committed
     SHAREABLE_ROOT: Path = Path('data/exports')  # git-tracked; Frictionless-described
     PSEUDONYM_MAP: Path = Field(default_factory=lambda data: data['SENSITIVE_ROOT'] / 'coder_pseudonyms.json')  # gitignored; sensitive, stable
-
-    OFFLINE_MODELS_DIR: Path  = Path('data/.cache/models')
+    LOGGING_DIR: Path = Path('data/logs')
+    OFFLINE_MODELS_DIR: Path = Path('data/.cache/models')
 
 
 settings = Config()

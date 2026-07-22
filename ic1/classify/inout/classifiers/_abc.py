@@ -38,6 +38,6 @@ class ClassifierBase(ABC, BaseEstimator, ClassifierMixin):
 
     @classmethod
     def from_run(cls, run: TuningFold) -> 'ClassifierBase':
-        from ic1.classify.inout.models import MODEL_CONFIGS
+        from ic1.classify.inout.configs import MODEL_CONFIGS
 
         return MODEL_CONFIGS[run.model].get_model(**run.params)

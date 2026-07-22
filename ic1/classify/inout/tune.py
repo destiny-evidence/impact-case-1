@@ -1,3 +1,4 @@
+import logging
 import time
 from pathlib import Path
 from typing import Annotated
@@ -7,8 +8,10 @@ import pandas as pd
 import typer
 from sklearn.model_selection import StratifiedKFold, train_test_split
 
-from .models import MODEL_CONFIGS, ClassifierHelper
-from .utils import load_data, logger, TuningFold, hash_ids, Result, TASK
+from .configs import MODEL_CONFIGS
+from .utils import load_data, TuningFold, hash_ids, Result, TASK, ClassifierHelper
+
+logger = logging.getLogger(__name__)
 
 
 def hyperparameter_tuning(

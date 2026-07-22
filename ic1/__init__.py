@@ -9,6 +9,9 @@ def main():
         level=logging.DEBUG,
         handlers=[RichHandler()],
     )
+    logging.getLogger('httpcore').setLevel(logging.WARNING)
+    logging.getLogger('filelock').setLevel(logging.WARNING)
+    logging.getLogger('httpx').setLevel(logging.WARNING)
 
     from ic1.annotation.export.export_annotations import main as export_annotations
     from ic1.annotation.scheme.import_taxonomy import main as import_taxonomy

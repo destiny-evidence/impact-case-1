@@ -76,6 +76,7 @@ class _HuggingfaceClassifierConfig(_ClassifierConfig, ABC):
     @classmethod
     def get_model(cls, **kwargs: Any) -> 'HuggingfaceClassifier':
         from ..classifiers import HuggingfaceClassifier
+
         params = cls.get_params() | kwargs
         return HuggingfaceClassifier(model_name=params['model_name'], model_params=params)
 

@@ -11,8 +11,8 @@ from ic1.classify.inout.utils import evaluate, TuningFold
 from ic1.core.utils import downsampling_mask, mask_list
 
 if TYPE_CHECKING:
-    from ic1.classify.inout.models.classifiers import Classifier
-    from ic1.classify.inout.models.configs import ClassifierConfig
+    from ic1.classify.inout.classifiers import Classifier
+    from ic1.classify.inout.configs import ClassifierConfig
 
 
 logger = logging.getLogger(__name__)
@@ -63,7 +63,7 @@ class ClassifierHelper:
             n_trials=self.tuning_trials,
             n_jobs=self.tuning_jobs,
         )
-        logger.info(f'Best trial: {study.best_trial.user_attrs['model_params']}')
+        logger.info(f'Best trial: {study.best_trial.user_attrs["model_params"]}')
         logger.debug(f'Hyper-parameter-tuning for {self.config.name} done with best score {study.best_value}')
         return study
 
@@ -103,13 +103,13 @@ class ClassifierHelper:
         objective = scores_test[scoring]
         return 0 if np.isnan(objective) else objective
 
-    def best_from_study(self, study: Study, X: list[str], y: list[int])-> 'Classifier':
+    def best_from_study(self, study: Study, X: list[str], y: list[int]) -> 'Classifier':
         return self.train(X=X, y=y, model_params=study.best_trial.user_attrs['model_params'])
 
     @classmethod
     def from_run(cls, run: TuningFold) -> 'ClassifierHelper':
-        from ic1.classify.inout.models import ClassifierHelper
-        from ic1.classify.inout.models import MODEL_CONFIGS
+        from ic1.classify.inout.utils import ClassifierHelper
+        from ic1.classify.inout.configs import MODEL_CONFIGS
 
         return ClassifierHelper(
             config=MODEL_CONFIGS[run.model],

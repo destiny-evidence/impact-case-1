@@ -1,12 +1,14 @@
 import json
+import logging
 import time
 from pathlib import Path
 from typing import Annotated
 
 import typer
 
-from .models import ClassifierHelper
-from .utils import load_data, logger, hash_ids, TASK, read_tuning_results, results_to_pd
+from .utils import load_data, hash_ids, TASK, read_tuning_results, results_to_pd, ClassifierHelper
+
+logger = logging.getLogger(__name__)
 
 
 def train_model(
