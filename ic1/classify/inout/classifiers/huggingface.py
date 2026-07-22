@@ -214,7 +214,11 @@ class HuggingfaceClassifier(ClassifierBase):
         logger.debug('Predicting on texts')
         # self.model_.eval()
         with torch.no_grad():
-            y_pred: np.ndarray = self.model_.predict_proba(dataset).numpy()[:, 1]  # type: ignore[attr-defined]
+            y_pred = self.model_.predict_proba(dataset)
+            if type(y_pred) is torch.Tensor:
+                y_pred = y_pred.numpy()
+            if len(y_pred.shape) > 1:
+                y_pred = y_pred[:, 1]
         logger.debug(f'  > Predictions include {(y_pred > 0.5).sum():,} records at threshold >0.5')
         return y_pred
 
