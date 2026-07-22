@@ -46,7 +46,10 @@ class SklearnClassifier(ClassifierBase):
         if hasattr(self.model_, 'predict_proba'):
             y_pred = self.model_.predict_proba(X)[:, 1]
         else:
-            y_pred = self.model_.predict(X)[:, 1]
+            y_pred = self.model_.predict(X)
+            if len(y_pred.shape) > 1:
+                y_pred = y_pred[:, 1]
+
         logger.debug(f'  > Predictions include {(y_pred > 0.5).sum():,} records at threshold >0.5')
         return y_pred
 

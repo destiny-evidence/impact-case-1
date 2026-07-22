@@ -43,8 +43,8 @@ class IsolationForestClassifierConfig(_SklearnClassifierConfig):
         if trial is not None:
             vect__ngram_range = trial.suggest_categorical('vect__ngram_range_max', [1, 2])
             params |= {
-                'clf__n_estimators': trial.suggest_int('n_estimators', low=20, high=250),
-                'clf__max_features': trial.suggest_float('max_features', low=0.2, high=1.0),
+                'clf__n_estimators': trial.suggest_int('clf__n_estimators', low=20, high=250),
+                'clf__max_features': trial.suggest_float('clf__max_features', low=0.2, high=1.0),
                 'vect__max_df': trial.suggest_float('vect__max_df', 0.5, 0.8),
                 'vect__min_df': trial.suggest_int('vect__min_df', 5, 15),
                 'vect__ngram_range': (1, vect__ngram_range),

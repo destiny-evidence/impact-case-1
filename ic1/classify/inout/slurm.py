@@ -100,7 +100,7 @@ def main(
             help='Slurm partition QoS to use for GPU tasks [gpushort, gpumedium, ...]\n'
             'GPU QoS has different MaxJobsPU with different priority, see `$ sacctmgr show qos`'
         ),
-    ] = 'gpushort',
+    ] = 'gpumedium',
     slurm_cpu_qos: Annotated[str, typer.Option(help='Slurm partition QoS to use for GPU tasks [short, ...]')] = 'short',
     dev_mode: Annotated[bool, typer.Option(help='Run in development mode')] = False,
     num_folds: Annotated[int, typer.Option(help='Number of folds for cross-validation')] = 3,

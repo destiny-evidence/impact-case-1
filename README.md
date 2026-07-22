@@ -164,7 +164,7 @@ rsync -avh --progress -e ssh data/ foote:/data/rd5/ecs/workspace/destiny/impact-
 
 # SLURM job preparation
 module load anaconda
-uv run --extra classify --link-mode=copy ic1 classify-inout slurm --schedule --no-dev-mode --num-trials=100 --slurm-user="...@pik-potsdam.de"
+uv run --extra classify --link-mode=copy ic1 classify-inout slurm --submit --no-dev-mode --num-trials-gpu=100 --num-trials-cpu=1000 --slurm-user="...@pik-potsdam.de"
 
 # Check status
 squeue --me -t all -p gpu --format "%.18i %.10q %.9P %.8j %.8u %.5T %.12M %.14l %.10D %.20R %.20p %.15r %.20V"
