@@ -3,36 +3,10 @@ import time
 from pathlib import Path
 from typing import Annotated
 
-import pandas as pd
 import typer
 
 from .models import ClassifierHelper
-from .utils import load_data, logger, TuningFold, hash_ids, TASK
-
-
-def read_tuning_results(source_dir: Path) -> list[TuningFold]:
-    logger.info(f'Reading tuning results from {source_dir}')
-    results = []
-    for file in source_dir.glob('*.json'):
-        with open(file) as fp:
-            results.append(TuningFold.model_validate_json(fp.read()))
-    return results
-
-
-def results_to_pd(results: list[TuningFold]) -> pd.DataFrame:
-    rows = []
-    for ri, result in enumerate(results):
-        base = result.model_dump()
-        base.pop('params')
-        scores_self = base.pop('scores_self')
-        scores_test = base.pop('scores_test')
-        scores_val = base.pop('scores_val')
-        rows.append(base | scores_self | {'scores': 'self'})
-        rows.append(base | scores_test | {'scores': 'test'})
-        for score in scores_val:
-            rows.append(base | score | {'scores': 'val', 'result': ri})
-
-    return pd.DataFrame(rows)
+from .utils import load_data, logger, hash_ids, TASK, read_tuning_results, results_to_pd
 
 
 def train_model(
