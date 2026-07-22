@@ -45,14 +45,20 @@ class SVMClassifierConfig(_SklearnClassifierConfig):
             'vect__max_df': 0.8,
             'vect__min_df': 10,
         }
+
         if trial is not None:
             vect__ngram_range = trial.suggest_categorical('vect__ngram_range_max', [1, 2])
+            kernel = trial.suggest_categorical('clf__estimator__kernel', ['linear', 'rbf'])  # , 'poly', 'sigmoid'
+
             params |= {
                 'clf__estimator__C': trial.suggest_float('clf__estimator__C', low=0.001, high=1000, log=True),
                 'clf__estimator__gamma': trial.suggest_float('clf__estimator__gamma', 0.001, 1.0, log=True),
-                'clf__estimator__kernel': trial.suggest_categorical('clf__estimator__kernel', ['linear', 'rbf']),  # , 'poly', 'sigmoid'
+                'clf__estimator__kernel': kernel,
                 'vect__max_df': trial.suggest_float('vect__max_df', 0.5, 0.8),
                 'vect__min_df': trial.suggest_int('vect__min_df', 5, 15),
                 'vect__ngram_range': (1, vect__ngram_range),
             }
+            if kernel == 'rbf':
+                params['clf__estimator__gamma'] = trial.suggest_float('clf__estimator__gamma', 0.001, 1.0, log=True)
+
         return params
