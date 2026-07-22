@@ -145,7 +145,7 @@ uv run ic1 --help
 │ classify-inout   Inclusion classification model tuning and training                                                                                                                                                                                                                                                                           │
 ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-# get data from database and pseudonomise
+# get data from database and pseudonymise
 uv run ic1 export-labels
 # generate a split
 uv run ic1 split-data --task inout --seed 42
@@ -156,8 +156,20 @@ uv run ic1 classify-inout tune --num-trials 100
 # use best config from before to train and save a model
 uv run ic1 classify-inout train
 
-# SLURM job preparation
-uv run ic1 classify-inout slurm --schedule --no-dev-mode --num-trials=100 --slurm-user="...@pik-potsdam.de"
 
-# TODO: reorganise imports, so torch/datasets is only imported when absolutely needed
+# Working dir temporarily at /data/rd5/ecs/workspace/destiny/impact-case-1
+# Syncing results
+rsync -avh --progress -e ssh foote:/data/rd5/ecs/workspace/destiny/impact-case-1/data .
+rsync -avh --progress -e ssh data/ foote:/data/rd5/ecs/workspace/destiny/impact-case-1/data
+
+# SLURM job preparation
+module load anaconda
+uv run --extra classify --link-mode=copy ic1 classify-inout slurm --schedule --no-dev-mode --num-trials=100 --slurm-user="...@pik-potsdam.de"
+
+# Check status
+squeue --me -t all -p gpu --format "%.18i %.10q %.9P %.8j %.8u %.5T %.12M %.14l %.10D %.20R %.20p %.15r %.20V"
+squeue --me -t all -p standard --format "%.18i %.10q %.9P %.8j %.8u %.5T %.12M %.14l %.10D %.20R %.20p %.15r %.20V"
+# Clear log dir
+rm data/logs/*
+
 ```
