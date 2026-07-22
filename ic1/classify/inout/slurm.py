@@ -76,7 +76,7 @@ echo "Python version is $(python --version)"
 MODELS=("{'" "'.join(models)}")
 
 job=$(($SLURM_ARRAY_TASK_ID - 1))
-model_idx=$((($job % {len(models)}) + 1))
+model_idx=$(($job % {len(models)}))
 
 echo "array_task_id" $SLURM_ARRAY_TASK_ID " --> job" $job
 echo "model_idx" $model_idx
