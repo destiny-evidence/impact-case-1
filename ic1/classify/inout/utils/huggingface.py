@@ -4,7 +4,7 @@ from ic1.core.config import settings
 logger = logging.getLogger(__name__)
 
 
-def ensure_offline_models(models: list[str] | None = None, force: bool = False):
+def ensure_offline_models(models: list[str] | None = None, force: bool = False) -> None:
     from huggingface_hub import snapshot_download
     from huggingface_hub.file_download import repo_folder_name
 
@@ -12,7 +12,7 @@ def ensure_offline_models(models: list[str] | None = None, force: bool = False):
         from ic1.classify.inout.configs import MODEL_CONFIGS
         from ic1.classify.inout.configs._abc import _HuggingfaceClassifierConfig
 
-        models = [config.model_name for config in MODEL_CONFIGS if issubclass(config, _HuggingfaceClassifierConfig)]
+        models = [config.model_name for config in MODEL_CONFIGS.values() if issubclass(config, _HuggingfaceClassifierConfig)]
 
     for model in models:
         model_dir = settings.OFFLINE_MODELS_DIR / repo_folder_name(repo_id=model, repo_type='model')

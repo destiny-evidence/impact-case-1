@@ -27,7 +27,7 @@ class RandomForestClassifierConfig(_SklearnClassifierConfig):
 
     @classmethod
     def params_default(cls, trial: 'Trial | None' = None) -> dict[str, Any]:
-        params = {
+        params: dict[str, Any] = {
             'clf__n_estimators': 1000,
             'clf__verbose': 0,
             'clf__random_state': None,

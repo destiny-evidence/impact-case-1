@@ -1,3 +1,5 @@
+from typing import Type
+
 from .isoforest import IsolationForestClassifierConfig
 from .lgbm import LightGBMClassifierConfig
 from .nb import NaiveBayesClassifierConfig
@@ -21,8 +23,8 @@ type ClassifierConfig = (
     | ClimateBertConfig
 )
 
-MODEL_CONFIGS = {
-    config.name.upper(): config
+MODEL_CONFIGS: dict[str, Type[ClassifierConfig]] = {
+    config.name.upper(): config  # type: ignore[attr-defined, misc]
     for config in [
         RegressionClassifierConfig,
         SVMClassifierConfig,

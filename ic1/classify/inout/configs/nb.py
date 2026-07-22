@@ -27,7 +27,7 @@ class NaiveBayesClassifierConfig(_SklearnClassifierConfig):
 
     @classmethod
     def params_default(cls, trial: 'Trial | None' = None) -> dict[str, Any]:
-        params = {
+        params: dict[str, Any] = {
             'clf__force_alpha': True,
             'clf__alpha': 1.0,
             'clf__fit_prior': True,

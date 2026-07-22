@@ -1,5 +1,5 @@
 import logging
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import numpy as np
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, roc_auc_score
@@ -15,7 +15,7 @@ def evaluate(
     y_true: 'np.ndarray | Tensor',
     y_pred: 'np.ndarray | Tensor',
     threshold: float = 0.5,
-):
+) -> dict[str, Any]:
     y_pred_binary = np.where(y_pred > threshold, 1, 0)
 
     results = {

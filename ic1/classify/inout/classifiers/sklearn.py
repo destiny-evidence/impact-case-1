@@ -15,8 +15,8 @@ logger = logging.getLogger(__name__)
 class SklearnClassifier(ClassifierBase):
     def __init__(
         self,
+        pipeline: Callable[..., 'Pipeline'],  # | None = None,
         model_params: dict[str, Any] | None = None,
-        pipeline: Callable[..., 'Pipeline'] | None = None,
     ):
         super().__init__(model_params=model_params)
         self.get_pipeline = pipeline
@@ -24,7 +24,7 @@ class SklearnClassifier(ClassifierBase):
         self.model_: 'Pipeline | None' = None
         self.classes_: np.ndarray | None = None
 
-    def fit(self, X, y):
+    def fit(self, X: list[str], y: list[int]) -> 'SklearnClassifier':
         self.model_ = self.get_pipeline(**{k: v for k, v in self.model_params_.items() if k not in {'downsampling', 'ngram_range_max'}})
         self.model_.fit(X, y)
         return self
@@ -39,14 +39,16 @@ class SklearnClassifier(ClassifierBase):
             'pipeline': self.get_pipeline,
         }
 
-    def predict_proba(self, X: list[str]):
+    def predict_proba(self, X: list[str]) -> np.ndarray:
         if not self.model_:
             raise RuntimeError('Model must be trained before predicting!')
-        y_pred = self.model_.predict_proba(X)[:, 1]
+        y_pred: np.ndarray = self.model_.predict_proba(X)[:, 1]
         logger.debug(f'  > Predictions include {(y_pred > 0.5).sum():,} records at threshold >0.5')
         return y_pred
 
-    def predict(self, X: list[str]):
+    def predict(self, X: list[str]) -> np.ndarray:
+        if not self.classes_:
+            raise RuntimeError('Model must be trained before predicting!')
         return self.classes_[np.argmax(self.predict_proba(X), axis=1)]
 
     def save(self, path: Path) -> None:

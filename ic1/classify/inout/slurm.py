@@ -21,7 +21,7 @@ def _write_file(
     sbatch_args: dict[str, Any],
     script_args: dict[str, Any],
     venv_path: Path,
-):
+) -> None:
     # Write slurm batch file
     # For information on array jobs, see: https://hpcdocs.hpc.arizona.edu/running_jobs/batch_jobs/array_jobs/
 
@@ -110,7 +110,7 @@ def main(
     scoring: Annotated[str, typer.Option(help='Scoring metric for hyperparameter tuning')] = 'F1',
     decision_threshold: Annotated[float, typer.Option(help='Decision threshold for classification')] = 0.5,
     result_dir: Annotated[Path, typer.Option(help='Directory to write tuning results to')] = TASK.classifier_results_path,
-):
+) -> None:
     logger.info('Preparing slurm script and submitting job!')
 
     # Ensure directories are ready
@@ -124,7 +124,7 @@ def main(
 
     # Ensure models are downloaded
     logger.info('Making sure all models are available offline!')
-    ensure_offline_models([config.model_name for config in configs_gpu])
+    ensure_offline_models([config.model_name for config in configs_gpu])  # type: ignore[union-attr]
 
     script_args = {
         'dev-mode': dev_mode,

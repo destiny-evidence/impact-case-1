@@ -7,7 +7,7 @@ from ic1.classify.inout.utils import TuningFold
 from sklearn.base import BaseEstimator, ClassifierMixin
 
 
-class ClassifierBase(ABC, BaseEstimator, ClassifierMixin):
+class ClassifierBase(ABC, BaseEstimator, ClassifierMixin):  # type: ignore[misc]
     def __init__(
         self,
         model_params: dict[str, Any] | None = None,

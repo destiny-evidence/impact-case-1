@@ -38,7 +38,7 @@ class ClassifierHelper:
     def _train_params(self, trial: 'Trial | None' = None) -> dict[str, Any]:
         params = self.config.get_params(trial=trial) | self.model_params
         if trial:
-            params |= self.hp_space(trial=trial)
+            params |= self.hp_space(trial=trial)  # type: ignore[call-arg]
         return params
 
     def train(self, X: list[str], y: list[int], model_params: dict[str, Any] | None = None) -> 'Classifier':
@@ -48,7 +48,7 @@ class ClassifierHelper:
         y_ = np.array(y)
         sampling = model_params.pop('downsampling', 0)
         mask = downsampling_mask(y_, sampling=sampling)
-        model.fit(mask_list(X, mask), y[mask])
+        model.fit(mask_list(X, mask), y_[mask])
         return model
 
     def test(self, model: 'Classifier', X: list[str], y: list[int]) -> list[dict[str, float]]:
@@ -108,10 +108,9 @@ class ClassifierHelper:
 
     @classmethod
     def from_run(cls, run: TuningFold) -> 'ClassifierHelper':
-        from ic1.classify.inout.utils import ClassifierHelper
         from ic1.classify.inout.configs import MODEL_CONFIGS
 
-        return ClassifierHelper(
+        return cls(
             config=MODEL_CONFIGS[run.model],
             model_params=run.params,
         )

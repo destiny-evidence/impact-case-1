@@ -15,7 +15,7 @@ def train_model(
     dev_mode: Annotated[bool, typer.Option(help='Run in development mode')] = False,
     tuning_dir: Annotated[Path, typer.Option(help='Directory to write tuning results to')] = TASK.tuning_results_path,
     target_dir: Annotated[Path, typer.Option(help='Directory to write tuning results to')] = TASK.ml_model_path,
-):
+) -> None:
     """Run all models and find the best hyperparameter setting for each and store results"""
     results = read_tuning_results(tuning_dir)
     df_results = results_to_pd(results)

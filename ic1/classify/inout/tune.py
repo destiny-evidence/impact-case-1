@@ -1,14 +1,14 @@
 import logging
 import time
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, Type
 
 import numpy as np
 import pandas as pd
 import typer
 from sklearn.model_selection import StratifiedKFold, train_test_split
 
-from .configs import MODEL_CONFIGS
+from .configs import MODEL_CONFIGS, ClassifierConfig
 from .utils import load_data, TuningFold, hash_ids, Result, TASK, ClassifierHelper
 
 logger = logging.getLogger(__name__)
@@ -24,7 +24,7 @@ def hyperparameter_tuning(
     scoring: Annotated[str, typer.Option(help='Scoring metric for hyperparameter tuning')] = 'F1',
     decision_threshold: Annotated[float, typer.Option(help='Decision threshold for classification')] = 0.5,
     result_dir: Annotated[Path, typer.Option(help='Directory to write tuning results to')] = TASK.classifier_results_path,
-):
+) -> None:
     """Run all models and find the best hyperparameter setting for each and store results"""
     logger.info(f'Going to write tuning results to {result_dir}')
     result_dir.mkdir(parents=True, exist_ok=True)
@@ -40,7 +40,7 @@ def hyperparameter_tuning(
         if seed is not None:
             seed += 1
         for name in models:
-            config = MODEL_CONFIGS[name.upper()]
+            config: Type[ClassifierConfig] = MODEL_CONFIGS[name.upper()]
             logger.info(f'Tuning model {name.upper()} for fold {fold + 1}')
             if seed is not None:
                 seed += 1

@@ -156,7 +156,8 @@ uv run ic1 classify-inout tune --num-trials 100
 # use best config from before to train and save a model
 uv run ic1 classify-inout train
 
-
+# SLURM job preparation
+uv run ic1 classify-inout slurm --schedule --no-dev-mode --num-trials=100 --slurm-user="...@pik-potsdam.de"
 
 # TODO: reorganise imports, so torch/datasets is only imported when absolutely needed
 ```
