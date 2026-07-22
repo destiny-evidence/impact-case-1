@@ -58,8 +58,8 @@ def results_to_pd(results: list[TuningFold]) -> pd.DataFrame:
         scores_self = base.pop('scores_self')
         scores_test = base.pop('scores_test')
         scores_val = base.pop('scores_val')
-        rows.append(base | scores_self | {'scores': 'self'})
-        rows.append(base | scores_test | {'scores': 'test'})
+        rows.append(base | scores_self | {'scores': 'self', 'result': ri})
+        rows.append(base | scores_test | {'scores': 'test', 'result': ri})
         for score in scores_val:
             rows.append(base | score | {'scores': 'val', 'result': ri})
 

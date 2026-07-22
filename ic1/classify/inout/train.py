@@ -6,7 +6,8 @@ from typing import Annotated
 
 import typer
 
-from .utils import load_data, hash_ids, TASK, read_tuning_results, results_to_pd, ClassifierHelper
+from .utils import load_data, hash_ids, TASK, read_tuning_results, results_to_pd
+from .classifiers import ClassifierHelper
 
 logger = logging.getLogger(__name__)
 

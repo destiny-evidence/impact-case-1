@@ -41,7 +41,7 @@ class SVMClassifierConfig(_SklearnClassifierConfig):
             'clf__estimator__gamma': 'auto',
             # 'clf__estimator__probability': True, -> FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
             'clf__estimator__C': 1.0,
-            'clf__estimator__max_iter': 10000,
+            'clf__estimator__max_iter': 50000,
             'vect__max_df': 0.8,
             'vect__min_df': 10,
         }

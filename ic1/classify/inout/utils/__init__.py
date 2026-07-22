@@ -10,7 +10,6 @@ from .annotations import load_data
 from .results import Result, TuningFold, results_to_pd, read_tuning_results_df, read_tuning_results
 from .huggingface import ensure_offline_models
 from .metrics import evaluate
-from .helper import ClassifierHelper
 
 logger = logging.getLogger(__name__)
 
@@ -39,5 +38,4 @@ __all__ = [
     'evaluate',
     'compute_class_weights',
     'ensure_offline_models',
-    'ClassifierHelper',
 ]

@@ -1,18 +1,18 @@
 """Abstract base class for classifiers."""
 
 import logging
-
+from copy import deepcopy
 import optuna
 from optuna import Study, Trial
 import numpy as np
 from typing import Any, Callable, Type, TYPE_CHECKING
 
-from ic1.classify.inout.utils import evaluate, TuningFold
 from ic1.core.utils import downsampling_mask, mask_list
+from ..utils import evaluate, TuningFold
 
 if TYPE_CHECKING:
-    from ic1.classify.inout.classifiers import Classifier
-    from ic1.classify.inout.configs import ClassifierConfig
+    from .classifiers import Classifier
+    from .configs import ClassifierConfig
 
 
 logger = logging.getLogger(__name__)
@@ -57,7 +57,9 @@ class ClassifierHelper:
         return [evaluate(y_true=np.array(y), y_pred=y_pred, threshold=th) for th in self.thresholds]
 
     def tune(self, X_train: list[str], y_train: list[int], X_test: list[str], y_test: list[int], scoring: str = 'F1', threshold: float = 0.5) -> Study:
-        study = optuna.create_study(direction='maximize')
+        # TODO: Check which sampler makes most sense: https://optuna.readthedocs.io/en/stable/reference/samplers/index.html
+        sampler = optuna.samplers.TPESampler(n_startup_trials=int(self.tuning_trials * 0.5))
+        study = optuna.create_study(direction='maximize', sampler=sampler)
         study.optimize(
             lambda trial: self._run_trial(trial=trial, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, scoring=scoring, threshold=threshold),
             n_trials=self.tuning_trials,
@@ -71,6 +73,7 @@ class ClassifierHelper:
         self, trial: Trial, X_train: list[str], y_train: list[int], X_test: list[str], y_test: list[int], scoring: str = 'F1', threshold: float = 0.5
     ) -> float:
         model_params = self._train_params(trial=trial)
+        model_params_ = deepcopy(model_params)
         sampling = model_params.pop('downsampling', 0)
 
         model = self.config.get_model(**model_params)
@@ -98,7 +101,7 @@ class ClassifierHelper:
 
         trial.set_user_attr('scores_self', scores_self)
         trial.set_user_attr('scores_test', scores_test)
-        trial.set_user_attr('model_params', model_params)
+        trial.set_user_attr('model_params', model_params_)
 
         objective = scores_test[scoring]
         return 0 if np.isnan(objective) else objective

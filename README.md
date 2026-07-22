@@ -160,11 +160,12 @@ uv run ic1 classify-inout train
 # Working dir temporarily at /data/rd5/ecs/workspace/destiny/impact-case-1
 # Syncing results
 rsync -avh --progress -e ssh foote:/data/rd5/ecs/workspace/destiny/impact-case-1/data .
+rsync -avh --progress -e ssh foote:/data/rd5/ecs/workspace/destiny/impact-case-1/data/models data
 rsync -avh --progress -e ssh data/ foote:/data/rd5/ecs/workspace/destiny/impact-case-1/data
 
 # SLURM job preparation
 module load anaconda
-uv run --extra classify --link-mode=copy ic1 classify-inout slurm --submit --no-dev-mode --num-trials-gpu=100 --num-trials-cpu=1000 --slurm-user="...@pik-potsdam.de"
+uv run --extra classify --link-mode=copy ic1 classify-inout slurm --submit --no-dev-mode --random-seed 42 --num-trials-gpu=100 --num-trials-cpu=1000 --slurm-user="...@pik-potsdam.de"
 
 # Check status
 squeue --me -t all -p gpu --format "%.18i %.10q %.9P %.8j %.8u %.5T %.12M %.14l %.10D %.20R %.20p %.15r %.20V"

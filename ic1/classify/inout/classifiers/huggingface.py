@@ -104,7 +104,7 @@ class HuggingfaceClassifier(ClassifierBase):
 
     @property
     def num_labels(self) -> int:
-        if not self.classes_:
+        if self.classes_ is None:
             raise RuntimeError('Model not initialised')
         return len(self.classes_)
 
@@ -167,7 +167,7 @@ class HuggingfaceClassifier(ClassifierBase):
         from datasets import Dataset
         from transformers import AutoTokenizer
 
-        if not self.tokenizer_:
+        if self.tokenizer_ is None:
             self.tokenizer_ = AutoTokenizer.from_pretrained(self.model_name, model_max_length=self.model_max_length, cache_dir=settings.OFFLINE_MODELS_DIR)  # type: ignore[assignment]
 
         dataset = Dataset.from_dict(
@@ -196,7 +196,7 @@ class HuggingfaceClassifier(ClassifierBase):
     def predict_proba(self, X: list[str]) -> np.ndarray:
         import torch
 
-        if not self.model_:
+        if self.model_ is None:
             raise RuntimeError('Model must be trained before predicting!')
 
         logger.debug(f'Tokenising {len(X):,} texts')
@@ -210,14 +210,14 @@ class HuggingfaceClassifier(ClassifierBase):
         return y_pred
 
     def predict(self, X: list[str]) -> np.ndarray:
-        if not self.classes_:
+        if self.classes_ is None:
             raise RuntimeError('Model must be trained before predicting!')
         return self.classes_[np.argmax(self.predict_proba(X), axis=1)]
 
     def save(self, path: Path) -> None:
         target = str(path.resolve())
         logger.info(f'Saving trained "{self.model_name}" model to {target}')
-        if not self.model_:
+        if self.model_ is None:
             raise RuntimeError('Model must be trained before it can be saved!')
         self.model_.save_model(target)  # type: ignore[attr-defined]
         with open(path / 'model_info.json', 'w') as fp:

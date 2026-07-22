@@ -48,7 +48,7 @@ def _write_file(
 {'\n'.join(sbatch)}
 #SBATCH --oversubscribe  # use non-utilized GPUs on busy nodes
 #SBATCH --mail-type=END,FAIL  # 'NONE', 'BEGIN', 'END', 'FAIL', 'REQUEUE', 'ALL'
-#SBATCH --array=1-{(len(models) + 1)}
+#SBATCH --array=1-{(len(models))}
 
 # Set this to exit the script when an error occurs
 set -e
