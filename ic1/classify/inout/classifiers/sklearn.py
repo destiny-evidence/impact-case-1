@@ -42,7 +42,11 @@ class SklearnClassifier(ClassifierBase):
     def predict_proba(self, X: list[str]) -> np.ndarray:
         if not self.model_:
             raise RuntimeError('Model must be trained before predicting!')
-        y_pred: np.ndarray = self.model_.predict_proba(X)[:, 1]
+        y_pred: np.ndarray
+        if hasattr(self.model_, 'predict_proba'):
+            y_pred = self.model_.predict_proba(X)[:, 1]
+        else:
+            y_pred = self.model_.predict(X)[:, 1]
         logger.debug(f'  > Predictions include {(y_pred > 0.5).sum():,} records at threshold >0.5')
         return y_pred
 

@@ -76,7 +76,7 @@ echo "Python version is $(python --version)"
 MODELS=("{'" "'.join(models)}")
 
 job=$(($SLURM_ARRAY_TASK_ID - 1))
-model_idx=$(($job / {len(models)}))
+model_idx=$((($job % {len(models)}) + 1))
 
 echo "array_task_id" $SLURM_ARRAY_TASK_ID " --> job" $job
 echo "model_idx" $model_idx
@@ -91,7 +91,7 @@ echo "Job done."
 def main(
     slurm_user: Annotated[str, typer.Option(help='email address to notify when done')],
     models: Annotated[list[str], typer.Option(help='List of models to tune', default_factory=lambda: list(MODEL_CONFIGS.keys()))],
-    schedule_jobs: Annotated[bool, typer.Option('--schedule/--script-only', help='Schedule jobs on slurm')] = False,
+    schedule_jobs: Annotated[bool, typer.Option('--submit/--script-only', help='Schedule jobs on slurm')] = False,
     slurm_log: Annotated[Path, typer.Option(help='Directory to write slurm logs to')] = settings.LOGGING_DIR,
     slurm_hours: Annotated[int, typer.Option(help='Number of hours to allocate per slurm job in array')] = 5,
     slurm_gpu_qos: Annotated[
@@ -164,7 +164,7 @@ def main(
     logger.info(f'Writing GPU slurm file for {[config.name for config in configs_gpu]}')
     _write_file(
         target=Path('classify.gpu.slurm'),
-        models=[config.name for config in configs_cpu],
+        models=[config.name for config in configs_gpu],
         script_args=script_args,
         venv_path=venv_path,
         sbatch_args=sbatch_args
