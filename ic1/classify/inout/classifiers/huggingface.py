@@ -181,10 +181,10 @@ class HuggingfaceClassifier(ClassifierBase):
                     use_fast=False,
                 )
 
-        params = {'text': texts}
+        params: dict[str, Any] = {'text': texts}
         if labels is not None:
             params['labels'] = tensor(labels, dtype=long)
-        dataset = Dataset.from_dict(labels)
+        dataset = Dataset.from_dict(params)
 
         dataset = dataset.map(lambda x: self.tokenizer_(x['text'], padding='max_length', truncation=True), batched=True)  # type: ignore[misc]
         dataset.set_format('torch')
