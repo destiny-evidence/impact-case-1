@@ -82,7 +82,7 @@ echo "array_task_id" $SLURM_ARRAY_TASK_ID " --> job" $job
 echo "model_idx" $model_idx
 echo "model" "${{MODELS[$model_idx]}}"
 
-uv run ic1 classify-inout tune --models="${{MODELS[$model_idx]}}" {' '.join(script_params)}
+uv run --extra classify --link-mode=copy ic1 classify-inout tune --models="${{MODELS[$model_idx]}}" {' '.join(script_params)}
 
 echo "Job done."
     """)
