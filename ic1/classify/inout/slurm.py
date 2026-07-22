@@ -105,7 +105,8 @@ def main(
     dev_mode: Annotated[bool, typer.Option(help='Run in development mode')] = False,
     num_folds: Annotated[int, typer.Option(help='Number of folds for cross-validation')] = 3,
     random_seed: Annotated[int | None, typer.Option(help='Random seed for cross-validation')] = None,
-    num_trials: Annotated[int | None, typer.Option(help='Number of trials for hyperparameter tuning')] = None,
+    num_trials_gpu: Annotated[int | None, typer.Option(help='Number of trials for GPU hyperparameter tuning')] = None,
+    num_trials_cpu: Annotated[int | None, typer.Option(help='Number of trials for CPU hyperparameter tuning')] = None,
     num_jobs: Annotated[int, typer.Option(help='Number of tuning jobs for parallel processing')] = 1,
     scoring: Annotated[str, typer.Option(help='Scoring metric for hyperparameter tuning')] = 'F1',
     decision_threshold: Annotated[float, typer.Option(help='Decision threshold for classification')] = 0.5,
@@ -131,7 +132,6 @@ def main(
         'result-dir': result_dir,
         'num-folds': num_folds,
         'random-seed': random_seed,
-        'num-trials': num_trials,
         'num-jobs': num_jobs,
         'scoring': scoring,
         'decision-threshold': decision_threshold,
@@ -151,7 +151,7 @@ def main(
     _write_file(
         target=Path('classify.cpu.slurm'),
         models=[config.name for config in configs_cpu],
-        script_args=script_args,
+        script_args=script_args | {'num-trials': num_trials_cpu},
         venv_path=venv_path,
         sbatch_args=sbatch_args
         | {
@@ -165,7 +165,7 @@ def main(
     _write_file(
         target=Path('classify.gpu.slurm'),
         models=[config.name for config in configs_gpu],
-        script_args=script_args,
+        script_args=script_args | {'num-trials': num_trials_gpu},
         venv_path=venv_path,
         sbatch_args=sbatch_args
         | {
