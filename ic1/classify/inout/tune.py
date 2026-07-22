@@ -1,4 +1,6 @@
 import logging
+import os
+import sys
 import time
 from pathlib import Path
 from typing import Annotated, Type
@@ -83,6 +85,16 @@ def hyperparameter_tuning(
             logger.info(f'Testing model trained with best parameters for fold {fold + 1} of model {name.upper()}')
             scores_val = helper.test(model=model, X=[x[i] for i in val_idx], y=y[val_idx])
 
+            slurm_info = None
+            if os.getenv('SLURM_JOB_ID') is not None:
+                slurm_info = {
+                    'job_id': os.getenv('SLURM_JOB_ID'),
+                    'job_name': os.getenv('SLURM_JOB_NAME'),
+                    'job_array_task_id': os.getenv('SLURM_ARRAY_TASK_ID'),
+                    'job_array_task_count': os.getenv('SLURM_ARRAY_TASK_COUNT'),
+                    'job_nodelist': os.getenv('SLURM_JOB_NODELIST'),
+                }
+
             logger.info(f'Storing results to {result_file}')
             with open(result_file, 'w') as fp:
                 fp.write(
@@ -98,5 +110,6 @@ def hyperparameter_tuning(
                         val_hash=val_hash,
                         tune_time=tune_time,
                         fit_time=fit_time,
+                        slurm_info=slurm_info,
                     ).model_dump_json(indent=2)
                 )

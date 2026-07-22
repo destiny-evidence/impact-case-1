@@ -1,5 +1,6 @@
 from typing import Any, TYPE_CHECKING
 
+
 if TYPE_CHECKING:
     from optuna import Trial
     from sklearn.pipeline import Pipeline
@@ -12,17 +13,22 @@ class SVMClassifierConfig(_SklearnClassifierConfig):
 
     @classmethod
     def get_pipeline(cls, **kwargs: Any) -> 'Pipeline':
-        from sklearn.svm import SVC
         from sklearn.feature_extraction.text import TfidfVectorizer
+        from sklearn.decomposition import TruncatedSVD
+        from sklearn.preprocessing import StandardScaler
         from sklearn.calibration import CalibratedClassifierCV
+        from sklearn.svm import SVC
         from sklearn.pipeline import Pipeline
 
         pipeline = Pipeline(
             steps=[
                 ('vect', TfidfVectorizer()),
+                ('embed', TruncatedSVD(n_components=250)),
+                ('scale', StandardScaler(with_std=True, with_mean=False)),
                 ('clf', CalibratedClassifierCV(SVC(), ensemble=False)),
             ],
         )
+
         pipeline.set_params(**kwargs)
         return pipeline
 
@@ -33,7 +39,7 @@ class SVMClassifierConfig(_SklearnClassifierConfig):
             'clf__estimator__class_weight': 'balanced',
             'clf__estimator__degree': 3,
             'clf__estimator__gamma': 'auto',
-            'clf__estimator__probability': True,
+            # 'clf__estimator__probability': True, -> FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
             'clf__estimator__C': 1.0,
             'clf__estimator__max_iter': 1000,
             'vect__max_df': 0.8,

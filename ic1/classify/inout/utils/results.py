@@ -37,6 +37,7 @@ class TuningFold(BaseModel):
     tune_hash: str
     test_hash: str
     val_hash: str
+    slurm_info: dict[str, Any] | None = None
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
