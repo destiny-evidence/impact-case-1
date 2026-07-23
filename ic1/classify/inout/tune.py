@@ -44,8 +44,8 @@ def hyperparameter_tuning(
         for name in models:
             config: Type[ClassifierConfig] = MODEL_CONFIGS[name.upper()]
             logger.info(f'Tuning model {name.upper()} for fold {fold + 1}')
-            if seed is not None:
-                seed += 1
+            # if seed is not None:
+            #     seed += 1
 
             tune_idx, test_idx = train_test_split(train_idx, test_size=0.33, random_state=seed)
             train_hash = hash_ids(train_idx)
