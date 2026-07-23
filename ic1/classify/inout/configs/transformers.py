@@ -21,9 +21,23 @@ class ClimateBertConfig(_HuggingfaceClassifierConfig):
         }
 
 
-class TinyBertConfig(_HuggingfaceClassifierConfig):
-    name = 'tinybert'
-    model_name = 'prajjwal1/bert-tiny'
+# class TinyBertConfig(_HuggingfaceClassifierConfig):
+#     name = 'tinybert'
+#     model_name = 'prajjwal1/bert-tiny'
+#
+#     @classmethod
+#     def params_default(cls, trial: 'Trial | None' = None) -> dict[str, Any]:
+#         if trial is None:
+#             return {}
+#         batch_size = trial.suggest_int('per_device_train_batch_size', 2, 32)
+#         return {
+#             'optim': trial.suggest_categorical('optim', ['adamw_torch', 'adafactor', 'lion_32bit']),
+#             'per_device_train_batch_size': batch_size,
+#             'per_device_eval_batch_size': batch_size,
+#         }
+class T5Config(_HuggingfaceClassifierConfig):
+    name = 't5-small'
+    model_name = 'google-t5/t5-small'
 
     @classmethod
     def params_default(cls, trial: 'Trial | None' = None) -> dict[str, Any]:
@@ -31,7 +45,6 @@ class TinyBertConfig(_HuggingfaceClassifierConfig):
             return {}
         batch_size = trial.suggest_int('per_device_train_batch_size', 2, 32)
         return {
-            'optim': trial.suggest_categorical('optim', ['adamw_torch', 'adafactor', 'lion_32bit']),
             'per_device_train_batch_size': batch_size,
             'per_device_eval_batch_size': batch_size,
         }
@@ -69,3 +82,7 @@ class SciNCLBertConfig(_HuggingfaceClassifierConfig):
             'per_device_train_batch_size': batch_size,
             'per_device_eval_batch_size': batch_size,
         }
+
+
+# TODO: https://huggingface.co/FacebookAI/roberta-large
+# TODO: https://huggingface.co/google/flan-t5-base

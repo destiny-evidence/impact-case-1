@@ -1,3 +1,4 @@
+import re
 import logging
 from pathlib import Path
 from typing import Callable, Any, TYPE_CHECKING
@@ -10,6 +11,11 @@ from ._abc import ClassifierBase
 if TYPE_CHECKING:
     from sklearn.pipeline import Pipeline
 logger = logging.getLogger(__name__)
+NOALPH = re.compile(r'[^A-Za-z]+')
+
+
+def preprocess_text(texts: list[str]) -> list[str]:
+    return [NOALPH.sub('', text.lower()) for text in texts]
 
 
 class SklearnClassifier(ClassifierBase):
@@ -26,7 +32,7 @@ class SklearnClassifier(ClassifierBase):
 
     def fit(self, X: list[str], y: list[int]) -> 'SklearnClassifier':
         self.model_ = self.get_pipeline(**{k: v for k, v in self.model_params_.items() if k not in {'downsampling', 'ngram_range_max'}})
-        self.model_.fit(X, y)
+        self.model_.fit(preprocess_text(X), y)
         return self
 
     def get_params(self, deep: bool = True) -> dict[str, Any]:
@@ -44,9 +50,9 @@ class SklearnClassifier(ClassifierBase):
             raise RuntimeError('Model must be trained before predicting!')
         y_pred: np.ndarray
         if hasattr(self.model_, 'predict_proba'):
-            y_pred = self.model_.predict_proba(X)[:, 1]
+            y_pred = self.model_.predict_proba(preprocess_text(X))[:, 1]
         else:
-            y_pred = self.model_.predict(X)
+            y_pred = self.model_.predict(preprocess_text(X))
             if len(y_pred.shape) > 1:
                 y_pred = y_pred[:, 1]
 
@@ -56,7 +62,7 @@ class SklearnClassifier(ClassifierBase):
     def predict(self, X: list[str]) -> np.ndarray:
         if not self.classes_:
             raise RuntimeError('Model must be trained before predicting!')
-        return self.classes_[np.argmax(self.predict_proba(X), axis=1)]
+        return self.classes_[np.argmax(self.predict_proba(preprocess_text(X)), axis=1)]
 
     def save(self, path: Path) -> None:
         target = str((path / 'model.sklearn').resolve())

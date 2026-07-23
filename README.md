@@ -168,9 +168,12 @@ module load anaconda
 uv run --extra classify --link-mode=copy ic1 classify-inout slurm --submit --no-dev-mode --random-seed 42 --num-trials-gpu=100 --num-trials-cpu=1000 --slurm-user="...@pik-potsdam.de"
 
 # Check status
+export SQUEUE_FORMAT='%.10i %.1P %.8j %.8u %.8a %.2t %.20V %.20S %.11M %.11l %.4D %.4C %.3q %.8Q %.16R'
 squeue --me -t all -p gpu --format "%.18i %.10q %.9P %.8j %.8u %.5T %.12M %.14l %.10D %.20R %.20p %.15r %.20V"
 squeue --me -t all -p standard --format "%.18i %.10q %.9P %.8j %.8u %.5T %.12M %.14l %.10D %.20R %.20p %.15r %.20V"
 # Clear log dir
 rm data/logs/*
+# Check cluster load
+sclass
 
 ```

@@ -88,11 +88,11 @@ class _HuggingfaceClassifierConfig(_ClassifierConfig, ABC):
             'optim': 'adamw_torch',
             'save_strategy': 'no',
             'use_class_weights': 1,
-            'learning_rate': 1e-4,
+            'learning_rate': 5e-3,
             'per_device_train_batch_size': 4,
             'per_device_eval_batch_size': 12,
             'num_train_epochs': 3,
-            'weight_decay': 0.1,
+            'weight_decay': 0.01,
         }
 
         if trial:
