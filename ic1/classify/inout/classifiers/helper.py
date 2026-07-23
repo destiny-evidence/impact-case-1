@@ -2,8 +2,6 @@
 
 import logging
 from copy import deepcopy
-import optuna
-from optuna import Study, Trial
 import numpy as np
 from typing import Any, Callable, Type, TYPE_CHECKING
 
@@ -11,8 +9,9 @@ from ic1.core.utils import downsampling_mask, mask_list
 from ..utils import evaluate, TuningFold
 
 if TYPE_CHECKING:
-    from .classifiers import Classifier
-    from .configs import ClassifierConfig
+    from optuna import Study, Trial
+    from . import Classifier
+    from ..configs import ClassifierConfig
 
 
 logger = logging.getLogger(__name__)
@@ -42,13 +41,16 @@ class ClassifierHelper:
         return params
 
     def train(self, X: list[str], y: list[int], model_params: dict[str, Any] | None = None) -> 'Classifier':
-        logger.info('Training model...')
-        model_params = self._train_params() | (model_params or {})
-        model = self.config.get_model(**model_params)
         y_ = np.array(y)
+
+        model_params = self._train_params() | (model_params or {})
         sampling = model_params.pop('downsampling', 0)
         mask = downsampling_mask(y_, sampling=sampling)
+
+        logger.info('Training model...')
+        model = self.config.get_model(**model_params)
         model.fit(mask_list(X, mask), y_[mask])
+
         return model
 
     def test(self, model: 'Classifier', X: list[str], y: list[int]) -> list[dict[str, float]]:
@@ -56,9 +58,19 @@ class ClassifierHelper:
         y_pred = model.predict_proba(X)
         return [evaluate(y_true=np.array(y), y_pred=y_pred, threshold=th) for th in self.thresholds]
 
-    def tune(self, X_train: list[str], y_train: list[int], X_test: list[str], y_test: list[int], scoring: str = 'F1', threshold: float = 0.5) -> Study:
+    def tune(
+        self,
+        X_train: list[str],
+        y_train: list[int],
+        X_test: list[str],
+        y_test: list[int],
+        scoring: str = 'F1',
+        threshold: float = 0.5,
+    ) -> 'Study':
+        import optuna
+
         # TODO: Check which sampler makes most sense: https://optuna.readthedocs.io/en/stable/reference/samplers/index.html
-        sampler = optuna.samplers.TPESampler(n_startup_trials=int(self.tuning_trials * 0.5))
+        sampler = optuna.samplers.TPESampler(n_startup_trials=int((self.tuning_trials or 100) * 0.5))
         study = optuna.create_study(direction='maximize', sampler=sampler)
         study.optimize(
             lambda trial: self._run_trial(trial=trial, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, scoring=scoring, threshold=threshold),
@@ -70,7 +82,14 @@ class ClassifierHelper:
         return study
 
     def _run_trial(
-        self, trial: Trial, X_train: list[str], y_train: list[int], X_test: list[str], y_test: list[int], scoring: str = 'F1', threshold: float = 0.5
+        self,
+        trial: 'Trial',
+        X_train: list[str],
+        y_train: list[int],
+        X_test: list[str],
+        y_test: list[int],
+        scoring: str = 'F1',
+        threshold: float = 0.5,
     ) -> float:
         model_params = self._train_params(trial=trial)
         model_params_ = deepcopy(model_params)
@@ -85,7 +104,7 @@ class ClassifierHelper:
             logger.debug(f'Preparing tuning trial with model_params: {model_params}')
 
             logger.info(f'Fitting model in tuning trial {trial.number} on {mask.sum():,} samples (downsampled)')
-            model.fit(mask_list(X_train, mask), y[mask])
+            model.fit(X=mask_list(X_train, mask), y=y[mask])
         else:
             model.fit(X_train, y_train)
 
@@ -106,7 +125,7 @@ class ClassifierHelper:
         objective = scores_test[scoring]
         return 0 if np.isnan(objective) else objective
 
-    def best_from_study(self, study: Study, X: list[str], y: list[int]) -> 'Classifier':
+    def best_from_study(self, study: 'Study', X: list[str], y: list[int]) -> 'Classifier':
         return self.train(X=X, y=y, model_params=study.best_trial.user_attrs['model_params'])
 
     @classmethod

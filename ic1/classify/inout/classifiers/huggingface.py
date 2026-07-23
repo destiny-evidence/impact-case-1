@@ -172,9 +172,9 @@ class HuggingfaceClassifier(ClassifierBase):
                     cache_dir=settings.OFFLINE_MODELS_DIR,
                 )
             except ValueError:
-                from transformers import BertTokenizerFast
+                from transformers import BertTokenizer
 
-                self.tokenizer_ = BertTokenizerFast.from_pretrained(
+                self.tokenizer_ = BertTokenizer.from_pretrained(
                     self.model_name,
                     model_max_length=self.model_max_length,
                     cache_dir=settings.OFFLINE_MODELS_DIR,
