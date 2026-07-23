@@ -33,7 +33,7 @@ def hyperparameter_tuning(
 
     train, val, test = load_data(dev=dev_mode)
     data = pd.concat([train, val, test] if dev_mode else [train, val])
-    x: list[str] = data['text'].tolist()
+    x: list[str] = data['title'].str.cat(data['text'], sep=' ', na_rep='').tolist()
     y: np.ndarray = data['label'].to_numpy()
     seed = random_seed
     folds = StratifiedKFold(n_splits=num_folds, shuffle=True, random_state=seed)

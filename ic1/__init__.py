@@ -8,7 +8,8 @@ def main():
     from rich.logging import RichHandler
 
     logging.basicConfig(
-        format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
+        #format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
+        format='%(name)s: %(message)s',
         level=logging.DEBUG,
         handlers=[RichHandler()],
     )
@@ -16,14 +17,14 @@ def main():
     logging.getLogger('filelock').setLevel(logging.WARNING)
     logging.getLogger('httpx').setLevel(logging.WARNING)
 
-    from ic1.annotation.export.export_annotations import main as export_annotations
     from ic1.annotation.scheme.import_taxonomy import main as import_taxonomy
     from ic1.classify.inout import app as inout_app
     from ic1.evaluation_splits import create_split
+    from ic1.annotation.export import app as export_app
 
     app = typer.Typer()
 
-    app.command('export', help='Export annotations and resolutions for in/out and taxonomy schemes')(export_annotations)
+    app.add_typer(export_app, name='export', help='Export annotations and resolutions for in/out and taxonomy schemes')
     app.command('split-data', help='Split data into train, validation, and test sets')(create_split)
     app.command('import-taxonomy', help='Import *.ttl as annotation scheme into NACSOS')(import_taxonomy)
     app.add_typer(inout_app, name='classify-inout', help='Inclusion classification model tuning and training')
@@ -49,11 +50,8 @@ def main():
             connector = '└── ' if is_last else '├── '
             child_prefix = prefix + ('    ' if is_last else '│   ')
 
-            print(f'{prefix}{connector}{name}')
-
             help_text = cmd.get_short_help_str() or (cmd.help or '')
-            if help_text:
-                print(f'{child_prefix}({help_text})')
+            print(f'{prefix}{connector}{name:<20} {help_text}')
 
             if isinstance(cmd, TyperGroup):
                 child_context = Context(cmd, info_name=name, parent=context)

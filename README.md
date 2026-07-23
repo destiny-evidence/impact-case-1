@@ -176,4 +176,11 @@ rm data/logs/*
 # Check cluster load
 sclass
 
+# RIS exports
+uv run ic1 export ris ANNOTATED --field-set=minimal --target data/exports/ris/inout-min.ris
+uv run ic1 export ris ANNOTATED --field-set=minimal --target=data/exports/ris/inout-min.ris --split-inout
+uv run ic1 export ris ANNOTATED --field-set=complete --target=data/exports/ris/inout-full.ris
+uv run ic1 export ris ANNOTATED --field-set=complete --target=data/exports/ris/inout-full.ris --split-inout
+uv run ic1 export ris UNSEEN --field-set=complete --target=data/exports/ris/unseen-full.ris --limit=5000
+uv run ic1 export ris UNSEEN --field-set=minimal --target=data/exports/ris/unseen-min.ris --limit=5000  
 ```
