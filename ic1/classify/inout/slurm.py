@@ -110,7 +110,7 @@ def main(
     num_jobs: Annotated[int, typer.Option(help='Number of tuning jobs for parallel processing')] = 1,
     scoring: Annotated[str, typer.Option(help='Scoring metric for hyperparameter tuning')] = 'F1',
     decision_threshold: Annotated[float, typer.Option(help='Decision threshold for classification')] = 0.5,
-    result_dir: Annotated[Path, typer.Option(help='Directory to write tuning results to')] = TASK.classifier_results_path,
+    result_dir: Annotated[Path, typer.Option(help='Directory to write tuning results to')] = TASK.tuning_results_path,
 ) -> None:
     logger.info('Preparing slurm script and submitting job!')
 
