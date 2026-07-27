@@ -110,10 +110,10 @@ async def get_task_infos(
     label_options = collect_label_options(labels)
     label_cols = expected_label_columns(label_options)
 
-    logger.info(f'[bold]Scheme:[/bold] {scheme.name}  (project={project_id})', extra={"markup": True})
-    logger.info(f'[bold]Labels:[/bold] {len(label_options)}  [bold]Concept columns:[/bold] {len(label_cols)}', extra={"markup": True})
-    logger.info(f'[bold]Assignment scopes:[/bold] {len(scope_ids)} -> {scope_ids}', extra={"markup": True})
-    logger.info(f'[bold]Resolution scopes:[/bold] {len(resolved_ids)} -> {resolved_ids}', extra={"markup": True})
+    logger.info(f'[bold]Scheme:[/bold] {scheme.name}  (project={project_id})', extra={'markup': True})
+    logger.info(f'[bold]Labels:[/bold] {len(label_options)}  [bold]Concept columns:[/bold] {len(label_cols)}', extra={'markup': True})
+    logger.info(f'[bold]Assignment scopes:[/bold] {len(scope_ids)} -> {scope_ids}', extra={'markup': True})
+    logger.info(f'[bold]Resolution scopes:[/bold] {len(resolved_ids)} -> {resolved_ids}', extra={'markup': True})
 
     if not scope_ids:
         logger.warning(
@@ -170,7 +170,7 @@ async def read_dataframes(
         df = df.reindex(columns=base_cols + label_cols)
         logger.info(f'[bold]Base columns:[/bold] {base_cols}')
 
-    logger.info(f'[bold]Rows:[/bold] {df.shape[0]}  [bold]Total columns:[/bold] {df.shape[1]}', extra={"markup": True})
-    logger.info(f'[bold]Concept (label) columns:[/bold] {label_cols[:10]}{" ..." if len(label_cols) > 10 else ""}', extra={"markup": True})
+    logger.info(f'[bold]Rows:[/bold] {df.shape[0]}  [bold]Total columns:[/bold] {df.shape[1]}', extra={'markup': True})
+    logger.info(f'[bold]Concept (label) columns:[/bold] {label_cols[:10]}{" ..." if len(label_cols) > 10 else ""}', extra={'markup': True})
 
     return label_cols, df, pd.concat([pseudonymize(df[df['username'] != 'RESOLVED']), df[df['username'] == 'RESOLVED']])

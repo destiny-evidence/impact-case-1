@@ -8,7 +8,7 @@ def main():
     from rich.logging import RichHandler
 
     logging.basicConfig(
-        #format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
+        # format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
         format='%(name)s: %(message)s',
         level=logging.DEBUG,
         handlers=[RichHandler()],
