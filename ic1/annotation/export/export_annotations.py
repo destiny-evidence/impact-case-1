@@ -28,8 +28,10 @@ source of truth; run the import there first.
 import asyncio
 import logging
 from typing import Annotated
+from rich.logging import RichHandler
 
 import typer
+
 
 from nacsos_data.db.connection import get_engine_async
 from nacsos_data.models.nql import AnnotationFilter
@@ -38,6 +40,8 @@ from ic1.annotation.export.utils import get_task_infos, read_dataframes
 
 # Single source of truth: the scheme id is defined by the import script.
 from ic1.core.config import settings, TaskName, TASKS
+
+logging.basicConfig(level=logging.INFO, handlers=[RichHandler(markup=True, rich_tracebacks=True)])
 
 # Lightweight base columns to keep. The export otherwise carries the full document
 # `text` (and keywords/authors) for *every* row, which bloats the file to hundreds of

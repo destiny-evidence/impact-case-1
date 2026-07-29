@@ -11,6 +11,7 @@ dependencies = [
     "dvc-ssh>=4.3.0",
     "frictionless[pandas]>=5.19.0",
     "rispy==0.10.0",
+    "rich>=15.0.0",
 ]
 
 [project.optional-dependencies]
