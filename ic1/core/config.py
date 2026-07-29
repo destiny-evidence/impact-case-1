@@ -9,7 +9,7 @@ from nacsos_data.util.conf import DatabaseConfig
 from pydantic import Field
 from pydantic_settings import SettingsConfigDict, BaseSettings
 
-from ic1.core.ids import INOUT_SCHEME_ID, TAXONOMY_SCHEME_ID, TAXONOMY_SCOPE_IDS, INOUT_SCOPE_IDS_ANNOTATE, INOUT_SCOPE_IDS_RESOLVED
+from ic1.core.ids import INOUT_SCHEME_ID, TAXONOMY_SCHEME_ID, TAXONOMY_SCOPE_IDS, TAXONOMY_SCOPE_IDS_RESOLVED, INOUT_SCOPE_IDS_ANNOTATE, INOUT_SCOPE_IDS_RESOLVED
 
 
 class TaskName(str, Enum):
@@ -39,7 +39,7 @@ class Config(BaseSettings):
 
     DATASETS_DIR: Path = Path('ic1/annotation/datasets')
     SCHEME_DIR: Path = Path('ic1/annotation/scheme')
-    VOCAB_FILE: Path = str(SCHEME_DIR / 'destiny-1-4-version-1-4-of-the-destiny-taxonomy.ttl')
+    VOCAB_FILE: Path = SCHEME_DIR / 'destiny-1-4-version-1-4-of-the-destiny-taxonomy.ttl'
     MAPPING_CSV: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.csv'
     MAPPING_JSON: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.json'
     MODELS_ROOT: Path = Path('data/models')
@@ -136,6 +136,6 @@ TASKS: dict[TaskName, TaskConfig] = {
         task=TaskName.TAXONOMY,
         scheme_id=TAXONOMY_SCHEME_ID,
         scope_ids=TAXONOMY_SCOPE_IDS,
-        resolved_ids=[],
+        resolved_ids=TAXONOMY_SCOPE_IDS_RESOLVED,
     ),
 }

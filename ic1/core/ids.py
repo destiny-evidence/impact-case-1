@@ -9,10 +9,7 @@ INOUT_SCHEME_ID = '0689d927-f78d-46aa-bbcf-190ce156f707'
 # The DESTINY taxonomy annotation scheme (see ic1/annotation/scheme/import_taxonomy.py).
 TAXONOMY_SCHEME_ID = '9d5d7fac-188c-4467-a1ad-021bebec69c1'
 
-# SELECT ass.assignment_scope_id, ass.name, bam.bot_annotation_metadata_id, bam.name
-# FROM assignment_scope ass
-#      LEFT OUTER JOIN bot_annotation_metadata bam ON ass.assignment_scope_id = bam.assignment_scope_id
-# WHERE ass.annotation_scheme_id = '0689d927-f78d-46aa-bbcf-190ce156f707';
+
 INOUT_ANNOTATION_SCOPES: list[tuple[str, str]] = [
     (
         '4bb0f2b5-5552-44f4-8760-5eb9fd41c115',  # R 01 | G 01 | B 1/5
@@ -124,4 +121,15 @@ INOUT_SCOPE_IDS_RESOLVED = [li for (_, li) in INOUT_ANNOTATION_SCOPES]
 INOUT_SCOPE_IDS_ANNOTATE = [li for (li, _) in INOUT_ANNOTATION_SCOPES]
 INOUT_SCOPE_IDS = INOUT_SCOPE_IDS_RESOLVED + INOUT_SCOPE_IDS_ANNOTATE
 
-TAXONOMY_SCOPE_IDS = ['706a1970-7400-4eab-a029-e2e214a09f39']
+TAXONOMY_SCOPE_IDS = [
+    '94d99d6c-298d-408b-949b-54bb12f4e7e6',
+    '82fcdf26-654e-4605-b374-8c0eb3def84c',
+    '2c7226d4-e132-4a29-bda5-1c467d15b66c',
+    '97061ed5-0b9d-4802-8c48-3871f784e876',
+    '0c31e892-f959-4dd4-a642-2d3ea3d21424',
+    'f4ca16a4-e1f3-4746-a6f7-7cffcaffd0ac'
+]
+
+TAXONOMY_SCOPE_IDS_RESOLVED = [
+
+]

@@ -62,11 +62,18 @@ def pseudonymize(df: pd.DataFrame, pseudonym_map: dict[str, str] | None = None):
                 pseudonym_map = json.load(fp)
         else:
             pseudonym_map = {username: f'coder_{ui:03}' for ui, username in enumerate(usernames)}
-            with open(settings.PSEUDONYM_MAP, 'w') as fp:
-                json.dump(pseudonym_map, fp, indent=2)
 
-    if len(set(usernames) - set(pseudonym_map)) > 0:
-        raise AssertionError('Pseudonymization map does not cover all users in the dataframe')
+    # Add any new users to the map
+    new_users = set(usernames) - set(pseudonym_map)
+    if new_users:
+        next_id = max(int(v.split('_')[1]) for v in pseudonym_map.values()) + 1 if pseudonym_map else 0
+        for username in sorted(new_users):
+            pseudonym_map[username] = f'coder_{next_id:03}'
+            next_id += 1
+
+    # Always save the (potentially updated) map
+    with open(settings.PSEUDONYM_MAP, 'w') as fp:
+        json.dump(pseudonym_map, fp, indent=2)
 
     return df.replace(pseudonym_map).drop(columns=['user_id'], errors='ignore')
 
