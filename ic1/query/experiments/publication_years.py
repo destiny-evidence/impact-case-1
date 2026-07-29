@@ -30,7 +30,7 @@ def count(q: str, filters: list[str]) -> str:
             },
             timeout=120,
         ).json()
-        return res["response"]["numFound"]
+        return res['response']['numFound']
     except KeyError:
         return res['error']['msg']
 

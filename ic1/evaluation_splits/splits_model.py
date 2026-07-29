@@ -6,6 +6,7 @@ from pathlib import Path
 
 from ic1.core.config import TaskName
 
+
 class EvaluationSplits(BaseModel):
     task: TaskName
     created: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
@@ -20,23 +21,22 @@ class EvaluationSplits(BaseModel):
 
     def add_items(
         self,
-        deet_ids: list[str] = [],
-        train_ids: list[str] = [],
-        validation_ids: list[str] = [],
-        test_ids: list[str] = [],
-        exclude_deet: bool = False
+        deet_ids: list[str] | None = None,
+        train_ids: list[str] | None = None,
+        validation_ids: list[str] | None = None,
+        test_ids: list[str] | None = None,
+        exclude_deet: bool = False,
     ) -> None:
         """Add items to splits, as long as they are not already assigned somewhere."""
-        already_assigned = set(
-            self.train +
-            self.validation +
-            self.test
-        )
+        already_assigned = set(self.train + self.validation + self.test)
         if not exclude_deet:
             already_assigned |= set(self.deet)
-        self.deet.extend(iid for iid in deet_ids if iid not in already_assigned)
-        self.train.extend(iid for iid in train_ids if iid not in already_assigned)
-        self.validation.extend(iid for iid in validation_ids if iid not in already_assigned)
-        self.test.extend(iid for iid in test_ids if iid not in already_assigned)
 
-
+        if deet_ids is not None:
+            self.deet += list(set(deet_ids) - already_assigned)
+        if train_ids is not None:
+            self.train += list(set(train_ids) - already_assigned)
+        if validation_ids is not None:
+            self.validation += list(set(validation_ids) - already_assigned)
+        if test_ids is not None:
+            self.test += list(set(test_ids) - already_assigned)

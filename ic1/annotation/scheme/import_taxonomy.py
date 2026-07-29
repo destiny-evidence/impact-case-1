@@ -40,7 +40,7 @@ from nacsos_data.db.connection import get_engine_async
 from nacsos_data.db.crud.annotations import upsert_annotation_scheme
 
 from ic1.core.ids import PROJECT_ID, TAXONOMY_SCHEME_ID
-from ic1.core.config import CONF_FILE, VOCAB_FILE, MAPPING_CSV, MAPPING_JSON
+from ic1.core.config import settings
 
 import string
 
@@ -252,16 +252,16 @@ def validate_mapping(mapping: list[dict], concepts: dict) -> None:
 
 
 def write_mapping(mapping: list[dict]) -> None:
-    with MAPPING_CSV.open('w', newline='', encoding='utf-8') as fh:
+    with settings.MAPPING_CSV.open('w', newline='', encoding='utf-8') as fh:
         writer = csv.DictWriter(fh, fieldnames=MAPPING_FIELDS)
         writer.writeheader()
         writer.writerows(mapping)
-    with MAPPING_JSON.open('w', encoding='utf-8') as fh:
+    with settings.MAPPING_JSON.open('w', encoding='utf-8') as fh:
         json.dump(mapping, fh, indent=2, ensure_ascii=False)
 
 
 async def main() -> None:
-    scheme, mapping = parse_vocabulary_to_nacsos(VOCAB_FILE, PROJECT_ID, TAXONOMY_SCHEME_ID)
+    scheme, mapping = parse_vocabulary_to_nacsos(settings.VOCAB_FILE, PROJECT_ID, TAXONOMY_SCHEME_ID)
 
     n_labels = len(scheme.labels)
     n_sub = sum(1 for m in mapping if m['sub_label_key'])
@@ -270,7 +270,7 @@ async def main() -> None:
     print(f'[bold]Concepts mapped:[/bold] {len(mapping)}  (of which {n_sub} have sub-labels)')
 
     write_mapping(mapping)
-    print(f'[green]Wrote mapping ({len(mapping)} rows) to[/green] {MAPPING_CSV.name} / {MAPPING_JSON.name}')
+    print(f'[green]Wrote mapping ({len(mapping)} rows) to[/green] {settings.MAPPING_CSV.name} / {settings.MAPPING_JSON.name}')
 
     if not WRITE_TO_DB:
         print('[yellow]WRITE_TO_DB is False -- scheme not upserted.[/yellow]')
@@ -280,7 +280,7 @@ async def main() -> None:
     # null out the NOT NULL column.
     scheme.time_created = datetime.now(timezone.utc)
 
-    db_engine = get_engine_async(conf_file=CONF_FILE)
+    db_engine = get_engine_async(settings=settings.DB)
     scheme_id = await upsert_annotation_scheme(annotation_scheme=scheme, db_engine=db_engine)
     print(f'[green]Upserted annotation scheme:[/green] {scheme_id}')
 

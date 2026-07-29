@@ -118,6 +118,7 @@ As before, run with `--no-dev-mode` to run with real test data.
 
 
 
+
 ## Data
 
 `datapackage.json` at the repo root describes all resources (shareable and restricted).
@@ -132,4 +133,54 @@ dvc add data/private
 git add data/private.dvc
 git commit -m "update private export"
 dvc push
+```
+
+# TODO updated workflow with typer
+```bash
+uv run ic1 --help
+╭─ Commands ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ export-labels    Export annotations and resolutions for in/out and taxonomy schemes                                                                                                                                                                                                                                                           │
+│ split-data       Split data into train, validation, and test sets                                                                                                                                                                                                                                                                             │
+│ import-taxonomy  Import *.ttl as annotation scheme into NACSOS                                                                                                                                                                                                                                                                                │
+│ classify-inout   Inclusion classification model tuning and training                                                                                                                                                                                                                                                                           │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# get data from database and pseudonymise
+uv run ic1 export-labels
+# generate a split
+uv run ic1 split-data --task inout --seed 42
+
+uv sync --extra classify
+# test all sorts of models and tune them (incl k-fold validation)
+uv run ic1 classify-inout tune --num-trials 100
+# use best config from before to train and save a model
+uv run ic1 classify-inout train
+
+
+# Working dir temporarily at /data/rd5/ecs/workspace/destiny/impact-case-1
+# Syncing results
+rsync -avh --progress -e ssh foote:/data/rd5/ecs/workspace/destiny/impact-case-1/data .
+rsync -avh --progress -e ssh foote:/data/rd5/ecs/workspace/destiny/impact-case-1/data/models data
+rsync -avh --progress -e ssh data/ foote:/data/rd5/ecs/workspace/destiny/impact-case-1/data
+
+# SLURM job preparation
+module load anaconda
+uv run --extra classify --link-mode=copy ic1 classify-inout slurm --submit --no-dev-mode --random-seed 42 --num-trials-gpu=100 --num-trials-cpu=1000 --slurm-user="...@pik-potsdam.de"
+
+# Check status
+export SQUEUE_FORMAT='%.10i %.1P %.8j %.8u %.8a %.2t %.20V %.20S %.11M %.11l %.4D %.4C %.3q %.8Q %.16R'
+squeue --me -t all -p gpu --format "%.18i %.10q %.9P %.8j %.8u %.5T %.12M %.14l %.10D %.20R %.20p %.15r %.20V"
+squeue --me -t all -p standard --format "%.18i %.10q %.9P %.8j %.8u %.5T %.12M %.14l %.10D %.20R %.20p %.15r %.20V"
+# Clear log dir
+rm data/logs/*
+# Check cluster load
+sclass
+
+# RIS exports
+uv run ic1 export ris ANNOTATED --field-set=minimal --target data/exports/ris/inout-min.ris
+uv run ic1 export ris ANNOTATED --field-set=minimal --target=data/exports/ris/inout-min.ris --split-inout
+uv run ic1 export ris ANNOTATED --field-set=complete --target=data/exports/ris/inout-full.ris
+uv run ic1 export ris ANNOTATED --field-set=complete --target=data/exports/ris/inout-full.ris --split-inout
+uv run ic1 export ris UNSEEN --field-set=complete --target=data/exports/ris/unseen-full.ris --limit=5000
+uv run ic1 export ris UNSEEN --field-set=minimal --target=data/exports/ris/unseen-min.ris --limit=5000  
 ```
