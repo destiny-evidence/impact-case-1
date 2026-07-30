@@ -5,7 +5,6 @@ description = "Climate & health map (DESTinY IC1)"
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
 dependencies = [
-    # "nacsos_data[utils,scripts]",
     "rdflib>=7.6.0",
     "dvc>=3.67.1",
     "dvc-ssh>=4.3.0",
@@ -22,6 +21,9 @@ classify = [
 ]
 deet = [
     "data-extraction-evaluation-toolkit",
+]
+nacsos = [
+    "nacsos_data[utils,scripts]",
 ]
 querying = [
     "lark==1.3.1",
