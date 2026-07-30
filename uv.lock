@@ -713,7 +713,7 @@ nvtx = [
 [[package]]
 name = "data-extraction-evaluation-toolkit"
 version = "0.2.0"
-source = { git = "https://github.com/destiny-evidence/data-extraction-evaluation-toolkit.git?rev=feature%2F%252317-train-test-splits#c96a58da7f04829532f6078142ed5de1daff5b3b" }
+source = { git = "https://github.com/destiny-evidence/data-extraction-evaluation-toolkit.git?rev=feature%2F%252317-train-test-splits#c63250fbcef5b97f45cbf43f2bbfac3b37f2eb20" }
 dependencies = [
     { name = "destiny-sdk", marker = "extra == 'extra-14-climate-health-deet'" },
     { name = "diskcache" },
