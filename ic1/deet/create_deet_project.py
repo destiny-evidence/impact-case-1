@@ -4,6 +4,7 @@ from typing import Annotated
 import typer
 import pandas as pd
 import json
+import yaml
 
 from ic1.core.config import TASKS, TaskName, settings
 from ic1.core.utils import uniform
@@ -14,6 +15,8 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
     from deet.scripts.project_utils import create_project, SupportedImportFormat
     from deet.data_models.project import DeetProject
     from deet.data_models.enums import EvaluationStrategyName
+    from deet.extractors.llm_data_extractor import DataExtractionConfig
+    from deet.data_models.documents import ContextType
 
     if task == TaskName.ALL:
         selected = TASKS
@@ -54,11 +57,25 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
             data_path=task_config.deet_data_path,
             pdf_dir=None,
         )
-        project = DeetProject.model_validate_json(
-            json.loads(task_config.deet_project_path.read_text())
+        PROJECT_YAML = task_config.deet_project_path / "project.yaml"
+        project = DeetProject.model_validate(
+            yaml.safe_load(
+                (PROJECT_YAML).read_bytes()
+            )["project"]
         )
         project.evaluation_strategy = EvaluationStrategyName.DEV_VAL_TEST
-        project.dump_to_yaml()
+        data = {"project": project.model_dump(mode="json")}
+        with PROJECT_YAML.open("w", encoding="utf-8") as f:
+            yaml.safe_dump(data, f)
+
+        config = DataExtractionConfig(default_context_type=ContextType.ABSTRACT_ONLY)
+        (task_config.deet_project_path / "default_extraction_config.yaml").write_text(
+            yaml.safe_dump(
+                config.model_dump(mode="json"),
+                sort_keys=False
+            ),
+            encoding="utf-8"
+        )
 
 
 if __name__ == '__main__':

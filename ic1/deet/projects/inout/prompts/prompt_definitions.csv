@@ -1,7 +1,6 @@
 prompt,output_data_type,attribute_id,attribute_label
-,string,0,text
-,float,1,incl|1
-,float,2,incl|0
-,float,3,reason|0
-,float,4,reason|1
-,float,5,reason|2
+,integer,0,incl|1
+,integer,1,incl|0
+,integer,2,reason|0
+,integer,3,reason|1
+,integer,4,reason|2
