@@ -3,14 +3,17 @@
 from typing import Annotated
 import typer
 import pandas as pd
+import json
 
 from ic1.core.config import TASKS, TaskName, settings
-from ic1.core.util import uniform
+from ic1.core.utils import uniform
 from ic1.evaluation_splits.splits_model import EvaluationSplits
 
 
 def main(task: Annotated[TaskName, typer.Option(help='The annotation task task to be exported')] = TaskName.ALL):
     from deet.scripts.project_utils import create_project, SupportedImportFormat
+    from deet.data_models.project import DeetProject
+    from deet.data_models.enums import EvaluationStrategyName
 
     if task == TaskName.ALL:
         selected = TASKS
@@ -35,8 +38,13 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
         label_cols = [c for c in resolved.columns if '|' in c]
 
         deet_df = resolved[resolved['item_id'].isin(deet_ids)][['item_id', 'title', 'text'] + label_cols].rename(
-            columns={'item_id': 'document_id', 'title': 'name'}
+            columns={
+                'item_id': 'document_id',
+                'title': 'name',
+                'text': 'abstract'
+            }
         )
+        deet_df[label_cols] = deet_df[label_cols].fillna(0).astype(int)
         deet_df.to_csv(task_config.deet_data_path, index=False)
 
         create_project(
@@ -46,6 +54,11 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
             data_path=task_config.deet_data_path,
             pdf_dir=None,
         )
+        project = DeetProject.model_validate_json(
+            json.loads(task_config.deet_project_path.read_text())
+        )
+        project.evaluation_strategy = EvaluationStrategyName.DEV_VAL_TEST
+        project.dump_to_yaml()
 
 
 if __name__ == '__main__':
