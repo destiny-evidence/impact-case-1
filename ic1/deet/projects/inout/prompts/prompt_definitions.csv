@@ -1,6 +1,8 @@
 prompt,output_data_type,attribute_id,attribute_label
-,integer,0,incl|1
+,integer,0,include - high precision
 ,integer,1,incl|0
 ,integer,2,reason|0
 ,integer,3,reason|1
 ,integer,4,reason|2
+,integer,5,include - best balance
+,integer,6,include - high recall
