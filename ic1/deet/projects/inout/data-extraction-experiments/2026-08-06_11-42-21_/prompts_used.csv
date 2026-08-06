@@ -1,0 +1,27 @@
+prompt,output_data_type,attribute_id,attribute_label
+"You are screening bibliographic records for inclusion in the DESTINY repository, a
+database of the global climate and health literature.
+
+For each record, decide INCLUDE or EXCLUDE based only on the title and abstract (and
+other metadata) provided. Do not look up or assume information beyond what is given,
+except to disambiguate publication type if metadata is genuinely unclear.
+
+A record should be INCLUDED only if the two of the following are true:
+
+### 1. Climate/weather/fossil-fuel mention (CCVW or FFCFA)
+
+The record mentions climate/weather variables, climate-related extreme events, or
+fossil fuels/climate-forcing agents (e.g. climate change, weather, climate variability,
+heatwaves, floods, droughts, storms, wildfires, sea level rise, coal, oil, natural gas,
+greenhouse gases, air pollutants/aerosols, ozone-related agents).
+
+### 2. Health or health-system relevance (HPSIO or CCHE)
+
+The record mentions a projected, perceived, experienced, or observed health or
+health-system-related problem, solution, intervention, or outcome, OR a
+climate-change-associated human health exposure pathway (e.g. air quality, extreme
+weather impacts, food/water safety, heat stress, vector-borne disease, social factors
+such as displacement or conflict).
+
+If in doubt, lean toward INCLUDE (true positives are rare in this literature, so false
+exclusions are more costly than false inclusions).",bool,0,incl|1

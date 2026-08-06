@@ -1,0 +1,200 @@
+{
+  "model": "azure/gpt-4o-mini",
+  "total_input_tokens": 30136,
+  "total_output_tokens": 1892,
+  "total_cost_usd": 0.006221,
+  "per_document": {
+    "5471": {
+      "input_tokens": 1327,
+      "output_tokens": 73,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 6.629
+    },
+    "815689216": {
+      "input_tokens": 1369,
+      "output_tokens": 66,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.059
+    },
+    "558553": {
+      "input_tokens": 1100,
+      "output_tokens": 80,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.66
+    },
+    "6365261": {
+      "input_tokens": 1111,
+      "output_tokens": 83,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.41
+    },
+    "4658342": {
+      "input_tokens": 1258,
+      "output_tokens": 82,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.304
+    },
+    "212484": {
+      "input_tokens": 1156,
+      "output_tokens": 80,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.221
+    },
+    "6994644": {
+      "input_tokens": 1329,
+      "output_tokens": 70,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.311
+    },
+    "596984": {
+      "input_tokens": 1190,
+      "output_tokens": 69,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.119
+    },
+    "68335678": {
+      "input_tokens": 1158,
+      "output_tokens": 62,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.479
+    },
+    "22339": {
+      "input_tokens": 1086,
+      "output_tokens": 80,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.763
+    },
+    "78958": {
+      "input_tokens": 1372,
+      "output_tokens": 80,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.27
+    },
+    "802401": {
+      "input_tokens": 2324,
+      "output_tokens": 96,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.337
+    },
+    "997047": {
+      "input_tokens": 1204,
+      "output_tokens": 83,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.27
+    },
+    "3186494320": {
+      "input_tokens": 1254,
+      "output_tokens": 74,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.372
+    },
+    "38182": {
+      "input_tokens": 1125,
+      "output_tokens": 66,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.16
+    },
+    "2881444016": {
+      "input_tokens": 1078,
+      "output_tokens": 115,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.609
+    },
+    "9587": {
+      "input_tokens": 1351,
+      "output_tokens": 95,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.663
+    },
+    "3522": {
+      "input_tokens": 1237,
+      "output_tokens": 86,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.395
+    },
+    "521359478": {
+      "input_tokens": 1306,
+      "output_tokens": 62,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.849
+    },
+    "712110": {
+      "input_tokens": 1433,
+      "output_tokens": 73,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.271
+    },
+    "2929": {
+      "input_tokens": 1116,
+      "output_tokens": 79,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.254
+    },
+    "5996": {
+      "input_tokens": 1119,
+      "output_tokens": 82,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.328
+    },
+    "582288464": {
+      "input_tokens": 1127,
+      "output_tokens": 84,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.605
+    },
+    "4686393638": {
+      "input_tokens": 1006,
+      "output_tokens": 72,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 1.211
+    }
+  },
+  "total_pipeline_duration_seconds": 48.926,
+  "stage_durations_seconds": {
+    "annotation_conversion": 8.678,
+    "prompt_population": 0.019,
+    "document_preparation": 0.0,
+    "llm_extraction": 39.869,
+    "artifact_export": 0.11
+  },
+  "notes": {
+    "total_pipeline_duration_seconds": "Wall-clock time for the extraction run, from loading project data through export of experiment snapshots. Includes time spent answering the interactive config wizard when no config file is provided.",
+    "stage_durations_seconds": {
+      "annotation_conversion": "Load and normalise the gold-standard import into documents and attributes.",
+      "prompt_population": "Attach custom prompts from the project prompt CSV. Zero if skipped.",
+      "document_preparation": "Load linked documents from cache or parse/read PDF and markdown sources. See per_document.parsing_seconds.",
+      "llm_extraction": "LLM extraction for each document. See per_document.llm_call_seconds.",
+      "artifact_export": "Write prompts snapshot, config snapshot, and this metadata file."
+    },
+    "per_document": {
+      "parsing_seconds": "Parse/read time during document preparation; null when parsing_skipped is true.",
+      "parsing_skipped": "True when full text came from cache and was not parsed this run.",
+      "llm_call_seconds": "Wall-clock time for the LLM request, including local prompt setup."
+    }
+  },
+  "timestamp": "2026-08-06T11:33:45.533437Z"
+}
