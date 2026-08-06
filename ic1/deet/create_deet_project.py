@@ -40,14 +40,18 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
 
         label_cols = [c for c in resolved.columns if '|' in c]
 
-        deet_df = resolved[resolved['item_id'].isin(deet_ids)][['item_id', 'title', 'text'] + label_cols].rename(
+        deet_df = resolved[resolved['item_id'].isin(deet_ids)][['item_id', 'title', 'text'] + label_cols]
+        deet_df[label_cols] = deet_df[label_cols].fillna(0).astype(int)
+        deet_df = deet_df.rename(
             columns={
                 'item_id': 'document_id',
                 'title': 'name',
-                'text': 'abstract'
+                'text': 'abstract',
+                'incl|1': 'include - high precision'
             }
         )
-        deet_df[label_cols] = deet_df[label_cols].fillna(0).astype(int)
+        deet_df["include - best balance"] = deet_df['include - high precision'].copy()
+        deet_df["include - high recall"] = deet_df['include - high precision'].copy()
         deet_df.to_csv(task_config.deet_data_path, index=False)
 
         create_project(
