@@ -1,0 +1,2 @@
+prompt,output_data_type,attribute_id,attribute_label
+Is this relevant to climate change and health?,bool,1,incl|0

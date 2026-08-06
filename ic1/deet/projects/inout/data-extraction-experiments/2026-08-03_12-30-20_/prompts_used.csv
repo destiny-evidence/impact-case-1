@@ -1,0 +1,2 @@
+prompt,output_data_type,attribute_id,attribute_label
+"Is this record related to climate change and health, noting that health can also encompass exposure pathways, such as heat, extreme weather events, water quality, food security?",bool,0,incl|1

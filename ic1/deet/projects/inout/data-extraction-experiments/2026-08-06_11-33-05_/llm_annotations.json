@@ -1,0 +1,1854 @@
+{
+  "annotated_documents": [
+    {
+      "document": {
+        "name": "Presence of pleural plaques and/or asbestosis and the risk of lung cancer in a Crocidolite asbestos exposed population from Western Australia",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Introduction/Aim: Asbestos exposure is associated with dose-dependent risk of benign pleural disease, lung cancer and mesothelioma. While an association between asbestosis and lung cancer (even after adjustment for asbestos exposure) is well established, the link between lung cancer and the presence of pleural plaque remains controversial with a recent report recent report containing small numbers of lung cancers (from death certificates) reporting an association. Methods: We followed 2218 subjects exposed to crocidolite asbestos as miners (n = 1286) or mine township residents, monitored with annual review, chest radiography (CXR) and outcome linkage to national cancer and mortality registry data over a 25-year period. Subjects were followed up from the date of their latest X-ray taken a year or more before the date of death, cancer incidence or end of follow-up. Hazard ratios for lung cancer were estimated by Cox regression, with age as the underlying matching time variable, for sex, tobacco smoking, asbestos exposure estimates (time since first exposure and fibre/mL years), International Labour Organisation CXR readings for asbestosis (defined as profusion score > 1/0) and presence (and extent) of pleural plaques.Results: Mean age at follow-up was 60.6 years; 1575 (71%) were male; 328 (14.8%) had any pleural plaque, and 359 (16.2%) had asbestosis. One hundred three (4.64%) lung cancers were recorded. One thousand five hundred sixty-eight (70.7%) were ever-smokers with a mean tobacco exposure of 39.3 pack years. Hazard ratios are presented in Table 1.Conclusions: In our population, the presence of pleural plaque is not associated with an increased risk of subsequent lung cancer. As we have demonstrated previously, the presence of asbestosis and cumulative asbestos exposure both contribute to increased subsequent lung cancer risk, although previous tobacco smoke exposure remains the strongest risk factor."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Introduction/Aim: Asbestos exposure is associated with dose-dependent risk of benign pleural disease, lung cancer and mesothelioma. While an association between asbestosis and lung cancer (even after adjustment for asbestos exposure) is well established, the link between lung cancer and the presence of pleural plaque remains controversial with a recent report recent report containing small numbers of lung cancers (from death certificates) reporting an association. Methods: We followed 2218 subjects exposed to crocidolite asbestos as miners (n = 1286) or mine township residents, monitored with annual review, chest radiography (CXR) and outcome linkage to national cancer and mortality registry data over a 25-year period. Subjects were followed up from the date of their latest X-ray taken a year or more before the date of death, cancer incidence or end of follow-up. Hazard ratios for lung cancer were estimated by Cox regression, with age as the underlying matching time variable, for sex, tobacco smoking, asbestos exposure estimates (time since first exposure and fibre/mL years), International Labour Organisation CXR readings for asbestosis (defined as profusion score > 1/0) and presence (and extent) of pleural plaques.Results: Mean age at follow-up was 60.6 years; 1575 (71%) were male; 328 (14.8%) had any pleural plaque, and 359 (16.2%) had asbestosis. One hundred three (4.64%) lung cancers were recorded. One thousand five hundred sixty-eight (70.7%) were ever-smokers with a mean tobacco exposure of 39.3 pack years. Hazard ratios are presented in Table 1.Conclusions: In our population, the presence of pleural plaque is not associated with an increased risk of subsequent lung cancer. As we have demonstrated previously, the presence of asbestosis and cumulative asbestos exposure both contribute to increased subsequent lung cancer risk, although previous tobacco smoke exposure remains the strongest risk factor.",
+        "context_type": "abstract_only",
+        "document_id": "010cea96-52e4-4819-8944-88d4b08345aa",
+        "document_identity": {
+          "document_id": 5471,
+          "document_id_source": "external_id",
+          "external_id": "010cea96-52e4-4819-8944-88d4b08345aa",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The document does not mention any climate or weather variables, nor does it discuss fossil fuels or climate-forcing agents. Additionally, it does not address any health problems or outcomes related to climate change. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Improvement and application of UNet network for avoiding the effect of urban dense high-rise buildings and other feature shadows on water body extraction",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "ABSTRACTFinding a means to extract water body information efficiently and accurately from high-resolution remote sensing images has been an important research direction in the field of water body extraction in recent years. However, shadows from buildings and other obstacles interfere with the accuracy of water body extraction. To address this problem, this paper proposes a neural network method incorporating an attention mechanism for water body extraction. This paper is based on the U-Net convolutional neural network and adds the squeeze-and-excitation module of SENet, an attention mechanism, to the downsampling process of the U-Net network. The module weights the feature maps so that the network focuses more on the features of the water body information and thus reduces attention to the shadow features from buildings and other features, thus improving the accuracy of image segmentation. The dropout and batch normalization layers are also added to improve the generalization ability and stability of the model. In this paper, a water extraction network SE-CU-Net model is presented to overcome the shadowing effect from buildings and other features. Using GF-2 images of Jiangsu province as the data source, the recognition results of this paper are compared with Dense-Net, Res-Net, Seg-Net, U-net, SVM, and RF. Through the comparison experiments, the model of this paper can not only better overcome the influence of shadows from buildings and other features, but it also has a stronger recognition ability and recognition effect. The average ASCR, Precision, mIoU, OA, F1-Score and kappa coefficients in the three tested areas reached 98.27%, 97.17%, 89.33%, 98.2%, 89.3% and 0.883, respectively, with significantly higher accuracy than the other six classical methods, verifying the effectiveness of the model in overcoming the influence of shadows from buildings and other features in water body extraction research.KEYWORDS: water extractiondeep learningshadows of buildingsU-Netattention mechanism Disclosure statementNo potential conflict of interest was reported by the author(s).Additional informationFundingThis work was Funded by Key Laboratory of Land Satellite Remote Sensing Application, Ministry of Natural Resources of the People's Republic of China(Grant No. KLSMNR-G202212)"
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "ABSTRACTFinding a means to extract water body information efficiently and accurately from high-resolution remote sensing images has been an important research direction in the field of water body extraction in recent years. However, shadows from buildings and other obstacles interfere with the accuracy of water body extraction. To address this problem, this paper proposes a neural network method incorporating an attention mechanism for water body extraction. This paper is based on the U-Net convolutional neural network and adds the squeeze-and-excitation module of SENet, an attention mechanism, to the downsampling process of the U-Net network. The module weights the feature maps so that the network focuses more on the features of the water body information and thus reduces attention to the shadow features from buildings and other features, thus improving the accuracy of image segmentation. The dropout and batch normalization layers are also added to improve the generalization ability and stability of the model. In this paper, a water extraction network SE-CU-Net model is presented to overcome the shadowing effect from buildings and other features. Using GF-2 images of Jiangsu province as the data source, the recognition results of this paper are compared with Dense-Net, Res-Net, Seg-Net, U-net, SVM, and RF. Through the comparison experiments, the model of this paper can not only better overcome the influence of shadows from buildings and other features, but it also has a stronger recognition ability and recognition effect. The average ASCR, Precision, mIoU, OA, F1-Score and kappa coefficients in the three tested areas reached 98.27%, 97.17%, 89.33%, 98.2%, 89.3% and 0.883, respectively, with significantly higher accuracy than the other six classical methods, verifying the effectiveness of the model in overcoming the influence of shadows from buildings and other features in water body extraction research.KEYWORDS: water extractiondeep learningshadows of buildingsU-Netattention mechanism Disclosure statementNo potential conflict of interest was reported by the author(s).Additional informationFundingThis work was Funded by Key Laboratory of Land Satellite Remote Sensing Application, Ministry of Natural Resources of the People's Republic of China(Grant No. KLSMNR-G202212)",
+        "context_type": "abstract_only",
+        "document_id": "023f6c50-518e-4630-877f-026227409a4a",
+        "document_identity": {
+          "document_id": 815689216,
+          "document_id_source": "external_id",
+          "external_id": "023f6c50-518e-4630-877f-026227409a4a",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The abstract does not mention any climate or weather variables, nor does it discuss any health-related problems or outcomes associated with climate change. It focuses solely on water body extraction using a neural network method, without any reference to climate or health issues.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "New shop owners in old buildings: spatial politics of the apparel industry in Kyrgyzstan",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "This article adopts a political economy approach with insights from the political geography literature to illuminate how the apparel manufacturing sector in Kyrgyzstan has thrived in a region known for significant challenges in electricity access and availability. In contrast to studies that have analyzed the role of state policies and informal relations in promoting industrialization, we focus on how myriad shop owners gain access to elite-controlled, privatized urban infrastructure through owner–tenant relations in a new market economy. Drawing upon original interviews with Bishkek-based shop owners, we find that despite the challenges associated working in these spaces, including poor infrastructure and exploitative relationships with owners, they remain due to the constant provision of electricity and convenient location. We contribute to understanding how everyday shop owners make sense of and grapple with production challenges in a new market context, against the backdrop of Soviet infrastructural legacies and post-Soviet privatization processes."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "This article adopts a political economy approach with insights from the political geography literature to illuminate how the apparel manufacturing sector in Kyrgyzstan has thrived in a region known for significant challenges in electricity access and availability. In contrast to studies that have analyzed the role of state policies and informal relations in promoting industrialization, we focus on how myriad shop owners gain access to elite-controlled, privatized urban infrastructure through owner–tenant relations in a new market economy. Drawing upon original interviews with Bishkek-based shop owners, we find that despite the challenges associated working in these spaces, including poor infrastructure and exploitative relationships with owners, they remain due to the constant provision of electricity and convenient location. We contribute to understanding how everyday shop owners make sense of and grapple with production challenges in a new market context, against the backdrop of Soviet infrastructural legacies and post-Soviet privatization processes.",
+        "context_type": "abstract_only",
+        "document_id": "04cbc527-875c-44bd-ad19-a57458f0eaaf",
+        "document_identity": {
+          "document_id": 558553,
+          "document_id_source": "external_id",
+          "external_id": "04cbc527-875c-44bd-ad19-a57458f0eaaf",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The context does not mention any climate or weather variables, nor does it discuss health-related problems or outcomes associated with climate change. The focus is on the apparel manufacturing sector in Kyrgyzstan and the challenges related to infrastructure and electricity access, which do not align with the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "RESEARCH OF CONSEQUENCES OF EMERGENCY SITUATIONS AT THE INDUSTRIAL PIPELINES",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "The reasons of emergency situations for the long-term operated industrial pipelines were presented. It was revealed that the greatest risk of accidents at these objects is related to longitudinal destruction, which can occur both in the main metal pipes and in the weld zone, due to the formation of corrosive “fistulas” and “guillotine” ruptures. Industrial gas pipelines are objects of high danger. In case of the gas pipeline failure, there is a shock wave, which is one of affecting factors. &#x0D; The conditional probability of ignition of emergency emissions of hydrocarbon energy carriers was determined, considering the location of ignition sources. The probit-functions by the thermal effect on people were determined. The determination method of emergency gas losses in case of pipeline rupture was developed. A comparative analysis of gas mass flux at pipeline rupture was performed, depending on the pipeline diameter, initial pressure, time and distance from the point of pipe damage."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "The reasons of emergency situations for the long-term operated industrial pipelines were presented. It was revealed that the greatest risk of accidents at these objects is related to longitudinal destruction, which can occur both in the main metal pipes and in the weld zone, due to the formation of corrosive “fistulas” and “guillotine” ruptures. Industrial gas pipelines are objects of high danger. In case of the gas pipeline failure, there is a shock wave, which is one of affecting factors. &#x0D; The conditional probability of ignition of emergency emissions of hydrocarbon energy carriers was determined, considering the location of ignition sources. The probit-functions by the thermal effect on people were determined. The determination method of emergency gas losses in case of pipeline rupture was developed. A comparative analysis of gas mass flux at pipeline rupture was performed, depending on the pipeline diameter, initial pressure, time and distance from the point of pipe damage.",
+        "context_type": "abstract_only",
+        "document_id": "05d82313-c646-4ba4-a73f-5e1afccb8c9c",
+        "document_identity": {
+          "document_id": 6365261,
+          "document_id_source": "external_id",
+          "external_id": "05d82313-c646-4ba4-a73f-5e1afccb8c9c",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The document discusses emergency situations related to industrial pipelines, focusing on risks of accidents and gas pipeline failures. However, it does not mention climate/weather variables or climate-related extreme events, nor does it address health-related problems or outcomes associated with climate change. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Dealing with the Unseen: Assessing and Addressing Implicit Attitudes to Enhance Professional Success in Geriatric Mental Healthcare",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Abstract: Self-reported attitudes of Americans towards racial and ethnic minorities, women, homosexuals and transgendered individuals have grown steadily more positive since the 1960's. Despite this, inequities in healthcare remain, and there has been very slow progress towards increasing the numbers of historically under-represented individuals in academic and medical settings. For example, despite the fact that 48% of medical school graduates last year were women, nationwide, only 13% of academic medical school department chairs and deans are women. Only 7% of all academic medical faculty are from under-represented minority groups, although these comprise 26% of the general US population. Disparities in the level and quality of mental healthcare for people from minority groups are also well-documented. These statistics, and recent controlled studies, show a disconnect between explicit attitudes and policies, on the one hand, and equal treatment and opportunities, on the other. One important reason for the discrepancy is likely to be the influence of implicit or unconscious biases, i.e., reactions and attitudes that occur without awareness, control, intention, or attentional resources. This workshop will address why fairness, inclusiveness and cultural competence are important for success in geriatric mental health care. It will describe unconscious bias and explain where it comes from, and how it is relevant to our clinical, teaching, and research activities. Last, this workshop will discuss strategies of what we can do individually and institutionally to reduce unintended negative consequences of implicit attitudes and improve our professional interactions and climate. The workshop includes both didactic presentation and interactive exercises to engage the audience in learning about and exploring the consequences of implicit biases."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Abstract: Self-reported attitudes of Americans towards racial and ethnic minorities, women, homosexuals and transgendered individuals have grown steadily more positive since the 1960's. Despite this, inequities in healthcare remain, and there has been very slow progress towards increasing the numbers of historically under-represented individuals in academic and medical settings. For example, despite the fact that 48% of medical school graduates last year were women, nationwide, only 13% of academic medical school department chairs and deans are women. Only 7% of all academic medical faculty are from under-represented minority groups, although these comprise 26% of the general US population. Disparities in the level and quality of mental healthcare for people from minority groups are also well-documented. These statistics, and recent controlled studies, show a disconnect between explicit attitudes and policies, on the one hand, and equal treatment and opportunities, on the other. One important reason for the discrepancy is likely to be the influence of implicit or unconscious biases, i.e., reactions and attitudes that occur without awareness, control, intention, or attentional resources. This workshop will address why fairness, inclusiveness and cultural competence are important for success in geriatric mental health care. It will describe unconscious bias and explain where it comes from, and how it is relevant to our clinical, teaching, and research activities. Last, this workshop will discuss strategies of what we can do individually and institutionally to reduce unintended negative consequences of implicit attitudes and improve our professional interactions and climate. The workshop includes both didactic presentation and interactive exercises to engage the audience in learning about and exploring the consequences of implicit biases.",
+        "context_type": "abstract_only",
+        "document_id": "109d2025-cafe-43d1-9b24-e5dba4f68ea4",
+        "document_identity": {
+          "document_id": 4658342,
+          "document_id_source": "external_id",
+          "external_id": "109d2025-cafe-43d1-9b24-e5dba4f68ea4",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The abstract does not mention any climate or weather variables, nor does it discuss any climate-related health problems or outcomes. It focuses on issues related to racial and ethnic minorities, gender disparities in healthcare, and implicit biases in mental health care, which are not related to climate or health-system issues as defined in the inclusion criteria.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Multi Layer Feature Fusion of Radar and Vision for Obstacle Detection in Complex Scenes",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Safety is an unavoidable topic in the field of autonomous driving, and the most crucial aspect of safety in this field is accurate detection of all objects. This article proposes a new multimodal fusion method that combines radar and vision for obstacle detection. The proposed multi-level feature fusion network structure solves the problem of poor detection accuracy caused by incomplete information capture by low-level feature networks. At the same time, the NAM attention module was introduced to further refine the fused features. To solve the problem of low fusion efficiency of heterogeneous sensors, this paper proposes a weight generation method based on spatial attention mechanism (SAF), which achieves efficient fusion of radar and visual features by focusing on key areas in input features and weakening interference areas. In addition, a method of converting radar point clouds into radar images was designed for better network training. The experimental results show that the obstacle detection performance of this method is significantly better than existing technologies in harsh weather conditions (such as rainy and snowy days) and complex lighting conditions (such as nighttime and strong light exposure). Excellent performance was demonstrated on key indicators mAP, AP50, and AP75, demonstrating the high accuracy and strong robustness of the method."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Safety is an unavoidable topic in the field of autonomous driving, and the most crucial aspect of safety in this field is accurate detection of all objects. This article proposes a new multimodal fusion method that combines radar and vision for obstacle detection. The proposed multi-level feature fusion network structure solves the problem of poor detection accuracy caused by incomplete information capture by low-level feature networks. At the same time, the NAM attention module was introduced to further refine the fused features. To solve the problem of low fusion efficiency of heterogeneous sensors, this paper proposes a weight generation method based on spatial attention mechanism (SAF), which achieves efficient fusion of radar and visual features by focusing on key areas in input features and weakening interference areas. In addition, a method of converting radar point clouds into radar images was designed for better network training. The experimental results show that the obstacle detection performance of this method is significantly better than existing technologies in harsh weather conditions (such as rainy and snowy days) and complex lighting conditions (such as nighttime and strong light exposure). Excellent performance was demonstrated on key indicators mAP, AP50, and AP75, demonstrating the high accuracy and strong robustness of the method.",
+        "context_type": "abstract_only",
+        "document_id": "202d1bc8-c1d3-4919-b40e-d7560ac9d3ff",
+        "document_identity": {
+          "document_id": 212484,
+          "document_id_source": "external_id",
+          "external_id": "202d1bc8-c1d3-4919-b40e-d7560ac9d3ff",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The document discusses a multimodal fusion method for obstacle detection in autonomous driving, focusing on radar and vision technologies. It does not mention any climate or weather variables, nor does it address health-related problems or outcomes associated with climate change. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Itchy and scratchy? An investigation of human cercarial dermatitis in the UK",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Human cercarial dermatitis (CD) or cercariosis is a cutaneous allergic response caused by repeated penetration of avian and mammalian schistosome cercariae and possibly non-schistosomatid cercariae. It is an emerging and re-emerging disease frequently reported in Europe and the USA in association with recreational lakes inhabited by snail intermediate hosts and waterfowl definitive hosts for Trichobilharzia spp. There is insufficient information about the occurrence and causative agents of CD in the UK and the condition is underdiagnosed due to confusion with insect bites and lack of a reporting system. Reports of CD in the UK are increasing in frequency via social media, partly due to the popularity of open water swimming, although the full extent of CD as a health issue is not known. This is the first study in the UK to explore occurrence of CD and its impacts on open water swimmers. Following ethical approval from Kingston University Ethics Committee, open water swimmers were contacted via swimming clubs and on social media to complete a 14-question survey on Survey Monkey on CD and open water swimming behaviour during 2016. A total of 62 responses (61% female: 39% male, age range: &lt;25 to &gt;76) were received. Self-diagnosed reports of CD were recorded from 38 sites, mainly in England, comprising freshwater lakes and rivers except for one marine site in Cornwall. Interestingly, not all swimmers experienced symptoms at known CD sites and they reported symptoms from April to November, beyond the usual seasonal period of cercarial emergence. CD does not discourage open water swimming for the majority due to strong motivators for the sport. Multiple preventative measures and treatments were undertaken, mainly following advice from friends, pharmacies and the internet. Wet suits were not worn by the majority and do not appear to be effective in preventing CD. The efficacy of removing snail intermediate hosts at one site is currently being tested and more demographic data will be needed in future studies to identify reasons for variable responses to exposure."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Human cercarial dermatitis (CD) or cercariosis is a cutaneous allergic response caused by repeated penetration of avian and mammalian schistosome cercariae and possibly non-schistosomatid cercariae. It is an emerging and re-emerging disease frequently reported in Europe and the USA in association with recreational lakes inhabited by snail intermediate hosts and waterfowl definitive hosts for Trichobilharzia spp. There is insufficient information about the occurrence and causative agents of CD in the UK and the condition is underdiagnosed due to confusion with insect bites and lack of a reporting system. Reports of CD in the UK are increasing in frequency via social media, partly due to the popularity of open water swimming, although the full extent of CD as a health issue is not known. This is the first study in the UK to explore occurrence of CD and its impacts on open water swimmers. Following ethical approval from Kingston University Ethics Committee, open water swimmers were contacted via swimming clubs and on social media to complete a 14-question survey on Survey Monkey on CD and open water swimming behaviour during 2016. A total of 62 responses (61% female: 39% male, age range: &lt;25 to &gt;76) were received. Self-diagnosed reports of CD were recorded from 38 sites, mainly in England, comprising freshwater lakes and rivers except for one marine site in Cornwall. Interestingly, not all swimmers experienced symptoms at known CD sites and they reported symptoms from April to November, beyond the usual seasonal period of cercarial emergence. CD does not discourage open water swimming for the majority due to strong motivators for the sport. Multiple preventative measures and treatments were undertaken, mainly following advice from friends, pharmacies and the internet. Wet suits were not worn by the majority and do not appear to be effective in preventing CD. The efficacy of removing snail intermediate hosts at one site is currently being tested and more demographic data will be needed in future studies to identify reasons for variable responses to exposure.",
+        "context_type": "abstract_only",
+        "document_id": "2f395670-3519-4993-9fe3-d62efbf02f7d",
+        "document_identity": {
+          "document_id": 6994644,
+          "document_id_source": "external_id",
+          "external_id": "2f395670-3519-4993-9fe3-d62efbf02f7d",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The context does not mention any climate or weather variables, nor does it discuss climate-related extreme events or fossil fuels. It focuses on human cercarial dermatitis and its occurrence among open water swimmers, which does not relate to climate or health issues associated with climate change.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Thirty-two essential questions for understanding the social–ecological system of forage fish: the case of pacific herring",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Abstract Forage fishes are ecologically and economically important low trophic level species, and in recent years interest in their biology and management has intensified. Pacific Herring are emblematic of the management issues facing forage species—they are central components of the Northeast Pacific pelagic food web and support important commercial fisheries. In addition, the importance of Herring to indigenous peoples have made them cultural keystone species. We employed a participatory process to promote collaborative priority-setting for this critical forage species. Working with managers, the fisheries industry, indigenous peoples, and scientists, we co-constructed a conceptual model of the Pacific Herring social–ecological system () in the Northeast Pacific. We then identified a set of questions, that, if answered, would significantly increase our ability to sustainably manage the Herring . Our objective was to generate a road map for scientists who wish to conduct useful forage fish research, for resource managers who wish to develop new research efforts that could fill critical gaps, and for public agencies and private foundations seeking to prioritize funding on forage fish issues in the Pacific. With this socio-cultural centrality comes complexity for fisheries management. Our participatory process highlighted the value of conceptualizing the full SES, overcame disciplinary differences in scientific approaches, research philosophy, and language, and charted a path forward for future research and management for forage species."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Abstract Forage fishes are ecologically and economically important low trophic level species, and in recent years interest in their biology and management has intensified. Pacific Herring are emblematic of the management issues facing forage species—they are central components of the Northeast Pacific pelagic food web and support important commercial fisheries. In addition, the importance of Herring to indigenous peoples have made them cultural keystone species. We employed a participatory process to promote collaborative priority-setting for this critical forage species. Working with managers, the fisheries industry, indigenous peoples, and scientists, we co-constructed a conceptual model of the Pacific Herring social–ecological system () in the Northeast Pacific. We then identified a set of questions, that, if answered, would significantly increase our ability to sustainably manage the Herring . Our objective was to generate a road map for scientists who wish to conduct useful forage fish research, for resource managers who wish to develop new research efforts that could fill critical gaps, and for public agencies and private foundations seeking to prioritize funding on forage fish issues in the Pacific. With this socio-cultural centrality comes complexity for fisheries management. Our participatory process highlighted the value of conceptualizing the full SES, overcame disciplinary differences in scientific approaches, research philosophy, and language, and charted a path forward for future research and management for forage species.",
+        "context_type": "abstract_only",
+        "document_id": "350781d3-5778-4871-af69-cb4ac6b6cbaa",
+        "document_identity": {
+          "document_id": 596984,
+          "document_id_source": "external_id",
+          "external_id": "350781d3-5778-4871-af69-cb4ac6b6cbaa",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The abstract does not mention any climate or weather variables, nor does it discuss any health-related problems or outcomes associated with climate change. It focuses on the ecological and economic importance of Pacific Herring and the management of forage species without reference to climate-related issues.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Cartographies of Everyday Conflicts in Public Spaces. Informal Micro-activities on Formal Infrastructure. Carapungo Entry Park, Quito",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Through the understanding of cartography as an alternative representation tool, this paper researches the existing and usually invisible relationships between informal micro-activities and formal public spaces. For this purpose, Carapungo Entry Park located in the north of Quito (Ecuador), is taken as a case study, being a paradigmatic case of the complexity and multiplicity that constitutes informality in Latin American cities. After a first analysis based on the formal planning of this park, we will focus on dissident spatial practices carried out by inhabitants who occupy and appropriate a formal space. These situations of conflict originate spatial constructions based on spontaneity, fluidity, adaptability, movement, and temporality, which include local culture, economy, and social interaction. With the production of cartographies, the processes and activities generated by formal and informal vendors, passers-by, and public transport passengers, are made visible and analyzed. The expected results based on cartography as an alternative representation, are the presentation of relations of tensions, forces, conflicts, and negotiations that allow us to identify patterns, trends and behaviors that have no place in the supposed precision and rigor of the regulations in the formal planning of public space."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Through the understanding of cartography as an alternative representation tool, this paper researches the existing and usually invisible relationships between informal micro-activities and formal public spaces. For this purpose, Carapungo Entry Park located in the north of Quito (Ecuador), is taken as a case study, being a paradigmatic case of the complexity and multiplicity that constitutes informality in Latin American cities. After a first analysis based on the formal planning of this park, we will focus on dissident spatial practices carried out by inhabitants who occupy and appropriate a formal space. These situations of conflict originate spatial constructions based on spontaneity, fluidity, adaptability, movement, and temporality, which include local culture, economy, and social interaction. With the production of cartographies, the processes and activities generated by formal and informal vendors, passers-by, and public transport passengers, are made visible and analyzed. The expected results based on cartography as an alternative representation, are the presentation of relations of tensions, forces, conflicts, and negotiations that allow us to identify patterns, trends and behaviors that have no place in the supposed precision and rigor of the regulations in the formal planning of public space.",
+        "context_type": "abstract_only",
+        "document_id": "37472b37-1ecf-4dee-ba11-15e3c9243818",
+        "document_identity": {
+          "document_id": 68335678,
+          "document_id_source": "external_id",
+          "external_id": "37472b37-1ecf-4dee-ba11-15e3c9243818",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The document does not mention any climate or weather variables, nor does it discuss health-related problems or outcomes associated with climate change. It focuses on cartography and informal activities in public spaces without reference to climate or health issues.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Significance of dietary sulphur and sulphate reducing bacteria in lactating dairy cattle: A review",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Sulphur is an important mineral for animal nutrition as it is integral component of many biologically active compounds like amino acid, vitamins, co-enzymes, cartilage, glutathione, fibrinogen, heparin etc. Biotin, thiamine and methionine are essential compounds in monogastric animal’s diet but can be formed in rumen animal with the help of rumen bacteria and other can be manufactured with these. Generally sulphur contain approximately 0.15% of animal body weight but it may vary from species to species. Controlled amount of sulphur in dairy cattle can improve their performance in context of milk, digestion with the help of sulphate reducing bacteria, methane gas emission, but if given in dose more than the permissible level, may result into harmful effects."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Sulphur is an important mineral for animal nutrition as it is integral component of many biologically active compounds like amino acid, vitamins, co-enzymes, cartilage, glutathione, fibrinogen, heparin etc. Biotin, thiamine and methionine are essential compounds in monogastric animal’s diet but can be formed in rumen animal with the help of rumen bacteria and other can be manufactured with these. Generally sulphur contain approximately 0.15% of animal body weight but it may vary from species to species. Controlled amount of sulphur in dairy cattle can improve their performance in context of milk, digestion with the help of sulphate reducing bacteria, methane gas emission, but if given in dose more than the permissible level, may result into harmful effects.",
+        "context_type": "abstract_only",
+        "document_id": "3d63f91c-fdd7-45c1-be82-a5252d727499",
+        "document_identity": {
+          "document_id": 22339,
+          "document_id_source": "external_id",
+          "external_id": "3d63f91c-fdd7-45c1-be82-a5252d727499",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The context provided discusses the role of sulphur in animal nutrition and its effects on dairy cattle performance, but it does not mention any climate or weather variables, nor does it address any health-related problems or outcomes associated with climate change. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "The ‘Small House’ Phenomenon and Its Impact on Zimbabwean Women’s Sexual Reproductive Health and Rights (SRHR)",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Concerns surrounding women’s sexual reproductive health and rights (SRHR) have been ongoing in Zimbabwe. This chapter examines the ‘small house’ concept in Zimbabwe, which entails issues to do with extra-marital affairs, cohabitation and polygamy. It engages this concept with particular reference to Sustainable Development Goal (SDG) 5 which places emphasis on women’s equality. The term ‘small house’ was coined in the late 1990s as a contemporary way to demean and denounce the practice of unconventional unions. In the recent years, the term has now grown to be used in line with the reconstruction of polygamy. This concept tends to be expedient for men and predominantly disadvantageous to the women folk, both the customarily or legally married women, as well as the ones in a ‘small house’ setting, not only in terms of their SRHR but also in light of their socio-economic rights. It threatens women’s quest for dignity and equality as articulated in SDG 5. The ‘small house’ concept also brings to light masculinity behaviors and societal constructs, inevitably querying men’s attitude and, on the other hand, women’s reaction to it. Hence, this chapter proffers that differentiating and examining the cultural and traditional causes would help in examining the effects of masculinity models being constructed on the boy and girl child in both these family settings: ‘small house’ and ‘legitimate’ family households. Additionally, the chapter utilizes a gender framework to analyze the effects of the ‘small house’ concept on the husbands, wives, extra-marital partners and children in terms of maintenance, inheritance, support and the overall concept of family in the modern-day Zimbabwean context. The chapter also examines and proposes a negotiation on cultural practices with religious, customary and legal guidance as an intervention to address the conflicts and family disintegration caused by the ‘small house’ practice. The chapter concludes by highlighting that the proposal for the legalization of ‘small house’ unions shows how even after more than forty years of political independence, Zimbabwe is still grappling with how to comprehensively promote and protect the sexual and reproductive health and rights of all women (Sustainable Development Goal 3) irrespective of their marital status."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Concerns surrounding women’s sexual reproductive health and rights (SRHR) have been ongoing in Zimbabwe. This chapter examines the ‘small house’ concept in Zimbabwe, which entails issues to do with extra-marital affairs, cohabitation and polygamy. It engages this concept with particular reference to Sustainable Development Goal (SDG) 5 which places emphasis on women’s equality. The term ‘small house’ was coined in the late 1990s as a contemporary way to demean and denounce the practice of unconventional unions. In the recent years, the term has now grown to be used in line with the reconstruction of polygamy. This concept tends to be expedient for men and predominantly disadvantageous to the women folk, both the customarily or legally married women, as well as the ones in a ‘small house’ setting, not only in terms of their SRHR but also in light of their socio-economic rights. It threatens women’s quest for dignity and equality as articulated in SDG 5. The ‘small house’ concept also brings to light masculinity behaviors and societal constructs, inevitably querying men’s attitude and, on the other hand, women’s reaction to it. Hence, this chapter proffers that differentiating and examining the cultural and traditional causes would help in examining the effects of masculinity models being constructed on the boy and girl child in both these family settings: ‘small house’ and ‘legitimate’ family households. Additionally, the chapter utilizes a gender framework to analyze the effects of the ‘small house’ concept on the husbands, wives, extra-marital partners and children in terms of maintenance, inheritance, support and the overall concept of family in the modern-day Zimbabwean context. The chapter also examines and proposes a negotiation on cultural practices with religious, customary and legal guidance as an intervention to address the conflicts and family disintegration caused by the ‘small house’ practice. The chapter concludes by highlighting that the proposal for the legalization of ‘small house’ unions shows how even after more than forty years of political independence, Zimbabwe is still grappling with how to comprehensively promote and protect the sexual and reproductive health and rights of all women (Sustainable Development Goal 3) irrespective of their marital status.",
+        "context_type": "abstract_only",
+        "document_id": "51ab0487-34cb-43a9-9467-4d6200dcbb15",
+        "document_identity": {
+          "document_id": 78958,
+          "document_id_source": "external_id",
+          "external_id": "51ab0487-34cb-43a9-9467-4d6200dcbb15",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The document does not mention any climate or weather variables, nor does it discuss any health-related problems or solutions associated with climate change. It focuses on women's sexual reproductive health and rights in Zimbabwe, specifically regarding the 'small house' concept, which is unrelated to climate or health issues as defined in the inclusion criteria.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Temperature effects on plant gametophyte performance and their consequences for seed reproduction in wild plants",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Research is increasingly focusing on understanding the impacts of climate change on seed plant reproduction. Despite the ongoing efforts, gaps and biases still remain as most studies focus on cultivated crops and model species like Arabidopsis thaliana, with limited research on wild plants. Furthermore, methodological gaps such as the lack of standardized protocols for developing in vitro germination media for unstudied species or groups still exist. The main aim of this thesis was to address these gaps by developing new methods for pollen research based on protocols in literature and investigate the impacts of temperature stress on plant sexual reproduction, with a particular emphasis on gametophytic performance in both wild and cultivated plants. Chapter 1 introduces the research context of the thesis, highlighting existing gaps and biases in gametophytic studies. It provides a brief overview of the developmental stages of male (pollen) and female (ovule) gametophytes, the impacts of climate change-induced heat waves on gametophytic performance and the compensatory mechanisms they employ. Chapter 2 is the methodological paper with a compendium of optimized in vitro pollen germination media (PGM) recipes from over 1800 articles published from 1926 to 2019. The compendium consists of 1572 PGM successfully used in 816 species from 412 genera and 114 families (monocots and dicots). Key components used include sucrose (89%), H3BO3 (77%), Ca2+ (59%), Mg2+ (44%), and K+ (39%). Notably, concentrations of sucrose, calcium, and magnesium varied significantly across categories, highlighting the need for group-specific considerations in PGM composition. I therefore identified general rules for creating PGM tailored to different species groups, considering factors such as research focus (wild vs. cultivated species), phylogenetic relatedness, pollen physiology, biochemistry, and stigma properties. The compendium serves as a valuable data resource for PGM and facilitates future pollen research endeavors. Chapter 3 examines the patterns and drivers of pollen temperature tolerance (cold and heat) across diverse plant populations and species globally. To achieve this, I compiled a dataset spanning 1933 to 2020, comprising cardinal temperatures (minimum, optimal, and maximum) for pollen germination and tube growth in 198 plant species. I investigated pollen temperature limits (PTLs) by examining their correlation with the thermotolerance of vegetative tissues and assessing variability at the intra- and interspecific levels across the species with contrasting phylogeny, cultivation history, biology, and ecology. The findings revealed positive correlations between PTLs and thermotolerance in vegetative tissues. At the species level, PTLs ranged from 6.1 to 39.5 ⁰C, displaying significant differences among growth forms and cultivation histories. While there were variations in pollen cold tolerance among species populations, optimum and maximum temperatures remained stable. Phylogenetic analysis indicated family-level conservation in pollen cold tolerance, contrasting with the evolutionary independence of heat tolerance. Climate emerged as a significant driver of PTLs, with species at higher elevations and latitudes exhibiting enhanced tolerance. Cultivated species displayed narrower temperature tolerances, highlighting potential vulnerabilities to global warming. Overall, this study sheds light on the complex relationships among pollen temperature limits, plant traits, and environmental factors, providing essential insights into the impact of climate change on plant reproduction. In chapter 4, the impacts of chronic heat stress (CHS) at moderate (35/30 °C) and severe (40/35 °C) levels, on gametophyte performance and subsequent seed quantity, quality, and germination in four wild Silene species (Silene coeli-rosa, Silene gallica, Silene laeta, and Silene noctiflora) were investigated. I measured six traits related to the male (anther length, pollen production, and size) and female (ovary length, ovule production, and size) gametophyte performance, along with leaf chlorophyll fluorescence. Seeds from treated plants were used to measure seed mass and production, while seed germination was evaluated in terms of germination percentage, speed, and synchrony. The results revealed that both CHS treatments had a negative impact on overall plant performance. All male gametophyte traits, ovary size, and ovule production were significantly reduced in CHS treatments, resulting in fewer seeds, but seed mass remained unaffected. Although the final germination percentage showed weak significant differences in the severe treatment, heat stress did not negatively impact seed germination. Treated plants exhibited significantly faster germination, with no effect on germination synchrony. Climate change-induced heat waves can adversely affect seed reproduction in wild plant populations, potentially impacting their long-term survival. In chapter 5, the adaptive and acclimation potential of six male (anther length, pollen production, and size) and female (ovary length, ovule production, and size) gametophytic traits in eleven distinct populations of wild Silene vulgaris across a temperature gradient in Europe were examined. First, plants were cultivated in a common garden to reveal pre-adaptation of gametophytic traits to the local conditions. Next, flowering plants were subjected to chronic heat stress (CHS) treatments (moderate [35/30 °C] and severe [40/35 °C]) to assess the acclimation potential of gametophytic traits. Results from the common garden showed no intraspecific variation in gametophytic traits across the temperature gradient, suggesting limited influence of these traits on sexual adaptation to local habitats. Plants from colder climates produced more seeds with higher mass than those from warm climates. Under both CHS treatments, female gametophytes showed a higher ability to acclimate than males, with moderate CHS leading to increased ovary size and ovule numbers and severe CHS reducing ovule numbers but increasing their size. All pollen traits decreased under both CHS, with severe stress causing more significant reductions, thus translating to low seed quality and quantity. Acclimation potential did not vary among populations across the temperature gradient under both CHS treatments, except for pollen size under severe CHS, which was larger in warmer climates than in colder regions. Overall, the lack of adaptation and acclimation mechanisms in gametophytic traits suggests potential reliance on alternative strategies like shifting flowering time and phenotypic plasticity to cope with climate change-induced heat waves. Chapter 6 provides a synthesis of the key findings from the four main chapters. The main conclusion drawn is that climate change-induced heat waves can have significant and complex impacts on the reproductive processes, particularly pollen performance, of both wild and cultivated plants. To obtain more precise estimates of the impact of heat stress on seed production, it is crucial to conduct further research that includes a broader array of genotypes or species. Additionally, the chapter discusses potential areas for exploration in future studies within this field."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Research is increasingly focusing on understanding the impacts of climate change on seed plant reproduction. Despite the ongoing efforts, gaps and biases still remain as most studies focus on cultivated crops and model species like Arabidopsis thaliana, with limited research on wild plants. Furthermore, methodological gaps such as the lack of standardized protocols for developing in vitro germination media for unstudied species or groups still exist. The main aim of this thesis was to address these gaps by developing new methods for pollen research based on protocols in literature and investigate the impacts of temperature stress on plant sexual reproduction, with a particular emphasis on gametophytic performance in both wild and cultivated plants. Chapter 1 introduces the research context of the thesis, highlighting existing gaps and biases in gametophytic studies. It provides a brief overview of the developmental stages of male (pollen) and female (ovule) gametophytes, the impacts of climate change-induced heat waves on gametophytic performance and the compensatory mechanisms they employ. Chapter 2 is the methodological paper with a compendium of optimized in vitro pollen germination media (PGM) recipes from over 1800 articles published from 1926 to 2019. The compendium consists of 1572 PGM successfully used in 816 species from 412 genera and 114 families (monocots and dicots). Key components used include sucrose (89%), H3BO3 (77%), Ca2+ (59%), Mg2+ (44%), and K+ (39%). Notably, concentrations of sucrose, calcium, and magnesium varied significantly across categories, highlighting the need for group-specific considerations in PGM composition. I therefore identified general rules for creating PGM tailored to different species groups, considering factors such as research focus (wild vs. cultivated species), phylogenetic relatedness, pollen physiology, biochemistry, and stigma properties. The compendium serves as a valuable data resource for PGM and facilitates future pollen research endeavors. Chapter 3 examines the patterns and drivers of pollen temperature tolerance (cold and heat) across diverse plant populations and species globally. To achieve this, I compiled a dataset spanning 1933 to 2020, comprising cardinal temperatures (minimum, optimal, and maximum) for pollen germination and tube growth in 198 plant species. I investigated pollen temperature limits (PTLs) by examining their correlation with the thermotolerance of vegetative tissues and assessing variability at the intra- and interspecific levels across the species with contrasting phylogeny, cultivation history, biology, and ecology. The findings revealed positive correlations between PTLs and thermotolerance in vegetative tissues. At the species level, PTLs ranged from 6.1 to 39.5 ⁰C, displaying significant differences among growth forms and cultivation histories. While there were variations in pollen cold tolerance among species populations, optimum and maximum temperatures remained stable. Phylogenetic analysis indicated family-level conservation in pollen cold tolerance, contrasting with the evolutionary independence of heat tolerance. Climate emerged as a significant driver of PTLs, with species at higher elevations and latitudes exhibiting enhanced tolerance. Cultivated species displayed narrower temperature tolerances, highlighting potential vulnerabilities to global warming. Overall, this study sheds light on the complex relationships among pollen temperature limits, plant traits, and environmental factors, providing essential insights into the impact of climate change on plant reproduction. In chapter 4, the impacts of chronic heat stress (CHS) at moderate (35/30 °C) and severe (40/35 °C) levels, on gametophyte performance and subsequent seed quantity, quality, and germination in four wild Silene species (Silene coeli-rosa, Silene gallica, Silene laeta, and Silene noctiflora) were investigated. I measured six traits related to the male (anther length, pollen production, and size) and female (ovary length, ovule production, and size) gametophyte performance, along with leaf chlorophyll fluorescence. Seeds from treated plants were used to measure seed mass and production, while seed germination was evaluated in terms of germination percentage, speed, and synchrony. The results revealed that both CHS treatments had a negative impact on overall plant performance. All male gametophyte traits, ovary size, and ovule production were significantly reduced in CHS treatments, resulting in fewer seeds, but seed mass remained unaffected. Although the final germination percentage showed weak significant differences in the severe treatment, heat stress did not negatively impact seed germination. Treated plants exhibited significantly faster germination, with no effect on germination synchrony. Climate change-induced heat waves can adversely affect seed reproduction in wild plant populations, potentially impacting their long-term survival. In chapter 5, the adaptive and acclimation potential of six male (anther length, pollen production, and size) and female (ovary length, ovule production, and size) gametophytic traits in eleven distinct populations of wild Silene vulgaris across a temperature gradient in Europe were examined. First, plants were cultivated in a common garden to reveal pre-adaptation of gametophytic traits to the local conditions. Next, flowering plants were subjected to chronic heat stress (CHS) treatments (moderate [35/30 °C] and severe [40/35 °C]) to assess the acclimation potential of gametophytic traits. Results from the common garden showed no intraspecific variation in gametophytic traits across the temperature gradient, suggesting limited influence of these traits on sexual adaptation to local habitats. Plants from colder climates produced more seeds with higher mass than those from warm climates. Under both CHS treatments, female gametophytes showed a higher ability to acclimate than males, with moderate CHS leading to increased ovary size and ovule numbers and severe CHS reducing ovule numbers but increasing their size. All pollen traits decreased under both CHS, with severe stress causing more significant reductions, thus translating to low seed quality and quantity. Acclimation potential did not vary among populations across the temperature gradient under both CHS treatments, except for pollen size under severe CHS, which was larger in warmer climates than in colder regions. Overall, the lack of adaptation and acclimation mechanisms in gametophytic traits suggests potential reliance on alternative strategies like shifting flowering time and phenotypic plasticity to cope with climate change-induced heat waves. Chapter 6 provides a synthesis of the key findings from the four main chapters. The main conclusion drawn is that climate change-induced heat waves can have significant and complex impacts on the reproductive processes, particularly pollen performance, of both wild and cultivated plants. To obtain more precise estimates of the impact of heat stress on seed production, it is crucial to conduct further research that includes a broader array of genotypes or species. Additionally, the chapter discusses potential areas for exploration in future studies within this field.",
+        "context_type": "abstract_only",
+        "document_id": "542f56a5-5f41-435c-b95e-b0516baee232",
+        "document_identity": {
+          "document_id": 802401,
+          "document_id_source": "external_id",
+          "external_id": "542f56a5-5f41-435c-b95e-b0516baee232",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The document primarily discusses the impacts of climate change on seed plant reproduction, focusing on pollen research and gametophytic performance. While it mentions climate change and its effects on plant reproduction, it does not address health-related problems or outcomes associated with climate change, which is necessary for inclusion in the DESTINY repository. Therefore, it does not meet both criteria for inclusion as specified in the prompt.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "世界の人口戦略における公衆衛生的アプローチの有用性 公衆衛生活動を重視するフィリピン家族計画•母子保健プロジェクトの事例報告",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Objective The populations of developing countries have so dramatically increased over the past two centuries that it has tended to undermine sustained economic growth and development. The population growth rate in the Philippines, in particular, remains at 2.0%, one of the highest in the other southeastern Asian countries. This has exacerbated problems of economic disparity and deterioration in development so that the Philippine Government has declared it a political priority to address the population problem. and for this purpose has asked the Japan International Cooperation Agency (JICA) for assistance. Method Based on past experience with the world population issue, the International Conference on Population and Development in Cairo (ICPD) declared that the population strategy should be merged into socio-economic development strategies that aim to achieve basic human needs, such as, education, public health and gender equality. JICA assistance to improve maternal and child health status and promote community health initiatives in the Philippines is based on this new paradigm; the ICPD plan. Output and Conclusion JICA has supported a diverse range of public health activities, such as the establishment of a comprehensive maternal and child health care system, advocacy of reproductive health, performance of adolescence health education and assistance for participatory community action. The efforts were generally geared towards sustainable implementation of health activities in the community. The JICA project employed the public health approach that gained a global consensus at Cairo to challenge the problem of a continuously high rate of population growth."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Objective The populations of developing countries have so dramatically increased over the past two centuries that it has tended to undermine sustained economic growth and development. The population growth rate in the Philippines, in particular, remains at 2.0%, one of the highest in the other southeastern Asian countries. This has exacerbated problems of economic disparity and deterioration in development so that the Philippine Government has declared it a political priority to address the population problem. and for this purpose has asked the Japan International Cooperation Agency (JICA) for assistance. Method Based on past experience with the world population issue, the International Conference on Population and Development in Cairo (ICPD) declared that the population strategy should be merged into socio-economic development strategies that aim to achieve basic human needs, such as, education, public health and gender equality. JICA assistance to improve maternal and child health status and promote community health initiatives in the Philippines is based on this new paradigm; the ICPD plan. Output and Conclusion JICA has supported a diverse range of public health activities, such as the establishment of a comprehensive maternal and child health care system, advocacy of reproductive health, performance of adolescence health education and assistance for participatory community action. The efforts were generally geared towards sustainable implementation of health activities in the community. The JICA project employed the public health approach that gained a global consensus at Cairo to challenge the problem of a continuously high rate of population growth.",
+        "context_type": "abstract_only",
+        "document_id": "59baba2a-54cc-4381-b80d-b37d1827c117",
+        "document_identity": {
+          "document_id": 997047,
+          "document_id_source": "external_id",
+          "external_id": "59baba2a-54cc-4381-b80d-b37d1827c117",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The document does not mention any climate or weather variables, nor does it discuss climate-related extreme events or fossil fuels. It focuses on population growth and public health initiatives in the Philippines without any reference to climate change or health impacts related to climate variables. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Increasing oil recovery by utilization of AICV: a 3D multiphase simulation study of a heavy oil reservoir with an underlying water aquifer",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Oil companies are focusing on the development of new technology to improve the recovery of oil in horizontal wells. Increasing oil recovery represents great financial gains which is important when production facilities are situated in costly locations where access is highly limited, such as offshore environments. One of the main challenges for oil production is when much of the oil in the reservoir has been produced; a breakthrough of either gas, water or both may occur. Breakthroughs lead to increased costs relating to the separation of fluids and operational costs in general. It may also result in the early shut down of the oil field, even though oil is still present. To reduce these problems, Inflow Control Devices (ICDs) is being heavily researched. The Norwegian company InflowControl has patented a new valve named the Autonomous Inflow Control Valve (AICV), which has a promising potential to increase oil recovery factors. Traditional ICDs will only delay the time of breakthrough, while the newly developed AICV will also close the valves, which are producing unwanted fluids. As stated by its name, it works autonomously which means that is it not controlled by any electric or hydraulic form of communication. Using ANSYS FLUENT 13.0, a horizontal well with four AICVs in a reservoir with an underlying aquifer was simulated in 3D. Special attention was given to production rates, breakthrough time and water migration within the reservoir and well. Different pressure resistance was set for each of the four valves to induce a realistic heel-toe effect, which appears by the varying production rates along the well ranging from 20-28 m/d. The accumulated oil production when the last"
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Oil companies are focusing on the development of new technology to improve the recovery of oil in horizontal wells. Increasing oil recovery represents great financial gains which is important when production facilities are situated in costly locations where access is highly limited, such as offshore environments. One of the main challenges for oil production is when much of the oil in the reservoir has been produced; a breakthrough of either gas, water or both may occur. Breakthroughs lead to increased costs relating to the separation of fluids and operational costs in general. It may also result in the early shut down of the oil field, even though oil is still present. To reduce these problems, Inflow Control Devices (ICDs) is being heavily researched. The Norwegian company InflowControl has patented a new valve named the Autonomous Inflow Control Valve (AICV), which has a promising potential to increase oil recovery factors. Traditional ICDs will only delay the time of breakthrough, while the newly developed AICV will also close the valves, which are producing unwanted fluids. As stated by its name, it works autonomously which means that is it not controlled by any electric or hydraulic form of communication. Using ANSYS FLUENT 13.0, a horizontal well with four AICVs in a reservoir with an underlying aquifer was simulated in 3D. Special attention was given to production rates, breakthrough time and water migration within the reservoir and well. Different pressure resistance was set for each of the four valves to induce a realistic heel-toe effect, which appears by the varying production rates along the well ranging from 20-28 m/d. The accumulated oil production when the last",
+        "context_type": "abstract_only",
+        "document_id": "69ee550a-da8e-4643-a51e-951ffa7db335",
+        "document_identity": {
+          "document_id": 3186494320,
+          "document_id_source": "external_id",
+          "external_id": "69ee550a-da8e-4643-a51e-951ffa7db335",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The context provided discusses oil recovery technology and the challenges faced in oil production, but it does not mention any climate or weather variables, nor does it address health-related problems or outcomes associated with climate change. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Abstract   A relatively rapid radiochemical procedure for the determination of folylpolyglutamate synthetase activity is presented in this communication. The procedure is based on measurement of the incorporation of radioactive  l -glutamate into tetrahydropteroylpolyglutamate on incubation with a tetrahydrofolate. After deproteinating the incubation mixtures with trichloroacetic acid, folate is separated from radioactive glutamate by an adaptation of a procedure generally employed in the isolation of folate from natural materials, i.e., adsorption on columns of charcoal from which it is subsequently eluted with aqueous-alcoholic ammonia containing mercaptoethanol and counted. The procedure is applicable to monitoring purification of the enzymes and to the study of their properties.  The technique for separating a radioactive product of enzyme action from a radioactive precursor with a column of charcoal, that has been developed for this procedure is applicable also to other radiochemical enzyme determinations requiring the separation of an aromatic"
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Abstract   A relatively rapid radiochemical procedure for the determination of folylpolyglutamate synthetase activity is presented in this communication. The procedure is based on measurement of the incorporation of radioactive  l -glutamate into tetrahydropteroylpolyglutamate on incubation with a tetrahydrofolate. After deproteinating the incubation mixtures with trichloroacetic acid, folate is separated from radioactive glutamate by an adaptation of a procedure generally employed in the isolation of folate from natural materials, i.e., adsorption on columns of charcoal from which it is subsequently eluted with aqueous-alcoholic ammonia containing mercaptoethanol and counted. The procedure is applicable to monitoring purification of the enzymes and to the study of their properties.  The technique for separating a radioactive product of enzyme action from a radioactive precursor with a column of charcoal, that has been developed for this procedure is applicable also to other radiochemical enzyme determinations requiring the separation of an aromatic",
+        "context_type": "abstract_only",
+        "document_id": "7e86ba10-8575-4d09-b3cc-739d14822b6f",
+        "document_identity": {
+          "document_id": 38182,
+          "document_id_source": "external_id",
+          "external_id": "7e86ba10-8575-4d09-b3cc-739d14822b6f",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The abstract does not mention any climate or weather variables, nor does it discuss any health-related problems or outcomes associated with climate change. It focuses solely on a radiochemical procedure for determining enzyme activity, which is unrelated to climate or health issues.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Harboring Sustainability: Assessing the Carbon Footprint of Maritime Fender Systems for Sustainable Ports",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Concerns about the planet’s health are undeniably increasing, particularly in relation to the impacts of human-induced global warming, which significantly contributes to the excessive accumulation of greenhouse gases—such as CO2—in the atmosphere. This paper outlines a series of critical advancements in the maritime industry’s efforts toward greater transparency in greenhouse gas emissions linked to fender manufacturing activities. Initially, it examines the current scenario, highlighting various measures that all fender manufacturers can adopt to reduce CO2 emissions through design modifications, material selection, transportation, and maintenance practices. Subsequently, it presents a Carbon Footprint Assessment, offering product-specific CO2 emissions data for each engineered fender system order upon request. The focus here is on enhancing supply chain oversight to deliver a level of transparency and accountability that is unprecedented."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Concerns about the planet’s health are undeniably increasing, particularly in relation to the impacts of human-induced global warming, which significantly contributes to the excessive accumulation of greenhouse gases—such as CO2—in the atmosphere. This paper outlines a series of critical advancements in the maritime industry’s efforts toward greater transparency in greenhouse gas emissions linked to fender manufacturing activities. Initially, it examines the current scenario, highlighting various measures that all fender manufacturers can adopt to reduce CO2 emissions through design modifications, material selection, transportation, and maintenance practices. Subsequently, it presents a Carbon Footprint Assessment, offering product-specific CO2 emissions data for each engineered fender system order upon request. The focus here is on enhancing supply chain oversight to deliver a level of transparency and accountability that is unprecedented.",
+        "context_type": "abstract_only",
+        "document_id": "9030242a-03a6-424f-9025-751812cbf88c",
+        "document_identity": {
+          "document_id": 2881444016,
+          "document_id_source": "external_id",
+          "external_id": "9030242a-03a6-424f-9025-751812cbf88c",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": true,
+          "annotation_type": "llm",
+          "additional_text": "This paper outlines a series of critical advancements in the maritime industry’s efforts toward greater transparency in greenhouse gas emissions linked to fender manufacturing activities.",
+          "reasoning": "The document discusses greenhouse gases and their accumulation in the atmosphere, which relates to climate change. It also addresses measures to reduce CO2 emissions, indicating a connection to climate-related issues. Furthermore, it implies a health-related outcome by focusing on transparency and accountability in emissions, which can impact public health indirectly. Therefore, both criteria for inclusion are satisfied.",
+          "output_data": true
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Climate and mortality in Australia: retrospective study, 1979-1990, and predicted impacts in five major cities in 2030",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Quantitative assessment of climatic and environmental health risks is necessary because changes in climate are expected. We therefore aimed to quantify the relationship between climatic extremes and mortality in the 5 largest Australian cities during the period 1979-1990. We then applied the relationship determined between recent climatic conditions and mortality to scenarios for climate and demographic change, to predict potential impacts on public health in the cities in the year 2030. Data on mortality, denominator population and climate were obtained. The expected numbers of deaths per day in each city were calculated. Observed daily deaths were compared with expected rates according to temperature thresholds. Mortality was also examined in association with temporal synoptic indices (TSI) of climate, developed by principal component and cluster analysis. According to observed-expected threshold analyses, for the 5 cities combined, the annual mean excess of deaths attributable to temperature over the period [1979][1980][1981][1982][1983][1984][1985][1986][1987][1988][1989][1990] was 175 for the 28C threshold. This sum of statistically significant differences from the 5 cities was the greatest excess found in association with any threshold considered in the range of temperatures that occur. Excess mortality for the hottest days in summer was greater than for the coldest days in winter. Temperature-mortality relationships were little modified by socio-economic status. TSI analyses produced similar results: using this method, the climate-attributable mortality in the 5 cities was approximately 160 deaths yr -1 , although this number was evenly distributed across summer and winter. Persons in the group aged 65 yr and older were the most vulnerable. After allowing for increases in population, and combining all age groups, the synoptic method showed a 10% reduction in mortality in the year 2030. We conclude that the 5 largest Australian cities exhibit climate-attributable mortality in both summer and winter. Given the scenarios of regional warming during the next 3 decades, the expected changes in mortality due to direct climatic effects in these major coastal Australian cities are minor."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Quantitative assessment of climatic and environmental health risks is necessary because changes in climate are expected. We therefore aimed to quantify the relationship between climatic extremes and mortality in the 5 largest Australian cities during the period 1979-1990. We then applied the relationship determined between recent climatic conditions and mortality to scenarios for climate and demographic change, to predict potential impacts on public health in the cities in the year 2030. Data on mortality, denominator population and climate were obtained. The expected numbers of deaths per day in each city were calculated. Observed daily deaths were compared with expected rates according to temperature thresholds. Mortality was also examined in association with temporal synoptic indices (TSI) of climate, developed by principal component and cluster analysis. According to observed-expected threshold analyses, for the 5 cities combined, the annual mean excess of deaths attributable to temperature over the period [1979][1980][1981][1982][1983][1984][1985][1986][1987][1988][1989][1990] was 175 for the 28C threshold. This sum of statistically significant differences from the 5 cities was the greatest excess found in association with any threshold considered in the range of temperatures that occur. Excess mortality for the hottest days in summer was greater than for the coldest days in winter. Temperature-mortality relationships were little modified by socio-economic status. TSI analyses produced similar results: using this method, the climate-attributable mortality in the 5 cities was approximately 160 deaths yr -1 , although this number was evenly distributed across summer and winter. Persons in the group aged 65 yr and older were the most vulnerable. After allowing for increases in population, and combining all age groups, the synoptic method showed a 10% reduction in mortality in the year 2030. We conclude that the 5 largest Australian cities exhibit climate-attributable mortality in both summer and winter. Given the scenarios of regional warming during the next 3 decades, the expected changes in mortality due to direct climatic effects in these major coastal Australian cities are minor.",
+        "context_type": "abstract_only",
+        "document_id": "9394bc32-630d-4128-8dfc-04448776fd1f",
+        "document_identity": {
+          "document_id": 9587,
+          "document_id_source": "external_id",
+          "external_id": "9394bc32-630d-4128-8dfc-04448776fd1f",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": true,
+          "annotation_type": "llm",
+          "additional_text": "We therefore aimed to quantify the relationship between climatic extremes and mortality in the 5 largest Australian cities during the period 1979-1990.",
+          "reasoning": "The document discusses the relationship between climatic extremes (temperature thresholds) and mortality, which satisfies the first inclusion criterion. It also addresses health outcomes related to climate change, fulfilling the second criterion. Therefore, the record should be included in the repository.",
+          "output_data": true
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "The Application of Automated Techniques in the Management and Control of Source Materials",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "is an inveterate adapter. His history is one of the application of narrow concepts to general needs. In the technological age such application has meant the proliferation of uses of a single invention far beyond what the inventor intended. The steam engine, developed to pump water from mines, became a power plant for locomotion, a means for creating electrical energy by driving generators, and, as a byproduct, a force to blow a penetrating whistle that replaced the steeple bell for mass communication of simple messages. The electric relay system, perfected to make possible telegraphic communication, developed into such diverse uses as the doorbell and the remotely controlled rail switch, and it became the mechanical predecessor of the electronic computer. The computer itself has followed this pattern of adaptation. Originally designed as a machine to aid in solving mathematical problems, it has been employed to address envelopes, to determine when magazine subscriptions will lapse, to control automobile traffic, to aid in the launching and progress of space flights, and to permit the designing of an apartment building with 167 different floor plans.1 By applying the computer in archival and manuscript work, the professions can attack problems that long ago were abandoned as prohibitively expensive. The computer is making possible information retrieval on a massive scale. The problem of retrieving information is not unfamiliar to archivists and manuscript curators. It existed even half a century ago, when collections generally were small, new accessions were few and far between, and the scholarly world was a rather tightly knit community of researchers and teachers who usually knew each other and knew what each was"
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "is an inveterate adapter. His history is one of the application of narrow concepts to general needs. In the technological age such application has meant the proliferation of uses of a single invention far beyond what the inventor intended. The steam engine, developed to pump water from mines, became a power plant for locomotion, a means for creating electrical energy by driving generators, and, as a byproduct, a force to blow a penetrating whistle that replaced the steeple bell for mass communication of simple messages. The electric relay system, perfected to make possible telegraphic communication, developed into such diverse uses as the doorbell and the remotely controlled rail switch, and it became the mechanical predecessor of the electronic computer. The computer itself has followed this pattern of adaptation. Originally designed as a machine to aid in solving mathematical problems, it has been employed to address envelopes, to determine when magazine subscriptions will lapse, to control automobile traffic, to aid in the launching and progress of space flights, and to permit the designing of an apartment building with 167 different floor plans.1 By applying the computer in archival and manuscript work, the professions can attack problems that long ago were abandoned as prohibitively expensive. The computer is making possible information retrieval on a massive scale. The problem of retrieving information is not unfamiliar to archivists and manuscript curators. It existed even half a century ago, when collections generally were small, new accessions were few and far between, and the scholarly world was a rather tightly knit community of researchers and teachers who usually knew each other and knew what each was",
+        "context_type": "abstract_only",
+        "document_id": "a7eda8a9-ef16-4830-8fde-a1971b7b3a6a",
+        "document_identity": {
+          "document_id": 3522,
+          "document_id_source": "external_id",
+          "external_id": "a7eda8a9-ef16-4830-8fde-a1971b7b3a6a",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The provided context does not mention any climate or weather variables, nor does it discuss health-related problems or outcomes associated with climate change. The content focuses on the evolution and adaptation of technology, particularly computers and their applications, without any reference to climate or health issues. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "AN AYURVEDIC APPROACH IN THE MANAGEMENT OF URTICARIA(SHEETPITTA): A CASE STUDY",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Purpose: Urticaria is a vascular reaction of the skin characterised by sudden, short-lived itchy wheals which may be pale or pink in the centre, surrounded by red flare. Urticaria is a type 1 hypersensitivity reaction which is caused be-cause of exposure to allergence. Epidemologically urticaria is increasing now days due to industrialization, pol-lution, increased use of various skin products, changes in lifestyle. Sign and symptoms of urticaria resembles with ‘Sheetpitta’ one of the vyadhi described by our acharyas caused by ‘Asatmya ahara and vihara’ results in vitiation of kapha and vata.our ancient acharyas has mentioned shamna and shodhana kriya as well as various Classical formulations for sheetpitta. Ayurvedic managemrent helps to cure urticaria by restoring equilibrium of tridosha and sapta dhatus, restores healthy skin. The present paper intends to highlight the ayurvedic manage-ment in reducing sign-symptoms and recurrence of the disease. Method: The present case study is on 28yr old male who is having complaint of on and off eruption of reddish, smooth slightly elevated wheals on trunk and upper extrimities associated with localized itching and burning sensation. He was clinically diagnosed as sheetpitta or urticaria.The patient was treated with Panchakarma chikitsa includ-ing vaman karma followed by virechan karma and some Ayurvediac shaman drugs. The patient was also advised some lifestyle and dietary adoptions. Results: The follow up was done for three months during which the patient had only one episode of rashes and itching. The patient got moderate relief in all the symptoms with appreciable changes. Conclusion: Urticaria can be successfully treated with an ayurvedic line of treatment and changes in daily lifestyle habits and diet."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Purpose: Urticaria is a vascular reaction of the skin characterised by sudden, short-lived itchy wheals which may be pale or pink in the centre, surrounded by red flare. Urticaria is a type 1 hypersensitivity reaction which is caused be-cause of exposure to allergence. Epidemologically urticaria is increasing now days due to industrialization, pol-lution, increased use of various skin products, changes in lifestyle. Sign and symptoms of urticaria resembles with ‘Sheetpitta’ one of the vyadhi described by our acharyas caused by ‘Asatmya ahara and vihara’ results in vitiation of kapha and vata.our ancient acharyas has mentioned shamna and shodhana kriya as well as various Classical formulations for sheetpitta. Ayurvedic managemrent helps to cure urticaria by restoring equilibrium of tridosha and sapta dhatus, restores healthy skin. The present paper intends to highlight the ayurvedic manage-ment in reducing sign-symptoms and recurrence of the disease. Method: The present case study is on 28yr old male who is having complaint of on and off eruption of reddish, smooth slightly elevated wheals on trunk and upper extrimities associated with localized itching and burning sensation. He was clinically diagnosed as sheetpitta or urticaria.The patient was treated with Panchakarma chikitsa includ-ing vaman karma followed by virechan karma and some Ayurvediac shaman drugs. The patient was also advised some lifestyle and dietary adoptions. Results: The follow up was done for three months during which the patient had only one episode of rashes and itching. The patient got moderate relief in all the symptoms with appreciable changes. Conclusion: Urticaria can be successfully treated with an ayurvedic line of treatment and changes in daily lifestyle habits and diet.",
+        "context_type": "abstract_only",
+        "document_id": "ac766dc4-9743-45cf-82af-a1c1bdc35392",
+        "document_identity": {
+          "document_id": 521359478,
+          "document_id_source": "external_id",
+          "external_id": "ac766dc4-9743-45cf-82af-a1c1bdc35392",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The document discusses urticaria and its Ayurvedic management but does not mention any climate or weather variables, nor does it address any climate-related health problems or solutions. Therefore, it does not meet the criteria for inclusion.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Adhesion and anti-inflammatory potential of<i>Lactobacillus rhamnosus</i>GG in a sea buckthorn based beverage matrix",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "The consumption of probiotic based foods due to their health promoting effects has increased over the years. The consumption of probiotic based foods, due to their health promoting effects, has increased over the years. Due to this rising demands, the application platforms of the food industry have directed their efforts in the development of novel functional probiotic beverages. The presence of dietary phenolics and other beneficial components has made fruit-based matrices more popular for probiotic delivery. However, very few studies to date have evaluated the impact of carrier matrices on the in vivo functionality of probiotic strains with specific biomarkers and targeted towards specific disease conditions. In this study, we investigated the effect of a sea buckthorn (Hippophae rhamnoides L.) based, malt supplemented, beverage matrix (SBT + M) on the physiological characteristics of the probiotic strain L. rhamnosus GG (ATCC 53103) (LR). No significant difference in the auto-aggregation and co-aggregation rates of LR fortified in SBT + M was observed compared to LR alone. Storage conditions (4 °C for 14 days) did not affect the survival and the adhesion potential of LR to the HCT116 cell line. More importantly, this study also determined the protective effect of SBT + M on the in vivo functionality of LR in alleviating LPS induced inflammation in zebrafish (Danio rerio). The results showed that administration with SBT + M + LR significantly alleviated the LPS induced colonic damage, evidenced by the decrease in the overall histological and goblet cell scores compared to the LPS-treated group. The protective effect of SBT + M + LR was higher compared to the effects of SBT + M or LR alone. The colonic expression of pro-inflammatory cytokines (TNF-α and IL-1β) showed a marked decline by 84.7% and 86.5% respectively. The highest expression of the anti-inflammatory cytokine IL-10 was recorded in the SBT + M + LR treated group (p < 0.001). The overall results reveal that the administration of SBT + M + LR showed the best effects in alleviating the LPS induced intestinal damage compared to the other test groups (SBT + M and LR). These protective effects could be attributed to the phenolic compounds present in the SBT matrix. Our study indicates the contributory role of the carrier matrix and merits further investigation for its use as a potential therapeutic agent for gastrointestinal inflammation."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "The consumption of probiotic based foods due to their health promoting effects has increased over the years. The consumption of probiotic based foods, due to their health promoting effects, has increased over the years. Due to this rising demands, the application platforms of the food industry have directed their efforts in the development of novel functional probiotic beverages. The presence of dietary phenolics and other beneficial components has made fruit-based matrices more popular for probiotic delivery. However, very few studies to date have evaluated the impact of carrier matrices on the in vivo functionality of probiotic strains with specific biomarkers and targeted towards specific disease conditions. In this study, we investigated the effect of a sea buckthorn (Hippophae rhamnoides L.) based, malt supplemented, beverage matrix (SBT + M) on the physiological characteristics of the probiotic strain L. rhamnosus GG (ATCC 53103) (LR). No significant difference in the auto-aggregation and co-aggregation rates of LR fortified in SBT + M was observed compared to LR alone. Storage conditions (4 °C for 14 days) did not affect the survival and the adhesion potential of LR to the HCT116 cell line. More importantly, this study also determined the protective effect of SBT + M on the in vivo functionality of LR in alleviating LPS induced inflammation in zebrafish (Danio rerio). The results showed that administration with SBT + M + LR significantly alleviated the LPS induced colonic damage, evidenced by the decrease in the overall histological and goblet cell scores compared to the LPS-treated group. The protective effect of SBT + M + LR was higher compared to the effects of SBT + M or LR alone. The colonic expression of pro-inflammatory cytokines (TNF-α and IL-1β) showed a marked decline by 84.7% and 86.5% respectively. The highest expression of the anti-inflammatory cytokine IL-10 was recorded in the SBT + M + LR treated group (p < 0.001). The overall results reveal that the administration of SBT + M + LR showed the best effects in alleviating the LPS induced intestinal damage compared to the other test groups (SBT + M and LR). These protective effects could be attributed to the phenolic compounds present in the SBT matrix. Our study indicates the contributory role of the carrier matrix and merits further investigation for its use as a potential therapeutic agent for gastrointestinal inflammation.",
+        "context_type": "abstract_only",
+        "document_id": "b7fe7d7d-00b7-411a-a269-5fb9542e9c94",
+        "document_identity": {
+          "document_id": 712110,
+          "document_id_source": "external_id",
+          "external_id": "b7fe7d7d-00b7-411a-a269-5fb9542e9c94",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The document does not mention any climate or weather variables, nor does it discuss fossil fuels or climate-forcing agents. Additionally, it does not address any health problems or outcomes related to climate change. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Analysing Mechanical Properties of Synthetic Material for Artificial Organ Manufacturing by Finite Element Analysis",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "The Finite Element Method (FEM) is commonly applied to analyze the mechanical correctness of different materials as well as synthetic matter. There are a number of ways that FEM can be used to compare theoretical and analytical results on such materials, including numerical simulations. Numerical simulations allow for analysis in terms of nonlinear materiality using various constitutive models so as to account for the effects of strain rate, temperature, etc. In this way one can generate not only analytical solutions but also useful comparisons between theoretical predictions and experimental verification of behaviors related to deformation or fracture mechanisms. By means of control volume approach in which boundary conditions defining loading applied onto the material’s surfaces obtained from CAD geometry files like from AutoCAD, Free CAD etc. can be input into analysis software tools designed around FEM-based algorithms like PrePoMax; thus, enabling accurate determination of stress distribution throughout the object’s entirety under consideration even when its constitutively complex deformations take place within it during load application."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "The Finite Element Method (FEM) is commonly applied to analyze the mechanical correctness of different materials as well as synthetic matter. There are a number of ways that FEM can be used to compare theoretical and analytical results on such materials, including numerical simulations. Numerical simulations allow for analysis in terms of nonlinear materiality using various constitutive models so as to account for the effects of strain rate, temperature, etc. In this way one can generate not only analytical solutions but also useful comparisons between theoretical predictions and experimental verification of behaviors related to deformation or fracture mechanisms. By means of control volume approach in which boundary conditions defining loading applied onto the material’s surfaces obtained from CAD geometry files like from AutoCAD, Free CAD etc. can be input into analysis software tools designed around FEM-based algorithms like PrePoMax; thus, enabling accurate determination of stress distribution throughout the object’s entirety under consideration even when its constitutively complex deformations take place within it during load application.",
+        "context_type": "abstract_only",
+        "document_id": "bd59352e-90a0-47fc-ab8c-d59e2f4fa6e6",
+        "document_identity": {
+          "document_id": 2929,
+          "document_id_source": "external_id",
+          "external_id": "bd59352e-90a0-47fc-ab8c-d59e2f4fa6e6",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The context provided discusses the Finite Element Method (FEM) and its applications in analyzing materials, but it does not mention any climate or weather variables, nor does it address health-related problems or outcomes associated with climate change. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Influence of spraying by suspended dry yeast bread and soaked licorice root and salsalic acid to resist fungus Sclerotinia sclerotiorum on eggplant",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "The experiment carried out in the laboratories and fields, of the college Agriculture- University of Baghdad–Department of plant protection, to see the effect of the use of yeast bread and soaked water for licorice and salisalic said on the growth of fungus Sclerotinia sclerotiorum that causes mold white eggplant, results showed superiority of aci salisalic acid in reducing the severity of the infection, amounting to 70.66% concentration of 600 ppm and night soaked licorice intensity amounted infection 25% at a concentration of 4%. while the yeast has the intensity was the infection of 15% at a concentration of 5%, as for criteria growth it has characterized the yeast in both length and width of the paper and the paper weight mild dry weight and plant height as it was 12.05 cm , 9.06 cm, 18.94 gm, respectively, compared with the control treatment deserted fungus."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "The experiment carried out in the laboratories and fields, of the college Agriculture- University of Baghdad–Department of plant protection, to see the effect of the use of yeast bread and soaked water for licorice and salisalic said on the growth of fungus Sclerotinia sclerotiorum that causes mold white eggplant, results showed superiority of aci salisalic acid in reducing the severity of the infection, amounting to 70.66% concentration of 600 ppm and night soaked licorice intensity amounted infection 25% at a concentration of 4%. while the yeast has the intensity was the infection of 15% at a concentration of 5%, as for criteria growth it has characterized the yeast in both length and width of the paper and the paper weight mild dry weight and plant height as it was 12.05 cm , 9.06 cm, 18.94 gm, respectively, compared with the control treatment deserted fungus.",
+        "context_type": "abstract_only",
+        "document_id": "ccb24fb6-538e-4ca7-975e-4633cfbe5547",
+        "document_identity": {
+          "document_id": 5996,
+          "document_id_source": "external_id",
+          "external_id": "ccb24fb6-538e-4ca7-975e-4633cfbe5547",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The context provided discusses an experiment related to the growth of a fungus and the effects of certain substances on it, but it does not mention any climate or weather variables, nor does it address any health-related problems or outcomes associated with climate change. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "&lt;title&gt;Advances in radio frequency tumor ablation therapy: technical considerations, strategies for increasing coagulation necrosis volume, and preliminary clinical results&lt;/title&gt;",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "Radiofrequency (RF) tumor ablation has been demonstrated as a reliable method for creating thermally induced coagulation necrosis using either a percutaneous approach with image- guidance or direct surgical application of thin electrodes into treated tissues. Early clinical trials with this technology have studied the treatment of hepatic, cerebral, and bony malignancies. The extent of coagulation necrosis induced with conventional monopolar radiofrequency electrodes is dependent on overall energy deposition, the duration of RF application, and RF electrode tip length and gauge. This article will discuss these technical considerations with the goal of defining optimal parameters for RF ablation. Strategies to further increase induced coagulation necrosis including: multiprobe and bipolar arrays, and internally-cooled RF electrodes, with or without pulsed-RF or cluster technique will be presented. The development and laboratory results for many of these radiofrequency techniques, initial clinical results, and potential biophysical limitations to RF induced coagulation, such as perfusion mediated tissue cooling (vascular flow) will likewise be discussed."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "Radiofrequency (RF) tumor ablation has been demonstrated as a reliable method for creating thermally induced coagulation necrosis using either a percutaneous approach with image- guidance or direct surgical application of thin electrodes into treated tissues. Early clinical trials with this technology have studied the treatment of hepatic, cerebral, and bony malignancies. The extent of coagulation necrosis induced with conventional monopolar radiofrequency electrodes is dependent on overall energy deposition, the duration of RF application, and RF electrode tip length and gauge. This article will discuss these technical considerations with the goal of defining optimal parameters for RF ablation. Strategies to further increase induced coagulation necrosis including: multiprobe and bipolar arrays, and internally-cooled RF electrodes, with or without pulsed-RF or cluster technique will be presented. The development and laboratory results for many of these radiofrequency techniques, initial clinical results, and potential biophysical limitations to RF induced coagulation, such as perfusion mediated tissue cooling (vascular flow) will likewise be discussed.",
+        "context_type": "abstract_only",
+        "document_id": "e653d09a-b246-48fd-88b3-aec5823a4670",
+        "document_identity": {
+          "document_id": 582288464,
+          "document_id_source": "external_id",
+          "external_id": "e653d09a-b246-48fd-88b3-aec5823a4670",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The context provided discusses radiofrequency tumor ablation and its technical aspects, focusing on coagulation necrosis and treatment methods for malignancies. It does not mention any climate or weather variables, nor does it address health problems or outcomes related to climate change. Therefore, it does not meet the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    },
+    {
+      "document": {
+        "name": "Přepadení transportů peněz a cenností",
+        "citation": {
+          "visibility": "public",
+          "identifiers": null,
+          "enhancements": [
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "abstract",
+                "process": "uninverted",
+                "abstract": "The aim of this work is to describe the proper behavior of crew transport vehicle before, during and after transport and communicate rules of this behavior. In the next section suggest the behavior of crew just before, during and after assault transport vehicles and psychological aspects whitch concerns that. In the last section describe the correct behavior of the transport company and especially in terms of psychological preparation and following psychological care on assault transport group."
+              }
+            },
+            {
+              "source": "deet CSV converter",
+              "visibility": "public",
+              "robot_version": null,
+              "content": {
+                "enhancement_type": "bibliographic",
+                "authorship": null,
+                "cited_by_count": null,
+                "created_date": null,
+                "updated_date": null,
+                "publication_date": null,
+                "publication_year": null,
+                "publisher": null,
+                "title": null,
+                "pagination": null,
+                "publication_venue": null
+              }
+            }
+          ]
+        },
+        "context": "The aim of this work is to describe the proper behavior of crew transport vehicle before, during and after transport and communicate rules of this behavior. In the next section suggest the behavior of crew just before, during and after assault transport vehicles and psychological aspects whitch concerns that. In the last section describe the correct behavior of the transport company and especially in terms of psychological preparation and following psychological care on assault transport group.",
+        "context_type": "abstract_only",
+        "document_id": "e7b6c454-f386-4808-95cb-a36f5e001d67",
+        "document_identity": {
+          "document_id": 4686393638,
+          "document_id_source": "external_id",
+          "external_id": "e7b6c454-f386-4808-95cb-a36f5e001d67",
+          "doi": null,
+          "first_author": null,
+          "year": "None"
+        },
+        "parsed_document": null,
+        "original_doc_filepath": null,
+        "is_final": false,
+        "is_linked": false
+      },
+      "annotations": [
+        {
+          "attribute": {
+            "prompt": "You are screening bibliographic records for inclusion in the DESTINY repository, a\r\ndatabase of the global climate and health literature.\r\n\r\nFor each record, decide INCLUDE or EXCLUDE based only on the title and abstract provided. Do not look up or assume information beyond what is given.\r\n\r\nA record should be INCLUDED only if ALL two of the following are true:\r\n\r\n1. The record mentions climate/weather variables or climate-related extreme events\r\n   (e.g. climate change, weather, climate variability, heatwaves, floods, droughts,\r\n   storms, wildfires, sea level rise), OR fossil fuels / climate-forcing agents (e.g.\r\n   coal, oil, natural gas, greenhouse gases, air pollutants/aerosols).\r\n\r\n2. The record mentions a projected, perceived, experienced, or observed health or\r\n   health-system-related problem, solution, intervention, or outcome — OR a\r\n   climate-change-associated human health exposure pathway (e.g. air quality, extreme\r\n   weather impacts, food/water safety, heat stress, vector-borne disease, social\r\n   factors like displacement).\r\n\r\nIf in doubt, lean toward INCLUDE (the true positive rate in this literature is very low,\r\nso false exclusions are more costly than false inclusions).",
+            "output_data_type": "bool",
+            "attribute_id": 0,
+            "attribute_label": "incl|1"
+          },
+          "raw_data": false,
+          "annotation_type": "llm",
+          "additional_text": "",
+          "reasoning": "The context provided does not mention any climate or weather variables, nor does it discuss health-related problems or outcomes associated with climate change. The focus is on the behavior of crew transport vehicles and psychological aspects, which are unrelated to the criteria for inclusion in the DESTINY repository.",
+          "output_data": false
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "model": "azure/gpt-4o-mini",
+    "total_input_tokens": 30136,
+    "total_output_tokens": 1892,
+    "total_cost_usd": 0.006221,
+    "per_document": {
+      "5471": {
+        "input_tokens": 1327,
+        "output_tokens": 73,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 6.629
+      },
+      "815689216": {
+        "input_tokens": 1369,
+        "output_tokens": 66,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.059
+      },
+      "558553": {
+        "input_tokens": 1100,
+        "output_tokens": 80,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.66
+      },
+      "6365261": {
+        "input_tokens": 1111,
+        "output_tokens": 83,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.41
+      },
+      "4658342": {
+        "input_tokens": 1258,
+        "output_tokens": 82,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.304
+      },
+      "212484": {
+        "input_tokens": 1156,
+        "output_tokens": 80,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.221
+      },
+      "6994644": {
+        "input_tokens": 1329,
+        "output_tokens": 70,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.311
+      },
+      "596984": {
+        "input_tokens": 1190,
+        "output_tokens": 69,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.119
+      },
+      "68335678": {
+        "input_tokens": 1158,
+        "output_tokens": 62,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.479
+      },
+      "22339": {
+        "input_tokens": 1086,
+        "output_tokens": 80,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.763
+      },
+      "78958": {
+        "input_tokens": 1372,
+        "output_tokens": 80,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.27
+      },
+      "802401": {
+        "input_tokens": 2324,
+        "output_tokens": 96,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.337
+      },
+      "997047": {
+        "input_tokens": 1204,
+        "output_tokens": 83,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.27
+      },
+      "3186494320": {
+        "input_tokens": 1254,
+        "output_tokens": 74,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.372
+      },
+      "38182": {
+        "input_tokens": 1125,
+        "output_tokens": 66,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.16
+      },
+      "2881444016": {
+        "input_tokens": 1078,
+        "output_tokens": 115,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.609
+      },
+      "9587": {
+        "input_tokens": 1351,
+        "output_tokens": 95,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.663
+      },
+      "3522": {
+        "input_tokens": 1237,
+        "output_tokens": 86,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.395
+      },
+      "521359478": {
+        "input_tokens": 1306,
+        "output_tokens": 62,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.849
+      },
+      "712110": {
+        "input_tokens": 1433,
+        "output_tokens": 73,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.271
+      },
+      "2929": {
+        "input_tokens": 1116,
+        "output_tokens": 79,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.254
+      },
+      "5996": {
+        "input_tokens": 1119,
+        "output_tokens": 82,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.328
+      },
+      "582288464": {
+        "input_tokens": 1127,
+        "output_tokens": 84,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.605
+      },
+      "4686393638": {
+        "input_tokens": 1006,
+        "output_tokens": 72,
+        "parsing_seconds": null,
+        "parsing_skipped": true,
+        "llm_call_seconds": 1.211
+      }
+    },
+    "total_pipeline_duration_seconds": null,
+    "stage_durations_seconds": {},
+    "notes": {
+      "total_pipeline_duration_seconds": "Wall-clock time for the extraction run, from loading project data through export of experiment snapshots. Includes time spent answering the interactive config wizard when no config file is provided.",
+      "stage_durations_seconds": {
+        "annotation_conversion": "Load and normalise the gold-standard import into documents and attributes.",
+        "prompt_population": "Attach custom prompts from the project prompt CSV. Zero if skipped.",
+        "document_preparation": "Load linked documents from cache or parse/read PDF and markdown sources. See per_document.parsing_seconds.",
+        "llm_extraction": "LLM extraction for each document. See per_document.llm_call_seconds.",
+        "artifact_export": "Write prompts snapshot, config snapshot, and this metadata file."
+      },
+      "per_document": {
+        "parsing_seconds": "Parse/read time during document preparation; null when parsing_skipped is true.",
+        "parsing_skipped": "True when full text came from cache and was not parsed this run.",
+        "llm_call_seconds": "Wall-clock time for the LLM request, including local prompt setup."
+      }
+    },
+    "timestamp": "2026-08-06T11:33:45.533437Z"
+  }
+}
