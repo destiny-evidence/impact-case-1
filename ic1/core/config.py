@@ -9,8 +9,8 @@ try:
     from nacsos_data.util.conf import DatabaseConfig
 except:
     from pydantic import BaseModel
-    class DataBaseConfig(BaseModel):
-        pass 
+    class DatabaseConfig(BaseModel):
+        pass
 
 from pydantic import Field
 from pydantic_settings import SettingsConfigDict, BaseSettings
