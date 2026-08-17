@@ -533,6 +533,7 @@ dependencies = [
 classify = [
     { name = "datasets" },
     { name = "lightgbm" },
+    { name = "scikit-learn" },
     { name = "transformers", version = "5.14.1", source = { registry = "https://pypi.org/simple" }, extra = ["optuna", "sentencepiece", "torch"], marker = "extra == 'extra-14-climate-health-classify'" },
 ]
 deet = [
@@ -566,6 +567,7 @@ requires-dist = [
     { name = "rdflib", specifier = ">=7.6.0" },
     { name = "rich", specifier = ">=15.0.0" },
     { name = "rispy", specifier = "==0.10.0" },
+    { name = "scikit-learn", marker = "extra == 'classify'", specifier = ">=1.6" },
     { name = "transformers", extras = ["torch", "optuna", "sentencepiece"], marker = "extra == 'classify'", specifier = "==5.14.1" },
 ]
 provides-extras = ["classify", "deet", "nacsos", "querying"]

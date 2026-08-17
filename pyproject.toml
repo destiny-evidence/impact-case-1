@@ -19,6 +19,7 @@ classify = [
     "transformers[torch,optuna,sentencepiece]==5.14.1",
     "datasets==5.0.0",
     "lightgbm==4.7.0",
+    "scikit-learn>=1.6",
 ]
 deet = [
     "data-extraction-evaluation-toolkit",

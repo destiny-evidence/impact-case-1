@@ -5,9 +5,7 @@ from pathlib import Path
 from typing import Annotated, Type
 
 import numpy as np
-import pandas as pd
 import typer
-from sklearn.model_selection import StratifiedKFold, train_test_split
 
 from .configs import MODEL_CONFIGS, ClassifierConfig
 from .utils import load_data, TuningFold, hash_ids, Result, TASK
