@@ -53,7 +53,8 @@ class ClassifierHelper:
 
         return model
 
-    def test(self, model: 'Classifier', X: list[str], y: list[int]) -> list[dict[str, float]]:
+    def evaluate_thresholds(self, model: 'Classifier', X: list[str], y: list[int]) -> list[dict[str, float]]:
+        """Make predictions with model, and evaluate metrics at every threshold in `self.thresholds`."""
         logger.info('Testing model...')
         y_pred = model.predict_proba(X)
         return [evaluate(y_true=np.array(y), y_pred=y_pred, threshold=th) for th in self.thresholds]
@@ -76,6 +77,9 @@ class ClassifierHelper:
             lambda trial: self._run_trial(trial=trial, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, scoring=scoring, threshold=threshold),
             n_trials=self.tuning_trials,
             n_jobs=self.tuning_jobs,
+            # Degenerate param combos (e.g. min_df/max_df that prune the whole vocabulary) raise
+            # ValueError; mark the trial failed and keep searching instead of aborting the study.
+            catch=(ValueError,),
         )
         logger.info(f'Best trial: {study.best_trial.user_attrs["model_params"]}')
         logger.debug(f'Hyper-parameter-tuning for {self.config.name} done with best score {study.best_value}')
@@ -133,6 +137,6 @@ class ClassifierHelper:
         from ic1.classify.inout.configs import MODEL_CONFIGS
 
         return cls(
-            config=MODEL_CONFIGS[run.model],
+            config=MODEL_CONFIGS[run.model.upper()],
             model_params=run.params,
         )

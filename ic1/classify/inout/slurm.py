@@ -88,6 +88,57 @@ echo "Job done."
     """)
 
 
+def _write_finalise_file(
+    target: Path,
+    sbatch_args: dict[str, Any],
+    script_args: dict[str, Any],
+    venv_path: Path,
+) -> None:
+    """Write a single (non-array) slurm job that runs `finalise` after tuning completes."""
+    sbatch = [f'#SBATCH --{key}={value}' for key, value in sbatch_args.items()]
+    script_params = []
+    for key, value in script_args.items():
+        if value is None:
+            continue
+        if type(value) is bool:
+            script_params.append(f'--{key}' if value else f'--no-{key}')
+        elif type(value) is str:
+            script_params.append(f'--{key}="{value}"')
+        else:
+            script_params.append(f'--{key}={value}')
+
+    with open(target, 'w') as slurm_file:
+        slurm_file.write(f"""#!/bin/bash
+
+{'\n'.join(sbatch)}
+#SBATCH --mail-type=END,FAIL
+
+# Set this to exit the script when an error occurs
+set -e
+# Set this to print commands before executing
+set -o xtrace
+
+# Set up python environment
+module load anaconda
+module load cuda
+
+# Python env vars
+export PYTHONPATH=$PYTHONPATH:{os.getcwd()}
+export PYTHONUNBUFFERED=1
+
+# Environment variables for script
+export OPENBLAS_NUM_THREADS=1
+export TRANSFORMERS_OFFLINE=1
+export HF_HUB_OFFLINE=1
+export UV_OFFLINE=1
+export UV_PROJECT_ENVIRONMENT={venv_path}
+
+uv run --extra classify --link-mode=copy ic1 classify-inout finalise {' '.join(script_params)}
+
+echo "Finalise done."
+    """)
+
+
 def main(
     slurm_user: Annotated[str, typer.Option(help='email address to notify when done')],
     models: Annotated[list[str], typer.Option(help='List of models to tune', default_factory=lambda: list(MODEL_CONFIGS.keys()))],
@@ -110,9 +161,16 @@ def main(
     num_jobs: Annotated[int, typer.Option(help='Number of tuning jobs for parallel processing')] = 1,
     scoring: Annotated[str, typer.Option(help='Scoring metric for hyperparameter tuning')] = 'F1',
     decision_threshold: Annotated[float, typer.Option(help='Decision threshold for classification')] = 0.5,
-    result_dir: Annotated[Path, typer.Option(help='Directory to write tuning results to')] = TASK.tuning_results_path,
+    result_dir: Annotated[Path | None, typer.Option(help='Directory to write tuning results to')] = None,
+    run_finalise: Annotated[bool, typer.Option('--finalise/--no-finalise', help='Append a finalise job that runs after the tuning arrays complete')] = True,
+    recall_floor: Annotated[float, typer.Option(help='Min validation recall the filtering model must clear (finalise)')] = 0.95,
+    beta: Annotated[float, typer.Option(help='Beta for F-beta selection of the ML-only model (finalise)')] = 1.0,
 ) -> None:
     logger.info('Preparing slurm script and submitting job!')
+
+    # Route outputs to the testing/ dir in dev mode, production dir otherwise.
+    TASK.dev_mode = dev_mode
+    result_dir = result_dir or TASK.tuning_results_path
 
     # Ensure directories are ready
     venv_path = Path(sys.executable).parent.parent.resolve()
@@ -176,7 +234,44 @@ def main(
         },
     )
 
+    if run_finalise:
+        # If any transformer models are in play, the winning model might be a transformer, so
+        # finalise needs a GPU to refit it; otherwise a CPU node suffices.
+        finalise_sbatch = sbatch_args | {
+            'output': f'{slurm_log}/finalise_%j.out',
+            'error': f'{slurm_log}/finalise_%j.err',
+        } | (
+            {'gres': 'gpu:1', 'partition': 'gpu', 'qos': slurm_gpu_qos, 'cpus-per-task': 5}
+            if configs_gpu
+            else {'cpus-per-task': 12, 'partition': 'standard', 'qos': slurm_cpu_qos}
+        )
+        logger.info('Writing finalise slurm file')
+        _write_finalise_file(
+            target=Path('classify.finalise.slurm'),
+            sbatch_args=finalise_sbatch,
+            script_args={
+                'dev-mode': dev_mode,
+                'tuning-dir': result_dir,
+                'recall-floor': recall_floor,
+                'beta': beta,
+            },
+            venv_path=venv_path,
+        )
+
     if schedule_jobs:
         logger.info('Scheduling jobs to slurm queue')
-        subprocess.run(['sbatch', 'classify.gpu.slurm'])
-        subprocess.run(['sbatch', 'classify.cpu.slurm'])
+        dep_ids: list[str] = []
+        for target, configs in [('classify.gpu.slurm', configs_gpu), ('classify.cpu.slurm', configs_cpu)]:
+            if not configs:
+                continue
+            res = subprocess.run(['sbatch', '--parsable', target], capture_output=True, text=True, check=True)
+            job_id = res.stdout.strip().split(';')[0]
+            dep_ids.append(job_id)
+            logger.info(f'Submitted {target} as job {job_id}')
+
+        if run_finalise:
+            # afterany (not afterok): run finalise on whatever tuning results exist, even if a
+            # single model's array task failed -- finalise only reads the JSONs that got written.
+            dep = ['--dependency=afterany:' + ':'.join(dep_ids)] if dep_ids else []
+            subprocess.run(['sbatch', *dep, 'classify.finalise.slurm'], check=True)
+            logger.info(f'Submitted finalise{" depending on " + ":".join(dep_ids) if dep_ids else ""}')

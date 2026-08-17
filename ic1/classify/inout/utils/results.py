@@ -22,7 +22,10 @@ class Result(BaseModel):
     Recall: float
     F1: float
     Accuracy: float
+    Fbeta: float
+    prop_included: float
     ROC_AUC: float | None = None
+    AveragePrecision: float | None = None
 
 
 class TuningFold(BaseModel):

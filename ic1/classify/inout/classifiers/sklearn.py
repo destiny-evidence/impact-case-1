@@ -15,7 +15,7 @@ NOALPH = re.compile(r'[^A-Za-z]+')
 
 
 def preprocess_text(texts: list[str]) -> list[str]:
-    return [NOALPH.sub('', text.lower()) for text in texts]
+    return [NOALPH.sub(' ', text.lower()) for text in texts]
 
 
 class SklearnClassifier(ClassifierBase):
@@ -31,7 +31,11 @@ class SklearnClassifier(ClassifierBase):
         self.classes_: np.ndarray | None = None
 
     def fit(self, X: list[str], y: list[int]) -> 'SklearnClassifier':
-        self.model_ = self.get_pipeline(**{k: v for k, v in self.model_params_.items() if k not in {'downsampling', 'ngram_range_max'}})
+        params = {k: v for k, v in self.model_params_.items() if k not in {'downsampling', 'ngram_range_max'}}
+        # Optuna JSON-serialises user_attrs, so tuple params (e.g. ngram_range) return as lists;
+        # sklearn requires tuples, so coerce them back.
+        params = {k: tuple(v) if k.endswith('ngram_range') and isinstance(v, list) else v for k, v in params.items()}
+        self.model_ = self.get_pipeline(**params)
         self.model_.fit(preprocess_text(X), y)
         return self
 
