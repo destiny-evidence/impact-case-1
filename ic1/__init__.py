@@ -17,17 +17,28 @@ def main():
     logging.getLogger('filelock').setLevel(logging.WARNING)
     logging.getLogger('httpx').setLevel(logging.WARNING)
 
-    from ic1.annotation.scheme.import_taxonomy import main as import_taxonomy
     from ic1.classify.inout import app as inout_app
     from ic1.evaluation_splits import create_split
-    from ic1.annotation.export import app as export_app
 
     app = typer.Typer()
 
-    app.add_typer(export_app, name='export', help='Export annotations and resolutions for in/out and taxonomy schemes')
     app.command('split-data', help='Split data into train, validation, and test sets')(create_split)
-    app.command('import-taxonomy', help='Import *.ttl as annotation scheme into NACSOS')(import_taxonomy)
     app.add_typer(inout_app, name='classify-inout', help='Inclusion classification model tuning and training')
+
+    # Commands that need nacsos_data (DB access) are registered only if it imports. This keeps the
+    # classify pipeline runnable on hosts without nacsos installed (e.g. the HPC), where nacsos is
+    # fiddly to install and only the export/import-taxonomy commands actually require it.
+    try:
+        from ic1.annotation.export import app as export_app
+        from ic1.annotation.scheme.import_taxonomy import main as import_taxonomy
+
+        app.add_typer(export_app, name='export', help='Export annotations and resolutions for in/out and taxonomy schemes')
+        app.command('import-taxonomy', help='Import *.ttl as annotation scheme into NACSOS')(import_taxonomy)
+    except ImportError as exc:
+        logging.getLogger('ic1').warning(
+            f'nacsos_data unavailable ({exc}); "export" and "import-taxonomy" commands disabled. '
+            'Install with the "nacsos" extra to enable them.'
+        )
 
     def tree_command(ctx: typer.Context):
         """Show a tree view of all commands and sub-apps."""
