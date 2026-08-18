@@ -70,9 +70,6 @@ def hyperparameter_tuning(
         model = helper.best_from_study(study, X=x_train, y=y_train.tolist())
         fit_time = time.time() - start_time
 
-        # Threshold sweep on the same validation pool -> feeds model+threshold selection.
-        scores_val = helper.evaluate_thresholds(model=model, X=x_val, y=y_val.tolist())
-
         slurm_info = None
         if os.getenv('SLURM_JOB_ID') is not None:
             slurm_info = {
