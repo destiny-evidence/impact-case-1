@@ -7,7 +7,7 @@ import numpy as np
 from ic1.core.config import TaskName, TASKS
 from ic1.core.utils import DictLikeEncoder
 from .annotations import load_data
-from .results import Result, TuningFold, results_to_pd, read_tuning_results_df, read_tuning_results, threshold_scores
+from .results import Result, TuningFold, TrialRecord, results_to_pd, read_tuning_results_df, read_tuning_results, threshold_scores
 from .huggingface import ensure_offline_models
 from .metrics import evaluate
 
@@ -32,6 +32,7 @@ __all__ = [
     'hash_ids',
     'Result',
     'TuningFold',
+    'TrialRecord',
     'read_tuning_results',
     'read_tuning_results_df',
     'results_to_pd',

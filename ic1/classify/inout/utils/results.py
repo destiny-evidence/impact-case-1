@@ -38,6 +38,13 @@ class Result(BaseModel):
     AveragePrecision: float | None = None
 
 
+class TrialRecord(BaseModel):
+    """One Optuna trial's outcome — enough to reconstruct the search trajectory."""
+    number: int
+    value: float | None = None  # objective; None for failed/pruned trials
+    state: str
+
+
 class TuningFold(BaseModel):
     scores_self: Result
     val_ids: list[str]
@@ -49,6 +56,7 @@ class TuningFold(BaseModel):
     params: dict[str, Any]
     train_hash: str
     val_hash: str
+    trials: list[TrialRecord] = []  # the search trajectory (for convergence diagnostics)
     slurm_info: dict[str, Any] | None = None
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
@@ -68,7 +76,7 @@ def results_to_pd(results: list[TuningFold]) -> pd.DataFrame:
         base = result.model_dump()
         base.pop('params')
         scores_self = base.pop('scores_self')
-        for key in ('val_ids', 'val_labels', 'val_probs'):
+        for key in ('val_ids', 'val_labels', 'val_probs', 'trials'):
             base.pop(key)
         rows.append(base | scores_self | {'scores': 'self', 'result': ri})
         for score in threshold_scores(result.val_labels, result.val_probs):

@@ -8,7 +8,7 @@ import numpy as np
 import typer
 
 from .configs import MODEL_CONFIGS, ClassifierConfig
-from .utils import load_data, TuningFold, hash_ids, Result, TASK
+from .utils import load_data, TuningFold, TrialRecord, hash_ids, Result, TASK
 from .classifiers import ClassifierHelper
 
 logger = logging.getLogger(__name__)
@@ -81,6 +81,7 @@ def hyperparameter_tuning(
             }
 
         val_probs = model.predict_proba(x_val)
+        trials = [TrialRecord(number=t.number, value=t.value, state=t.state.name) for t in study.trials]
 
         with open(result_file, 'w') as fp:
             fp.write(
@@ -93,6 +94,7 @@ def hyperparameter_tuning(
                     val_probs=val_probs.tolist(),
                     train_hash=train_hash,
                     val_hash=val_hash,
+                    trials=trials,
                     tune_time=tune_time,
                     fit_time=fit_time,
                     slurm_info=slurm_info,
