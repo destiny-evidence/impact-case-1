@@ -1,0 +1,60 @@
+{
+  "point": {
+    "F1": 0.44933920704845814,
+    "Fbeta": 0.44933920704845814,
+    "Precision": 0.2982456140350877,
+    "Recall": 0.9107142857142857,
+    "Accuracy": 0.7913188647746243,
+    "prop_included": 0.2854757929883139,
+    "threshold": 0.2,
+    "n_samples": 599,
+    "ROC_AUC": 0.9277163904235727,
+    "AveragePrecision": 0.6787010873894774
+  },
+  "hdi": {
+    "Precision": {
+      "median": 0.2966933628081039,
+      "hdi_lo": 0.2321239055278975,
+      "hdi_hi": 0.3675866367131875
+    },
+    "Recall": {
+      "median": 0.9077585913028963,
+      "hdi_lo": 0.8275782699856148,
+      "hdi_hi": 0.9724539442118205
+    },
+    "Fbeta": {
+      "median": 0.4467548601106981,
+      "hdi_lo": 0.3686394194051711,
+      "hdi_hi": 0.5265245510880319
+    }
+  },
+  "selection": {
+    "tune_time": 113.5025897026062,
+    "fit_time": 0.7131190299987793,
+    "model": "sgd",
+    "train_hash": "25a0dfb71ea3fa21",
+    "tune_hash": "25a0dfb71ea3fa21",
+    "test_hash": "477a67e256ba60cd",
+    "val_hash": "477a67e256ba60cd",
+    "slurm_info": {
+      "job_id": "1829660",
+      "job_name": "classify.cpu.slurm",
+      "job_array_task_id": "4",
+      "job_array_task_count": "7",
+      "job_nodelist": "csn14c154"
+    },
+    "timestamp": "2026-08-17 21:44:26.441587+00:00",
+    "threshold": 0.2,
+    "n_samples": 599,
+    "Precision": 0.34810126582278483,
+    "Recall": 0.859375,
+    "F1": 0.4954954954954955,
+    "Accuracy": 0.8130217028380634,
+    "Fbeta": 0.39511494252873564,
+    "prop_included": 0.2637729549248748,
+    "ROC_AUC": 0.9034170560747663,
+    "AveragePrecision": 0.6273082665345978,
+    "scores": "val",
+    "result": 2
+  }
+}

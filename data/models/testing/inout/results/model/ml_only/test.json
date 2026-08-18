@@ -1,0 +1,60 @@
+{
+  "point": {
+    "F1": 0.7166666666666667,
+    "Fbeta": 0.7166666666666667,
+    "Precision": 0.671875,
+    "Recall": 0.7678571428571429,
+    "Accuracy": 0.9432387312186978,
+    "prop_included": 0.10684474123539232,
+    "threshold": 0.1,
+    "n_samples": 599,
+    "ROC_AUC": 0.9647132333596422,
+    "AveragePrecision": 0.7516914469852172
+  },
+  "hdi": {
+    "Precision": {
+      "median": 0.6694254391272745,
+      "hdi_lo": 0.5529434191063276,
+      "hdi_hi": 0.7764921672180782
+    },
+    "Recall": {
+      "median": 0.7653628881679488,
+      "hdi_lo": 0.6574252448265958,
+      "hdi_hi": 0.8740590040533364
+    },
+    "Fbeta": {
+      "median": 0.7115645496955209,
+      "hdi_lo": 0.6170341237852773,
+      "hdi_hi": 0.7949092310343167
+    }
+  },
+  "selection": {
+    "tune_time": 2071.012327671051,
+    "fit_time": 62.90434980392456,
+    "model": "scincl",
+    "train_hash": "25a0dfb71ea3fa21",
+    "tune_hash": "25a0dfb71ea3fa21",
+    "test_hash": "477a67e256ba60cd",
+    "val_hash": "477a67e256ba60cd",
+    "slurm_info": {
+      "job_id": "1829656",
+      "job_name": "classify.gpu.slurm",
+      "job_array_task_id": "3",
+      "job_array_task_count": "4",
+      "job_nodelist": "csl14c248"
+    },
+    "timestamp": "2026-08-17 22:18:05.899297+00:00",
+    "threshold": 0.1,
+    "n_samples": 599,
+    "Precision": 0.7101449275362319,
+    "Recall": 0.765625,
+    "F1": 0.7368421052631579,
+    "Accuracy": 0.9415692821368948,
+    "Fbeta": 0.7205882352941176,
+    "prop_included": 0.11519198664440734,
+    "ROC_AUC": 0.924036214953271,
+    "AveragePrecision": 0.6943555406007258,
+    "scores": "val",
+    "result": 8
+  }
+}

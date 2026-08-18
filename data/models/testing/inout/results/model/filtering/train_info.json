@@ -1,0 +1,23 @@
+{
+  "criterion": "filtering",
+  "model": "sgd",
+  "params": {
+    "downsampling": 0.09297420271081291,
+    "clf__class_weight": "balanced",
+    "clf__loss": "log_loss",
+    "clf__max_iter": 1000,
+    "vect__max_df": 0.7653315938706966,
+    "vect__min_df": 15,
+    "clf__alpha": 0.00010029199541902518,
+    "vect__ngram_range": [
+      1,
+      2
+    ]
+  },
+  "threshold": 0.2,
+  "beta": 1.0,
+  "fit_hash": "76f2bf79ff4f8bed",
+  "train_hash": "25a0dfb71ea3fa21",
+  "val_hash": "477a67e256ba60cd",
+  "test_hash": "9eca31fad8625894"
+}
