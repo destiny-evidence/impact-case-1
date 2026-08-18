@@ -7,7 +7,7 @@ import numpy as np
 from ic1.core.config import TaskName, TASKS
 from ic1.core.utils import DictLikeEncoder
 from .annotations import load_data
-from .results import Result, TuningFold, results_to_pd, read_tuning_results_df, read_tuning_results
+from .results import Result, TuningFold, results_to_pd, read_tuning_results_df, read_tuning_results, threshold_scores
 from .huggingface import ensure_offline_models
 from .metrics import evaluate
 
@@ -38,4 +38,5 @@ __all__ = [
     'evaluate',
     'compute_class_weights',
     'ensure_offline_models',
+    'threshold_scores'
 ]

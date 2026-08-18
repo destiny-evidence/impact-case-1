@@ -83,17 +83,18 @@ def hyperparameter_tuning(
                 'job_nodelist': os.getenv('SLURM_JOB_NODELIST'),
             }
 
+        val_probs = model.predict_proba(x_val)
+
         with open(result_file, 'w') as fp:
             fp.write(
                 TuningFold(
                     model=name,
                     params=best_trial.user_attrs['model_params'],
                     scores_self=Result.model_validate(best_trial.user_attrs['scores_self']),
-                    scores_test=Result.model_validate(best_trial.user_attrs['scores_test']),
-                    scores_val=[Result.model_validate(result) for result in scores_val],
+                    val_ids=val['item_id'].tolist(),
+                    val_labels=y_val.tolist(),
+                    val_probs=val_probs.tolist(),
                     train_hash=train_hash,
-                    tune_hash=train_hash,   # search fit on the full train pool
-                    test_hash=val_hash,     # objective scored on validation
                     val_hash=val_hash,
                     tune_time=tune_time,
                     fit_time=fit_time,
