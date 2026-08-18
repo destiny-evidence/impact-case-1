@@ -9,5 +9,6 @@ data/private/
 .venv/
 Documents/
 deet.log
-ic1/classify/testing
 *.slurm
+data/models/**/weights
+data/.cache

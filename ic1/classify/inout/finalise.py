@@ -83,8 +83,7 @@ def finalise_models(
                 'test_hash': hash_ids(test['item_id'].tolist()),
             }, indent=2, default=str))
             pd.DataFrame({'item_id': test['item_id'], 'y_true': y_test, 'y_prob': y_prob}).to_csv(out / 'test_predictions.csv', index=False)
-            model.save(out)
+            model.save(out / 'weights')
             logger.info(f'Wrote {name} model + results to {out}')
         except Exception:
             logger.exception(f'Finalising {name} model failed; continuing with remaining models')
-        logger.info(f'Wrote {name} model + results to {out}')
