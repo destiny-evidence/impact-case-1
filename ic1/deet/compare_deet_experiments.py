@@ -65,7 +65,7 @@ def compare(project_path: Path):
             ]
         ].sum()
     )
-    print(df.groupby(["run_id", "model","metric_name"])["value"].mean().unstack())
+    print(df.groupby(["run_id", "model","attribute_label","metric_name",])["value"].mean().unstack())
 
     # for (method, metric), group in df.groupby(["method", "metric_name"]):
     #     print(method)
