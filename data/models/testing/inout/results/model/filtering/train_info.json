@@ -1,21 +1,22 @@
 {
   "criterion": "filtering",
-  "model": "scincl",
+  "model": "logreg",
   "params": {
-    "model_name": "malteos/scincl",
-    "output_dir": "data/.cache/models",
-    "optim": "adamw_torch",
-    "save_strategy": "no",
-    "use_class_weights": 1,
-    "learning_rate": 6.518978879035409e-06,
-    "per_device_train_batch_size": 11,
-    "per_device_eval_batch_size": 11,
-    "num_train_epochs": 4,
-    "weight_decay": 0.24974321942384167,
-    "downsampling": 0.06905696606132451
+    "downsampling": 0.1440530188128229,
+    "clf__class_weight": "balanced",
+    "clf__tol": 0.0001,
+    "clf__C": 3.5141434732940144,
+    "clf__solver": "saga",
+    "clf__max_iter": 100,
+    "vect__max_df": 0.7592006435549814,
+    "vect__min_df": 5,
+    "vect__ngram_range": [
+      1,
+      2
+    ]
   },
-  "threshold": 0.15,
-  "beta": 1.0,
+  "threshold": 0.12,
+  "beta": 2.0,
   "fit_hash": "76f2bf79ff4f8bed",
   "train_hash": "25a0dfb71ea3fa21",
   "val_hash": "477a67e256ba60cd",

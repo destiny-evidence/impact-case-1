@@ -14,8 +14,8 @@
     "weight_decay": 0.24974321942384167,
     "downsampling": 0.06905696606132451
   },
-  "threshold": 0.86,
-  "beta": 1.0,
+  "threshold": 0.18,
+  "beta": 2.0,
   "fit_hash": "76f2bf79ff4f8bed",
   "train_hash": "25a0dfb71ea3fa21",
   "val_hash": "477a67e256ba60cd",
