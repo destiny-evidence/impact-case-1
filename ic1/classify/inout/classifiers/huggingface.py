@@ -189,7 +189,7 @@ class HuggingfaceClassifier(ClassifierBase):
             'model_params': self.model_.args.to_dict(),
             'model_name': self.model_name,
             'model_max_length': self.model_max_length,
-            'classes_': self.classes_,
+            'classes_': self.classes_.tolist(),
         }
 
     def predict_proba(self, X: list[str]) -> np.ndarray:
@@ -222,9 +222,14 @@ class HuggingfaceClassifier(ClassifierBase):
         logger.info(f'Saving trained "{self.model_name}" model to {target}')
         if self.model_ is None:
             raise RuntimeError('Model must be trained before it can be saved!')
-        self.model_.save_model(target)  # type: ignore[attr-defined]
+        # Save the model weights+config directly (safetensors) rather than via Trainer.save_model,
+        # which also torch.saves self.args -- an instance of the locally-defined CustomTrainingArguments
+        # that pickle cannot serialise. load() only needs the model + model_info.json, not training args.
+        self.model_.model.save_pretrained(target)  # type: ignore[attr-defined]
         with open(path / 'model_info.json', 'w') as fp:
-            json.dump(self.get_params(), fp=fp, indent=2)
+            # default=str guards against any residual non-JSON values (e.g. a torch tensor
+            # class_weights in model_params); those fields are inert on reload.
+            json.dump(self.get_params(), fp=fp, indent=2, default=str)
 
     @classmethod
     def load(cls, path: Path) -> 'HuggingfaceClassifier':
@@ -236,7 +241,7 @@ class HuggingfaceClassifier(ClassifierBase):
             info = json.load(fp)
         classes = info.pop('classes_')
         model = cls(**info)
-        model.classes_ = classes
+        model.classes_ = np.asarray(classes)
         model.model_ = AutoModelForSequenceClassification.from_pretrained(source)
         return model
 

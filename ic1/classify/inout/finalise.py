@@ -55,30 +55,36 @@ def finalise_models(
     y_test = test['label'].to_numpy()
 
     for name, sel in selections.items():
-        helper = ClassifierHelper.from_run(results[int(sel['result'])])
-        model = helper.train(X=X_fit, y=fit_df['label'].tolist())
-        y_prob = model.predict_proba(X_test)
+        try:
+            helper = ClassifierHelper.from_run(results[int(sel['result'])])
+            model = helper.train(X=X_fit, y=fit_df['label'].tolist())
+            y_prob = model.predict_proba(X_test)
 
-        threshold = float(sel['threshold'])
-        y_pred = (y_prob > threshold).astype(int)
-        point = evaluate(y_test, y_prob, threshold=threshold, beta=beta)
-        hdi = posterior_metric_summaries(y_test, y_pred, beta=beta, seed=42)
+            threshold = float(sel['threshold'])
+            y_pred = (y_prob > threshold).astype(int)
+            point = evaluate(y_test, y_prob, threshold=threshold, beta=beta)
+            hdi = posterior_metric_summaries(y_test, y_pred, beta=beta, seed=42)
 
-        run = results[int(sel['result'])]
-        out = target_dir / name
-        out.mkdir(parents=True, exist_ok=True)
-        model.save(out)
-        (out / 'test.json').write_text(json.dumps({'point': point, 'hdi': hdi, 'selection': sel.to_dict()}, indent=2, default=str))
-        (out / 'train_info.json').write_text(json.dumps({
-            'criterion': name,
-            'model': run.model,
-            'params': run.params,
-            'threshold': threshold,
-            'beta': beta,
-            'fit_hash': hash_ids(fit_df['item_id'].tolist()),
-            'train_hash': hash_ids(train['item_id'].tolist()),
-            'val_hash': hash_ids(val_df['item_id'].tolist()),
-            'test_hash': hash_ids(test['item_id'].tolist()),
-        }, indent=2, default=str))
-        pd.DataFrame({'item_id': test['item_id'], 'y_true': y_test, 'y_prob': y_prob}).to_csv(out / 'test_predictions.csv', index=False)
+            run = results[int(sel['result'])]
+            out = target_dir / name
+            out.mkdir(parents=True, exist_ok=True)
+            # Write metrics/provenance before the (large, failure-prone) model save, so a save
+            # failure doesn't lose the scores.
+            (out / 'test.json').write_text(json.dumps({'point': point, 'hdi': hdi, 'selection': sel.to_dict()}, indent=2, default=str))
+            (out / 'train_info.json').write_text(json.dumps({
+                'criterion': name,
+                'model': run.model,
+                'params': run.params,
+                'threshold': threshold,
+                'beta': beta,
+                'fit_hash': hash_ids(fit_df['item_id'].tolist()),
+                'train_hash': hash_ids(train['item_id'].tolist()),
+                'val_hash': hash_ids(val_df['item_id'].tolist()),
+                'test_hash': hash_ids(test['item_id'].tolist()),
+            }, indent=2, default=str))
+            pd.DataFrame({'item_id': test['item_id'], 'y_true': y_test, 'y_prob': y_prob}).to_csv(out / 'test_predictions.csv', index=False)
+            model.save(out)
+            logger.info(f'Wrote {name} model + results to {out}')
+        except Exception:
+            logger.exception(f'Finalising {name} model failed; continuing with remaining models')
         logger.info(f'Wrote {name} model + results to {out}')
