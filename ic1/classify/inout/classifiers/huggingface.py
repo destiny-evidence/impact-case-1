@@ -69,6 +69,10 @@ def _get_custom_classes():  # type: ignore[no-untyped-def]
 
         def predict_proba(self, test_dataset: Dataset) -> np.ndarray:
             predictions = self.predict(test_dataset).predictions
+            # Encoder-decoder models (e.g. T5ForSequenceClassification) return a tuple of outputs
+            # (logits first, then hidden states etc.); classification logits are element 0.
+            if isinstance(predictions, (tuple, list)):
+                predictions = predictions[0]
             logits = predictions if torch.is_tensor(predictions) else torch.tensor(predictions)
             # return self.activation(logits).numpy()
             return logits.numpy()  # FIXME: does this still work? returning unscaled logits should be better for ranking
