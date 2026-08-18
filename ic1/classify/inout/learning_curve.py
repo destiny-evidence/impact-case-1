@@ -26,6 +26,20 @@ from ic1.classify.inout.classifiers import ClassifierHelper
 logger = logging.getLogger(__name__)
 
 
+def plot_learning_curves(df: pd.DataFrame, metric: str = 'AveragePrecision'):
+    """One axes, one line (+/- std band over seeds) per model. Returns the figure."""
+    fig, ax = plt.subplots(figsize=(8, 5))
+    for name, g in df.groupby('model'):
+        s = g.groupby('n_train')[metric].agg(['mean', 'std']).reset_index()
+        ax.plot(s['n_train'], s['mean'], '-o', ms=4, label=name)
+        ax.fill_between(s['n_train'], s['mean'] - s['std'].fillna(0), s['mean'] + s['std'].fillna(0), alpha=0.15)
+    ax.set_xlabel('training examples')
+    ax.set_ylabel(f'{metric} (validation)')
+    ax.set_title('Learning curves')
+    ax.legend(fontsize=7, ncol=2)
+    return fig
+
+
 def _stratified_subsample(y: np.ndarray, frac: float, seed: int) -> np.ndarray:
     """Indices for a class-stratified fraction of y (preserves prevalence)."""
     rng = np.random.default_rng(seed)
@@ -84,15 +98,7 @@ def learning_curve(
     out_dir.mkdir(parents=True, exist_ok=True)
     df.to_csv(out_dir / f'learning_curve_{tag}.csv', index=False)
 
-    fig, ax = plt.subplots(figsize=(7, 5))
-    for name, g in df.groupby('model'):
-        s = g.groupby('n_train')['AveragePrecision'].agg(['mean', 'std']).reset_index()
-        ax.plot(s['n_train'], s['mean'], '-o', ms=4, label=name)
-        ax.fill_between(s['n_train'], s['mean'] - s['std'], s['mean'] + s['std'], alpha=0.15)
-    ax.set_xlabel('training examples')
-    ax.set_ylabel('AveragePrecision (validation)')
-    ax.set_title('Learning curves')
-    ax.legend(fontsize=7)
+    fig = plot_learning_curves(df)
     fig.savefig(out_dir / f'learning_curve_{tag}.png', dpi=120, bbox_inches='tight')
     logger.info(f'Wrote learning_curve_{tag}.csv + .png to {out_dir}')
 
