@@ -24,7 +24,7 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
         selected = {task.value: TASKS[task.value]}
 
     for task_config in selected.values():
-        resolved = pd.read_csv(task_config.shareable_resolved_path)
+        resolved = pd.read_csv(task_config.sensitive_resolved_path)
         item_ids = set(resolved['item_id'])
         sorted_ids = sorted(item_ids, key=lambda iid: uniform(task_config.name, iid))
         deet_ids = sorted_ids[: settings.DEET_N]
@@ -47,11 +47,17 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
                 'item_id': 'document_id',
                 'title': 'name',
                 'text': 'abstract',
-                'incl|1': 'include - high precision'
             }
         )
-        deet_df["include - best balance"] = deet_df['include - high precision'].copy()
-        deet_df["include - high recall"] = deet_df['include - high precision'].copy()
+        if task == TaskName.INOUT:
+            deet_df = deet_df.rename(
+                columns={
+                    'incl|1': 'include - high precision'
+                }
+            )
+            deet_df["include - best balance"] = deet_df['include - high precision'].copy()
+            deet_df["include - high recall"] = deet_df['include - high precision'].copy()
+
         deet_df.to_csv(task_config.deet_data_path, index=False)
 
         create_project(
