@@ -18,11 +18,9 @@ def main():
     logging.getLogger('httpx').setLevel(logging.WARNING)
 
     from ic1.classify.inout import app as inout_app
-    from ic1.evaluation_splits import create_split
 
     app = typer.Typer()
 
-    app.command('split-data', help='Split data into train, validation, and test sets')(create_split)
     app.add_typer(inout_app, name='classify-inout', help='Inclusion classification model tuning and training')
 
     # Commands that need nacsos_data (DB access) are registered only if it imports. This keeps the
