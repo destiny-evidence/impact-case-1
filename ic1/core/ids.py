@@ -121,15 +121,37 @@ INOUT_SCOPE_IDS_RESOLVED = [li for (_, li) in INOUT_ANNOTATION_SCOPES]
 INOUT_SCOPE_IDS_ANNOTATE = [li for (li, _) in INOUT_ANNOTATION_SCOPES]
 INOUT_SCOPE_IDS = INOUT_SCOPE_IDS_RESOLVED + INOUT_SCOPE_IDS_ANNOTATE
 
-TAXONOMY_SCOPE_IDS = [
-    '94d99d6c-298d-408b-949b-54bb12f4e7e6',
-    '82fcdf26-654e-4605-b374-8c0eb3def84c',
-    '2c7226d4-e132-4a29-bda5-1c467d15b66c',
-    '97061ed5-0b9d-4802-8c48-3871f784e876',
-    '0c31e892-f959-4dd4-a642-2d3ea3d21424',
-    'f4ca16a4-e1f3-4746-a6f7-7cffcaffd0ac'
+
+TAXONOMY_ANNOTATION_SCOPES: list[tuple[str, str]] = [
+    (
+        '94d99d6c-298d-408b-949b-54bb12f4e7e6',
+        ''
+    ),
+    (
+        '82fcdf26-654e-4605-b374-8c0eb3def84c',
+        ''
+    ),
+    (
+        '2c7226d4-e132-4a29-bda5-1c467d15b66c',
+        '05280aff-6bb8-43d9-909f-bafdff46a35c'
+    ),
+    (
+        '97061ed5-0b9d-4802-8c48-3871f784e876',
+        '',
+    ),
+    (
+        '0c31e892-f959-4dd4-a642-2d3ea3d21424',
+        '7d0cd945-5d3e-48fd-9890-86e2e0cfcbcb'
+    ),
+    (
+        'f4ca16a4-e1f3-4746-a6f7-7cffcaffd0ac',
+        ''
+    )
 ]
 
-TAXONOMY_SCOPE_IDS_RESOLVED = [
 
-]
+TAXONOMY_SCOPE_IDS_ANNOTATE = [li for (li, _) in TAXONOMY_ANNOTATION_SCOPES if li]
+
+TAXONOMY_SCOPE_IDS_RESOLVED = [li for (_, li) in TAXONOMY_ANNOTATION_SCOPES if li]
+
+TAXONOMY_SCOPE_IDS = TAXONOMY_SCOPE_IDS_ANNOTATE + TAXONOMY_SCOPE_IDS_RESOLVED

@@ -41,8 +41,8 @@ def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
 
     if dev==True, split train into sub-train,val,test splits, that are safe to play with.
     """
-    logger.info(f'Loading data from {TASK.resolved_path}')
-    df = pd.read_csv(TASK.resolved_path)
+    logger.info(f'Loading data from {TASK.shareable_resolved_path}')
+    df = pd.read_csv(TASK.shareable_resolved_path)
 
     splits = EvaluationSplits.load(TASK.splits_path)
 

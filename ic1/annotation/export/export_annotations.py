@@ -97,12 +97,17 @@ def main(
         df.to_csv(task.sensitive_path, index=False)
         logger.info(f'[green]Wrote raw export ({df.shape[0]:,} rows x {df.shape[1]:,} cols) to {task.sensitive_path}[/green]')
 
-        df[df['username'] == 'RESOLVED'].to_csv(task.resolved_path, index=False)
+        df[df['username'] == 'RESOLVED'].to_csv(task.sensitive_resolved_path, index=False)
         shape = df[df['username'] == 'RESOLVED'].shape
-        logger.info(f'[green]Wrote resolved export ({shape[0]:,} rows x {shape[1]:,} cols) to {task.resolved_path}[/green]')
+        logger.info(f'[green]Wrote resolved export ({shape[0]:,} rows x {shape[1]:,} cols) to {task.sensitive_resolved_path}[/green]')
 
-        df_pseudo.drop(columns=['user_id'], errors='ignore').to_csv(task.shareable_path, index=False)
+        drop_cols = ['user_id', 'text']
+
+        df_pseudo.drop(columns=drop_cols, errors='ignore').to_csv(task.shareable_path, index=False)
         logger.info(f'[green]Wrote resolved export ({df_pseudo.shape[0]:,} rows x {df_pseudo.shape[1]:,} cols) to {task.shareable_path}[/green]')
+
+        df_pseudo[df_pseudo['username'] == 'RESOLVED'].drop(columns=drop_cols, errors='ignore').to_csv(task.shareable_resolved_path, index=False)
+        logger.info(f'[green]Wrote resolved export ({df_pseudo.shape[0]:,} rows x {df_pseudo.shape[1]:,} cols) to {task.shareable_resolved_path}[/green]')
 
     asyncio.run(_main())
 

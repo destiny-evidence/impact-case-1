@@ -14,7 +14,7 @@ def create_split(
     # test: Annotated[float, typer.Option(help='Test split (final check)')] = 0.2,
     seed: Annotated[int | None, typer.Option(help='Random seed')] = None,
 ):
-    df = pd.read_csv(TASKS[task].resolved_path)
+    df = pd.read_csv(TASKS[task].shareable_resolved_path)
 
     df_train = df.sample(frac=train, random_state=seed)
     remainder = df.drop(df_train.index)

@@ -81,8 +81,12 @@ class TaskConfig:
         return settings.SENSITIVE_ROOT / f'{self.name}.csv'
 
     @property
-    def resolved_path(self) -> Path:
+    def shareable_resolved_path(self) -> Path:
         return settings.SHAREABLE_ROOT / f'{self.name}_resolved.csv'
+
+    @property
+    def sensitive_resolved_path(self) -> Path:
+        return settings.SENSITIVE_ROOT / f'{self.name}_resolved.csv'
 
     @property
     def deet_data_path(self) -> Path:

@@ -24,7 +24,7 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
         selected = {task.value: TASKS[task.value]}
 
     for task_config in selected.values():
-        resolved = pd.read_csv(task_config.resolved_path)
+        resolved = pd.read_csv(task_config.shareable_resolved_path)
         item_ids = set(resolved['item_id'])
         sorted_ids = sorted(item_ids, key=lambda iid: uniform(task_config.name, iid))
         deet_ids = sorted_ids[: settings.DEET_N]
