@@ -38,6 +38,12 @@ def main():
             'Install with the "nacsos" extra to enable them.'
         )
 
+    try:
+        from ic1.deet import app as deet_app
+        app.add_typer(deet_app, name='deet', help='Create and manage deet projects')
+    except ImportError as e:
+        logging.getLogger('ic1').warning('deet extra not installed')
+
     def tree_command(ctx: typer.Context):
         """Show a tree view of all commands and sub-apps."""
         click_root = get_command(app)  # resolve Typer -> Click command tree

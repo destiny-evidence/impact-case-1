@@ -1,13 +1,14 @@
 """Read splits from deet project, sync to project splits."""
 
 import typer
-from deet.data_models.evaluation_strategies.dev_val_test import DevValTestSplits, DeetProject
+
 from typing import Annotated
 from ic1.core.config import TaskName, TASKS
 from ic1.evaluation_splits.splits_model import EvaluationSplits
 
 
 def main(task: Annotated[TaskName, typer.Option(help='The annotation task task to be exported')] = TaskName.ALL):
+    from deet.data_models.evaluation_strategies.dev_val_test import DevValTestSplits, DeetProject
     if task == TaskName.ALL:
         selected = TASKS
     else:
