@@ -12,3 +12,4 @@ deet.log
 *.slurm
 data/models/**/weights
 data/.cache
+__marimo__

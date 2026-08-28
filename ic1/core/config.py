@@ -44,7 +44,7 @@ class Config(BaseSettings):
     SCHEME: SchemeFilesConfig = Field(default_factory=SchemeFilesConfig)
 
     DATASETS_DIR: Path = Path('ic1/annotation/datasets')
-    SCHEME_DIR: Path = Path('ic1/annotation/scheme')
+    SCHEME_DIR: Path = Path('data/scheme')
     VOCAB_FILE: Path = SCHEME_DIR / 'destiny-1-4-version-1-4-of-the-destiny-taxonomy.ttl'
     MAPPING_CSV: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.csv'
     MAPPING_JSON: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.json'
@@ -133,6 +133,10 @@ class TaskConfig:
     @property
     def ml_model_predictions_path(self) -> Path:
         return self.classifier_results_path / 'ml_predictions.csv'
+
+    @property
+    def frequencies_path(self) -> Path:
+        return settings.SHAREABLE_ROOT / f'{self.name}_frequencies.csv'
 
 
 TASKS: dict[TaskName, TaskConfig] = {
