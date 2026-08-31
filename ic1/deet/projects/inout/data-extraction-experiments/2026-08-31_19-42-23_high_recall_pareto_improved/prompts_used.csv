@@ -1,4 +1,4 @@
-prompt,output_data_type,attribute_id,attribute_label
+prompt,output_data_type,attribute_id,attribute_label,concept_id
 "You are screening bibliographic records for inclusion in the DESTINY repository, a database of the global literature at the intersection of climate change and health, including climate mitigation and adaptation.
 
 Classify each record as INCLUDE or EXCLUDE, based only on the title, abstract, and metadata provided.
@@ -66,4 +66,4 @@ INCLUDE
 
 or
 
-EXCLUDE",bool,6,include - high recall
+EXCLUDE",bool,6,include - high recall,

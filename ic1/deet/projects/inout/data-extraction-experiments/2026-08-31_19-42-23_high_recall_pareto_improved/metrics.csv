@@ -1,0 +1,6 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+6,include - high recall,0.8307692307692308,2026-08-31_19-42-23_high_recall_pareto_improved,accuracy
+6,include - high recall,1.0,2026-08-31_19-42-23_high_recall_pareto_improved,recall
+6,include - high recall,0.3888888888888889,2026-08-31_19-42-23_high_recall_pareto_improved,precision
+6,include - high recall,0.56,2026-08-31_19-42-23_high_recall_pareto_improved,f1_score
+6,include - high recall,14.0,2026-08-31_19-42-23_high_recall_pareto_improved,n_labels
