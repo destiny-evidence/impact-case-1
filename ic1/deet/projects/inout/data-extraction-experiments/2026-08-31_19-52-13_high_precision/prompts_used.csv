@@ -1,4 +1,4 @@
-prompt,output_data_type,attribute_id,attribute_label
+prompt,output_data_type,attribute_id,attribute_label,concept_id
 "You are screening bibliographic records for inclusion in the DESTINY repository, a database aimed at capturing the global literature at the intersection of climate change and health, including relevant climate mitigation and adaptation literature.
 
 Your task is to classify each bibliographic record as exactly one of:
@@ -9,8 +9,6 @@ EXCLUDE
 Base your decision only on the title, abstract, and other metadata provided. Do not use outside information to fill gaps in the record.
 
 THIS IS THE HIGH-PRECISION SCREEN. Include a record ONLY when it has an EXPLICIT, substantive climate element AND an EXPLICIT, substantive human-health connection (direct, or via a clearly-stated mitigation, adaptation, or exposure route). When either element is only implied, inferable, indirect, thematic, or uncertain, EXCLUDE. Precision is the priority: it is better to exclude a borderline record than to include a doubtful one.
-
-DECISIVE RULE FOR THIS SCREEN (this OVERRIDES the broader qualifying routes described below). INCLUDE a record ONLY when it EXPLICITLY reports, studies, or acts to protect against a HUMAN-HEALTH outcome or risk -- disease, morbidity, mortality, injury, a clinical or public-health effect, a named health exposure/risk, or a health-system impact -- arising from a climate factor, climate-forcing agent, or fossil fuel; OR when the abstract EXPLICITLY states a mitigation or adaptation action undertaken to protect human health or health systems. If the human-health link is only indirect, implied, or established SOLELY through food security, crop yield, agricultural productivity, ecosystem function, resilience/adaptation of physical or economic systems, or a bare exposure category WITHOUT a stated human-health outcome or risk, EXCLUDE. When in ANY doubt, EXCLUDE. Excluding many genuinely relevant records is expected and acceptable here; the sole objective is that virtually every INCLUDE is correct.
 
 IMPORTANT:
 - Do not require climate change, health, mitigation, or adaptation to be the primary topic of the paper.
@@ -146,7 +144,7 @@ The health component is ALSO satisfied when the record substantively addresses a
 - Water quality and quantity (waterborne pathogens, HARMFUL ALGAL BLOOMS / cyanobacteria, drought- or flood-related contamination) -> cholera, cryptosporidiosis, diarrhoeal disease, etc.
 A study of one of these exposures in a climate/weather or fossil-fuel/climate-forcing-agent context satisfies the health component through the indirect pathway. This does NOT override the guard above: a merely hypothetical or unstated health link still does not qualify -- the exposure pathway must be a substantive subject of the record.
 
-HUMAN-FACING REQUIREMENT: An exposure pathway qualifies only when the exposure bears on human beings -- their health, or a resource or condition people depend on -- which MAY BE IMPLICIT. The air everyone breathes is inherently human-facing, so airborne exposures (e.g. particulate matter) qualify on mention. HOWEVER, in THIS HIGH-PRECISION screen the air-quality pathway is satisfied only when the record states or studies a human-health outcome or risk from the air exposure (e.g. respiratory or cardiovascular disease, mortality, or a stated health risk). Ambient air-quality measurement, monitoring, or pollutant source-apportionment with NO stated human-health outcome does NOT qualify through this pathway here, even though the air is breathed. (A record may still qualify by another explicit route -- e.g. a mitigation or adaptation action addressing the air pollution.) For a resource whose human relevance is NOT universal -- such as a specific body of water -- the record must concern it as a human resource (water people use, drink, or depend on, or waterborne disease), not as an ecological or environmental object studied for its own sake (e.g. river condition assessed via bioindicators).
+HUMAN-FACING REQUIREMENT: An exposure pathway qualifies only when the exposure bears on human beings -- their health, or a resource or condition people depend on -- which MAY BE IMPLICIT. The air everyone breathes is inherently human-facing, so airborne exposures (e.g. particulate matter) qualify on mention. For a resource whose human relevance is NOT universal -- such as a specific body of water -- the record must concern it as a human resource (water people use, drink, or depend on, or waterborne disease), not as an ecological or environmental object studied for its own sake (e.g. river condition assessed via bioindicators).
 
 --------------------------------------------------
 3. QUALIFYING MITIGATION COMPONENT
@@ -383,4 +381,4 @@ INCLUDE
 
 or
 
-EXCLUDE",bool,0,include - high precision
+EXCLUDE",bool,0,include - high precision,
