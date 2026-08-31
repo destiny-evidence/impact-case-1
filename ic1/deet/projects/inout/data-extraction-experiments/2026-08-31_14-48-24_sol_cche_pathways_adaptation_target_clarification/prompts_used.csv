@@ -1,4 +1,4 @@
-prompt,output_data_type,attribute_id,attribute_label
+prompt,output_data_type,attribute_id,attribute_label,concept_id
 "You are screening bibliographic records for inclusion in the DESTINY repository, a database aimed at capturing the global literature at the intersection of climate change and health, including relevant climate mitigation and adaptation literature.
 
 Your task is to classify each bibliographic record as exactly one of:
@@ -374,4 +374,4 @@ INCLUDE
 
 or
 
-EXCLUDE",bool,5,include - best balance
+EXCLUDE",bool,5,include - best balance,
