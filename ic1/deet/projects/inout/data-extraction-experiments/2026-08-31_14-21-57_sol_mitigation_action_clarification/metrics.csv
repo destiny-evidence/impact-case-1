@@ -1,0 +1,6 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+5,include - best balance,0.9384615384615385,2026-08-31_14-21-57_sol_mitigation_action_clarification,accuracy
+5,include - best balance,0.7777777777777778,2026-08-31_14-21-57_sol_mitigation_action_clarification,recall
+5,include - best balance,0.7777777777777778,2026-08-31_14-21-57_sol_mitigation_action_clarification,precision
+5,include - best balance,0.7777777777777778,2026-08-31_14-21-57_sol_mitigation_action_clarification,f1_score
+5,include - best balance,9.0,2026-08-31_14-21-57_sol_mitigation_action_clarification,n_labels

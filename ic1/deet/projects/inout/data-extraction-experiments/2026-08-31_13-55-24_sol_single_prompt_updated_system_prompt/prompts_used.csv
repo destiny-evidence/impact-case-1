@@ -1,4 +1,4 @@
-prompt,output_data_type,attribute_id,attribute_label
+prompt,output_data_type,attribute_id,attribute_label,concept_id
 "You are screening bibliographic records for inclusion in the DESTINY repository, a database aimed at capturing the global literature at the intersection of climate change and health, including relevant climate mitigation and adaptation literature.
 
 Your task is to classify each bibliographic record as exactly one of:
@@ -152,9 +152,6 @@ A study of dietary sulphur in dairy cattle that examines effects on methane emis
 Merely measuring methane, carbon dioxide, or another greenhouse gas does NOT by itself constitute mitigation.
 
 The record must study an intervention, action, practice, technology, policy, or management approach that affects or is intended to affect emissions or fossil-fuel use.
-
-IMPORTANT — A MITIGATION ACTION, NOT ENABLING RESEARCH:
-The record must study, evaluate, or report the mitigation action itself — an intervention, measure, practice, policy, deployment, or management approach that reduces, or is intended to reduce, emissions or fossil-fuel use, or that upscales greenhouse-gas removals. Upstream, basic, or enabling research that merely relates to, characterises, or could inform a low-carbon technology — without itself studying an emission-reducing action or its effect on emissions or fossil-fuel use — does NOT qualify. For example: soil-physics, materials, or component modelling that ""supports the design of"" a geothermal or other renewable-energy system is enabling research, not a mitigation action; whereas evaluating a feed intervention that reduces methane emissions, or measures that cut a product's manufacturing emissions, IS a mitigation action.
 
 --------------------------------------------------
 4. QUALIFYING ADAPTATION COMPONENT
@@ -360,4 +357,4 @@ INCLUDE
 
 or
 
-EXCLUDE",bool,5,include - best balance
+EXCLUDE",bool,5,include - best balance,
