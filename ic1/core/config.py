@@ -26,7 +26,7 @@ class TaskName(str, Enum):
 
 class SchemeFilesConfig(BaseSettings):
     BASE: Path = Path('data/scheme')
-    VOCAB: Path = Field(default_factory=lambda data: data['BASE'] / 'destiny-1-4-version-1-4-of-the-destiny-taxonomy.ttl')
+    VOCAB: Path = Field(default_factory=lambda data: data['BASE'] / 'destiny-1-5-version-1-4-of-the-destiny-taxonomy.ttl')
     CSV: Path = Field(default_factory=lambda data: data['BASE'] / 'destiny_taxonomy_nacsos_mapping.csv')
     JSON: Path = Field(default_factory=lambda data: data['BASE'] / 'destiny_taxonomy_nacsos_mapping.json')
 
@@ -45,7 +45,7 @@ class Config(BaseSettings):
 
     DATASETS_DIR: Path = Path('ic1/annotation/datasets')
     SCHEME_DIR: Path = Path('data/scheme')
-    VOCAB_FILE: Path = SCHEME_DIR / 'destiny-1-4-version-1-4-of-the-destiny-taxonomy.ttl'
+    VOCAB_FILE: Path = SCHEME_DIR / 'destiny-1-5-version-1-4-of-the-destiny-taxonomy.ttl'
     MAPPING_CSV: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.csv'
     MAPPING_JSON: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.json'
     MODELS_ROOT: Path = Path('data/models')

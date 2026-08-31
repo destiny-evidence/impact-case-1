@@ -583,8 +583,8 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "data-extraction-evaluation-toolkit", git = "https://github.com/destiny-evidence/data-extraction-evaluation-toolkit.git?rev=keyword-extraction" },
-    { name = "data-extraction-evaluation-toolkit", marker = "extra == 'deet'", git = "https://github.com/destiny-evidence/data-extraction-evaluation-toolkit.git?rev=keyword-extraction" },
+    { name = "data-extraction-evaluation-toolkit", editable = "../data-extraction-evaluation-toolkit" },
+    { name = "data-extraction-evaluation-toolkit", marker = "extra == 'deet'", editable = "../data-extraction-evaluation-toolkit" },
     { name = "datasets", marker = "extra == 'classify'", specifier = "==5.0.0" },
     { name = "dvc", specifier = ">=3.67.1" },
     { name = "dvc-ssh", specifier = ">=4.3.0" },
@@ -791,7 +791,7 @@ wheels = [
 [[package]]
 name = "data-extraction-evaluation-toolkit"
 version = "0.3.0.dev2"
-source = { git = "https://github.com/destiny-evidence/data-extraction-evaluation-toolkit.git?rev=keyword-extraction#1988c881b121593f557ef9358a723f9a2393e4a7" }
+source = { editable = "../data-extraction-evaluation-toolkit" }
 dependencies = [
     { name = "destiny-sdk" },
     { name = "diskcache" },
@@ -812,11 +812,65 @@ dependencies = [
     { name = "python-semantic-release" },
     { name = "pyyaml" },
     { name = "rapidfuzz" },
+    { name = "rdflib" },
     { name = "scikit-learn" },
     { name = "sentence-transformers" },
     { name = "tabulate" },
     { name = "toml" },
     { name = "typer" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "destiny-sdk", extras = ["labs"], specifier = ">=0.9.1" },
+    { name = "diskcache", specifier = ">=5.6.3" },
+    { name = "inquirerpy", specifier = ">=0.3.4" },
+    { name = "jinja2", specifier = ">=3.1.6" },
+    { name = "litellm", specifier = ">=1.96.2" },
+    { name = "loguru", specifier = ">=0.7.3" },
+    { name = "marker-pdf", specifier = ">=1.9.1" },
+    { name = "nltk", specifier = ">=3.9.1" },
+    { name = "openai", specifier = ">=1.0.0" },
+    { name = "pdfminer-six", specifier = ">=20221105" },
+    { name = "pillow", specifier = ">=10.4.0" },
+    { name = "pydantic", specifier = ">=2.11.7" },
+    { name = "pydantic-extra-types", specifier = ">=2.10.5" },
+    { name = "pydantic-settings", specifier = ">=2.10.1" },
+    { name = "pypandoc", specifier = ">=1.15" },
+    { name = "python-dotenv", specifier = ">=1.1.1" },
+    { name = "python-semantic-release", specifier = ">=10.6.1" },
+    { name = "pyyaml", specifier = ">=6.0.2" },
+    { name = "rapidfuzz", specifier = ">=3.9.0" },
+    { name = "rdflib", specifier = ">=7.6.0" },
+    { name = "scikit-learn", specifier = ">=1.7.1" },
+    { name = "sentence-transformers", specifier = ">=5.5.1" },
+    { name = "tabulate", specifier = ">=0.9.0" },
+    { name = "toml", specifier = ">=0.10.2" },
+    { name = "typer", specifier = ">=0.21.2" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "mypy", specifier = ">=1.17.1" },
+    { name = "pre-commit", specifier = ">=4.3.0" },
+    { name = "pytest", specifier = ">=8.4.1" },
+    { name = "pytest-cov", specifier = ">=6.2.1" },
+    { name = "pytest-env", specifier = ">=1.1.5" },
+    { name = "pytest-mock", specifier = ">=3.14.1" },
+    { name = "pytest-recording", specifier = ">=0.13.4" },
+    { name = "ruff", specifier = ">=0.12.11" },
+]
+docs = [
+    { name = "griffe-pydantic", specifier = ">=1.3.1" },
+    { name = "mike", specifier = ">=2.2.0" },
+    { name = "mkdocs", specifier = ">=1.6.1,<2.0" },
+    { name = "mkdocs-ezglossary-plugin", specifier = ">=2.1.0" },
+    { name = "mkdocs-include-markdown-plugin", specifier = ">=7.2.0" },
+    { name = "mkdocs-material", specifier = ">=9.7.0" },
+    { name = "mkdocs-mermaid2-plugin", specifier = ">=1.2.3" },
+    { name = "mkdocs-table-reader-plugin", specifier = ">=3.1.0" },
+    { name = "mkdocstrings", specifier = ">=0.30.1" },
+    { name = "mkdocstrings-python", specifier = ">=1.19.0" },
 ]
 
 [[package]]
