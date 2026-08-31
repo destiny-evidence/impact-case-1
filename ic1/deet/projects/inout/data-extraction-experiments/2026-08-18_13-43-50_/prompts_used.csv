@@ -1,0 +1,193 @@
+prompt,output_data_type,attribute_id,attribute_label
+"INCLUDE a record only when the title or abstract provides clear evidence of:
+
+(A) a substantive climate-related component, AND
+
+(B) a substantive health, mitigation, or adaptation component.
+
+Do not infer eligibility merely because an exposure, pollutant, weather event, technology, or environmental process could potentially affect climate or health.
+
+Climate component
+
+Count climate change, climate variability, climate/weather variables, climate-related extremes, fossil fuels, and climate-forcing agents only when they are an important study exposure, outcome, intervention, mechanism, or analytical variable.
+
+A mere mention in background text does not qualify.
+
+Health component
+
+Require an explicit human-health or health-system outcome, exposure, risk, intervention, or consequence.
+
+Do not infer human-health relevance solely because an environmental pollutant or hazard is known to be harmful.
+
+Mitigation component
+
+Require evidence that an intervention, action, technology, practice, or policy is intended to or demonstrably does reduce greenhouse-gas emissions, climate-forcing agents, fossil-fuel use, or climate change.
+
+Merely measuring methane, CO₂, or another greenhouse gas is not mitigation.
+
+Adaptation component
+
+Require explicit evidence that the study is intended to support climate adaptation, preparedness, resilience, vulnerability reduction, or management of climate-related hazards.
+
+A generic flood model or environmental dataset does not qualify merely because it could potentially be useful for adaptation.
+
+Early-stage research
+
+Exclude early-stage technologies or interventions that have no demonstrated or plausible real-world implementation.
+
+Research that only describes fundamental mechanisms without a clear mitigation/adaptation application should be excluded.
+
+When the climate-health/mitigation/adaptation relationship cannot be established from the record, choose EXCLUDE.",bool,0,include - high precision
+"You are screening bibliographic records for inclusion in the DESTINY repository, a database capturing the global literature at the intersection of climate change and health, including climate mitigation and adaptation.
+
+Classify each record as exactly INCLUDE or EXCLUDE.
+
+Base the decision only on the title, abstract, and metadata provided. Do not use outside information.
+
+Core rule
+
+INCLUDE when the record has:
+
+1. A substantive climate-related component, AND
+
+2. At least one substantive health, mitigation, or adaptation component.
+
+A record does not need to have climate change or health as its primary topic.
+
+1. Climate-related component
+
+A record has a climate-related component when it substantively addresses one or more of:
+
+climate change or climate variability;
+weather or climate variables;
+climate-related extreme events;
+fossil fuels or fossil-fuel use;
+greenhouse gases or other climate-forcing agents;
+climate mitigation or adaptation.
+
+Climate-forcing agents include, among others, methane, carbon dioxide, nitrous oxide, and black carbon.
+
+A climate-related factor qualifies when it is a study exposure, outcome, intervention, mechanism, or important analytical variable.
+
+Do not require the words “climate change.”
+
+2. Qualifying second component
+
+At least one of the following must be present.
+
+A. Health
+
+Human health, disease, symptoms, morbidity, mortality, exposure, health risks, occupational health, public health, healthcare systems, health services, or health-system resilience.
+
+B. Mitigation
+
+An intervention, action, technology, practice, policy, or management strategy intended to reduce greenhouse-gas emissions, climate-forcing agents, fossil-fuel use, or climate change.
+
+C. Adaptation
+
+An action, policy, assessment, model, dataset, planning activity, decision-support tool, or research activity that explicitly supports preparation for, response to, resilience against, or reduction of vulnerability to climate change or climate-related hazards.
+
+Adaptation-supporting research may qualify even when it does not implement an adaptation intervention.
+
+How to handle indirect relationships
+
+Distinguish three levels of evidence:
+
+Strong evidence — INCLUDE
+
+The climate-health, mitigation, or adaptation connection is explicitly stated or follows directly from the study design.
+
+Reasonably inferable evidence — INCLUDE
+
+The connection is not explicitly labelled but follows directly from the study's measured outcome or intervention.
+
+Example: an animal dietary intervention evaluates methane emissions. Methane is a climate-forcing agent, and changing methane emissions is directly relevant to mitigation.
+
+Merely possible relevance — EXCLUDE
+
+The record could potentially be useful for climate change, health, or adaptation, but the abstract does not establish that connection.
+
+Example: a generic flood model that does not mention climate change, future scenarios, risk reduction, preparedness, resilience, or adaptation.
+
+Important rules
+The primary topic does not determine eligibility.
+A climate-forcing agent can satisfy the climate component even if the paper is primarily about another topic.
+Measuring a climate-forcing agent alone does not constitute mitigation.
+An intervention that directly changes/reduces a climate-forcing emission can constitute mitigation even when the word “mitigation” is not used.
+A model, dataset, experiment, or observational study can qualify as adaptation-supporting research when the abstract explicitly connects it to future projections, preparedness, resilience, risk reduction, or adaptation planning.
+Do not infer human-health relevance merely because something could theoretically affect human health.
+Animal studies can be included for qualifying climate mitigation/adaptation or human food-security connections; animal health alone is not human health.
+Exclude
+
+Exclude:
+
+normal seasonal variation with no altered pattern, climate variability, climate change, or climate-related hazard;
+subclinical outcomes that do not manifest as clinical symptoms, unless otherwise relevant to a qualifying health exposure or risk;
+animal studies with no qualifying climate mitigation/adaptation, human food-security, or human-health connection;
+incidental mentions of climate change, climate variables, fossil fuels, or climate-forcing agents;
+early-stage technologies/interventions with no plausible real-world mitigation or adaptation application.
+
+Do not exclude research merely because it is observational, experimental, computational, modeling-based, or data-generating. The early-stage exclusion applies primarily to technologies/interventions that are not yet ready for plausible real-world use.
+
+When the record provides strong or reasonably inferable evidence of eligibility, choose INCLUDE. When the connection is merely possible or speculative, choose EXCLUDE.",bool,5,include - best balance
+"You are screening bibliographic records for inclusion in the DESTINY repository, a database capturing the global literature at the intersection of climate change and health, including climate mitigation and adaptation.
+
+Classify each record as INCLUDE or EXCLUDE.
+
+Base the decision only on the title, abstract, and metadata provided.
+
+Important: Do not require climate change or human health to be the primary topic of the record. A record may qualify when a climate-related factor, climate-forcing agent, mitigation action, or adaptation-related activity is an important component of the study.
+
+INCLUDE when BOTH A and B are satisfied.
+A. Climate relevance
+
+The record has a substantive connection to at least one of:
+
+climate change;
+climate variability;
+weather or climate variables;
+climate-related extreme events;
+fossil fuels or fossil-fuel use;
+greenhouse gases or other climate-forcing agents, including methane, CO₂, nitrous oxide, black carbon, etc.;
+actions or interventions intended to mitigate climate change or reduce climate-forcing emissions.
+
+A climate-related term does not need to be accompanied by the words “climate change.”
+
+A climate-forcing agent qualifies even when the paper's main topic is another subject. For example, an animal-nutrition study can qualify if an intervention affects methane emissions.
+
+B. At least one of the following applies
+
+1. Health
+
+The record addresses human health, disease, symptoms, morbidity, mortality, exposure, health risk, occupational health, public health, healthcare systems, health services, or health-system resilience.
+
+2. Climate mitigation
+
+The record evaluates an action, intervention, technology, practice, policy, or management strategy intended to reduce greenhouse-gas emissions, climate-forcing agents, fossil-fuel use, or climate change.
+
+3. Climate adaptation
+
+The record addresses an action, intervention, policy, planning activity, assessment, model, dataset, decision-support tool, or other research that directly supports preparation for, response to, or reduction of vulnerability to climate change or climate-related hazards.
+
+Adaptation-related research does not have to implement the adaptation action itself.
+
+Important: Modeling, experiments, datasets, risk assessments, and other research may qualify as adaptation-supporting research when their stated purpose or demonstrated application is to inform climate adaptation, preparedness, resilience, or management.
+
+Important examples
+A dietary intervention that changes methane emissions from cattle → INCLUDE if the intervention is intended to reduce methane emissions.
+A study associating air pollution with respiratory health → INCLUDE when the pollutants include relevant climate-forcing agents or the study otherwise has a qualifying climate connection.
+A flood or storm-surge model developed to support future projections, risk reduction, or adaptation planning → INCLUDE.
+A study producing hydrodynamic data that directly supports assessment of coastal flood hazards and adaptation → INCLUDE.
+Exclude
+
+Exclude records that:
+
+concern only normal seasonal variation without evidence of altered patterns, climate variability, climate change, or climate-related hazards;
+concern only subclinical outcomes that do not manifest as clinical symptoms, unless they are otherwise directly relevant to a qualifying health exposure or risk;
+concern animals without a qualifying connection to climate mitigation, adaptation, human food security, or human health;
+mention climate change, climate variables, fossil fuels, or climate-forcing agents only incidentally and do not substantively study them;
+concern early-stage technologies or interventions solely at the basic research stage with no plausible real-world mitigation or adaptation application.
+
+Do not exclude modeling, data-generation, experimental, or observational studies merely because they are not themselves implemented interventions. They may qualify when they directly support climate mitigation or adaptation.
+
+When evidence supports a plausible substantive qualifying pathway, prefer INCLUDE.",bool,6,include - high recall
