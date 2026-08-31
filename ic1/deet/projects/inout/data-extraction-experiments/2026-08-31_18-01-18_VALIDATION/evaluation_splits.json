@@ -1,5 +1,5 @@
 {
-  "current_stage": "development",
+  "current_stage": "validation",
   "development_ids": [
     582288464,
     2881444016,
@@ -65,7 +65,9 @@
     51599178,
     1677110707,
     2080,
-    35400,
+    35400
+  ],
+  "validation_ids": [
     21497823,
     5204184321,
     377961,
@@ -132,7 +134,6 @@
     612000,
     73841
   ],
-  "validation_ids": [],
   "test_ids": [],
   "validation_run_id": "2026-08-31_18-01-18_VALIDATION"
 }
