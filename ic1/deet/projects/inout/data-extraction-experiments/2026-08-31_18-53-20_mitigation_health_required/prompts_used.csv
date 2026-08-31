@@ -1,4 +1,4 @@
-prompt,output_data_type,attribute_id,attribute_label
+prompt,output_data_type,attribute_id,attribute_label,concept_id
 "You are screening bibliographic records for inclusion in the DESTINY repository, a database aimed at capturing the global literature at the intersection of climate change and health, including relevant climate mitigation and adaptation literature.
 
 Your task is to classify each bibliographic record as exactly one of:
@@ -141,8 +141,6 @@ The health component is ALSO satisfied when the record substantively addresses a
 - Vector distribution and ecology (mosquitoes, ticks, rodents, sandflies) -> vector-borne disease (malaria, dengue, Lyme, West Nile, etc.);
 - Water quality and quantity (waterborne pathogens, HARMFUL ALGAL BLOOMS / cyanobacteria, drought- or flood-related contamination) -> cholera, cryptosporidiosis, diarrhoeal disease, etc.
 A study of one of these exposures in a climate/weather or fossil-fuel/climate-forcing-agent context satisfies the health component through the indirect pathway. This does NOT override the guard above: a merely hypothetical or unstated health link still does not qualify -- the exposure pathway must be a substantive subject of the record.
-
-HUMAN-FACING REQUIREMENT: An exposure pathway qualifies only when the exposure bears on human beings -- their health, or a resource or condition people depend on -- which MAY BE IMPLICIT. The air everyone breathes is inherently human-facing, so airborne exposures (e.g. particulate matter) qualify on mention. For a resource whose human relevance is NOT universal -- such as a specific body of water -- the record must concern it as a human resource (water people use, drink, or depend on, or waterborne disease), not as an ecological or environmental object studied for its own sake (e.g. river condition assessed via bioindicators).
 
 --------------------------------------------------
 3. QUALIFYING MITIGATION COMPONENT
@@ -385,4 +383,4 @@ INCLUDE
 
 or
 
-EXCLUDE",bool,5,include - best balance
+EXCLUDE",bool,5,include - best balance,
