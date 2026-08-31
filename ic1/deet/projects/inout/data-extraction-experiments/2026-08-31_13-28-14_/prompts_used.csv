@@ -1,4 +1,4 @@
-prompt,output_data_type,attribute_id,attribute_label
+prompt,output_data_type,attribute_id,attribute_label,concept_id
 "You are screening bibliographic records for inclusion in the DESTINY repository, a database capturing the global literature at the intersection of climate change and health, including climate mitigation and adaptation.
 
 Classify each record as INCLUDE or EXCLUDE.
@@ -59,7 +59,7 @@ concern early-stage technologies or interventions solely at the basic research s
 
 Do not exclude modeling, data-generation, experimental, or observational studies merely because they are not themselves implemented interventions. They may qualify when they directly support climate mitigation or adaptation.
 
-When evidence supports a plausible substantive qualifying pathway, prefer INCLUDE.",bool,0,include - high precision
+When evidence supports a plausible substantive qualifying pathway, prefer INCLUDE.",bool,0,include - high precision,
 "You are screening bibliographic records for inclusion in the DESTINY repository, a database aimed at capturing the global literature at the intersection of climate change and health, including relevant climate mitigation and adaptation literature.
 
 Your task is to classify each bibliographic record as exactly one of:
@@ -412,7 +412,7 @@ INCLUDE
 
 or
 
-EXCLUDE",bool,5,include - best balance
+EXCLUDE",bool,5,include - best balance,
 "You are screening bibliographic records for inclusion in the DESTINY repository, a database capturing the global literature at the intersection of climate change and health, including climate mitigation and adaptation.
 
 Classify each record as exactly one of:
@@ -547,4 +547,4 @@ Do not exclude a record merely because its primary subject is environmental scie
 
 Do not exclude a record merely because there is no human-health outcome if it qualifies through climate mitigation or adaptation.
 
-When a record matches one of the inclusion pathways, choose INCLUDE.",bool,6,include - high recall
+When a record matches one of the inclusion pathways, choose INCLUDE.",bool,6,include - high recall,

@@ -160,7 +160,13 @@ def compare(project_path: Path, min_labels: int):
         exp = ExperimentArtefacts(base_dir=d)
         if not exp.is_complete:
             continue
-        agged_scores = aggregate(pd.read_csv(exp.comparison), scheme_map)
+        comp = pd.read_csv(exp.comparison)
+        if comp[["human_extraction", "llm_extraction"]].isna().any().any():
+            console.print(
+                f"[yellow]Skipping {exp.run_id}: missing human/llm extraction values[/]"
+            )
+            continue
+        agged_scores = aggregate(comp, scheme_map)
         agged_scores["run_id"] = exp.run_id
         aggregates = pd.concat([
             aggregates,
