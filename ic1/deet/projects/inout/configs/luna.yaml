@@ -1,5 +1,5 @@
 provider: azure
-model: gpt-5.6-sol
+model: gpt-5.6-luna
 temperature: 1
 max_tokens: null
 max_context_tokens: 32000

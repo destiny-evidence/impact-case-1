@@ -3,7 +3,7 @@ model: DeepSeek-V4-Pro
 temperature: 0
 max_tokens: null
 max_context_tokens: 32000
-max_workers: 8
+max_workers: 33
 default_context_type: abstract_only
 truncate_on_overflow: false
 prompt_config:
