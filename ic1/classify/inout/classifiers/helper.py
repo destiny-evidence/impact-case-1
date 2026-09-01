@@ -53,12 +53,6 @@ class ClassifierHelper:
 
         return model
 
-    def evaluate_thresholds(self, model: 'Classifier', X: list[str], y: list[int]) -> list[dict[str, float]]:
-        """Make predictions with model, and evaluate metrics at every threshold in `self.thresholds`."""
-        logger.info('Testing model...')
-        y_pred = model.predict_proba(X)
-        return [evaluate(y_true=np.array(y), y_pred=y_pred, threshold=th) for th in self.thresholds]
-
     def tune(
         self,
         X_train: list[str],
@@ -117,16 +111,15 @@ class ClassifierHelper:
         scores_self = evaluate(y_true=np.array(y_train), y_pred=y_pred, threshold=threshold)
         logger.debug(f'Self scores: {scores_self}')
 
-        logger.debug('Predicting on tuning test data')
+        logger.debug('Predicting on validation (objective) data')
         y_pred = model.predict_proba(X_test)
-        scores_test = evaluate(y_true=np.array(y_test), y_pred=y_pred, threshold=threshold)
-        logger.debug(f'Test scores: {scores_test}')
+        scores_val = evaluate(y_true=np.array(y_test), y_pred=y_pred, threshold=threshold)
+        logger.debug(f'Validation scores: {scores_val}')
 
         trial.set_user_attr('scores_self', scores_self)
-        trial.set_user_attr('scores_test', scores_test)
         trial.set_user_attr('model_params', model_params_)
 
-        objective = scores_test[scoring]
+        objective = scores_val[scoring]
         return 0 if np.isnan(objective) else objective
 
     def best_from_study(self, study: 'Study', X: list[str], y: list[int]) -> 'Classifier':

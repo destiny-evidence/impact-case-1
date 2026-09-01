@@ -1,0 +1,25 @@
+{
+  "criterion": "filtering",
+  "model": "svm",
+  "params": {
+    "downsampling": 0.10714328646346286,
+    "clf__estimator__kernel": "rbf",
+    "clf__estimator__class_weight": "balanced",
+    "clf__estimator__degree": 3,
+    "clf__estimator__gamma": 0.0025587437065389316,
+    "clf__estimator__C": 25.66401827895602,
+    "clf__estimator__max_iter": 50000,
+    "vect__max_df": 0.5551159446757895,
+    "vect__min_df": 9,
+    "vect__ngram_range": [
+      1,
+      2
+    ]
+  },
+  "threshold": 0.02,
+  "beta": 2.0,
+  "fit_hash": "76f2bf79ff4f8bed",
+  "train_hash": "25a0dfb71ea3fa21",
+  "val_hash": "477a67e256ba60cd",
+  "test_hash": "9eca31fad8625894"
+}
