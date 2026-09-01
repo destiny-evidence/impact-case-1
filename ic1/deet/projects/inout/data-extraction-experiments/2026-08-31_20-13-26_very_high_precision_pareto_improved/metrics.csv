@@ -1,0 +1,6 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+0,include - high precision,0.9538461538461539,2026-08-31_20-13-26_very_high_precision_pareto_improved,accuracy
+0,include - high precision,0.5714285714285714,2026-08-31_20-13-26_very_high_precision_pareto_improved,recall
+0,include - high precision,1.0,2026-08-31_20-13-26_very_high_precision_pareto_improved,precision
+0,include - high precision,0.7272727272727273,2026-08-31_20-13-26_very_high_precision_pareto_improved,f1_score
+0,include - high precision,14.0,2026-08-31_20-13-26_very_high_precision_pareto_improved,n_labels
