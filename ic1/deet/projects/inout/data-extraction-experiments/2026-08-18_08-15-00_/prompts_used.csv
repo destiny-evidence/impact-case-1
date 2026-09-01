@@ -1,0 +1,78 @@
+prompt,output_data_type,attribute_id,attribute_label
+"You are screening bibliographic records for inclusion in the DESTINY repository, a database aimed at capturing the intersection of the global climate change and health literature. 
+
+General notes
+- Base your decision only on the title, abstract, and other metadata provided. 
+- If in doubt whether a record qualifies, lean toward INCLUDE.
+- If the abstract is missing, very short, garbled (e.g. contains stray characters or a full citation string instead of prose), still make your best decision with what is available.
+
+Decision framework: A record should be INCLUDED if ALL two of the following (1 and 2) are true.
+
+1. Climate/weather variables, climate-related extreme events, or fossil fuels, or climate-forcing agents.
+2. Health/health-system relevance, climate-associated health exposure or mitigation/adaptation actions related to climate change, fossil fuels or climate-forcing agents. 
+
+Exclude records that: 
+1. report normal seasonal variation unless described as altered from normal patterns, 
+2. describe subclinical outcomes not manifesting as clinical symptoms, 
+3. describe studies in animals studies that are not related to human food security, 
+4. describe mitigation actions or adaptation actions that are about early-stage technological/experimental/pilot investigations without real-world implementation or deployment (basic research not yet ready for use).
+",bool,0,include - high precision
+"You are screening bibliographic records for inclusion in the DESTINY repository, a database aimed at capturing the intersection of the global climate change and health literature. 
+
+General notes
+- Probably 1 of 10 records you will assess will be relevant. 
+- Base your decision only on the title, abstract, and other metadata provided. 
+- If in doubt whether a record qualifies, lean toward INCLUDE.
+- If the abstract is missing, very short, garbled (e.g. contains stray characters or a full citation string instead of prose), still make your best decision with what is available.
+
+Decision framework: A record should be INCLUDED if ALL two of the following (1 and 2) are true.
+
+1. Climate/weather variables, climate-related extreme events, or fossil fuels, or climate-forcing agents.
+
+2. Health/health-system relevance, climate-associated health exposure or mitigation/adaptation actions related to climate change, fossil fuels or climate-forcing agents. 
+2.1 Health impact of climate change, climate-related extreme events, fossil fuels, or climate-forcing agents. 
+2.2 Mitigation actions (all climate change, fossil fuels, climate-forcing agents mitigation actions are considered health-relevant). 
+2.3 Adaptation actions (all climate change adaptation actions are considered health-relevant).
+
+Exclude records that: 
+1. report normal seasonal variation unless described as altered from normal patterns, 
+2. describe subclinical outcomes not manifesting as clinical symptoms, 
+3. describe studies in animals studies that are not related to human food security, 
+4. describe mitigation actions or adaptation actions that are about early-stage technological/experimental/pilot investigations without real-world implementation or deployment (basic research not yet ready for use).",bool,5,include - best balance
+"You are screening bibliographic records for inclusion in the DESTINY repository, a database aimed at capturing the intersection of the global climate change and health literature. 
+
+General notes
+- Probably 1 of 10 records you will assess will be relevant. 
+- Base your decision only on the title, abstract, and other metadata provided. 
+- If in doubt whether a record qualifies, lean toward INCLUDE.
+- If the abstract is missing, very short, garbled (e.g. contains stray characters or a full citation string instead of prose), still make your best decision with what is available.
+
+Decision framework: A record should be INCLUDED if ALL two of the following (1 and 2) are true.
+
+1. Climate/weather variables, climate-related extreme events, or fossil fuels, or climate-forcing agents.
+
+The record must mention at least one of the following (match on meaning, not just exact wording):
+- Climate change: global warming, climate emergency/crisis, atmospheric/planetary warming, climate disruption/breakdown, rising global temperatures.
+- Weather: atmospheric conditions/state, meteorological conditions, cloud cover, atmospheric pressure, thermal comfort.
+- Climate variability: climate variation/instability/trends/shifts/fluctuations, climatic oscillations/anomalies, El Niño/ENSO, La Niña, North Atlantic Oscillation. (Exclude normal seasonal variation unless described as altered from normal patterns.)
+- Climate-related extreme events: heatwaves/extreme heat, cold spells/extreme cold, floods, droughts, storms, extreme rainfall, landslides, wildfires, extreme sea levels/sea level rise, hurricanes, cyclones, typhoons, ice storms, heavy precipitation, compound events, bushfires. (Link to climate change need not be stated.)
+- Fossil fuels: coal, natural gas, oil, petroleum, crude oil, diesel, kerosene, gasoline/petrol, LNG/CNG, fracking gas.
+- Greenhouse gases: CO₂, methane, nitrous oxide, fluorinated gases (HFCs, PFCs, SF₆, NF₃), GHG/carbon emissions, CO2 equivalents, short-lived climate pollutants.
+- Ozone-related climate-forcing agents: tropospheric ozone, ozone-depleting substances (CFCs, HCFCs, halons), ground-level ozone, VOCs, halogenated gases.
+- Aerosols and particulate matter: PM2.5/PM10, black carbon/soot, sulfate/nitrate aerosols, air pollution/pollutants, fine dust, smoke, haze. (Exclude records related to indoor air pollution that does not stem from fossil fuel combustion.)
+
+2. Health/health-system relevance, climate-associated health exposure or mitigation/adaptation actions related to climate change, fossil fuels or climate-forcing agents. 
+
+2.1 Health impact of climate change, climate-related extreme events, fossil fuels, or climate-forcing agents. 
+- Includes: direct human health outcomes (clinical/public health outcomes), direct/indirect impacts on health systems (hospitals, primary care, care delivery), and indirect human health outcomes (social determinants of health or the exposure pathways, defined next). Exposure pathways, with illustrative health impacts (format: pathway; what it covers; example impacts): 1. Air quality; Ground-level ozone, wildfire particulates, pollen/allergens, household air pollution from fossil-fuel combustion, sand/dust storms, radon ; Asthma/COPD exacerbation, respiratory allergies, cardiovascular disease, bacterial meningitis. 2. Extreme weather events ; Storms, coastal flooding, droughts ; Injuries, fatalities, waterborne disease, mental health effects, disrupted health care delivery. 3. Food supply and safety ; Reduced crop nutritional value, impaired food safety, disrupted food security/distribution ; Undernutrition, salmonella and other foodborne illness, mycotoxin effects, diarrhoea/E. coli. 4. Heat stress ; Increasing frequency/duration of heat waves (and cold spells) ; Heat-related illness/death, cold-related illness. 5. Social factors ; Displacement (internal or cross-border), conflict linked to climate stress on water/food/weather ; Physical and mental health effects of violent conflict, forced migration health risks. 6. Vector distribution and ecology ; Shifting insect/tick/rodent/sandfly vector ranges and life cycles ; Malaria, dengue, chikungunya, Lyme disease, West Nile virus, Zika, Rift Valley fever, encephalitis, hantavirus, leishmaniasis. 7. Water quality and quantity ; Waterborne pathogen growth, harmful algal blooms, drought/flood contamination ; Cholera, typhoid, cryptosporidiosis, norovirus/rotavirus, diarrhoea, hepatitis E, leptospirosis. 8. Ultraviolet/solar radiation ; Increased UV exposure from reduced cloud cover / ozone depletion ; Sunburn, skin cancer, eye damage. 
+- Excludes: subclinical outcomes not manifesting as clinical symptoms (e.g. fasting blood glucose, cholesterol, blood pressure, bone mineral density, glomerular filtration rate, other biomarkers) and animal studies (e.g. air pollution effects in mice) that are not related to human food security.
+
+2.2 Mitigation actions (all climate change, fossil fuels, climate-forcing agents mitigation actions are considered health-relevant). 
+- Includes: any action to reduce fossil fuel/climate-forcing agent use, avoid emissions, or upscale GHG removals; includes malmitigation (e.g. biofuels driving deforestation, ultra-processed plant-based diet shifts, non-native afforestation). 
+- A few examples of included actions (but this is not a comprehensive list): renewable energy, energy transition/efficiency, solar/wind, heat pumps, insulation, reforestation, meat/food-waste reduction, active/public transport, cleaner cooking fuels, climate-related education.
+- Exclude: mitigation actions describing only early-stage technological/experimental/pilot investigation without real-world implementation or deployment (basic research not yet ready for use).
+
+2.3 Adaptation actions (all climate change adaptation actions are considered health-relevant).
+- Includes: human response reducing exposure/vulnerability to actual or expected climate hazards for human health, relevant ecosystems to human health, or health systems. Includes maladaptive actions (e.g. AC for cooling, irrigation in water-scarce regions, pesticide use for vector control). 
+- A few examples of included actions (but this is not a comprehensive list): national adaptation plans, heat-health action plans, urban cooling, flood defense, early warning systems, climate-smart agriculture, nature-based solutions, health-systems resilience, vector surveillance, drought-resistant crops.
+- Exclude: adaptation actions describing only early-stage technological/experimental/pilot investigation without real-world implementation or deployment (basic research not yet ready for use).",bool,6,include - high recall

@@ -16,7 +16,94 @@ from deet.data_models.extraction import ExtractionRunMetadata
 from deet.data_models.project import DeetProject, ExperimentArtefacts
 from deet.extractors.llm_data_extractor import DataExtractionConfig
 from pydantic import BaseModel
-from rich import print
+from rich.console import Console
+from rich.table import Table
+from rich.text import Text
+
+
+console = Console()
+
+
+def df_to_table(
+    df: pd.DataFrame,
+    title: str | None = None,
+    float_format: str = "{:,.2f}",
+    compare_key: str | None = None,
+) -> Table:
+    """Render a (possibly multi-indexed) DataFrame as a rich Table.
+
+    Repeated values in the index columns are shown only on their first row, and a
+    separator line is drawn whenever the outermost index level changes, so nested
+    grouping (e.g. several ``attribute_label`` rows under one ``run_id``) is obvious.
+
+    If ``compare_key`` names an index column, each numeric data cell is shaded
+    green/red when its value is higher/lower than the previous row sharing that key
+    (i.e. the same attribute in the preceding run). Rows must already be ordered so
+    that "previous" means the earlier run.
+    """
+    index_cols = list(df.index.names)
+    n_index = len(index_cols)
+    df = df.reset_index()
+    columns = list(df.columns)
+    table = Table(title=title, header_style="bold cyan")
+
+    for i, col in enumerate(columns):
+        numeric = pd.api.types.is_numeric_dtype(df[col])
+        table.add_column(
+            str(col),
+            justify="right" if numeric else "left",
+            style="bold" if i == 0 else None,
+        )
+
+    # Per-compare_key memory of the last-seen value in each data column.
+    last_by_key: dict[object, dict[str, float]] = {}
+
+    prev = [None] * n_index
+    prev_top = None
+    for _, row in df.iterrows():
+        # Draw a rule when the outermost group changes.
+        if n_index and prev_top is not None and row[columns[0]] != prev_top:
+            table.add_section()
+        prev_top = row[columns[0]] if n_index else None
+
+        key_val = row[compare_key] if compare_key else None
+        seen = last_by_key.setdefault(key_val, {})
+
+        cells = []
+        collapse = True  # blank an index cell only while all ancestors also match
+        for i, col in enumerate(columns):
+            v = row[col]
+            if i < n_index:
+                if collapse and v == prev[i]:
+                    cells.append("")
+                    continue
+                collapse = False
+                prev[i] = v
+                # Reset deeper levels so they re-print under a new parent.
+                for j in range(i + 1, n_index):
+                    prev[j] = None
+                cells.append("-" if pd.isna(v) else str(v))
+                continue
+
+            cells.append(_data_cell(v, col, seen, float_format, bool(compare_key)))
+        table.add_row(*cells)
+
+    return table
+
+
+def _data_cell(v, col, seen, float_format, do_compare):
+    """Format one data cell, shading it vs the previous same-key value."""
+    if pd.isna(v):
+        return "-"
+    text = float_format.format(v) if isinstance(v, float) else str(v)
+    if not (do_compare and isinstance(v, (int, float))):
+        return text
+
+    prev_v = seen.get(col)
+    seen[col] = v
+    if prev_v is None or v == prev_v:
+        return text
+    return Text(text, style="on green" if v > prev_v else "on red")
 
 
 def extract_scalar_values(obj: BaseModel | dict, prefix: str = ""):
@@ -55,17 +142,26 @@ def compare(project_path: Path):
 
         df = pd.concat([df, metrics])
 
-    print(
-        df.groupby(["run_id", "model"])[
-            [
-                "total_input_tokens",
-                "total_output_tokens",
-                "total_pipeline_duration_seconds",
-                "total_cost_usd",
-            ]
-        ].sum()
+    cost = df.groupby(["run_id", "model"])[
+        [
+            "total_input_tokens",
+            "total_output_tokens",
+            "total_pipeline_duration_seconds",
+            "total_cost_usd",
+        ]
+    ].sum()
+    console.print(df_to_table(cost, title="Cost & throughput per run"))
+
+    scores = (
+        df.groupby(["run_id", "model", "attribute_label", "metric_name"])["value"]
+        .mean()
+        .unstack()
     )
-    print(df.groupby(["run_id", "model","metric_name"])["value"].mean().unstack())
+    console.print(
+        df_to_table(
+            scores, title="Metrics per attribute", compare_key="attribute_label"
+        )
+    )
 
     # for (method, metric), group in df.groupby(["method", "metric_name"]):
     #     print(method)
