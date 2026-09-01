@@ -3,10 +3,11 @@ import logging
 from pathlib import Path
 from typing import Annotated
 
+import numpy as np
 import pandas as pd
 import typer
 
-from .utils import load_data, hash_ids, TASK, read_tuning_results, results_to_pd
+from .utils import load_data, hash_ids, TASK, read_tuning_results, results_to_pd, threshold_scores
 from .classifiers import ClassifierHelper
 from ic1.classify.inout.utils.metrics import evaluate, posterior_metric_summaries
 
@@ -32,6 +33,7 @@ def finalise_models(
     n_boot: Annotated[int, typer.Option(help='Bootstrap resamples for test-set CIs')] = 1000,
     tuning_dir: Annotated[Path | None, typer.Option()] = None,
     target_dir: Annotated[Path | None, typer.Option()] = None,
+    threshold_step: Annotated[float, typer.Option()] = 0.01
 ) -> None:
     """Select the ML-only and filtering models on validation, fit each on train+val,
     then evaluate both once on the sealed test set with bootstrap CIs and cost proxy."""
@@ -40,12 +42,19 @@ def finalise_models(
     target_dir = target_dir or TASK.ml_model_path
 
     results = read_tuning_results(tuning_dir)
-    df = results_to_pd(results)
-    val = df[df['scores'] == 'val']
+    grid = np.round(np.arange(0.02, 0.99, threshold_step), 2)
+    rows = []
+    for i, r in enumerate(results):
+        yv, pv = np.asarray(r.val_labels), np.asarray(r.val_probs)
+        for t in grid:
+            m = evaluate(yv, pv, threshold=float(t), beta=beta)
+            rows.append({'result': i, 'model': r.model, 'threshold': float(t),
+                        'Fbeta': m['Fbeta'], 'Recall': m['Recall'], 'prop_included': m['prop_included']})
+    cand = pd.DataFrame(rows)
 
     selections = {
-        'ml_only':   val.sort_values('Fbeta', ascending=False).iloc[0],
-        'filtering': _select_filtering(val, recall_floor),   # min onward_fraction s.t. Recall >= floor
+        'ml_only':   cand.sort_values('Fbeta', ascending=False).iloc[0],
+        'filtering': _select_filtering(cand, recall_floor),
     }
 
     train, val_df, test = load_data(dev=dev_mode)

@@ -74,8 +74,8 @@ def _get_custom_classes():  # type: ignore[no-untyped-def]
             if isinstance(predictions, (tuple, list)):
                 predictions = predictions[0]
             logits = predictions if torch.is_tensor(predictions) else torch.tensor(predictions)
-            # return self.activation(logits).numpy()
-            return logits.numpy()  # FIXME: does this still work? returning unscaled logits should be better for ranking
+            return self.activation(logits).numpy()
+            # return logits.numpy()  # FIXME: does this still work? returning unscaled logits should be better for ranking. Note: No it shouldn't
 
     _custom_classes = (CustomTrainingArguments, CustomTrainer)
     return _custom_classes

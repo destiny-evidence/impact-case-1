@@ -8,7 +8,7 @@ import numpy as np
 import typer
 
 from .configs import MODEL_CONFIGS, ClassifierConfig
-from .utils import load_data, TuningFold, hash_ids, Result, TASK
+from .utils import load_data, TuningFold, TrialRecord, hash_ids, Result, TASK
 from .classifiers import ClassifierHelper
 
 logger = logging.getLogger(__name__)
@@ -70,9 +70,6 @@ def hyperparameter_tuning(
         model = helper.best_from_study(study, X=x_train, y=y_train.tolist())
         fit_time = time.time() - start_time
 
-        # Threshold sweep on the same validation pool -> feeds model+threshold selection.
-        scores_val = helper.evaluate_thresholds(model=model, X=x_val, y=y_val.tolist())
-
         slurm_info = None
         if os.getenv('SLURM_JOB_ID') is not None:
             slurm_info = {
@@ -83,18 +80,21 @@ def hyperparameter_tuning(
                 'job_nodelist': os.getenv('SLURM_JOB_NODELIST'),
             }
 
+        val_probs = model.predict_proba(x_val)
+        trials = [TrialRecord(number=t.number, value=t.value, state=t.state.name) for t in study.trials]
+
         with open(result_file, 'w') as fp:
             fp.write(
                 TuningFold(
                     model=name,
                     params=best_trial.user_attrs['model_params'],
                     scores_self=Result.model_validate(best_trial.user_attrs['scores_self']),
-                    scores_test=Result.model_validate(best_trial.user_attrs['scores_test']),
-                    scores_val=[Result.model_validate(result) for result in scores_val],
+                    val_ids=val['item_id'].tolist(),
+                    val_labels=y_val.tolist(),
+                    val_probs=val_probs.tolist(),
                     train_hash=train_hash,
-                    tune_hash=train_hash,   # search fit on the full train pool
-                    test_hash=val_hash,     # objective scored on validation
                     val_hash=val_hash,
+                    trials=trials,
                     tune_time=tune_time,
                     fit_time=fit_time,
                     slurm_info=slurm_info,

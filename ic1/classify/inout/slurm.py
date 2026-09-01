@@ -21,8 +21,9 @@ def _write_file(
     sbatch_args: dict[str, Any],
     script_args: dict[str, Any],
     venv_path: Path,
+    command: str = 'ic1 classify-inout tune',
 ) -> None:
-    # Write slurm batch file
+    # Write slurm batch file (an array job, one task per model, running `command`)
     # For information on array jobs, see: https://hpcdocs.hpc.arizona.edu/running_jobs/batch_jobs/array_jobs/
 
     sbatch = [f'#SBATCH --{key}={value}' for key, value in sbatch_args.items()]
@@ -82,7 +83,7 @@ echo "array_task_id" $SLURM_ARRAY_TASK_ID " --> job" $job
 echo "model_idx" $model_idx
 echo "model" "${{MODELS[$model_idx]}}"
 
-uv run --extra classify --link-mode=copy ic1 classify-inout tune --models="${{MODELS[$model_idx]}}" {' '.join(script_params)}
+uv run --extra classify --link-mode=copy {command} --models="${{MODELS[$model_idx]}}" {' '.join(script_params)}
 
 echo "Job done."
     """)
@@ -165,6 +166,9 @@ def main(
     run_finalise: Annotated[bool, typer.Option('--finalise/--no-finalise', help='Append a finalise job that runs after the tuning arrays complete')] = True,
     recall_floor: Annotated[float, typer.Option(help='Min validation recall the filtering model must clear (finalise)')] = 0.95,
     beta: Annotated[float, typer.Option(help='Beta for F-beta selection of the ML-only model (finalise)')] = 1.0,
+    run_learning_curve: Annotated[bool, typer.Option('--learning-curve/--no-learning-curve', help='Append learning-curve jobs (per model) after tuning')] = False,
+    lc_n_seeds: Annotated[int, typer.Option(help='Learning-curve subsamples per fraction')] = 3,
+    lc_fractions: Annotated[list[float], typer.Option(help='Learning-curve train fractions (default: 0.1..1.0)')] = None,
 ) -> None:
     logger.info('Preparing slurm script and submitting job!')
 
@@ -258,6 +262,31 @@ def main(
             venv_path=venv_path,
         )
 
+    if run_learning_curve:
+        lc_args = {'dev-mode': dev_mode, 'tuning-dir': result_dir, 'n-seeds': lc_n_seeds, 'fractions': lc_fractions}
+        lc_command = 'python ic1/classify/inout/learning_curve.py'
+        lc_log = {'output': f'{slurm_log}/lc_%A_%a.out', 'error': f'{slurm_log}/lc_%A_%a.err'}
+        if configs_cpu:
+            logger.info('Writing learning-curve CPU slurm file')
+            _write_file(
+                target=Path('classify.lc.cpu.slurm'),
+                models=[config.name for config in configs_cpu],
+                script_args=lc_args,
+                venv_path=venv_path,
+                command=lc_command,
+                sbatch_args=sbatch_args | lc_log | {'cpus-per-task': 12, 'partition': 'standard', 'qos': slurm_cpu_qos},
+            )
+        if configs_gpu:
+            logger.info('Writing learning-curve GPU slurm file')
+            _write_file(
+                target=Path('classify.lc.gpu.slurm'),
+                models=[config.name for config in configs_gpu],
+                script_args=lc_args,
+                venv_path=venv_path,
+                command=lc_command,
+                sbatch_args=sbatch_args | lc_log | {'gres': 'gpu:1', 'partition': 'gpu', 'qos': slurm_gpu_qos, 'cpus-per-task': 5},
+            )
+
     if schedule_jobs:
         logger.info('Scheduling jobs to slurm queue')
         dep_ids: list[str] = []
@@ -269,9 +298,17 @@ def main(
             dep_ids.append(job_id)
             logger.info(f'Submitted {target} as job {job_id}')
 
+        # Both finalise and the learning curve need the tuned params, so they depend on the
+        # tuning arrays (afterany: run once tuning finishes, regardless of per-model failures).
+        dep = ['--dependency=afterany:' + ':'.join(dep_ids)] if dep_ids else []
+
         if run_finalise:
-            # afterany (not afterok): run finalise on whatever tuning results exist, even if a
-            # single model's array task failed -- finalise only reads the JSONs that got written.
-            dep = ['--dependency=afterany:' + ':'.join(dep_ids)] if dep_ids else []
             subprocess.run(['sbatch', *dep, 'classify.finalise.slurm'], check=True)
             logger.info(f'Submitted finalise{" depending on " + ":".join(dep_ids) if dep_ids else ""}')
+
+        if run_learning_curve:
+            for target, configs in [('classify.lc.gpu.slurm', configs_gpu), ('classify.lc.cpu.slurm', configs_cpu)]:
+                if not configs:
+                    continue
+                subprocess.run(['sbatch', *dep, target], check=True)
+                logger.info(f'Submitted {target}{" depending on tuning" if dep_ids else ""}')

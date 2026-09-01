@@ -1,0 +1,23 @@
+{
+  "criterion": "ml_only",
+  "model": "scincl",
+  "params": {
+    "model_name": "malteos/scincl",
+    "output_dir": "data/.cache/models",
+    "optim": "adamw_torch",
+    "save_strategy": "no",
+    "use_class_weights": 1,
+    "learning_rate": 1.0521385271640355e-05,
+    "per_device_train_batch_size": 11,
+    "per_device_eval_batch_size": 11,
+    "num_train_epochs": 6,
+    "weight_decay": 0.03092741959405243,
+    "downsampling": 0.28276437321239634
+  },
+  "threshold": 0.05,
+  "beta": 2.0,
+  "fit_hash": "76f2bf79ff4f8bed",
+  "train_hash": "25a0dfb71ea3fa21",
+  "val_hash": "477a67e256ba60cd",
+  "test_hash": "9eca31fad8625894"
+}
