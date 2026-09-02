@@ -4853,7 +4853,7 @@ ns1:climate-factors-fossil-fuels a skos:ConceptScheme ;
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000095>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000096> ;
     skos:prefLabel "Technology / infrastructure" ;
-    skos:scopeNote "Assign when the study develops, applies, evaluates, or examines any such technology or system as applied to, or addressing, a climate or health problem — including hazard or risk modelling, early-warning, monitoring, prediction, and adaptation or mitigation systems. It need not deploy new physical infrastructure; use of digital or data-based methods for a climate or health problem is sufficient. Do not assign for technologies or analytical methods with no climate- or health-relevant purpose." .
+    skos:scopeNote "Assign when a technology or infrastructure system is itself part of the response or solution studied — developed, deployed, evaluated, or examined (e.g. flood defences, early-warning and monitoring systems, hazard or risk models built as decision or planning tools, adaptation or mitigation technologies, energy systems). It need not deploy new physical infrastructure; a digital or data-based system counts. Do not assign when computation, modelling, or data analysis is used only as a research method to carry out the study's own analysis rather than being a technology or system that is itself studied, nor when the relevant response belongs to another branch (e.g. health-system diagnostics or surveillance, which sit under Institutional)." .
 
 <https://vocab.destiny-evidence.org/methods/DSNY000515> a skos:Concept ;
     skos:altLabel "Descriptive designs",
@@ -5169,7 +5169,7 @@ ns1:climate-zones a skos:ConceptScheme ;
         "Institutional response",
         "Organisational measures",
         "System-level response" ;
-    skos:definition "Actions taken by formal organisations and institutions — including governments, health systems, and international bodies — to build climate resilience and coordinate adaptation or mitigation efforts, spanning health system governance, research and education, emergency management, and international development." ;
+    skos:definition "Responses delivered through formal organisations, institutions, and systems addressing climate or health challenges — including government and health-system governance, public-health and clinical or biomedical measures (surveillance, diagnostics, vaccines, therapeutics, vector control), emergency and disaster management, research, knowledge and education systems, and international development or aid." ;
     skos:inScheme ns1:interventions-responses-solutions ;
     skos:narrower <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000584>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000585>,
@@ -5177,7 +5177,7 @@ ns1:climate-zones a skos:ConceptScheme ;
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000587>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000642> ;
     skos:prefLabel "Institutional" ;
-    skos:scopeNote "Institutional interventions are expected to be expanded with narrower concepts in a future revision. Currently used as a top-level tag for formal organisational and system-level climate responses." .
+    skos:scopeNote "Assign when the response operates through formal organisations, institutions, or systems, or is a health-system, public-health, or clinical/biomedical measure — for example health-system governance, disease surveillance or diagnostics as a public-health function, vaccines, therapeutics, vector control, emergency-management institutions and preparedness programmes, research/knowledge/education systems, or international development and aid. It need not be a formal policy action; an organised public-health, clinical, or institutional response is sufficient. Do not assign for a purely technical, engineering, or computational tool or model, even one supporting hazard assessment, forecasting, or planning — that is a Technology / infrastructure response, not an institutional one — nor when the study describes no institutional, health-system, or organised-response actor." .
 
 <https://vocab.destiny-evidence.org/methods/DSNY000545> a skos:Concept ;
     skos:altLabel "Computational modelling",
@@ -5287,7 +5287,7 @@ ns1:governance-scale a skos:ConceptScheme ;
     skos:altLabel "Research synthesis",
         "Review",
         "Secondary research" ;
-    skos:definition "Research that systematically or narratively aggregates and synthesises findings from multiple primary studies to draw broader conclusions about a topic." ;
+    skos:definition "Research whose own design is a review or synthesis of existing studies or literature rather than the collection of new primary data — spanning systematic reviews and their variants (scoping, rapid, realist, umbrella, living, qualitative, mixed-methods), narrative reviews, meta-analyses, evidence and gap maps, health technology assessments, and clinical or public-health guidelines." ;
     skos:inScheme ns1:methods ;
     skos:narrower <https://vocab.destiny-evidence.org/methods/DSNY000201>,
         <https://vocab.destiny-evidence.org/methods/DSNY000206>,
@@ -5295,7 +5295,8 @@ ns1:governance-scale a skos:ConceptScheme ;
         <https://vocab.destiny-evidence.org/methods/DSNY000208>,
         <https://vocab.destiny-evidence.org/methods/DSNY000555>,
         <https://vocab.destiny-evidence.org/methods/DSNY000637> ;
-    skos:prefLabel "2. Evidence synthesis" .
+    skos:prefLabel "2. Evidence synthesis" ;
+    skos:scopeNote "Assign when the study is itself a review or synthesis of prior work — it aggregates, reviews, maps, or synthesises findings, publications, or evidence from existing studies or literature. This includes narrative and non-systematic reviews, scoping and mapping exercises, bibliometric or publication analyses, meta-analyses, guidelines, and health technology assessments; a formal systematic method is NOT required. Do not assign to a primary study merely because it cites or discusses prior literature — assign only when reviewing or synthesising existing evidence is the study's own design or output." .
 
 <https://vocab.destiny-evidence.org/methods/DSNY000531> a skos:Concept ;
     skos:altLabel "Natural experiment",
