@@ -13,7 +13,6 @@ def _():
 
     df = pd.read_csv(TASKS[TaskName.TAXONOMY].frequencies_path)
     df.head()
-
     return df, mo, pd, plt
 
 
@@ -76,7 +75,6 @@ def _(df, n, pd, plt):
     _counts = pd.DataFrame({"concepts": scheme_totals, f"≥ {n.value} selected": scheme_used})
     _fig, _ax = plt.subplots(figsize=(5,8))
     _counts.plot.barh(title="concepts within each scheme", ax=_ax).figure
-
     return
 
 
@@ -107,13 +105,6 @@ def _(df, n, scheme):
         .sort_index()
     )
     _counts.plot.bar(title=f"{scheme.value}: concepts by parent").figure
-    return (sub,)
-
-
-@app.cell
-def _(sub):
-    sub
-
     return
 
 
