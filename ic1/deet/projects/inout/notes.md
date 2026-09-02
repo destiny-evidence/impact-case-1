@@ -210,3 +210,40 @@ Working the 4 `best balance` false negatives from the rejected 70-doc validation
 - **Chinook salmon** (habitat/productivity, c98f4925) — wild-fishery habitat study, no explicit
   human food-security/consumption link; same label-floor character. Not chased (would need to widen
   the fisheries boundary, risking ecological-fish collateral).
+
+Also fixed this session: **Sendai / DRR science-policy** FN (0e3bc1fb). The LLM granted the
+climate/adaptation component but excluded on the **health** side ("health named only as broad
+benefit"). Added a generic HEALTH-COMPONENT branch — *"a climate mitigation or adaptation action
+whose stated aim includes protecting human lives, health, health systems, or livelihoods; the thing
+protected must be people or health, not property/assets/economic or energy-supply continuity"* —
+to best balance + high precision. Flips Sendai 0→3–5/5 INCLUDE with **zero collateral**: guards held
+EXCLUDE for the property-protection twin (Swiss structural insurance, 966f36ec), oil-trade-network
+resilience (energy security), and pure mitigation-tech twins (solar-carbothermic zinc, wind-farm
+model, Regime Interaction). NB deliberately generic — do **not** name Sendai in the prompt.
+
+### High-precision scope analysis (2026-09-02) — settled, do not re-litigate
+
+Dev run (200 docs, water_scarcity): high precision **TP=7, FP=2, FN=17** → P=0.78, R=0.29. P is
+barely above best balance's 0.75 **because TPs are few, not because FPs are many** (only 2 FP on 9
+predicted-positives — a noisy estimate).
+
+- **The 17 FNs are not recoverable.** HP grants the climate component in every one and drops them
+  on the health side. All are either validity-floor drops (health in **animals/plants** — dietary
+  sulphur 3d63f91c, olive anthracnose 67ee0971) or **health-inferred** cases (water scarcity, floods/
+  surges, black carbon & PM air quality, crop/food, peatland haze, youth-theatre psychosocial). That
+  is precisely what HP's "explicitly stated, not inferable" bar is built to sacrifice. Recovering any
+  would require loosening the health bar, which readmits the rest and collapses HP toward best balance.
+  → **Low recall is by design, not fixable error.**
+- **The 2 FPs resist clean removal.** Both (industrial gas-pipeline accident 05d82313; Georgia resort
+  b4bd891c) also survive in best balance. Fossil-fuel clause reword attempts on the pipeline:
+  - "use" → "combustion": pipeline **survives** (rupture ignition/thermal read as combustion) AND
+    drops the petroleum-industry TP (216356f8, occupational). Net worse.
+  - "use" → "intentional combustion": pipeline **dies (0/5)** but also drops the **air-pollution
+    respiratory TP** (4e7da8ca) — ambient combustion emissions not read as "intentional." −2 TP / +1 FP. Worse.
+  - "use" → "use as fuels": pipeline **survives (4/5)**, TPs kept — ≈ status quo, just noisier.
+  The clause can't separate the pipeline from legitimate combustion-emission TPs. Industrial-accident-
+  vs-occupational-exposure carve-out rejected as indefensible.
+
+**Decision:** leave high precision's fossil-fuel clause as "use"; accept P≈0.78 / R≈0.29. HP is the
+strict anchor working as intended. Its headline P is noise-dominated by 2 entangled FPs; chasing them
+costs more (TPs, collateral) than the cosmetic gain is worth.
