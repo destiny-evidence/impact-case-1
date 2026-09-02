@@ -1,0 +1,69 @@
+prompt,output_data_type,attribute_id,attribute_label,concept_id
+"You are screening bibliographic records for the DESTINY repository, which captures the global
+literature at the intersection of climate change and health, including relevant climate
+mitigation and adaptation literature.
+
+Classify each record as exactly one of: INCLUDE or EXCLUDE.
+
+Decide only from the title, abstract, and metadata provided. Do not use outside information to
+fill gaps. Do not require climate, health, mitigation, or adaptation to be the paper's primary
+topic, or those exact words to appear. Judge each record independently; do not assume a
+prevalence. If the abstract is missing or garbled, do your best with what is present.
+
+CORE RULE — INCLUDE only if BOTH hold:
+
+1. SUBSTANTIVE CLIMATE COMPONENT. The record substantively addresses (measures, models,
+   analyses, uses as exposure/outcome, or intervenes on) at least one of: climate change or
+   variability; a climate/weather variable (temperature, precipitation, humidity, wind, drought,
+   heat, cold); a climate-related extreme event (heatwave, flood, drought, storm, cyclone, storm
+   surge, wildfire); fossil fuels or their use; greenhouse gases or other climate-forcing agents
+   (CO2, methane, N2O, black carbon, and particulate matter — PM/PM2.5/PM10, which is a climate-forcing agent through its black-carbon content); or an action that changes emissions of such agents.
+   A climate term appearing only incidentally in the background does NOT count. Particulate matter (PM, PM2.5, PM10) is a climate-forcing agent and by itself satisfies the climate component. Other air pollution counts only when the pollutant is itself a climate-forcing agent or the record explicitly ties it to climate. A GHG/fossil-fuel substance counts only when studied as a climate, energy,
+   emissions, or air-quality matter — not when present as a drug, an in-vitro toxicant, or an
+   accident hazard. (Population-level health harms of fossil-fuel production/use/exposure DO
+   count — that is the fossil-fuel → health pathway.)
+
+2. A QUALIFYING HUMAN-HEALTH CONNECTION via ONE of these routes:
+
+   (a) HEALTH / EXPOSURE PATHWAY. The climate factor is studied in relation to human health or
+       health systems (disease, morbidity/mortality, injury, respiratory/cardiovascular health,
+       human exposure, occupational/public health, healthcare capacity). This is ALSO satisfied,
+       without a named clinical outcome, when the record substantively addresses a recognised
+       climate-health exposure pathway (CCHE): air quality → respiratory/cardiovascular; extreme
+       weather → injury, death, mental health, care disruption; food supply/security →
+       undernutrition, foodborne disease; heat/cold/UV → heat illness, skin/eye damage; climate-
+       driven displacement, migration, conflict, or the psychosocial impact of climate change and
+       climate-related disasters (distress, trauma, grief/loss, and recovery or coping) → physical
+       and mental health; vector ecology →
+       vector-borne disease; water quality/quantity (incl. harmful algal blooms) → waterborne
+       disease. Human-facing requirement: the exposure must bear on people or a resource they depend on, which MAY BE IMPLICIT. Inherently human-facing exposures qualify on mention, accepting some over-capture: airborne exposures (everyone breathes) and food produced for human consumption (food crops, livestock, dairy, fisheries). Resources that are not inherently human-facing -- water bodies and broader ecosystems -- qualify only when a human connection is signalled: a recognised water-health hazard (harmful algal blooms/cyanobacteria, waterborne pathogens, contamination), water people use or drink, or a human-important ecosystem (pollinators, food-producing or protective systems). Ecological or environmental objects studied for their own sake -- bioindicators of water/river condition, ecosystem monitoring with no human resource or health hazard -- do not qualify.
+
+   (b) HEALTH-RELEVANT MITIGATION. The record studies an action/technology/policy/practice
+       intended to reduce emissions or fossil-fuel use (or remove GHGs) AND that action also
+       connects to one of the health pathways in (a), including the food system. Pure emission-
+       reduction work in energy, industry, chemistry, transport, or emissions law with NO health
+       or food-system dimension does NOT qualify. It must study the mitigation action itself, not
+       upstream/enabling research that merely ""could inform"" a low-carbon technology.
+
+   (c) HEALTH-PROTECTIVE ADAPTATION. The record addresses adaptation, preparedness, resilience,
+       vulnerability reduction, climate-risk management, or evidence generated for those purposes
+       (projections, risk assessments, hazard models, decision-support), AND its purpose is to
+       reduce the exposure/vulnerability of human health, health systems, or ecosystems of
+       importance to humans (e.g. pollinators, protective or food-producing ecosystems) to a
+       climate hazard. Protecting human settlements from flooding/storm surge qualifies.
+       Adaptation/resilience of purely physical, industrial, or economic assets does NOT, unless
+       tied to human health, health systems, or a human-important ecosystem. Biological
+       acclimation of organisms, and generic engineering/drainage with no stated climate-risk
+       purpose, do NOT qualify.
+
+Mitigation or adaptation with no link to any health pathway (or, for adaptation, a human-
+important ecosystem) does NOT satisfy criterion 2.
+
+STRENGTH: include when the connection is explicit or directly inferable from what the study
+measures, models, or changes; exclude when it is merely speculative, hypothetical, or
+incidental. Animal studies qualify only through climate mitigation, adaptation, human food
+security, or human health — animal health alone is not human health. Exclude records reporting
+only normal seasonal variation with no climate-change, climate-variability, mitigation, or
+adaptation angle.
+
+Output only the single word: INCLUDE or EXCLUDE.",bool,5,include - best balance,

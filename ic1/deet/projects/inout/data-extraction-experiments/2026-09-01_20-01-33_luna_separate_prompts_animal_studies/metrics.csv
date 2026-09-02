@@ -1,0 +1,16 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+0,include - high precision,0.9153846153846154,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,accuracy
+0,include - high precision,0.2857142857142857,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,recall
+0,include - high precision,0.8,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,precision
+0,include - high precision,0.42105263157894735,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,f1_score
+0,include - high precision,14.0,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,n_labels
+5,include - best balance,0.9461538461538461,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,accuracy
+5,include - best balance,0.7857142857142857,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,recall
+5,include - best balance,0.7333333333333333,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,precision
+5,include - best balance,0.7586206896551724,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,f1_score
+5,include - best balance,14.0,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,n_labels
+6,include - high recall,0.8307692307692308,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,accuracy
+6,include - high recall,0.9285714285714286,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,recall
+6,include - high recall,0.38235294117647056,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,precision
+6,include - high recall,0.5416666666666666,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,f1_score
+6,include - high recall,14.0,2026-09-01_20-01-33_luna_separate_prompts_animal_studies,n_labels

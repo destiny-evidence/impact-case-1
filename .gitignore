@@ -13,3 +13,4 @@ deet.log
 data/models/**/weights
 data/.cache
 __marimo__
+**/llm_annotations.json

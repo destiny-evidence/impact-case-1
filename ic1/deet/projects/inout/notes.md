@@ -112,3 +112,101 @@ This process surfaced the labelling inconsistencies. Once pareto improvements we
 no longer possible, we developed variations of prompts that would maximise precision
 and recall respectively, recognising that the changes in system boundaries would reduce
 precision when recall was maximised and vice versa. Claude code was used to identify FPs and FNs from deet output, and to suggest changes to prompts that could mitigate these according to the given target.
+
+## Scope specification (current design — supersedes "The four modes" above)
+
+The four-mode design was consolidated to **three scopes** built as one shared **base prompt**
+(`best balance`) plus small, localized **departures**. `max precision` was dropped (it collapsed
+onto the others). All three live in `prompts/prompt_definitions.csv`; each is judged in its **own
+LLM call** with **self-consistency voting**. Bundling all three prompts in one call lets the strict
+`high precision` block anchor the others toward exclusion (measured ~0.5→0.86 recall swing on
+`best balance` depending on prompt order), so scopes must be scored independently:
+`method: llm_per_attribute`, `votes: N` (odd; early-stop majority) in the extraction config.
+
+### Shared core (identical in all three scopes)
+
+INCLUDE only if the record has **both**:
+- a **CLIMATE COMPONENT** — a substantive (measured/modelled/analysed/used, not merely named)
+  climate or weather factor, *or* a mitigation action, *or* an adaptation action. Fossil fuels
+  count across their lifecycle (extraction…use); particulate matter, incl. wildfire/biomass smoke,
+  counts as a climate-forcing agent.
+- a **HEALTH COMPONENT** — a connection to human health/wellbeing (adverse *or* protective),
+  via a direct human-health outcome *or* a recognised climate–health exposure pathway (air quality,
+  extreme weather, food-for-human-consumption, heat, psychosocial, vectors, water-as-hazard/resource).
+
+Shared validity floors (all scopes): the health outcome must be **in people**, not solely an animal
+or in-vitro/cell model; ecological-object studies (e.g. diatom bioindicators) are not a health
+connection.
+
+### The three scopes — exact differences
+
+All share the core above and differ **only** in the INCLUDE instruction (plus, for precision, two
+definition tweaks). The scopes **nest**: high recall ⊇ best balance ⊇ high precision.
+
+- **high recall** = base + (1) a mitigation *or* adaptation action counts on its own, with **no
+  separate health component**; (2) include on any plausible connection, exclude only when none.
+  - SHOULD contain: everything best-balance does, **plus** any mitigation/adaptation action even
+    with no health link (emission-reduction tech, wind farms, DRR/policy).
+  - SHOULD NOT: records with no plausible climate factor at all, or no plausible
+    health/mitigation/adaptation link (pure clinical with no climate; mechanical/ecological studies).
+
+- **best balance** (the base / reference) — requires **both** components; each may be explicit
+  *or directly inferable*; lean include.
+  - SHOULD contain: climate + health at a plausible/inferable level; mitigation/adaptation **only
+    when they carry a health nexus**.
+  - SHOULD NOT: mitigation/adaptation with no health link; pure emissions/energy/engineering;
+    incidental climate mentions.
+
+- **high precision** = base + (1) both components must be **explicitly stated**, not inferable —
+  exclude when implied/uncertain; (2) fossil fuels count only via **"use"** (not
+  extraction/production/refining), so occupational/industrial fossil-fuel cases drop out;
+  (3) exposure pathways require the record to show **people actually exposed/affected**, not mere
+  presence of the factor.
+  - SHOULD contain: only records with an explicit climate factor **and** an explicit human-health
+    outcome/exposure connected to it.
+  - SHOULD NOT: anything inferred — on-mention PM/food/water; mitigation/adaptation without a stated
+    health outcome; hazard/engineering without a stated human effect.
+
+**The single scope-defining override** (`best balance` vs `high recall`): the guidance says "any
+mitigation action is health-relevant," but the annotated corpus **majority-excludes**
+mitigation/adaptation without a health nexus. `high recall` follows the guidance (includes them);
+`best balance` follows the corpus (requires the nexus). That override is the main boundary.
+
+### Maintenance
+
+Edit `best balance` (the base), then re-sync the two departure blocks into `high recall` and
+`high precision`. The shared core stays identical across all three.
+
+### Measured operating points (dev 130, 5-vote per-attribute, 2026-09-01, Luna)
+
+| scope | P | R |
+|---|---|---|
+| high recall | 0.46 | 0.93 |
+| best balance | 0.67 | 0.71 (median draw ~0.76–0.78) |
+| high precision | 0.80 | 0.29 |
+
+`best balance` recall wobbles run-to-run because ~4 records (tides/shoreline flood-adaptation,
+Sendai DRR) sit at ~50% — genuine coin-flips voting cannot pin, matching the human label
+inconsistency. A **70-doc held-out validation degraded and was rejected** (2026-09-01); those docs
+are now available to iterate on. Residual errors at every scope remain the label-floor twins (table
+above); **QGIS-drainage** joins the flood-adaptation twin class (same as tides/shoreline), and
+**radar obstacle-detection** is a genuine over-reach (incidental weather + vehicle-safety read as
+climate + health).
+
+### Validation FN analysis (2026-09-02, best balance)
+
+Working the 4 `best balance` false negatives from the rejected 70-doc validation:
+
+- **Water reserves** (*Future Terrestrial Water Reserves…*, 62822866) — **fixable and fixed.** The
+  "water" pathway wording was too literal (only "water people use or drink"); scarcity/availability
+  is inherently human-facing. Clarifying the pathway to "…contamination, water scarcity/availability,
+  or water people use, drink, or depend on" flips it 0→5/5 INCLUDE (harness, Luna, N=5) with no
+  collateral on guards (metallic-glass, obstetric hold EXCLUDE).
+- **Free-flowing rivers** (*…global biodiversity targets*, 88c97b5e) — **out of scope for best
+  balance and high precision; belongs in high recall only.** Framed as ecological integrity /
+  biodiversity, not human water use — no health nexus in the abstract. The human INCLUDE is a
+  label-floor case; only high recall (mitigation/adaptation without a health link) should capture it.
+  Unmoved by the water-scarcity change (0/5), correctly.
+- **Chinook salmon** (habitat/productivity, c98f4925) — wild-fishery habitat study, no explicit
+  human food-security/consumption link; same label-floor character. Not chased (would need to widen
+  the fisheries boundary, risking ecological-fish collateral).

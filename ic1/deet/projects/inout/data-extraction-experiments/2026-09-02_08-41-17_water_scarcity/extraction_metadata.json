@@ -1,0 +1,1432 @@
+{
+  "model": "gpt-5.6-luna",
+  "total_input_tokens": 3153397,
+  "total_output_tokens": 326390,
+  "total_cost_usd": 1.022349,
+  "per_document": {
+    "60023523": {
+      "input_tokens": 16143,
+      "output_tokens": 1322,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 31.348
+    },
+    "5471": {
+      "input_tokens": 15873,
+      "output_tokens": 1258,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.389
+    },
+    "2727236785": {
+      "input_tokens": 20247,
+      "output_tokens": 1614,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.67
+    },
+    "21497823": {
+      "input_tokens": 14163,
+      "output_tokens": 1457,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.267
+    },
+    "815689216": {
+      "input_tokens": 16251,
+      "output_tokens": 1355,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 36.169999999999995
+    },
+    "558553": {
+      "input_tokens": 13830,
+      "output_tokens": 1481,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 36.144999999999996
+    },
+    "4590682663": {
+      "input_tokens": 14019,
+      "output_tokens": 1255,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.535
+    },
+    "6365261": {
+      "input_tokens": 13929,
+      "output_tokens": 1885,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.99
+    },
+    "44493873": {
+      "input_tokens": 15882,
+      "output_tokens": 1054,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 29.705000000000002
+    },
+    "104858254": {
+      "input_tokens": 15540,
+      "output_tokens": 1625,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.484
+    },
+    "49301243": {
+      "input_tokens": 15900,
+      "output_tokens": 1415,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.418
+    },
+    "1638874512": {
+      "input_tokens": 33135,
+      "output_tokens": 2127,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 42.414
+    },
+    "3304735613": {
+      "input_tokens": 13659,
+      "output_tokens": 1434,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.544000000000004
+    },
+    "5737": {
+      "input_tokens": 16800,
+      "output_tokens": 1614,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.856
+    },
+    "51599178": {
+      "input_tokens": 15449,
+      "output_tokens": 2501,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 49.147
+    },
+    "72128": {
+      "input_tokens": 14154,
+      "output_tokens": 1187,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 29.696
+    },
+    "35400": {
+      "input_tokens": 16674,
+      "output_tokens": 1365,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.686
+    },
+    "4658342": {
+      "input_tokens": 15252,
+      "output_tokens": 1290,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 29.901
+    },
+    "4594989": {
+      "input_tokens": 16683,
+      "output_tokens": 1658,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.375
+    },
+    "4731717": {
+      "input_tokens": 14874,
+      "output_tokens": 1552,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.346000000000004
+    },
+    "34172": {
+      "input_tokens": 14091,
+      "output_tokens": 1208,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 31.360000000000007
+    },
+    "51819537": {
+      "input_tokens": 17805,
+      "output_tokens": 3268,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 63.016000000000005
+    },
+    "3745": {
+      "input_tokens": 14586,
+      "output_tokens": 1463,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 30.696
+    },
+    "228059": {
+      "input_tokens": 21210,
+      "output_tokens": 4269,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 80.052
+    },
+    "257505781": {
+      "input_tokens": 16098,
+      "output_tokens": 1700,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.228
+    },
+    "7338834": {
+      "input_tokens": 19063,
+      "output_tokens": 3711,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 64.88
+    },
+    "288888583": {
+      "input_tokens": 15279,
+      "output_tokens": 1470,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 44.789
+    },
+    "6689": {
+      "input_tokens": 13911,
+      "output_tokens": 1429,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.147
+    },
+    "212484": {
+      "input_tokens": 15958,
+      "output_tokens": 2487,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 53.675000000000004
+    },
+    "917063435": {
+      "input_tokens": 14343,
+      "output_tokens": 1618,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.827999999999996
+    },
+    "1947028944": {
+      "input_tokens": 13380,
+      "output_tokens": 1401,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.048
+    },
+    "278684268": {
+      "input_tokens": 14820,
+      "output_tokens": 1497,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 36.551
+    },
+    "3081124973": {
+      "input_tokens": 15045,
+      "output_tokens": 1171,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 28.487000000000002
+    },
+    "3166273": {
+      "input_tokens": 14136,
+      "output_tokens": 1499,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.607
+    },
+    "1680444": {
+      "input_tokens": 14208,
+      "output_tokens": 1438,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.978
+    },
+    "6476": {
+      "input_tokens": 16791,
+      "output_tokens": 1571,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.342999999999996
+    },
+    "67520021": {
+      "input_tokens": 15099,
+      "output_tokens": 1459,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.974999999999994
+    },
+    "6462": {
+      "input_tokens": 14768,
+      "output_tokens": 2641,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 52.271
+    },
+    "55028098": {
+      "input_tokens": 21570,
+      "output_tokens": 1471,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.954
+    },
+    "60092": {
+      "input_tokens": 14577,
+      "output_tokens": 1250,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 28.079
+    },
+    "1412": {
+      "input_tokens": 15774,
+      "output_tokens": 1163,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 31.737
+    },
+    "32196041": {
+      "input_tokens": 15522,
+      "output_tokens": 1541,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.36
+    },
+    "6994644": {
+      "input_tokens": 15891,
+      "output_tokens": 1893,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 42.486000000000004
+    },
+    "32922": {
+      "input_tokens": 14280,
+      "output_tokens": 1852,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 37.634
+    },
+    "4730636120": {
+      "input_tokens": 14316,
+      "output_tokens": 1252,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 30.868000000000002
+    },
+    "9808623": {
+      "input_tokens": 15603,
+      "output_tokens": 1587,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.535999999999994
+    },
+    "596984": {
+      "input_tokens": 14640,
+      "output_tokens": 1635,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.358
+    },
+    "68335678": {
+      "input_tokens": 14352,
+      "output_tokens": 1396,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.49
+    },
+    "5133340359": {
+      "input_tokens": 13596,
+      "output_tokens": 1307,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.182
+    },
+    "75313": {
+      "input_tokens": 13830,
+      "output_tokens": 1271,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 30.734000000000005
+    },
+    "3634593": {
+      "input_tokens": 17758,
+      "output_tokens": 2694,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 54.059000000000005
+    },
+    "42217886": {
+      "input_tokens": 14424,
+      "output_tokens": 1261,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 28.909000000000002
+    },
+    "7749270": {
+      "input_tokens": 14388,
+      "output_tokens": 1412,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.138000000000005
+    },
+    "7418": {
+      "input_tokens": 16197,
+      "output_tokens": 1624,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 51.392999999999994
+    },
+    "106849": {
+      "input_tokens": 18843,
+      "output_tokens": 2003,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.909000000000006
+    },
+    "64427": {
+      "input_tokens": 15144,
+      "output_tokens": 1432,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.302
+    },
+    "67548": {
+      "input_tokens": 14496,
+      "output_tokens": 1442,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.668
+    },
+    "22339": {
+      "input_tokens": 15199,
+      "output_tokens": 2515,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 51.81900000000001
+    },
+    "48035405": {
+      "input_tokens": 15981,
+      "output_tokens": 1642,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 36.862
+    },
+    "84065": {
+      "input_tokens": 14829,
+      "output_tokens": 1726,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.672999999999995
+    },
+    "647745619": {
+      "input_tokens": 15351,
+      "output_tokens": 1719,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.749
+    },
+    "5417026": {
+      "input_tokens": 13776,
+      "output_tokens": 1174,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 31.834
+    },
+    "4136132": {
+      "input_tokens": 18726,
+      "output_tokens": 2562,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 49.721
+    },
+    "2445983747": {
+      "input_tokens": 13947,
+      "output_tokens": 1408,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.181999999999995
+    },
+    "30801": {
+      "input_tokens": 17640,
+      "output_tokens": 2624,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 60.74199999999999
+    },
+    "79999452": {
+      "input_tokens": 15738,
+      "output_tokens": 1125,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.941
+    },
+    "612000": {
+      "input_tokens": 16404,
+      "output_tokens": 1196,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.646
+    },
+    "92690831": {
+      "input_tokens": 12507,
+      "output_tokens": 1164,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.119
+    },
+    "7933919": {
+      "input_tokens": 14253,
+      "output_tokens": 2060,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 49.128
+    },
+    "2986": {
+      "input_tokens": 13479,
+      "output_tokens": 970,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.346
+    },
+    "93858": {
+      "input_tokens": 17148,
+      "output_tokens": 2946,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 65.101
+    },
+    "1693943": {
+      "input_tokens": 12624,
+      "output_tokens": 1112,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 47.273999999999994
+    },
+    "78958": {
+      "input_tokens": 16278,
+      "output_tokens": 1340,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.11
+    },
+    "352501": {
+      "input_tokens": 16188,
+      "output_tokens": 1241,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.139
+    },
+    "802401": {
+      "input_tokens": 24846,
+      "output_tokens": 1827,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 46.483000000000004
+    },
+    "852650": {
+      "input_tokens": 16116,
+      "output_tokens": 1849,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 41.279
+    },
+    "2193612884": {
+      "input_tokens": 15117,
+      "output_tokens": 1644,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.24
+    },
+    "24113701": {
+      "input_tokens": 17538,
+      "output_tokens": 1580,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 40.615
+    },
+    "58922843": {
+      "input_tokens": 36861,
+      "output_tokens": 1399,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 36.654
+    },
+    "765198": {
+      "input_tokens": 15270,
+      "output_tokens": 1529,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 43.311
+    },
+    "997047": {
+      "input_tokens": 14766,
+      "output_tokens": 1287,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.217000000000006
+    },
+    "30610": {
+      "input_tokens": 13317,
+      "output_tokens": 1224,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.844
+    },
+    "1516253": {
+      "input_tokens": 15090,
+      "output_tokens": 1725,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 58.669
+    },
+    "836386": {
+      "input_tokens": 14397,
+      "output_tokens": 1907,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 52.794999999999995
+    },
+    "16492": {
+      "input_tokens": 14712,
+      "output_tokens": 1246,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.822
+    },
+    "1144090637": {
+      "input_tokens": 16404,
+      "output_tokens": 2063,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 45.645
+    },
+    "398109773": {
+      "input_tokens": 14550,
+      "output_tokens": 1438,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.931
+    },
+    "2251477": {
+      "input_tokens": 16699,
+      "output_tokens": 2412,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 51.233000000000004
+    },
+    "3186494320": {
+      "input_tokens": 15216,
+      "output_tokens": 1466,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 36.678000000000004
+    },
+    "115451007": {
+      "input_tokens": 18186,
+      "output_tokens": 1555,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 37.747
+    },
+    "19235": {
+      "input_tokens": 14901,
+      "output_tokens": 1328,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.236000000000004
+    },
+    "83008": {
+      "input_tokens": 14541,
+      "output_tokens": 1343,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 37.775
+    },
+    "53144": {
+      "input_tokens": 15342,
+      "output_tokens": 1233,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.404
+    },
+    "5204184321": {
+      "input_tokens": 32649,
+      "output_tokens": 1337,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.504999999999995
+    },
+    "2080": {
+      "input_tokens": 15846,
+      "output_tokens": 1279,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.381
+    },
+    "33511484": {
+      "input_tokens": 15432,
+      "output_tokens": 2066,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 45.949
+    },
+    "379644011": {
+      "input_tokens": 15738,
+      "output_tokens": 1656,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 43.829
+    },
+    "4255": {
+      "input_tokens": 14064,
+      "output_tokens": 1596,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 43.496
+    },
+    "4082571503": {
+      "input_tokens": 16053,
+      "output_tokens": 1203,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.886
+    },
+    "382503560": {
+      "input_tokens": 18286,
+      "output_tokens": 2605,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 58.50099999999999
+    },
+    "576361": {
+      "input_tokens": 17464,
+      "output_tokens": 2356,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 51.526
+    },
+    "61638": {
+      "input_tokens": 16206,
+      "output_tokens": 1256,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.52
+    },
+    "4982": {
+      "input_tokens": 17511,
+      "output_tokens": 1845,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.814
+    },
+    "1336477806": {
+      "input_tokens": 14136,
+      "output_tokens": 1255,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 36.602
+    },
+    "38182": {
+      "input_tokens": 14055,
+      "output_tokens": 1298,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 37.297000000000004
+    },
+    "74529645": {
+      "input_tokens": 16980,
+      "output_tokens": 1682,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 42.06999999999999
+    },
+    "5163486702": {
+      "input_tokens": 13929,
+      "output_tokens": 1397,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.108999999999995
+    },
+    "8463": {
+      "input_tokens": 16404,
+      "output_tokens": 1272,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 31.988999999999997
+    },
+    "4386165423": {
+      "input_tokens": 14829,
+      "output_tokens": 1544,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 41.084
+    },
+    "47342667": {
+      "input_tokens": 14325,
+      "output_tokens": 1528,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.599000000000004
+    },
+    "288058697": {
+      "input_tokens": 13245,
+      "output_tokens": 1282,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.150000000000006
+    },
+    "3322946278": {
+      "input_tokens": 14136,
+      "output_tokens": 1172,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.557
+    },
+    "1735207144": {
+      "input_tokens": 17638,
+      "output_tokens": 2390,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 55.583000000000006
+    },
+    "72336610": {
+      "input_tokens": 20796,
+      "output_tokens": 2483,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 55.538000000000004
+    },
+    "1508": {
+      "input_tokens": 13857,
+      "output_tokens": 1414,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.588
+    },
+    "597949": {
+      "input_tokens": 14145,
+      "output_tokens": 1414,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.191
+    },
+    "5220687338": {
+      "input_tokens": 14226,
+      "output_tokens": 1221,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 30.611
+    },
+    "2881444016": {
+      "input_tokens": 13632,
+      "output_tokens": 1275,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 36.467999999999996
+    },
+    "1677110707": {
+      "input_tokens": 14235,
+      "output_tokens": 1688,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 43.114999999999995
+    },
+    "3324": {
+      "input_tokens": 14136,
+      "output_tokens": 2276,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 50.501999999999995
+    },
+    "149753415": {
+      "input_tokens": 14856,
+      "output_tokens": 1578,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.358999999999995
+    },
+    "9587": {
+      "input_tokens": 16089,
+      "output_tokens": 1007,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 31.74
+    },
+    "85722109": {
+      "input_tokens": 13641,
+      "output_tokens": 1383,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 37.795
+    },
+    "23358": {
+      "input_tokens": 15238,
+      "output_tokens": 2187,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 53.014
+    },
+    "19966": {
+      "input_tokens": 13254,
+      "output_tokens": 2097,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 46.93600000000001
+    },
+    "30983921": {
+      "input_tokens": 15648,
+      "output_tokens": 1258,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.355999999999995
+    },
+    "704433831": {
+      "input_tokens": 12417,
+      "output_tokens": 1940,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 48.806
+    },
+    "2244677359": {
+      "input_tokens": 19239,
+      "output_tokens": 1435,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.812000000000005
+    },
+    "178692345": {
+      "input_tokens": 15063,
+      "output_tokens": 1824,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 42.66100000000001
+    },
+    "24718": {
+      "input_tokens": 15810,
+      "output_tokens": 1476,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 37.238
+    },
+    "2347708": {
+      "input_tokens": 14442,
+      "output_tokens": 1231,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.388000000000005
+    },
+    "347011": {
+      "input_tokens": 15297,
+      "output_tokens": 2194,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 49.331
+    },
+    "31154": {
+      "input_tokens": 14874,
+      "output_tokens": 1528,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 43.305
+    },
+    "65355": {
+      "input_tokens": 15828,
+      "output_tokens": 1419,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 37.331
+    },
+    "42411020": {
+      "input_tokens": 15693,
+      "output_tokens": 1483,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.146
+    },
+    "3522": {
+      "input_tokens": 15063,
+      "output_tokens": 1196,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.937
+    },
+    "566051": {
+      "input_tokens": 18421,
+      "output_tokens": 2289,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 53.46999999999999
+    },
+    "17846": {
+      "input_tokens": 16503,
+      "output_tokens": 1215,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 37.513000000000005
+    },
+    "889575517": {
+      "input_tokens": 13965,
+      "output_tokens": 1618,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.567
+    },
+    "521359478": {
+      "input_tokens": 15684,
+      "output_tokens": 1554,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.851
+    },
+    "7036": {
+      "input_tokens": 14496,
+      "output_tokens": 2077,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 51.902
+    },
+    "926700823": {
+      "input_tokens": 15648,
+      "output_tokens": 1599,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 41.87200000000001
+    },
+    "4530077023": {
+      "input_tokens": 14784,
+      "output_tokens": 1643,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 40.386
+    },
+    "1469": {
+      "input_tokens": 14766,
+      "output_tokens": 1765,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 42.193000000000005
+    },
+    "35705": {
+      "input_tokens": 13074,
+      "output_tokens": 1542,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.846999999999994
+    },
+    "73841": {
+      "input_tokens": 14685,
+      "output_tokens": 1468,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.596999999999994
+    },
+    "63776": {
+      "input_tokens": 18353,
+      "output_tokens": 2868,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 60.94199999999999
+    },
+    "7628840": {
+      "input_tokens": 14784,
+      "output_tokens": 1410,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.807
+    },
+    "26613": {
+      "input_tokens": 16629,
+      "output_tokens": 1423,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 41.524
+    },
+    "712110": {
+      "input_tokens": 16827,
+      "output_tokens": 1445,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 43.638
+    },
+    "2636": {
+      "input_tokens": 13866,
+      "output_tokens": 1766,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 46.686
+    },
+    "9492": {
+      "input_tokens": 14424,
+      "output_tokens": 2032,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 45.80100000000001
+    },
+    "2929": {
+      "input_tokens": 13974,
+      "output_tokens": 1148,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.499
+    },
+    "5779183": {
+      "input_tokens": 13056,
+      "output_tokens": 1998,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 46.016999999999996
+    },
+    "554363356": {
+      "input_tokens": 14199,
+      "output_tokens": 1156,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.977
+    },
+    "184493": {
+      "input_tokens": 13947,
+      "output_tokens": 1291,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 40.012
+    },
+    "71169918": {
+      "input_tokens": 12822,
+      "output_tokens": 1382,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 37.124
+    },
+    "3390026142": {
+      "input_tokens": 12741,
+      "output_tokens": 1418,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 51.733000000000004
+    },
+    "1726091": {
+      "input_tokens": 13695,
+      "output_tokens": 1261,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.717
+    },
+    "3627": {
+      "input_tokens": 13632,
+      "output_tokens": 1444,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.881
+    },
+    "5004377118": {
+      "input_tokens": 14703,
+      "output_tokens": 1637,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 40.53300000000001
+    },
+    "5996": {
+      "input_tokens": 14001,
+      "output_tokens": 1460,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.919
+    },
+    "83407": {
+      "input_tokens": 14433,
+      "output_tokens": 1444,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.050999999999995
+    },
+    "86824372": {
+      "input_tokens": 14082,
+      "output_tokens": 1291,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 36.177
+    },
+    "893154889": {
+      "input_tokens": 14055,
+      "output_tokens": 1173,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.293
+    },
+    "884154561": {
+      "input_tokens": 15108,
+      "output_tokens": 1551,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 39.07
+    },
+    "24714391": {
+      "input_tokens": 14370,
+      "output_tokens": 1374,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 37.022
+    },
+    "1669761": {
+      "input_tokens": 15081,
+      "output_tokens": 1578,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 40.248
+    },
+    "754826": {
+      "input_tokens": 15918,
+      "output_tokens": 1989,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 46.852
+    },
+    "8876": {
+      "input_tokens": 13425,
+      "output_tokens": 2425,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 48.486000000000004
+    },
+    "63408": {
+      "input_tokens": 14199,
+      "output_tokens": 1659,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.607
+    },
+    "2837763439": {
+      "input_tokens": 14946,
+      "output_tokens": 1487,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 38.741
+    },
+    "3477260206": {
+      "input_tokens": 16170,
+      "output_tokens": 1320,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.595000000000006
+    },
+    "448392700": {
+      "input_tokens": 19815,
+      "output_tokens": 1109,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.61
+    },
+    "1015": {
+      "input_tokens": 14658,
+      "output_tokens": 1746,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 47.97500000000001
+    },
+    "5966": {
+      "input_tokens": 15792,
+      "output_tokens": 2035,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 45.351
+    },
+    "6025236": {
+      "input_tokens": 14604,
+      "output_tokens": 1867,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 46.989
+    },
+    "1447017": {
+      "input_tokens": 17160,
+      "output_tokens": 1337,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.363
+    },
+    "323408018": {
+      "input_tokens": 15081,
+      "output_tokens": 2036,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 45.92099999999999
+    },
+    "4376": {
+      "input_tokens": 14163,
+      "output_tokens": 1462,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 47.992999999999995
+    },
+    "184770": {
+      "input_tokens": 15225,
+      "output_tokens": 2549,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 50.07900000000001
+    },
+    "85383": {
+      "input_tokens": 20398,
+      "output_tokens": 3130,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 54.852
+    },
+    "7064": {
+      "input_tokens": 14244,
+      "output_tokens": 1085,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 29.677
+    },
+    "582288464": {
+      "input_tokens": 14073,
+      "output_tokens": 1242,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.974000000000004
+    },
+    "590446040": {
+      "input_tokens": 13209,
+      "output_tokens": 940,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 30.058999999999997
+    },
+    "4686393638": {
+      "input_tokens": 12984,
+      "output_tokens": 1344,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.42
+    },
+    "11097330": {
+      "input_tokens": 15225,
+      "output_tokens": 1147,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 30.103000000000005
+    },
+    "29838": {
+      "input_tokens": 15000,
+      "output_tokens": 1526,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.934999999999995
+    },
+    "3082115": {
+      "input_tokens": 15378,
+      "output_tokens": 1690,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 35.466
+    },
+    "353556": {
+      "input_tokens": 15378,
+      "output_tokens": 1281,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 30.737000000000005
+    },
+    "177028685": {
+      "input_tokens": 13110,
+      "output_tokens": 1220,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 29.462000000000003
+    },
+    "64674": {
+      "input_tokens": 14145,
+      "output_tokens": 1239,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 29.574999999999996
+    },
+    "1378": {
+      "input_tokens": 14370,
+      "output_tokens": 1796,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 34.689
+    },
+    "1357640889": {
+      "input_tokens": 53148,
+      "output_tokens": 3129,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 60.406
+    },
+    "4047410": {
+      "input_tokens": 13398,
+      "output_tokens": 1461,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 30.532000000000004
+    },
+    "377961": {
+      "input_tokens": 15810,
+      "output_tokens": 1224,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 28.052999999999997
+    },
+    "927648283": {
+      "input_tokens": 12417,
+      "output_tokens": 1253,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 29.376000000000005
+    },
+    "506594": {
+      "input_tokens": 15788,
+      "output_tokens": 2224,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 45.18
+    },
+    "479148158": {
+      "input_tokens": 14253,
+      "output_tokens": 1679,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 32.996
+    },
+    "7457330": {
+      "input_tokens": 14514,
+      "output_tokens": 1599,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 33.938
+    }
+  },
+  "total_pipeline_duration_seconds": 174.177,
+  "stage_durations_seconds": {
+    "annotation_conversion": 0.545,
+    "prompt_population": 0.001,
+    "document_preparation": 0.0,
+    "llm_extraction": 173.613,
+    "artifact_export": 0.003
+  },
+  "notes": {
+    "total_pipeline_duration_seconds": "Wall-clock time for the extraction run, from loading project data through export of experiment snapshots. Includes time spent answering the interactive config wizard when no config file is provided.",
+    "stage_durations_seconds": {
+      "annotation_conversion": "Load and normalise the gold-standard import into documents and attributes.",
+      "prompt_population": "Attach custom prompts from the project prompt CSV. Zero if skipped.",
+      "document_preparation": "Load linked documents from cache or parse/read PDF and markdown sources. See per_document.parsing_seconds.",
+      "llm_extraction": "LLM extraction for each document. See per_document.llm_call_seconds.",
+      "artifact_export": "Write prompts snapshot, config snapshot, and this metadata file."
+    },
+    "per_document": {
+      "parsing_seconds": "Parse/read time during document preparation; null when parsing_skipped is true.",
+      "parsing_skipped": "True when full text came from cache and was not parsed this run.",
+      "llm_call_seconds": "Wall-clock time for the LLM request, including local prompt setup."
+    }
+  },
+  "timestamp": "2026-09-02T08:44:11.059552Z"
+}

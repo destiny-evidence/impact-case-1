@@ -1,0 +1,6 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+5,include - best balance,0.9615384615384616,2026-09-01_12-36-00_luna_shortened,accuracy
+5,include - best balance,0.6428571428571429,2026-09-01_12-36-00_luna_shortened,recall
+5,include - best balance,1.0,2026-09-01_12-36-00_luna_shortened,precision
+5,include - best balance,0.782608695652174,2026-09-01_12-36-00_luna_shortened,f1_score
+5,include - best balance,14.0,2026-09-01_12-36-00_luna_shortened,n_labels
