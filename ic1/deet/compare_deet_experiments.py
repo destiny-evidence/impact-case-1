@@ -166,7 +166,10 @@ def compare(project_path: Path, min_labels: int, all_attributes=True):
                 f"[yellow]Skipping {exp.run_id}: missing human/llm extraction values[/]"
             )
             continue
-        agged_scores = aggregate(comp, scheme_map)
+        # Keep only scoreable concepts (>= min_labels gold positives)
+        gold_counts = comp.groupby("attribute_label")["human_extraction"].sum()
+        keep = gold_counts[gold_counts >= min_labels].index
+        agged_scores = aggregate(comp[comp["attribute_label"].isin(keep)], scheme_map)
         agged_scores["run_id"] = exp.run_id
         aggregates = pd.concat([
             aggregates,

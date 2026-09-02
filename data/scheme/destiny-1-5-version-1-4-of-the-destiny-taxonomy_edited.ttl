@@ -4847,12 +4847,13 @@ ns1:climate-factors-fossil-fuels a skos:ConceptScheme ;
         "Infrastructure solutions",
         "Technical measures",
         "Technological responses" ;
-    skos:definition "Physical systems, equipment, and built infrastructure deployed or designed to address environmental, social, or economic challenges, including systems designed to reduce emissions, improve resilience, or support service delivery." ;
+    skos:definition "Physical, digital or data-based, and energy or emitting technologies and infrastructure used to address climate or health challenges, spanning built infrastructure and equipment, computational and data systems (modelling, remote sensing, machine learning, sensors, information systems), and energy or fossil-fuel-based technologies." ;
     skos:inScheme ns1:interventions-responses-solutions ;
     skos:narrower <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000094>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000095>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000096> ;
-    skos:prefLabel "Technology / infrastructure" .
+    skos:prefLabel "Technology / infrastructure" ;
+    skos:scopeNote "Assign when the study develops, applies, evaluates, or examines any such technology or system as applied to, or addressing, a climate or health problem — including hazard or risk modelling, early-warning, monitoring, prediction, and adaptation or mitigation systems. It need not deploy new physical infrastructure; use of digital or data-based methods for a climate or health problem is sufficient. Do not assign for technologies or analytical methods with no climate- or health-relevant purpose." .
 
 <https://vocab.destiny-evidence.org/methods/DSNY000515> a skos:Concept ;
     skos:altLabel "Descriptive designs",
