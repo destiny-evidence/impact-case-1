@@ -3304,7 +3304,7 @@ Nicotine dependence is a chronic, relapsing condition characterized by compulsiv
         "Remote sensing",
         "Vector surveillance" ;
     skos:broader <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000095> ;
-    skos:definition "Digital tools and data infrastructure supporting climate-health surveillance and response, including remote sensing, climate-health surveillance platforms, vector surveillance systems, and early warning and forecasting systems for climate-sensitive health risks." ;
+    skos:definition "Digital tools, data infrastructure, and computational or data-based methods used to monitor, model, predict, or respond to climate, environmental, or health hazards, including remote sensing, geospatial and elevation data, machine learning, computational modelling and forecasting, IoT/sensor systems, and climate-health surveillance platforms." ;
     skos:inScheme ns1:interventions-responses-solutions ;
     skos:prefLabel "Digital / data-based technology / infrastructure" ;
     skos:scopeNote "This concept is applicable if the record describes the development of the tool, system or dashboard. The deployment and usage of the system, including effectiveness studies, should primarily be classified under \"Institutional\" > \"Emergency and disaster management\" or \"Diagnostics and surveillance tools\" or \"Other public health response\" or \"Vector control\"." .
@@ -4658,7 +4658,8 @@ ns1:populationAgeAnnotation a owl:Class ;
     skos:definition "Actions and strategies aimed at reducing or preventing greenhouse gas emissions in order to limit the magnitude of future climate change and its associated health and environmental impacts." ;
     skos:inScheme ns1:topic ;
     skos:narrower <https://vocab.destiny-evidence.org/topic/DSNY000491> ;
-    skos:prefLabel "Mitigation" .
+    skos:prefLabel "Mitigation" ;
+    skos:scopeNote "Assign when the study concerns greenhouse-gas emissions or fossil fuels — either (a) actions or strategies to reduce them (e.g. food-system, agricultural, transport, energy, or industrial measures that cut emissions), or (b) cases where emissions or fossil fuels are the source of the health or environmental harm being studied (e.g. health effects of coal power-plant emissions or fossil-fuel combustion), since these imply potential mitigation actions. The study need not itself describe a mitigation action, and need not use the word 'mitigation'." .
 
 <https://vocab.destiny-evidence.org/health-metrics/DSNY000293> a skos:Concept ;
     skos:altLabel "Exposure assessment",
@@ -4846,7 +4847,7 @@ ns1:climate-factors-fossil-fuels a skos:ConceptScheme ;
         "Infrastructure solutions",
         "Technical measures",
         "Technological responses" ;
-    skos:definition "Physical systems, equipment, and built infrastructure deployed to address environmental, social, or economic challenges, including systems designed to reduce emissions, improve resilience, or support service delivery." ;
+    skos:definition "Physical systems, equipment, and built infrastructure deployed or designed to address environmental, social, or economic challenges, including systems designed to reduce emissions, improve resilience, or support service delivery." ;
     skos:inScheme ns1:interventions-responses-solutions ;
     skos:narrower <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000094>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000095>,
@@ -4915,7 +4916,7 @@ ns1:population-gender-sex a skos:ConceptScheme ;
         <https://vocab.destiny-evidence.org/topic/DSNY000638>,
         <https://vocab.destiny-evidence.org/topic/DSNY000639> ;
     skos:prefLabel "Adaptation" ;
-    skos:scopeNote "Resilience is the capacity of individuals, communities, ecosystems, or systems to anticipate, withstand, recover from, and adapt to climate-related shocks and stresses. It is generally considered an adaptation outcome or objective." .
+    skos:scopeNote "Assign when the study concerns adjusting to, managing, forecasting, monitoring, or coping with climate variables or climate-related extreme events — including early-warning or prediction systems, risk management, and infrastructural or agricultural measures (e.g. irrigation optimisation for water stress, flood modelling for planning, disaster preparedness). The paper need not frame these explicitly as responses to 'climate change'. Resilience is the capacity of individuals, communities, ecosystems, or systems to anticipate, withstand, recover from, and adapt to climate-related shocks and stresses. It is generally considered an adaptation outcome or objective." .
 
 <https://vocab.destiny-evidence.org/topic/DSNY000053> a skos:Concept ;
     skos:altLabel "Climate consequences",
@@ -4927,7 +4928,8 @@ ns1:population-gender-sex a skos:ConceptScheme ;
     skos:narrower <https://vocab.destiny-evidence.org/topic/DSNY000054>,
         <https://vocab.destiny-evidence.org/topic/DSNY000492>,
         <https://vocab.destiny-evidence.org/topic/DSNY000493> ;
-    skos:prefLabel "Impact" .
+    skos:prefLabel "Impact" ;
+    skos:scopeNote "Assign when the study characterises, measures, models, or reviews the effects, harms, hazards, or risks arising from a climate variable (e.g. changes in temperature, precipitation, humidity, sea level, or wind) or a climate-related extreme event (e.g. heatwave, flood, drought, storm, wildfire, extreme cold) on human health, ecosystems, economies, or societies. This includes cases where a climate variable or extreme event modifies exposure to another hazard (e.g. temperature or drought altering air-pollution, wildfire-smoke, or infectious-disease exposure). Do not assign for the health effects of a non-climate exposure on its own (e.g. air pollution or chemicals with no climatic driver in the causal pathway). The paper need not use the words 'climate change' — the presence of a climate variable or extreme climate-related event as the driver is what matters." .
 
 ns1:actors a skos:ConceptScheme ;
     dct:description "The types of organisations and individuals involved in climate change action, governance, research, and implementation." ;
@@ -5255,7 +5257,7 @@ ns1:governance-scale a skos:ConceptScheme ;
         "Adaptive technology",
         "Climate-resilient infrastructure" ;
     skos:broader <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000093> ;
-    skos:definition "Technologies and built infrastructure designed to reduce vulnerability to climate impacts, including flood defences, heat-resilient buildings, and early warning systems." ;
+    skos:definition "Technologies and built infrastructure designed, used, or evaluated to reduce or assess vulnerability to climate impacts, including flood defences, heat-resilient buildings, and early warning systems." ;
     skos:inScheme ns1:interventions-responses-solutions ;
     skos:narrower <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000564>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000565>,

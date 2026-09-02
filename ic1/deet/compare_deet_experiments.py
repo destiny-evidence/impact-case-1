@@ -147,7 +147,7 @@ def aggregate(g, scheme_map):
     return pd.DataFrame(rows)
 
 
-def compare(project_path: Path, min_labels: int):
+def compare(project_path: Path, min_labels: int, all_attributes=True):
     project = DeetProject.load(project_dir=project_path)
     scheme_map = (
         pd.read_csv(settings.MAPPING_CSV)
@@ -204,18 +204,19 @@ def compare(project_path: Path, min_labels: int):
     ].first()
     console.print(df_to_table(cost, title="Cost & throughput per run"))
 
-    scores = (
-        df.groupby(["attribute_label", "run_id", "model", "metric_name"])["value"]
-        .mean()
-        .unstack()
-        .sort_index()
-    )
-
-    console.print(
-        df_to_table(
-            scores, title="Metrics per attribute", compare_key="attribute_label"
+    if all_attributes:
+        scores = (
+            df.groupby(["attribute_label", "run_id", "model", "metric_name"])["value"]
+            .mean()
+            .unstack()
+            .sort_index()
         )
-    )
+
+        console.print(
+            df_to_table(
+                scores, title="Metrics per attribute", compare_key="attribute_label"
+            )
+        )
 
     console.print(
         df_to_table(
@@ -229,7 +230,8 @@ def compare(project_path: Path, min_labels: int):
 
 def main(
         task: Annotated[TaskName, typer.Option(help='The annotation task task to be exported')] = TaskName.INOUT,
-        min_labels: int = 1
+        min_labels: int = 1,
+        all_attributes: bool = True
     ):
     if task == TaskName.ALL:
         selected = TASKS
@@ -237,7 +239,7 @@ def main(
         selected = {task.value: TASKS[task]}
 
     for task_config in selected.values():
-        compare(task_config.deet_project_path, min_labels)
+        compare(task_config.deet_project_path, min_labels, all_attributes=all_attributes)
 
 if __name__ == "__main__":
     typer.run(main)
