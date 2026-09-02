@@ -213,13 +213,21 @@ Working the 4 `best balance` false negatives from the rejected 70-doc validation
 
 Also fixed this session: **Sendai / DRR science-policy** FN (0e3bc1fb). The LLM granted the
 climate/adaptation component but excluded on the **health** side ("health named only as broad
-benefit"). Added a generic HEALTH-COMPONENT branch — *"a climate mitigation or adaptation action
-whose stated aim includes protecting human lives, health, health systems, or livelihoods; the thing
-protected must be people or health, not property/assets/economic or energy-supply continuity"* —
-to best balance + high precision. Flips Sendai 0→3–5/5 INCLUDE with **zero collateral**: guards held
-EXCLUDE for the property-protection twin (Swiss structural insurance, 966f36ec), oil-trade-network
-resilience (energy security), and pure mitigation-tech twins (solar-carbothermic zinc, wind-farm
-model, Regime Interaction). NB deliberately generic — do **not** name Sendai in the prompt.
+benefit"). Added a generic HEALTH-COMPONENT branch to best balance + high precision:
+*"a climate mitigation or adaptation action whose stated aim includes protecting human lives, health,
+health systems, or livelihoods **from climate-related harms**; the thing protected must be people or
+health, not property/assets/economic or energy-supply continuity."* Flips Sendai 0→3–5/5 INCLUDE.
+Guards held EXCLUDE: property-protection twin (Swiss structural insurance, 966f36ec), oil-trade-network
+resilience (energy security), pure mitigation-tech twins (solar-carbothermic zinc, wind-farm, Regime
+Interaction). NB deliberately generic — do **not** name Sendai in the prompt.
+
+**The "from climate-related harms" qualifier is load-bearing.** Without it, the first-committed
+version ("protecting human lives, health…") caused a **radar** collateral FP (202d1bc8, vehicle
+obstacle-detection): the bare "protecting human lives" read vehicle-*safety* as health-protection,
+flipping radar 1/5→5/5 INCLUDE (confirmed causal: with-bullet 5/5, without-bullet 1/5, in a dev run).
+Adding "from climate-related harms" restored radar to 1/5 (collision ≠ climate harm) while keeping
+Sendai 3/5 and Swiss 0/5. Lesson: scope protective-aim language to *climate* harms, or safety/security
+framings leak in.
 
 ### High-precision scope analysis (2026-09-02) — settled, do not re-litigate
 
@@ -247,3 +255,36 @@ predicted-positives — a noisy estimate).
 **Decision:** leave high precision's fossil-fuel clause as "use"; accept P≈0.78 / R≈0.29. HP is the
 strict anchor working as intended. Its headline P is noise-dominated by 2 entangled FPs; chasing them
 costs more (TPs, collateral) than the cosmetic gain is worth.
+
+### Food pathway clarification (2026-09-02) — best balance + high recall ONLY, not high precision
+
+Best-balance FNs olive-anthracnose (67ee0971), seed-priming-under-drought (e1052446), and salmon
+(c98f4925) were dropped because the food bullet ended `-> nutrition, food security, foodborne disease`
+— the model read those as **required human outcomes** and treated crop disease / fish productivity as
+"an outcome in the plant/fish, not people" (over-extending the animal/in-vitro validity floor two
+lines up). The listing of food crops/fisheries wasn't enough; the model wanted the record to make the
+crop→human step.
+
+**Fix:** reworded the food bullet so the food source itself is the exposure locus —
+*"a climate or weather effect on, or an action protecting, the yield, quality, safety, or supply of a
+food crop, livestock, dairy herd, or fishery engages this pathway (the affected food source is the
+exposure; a food crop, food fish, or livestock is understood to be for people)."* Deliberately does
+**not** say "no human outcome required" (that would soften high precision). Best balance: olive + seed
+-priming → **5/5 INCLUDE** (salmon stays 1/5 — ecological framing, acceptable loss). Collateral guards
+held **0/5 EXCLUDE**: plant-gametophyte/temperature (542f56a5), pollinator/passion-fruit (1310ced0),
+non-climate plant-protection agronomy (ccb24fb6).
+
+**Why NOT in high precision (scope divergence — intentional, not drift):** the reword was meant to be
+scope-differentiated by the existing pathway preambles (BB "even if no clinical outcome named" vs HP
+"people actually exposed/affected"). **This failed empirically** — in HP the bullet leaked past its
+own preamble: olive/seed-priming went 3/5 INCLUDE and, decisively, the **polymer crop-agronomy EXCLUDE
+twin (4cedc106) went 5/5 INCLUDE** — a solid FP in the one scope that can't afford it. So the food
+reword is committed to **best balance (line ~124) + high recall (line ~59) only; high precision (line
+~194) keeps the original "Food produced for human consumption…" bullet.** HP's food line now diverges
+from the other two by design — the "identical pathway list across scopes" maintenance rule no longer
+holds for the food bullet.
+
+**Accepted trade (recall lean, β>1):** the crop-agronomy twins are irreducible — no prose separates
+olive (want IN) from the polymer twin (labelled OUT). Best balance now includes both: +2 TP (olive,
+seed-priming) for +1 known FP (polymer). Dietary-sulphur (3d63f91c) already IN via best balance;
+its human-INCL is an animal-health label quirk HP still (correctly) drops.
