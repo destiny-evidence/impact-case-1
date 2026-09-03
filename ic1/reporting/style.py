@@ -39,10 +39,11 @@ MODE_COLORS = {
 # Shading for the pre-prompt-engineering baseline region (pruned taxonomy).
 BASELINE_SHADE = {"color": "#cccccc", "alpha": 0.18}
 
-# Shading tints for dev/validation cycle spans (in/out figure).
+# Shading tints for dev/validation/test cycle spans (in/out figure).
 CYCLE_SHADE = {
     "dev": {"color": "#cccccc", "alpha": 0.12},
-    "validation": {"color": "#e8a33d", "alpha": 0.22},
+    "validation": {"color": "#e8a33d", "alpha": 0.22},   # orange — go/no-go gate
+    "test": {"color": "#9b8fd4", "alpha": 0.22},         # lavender — final measurement
     "baseline": {"color": "#cccccc", "alpha": 0.18},
 }
 

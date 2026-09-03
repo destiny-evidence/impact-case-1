@@ -42,6 +42,15 @@ def _clean_label(label: str) -> str:
     return _RESAMPLE_SUFFIX.sub("", label) or "base"
 
 
+def _phase(run_name: str) -> str:
+    """Dev / validation / test cycle from the run folder name (deet's markers)."""
+    if "TEST" in run_name:
+        return "test"
+    if "VALIDATION" in run_name:
+        return "validation"
+    return "dev"
+
+
 def _mode_scores(mdf: pd.DataFrame) -> dict:
     yt = mdf.human_extraction.fillna(False).astype(int)
     yp = mdf.llm_extraction.fillna(False).astype(int)
@@ -82,7 +91,7 @@ def _collect_states(root: Path, models: tuple[str, ...]) -> list[dict]:
             "run": d.name, "ts": ts, "label": _clean_label(label),
             "model": c.get("model", "?"), "model_short": ms,
             "votes": c.get("votes") or 1,
-            "phase": "validation" if "VALIDATION" in d.name else "dev",
+            "phase": _phase(d.name),
             "n_docs": int(df.document_id.nunique()),
             "system_prompt": (c.get("prompt_config") or {}).get("system_prompt", ""),
             "prompts": dict(zip(pdf.attribute_id, pdf.prompt.fillna(""), strict=True)),
