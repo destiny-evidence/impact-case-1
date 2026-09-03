@@ -93,9 +93,13 @@ def _collect_states(root: Path, models: tuple[str, ...]) -> list[dict]:
     groups: dict[tuple, list[dict]] = {}
     order: list[tuple] = []
     for r in runs:
+        # Fold only true resample siblings: same cleaned label AND same config/
+        # content. Without the label, two distinct experiments whose stored
+        # prompts happen to be identical (e.g. a change that lives in code, not
+        # the saved prompt text) would wrongly collapse into one point.
         sig = (
-            r["model_short"], r["phase"], r["n_docs"], r["system_prompt"],
-            tuple(sorted(r["prompts"].items())),
+            r["model_short"], r["phase"], r["n_docs"], r["label"],
+            r["system_prompt"], tuple(sorted(r["prompts"].items())),
         )
         if sig not in groups:
             groups[sig] = []
