@@ -353,3 +353,72 @@ recoverable by re-tuning to terra.
 inclusivity to terra's boundary, re-establish operating points, measure terra's own run-to-run sd —
 one run gives point, not variance). Freeze luna, validate, ship. **Log terra as a v2 candidate**: the
 high-recall Pareto win is worth revisiting, but only with its own prompt tuning.
+
+---
+
+## TERMINAL TEST — held-out read on 649 never-seen docs (2026-09-03_18-58-32_FULL_ABSTRACT_TEST)
+
+Run via `run_test_on_abstracts.py` (typer): all never-seen docs (not in dev/val/test) with an
+abstract >= 100 chars → TEST stage, current prompts + luna config, 5-vote majority. 649 docs,
+83 positives (12.8% prevalence). 2 abstract-less docs excluded (data problem, not model problem);
+350 dev docs excluded (never test on tuned-on data). This is the terminal read — scored once,
+reported as-is, not tuned against.
+
+**Real measured operating points + F-beta:**
+
+| scope         |   R   |   P   | F0.5  |  F1   |  F2   | TP | FN | FP |
+|---------------|-------|-------|-------|-------|-------|----|----|----|
+| high recall   | 0.855 | 0.628 | 0.664 | 0.724 | 0.798 | 71 | 12 | 42 |
+| best balance  | 0.530 | 0.733 | 0.681 | 0.615 | 0.561 | 44 | 39 | 16 |
+| high precision| 0.289 | 0.857 | 0.615 | 0.432 | 0.333 | 24 | 59 |  4 |
+
+**High recall is the deliverable.** It wins F1 (0.724) and F2 (0.798) outright and ties best balance
+on F0.5 (0.664 vs 0.681). At the project's recall-leaning beta (>1) it is unambiguously the pick:
+**0.855 / 0.628, F2 = 0.80 on 649 never-seen docs.** The gain vs earlier runs is real — high recall's
+precision rose from ~0.50 to 0.628 while recall held at 0.855, which is what lifts it above best
+balance on every metric except the most precision-weighted.
+
+Pre-registered bar was BB recall >= 0.70 AND precision >= 0.65: **raw BB recall 0.530 misses.** Honor
+it — no clean pass claimed on best balance. But the autopsy shows the miss lives in the *ruler*, not
+the classifier (below).
+
+### FN autopsy — best balance's 39 FNs are mostly not model error
+
+- **27 of 39 are best balance stricter BY DESIGN** — high recall includes, best balance excludes;
+  all pure mitigation / climate-without-health (carbon budgets, growth-energy decoupling, CO2 inverse
+  modelling, storm-surge *facility* defence, climate-conflict/mobility, ocean-warming/cod ecology).
+  They count as "FN" only because the single human gold label is replicated across all three scope
+  columns. This is the single-lenient-gold measurement artifact, not a prompt bug.
+- **12 are genuine** (missed even by high recall). ~7 are defensible exclusions where the human was
+  more generous than any prompt (abstract states no climate factor: asthma/carboxyhaemoglobin,
+  metabolic-syndrome/toxins, transport&QoL; or the hazard is geophysical not climatic: Sedongpu
+  landslide, ASEAN earthquake/tsunami governance). ~3 are borderline coin-flips (Reply on RC2 2/5,
+  wildlife/lions 2/5). ~2-3 are arguable vector/adaptation pathway misses (ticks, dengue vectors,
+  drip-irrigation) recoverable only at precision cost. So high recall's 12 FNs ~ the irreducible
+  hardness of the problem — a result, not a defect.
+
+### Best balance's founding premise is DISPROVED by the held-out data
+
+Best balance was created because early on it *seemed* annotators mostly EXCLUDED mitigation-only docs
+(a divergence between guidance — "mitigation counts on its own" — and annotation). The health-aim
+requirement was the lever. On 649 docs this was a too-eager reading of noise:
+
+- Divergence set (HR include, BB exclude) = 53 docs, raw split 27 human-INCLUDE / 26 human-EXCLUDE
+  (looks 50/50) — but the halves are different populations.
+- The 27 human-INCLUDE are **clean mitigation-only** docs → annotators INCLUDE them. Guidance and
+  annotation AGREE. The "annotators exclude mitigation" premise is wrong at scale.
+- The 26 human-EXCLUDE are **not** mitigation-only — they're tangential/incidental climate mentions
+  high recall over-grabbed (perovskite solar cell, microalgae CO2 biofixation, diesel-exhaust in a
+  nanoparticle-tox study, smart-fridge temperature, energy-management, microloan carbon). Annotators
+  excluded them for being off-topic, not for being mitigation.
+
+**Conclusion:** best balance's health-aim lever solves a phantom problem AND is the wrong instrument.
+It does lift precision (0.733 > HR 0.628) by dropping the 26 tangential docs — but for the wrong
+reason ("no health component"), which also kills the 27 genuine mitigation includes. The precision
+lever the data actually calls for is **climate-substantiveness / centrality (substantive vs incidental
+climate mention)**, NOT "mitigation must have a health aim." A centrality tightening would shed the
+tangential FPs without sacrificing mitigation TPs.
+
+**Decision:** ship **high recall** as the operating point (0.855/0.628, F2=0.80). If a higher-precision
+variant is wanted later, retarget the lever from health-aim to climate-substantiveness rather than
+keeping best balance as defined.

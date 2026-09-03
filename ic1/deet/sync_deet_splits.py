@@ -16,7 +16,7 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
 
     for task_config in selected.values():
         deet_project = DeetProject.load(project_dir=task_config.deet_project_path)
-        deet_splits = DevValTestSplits.load(task_config.deet_project_path / deet_project.evaluation_splits_path)
+        deet_splits = DevValTestSplits.load_or_init(deet_project.evaluation_splits_path)
 
         internal_external_id_map = {
             document.safe_identity.internal_id: document.safe_identity.external_id for document in deet_project.process_data().documents
