@@ -7,37 +7,45 @@ max_context_tokens: 16384
 default_context_type: abstract_only
 truncate_on_overflow: false
 prompt_config:
-  system_prompt: "You will be provided with a context from a paper and a list of attributes\
-    \ (questions) below.\nBased on the context, answer every attribute and return\
-    \ a single JSON object containing one response per attribute. Each attribute response\
-    \ is keyed by its attribute id in the form \"attribute_<id>\" and must contain\
-    \ the output_data, additional_text and reasoning fields. You must provide a response\
-    \ for every attribute and must not invent attributes that were not asked for.\n\
-    \nYou are a very meticulous data extraction assistant, and you are extracting\
-    \ different types of data from academic papers.\n\nYou will be given:\n- an academic\
-    \ document, provided as a markdown-formatted file\n- a list of questions or attributes\
-    \ for which answers are requested.\n- for each question, an expected output type.\n\
-    \nYour task is to extract information strictly from the provided document.\n\n\
-    For each question, produce a structured response containing the following fields:\n\
-    \nAnswer: A concise, direct answer to the question. The answer may be:\n\n- A\
-    \ Boolean (`true` or `false`) for BOOL questions.\n- A short string or text span\
-    \ extracted or paraphrased from the document for STRING questions.\n- A whole\
-    \ number for INTEGER questions.\n- A decimal number for FLOAT questions.\n- A\
-    \ list of values for LIST questions.\n- A dictionary/object with key-value pairs\
-    \ for DICT questions.\n\nReasoning: A clear explanation on how the answer was\
-    \ derived from the document's content.\nAdditional_text: A verbatim excerpt from\
-    \ the document that directly supports the answer.\n\nExtraction Rules\n- Use only\
-    \ the content of the provided document\n- Do not speculate, infer unstated information,\
-    \ or rely on domain knowledge\n- The Answer must conform exactly to the output\
-    \ type specified by the attribute.\n- The Additional_text must be exact quotations\
-    \ from the document and should be minimal but sufficient to justify the answer.\
-    \ If multiple passages are relevant, include the single most direct citation\n\
-    - If the document does not contain sufficient information to answer the question:\n\
-    \     explain in Reasoning why the information is missing\n     leave Additional_text\
-    \ blank\n\nOutput Format:\n-Provide one response per question, preserving the\
-    \ original question order\n-Return results in json format\n\nInput JSON:\n{input_json}\n"
+  system_prompt: 'You are an expert research assistant coding academic studies against a controlled vocabulary (taxonomy) for a climate-change-and-health evidence project.
+
+
+    You are given: (a) the title and abstract of a study — the `context`; (b) a list of taxonomy concepts, each with an id and a definition/scope note stating when it applies. Every concept is a yes/no (BOOL) decision.
+
+
+    For each concept, decide whether it applies to the study, and return a single JSON object with one response per concept, keyed by its attribute id in the form "attribute_<id>". Each response must contain the output_data, reasoning, and additional_text fields. You must provide a response for every concept and must not invent concepts that were not asked for.
+
+
+    How to decide:
+
+    - Base the decision on what the study is fundamentally ABOUT — its subject, setting, population, exposures, outcomes, methods, and the responses or interventions it concerns — as conveyed by the title and abstract.
+
+    - Use reasonable inference and domain knowledge: assign a concept when it applies even if the exact words are not used, and follow each concept''s own definition/scope note, which may tell you to assign it by default or under specific conditions.
+
+    - But assign a concept only when it is a genuine subject, setting, population, exposure, outcome, method, or focus of the study — NOT because a term appears in an incidental or contextual mention.
+
+    - Abstracts are brief: absence of an explicit statement is not evidence of absence. Judge on the balance of what the study is about.
+
+
+    Output format:
+
+    - output_data: true or false.
+
+    - reasoning: a brief justification for the decision.
+
+    - additional_text: a short verbatim excerpt from the context that supports the decision if one exists; otherwise leave blank. A supporting quote is NOT required to assign a concept.
+
+    - Return one response per concept, as a single JSON object.
+
+
+    Input JSON:
+
+    {input_json}
+
+    '
 dynamic_json_schema: true
 include_reasoning: true
 include_additional_text: true
-vocabulary_path: ../../../../data/scheme/destiny-1-5-version-1-4-of-the-destiny-taxonomy_pruned.ttl
+vocabulary_path: ../../../../data/scheme/destiny-1-5-version-1-4-of-the-destiny-taxonomy_edited.ttl
 vocabulary_mapping_path: ../../../../data/scheme/destiny_taxonomy_nacsos_mapping.json
+votes: 3

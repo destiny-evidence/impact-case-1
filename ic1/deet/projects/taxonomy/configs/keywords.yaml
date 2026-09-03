@@ -1,6 +1,7 @@
-method: hierarchical_top_down
+method: keyword
 provider: azure
-model: Kimi-K2.6
+model: keyword
+semantic_similarity_threshold: 0.4
 temperature: 1
 max_tokens: null
 max_context_tokens: 16384
@@ -48,4 +49,5 @@ include_reasoning: true
 include_additional_text: true
 vocabulary_path: ../../../../data/scheme/destiny-1-5-version-1-4-of-the-destiny-taxonomy_edited.ttl
 vocabulary_mapping_path: ../../../../data/scheme/destiny_taxonomy_nacsos_mapping.json
-votes: 3
+vocab_prompt_locations:
+- alt_labels

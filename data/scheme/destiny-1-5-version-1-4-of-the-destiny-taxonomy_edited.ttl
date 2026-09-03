@@ -28,7 +28,8 @@ ns1:Investigation a owl:Class ;
         "UN agencies" ;
     skos:definition "Supranational bodies including United Nations agencies, multilateral development banks, and intergovernmental organisations that coordinate policy, financing, and action across nations." ;
     skos:inScheme ns1:actors ;
-    skos:prefLabel "1. Supranational and international organizations (Actor)" .
+    skos:prefLabel "1. Supranational and international organizations (Actor)" ;
+    skos:scopeNote "Assign only when a supranational or international body participates in or carries out an action or response — coordinating, funding, setting policy, or implementing programmes examined in the study. Do not assign when such a body is merely mentioned or provides background context." .
 
 <https://vocab.destiny-evidence.org/actors/DSNY000163> a skos:Concept ;
     skos:altLabel "Governments",
@@ -37,7 +38,8 @@ ns1:Investigation a owl:Class ;
         "State institutions" ;
     skos:definition "National, regional, and local government bodies responsible for setting policy, enacting legislation, and implementing programmes within their jurisdictions." ;
     skos:inScheme ns1:actors ;
-    skos:prefLabel "2. Governments (Actor)" .
+    skos:prefLabel "2. Governments (Actor)" ;
+    skos:scopeNote "Assign only when a government body participates in or carries out an action or response — setting or enacting policy, planning, regulating, or implementing programmes examined in the study. Do not assign when government is merely mentioned or cited as background or regulatory context." .
 
 <https://vocab.destiny-evidence.org/actors/DSNY000164> a skos:Concept ;
     skos:altLabel "Business",
@@ -49,7 +51,8 @@ ns1:Investigation a owl:Class ;
         "Private enterprises" ;
     skos:definition "Commercial enterprises, industries, and business associations whose operations, investments, and innovations shape economic and environmental outcomes." ;
     skos:inScheme ns1:actors ;
-    skos:prefLabel "3. Private sector (Actor)" .
+    skos:prefLabel "3. Private sector (Actor)" ;
+    skos:scopeNote "Assign only when a commercial or industrial actor participates in or carries out an action or response — innovating, investing, producing, or implementing measures examined in the study. Do not assign when industry is merely the setting, the source of emissions, or mentioned in passing." .
 
 <https://vocab.destiny-evidence.org/actors/DSNY000165> a skos:Concept ;
     skos:altLabel "Advocacy",
@@ -59,7 +62,8 @@ ns1:Investigation a owl:Class ;
         "Non-profit organisations" ;
     skos:definition "Non-profit organisations, advocacy groups, and community-based organisations that represent public interests, support communities, and hold governments and businesses accountable." ;
     skos:inScheme ns1:actors ;
-    skos:prefLabel "4. Civil society (Actor)" .
+    skos:prefLabel "4. Civil society (Actor)" ;
+    skos:scopeNote "Assign only when a civil-society organisation participates in or carries out an action or response — advocating, mobilising, delivering services, or implementing programmes examined in the study. Do not assign when civil society is merely mentioned or provides background context." .
 
 <https://vocab.destiny-evidence.org/actors/DSNY000166> a skos:Concept ;
     skos:altLabel "Citizens",
@@ -67,9 +71,10 @@ ns1:Investigation a owl:Class ;
         "Family",
         "Household",
         "Individuals" ;
-    skos:definition "Individual people and domestic units whose everyday choices, behaviours, and circumstances make them both agents of and subjects of wider social and environmental change." ;
+    skos:definition "Individual people and domestic units whose everyday choices, behaviours, and circumstances make them agents of wider social and environmental change." ;
     skos:inScheme ns1:actors ;
-    skos:prefLabel "5. Households / individuals (Actor)" .
+    skos:prefLabel "5. Households / individuals (Actor)" ;
+    skos:scopeNote "Assign only when households or individuals participate in or carry out an action or response — adopting, deciding, changing behaviour, or practising. Do not assign when the subject is merely the population studied." .
 
 <https://vocab.destiny-evidence.org/climate-factors-climate-drivers-variability/DSNY000595> a skos:Concept ;
     skos:altLabel "Atmospheric warming",
@@ -3321,7 +3326,8 @@ Nicotine dependence is a chronic, relapsing condition characterized by compulsiv
     skos:broader <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000095> ;
     skos:definition "Technologies that maintain food availability and safety under a changing climate, including drought-resistant crop varieties and cold chain systems that preserve food safety under warming conditions." ;
     skos:inScheme ns1:interventions-responses-solutions ;
-    skos:prefLabel "Food security technology" .
+    skos:prefLabel "Food security technology" ;
+    skos:scopeNote "Assign for any technology or system that maintains or improves food production, availability, or safety under climatic stress — including irrigation and water management, precision-agriculture and crop-monitoring tools, drought- or heat-resistant crops, livestock heat-management, and storage or cold-chain systems. It need not be crop genetics." .
 
 <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000568> a skos:Concept ;
     skos:altLabel "Coastal protection",
@@ -4489,7 +4495,8 @@ ns1:populationAgeAnnotation a owl:Class ;
         "Public services" ;
     skos:definition "The sector encompassing government agencies, civil services, and public institutions responsible for policy-making, regulation, and the delivery of public services in the context of climate change." ;
     skos:inScheme ns1:sectors ;
-    skos:prefLabel "Public administration (Sector)" .
+    skos:prefLabel "Public administration (Sector)" ;
+    skos:scopeNote "Assign only when the public-administration sector's own operations, services, or workforce are a subject of the study — i.e. public administration is the sector being examined (e.g. emergency-management or civil-service functions as the study's focus). Do not assign merely because a government is mentioned or acts, because policy or regulation is discussed, or because a public institution conducts or funds the study." .
 
 <https://vocab.destiny-evidence.org/sectors/DSNY000125> a skos:Concept ;
     skos:altLabel "Logistics",
@@ -5087,7 +5094,8 @@ ns1:climate-zones a skos:ConceptScheme ;
         <https://vocab.destiny-evidence.org/health-metrics/DSNY000284>,
         <https://vocab.destiny-evidence.org/health-metrics/DSNY000285>,
         <https://vocab.destiny-evidence.org/health-metrics/DSNY000286> ;
-    skos:prefLabel "Disease burden / quality of life (Metric)" .
+    skos:prefLabel "Disease burden / quality of life (Metric)" ;
+    skos:scopeNote "Assign only when the study reports or uses a metric that quantifies disease burden or quality of life — such as prevalence, incidence, disease frequency or duration, DALYs/QALYs, years lived with disability, or a validated quality-of-life or functional-status measure. Do not assign merely because non-fatal health effects, symptoms, or physiological responses are described or measured; the study must quantify disease burden or quality of life as such." .
 
 <https://vocab.destiny-evidence.org/health-metrics/DSNY000287> a skos:Concept ;
     skos:altLabel "Health service use",
@@ -5161,7 +5169,8 @@ ns1:climate-zones a skos:ConceptScheme ;
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000110>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000111>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000578> ;
-    skos:prefLabel "Mitigation behaviours" .
+    skos:prefLabel "Mitigation behaviours" ;
+    skos:scopeNote "Assign for individual or household behaviour change that reduces greenhouse-gas emissions in any domain — including transport and mobility choices (e.g. shifting to public or active transport), diet and food choices, home energy use, and consumption or waste behaviour. A study that examines or proposes such behavioural shifts qualifies, whether framed as personal choice or encouraged by policy." .
 
 <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000114> a skos:Concept ;
     skos:altLabel "Formal institutional action",
@@ -5441,7 +5450,8 @@ ns1:climate-factors-climate-forcing-agents a skos:ConceptScheme ;
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000646>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000647>,
         <https://vocab.destiny-evidence.org/interventions-responses-solutions/DSNY000648> ;
-    skos:prefLabel "Health systems and public health" .
+    skos:prefLabel "Health systems and public health" ;
+    skos:scopeNote "Assign when the study involves a biomedical, clinical, pharmaceutical, or public-health tool, service, or measure — including disease surveillance, diagnostics, laboratory testing, monitoring, screening, treatment, or prevention for a climate-sensitive health risk. Detecting or monitoring a health hazard (e.g. testing for a pathogen or contaminant) counts as a public-health activity; it need not be a formally deployed programme." .
 
 ns1:human-settlements a skos:ConceptScheme ;
     dct:description "Types of human settlement used to classify the residential and community contexts in which populations live, ranging from formal planned urban areas to informal and displaced settlements." ;
