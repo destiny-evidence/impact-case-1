@@ -1,0 +1,16 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+0,include - high precision,0.895,2026-09-03_11-55-06_reasoning_before_output,accuracy
+0,include - high precision,0.25,2026-09-03_11-55-06_reasoning_before_output,recall
+0,include - high precision,0.6666666666666666,2026-09-03_11-55-06_reasoning_before_output,precision
+0,include - high precision,0.36363636363636365,2026-09-03_11-55-06_reasoning_before_output,f1_score
+0,include - high precision,24.0,2026-09-03_11-55-06_reasoning_before_output,n_labels
+5,include - best balance,0.925,2026-09-03_11-55-06_reasoning_before_output,accuracy
+5,include - best balance,0.6666666666666666,2026-09-03_11-55-06_reasoning_before_output,recall
+5,include - best balance,0.6956521739130435,2026-09-03_11-55-06_reasoning_before_output,precision
+5,include - best balance,0.6808510638297872,2026-09-03_11-55-06_reasoning_before_output,f1_score
+5,include - best balance,24.0,2026-09-03_11-55-06_reasoning_before_output,n_labels
+6,include - high recall,0.88,2026-09-03_11-55-06_reasoning_before_output,accuracy
+6,include - high recall,0.9166666666666666,2026-09-03_11-55-06_reasoning_before_output,recall
+6,include - high recall,0.5,2026-09-03_11-55-06_reasoning_before_output,precision
+6,include - high recall,0.6470588235294118,2026-09-03_11-55-06_reasoning_before_output,f1_score
+6,include - high recall,24.0,2026-09-03_11-55-06_reasoning_before_output,n_labels
