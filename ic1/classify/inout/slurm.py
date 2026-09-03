@@ -83,7 +83,7 @@ echo "array_task_id" $SLURM_ARRAY_TASK_ID " --> job" $job
 echo "model_idx" $model_idx
 echo "model" "${{MODELS[$model_idx]}}"
 
-uv run --extra classify --link-mode=copy {command} --models="${{MODELS[$model_idx]}}" {' '.join(script_params)}
+uv run --frozen --extra classify --link-mode=copy {command} --models="${{MODELS[$model_idx]}}" {' '.join(script_params)}
 
 echo "Job done."
     """)
@@ -134,7 +134,7 @@ export HF_HUB_OFFLINE=1
 export UV_OFFLINE=1
 export UV_PROJECT_ENVIRONMENT={venv_path}
 
-uv run --extra classify --link-mode=copy ic1 classify-inout finalise {' '.join(script_params)}
+uv run --frozen --extra classify --link-mode=copy ic1 classify-inout finalise {' '.join(script_params)}
 
 echo "Finalise done."
     """)
