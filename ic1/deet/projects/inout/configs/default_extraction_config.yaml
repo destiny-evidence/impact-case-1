@@ -34,7 +34,7 @@ prompt_config:
     - If the document does not contain sufficient information to answer the question:\n\
     \     explain in Reasoning why the information is missing\n     leave Additional_text\
     \ blank\n\nOutput Format:\n-Provide one response per question, preserving the\
-    \ original question order\n-Return results in json format\n\nInput JSON:\n{input_json}\n"
+    \ original question order\n-Return results in json format\n"
 dynamic_json_schema: true
 include_reasoning: true
 include_additional_text: true
