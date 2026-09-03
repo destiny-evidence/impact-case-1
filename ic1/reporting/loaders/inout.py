@@ -124,7 +124,7 @@ def _collect_states(root: Path, models: tuple[str, ...]) -> list[dict]:
 
 
 def load_inout_runs(
-    exp_dir: Path | str | None = None, models: tuple[str, ...] = ("sol", "luna")
+    exp_dir: Path | str | None = None, models: tuple[str, ...] = ("sol", "luna", "terra")
 ) -> pd.DataFrame:
     """One row per (prompt-state, operating mode) with precision/recall/f1.
 
@@ -148,7 +148,7 @@ def load_inout_runs(
 
 
 def load_inout_prompt_churn(
-    exp_dir: Path | str | None = None, models: tuple[str, ...] = ("sol", "luna")
+    exp_dir: Path | str | None = None, models: tuple[str, ...] = ("sol", "luna", "terra")
 ) -> pd.DataFrame:
     """Per-state word churn in the scope prompts and the system prompt.
 

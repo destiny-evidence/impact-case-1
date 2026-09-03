@@ -288,3 +288,68 @@ holds for the food bullet.
 olive (want IN) from the polymer twin (labelled OUT). Best balance now includes both: +2 TP (olive,
 seed-priming) for +1 known FP (polymer). Dietary-sulphur (3d63f91c) already IN via best balance;
 its human-INCL is an animal-health label quirk HP still (correctly) drops.
+---
+
+## Validation plan + pre-registered accept bar (2026-09-03)
+
+**Pool accounting.** 1000 docs total, ~800 unassigned, ~12.5% prevalence → ~100 positives in the
+pool. Every draw forfeits docs from the final test stage permanently. Goal: keep the test set as
+large as possible → spend the *minimum defensible* amount on validation.
+
+**Smoke test (50 docs) passed** — rules out catastrophic non-generalization, but at ~6 positives it
+cannot certify the operating point. Treated as a disaster filter only, then discarded (not folded).
+
+**This validation is a freeze gate, not a discovery step.** Draw = **luna, 150 docs** (~19 positives,
+recall CI ~±18 pts — enough to catch a real sub-bar regression, cheap on the pool). Remaining ~650 →
+untouched test set (~80 positives, recall CI ~±10 pts).
+
+**PRE-REGISTERED ACCEPT BAR (recorded before results seen):**
+best balance **recall ≥ 0.70 AND precision ≥ 0.65** on the 150-doc held-out set. Headroom below the
+dev point (~R0.79/P0.73 high draw; true mean ~R0.71–0.73) absorbs tuned-on optimism + the label-floor
+twins.
+
+**Freeze discipline.**
+- Clears bar → **freeze the prompt, no more edits.** ~650 remaining become the test set, scored once,
+  reported as-is, never iterated on.
+- Misses bar → fold the 150 into dev, iterate, draw a fresh validation.
+- Do **not** peek-then-top-up (draw 100 then extend): conditioning the size on the first result
+  reintroduces optional-stopping bias. Size once, draw once, report once.
+
+## Dev-noise diagnosis (2026-09-03) — 5-vote wobble is 3 boundary docs on a 24 denominator
+
+Today's luna dev runs read lower than the 2026-09-02 good run (BB recall 0.79 → 0.67–0.71). **Not a
+regression** — investigated:
+- Only **3 positives flipped**, all known boundary docs: the DRR "Ensuring science…" doc, the
+  coastal-defense "LOADING AND STRUCTURAL RESPONSE OF DEVELOPED SHORELINES" doc, and one blank-title
+  doc. Every solidly-INCL doc is identical across all four runs; **precision + FP count unchanged (7)**.
+- The DRR doc was still INCL in the morning run (which already had `{input_json}` removed) and only
+  tipped in the afternoon → temperature-1 wobble, not a deterministic effect of the code edit.
+- Config change (removed dangling literal `{input_json}` from system prompt + attributes-before-context
+  JSON ordering) has **no plausible mechanism to cost recall**; both are cleanups. Kept, not reverted.
+
+**Why 5-vote voting doesn't kill it:** majority-of-5 only sharpens docs already off-center. At
+per-sample p=0.5 the 5-vote verdict is still a coin flip (p=0.4 → 32% flip, p=0.3 → 16%). The wobblers
+sit at p≈0.4–0.5 by construction (the boundaries we tuned through). sd(recall) ≈ √(3·0.25)/24 ≈ 0.04–
+0.05, so a 0.67↔0.79 spread over 4 runs is ~2 sd — ordinary. The 24-positive denominator amplifies it
+(3 docs = 12.5 pts); it shrinks to ~3 pts at validation scale. **Lever if wanted:** lower temperature
+(0.4–0.5) sharpens borderline docs — more votes won't (never fixes p≈0.5). Not worth blocking freeze.
+
+## Terra (bigger model) — stricter operating point, NOT a noise fix (2026-09-03)
+
+One terra run (2026-09-03_18-26-00, gpt-5.6-terra, same prompts/config as luna):
+- **High recall:** 0.875R / **0.64P** vs luna 0.875R / 0.50P — *same recall, +0.14 precision*, a clean
+  Pareto win.
+- **High precision:** 0.29R / 0.78P vs luna 0.25R / 0.75P — marginally better both.
+- **Best balance:** 0.58R / 0.78P vs luna 0.67R / 0.70P — recall traded for precision.
+
+Terra is a **more discriminating, more conservative classifier** — every scope shifted toward
+precision. Its 3 extra best-balance FNs are docs *we want in*: Future Terrestrial Water Reserves (the
+one we fixed), Tides/Surges fluvial floods, PM2.5 air quality — so its precision gain partly buys
+**bias toward exclusion**, not just noise reduction. Caveat: prompts are **luna-tuned**; terra reads
+the same inclusivity nudges against a stricter boundary, so these misses are likely prompt-mismatch,
+recoverable by re-tuning to terra.
+
+**Decision: do not switch now.** Adopting terra = restart the prompt-calibration loop (re-tune
+inclusivity to terra's boundary, re-establish operating points, measure terra's own run-to-run sd —
+one run gives point, not variance). Freeze luna, validate, ship. **Log terra as a v2 candidate**: the
+high-recall Pareto win is worth revisiting, but only with its own prompt tuning.
