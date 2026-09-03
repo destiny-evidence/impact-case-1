@@ -22,11 +22,29 @@ MODEL_MARKERS = {
     "luna": "o",
     "sol": "s",
     "kimi": "^",
+    "deepseek": "v",
+    "opus": "P",
+    "terra": "X",
+    "4o-mini": "*",
     "MiniLM": "D",
+}
+
+# In/out operating points (colour dimension in that figure, in place of method).
+MODE_COLORS = {
+    "high recall": "#2ca02c",     # green — inclusive
+    "best balance": "#1f77b4",    # blue — headline operating point
+    "high precision": "#d62728",  # red — strict
 }
 
 # Shading for the pre-prompt-engineering baseline region (pruned taxonomy).
 BASELINE_SHADE = {"color": "#cccccc", "alpha": 0.18}
+
+# Shading tints for dev/validation cycle spans (in/out figure).
+CYCLE_SHADE = {
+    "dev": {"color": "#cccccc", "alpha": 0.12},
+    "validation": {"color": "#e8a33d", "alpha": 0.22},
+    "baseline": {"color": "#cccccc", "alpha": 0.18},
+}
 
 # Prompt-churn categories (additions up / deletions down encode direction;
 # colour encodes which prompt was edited).

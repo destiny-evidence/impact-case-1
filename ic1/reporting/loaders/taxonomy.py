@@ -12,22 +12,28 @@ micro (extra FP) and macro (forced zeros), so they are excluded.
 
 from __future__ import annotations
 
-import difflib
 import json
-import re
 from pathlib import Path
 
 import pandas as pd
 import yaml
 from sklearn.metrics import f1_score, precision_score, recall_score
 
+from ic1.reporting.loaders._common import (
+    model_short as _model_short,
+)
+from ic1.reporting.loaders._common import (
+    parse_run_name as _parse_run_name,
+)
+from ic1.reporting.loaders._common import (
+    word_churn as _word_churn,
+)
+
 # ic1/reporting/loaders/taxonomy.py -> repo root is parents[3].
 _REPO_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_EXP_DIR = (
     _REPO_ROOT / "ic1" / "deet" / "projects" / "taxonomy" / "data-extraction-experiments"
 )
-
-_TS_RE = re.compile(r"^(\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2})_(.+)$")
 
 METHOD_LABELS = {
     "llm": "Flat",
@@ -36,28 +42,15 @@ METHOD_LABELS = {
 }
 
 
-def _parse_run_name(name: str) -> tuple[str, str]:
-    """Return (sort_key, human label) for a run folder name.
+def _prompt_family(method: str) -> str:
+    """Churn lineage a run belongs to.
 
-    Dated runs (``YYYY-MM-DD_HH-MM-SS_suffix``) sort by their timestamp; the
-    numbered baselines (``01_flat_sol``) keep their name and sort first.
+    Flat and top-down share the concept definition/scope-note prompts, so they
+    diff against each other. Semantic and keyword runs use wholly different
+    "prompt" content (embedding descriptions, keyword lists), so each diffs only
+    within its own family — else the cross-family transition dwarfs everything.
     """
-    m = _TS_RE.match(name)
-    if m:
-        return m.group(1), m.group(2)
-    return name, re.sub(r"^\d+_", "", name)
-
-
-def _model_short(model: str) -> str:
-    if "luna" in model:
-        return "luna"
-    if "sol" in model:
-        return "sol"
-    if "kimi" in model or "k26" in model:
-        return "kimi"
-    if "MiniLM" in model or "sentence-transformers" in model:
-        return "MiniLM"
-    return model
+    return "llm" if method in ("llm", "hierarchical_top_down") else method
 
 
 def _scoreable(df: pd.DataFrame) -> pd.DataFrame:
@@ -145,28 +138,14 @@ def load_taxonomy_runs(exp_dir: Path | str | None = None) -> pd.DataFrame:
     return df
 
 
-def _word_churn(before: str, after: str) -> tuple[int, int]:
-    """Word-level (added, deleted) between two strings via difflib opcodes."""
-    sm = difflib.SequenceMatcher(
-        a=(before or "").split(), b=(after or "").split(), autojunk=False
-    )
-    added = deleted = 0
-    for tag, i1, i2, j1, j2 in sm.get_opcodes():
-        if tag in ("replace", "delete"):
-            deleted += i2 - i1
-        if tag in ("replace", "insert"):
-            added += j2 - j1
-    return added, deleted
-
-
 def load_taxonomy_prompt_churn(exp_dir: Path | str | None = None) -> pd.DataFrame:
     """Per-step word churn in the taxonomy prompts and the system prompt.
 
-    Each row diffs a run against the chronologically previous completed run:
-    taxonomy churn sums word additions/deletions across all concept prompts
-    (joined on concept_id); system churn diffs the ``system_prompt`` string.
-    Aligned to the same runs as ``load_taxonomy_runs`` so the x-axis matches.
-    The first run has no predecessor (all-zero churn).
+    Each row diffs a run against the chronologically previous run OF THE SAME
+    prompt family (see ``_prompt_family``): taxonomy churn sums word additions/
+    deletions across all concept prompts (joined on concept_id); system churn
+    diffs the ``system_prompt`` string. Aligned to the same runs as
+    ``load_taxonomy_runs``. The first run of each family has all-zero churn.
     """
     root = Path(exp_dir) if exp_dir is not None else DEFAULT_EXP_DIR
     runs = []
@@ -181,14 +160,16 @@ def load_taxonomy_prompt_churn(exp_dir: Path | str | None = None) -> pd.DataFram
         p = pd.read_csv(prompts)
         runs.append({
             "run": d.name, "ts": ts, "label": label,
+            "family": _prompt_family(c.get("method", "llm")),
             "system_prompt": (c.get("prompt_config") or {}).get("system_prompt", ""),
             "prompts": dict(zip(p.concept_id, p.prompt.fillna(""), strict=True)),
         })
     runs.sort(key=lambda r: r["ts"])
 
     rows = []
-    prev = None
+    prev_by_family: dict[str, dict] = {}
     for r in runs:
+        prev = prev_by_family.get(r["family"])
         if prev is None:
             tax_add = tax_del = sys_add = sys_del = 0
         else:
@@ -203,5 +184,5 @@ def load_taxonomy_prompt_churn(exp_dir: Path | str | None = None) -> pd.DataFram
             "tax_add": tax_add, "tax_del": tax_del,
             "sys_add": sys_add, "sys_del": sys_del,
         })
-        prev = r
+        prev_by_family[r["family"]] = r
     return pd.DataFrame(rows).reset_index(drop=True)

@@ -16,8 +16,8 @@ from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
 from ic1.reporting.style import (
-    BASELINE_SHADE,
     CHURN_COLORS,
+    CYCLE_SHADE,
     METHOD_COLORS,
     MODEL_MARKERS,
 )
@@ -55,28 +55,42 @@ def _plot_broken_series(
             start = i
 
 
+def _draw_spans(ax: Axes, spans: list[dict], *, label: bool = False) -> None:
+    """Shade x-regions (baseline / dev / validation cycles); optionally label."""
+    for s in spans:
+        ax.axvspan(s["x0"], s["x1"], zorder=0, **CYCLE_SHADE.get(s["kind"], {}))
+        if not label:
+            continue
+        mid = (s["x0"] + s["x1"]) / 2
+        if s["kind"] == "baseline":
+            ax.text(mid, 0.04, s["label"], ha="center", va="bottom", fontsize=8,
+                    color="#555555", transform=ax.get_xaxis_transform())
+        else:
+            rot = 90 if (s["x1"] - s["x0"]) < 2.5 else 0
+            ax.text(mid, 0.97, s["label"], ha="center", va="top", fontsize=8,
+                    color="#555555", rotation=rot,
+                    transform=ax.get_xaxis_transform())
+
+
+def _metric_ylabel(metric: str) -> str:
+    return f"{metric}-F1" if metric in ("micro", "macro") else metric
+
+
 def _draw_metric_panel(
-    ax: Axes, sub: pd.DataFrame, metric: str, baseline_split: float | None,
-    *, baseline_text: bool = False,
+    ax: Axes, sub: pd.DataFrame, metric: str, spans: list[dict],
+    color_map: dict[str, str], *, label_spans: bool = False,
 ) -> None:
-    """Draw one F1 metric panel (shaded baseline + per-(method,model) series)."""
-    if baseline_split is not None and (sub.vocab == "pruned").any():
-        ax.axvspan(-0.5, baseline_split, zorder=0, **BASELINE_SHADE)
-        if baseline_text:
-            ax.text(
-                (-0.5 + baseline_split) / 2, 0.04, "baseline\n(pruned taxonomy)",
-                ha="center", va="bottom", fontsize=8, color="#555555",
-                transform=ax.get_xaxis_transform(),
-            )
-    for (method_label, model_short), g in sub.groupby(
+    """Draw one metric panel: shaded spans + per-(colour, model) series."""
+    _draw_spans(ax, spans, label=label_spans)
+    for (color_key, model_short), g in sub.groupby(
         ["method_label", "model_short"], sort=False
     ):
         _plot_broken_series(
             ax, g.sort_values("x"), metric,
-            color=METHOD_COLORS.get(method_label, "#333333"),
+            color=color_map.get(color_key, "#333333"),
             marker=MODEL_MARKERS.get(model_short, "o"),
         )
-    ax.set_ylabel(f"{metric}-F1")
+    ax.set_ylabel(_metric_ylabel(metric))
     ax.set_ylim(0, 1)
 
 
@@ -126,32 +140,54 @@ def plot_prompt_churn(
     return fig
 
 
+def _baseline_spans(sub: pd.DataFrame) -> list[dict]:
+    """Taxonomy default: shade the contiguous leading pruned-vocab block."""
+    if "vocab" not in sub or not (sub.vocab == "pruned").any():
+        return []
+    edited_x = sub.loc[sub.vocab == "edited", "x"]
+    if edited_x.empty:
+        return []
+    return [{
+        "x0": -0.5, "x1": edited_x.min() - 0.5,
+        "label": "baseline\n(pruned taxonomy)", "kind": "baseline",
+    }]
+
+
 def plot_iteration_timeline(
     runs: pd.DataFrame,
     *,
     churn: pd.DataFrame | None = None,
     metrics: tuple[str, ...] = ("micro", "macro"),
+    color_map: dict[str, str] | None = None,
+    color_title: str = "Method",
+    spans: list[dict] | None = None,
+    churn_yscale: str = "linear",
     label_overrides: dict[str, str] | None = None,
     figsize: tuple[float, float] | None = None,
     title: str | None = None,
 ) -> Figure:
-    """The story of the prompt-engineering work: F1 across dated iterations.
+    """The story of the prompt-engineering work: a metric per iteration.
 
-    All models on one shared chronological axis. Metric is the subplot (micro on
-    top, macro below), method is colour, model is marker shape. The pruned-
-    taxonomy baseline region (before prompt engineering) is shaded; trajectory
-    lines connect only consecutive same-(method, model) runs.
+    Metric = subplot, ``method_label`` = colour (via ``color_map``), model =
+    marker shape. Multiple rows sharing a ``run`` (e.g. in/out operating modes)
+    stack in one x-column. ``spans`` shades regions (baseline / dev-val cycles);
+    if omitted, the taxonomy pruned-vocab baseline is shaded by default.
 
-    If ``churn`` (from ``load_taxonomy_prompt_churn``) is given, a third panel of
-    per-step prompt edits is added below, sharing the x-axis so each edit lines
-    up under the F1 movement it may explain.
+    If ``churn`` is given, a third panel of per-step prompt edits is added below,
+    sharing the x-axis so each edit lines up under the metric movement above.
     """
-    sub = runs.sort_values("ts").reset_index(drop=True).copy()
-    sub["x"] = range(len(sub))
+    color_map = color_map or METHOD_COLORS
+    sub = runs.copy()
 
-    # Boundary of the contiguous leading baseline block (pruned taxonomy).
-    edited_x = sub.loc[sub.vocab == "edited", "x"]
-    baseline_split = (edited_x.min() - 0.5) if not edited_x.empty else None
+    # One x-column per prompt-state (run); rows of the same run share it.
+    steps = (
+        sub[["run", "ts", "label"]].drop_duplicates("run")
+        .sort_values("ts").reset_index(drop=True)
+    )
+    steps["x"] = range(len(steps))
+    sub = sub.merge(steps[["run", "x"]], on="run")
+    if spans is None:
+        spans = _baseline_spans(sub)
 
     n = len(metrics) + (1 if churn is not None else 0)
     height_ratios = [1.0] * len(metrics) + ([0.85] if churn is not None else [])
@@ -164,30 +200,34 @@ def plot_iteration_timeline(
     axes = axes[:, 0]
 
     for ax_i, (ax, metric) in enumerate(zip(axes, metrics, strict=False)):
-        _draw_metric_panel(ax, sub, metric, baseline_split, baseline_text=ax_i == 0)
+        _draw_metric_panel(ax, sub, metric, spans, color_map, label_spans=ax_i == 0)
 
     churn_ax = None
     if churn is not None:
         churn_ax = axes[len(metrics)]
-        # Align churn rows to the timeline's run order so bars sit under steps.
+        # Align churn rows to the step order so bars sit under their state.
         cols = ["tax_add", "tax_del", "sys_add", "sys_del"]
-        churn_ord = churn.set_index("run").reindex(sub.run).reset_index()
+        churn_ord = churn.set_index("run").reindex(steps.run).reset_index()
         churn_ord[cols] = churn_ord[cols].fillna(0)
         _draw_churn(churn_ax, churn_ord)
+        if churn_yscale == "symlog":
+            # One big rewrite (e.g. the "shortened" step) otherwise crushes the
+            # rest; symlog keeps small edits legible. Linear near zero.
+            churn_ax.set_yscale("symlog", linthresh=100)
 
-    axes[-1].set_xticks(sub.x)
+    axes[-1].set_xticks(steps.x)
     axes[-1].set_xticklabels(
-        [_prettify(lbl, label_overrides) for lbl in sub.label],
+        [_prettify(lbl, label_overrides) for lbl in steps.label],
         rotation=35, ha="right",
     )
     axes[0].set_title(
         title or "Prompt-engineering iterations — taxonomy classification"
     )
 
-    # Legends (right margin): method = colour, model = marker shape.
-    method_handles = [
+    # Legends (right margin): colour dimension + model marker.
+    color_handles = [
         Line2D([0], [0], color=c, linewidth=2.5, label=m)
-        for m, c in METHOD_COLORS.items()
+        for m, c in color_map.items()
         if m in sub.method_label.values
     ]
     model_handles = [
@@ -196,11 +236,8 @@ def plot_iteration_timeline(
         for m, mk in MODEL_MARKERS.items()
         if m in sub.model_short.values
     ]
-    # Figure-level "outside" legends: constrained_layout reserves margin for
-    # these, so long labels ("Top-down") are never clipped.
-    fig.legend(handles=method_handles, title="Method", loc="outside right upper")
+    fig.legend(handles=color_handles, title=color_title, loc="outside right upper")
     fig.legend(handles=model_handles, title="Model", loc="outside right lower")
-    # Churn legend sits inside its panel, over the empty baseline region.
     if churn_ax is not None:
         churn_ax.legend(handles=_churn_handles(), title="Edited",
                         loc="upper left", fontsize=8, title_fontsize=9)
