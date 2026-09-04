@@ -14,3 +14,6 @@ data/models/**/weights
 data/.cache
 __marimo__
 **/llm_annotations.json
+docs/_build/
+docs/node_modules/
+docs/exports/
