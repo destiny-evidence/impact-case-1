@@ -125,7 +125,7 @@ class ClassifierHelper:
         trial.set_user_attr('scores_self', scores_self)
         trial.set_user_attr('model_params', model_params_)
 
-        objective = scores_val[scoring]
+        objective = scores_val.get(scoring, 0.0)
         return 0 if np.isnan(objective) else objective
 
     def best_from_study(self, study: 'Study', X: list[str], y: list[int]) -> 'Classifier':

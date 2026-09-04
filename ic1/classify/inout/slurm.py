@@ -160,7 +160,7 @@ def main(
     num_trials_gpu: Annotated[int, typer.Option(help='Number of trials for GPU hyperparameter tuning (transformer fine-tunes, see convergence in prior runs)')] = 75,
     num_trials_cpu: Annotated[int, typer.Option(help='Number of trials for CPU hyperparameter tuning (cheap per trial, scales well)')] = 300,
     num_jobs: Annotated[int, typer.Option(help='Number of tuning jobs for parallel processing')] = 1,
-    scoring: Annotated[str, typer.Option(help='Scoring metric for hyperparameter tuning')] = 'F1',
+    scoring: Annotated[str, typer.Option(help='Scoring metric for hyperparameter tuning')] = 'AveragePrecision',
     decision_threshold: Annotated[float, typer.Option(help='Decision threshold for classification')] = 0.5,
     result_dir: Annotated[Path | None, typer.Option(help='Directory to write tuning results to')] = None,
     run_finalise: Annotated[bool, typer.Option('--finalise/--no-finalise', help='Append a finalise job that runs after the tuning arrays complete')] = True,
