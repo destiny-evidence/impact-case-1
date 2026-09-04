@@ -18,12 +18,13 @@ from matplotlib.figure import Figure
 
 from ic1.reporting.loaders import (
     inout_cycle_spans,
+    load_inout_model_costs,
     load_inout_prompt_churn,
     load_inout_runs,
     load_taxonomy_prompt_churn,
     load_taxonomy_runs,
 )
-from ic1.reporting.plots import plot_iteration_timeline
+from ic1.reporting.plots import plot_cost_performance, plot_iteration_timeline
 from ic1.reporting.style import MODE_COLORS, apply_style
 
 _REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -62,6 +63,10 @@ def build_inout(formats: tuple[str, ...]) -> None:
             title="Prompt-engineering iterations — in/out relevance screen",
         ),
         "inout", "iteration_timeline", formats,
+    )
+    _save(
+        plot_cost_performance(load_inout_model_costs()),
+        "inout", "cost_performance", formats,
     )
 
 

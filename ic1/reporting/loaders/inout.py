@@ -10,12 +10,13 @@ collapse to one point, mean P/R). Doc counts trace the dev/validation cycles
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
 import pandas as pd
 import yaml
-from sklearn.metrics import f1_score, precision_score, recall_score
+from sklearn.metrics import f1_score, fbeta_score, precision_score, recall_score
 
 from ic1.reporting.loaders._common import model_short as _model_short
 from ic1.reporting.loaders._common import parse_run_name as _parse_run_name
@@ -190,6 +191,88 @@ def load_inout_prompt_churn(
         })
         prev = s
     return pd.DataFrame(rows).reset_index(drop=True)
+
+
+# Published list prices (USD per 1M tokens, input/output) for models deet's own
+# cost table doesn't cover (accessed via Azure Foundry). DeepSeek V4 Pro off-peak
+# and Kimi K2.6 official rates as of 2026-09; actual Foundry cost may differ, so
+# these points are flagged as estimates. See figure caption.
+_PRICING_USD_PER_MTOK = {
+    "DeepSeek-V4-Pro": (0.66, 1.98),
+    "Kimi-K2.6": (0.95, 4.00),
+}
+
+# Representative run(s) per model for the cost/performance comparison. luna,
+# opus, deepseek and kimi come from the 2026-09-01 bakeoff — identical prompts,
+# 130 docs, one vote — so their F2 is a controlled comparison. terra and sol are
+# each at their own representative config (the figure notes this).
+_MODEL_COMPARISON_RUNS = {
+    "luna": ["_08-25-12_luna", "_luna_s1", "_luna_s2"],
+    "opus": ["_opus"],
+    "deepseek": ["_deepseek"],
+    "kimi": ["_kimi26"],
+    "terra": ["_20-22-45_terra"],
+    "sol": ["_all_modes_resample"],
+}
+
+
+def load_inout_model_costs(exp_dir: Path | str | None = None) -> pd.DataFrame:
+    """Per-model best-balance F2 vs cost per document for model selection.
+
+    Cost is deet's recorded ``total_cost_usd`` where available; for models deet
+    does not price (DeepSeek, Kimi) it is estimated from recorded token counts x
+    published list prices (``_PRICING_USD_PER_MTOK``), flagged via ``estimated``.
+    F2 (recall-weighted) is over the best-balance operating point. Resample
+    siblings are averaged. One row per model.
+    """
+    root = Path(exp_dir) if exp_dir is not None else DEFAULT_EXP_DIR
+    per_run = []
+    for d in sorted(root.iterdir()):
+        comp = d / "goldstandard_llm_comparison.csv"
+        cfg = d / "config.yaml"
+        meta = d / "extraction_metadata.json"
+        if not (comp.exists() and cfg.exists() and meta.exists()):
+            continue
+        model_short = next(
+            (m for m, pats in _MODEL_COMPARISON_RUNS.items()
+             if any(p in d.name for p in pats)),
+            None,
+        )
+        if model_short is None:
+            continue
+        c = yaml.safe_load(cfg.read_text()) or {}
+        m = json.loads(meta.read_text())
+        df = pd.read_csv(comp)
+        bb = df[df.attribute_label == "include - best balance"]
+        if bb.empty:
+            continue
+        f2 = fbeta_score(
+            bb.human_extraction.fillna(False).astype(int),
+            bb.llm_extraction.fillna(False).astype(int),
+            beta=2, zero_division=0,
+        )
+        cost = m.get("total_cost_usd")
+        estimated = False
+        model = c.get("model", "?")
+        if cost is None and model in _PRICING_USD_PER_MTOK:
+            pin, pout = _PRICING_USD_PER_MTOK[model]
+            cost = (m["total_input_tokens"] * pin + m["total_output_tokens"] * pout) / 1e6
+            estimated = True
+        if cost is None:
+            continue
+        n_docs = df.document_id.nunique()
+        per_run.append({
+            "model_short": model_short, "model": model,
+            "cost_per_doc": cost / n_docs, "f2": float(f2),
+            "estimated": estimated,
+        })
+
+    df = pd.DataFrame(per_run)
+    return (
+        df.groupby("model_short", as_index=False)
+        .agg(model=("model", "first"), cost_per_doc=("cost_per_doc", "mean"),
+             f2=("f2", "mean"), estimated=("estimated", "first"))
+    )
 
 
 def inout_cycle_spans(runs: pd.DataFrame) -> list[dict]:

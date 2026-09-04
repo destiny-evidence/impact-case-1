@@ -36,6 +36,17 @@ MODE_COLORS = {
     "high precision": "#d62728",  # red — strict
 }
 
+# Per-model colours for the cost/performance scatter.
+MODEL_COLORS = {
+    "luna": "#1f77b4",
+    "sol": "#d62728",
+    "terra": "#ff7f0e",
+    "opus": "#9467bd",
+    "deepseek": "#8c564b",
+    "kimi": "#e377c2",
+    "4o-mini": "#7f7f7f",
+}
+
 # Shading for the pre-prompt-engineering baseline region (pruned taxonomy).
 BASELINE_SHADE = {"color": "#cccccc", "alpha": 0.18}
 

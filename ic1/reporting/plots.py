@@ -12,13 +12,16 @@ import pandas as pd
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
 from matplotlib.lines import Line2D
+from matplotlib.ticker import FuncFormatter
 
 from matplotlib.patches import Patch
 
 from ic1.reporting.style import (
     CHURN_COLORS,
     CYCLE_SHADE,
+    FIGSIZE,
     METHOD_COLORS,
+    MODEL_COLORS,
     MODEL_MARKERS,
 )
 
@@ -74,6 +77,77 @@ def _draw_spans(ax: Axes, spans: list[dict], *, label: bool = False) -> None:
 
 def _metric_ylabel(metric: str) -> str:
     return f"{metric}-F1" if metric in ("micro", "macro") else metric
+
+
+def _pareto_frontier(df: pd.DataFrame) -> pd.DataFrame:
+    """Non-dominated models: none is both cheaper and at least as good (F2)."""
+    keep = []
+    for _, r in df.iterrows():
+        dominated = (
+            (df.cost_per_doc <= r.cost_per_doc) & (df.f2 >= r.f2)
+            & ((df.cost_per_doc < r.cost_per_doc) | (df.f2 > r.f2))
+        ).any()
+        if not dominated:
+            keep.append(r)
+    return pd.DataFrame(keep).sort_values("cost_per_doc")
+
+
+def _money(v: float) -> str:
+    if v >= 1e6:
+        return f"${v / 1e6:.1f}M"
+    if v >= 1e3:
+        return f"${v / 1e3:.0f}k"
+    return f"${v:.0f}"
+
+
+def plot_cost_performance(
+    models: pd.DataFrame,
+    *,
+    corpus_size: int = 6_000_000,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Accuracy (best-balance F2) vs cost per document, one point per model.
+
+    Log cost axis; the Pareto frontier is drawn and a secondary top axis
+    extrapolates to the cost of screening the full corpus. Models priced by
+    estimate (hollow markers) are flagged in the legend.
+    """
+    fig, ax = plt.subplots(figsize=figsize or FIGSIZE["wide"], layout="constrained")
+    models = models.assign(corpus_cost=models.cost_per_doc * corpus_size)
+
+    frontier = _pareto_frontier(models)
+    ax.plot(frontier.corpus_cost, frontier.f2, color="#999999", linestyle="--",
+            linewidth=1.2, zorder=1, label="Pareto frontier")
+
+    for _, r in models.iterrows():
+        color = MODEL_COLORS.get(r.model_short, "#333333")
+        marker = MODEL_MARKERS.get(r.model_short, "o")
+        face = "white" if r.estimated else color
+        ax.scatter(r.corpus_cost, r.f2, s=140, marker=marker, facecolors=face,
+                   edgecolors=color, linewidths=1.8, zorder=3)
+        label = f"{r.model_short}{'*' if r.estimated else ''} ({_money(r.corpus_cost)})"
+        ax.annotate(label, (r.corpus_cost, r.f2),
+                    textcoords="offset points", xytext=(9, 5), fontsize=10,
+                    color=color, fontweight="bold")
+
+    ax.set_xlim(0, models.corpus_cost.max() * 1.12)
+    ax.set_xlabel(f"cost to screen the {_money(corpus_size)[1:]}-document corpus (USD)")
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: _money(v)))
+    ax.set_ylabel("best-balance F2  (recall-weighted)")
+    ax.set_ylim(0, 1)
+    ax.set_title(title or "Model selection — accuracy vs cost, in/out screen")
+
+    # Secondary axis: the same thing expressed per document.
+    secax = ax.secondary_xaxis(
+        "top", functions=(lambda x: x / corpus_size, lambda x: x * corpus_size))
+    secax.set_xlabel("cost per document (USD)")
+    secax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"${v:.3f}"))
+
+    ax.annotate("* cost estimated from published API list prices",
+                (0, -0.18), xycoords="axes fraction", fontsize=8, color="#666666")
+    ax.legend(loc="lower right", fontsize=9)
+    return fig
 
 
 def _draw_metric_panel(
