@@ -1,19 +1,18 @@
 ---
-title: Methods
+title: Prompt Iteration Methods
 ---
 
-Both tasks share one pipeline and one working discipline. This chapter describes
-the general approach, with each task chapter describing the specific results per task.
+This chapter describes the approach to prompt engineering in Impact Case 1.
 
 ## Prompt engineering as a measured activity
 
 We treat prompt design as empirical work. Every candidate prompt
-is run through the `deet` extraction pipeline against a human-labelled gold
+is run through the [deet](https://destiny-evidence.github.io/data-extraction-evaluation-toolkit/development/) extraction pipeline against a human-labelled gold
 standard, scored, and compared to its predecessor. The result is a *sequence* of
 experiments, each a small, named change — a scope clarification, a definition
 edit, a structural tweak — whose effect on the metric is measured. 
-The timeline figures in the task chapters make that sequence legible:
-performance on top, the size and target of each prompt edit below.
+The timeline figures in the task chapters make that sequence legible by displaying
+performance on top, and the size and target of each prompt edit below.
 
 ## Evaluation discipline: dev / validation / test
 

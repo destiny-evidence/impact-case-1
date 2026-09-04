@@ -28,9 +28,13 @@ project:
   #     output: exports/destiny-ic1.pdf
   toc:
     - file: index.md
-    - file: method.md
-    - file: inout.md
+    - file: inout/index.md
+      children:
+        - file: inout/ml.md
+        - file: inout/llm.md
+        - file: inout/combination.md
     - file: taxonomy.md
+    - file: method.md
 site:
   template: book-theme
   options:
