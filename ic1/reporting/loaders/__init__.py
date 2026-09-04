@@ -9,6 +9,7 @@ from ic1.reporting.loaders.inout import (
     load_inout_model_costs,
     load_inout_prompt_churn,
     load_inout_runs,
+    load_inout_test_metrics,
 )
 from ic1.reporting.loaders.taxonomy import (
     load_taxonomy_prompt_churn,
@@ -21,5 +22,6 @@ __all__ = [
     "load_inout_runs",
     "load_inout_prompt_churn",
     "load_inout_model_costs",
+    "load_inout_test_metrics",
     "inout_cycle_spans",
 ]

@@ -275,6 +275,38 @@ def load_inout_model_costs(exp_dir: Path | str | None = None) -> pd.DataFrame:
     )
 
 
+def load_inout_test_metrics(exp_dir: Path | str | None = None) -> pd.DataFrame:
+    """Per-operating-point metrics on the latest held-out TEST run.
+
+    Columns: Operating point, Precision, Recall, F0.5, F1, F2. One row per mode,
+    in high recall -> best balance -> high precision order.
+    """
+    root = Path(exp_dir) if exp_dir is not None else DEFAULT_EXP_DIR
+    tests = [
+        d for d in sorted(root.iterdir())
+        if (d / "goldstandard_llm_comparison.csv").exists() and _phase(d.name) == "test"
+    ]
+    if not tests:
+        return pd.DataFrame()
+    df = pd.read_csv(tests[-1] / "goldstandard_llm_comparison.csv")
+    rows = []
+    for mode_label, short in MODE_LABELS.items():
+        g = df[df.attribute_label == mode_label]
+        if g.empty:
+            continue
+        yt = g.human_extraction.fillna(False).astype(int)
+        yp = g.llm_extraction.fillna(False).astype(int)
+        rows.append({
+            "Operating point": short,
+            "Precision": precision_score(yt, yp, zero_division=0),
+            "Recall": recall_score(yt, yp, zero_division=0),
+            "F0.5": fbeta_score(yt, yp, beta=0.5, zero_division=0),
+            "F1": f1_score(yt, yp, zero_division=0),
+            "F2": fbeta_score(yt, yp, beta=2, zero_division=0),
+        })
+    return pd.DataFrame(rows)
+
+
 def inout_cycle_spans(runs: pd.DataFrame) -> list[dict]:
     """Shaded spans for the dev/validation cycles, labelled with doc counts.
 
