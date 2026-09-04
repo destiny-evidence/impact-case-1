@@ -14,6 +14,7 @@ import json
 import re
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import yaml
 from sklearn.metrics import f1_score, fbeta_score, precision_score, recall_score
@@ -332,3 +333,146 @@ def inout_cycle_spans(runs: pd.DataFrame) -> list[dict]:
             })
             start = i
     return spans
+
+
+# Real (non-dev) finalised ML models. Dev-mode runs land under models/testing
+# with a test set fabricated from train — unusable for the head-to-head.
+_ML_MODEL_DIR = _REPO_ROOT / "data" / "models" / "inout" / "results" / "model"
+
+
+def _latest_test_run(root: Path | None = None) -> Path:
+    """Most recent held-out TEST deet run (folder name marks the phase)."""
+    root = root or DEFAULT_EXP_DIR
+    tests = [
+        d for d in sorted(root.iterdir())
+        if (d / "goldstandard_llm_comparison.csv").exists() and _phase(d.name) == "test"
+    ]
+    if not tests:
+        raise FileNotFoundError(f"No TEST run under {root}")
+    return tests[-1]
+
+
+def _point(yt: np.ndarray, yp: np.ndarray) -> dict:
+    return {
+        "precision": precision_score(yt, yp, zero_division=0),
+        "recall": recall_score(yt, yp, zero_division=0),
+        "f1": f1_score(yt, yp, zero_division=0),
+        "f2": fbeta_score(yt, yp, beta=2, zero_division=0),
+    }
+
+
+def _ci(yt: np.ndarray, yp: np.ndarray, *, seed: int) -> dict:
+    """Bayesian HDIs via prob_conf_mat — the same method as classify's finalise
+    (``posterior_metric_summaries``). Two calls (beta=1, beta=2) cover F1 and F2;
+    Precision/Recall are shared. Returns ``{metric}_lo``/``{metric}_hi``."""
+    from ic1.classify.inout.utils.metrics import posterior_metric_summaries
+
+    s1 = posterior_metric_summaries(yt, yp, beta=1, seed=seed)
+    s2 = posterior_metric_summaries(yt, yp, beta=2, seed=seed)
+    pairs = (("precision", s1["Precision"]), ("recall", s1["Recall"]),
+             ("f1", s1["Fbeta"]), ("f2", s2["Fbeta"]))
+    out = {}
+    for key, m in pairs:
+        out[f"{key}_lo"], out[f"{key}_hi"] = m["hdi_lo"], m["hdi_hi"]
+    return out
+
+
+# Operating points reported for the LLM-only and cascade families, in
+# recall -> balance -> precision order (matches the timeline figure).
+_MODE_ORDER = ("high recall", "best balance", "high precision")
+
+
+def load_inout_comparison(
+    llm_run: Path | str | None = None,
+    ml_model_dir: Path | str | None = None,
+    corpus_size: int = 6_000_000,
+    seed: int = 42,
+) -> pd.DataFrame:
+    """Head-to-head on the *identical* held-out test set, with Bayesian 95% HDIs
+    and a cost proxy (issue #1).
+
+    Join key: the deet ``external_id`` IS the nacsos ``item_id`` (== splits.test),
+    so the LLM comparison rows and the finalised ML predictions align 1:1.
+
+    Systems — one row per operating point for the two LLM-using families, plus a
+    single ML-only reference:
+      - LLM only (mode) : that operating-point decision on every doc.
+      - ML only         : the F-beta-selected model, thresholded ("Optimal ML-only").
+      - ML -> LLM (mode): the high-recall *filtering* model gates the corpus; docs
+                          it passes take the LLM's ``mode`` decision, docs it drops
+                          are excluded — simulated by reusing the LLM's decisions
+                          on the passed docs.
+
+    Intervals use the same Dirichlet-multinomial confusion-matrix posterior as
+    ``classify``'s finalise (``posterior_metric_summaries``). Cost is the LLM
+    run's recorded USD/doc extrapolated to ``corpus_size``; the cascade pays it
+    only on the fraction the filter forwards, ML-only is ~free. Columns include
+    ``system``, ``family``, ``mode``, the four point metrics, ``*_lo``/``*_hi``
+    HDIs, ``prop_to_llm`` and ``corpus_cost``.
+    """
+    root = Path(llm_run) if llm_run is not None else _latest_test_run()
+    mld = Path(ml_model_dir) if ml_model_dir is not None else _ML_MODEL_DIR
+
+    comp = pd.read_csv(root / "goldstandard_llm_comparison.csv")
+    comp = comp[comp.attribute_label.isin(MODE_LABELS)].copy()
+    comp["mode"] = comp.attribute_label.map(MODE_LABELS)
+    # Gold is mode-invariant; one LLM decision column per operating point.
+    hum = comp.groupby("external_id").human_extraction.first()
+    llm_wide = comp.pivot_table(
+        index="external_id", columns="mode", values="llm_extraction", aggfunc="first"
+    )
+    base = pd.DataFrame({"human_extraction": hum}).join(llm_wide).reset_index()
+
+    ml_only = pd.read_csv(mld / "ml_only" / "test_predictions.csv")
+    filt = pd.read_csv(mld / "filtering" / "test_predictions.csv")
+    t_ml = json.loads((mld / "ml_only" / "train_info.json").read_text())["threshold"]
+    t_filt = json.loads((mld / "filtering" / "train_info.json").read_text())["threshold"]
+
+    df = (
+        base.merge(ml_only.rename(columns={"y_prob": "ml_prob"}),
+                   left_on="external_id", right_on="item_id")
+            .merge(filt[["item_id", "y_prob"]].rename(columns={"y_prob": "filt_prob"}),
+                   on="item_id")
+    )
+    if df.empty:
+        raise ValueError(
+            "No overlap between the LLM test docs and the ML predictions. The "
+            "committed ML run is dev-mode (data/models/testing/...), whose test "
+            "set is fabricated from train. Re-run `finalise_models` with "
+            "dev_mode=False so predictions cover splits.test."
+        )
+
+    yt = df.human_extraction.fillna(False).astype(int).to_numpy()
+    filt_pass = (df.filt_prob.to_numpy() > t_filt).astype(int)
+    llm_inc = {
+        m: df[m].fillna(False).astype(int).to_numpy()
+        for m in _MODE_ORDER if m in df.columns
+    }
+
+    meta = json.loads((root / "extraction_metadata.json").read_text())
+    llm_cost_doc = meta["total_cost_usd"] / comp.external_id.nunique()
+    prop_pass = float(filt_pass.mean())
+
+    # (system label, family, mode, y_pred, fraction hitting the LLM)
+    systems: list[tuple[str, str, str | None, np.ndarray, float]] = []
+    for m in llm_inc:
+        systems.append((f"LLM only ({m})", "LLM only", m, llm_inc[m], 1.0))
+    systems.append(
+        ("ML only", "ML only", None, (df.ml_prob.to_numpy() > t_ml).astype(int), 0.0)
+    )
+    for m in llm_inc:
+        systems.append(
+            (f"ML → LLM ({m})", "ML → LLM", m, filt_pass & llm_inc[m], prop_pass)
+        )
+
+    rows = []
+    for name, family, mode, yp, to_llm in systems:
+        rows.append({
+            "system": name, "family": family, "mode": mode, "n": int(df.shape[0]),
+            **_point(yt, yp),
+            **_ci(yt, yp, seed=seed),
+            "prop_to_llm": to_llm,
+            "cost_per_doc": llm_cost_doc * to_llm,
+            "corpus_cost": llm_cost_doc * to_llm * corpus_size,
+        })
+    return pd.DataFrame(rows)

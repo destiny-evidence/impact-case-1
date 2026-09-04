@@ -8,6 +8,7 @@ PowerPoint.
 from __future__ import annotations
 
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
@@ -21,6 +22,7 @@ from ic1.reporting.style import (
     CYCLE_SHADE,
     FIGSIZE,
     METHOD_COLORS,
+    MODE_COLORS,
     MODEL_COLORS,
     MODEL_MARKERS,
 )
@@ -147,6 +149,67 @@ def plot_cost_performance(
     ax.annotate("* cost estimated from published API list prices",
                 (0, -0.18), xycoords="axes fraction", fontsize=8, color="#666666")
     ax.legend(loc="lower right", fontsize=9)
+    return fig
+
+
+# System families encoded as marker shape; operating point as colour (MODE_COLORS).
+# ML-only has no operating point, so it gets a neutral grey.
+_FAMILY_MARKERS = {"LLM only": "o", "ML only": "D", "ML → LLM": "s"}
+_NO_MODE_COLOR = "#7f7f7f"
+
+
+def plot_comparison(
+    df: pd.DataFrame,
+    *,
+    metrics: tuple[str, ...] = ("precision", "recall", "f1", "f2"),
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Forest plot of the head-to-head: each metric a y-group, each system a
+    point with its 95% HDI bar.
+
+    Consumes ``load_inout_comparison`` (columns ``family``, ``mode``, ``recall``,
+    ``recall_lo``, ``recall_hi``, ...). Operating point = colour, system family =
+    marker shape; systems are offset within each metric group so intervals don't
+    overlap.
+    """
+    fig, ax = plt.subplots(figsize=figsize or (11.0, 6.5), layout="constrained")
+    offsets = np.linspace(0.38, -0.38, len(df))
+    labels = {"precision": "Precision", "recall": "Recall", "f1": "F1", "f2": "F2"}
+    yticks, yticklabels = [], []
+    for gi, metric in enumerate(metrics):
+        base = gi * 2.0
+        yticks.append(base)
+        yticklabels.append(labels.get(metric, metric))
+        for si, (_, r) in enumerate(df.iterrows()):
+            color = MODE_COLORS.get(r["mode"], _NO_MODE_COLOR)
+            marker = _FAMILY_MARKERS.get(r["family"], "o")
+            ax.errorbar(
+                r[metric], base + offsets[si],
+                xerr=[[r[metric] - r[f"{metric}_lo"]], [r[f"{metric}_hi"] - r[metric]]],
+                fmt=marker, color=color, ecolor=color, elinewidth=2, capsize=3,
+                markersize=7, zorder=3,
+            )
+    ax.set_yticks(yticks)
+    ax.set_yticklabels(yticklabels)
+    ax.invert_yaxis()
+    ax.set_xlim(0, 1)
+    ax.set_xlabel("score (95% HDI)")
+    ax.set_title(title or "In/out screen — system comparison on held-out test")
+
+    mode_handles = [
+        Line2D([0], [0], marker="o", color=c, linestyle="none", markersize=8, label=m)
+        for m, c in MODE_COLORS.items() if (df["mode"] == m).any()
+    ]
+    family_handles = [
+        Line2D([0], [0], marker=mk, color="#333333", linestyle="none",
+               markersize=8, label=f)
+        for f, mk in _FAMILY_MARKERS.items() if (df["family"] == f).any()
+    ]
+    leg1 = ax.legend(handles=mode_handles, title="Operating point", loc="lower right")
+    ax.add_artist(leg1)
+    ax.legend(handles=family_handles, title="System", loc="lower right",
+              bbox_to_anchor=(1.0, 0.32))
     return fig
 
 

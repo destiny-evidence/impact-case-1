@@ -34,3 +34,37 @@ def metrics_markdown(
         cells = [str(r[label_col])] + [cell(c, r[c]) for c in numeric]
         lines.append("| " + " | ".join(cells) + " |")
     return "\n".join(lines) + "\n"
+
+
+def comparison_markdown(df: pd.DataFrame, *, decimals: int = 2) -> str:
+    """System comparison: point estimate + 95% HDI per metric, plus cost.
+
+    Consumes ``load_inout_comparison``. Metric cells read ``0.72 [0.66–0.78]``;
+    the cost column extrapolates the LLM run's per-doc cost to the full corpus
+    (the cascade pays it only on the fraction the filter forwards).
+    """
+    def ci(r: pd.Series, m: str) -> str:
+        return (
+            f"{r[m]:.{decimals}f} "
+            f"[{r[f'{m}_lo']:.{decimals}f}–{r[f'{m}_hi']:.{decimals}f}]"
+        )
+
+    def money(v: float) -> str:
+        if v >= 1e6:
+            return f"${v / 1e6:.1f}M"
+        if v >= 1e3:
+            return f"${v / 1e3:.0f}k"
+        return f"${v:.0f}"
+
+    cols = ["System", "Precision", "Recall", "F1", "F2", "Sent to LLM", "Corpus cost"]
+    lines = [
+        "| " + " | ".join(cols) + " |",
+        "|" + "|".join(["---"] * len(cols)) + "|",
+    ]
+    for _, r in df.iterrows():
+        lines.append("| " + " | ".join([
+            str(r.system), ci(r, "precision"), ci(r, "recall"),
+            ci(r, "f1"), ci(r, "f2"),
+            f"{r.prop_to_llm * 100:.0f}%", money(r.corpus_cost),
+        ]) + " |")
+    return "\n".join(lines) + "\n"

@@ -18,6 +18,7 @@ from matplotlib.figure import Figure
 
 from ic1.reporting.loaders import (
     inout_cycle_spans,
+    load_inout_comparison,
     load_inout_model_costs,
     load_inout_prompt_churn,
     load_inout_runs,
@@ -25,9 +26,13 @@ from ic1.reporting.loaders import (
     load_taxonomy_prompt_churn,
     load_taxonomy_runs,
 )
-from ic1.reporting.plots import plot_cost_performance, plot_iteration_timeline
+from ic1.reporting.plots import (
+    plot_comparison,
+    plot_cost_performance,
+    plot_iteration_timeline,
+)
 from ic1.reporting.style import MODE_COLORS, apply_style
-from ic1.reporting.tables import metrics_markdown
+from ic1.reporting.tables import comparison_markdown, metrics_markdown
 
 _REPO_ROOT = Path(__file__).resolve().parents[2]
 FIGURES_DIR = _REPO_ROOT / "docs" / "figures"
@@ -84,6 +89,12 @@ def build_inout(formats: tuple[str, ...]) -> None:
     test = load_inout_test_metrics()
     if not test.empty:
         _write_table(metrics_markdown(test), "inout_test_metrics")
+    try:
+        comp = load_inout_comparison()
+        _save(plot_comparison(comp), "inout", "comparison", formats)
+        _write_table(comparison_markdown(comp), "inout_comparison")
+    except (FileNotFoundError, ValueError) as e:
+        print(f"  skipping comparison: {e}")
 
 
 def main() -> None:
