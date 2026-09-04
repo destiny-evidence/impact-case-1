@@ -1,0 +1,23 @@
+{
+  "criterion": "ml_only",
+  "model": "climatebert",
+  "params": {
+    "model_name": "climatebert/distilroberta-base-climate-f",
+    "output_dir": "data/.cache/models",
+    "optim": "adamw_torch",
+    "save_strategy": "no",
+    "use_class_weights": 1,
+    "learning_rate": 2.4864568077722196e-05,
+    "per_device_train_batch_size": 13,
+    "per_device_eval_batch_size": 13,
+    "num_train_epochs": 3,
+    "weight_decay": 0.012100047376948503,
+    "downsampling": 0.5209627939770489
+  },
+  "threshold": 0.2,
+  "beta": 2.0,
+  "fit_hash": "b7ba6c89b46204b9",
+  "train_hash": "5f40ab00413031ef",
+  "val_hash": "929c45a6a7579000",
+  "test_hash": "847bbcf27d84706e"
+}
