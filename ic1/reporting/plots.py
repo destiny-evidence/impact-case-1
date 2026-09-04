@@ -113,7 +113,7 @@ def plot_cost_performance(
     extrapolates to the cost of screening the full corpus. Models priced by
     estimate (hollow markers) are flagged in the legend.
     """
-    fig, ax = plt.subplots(figsize=figsize or FIGSIZE["wide"], layout="constrained")
+    fig, ax = plt.subplots(figsize=figsize or FIGSIZE["square"], layout="constrained")
     models = models.assign(corpus_cost=models.cost_per_doc * corpus_size)
 
     frontier = _pareto_frontier(models)

@@ -27,6 +27,15 @@ of 0.80, with an F1 score of 0.72.
 :::
 
 
+## Cost vs performance
+
+```{figure} ../figures/inout/cost_performance.svg
+:name: inout-timeline
+:width: 100%
+
+Cost performance trade-off
+```
+
 
 ## Prompt Iteration
 
