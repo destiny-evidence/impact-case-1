@@ -382,6 +382,35 @@ def _ci(yt: np.ndarray, yp: np.ndarray, *, seed: int) -> dict:
 _MODE_ORDER = ("high recall", "best balance", "high precision")
 
 
+def load_inout_prompts(
+    llm_run: Path | str | None = None, headline: str = "best balance"
+) -> dict:
+    """The exact prompts from the final held-out TEST run, for the docs.
+
+    Reads the run's ``config.yaml`` (system prompt) and ``prompts_used.csv``
+    (per-operating-point scope prompts). The three scope prompts share their
+    system prompt and CLIMATE/HEALTH definitions verbatim and differ only in
+    wording, so the renderer shows the ``headline`` prompt in full and the others
+    as a diff against it.
+
+    Returns ``{"run", "system", "headline", "modes": {mode: full_prompt}}`` with
+    modes in ``_MODE_ORDER``.
+    """
+    root = Path(llm_run) if llm_run is not None else _latest_test_run()
+    cfg = yaml.safe_load((root / "config.yaml").read_text()) or {}
+    system = (cfg.get("prompt_config") or {}).get("system_prompt", "").strip()
+
+    pdf = pd.read_csv(root / "prompts_used.csv")
+    pdf["mode"] = pdf.attribute_label.map(MODE_LABELS)
+    modes = {
+        m: pdf.loc[pdf["mode"] == m, "prompt"].iloc[0].strip()
+        for m in _MODE_ORDER if (pdf["mode"] == m).any()
+    }
+    if headline not in modes:
+        headline = next(iter(modes))
+    return {"run": root.name, "system": system, "headline": headline, "modes": modes}
+
+
 def load_inout_comparison(
     llm_run: Path | str | None = None,
     ml_model_dir: Path | str | None = None,
@@ -444,6 +473,7 @@ def load_inout_comparison(
 
     yt = df.human_extraction.fillna(False).astype(int).to_numpy()
     filt_pass = (df.filt_prob.to_numpy() > t_filt).astype(int)
+    ml_pred = (df.ml_prob.to_numpy() > t_ml).astype(int)
     llm_inc = {
         m: df[m].fillna(False).astype(int).to_numpy()
         for m in _MODE_ORDER if m in df.columns
@@ -451,18 +481,25 @@ def load_inout_comparison(
 
     meta = json.loads((root / "extraction_metadata.json").read_text())
     llm_cost_doc = meta["total_cost_usd"] / comp.external_id.nunique()
-    prop_pass = float(filt_pass.mean())
+    prop_pass = float(filt_pass.mean())        # cascade: LLM runs on forwarded docs
+    prop_reject = 1.0 - float(ml_pred.mean())  # OR: LLM runs on ML's rejects only
 
     # (system label, family, mode, y_pred, fraction hitting the LLM)
     systems: list[tuple[str, str, str | None, np.ndarray, float]] = []
     for m in llm_inc:
         systems.append((f"LLM only ({m})", "LLM only", m, llm_inc[m], 1.0))
-    systems.append(
-        ("ML only", "ML only", None, (df.ml_prob.to_numpy() > t_ml).astype(int), 0.0)
-    )
+    systems.append(("ML only", "ML only", None, ml_pred, 0.0))
     for m in llm_inc:
         systems.append(
             (f"ML → LLM ({m})", "ML → LLM", m, filt_pass & llm_inc[m], prop_pass)
+        )
+    # OR-ensemble: include if ML *or* the LLM includes. Uses the balanced ml_only
+    # model (OR-ing with the high-recall filter would collapse precision). The
+    # prediction equals a full OR, but you only need the LLM on docs ML rejected —
+    # ML's accepts are already positive — so it costs prop_reject, not the full run.
+    for m in llm_inc:
+        systems.append(
+            (f"ML or LLM ({m})", "ML or LLM", m, ml_pred | llm_inc[m], prop_reject)
         )
 
     rows = []

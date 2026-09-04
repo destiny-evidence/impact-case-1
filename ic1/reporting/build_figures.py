@@ -21,6 +21,7 @@ from ic1.reporting.loaders import (
     load_inout_comparison,
     load_inout_model_costs,
     load_inout_prompt_churn,
+    load_inout_prompts,
     load_inout_runs,
     load_inout_test_metrics,
     load_taxonomy_prompt_churn,
@@ -32,7 +33,11 @@ from ic1.reporting.plots import (
     plot_iteration_timeline,
 )
 from ic1.reporting.style import MODE_COLORS, apply_style
-from ic1.reporting.tables import comparison_markdown, metrics_markdown
+from ic1.reporting.tables import (
+    comparison_markdown,
+    metrics_markdown,
+    prompts_markdown,
+)
 
 _REPO_ROOT = Path(__file__).resolve().parents[2]
 FIGURES_DIR = _REPO_ROOT / "docs" / "figures"
@@ -95,6 +100,10 @@ def build_inout(formats: tuple[str, ...]) -> None:
         _write_table(comparison_markdown(comp), "inout_comparison")
     except (FileNotFoundError, ValueError) as e:
         print(f"  skipping comparison: {e}")
+    try:
+        _write_table(prompts_markdown(load_inout_prompts()), "inout_prompts")
+    except (FileNotFoundError, KeyError) as e:
+        print(f"  skipping prompts: {e}")
 
 
 def main() -> None:

@@ -154,7 +154,7 @@ def plot_cost_performance(
 
 # System families encoded as marker shape; operating point as colour (MODE_COLORS).
 # ML-only has no operating point, so it gets a neutral grey.
-_FAMILY_MARKERS = {"LLM only": "o", "ML only": "D", "ML → LLM": "s"}
+_FAMILY_MARKERS = {"LLM only": "o", "ML only": "D", "ML → LLM": "s", "ML or LLM": "^"}
 _NO_MODE_COLOR = "#7f7f7f"
 
 
@@ -173,12 +173,12 @@ def plot_comparison(
     marker shape; systems are offset within each metric group so intervals don't
     overlap.
     """
-    fig, ax = plt.subplots(figsize=figsize or (11.0, 6.5), layout="constrained")
-    offsets = np.linspace(0.38, -0.38, len(df))
+    fig, ax = plt.subplots(figsize=figsize or (11.0, 8.5), layout="constrained")
+    offsets = np.linspace(0.45, -0.45, len(df))
     labels = {"precision": "Precision", "recall": "Recall", "f1": "F1", "f2": "F2"}
     yticks, yticklabels = [], []
     for gi, metric in enumerate(metrics):
-        base = gi * 2.0
+        base = gi * 2.6
         yticks.append(base)
         yticklabels.append(labels.get(metric, metric))
         for si, (_, r) in enumerate(df.iterrows()):
@@ -187,8 +187,8 @@ def plot_comparison(
             ax.errorbar(
                 r[metric], base + offsets[si],
                 xerr=[[r[metric] - r[f"{metric}_lo"]], [r[f"{metric}_hi"] - r[metric]]],
-                fmt=marker, color=color, ecolor=color, elinewidth=2, capsize=3,
-                markersize=7, zorder=3,
+                fmt=marker, color=color, ecolor=color, elinewidth=1.6, capsize=2.5,
+                markersize=6, zorder=3,
             )
     ax.set_yticks(yticks)
     ax.set_yticklabels(yticklabels)

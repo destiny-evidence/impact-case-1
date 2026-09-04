@@ -51,3 +51,9 @@ dev / validation / test cycles, labelled with the number of documents evaluated
 panel:** per-step edits to the scope prompts (teal) and the system prompt
 (purple).
 ```
+
+(llm-prompts)=
+## Prompts
+
+:::{include} ../tables/inout_prompts.md
+:::

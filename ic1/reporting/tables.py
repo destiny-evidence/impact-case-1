@@ -68,3 +68,39 @@ def comparison_markdown(df: pd.DataFrame, *, decimals: int = 2) -> str:
             f"{r.prop_to_llm * 100:.0f}%", money(r.corpus_cost),
         ]) + " |")
     return "\n".join(lines) + "\n"
+
+
+def prompts_markdown(prompts: dict, *, full: bool = False) -> str:
+    """Render the final screening prompts as collapsible dropdowns for the docs.
+
+    Consumes ``load_inout_prompts``. The three scope prompts are near identical,
+    so by default it shows the system prompt, the ``headline`` operating point in
+    full, and the other two as a **unified diff against the headline** (fenced
+    ``diff``, git-style +/- lines). ``full=True`` instead emits every scope
+    prompt in its entirety.
+    """
+    import difflib
+
+    def block(title: str, body: str, lang: str = "text", *, open_: bool = False) -> str:
+        opt = "\n:open:" if open_ else ""
+        return f":::{{dropdown}} {title}{opt}\n```{lang}\n{body}\n```\n:::\n"
+
+    headline = prompts["headline"]
+    modes = prompts["modes"]
+    out = [block("System prompt", prompts["system"])]
+
+    if full:
+        for mode, text in modes.items():
+            out.append(block(f"Scope prompt — {mode}", text))
+        return "\n".join(out)
+
+    out.append(block(f"Scope prompt — {headline} (headline)", modes[headline], open_=True))
+    for mode, text in modes.items():
+        if mode == headline:
+            continue
+        diff = "\n".join(difflib.unified_diff(
+            modes[headline].splitlines(), text.splitlines(),
+            fromfile=headline, tofile=mode, lineterm="",
+        ))
+        out.append(block(f"Scope prompt — {mode} (diff vs {headline})", diff, "diff"))
+    return "\n".join(out)

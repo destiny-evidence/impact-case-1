@@ -9,6 +9,7 @@ from ic1.reporting.loaders.inout import (
     load_inout_comparison,
     load_inout_model_costs,
     load_inout_prompt_churn,
+    load_inout_prompts,
     load_inout_runs,
     load_inout_test_metrics,
 )
@@ -25,5 +26,6 @@ __all__ = [
     "load_inout_model_costs",
     "load_inout_test_metrics",
     "load_inout_comparison",
+    "load_inout_prompts",
     "inout_cycle_spans",
 ]

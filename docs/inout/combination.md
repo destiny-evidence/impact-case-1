@@ -12,7 +12,7 @@ but achieve the highest F1 score (also well within the margin of error).
 While the ML-filter -> LLM performs similarly to ML alone in terms of F2, it performs marginally better in terms of F1, due to significantly higher precision. 
 
 An additional benefit of using the LLM for classification, is that we are able to implement separate scopes
-that are each explainable.
+that are each explainable, and implemented in prose ([see prompts](#llm-prompts)).
 
 
 ```{figure} ../figures/inout/comparison.svg
