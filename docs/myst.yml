@@ -39,7 +39,7 @@ site:
     logo: favicon.png
     logo_text: Destiny IC1
   parts:
-    primary_sidebar_footer: parts/primary_sidebar_footer.mdy
+    primary_sidebar_footer: parts/primary_sidebar_footer.md
   actions:
     - title: Code
       url: https://github.com/destiny-evidence/impact-case-1
