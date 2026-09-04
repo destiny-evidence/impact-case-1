@@ -14,6 +14,20 @@ purposely includes and excludes:
 - **high precision** — both the climate element and the health connection must be
   explicitly stated; exclude when uncertain.
 
+## Test results
+
+On held-out test data, each operating point behaved as expected. 
+Recall was highest in the high-recall setting, lower in the best balance, 
+and lower again in high precision, with the reverse being true for precision.
+
+High recall mode achieves an F2 score (which weights recall more strongly than precision)
+of 0.80, with an F1 score of 0.72.
+
+:::{include} tables/inout_test_metrics.md
+:::
+
+
+
 ## Prompt Iteration
 
 ```{figure} figures/inout/iteration_timeline.svg
