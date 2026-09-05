@@ -17,14 +17,21 @@ from matplotlib.ticker import FuncFormatter
 
 from matplotlib.patches import Patch
 
+from matplotlib.colors import ListedColormap
+
 from ic1.reporting.style import (
     CHURN_COLORS,
     CYCLE_SHADE,
+    DECISION_COLORS,
     FIGSIZE,
+    KAPPA_BANDS,
     METHOD_COLORS,
     MODE_COLORS,
     MODEL_COLORS,
     MODEL_MARKERS,
+    RASTER_COLORS,
+    RASTER_SPLIT_CMAP,
+    SETSIZE_COLORS,
 )
 
 
@@ -274,6 +281,274 @@ def plot_prompt_churn(
     )
     ax.set_title(title or "Prompt edits per iteration — taxonomy classification")
     fig.legend(handles=_churn_handles(), title="Edited", loc="outside right upper")
+    return fig
+
+
+# ---------------------------------------------------------------------------
+# Human-annotation figures (in/out screening effort)
+# ---------------------------------------------------------------------------
+
+
+def plot_coder_counts(
+    counts: pd.DataFrame,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Per-coder annotation counts as horizontal stacked bars (exclude / include
+    / missing).
+
+    Consumes ``inout_coder_counts``. Coders are ordered by decided volume
+    (busiest at top); the stack shows how each coder's load splits between
+    exclude and include. Missing (abstention) rows are dropped, so bar length is
+    the number of *decided* annotations.
+    """
+    counts = counts.assign(n_decided=counts.n_include + counts.n_exclude)
+    counts = counts.sort_values("n_decided")  # ascending -> busiest on top
+    fig, ax = plt.subplots(
+        figsize=figsize or (7.5, 0.34 * len(counts) + 1.4), layout="constrained"
+    )
+    y = range(len(counts))
+    left = np.zeros(len(counts))
+    for key, col in (("n_exclude", "exclude"), ("n_include", "include")):
+        vals = counts[key].to_numpy()
+        ax.barh(y, vals, left=left, color=DECISION_COLORS[col], label=col, zorder=2)
+        left += vals
+    ax.set_yticks(list(y))
+    ax.set_yticklabels(counts.username.str.replace("coder_", "c"))
+    ax.set_xlabel("decided annotations")
+    for yi, total, inc in zip(y, counts.n_decided, counts.n_include):
+        ratio = inc / total if total else 0.0
+        ax.text(total + left.max() * 0.006, yi,
+                f"{int(total):,}  ({ratio:.0%} incl)", va="center",
+                fontsize=8, color="#333333")
+    ax.set_title(title or "Annotations per coder — in/out screen")
+    ax.legend(loc="lower right", ncol=2)
+    return fig
+
+
+def plot_coderset_composition(
+    comp: pd.DataFrame,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """What the 5,000 items are made of: one horizontal bar per nominal coder-set.
+
+    Consumes ``inout_coderset_composition``. Bars are ordered by item count and
+    coloured by set size (3 vs 4 coders); each is labelled with its coder members
+    and item count. The title carries the corpus total.
+    """
+    comp = comp.sort_values("n_items")  # ascending -> largest on top
+    fig, ax = plt.subplots(
+        figsize=figsize or (8.0, 0.32 * len(comp) + 1.4), layout="constrained"
+    )
+    y = range(len(comp))
+    colors = [SETSIZE_COLORS.get(s, "#7f7f7f") for s in comp["size"]]
+    ax.barh(y, comp.n_items, color=colors, zorder=2)
+    ax.set_yticks(list(y))
+    ax.set_yticklabels(comp.label, fontsize=8)
+    ax.set_xlabel("documents")
+    for yi, n in zip(y, comp.n_items):
+        ax.text(n + comp.n_items.max() * 0.006, yi, f"{int(n):,}", va="center",
+                fontsize=8, color="#333333")
+    total = int(comp.n_items.sum())
+    ax.set_title(title or f"Coder-set composition — {total:,} documents")
+    handles = [Patch(facecolor=SETSIZE_COLORS[s], label=f"{s} coders")
+               for s in sorted(SETSIZE_COLORS) if (comp["size"] == s).any()]
+    ax.legend(handles=handles, loc="lower right", title="Set size")
+    return fig
+
+
+def _kappa_band_shading(ax: Axes) -> None:
+    """Shade the Landis & Koch agreement bands along the κ (x) axis as vertical
+    alternating light-grey spans, labelled (rotated) along the top."""
+    lo = 0.0
+    for i, (hi, name) in enumerate(KAPPA_BANDS):
+        if i == 0:
+            lo = hi
+            continue
+        hi_c = min(hi, 1.0)
+        ax.axvspan(lo, hi_c, color="#000000", alpha=0.03 if i % 2 else 0.06, zorder=0)
+        ax.text((lo + hi_c) / 2, 0.995, name, ha="center", va="top", fontsize=7,
+                rotation=90, color="#888888", zorder=1,
+                transform=ax.get_xaxis_transform())
+        lo = hi
+
+
+def plot_agreement_by_set(
+    by_set: pd.DataFrame,
+    overall: dict | None = None,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Per coder-set Fleiss' kappa as bars, over shaded agreement bands.
+
+    Consumes ``inout_agreement_by_set`` (+ optional ``inout_overall_agreement``
+    for a reference line). Sets are ordered by kappa; NaN-kappa sets (single
+    category) are dropped. Bar colour = set size; the dashed line marks the
+    pooled overall kappa.
+    """
+    by_set = by_set.dropna(subset=["fleiss"]).sort_values("fleiss").reset_index(drop=True)
+    fig, ax = plt.subplots(
+        figsize=figsize or (8.5, 0.32 * len(by_set) + 1.6), layout="constrained"
+    )
+    _kappa_band_shading(ax)
+    y = range(len(by_set))
+    colors = [SETSIZE_COLORS.get(s, "#7f7f7f") for s in by_set["size"]]
+    ax.barh(y, by_set.fleiss, color=colors, zorder=2)
+    ax.set_yticks(list(y))
+    ax.set_yticklabels(
+        [f"{lbl}  (n={int(n)})" for lbl, n in zip(by_set.label, by_set.n_complete)],
+        fontsize=8,
+    )
+    ax.set_xlabel("Fleiss' κ")
+    ax.set_xlim(min(0.0, by_set.fleiss.min() - 0.02), 1.0)
+    handles = [Patch(facecolor=SETSIZE_COLORS[s], label=f"{s} coders")
+               for s in sorted(SETSIZE_COLORS) if (by_set["size"] == s).any()]
+    if overall is not None and not np.isnan(overall.get("fleiss", np.nan)):
+        ax.axvline(overall["fleiss"], color="#333333", linestyle="--", linewidth=1.4,
+                   zorder=3)
+        handles.append(Line2D([0], [0], color="#333333", linestyle="--",
+                              label=f"overall κ = {overall['fleiss']:.2f}"))
+    ax.legend(handles=handles, loc="lower right", title="Set size")
+    ax.set_title(title or "Inter-coder agreement by coder-set — in/out screen")
+    return fig
+
+
+def plot_pairwise_kappa(
+    mat: pd.DataFrame,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Heatmap of pairwise Cohen's kappa between coders.
+
+    Consumes ``inout_pairwise_kappa``. Sparse pairs (below the loader's
+    ``min_shared`` threshold) and the diagonal are shown blank/greyed. Diverging
+    colour map centred at 0 so disagreement (negative) reads distinctly.
+    """
+    labels = [c.replace("coder_", "c") for c in mat.index]
+    data = mat.to_numpy(dtype=float)
+    off = data.copy()
+    np.fill_diagonal(off, np.nan)
+    fig, ax = plt.subplots(figsize=figsize or (8.5, 7.2), layout="constrained")
+    cmap = plt.get_cmap("RdYlBu").copy()
+    cmap.set_bad("#eeeeee")
+    im = ax.imshow(off, cmap=cmap, vmin=-0.4, vmax=0.8, aspect="equal")
+    ax.set_xticks(range(len(labels)))
+    ax.set_yticks(range(len(labels)))
+    ax.set_xticklabels(labels, rotation=90, fontsize=8)
+    ax.set_yticklabels(labels, fontsize=8)
+    ax.set_xticks(np.arange(-.5, len(labels), 1), minor=True)
+    ax.set_yticks(np.arange(-.5, len(labels), 1), minor=True)
+    ax.grid(which="minor", color="white", linewidth=1)
+    ax.tick_params(which="minor", length=0)
+    ax.grid(which="major", visible=False)
+    for i in range(len(labels)):
+        for j in range(len(labels)):
+            v = off[i, j]
+            if not np.isnan(v):
+                ax.text(j, i, f"{v:.2f}", ha="center", va="center", fontsize=6.5,
+                        color="#222222")
+    fig.colorbar(im, ax=ax, shrink=0.7, label="Cohen's κ")
+    ax.set_title(title or "Pairwise coder agreement (Cohen's κ) — in/out screen")
+    return fig
+
+
+def plot_coder_f1(
+    f1df: pd.DataFrame,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Per-coder F1 against the adjudicated value, with average/pooled markers.
+
+    Consumes ``inout_coder_f1`` (per-coder rows plus ``average coder`` / ``pooled``
+    summaries). Bars are per coder (ordered by F1); precision and recall ride as
+    small markers on each bar, and the two summaries are drawn as reference lines.
+    """
+    summ = f1df[f1df.coder.isin(["average coder", "pooled"])].set_index("coder")
+    per = f1df[~f1df.coder.isin(["average coder", "pooled"])].sort_values("f1")
+    fig, ax = plt.subplots(
+        figsize=figsize or (7.5, 0.32 * len(per) + 1.6), layout="constrained"
+    )
+    y = range(len(per))
+    ax.barh(y, per.f1, color="#4c78a8", zorder=2, label="F1")
+    ax.scatter(per.precision, y, marker="|", s=90, color="#d62728", zorder=3,
+               label="precision")
+    ax.scatter(per.recall, y, marker="|", s=90, color="#2ca02c", zorder=3,
+               label="recall")
+    ax.set_yticks(list(y))
+    ax.set_yticklabels([f"{c.replace('coder_', 'c')}  (n={int(n)})"
+                        for c, n in zip(per.coder, per.n)], fontsize=8)
+    ax.set_xlabel("score vs adjudicated value")
+    ax.set_xlim(0, 1)
+    for name, style in (("pooled", "--"), ("average coder", ":")):
+        if name in summ.index:
+            ax.axvline(summ.loc[name, "f1"], color="#333333", linestyle=style,
+                       linewidth=1.4, zorder=4,
+                       label=f"{name} F1 = {summ.loc[name, 'f1']:.2f}")
+    ax.set_title(title or "Coder F1 vs adjudicated value — in/out screen")
+    ax.legend(loc="lower right", fontsize=8)
+    return fig
+
+
+def plot_screening_raster(
+    raster: dict,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Every document (x) x every coder (y) as a red/green screening raster.
+
+    Consumes ``inout_screening_raster``. Cells are green (include) / red
+    (exclude) / grey (unassigned or abstained). Documents are grouped by coder-
+    set and sorted within each set by include-fraction, so each block runs
+    unanimous-exclude -> split -> unanimous-include and disagreement shows as a
+    fringe at the block's right edge. Two thin strips sit on top: the per-
+    document vote *split* (white = unanimous, saturated = evenly split) and the
+    adjudicated *RESOLVED* value.
+    """
+    matrix, coders = raster["matrix"], raster["coders"]
+    gold, split = raster["gold"], raster["split"]
+    n = raster["n_items"]
+
+    cmap = ListedColormap([RASTER_COLORS["exclude"], RASTER_COLORS["include"]])
+    cmap.set_bad(RASTER_COLORS["empty"])
+
+    fig, (ax_s, ax_g, ax_m) = plt.subplots(
+        3, 1, sharex=True,
+        figsize=figsize or (14.0, 0.30 * len(coders) + 2.2),
+        height_ratios=[1, 1, 2 * len(coders)],
+        layout="constrained",
+    )
+    ax_s.imshow(split[None, :], aspect="auto", cmap=RASTER_SPLIT_CMAP,
+                vmin=0, vmax=1, interpolation="nearest")
+    ax_s.set_yticks([0]); ax_s.set_yticklabels(["split vote"], fontsize=8)
+    ax_g.imshow(gold[None, :], aspect="auto", cmap=cmap, vmin=0, vmax=1,
+                interpolation="nearest")
+    ax_g.set_yticks([0]); ax_g.set_yticklabels(["RESOLVED"], fontsize=8)
+    ax_m.imshow(matrix, aspect="auto", cmap=cmap, vmin=0, vmax=1,
+                interpolation="nearest")
+    ax_m.set_yticks(range(len(coders)))
+    ax_m.set_yticklabels([c.replace("coder_", "c") for c in coders], fontsize=7)
+    for ax in (ax_s, ax_g, ax_m):
+        ax.grid(False)
+    ax_m.set_xlabel(
+        f"{n:,} documents — grouped by coder-set, sorted within set by "
+        "include-fraction (disagreement at each block's right edge)"
+    )
+
+    handles = [
+        Patch(facecolor=RASTER_COLORS["include"], label="include"),
+        Patch(facecolor=RASTER_COLORS["exclude"], label="exclude"),
+        Patch(facecolor=RASTER_COLORS["empty"], label="not assigned"),
+    ]
+    ax_m.legend(handles=handles, loc="upper right", ncol=3, fontsize=8,
+                framealpha=0.9)
+    ax_s.set_title(title or "Human screening raster — in/out relevance")
     return fig
 
 

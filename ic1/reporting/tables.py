@@ -70,6 +70,66 @@ def comparison_markdown(df: pd.DataFrame, *, decimals: int = 2) -> str:
     return "\n".join(lines) + "\n"
 
 
+def annotation_agreement_markdown(
+    by_set: pd.DataFrame, overall: dict, *, decimals: int = 2
+) -> str:
+    """Per coder-set agreement table (Fleiss' κ, % agreement), overall row last.
+
+    Consumes ``inout_agreement_by_set`` and ``inout_overall_agreement``. Columns:
+    Coder-set, Size, Documents (complete cases), Fleiss' κ, % agreement.
+    """
+    cols = ["Coder-set", "Size", "Documents", "Fleiss' κ", "% agreement"]
+    lines = [
+        "| " + " | ".join(cols) + " |",
+        "|" + "|".join(["---"] * len(cols)) + "|",
+    ]
+
+    def krow(label: str, size: str, n: int, k: float, pct: float) -> str:
+        kc = "—" if pd.isna(k) else f"{k:.{decimals}f}"
+        return (f"| {label} | {size} | {n:,} | {kc} | "
+                f"{pct * 100:.0f}% |")
+
+    for _, r in by_set.sort_values("fleiss", ascending=False).iterrows():
+        lines.append(krow(r.label, str(int(r["size"])), int(r.n_complete),
+                          r.fleiss, r.pct_agreement))
+    lines.append("|" + "|".join([" "] * len(cols)) + "|")
+    lines.append(krow("**Overall** (pooled 3-rater)", "3",
+                     overall["n_items"], overall["fleiss"],
+                     overall["pct_agreement"]))
+    return "\n".join(lines) + "\n"
+
+
+def annotation_f1_markdown(f1df: pd.DataFrame, *, decimals: int = 2) -> str:
+    """Per-coder precision/recall/F1 vs the adjudicated value, summaries last.
+
+    Consumes ``inout_coder_f1``. Coders sorted by F1 descending; the ``average
+    coder`` and ``pooled`` summary rows are set off at the bottom.
+    """
+    cols = ["Coder", "Documents", "Precision", "Recall", "F1"]
+    lines = [
+        "| " + " | ".join(cols) + " |",
+        "|" + "|".join(["---"] * len(cols)) + "|",
+    ]
+
+    def row(label: str, r: pd.Series, *, bold: bool = False) -> str:
+        def c(v: float) -> str:
+            s = f"{v:.{decimals}f}"
+            return f"**{s}**" if bold else s
+        name = f"**{label}**" if bold else label
+        return (f"| {name} | {int(r.n):,} | {c(r.precision)} | "
+                f"{c(r.recall)} | {c(r.f1)} |")
+
+    summ = f1df[f1df.coder.isin(["average coder", "pooled"])].set_index("coder")
+    per = f1df[~f1df.coder.isin(["average coder", "pooled"])]
+    for _, r in per.sort_values("f1", ascending=False).iterrows():
+        lines.append(row(r.coder.replace("coder_", "coder "), r))
+    lines.append("|" + "|".join([" "] * len(cols)) + "|")
+    for name in ("average coder", "pooled"):
+        if name in summ.index:
+            lines.append(row(name, summ.loc[name], bold=True))
+    return "\n".join(lines) + "\n"
+
+
 def prompts_markdown(prompts: dict, *, full: bool = False) -> str:
     """Render the final screening prompts as collapsible dropdowns for the docs.
 

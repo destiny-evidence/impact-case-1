@@ -17,7 +17,15 @@ from pathlib import Path
 from matplotlib.figure import Figure
 
 from ic1.reporting.loaders import (
+    inout_agreement_by_set,
+    inout_coder_counts,
+    inout_coder_f1,
+    inout_coderset_composition,
     inout_cycle_spans,
+    inout_overall_agreement,
+    inout_pairwise_kappa,
+    inout_screening_raster,
+    load_inout_annotations,
     load_inout_comparison,
     load_inout_model_costs,
     load_inout_prompt_churn,
@@ -28,12 +36,20 @@ from ic1.reporting.loaders import (
     load_taxonomy_runs,
 )
 from ic1.reporting.plots import (
+    plot_agreement_by_set,
+    plot_coder_counts,
+    plot_coder_f1,
+    plot_coderset_composition,
     plot_comparison,
     plot_cost_performance,
     plot_iteration_timeline,
+    plot_pairwise_kappa,
+    plot_screening_raster,
 )
 from ic1.reporting.style import MODE_COLORS, apply_style
 from ic1.reporting.tables import (
+    annotation_agreement_markdown,
+    annotation_f1_markdown,
     comparison_markdown,
     metrics_markdown,
     prompts_markdown,
@@ -106,6 +122,31 @@ def build_inout(formats: tuple[str, ...]) -> None:
         print(f"  skipping prompts: {e}")
 
 
+def build_inout_annotation(formats: tuple[str, ...]) -> None:
+    """Human-annotation figures/tables: counts, agreement, coder F1."""
+    ann = load_inout_annotations()
+    counts = inout_coder_counts(ann)
+    comp = inout_coderset_composition(ann)
+    overall = inout_overall_agreement(ann)
+    by_set = inout_agreement_by_set(ann)
+    f1 = inout_coder_f1(ann)
+    print(
+        f"inout annotation: {int(counts.n.sum()):,} coder annotations over "
+        f"{int(comp.n_items.sum()):,} docs, {len(comp)} coder-sets; "
+        f"overall Fleiss κ={overall['fleiss']:.2f}"
+    )
+    _save(plot_coder_counts(counts), "inout", "annotation_coder_counts", formats)
+    _save(plot_coderset_composition(comp), "inout", "annotation_composition", formats)
+    _save(plot_screening_raster(inout_screening_raster(ann)),
+          "inout", "annotation_raster", formats)
+    _save(plot_agreement_by_set(by_set, overall), "inout", "annotation_agreement", formats)
+    _save(plot_pairwise_kappa(inout_pairwise_kappa(ann)),
+          "inout", "annotation_pairwise_kappa", formats)
+    _save(plot_coder_f1(f1), "inout", "annotation_coder_f1", formats)
+    _write_table(annotation_agreement_markdown(by_set, overall), "inout_annotation_agreement")
+    _write_table(annotation_f1_markdown(f1), "inout_annotation_f1")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--domain", choices=["taxonomy", "inout", "all"], default="all")
@@ -118,6 +159,7 @@ def main() -> None:
         build_taxonomy(formats)
     if args.domain in ("inout", "all"):
         build_inout(formats)
+        build_inout_annotation(formats)
 
 
 if __name__ == "__main__":

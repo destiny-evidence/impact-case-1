@@ -58,6 +58,27 @@ CYCLE_SHADE = {
     "baseline": {"color": "#cccccc", "alpha": 0.18},
 }
 
+# Human-annotation decisions (counts figures).
+DECISION_COLORS = {
+    "include": "#2ca02c",   # green
+    "exclude": "#d62728",   # red
+    "missing": "#bbbbbb",   # grey — abstentions
+}
+
+# Coder-set size -> colour (composition figure: what the 5,000 is made of).
+SETSIZE_COLORS = {3: "#1f77b4", 4: "#ff7f0e"}
+
+# Screening raster: exclude / include cell colours and the unassigned background.
+RASTER_COLORS = {"exclude": "#d62728", "include": "#2ca02c", "empty": "#f2f2f2"}
+# Vote-split strip colormap name (white = unanimous, saturated = evenly split).
+RASTER_SPLIT_CMAP = "Purples"
+
+# Landis & Koch agreement bands (kappa), for reference lines/shading.
+KAPPA_BANDS = [
+    (0.0, "none"), (0.20, "slight"), (0.40, "fair"),
+    (0.60, "moderate"), (0.80, "substantial"), (1.01, "almost perfect"),
+]
+
 # Prompt-churn categories (additions up / deletions down encode direction;
 # colour encodes which prompt was edited).
 CHURN_COLORS = {
