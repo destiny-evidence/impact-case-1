@@ -1,0 +1,6 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+5,include - best balance,0.9461538461538461,2026-08-31_19-19-28_human_facing_indirect_requirement,accuracy
+5,include - best balance,0.7142857142857143,2026-08-31_19-19-28_human_facing_indirect_requirement,recall
+5,include - best balance,0.7692307692307693,2026-08-31_19-19-28_human_facing_indirect_requirement,precision
+5,include - best balance,0.7407407407407407,2026-08-31_19-19-28_human_facing_indirect_requirement,f1_score
+5,include - best balance,14.0,2026-08-31_19-19-28_human_facing_indirect_requirement,n_labels

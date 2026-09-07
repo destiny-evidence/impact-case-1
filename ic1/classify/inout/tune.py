@@ -21,7 +21,7 @@ def hyperparameter_tuning(
     random_seed: Annotated[int | None, typer.Option(help='Random seed for cross-validation')] = None,
     num_trials: Annotated[int | None, typer.Option(help='Number of trials for hyperparameter tuning')] = None,
     num_jobs: Annotated[int, typer.Option(help='Number of tuning jobs for parallel processing')] = 1,
-    scoring: Annotated[str, typer.Option(help='Scoring metric for hyperparameter tuning')] = 'F1',
+    scoring: Annotated[str, typer.Option(help='Scoring metric for hyperparameter tuning')] = 'AveragePrecision',
     decision_threshold: Annotated[float, typer.Option(help='Decision threshold for classification')] = 0.5,
     result_dir: Annotated[Path | None, typer.Option(help='Directory to write tuning results to')] = None,
 ) -> None:

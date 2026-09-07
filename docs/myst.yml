@@ -1,0 +1,50 @@
+version: 1
+project:
+  id: destiny-ic1
+  title: DESTINY IC1 — screening and taxonomy-annotation of climate and health studies
+  description: >-
+    Documentation of a combined ML and LLM pipeline for screening and annotating
+    climate and health studies
+  authors:
+    - name: Max Callaghan
+      email: max.callaghan@pik-potsdam.de
+    - name: Tim Repke
+      email: tim.repke@pik-potsdam.de
+    - name: Maria-Inti Metzendorf
+      email: maria-inti.metzendorf@pik-potsdam.de
+  abstract: >-
+    We document an ML+LLM pipeline for the DESTINY climate-and-health evidence base,
+    covering relevance screening at several precision/recall operating points and
+    classification against a controlled vocabulary.
+  keywords:
+    - climate and health
+    - large language models
+    - evidence synthesis
+    - document screening
+    - taxonomy classification
+  github: https://github.com/destiny-evidence/impact-case-1
+  # exports:
+  #   - format: typst
+  #     output: exports/destiny-ic1.pdf
+  toc:
+    - file: index.md
+    - file: inout/index.md
+      children:
+        - file: inout/annotation.md
+        - file: inout/ml.md
+        - file: inout/llm.md
+        - file: inout/combination.md
+    - file: taxonomy.md
+    - file: method.md
+site:
+  template: book-theme
+  options:
+    hide_outline: false
+    favicon: favicon.png
+    logo: favicon.png
+    logo_text: Destiny IC1
+  parts:
+    primary_sidebar_footer: parts/primary_sidebar_footer.md
+  actions:
+    - title: Code
+      url: https://github.com/destiny-evidence/impact-case-1

@@ -1,0 +1,16 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+0,include - high precision,0.8933333333333333,2026-09-07_07-15-34_MODELCMP_sol,accuracy
+0,include - high precision,0.2222222222222222,2026-09-07_07-15-34_MODELCMP_sol,recall
+0,include - high precision,0.6666666666666666,2026-09-07_07-15-34_MODELCMP_sol,precision
+0,include - high precision,0.3333333333333333,2026-09-07_07-15-34_MODELCMP_sol,f1_score
+0,include - high precision,18.0,2026-09-07_07-15-34_MODELCMP_sol,n_labels
+5,include - best balance,0.8866666666666667,2026-09-07_07-15-34_MODELCMP_sol,accuracy
+5,include - best balance,0.5555555555555556,2026-09-07_07-15-34_MODELCMP_sol,recall
+5,include - best balance,0.5263157894736842,2026-09-07_07-15-34_MODELCMP_sol,precision
+5,include - best balance,0.5405405405405406,2026-09-07_07-15-34_MODELCMP_sol,f1_score
+5,include - best balance,18.0,2026-09-07_07-15-34_MODELCMP_sol,n_labels
+6,include - high recall,0.88,2026-09-07_07-15-34_MODELCMP_sol,accuracy
+6,include - high recall,0.8888888888888888,2026-09-07_07-15-34_MODELCMP_sol,recall
+6,include - high recall,0.5,2026-09-07_07-15-34_MODELCMP_sol,precision
+6,include - high recall,0.64,2026-09-07_07-15-34_MODELCMP_sol,f1_score
+6,include - high recall,18.0,2026-09-07_07-15-34_MODELCMP_sol,n_labels

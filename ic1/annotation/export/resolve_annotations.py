@@ -19,8 +19,8 @@ logger = logging.getLogger(__name__)
 def resolve_annotations(task_config: TaskConfig):
     df = pd.read_csv(task_config.sensitive_path)
     resolved_df = df[df['username'] == 'RESOLVED'].reset_index(drop=True)
-    logger.info(f'[bold]{task_config.name}:[/bold] {resolved_df.shape[0]} resolved rows → {task_config.resolved_path}')
-    resolved_df.to_csv(task_config.resolved_path, index=False)
+    logger.info(f'[bold]{task_config.name}:[/bold] {resolved_df.shape[0]} resolved rows → {task_config.shareable_resolved_path}')
+    resolved_df.to_csv(task_config.shareable_resolved_path, index=False)
 
 
 def main(task: Annotated[TaskName, typer.Option(help='The annotation task task to be exported')] = TaskName.ALL):

@@ -1,0 +1,56 @@
+name: docs
+
+# Build the mystmd site and deploy it to GitHub Pages.
+# The figures are committed under docs/figures/, so the build needs no data or
+# Python — just mystmd over the markdown.
+
+on:
+  push:
+    branches: [main, docs]
+    paths: [docs/**, .github/workflows/docs.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; cancel in-progress runs for the same ref.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g mystmd
+      # Typst renders the combined PDF without a LaTeX toolchain.
+      - uses: typst-community/setup-typst@v4
+      - name: Build HTML + combined PDF
+        working-directory: docs
+        env:
+          # Project Pages live under /<repo>; set the base path accordingly.
+          BASE_URL: /impact-case-1
+        run: |
+          myst build --html
+          myst build --pdf
+          # Serve the PDF from the site so it is downloadable.
+          cp exports/destiny-ic1.pdf _build/html/ || echo "PDF not produced; skipping"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/_build/html
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

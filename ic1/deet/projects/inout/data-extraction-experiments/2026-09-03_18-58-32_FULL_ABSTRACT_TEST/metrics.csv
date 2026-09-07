@@ -1,0 +1,16 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+0,include - high precision,0.9029275808936826,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,accuracy
+0,include - high precision,0.2891566265060241,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,recall
+0,include - high precision,0.8571428571428571,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,precision
+0,include - high precision,0.43243243243243246,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,f1_score
+0,include - high precision,83.0,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,n_labels
+5,include - best balance,0.9152542372881356,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,accuracy
+5,include - best balance,0.5301204819277109,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,recall
+5,include - best balance,0.7333333333333333,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,precision
+5,include - best balance,0.6153846153846154,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,f1_score
+5,include - best balance,83.0,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,n_labels
+6,include - high recall,0.9167950693374423,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,accuracy
+6,include - high recall,0.8554216867469879,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,recall
+6,include - high recall,0.6283185840707964,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,precision
+6,include - high recall,0.7244897959183674,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,f1_score
+6,include - high recall,83.0,2026-09-03_18-58-32_FULL_ABSTRACT_TEST,n_labels

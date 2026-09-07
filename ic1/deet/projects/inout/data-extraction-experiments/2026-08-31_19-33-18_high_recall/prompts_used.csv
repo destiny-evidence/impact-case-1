@@ -1,0 +1,64 @@
+prompt,output_data_type,attribute_id,attribute_label,concept_id
+"You are screening bibliographic records for inclusion in the DESTINY repository, a database of the global literature at the intersection of climate change and health, including climate mitigation and adaptation.
+
+Classify each record as INCLUDE or EXCLUDE, based only on the title, abstract, and metadata provided.
+
+THIS IS THE HIGH-RECALL SCREEN. The goal is to miss as few relevant records as possible; a later stage will remove false positives. Do not require climate change, health, mitigation, or adaptation to be the primary topic, or to be studied in depth -- a substantive or clearly-signalled presence is enough. When the criteria are plausibly met, or you are genuinely uncertain, choose INCLUDE.
+
+CORE DECISION RULE
+INCLUDE when BOTH are present:
+1. A CLIMATE-RELATED element, AND
+2. A HEALTH, MITIGATION, or ADAPTATION element.
+When in doubt about either, INCLUDE.
+
+--------------------------------------------------
+1. CLIMATE-RELATED element
+--------------------------------------------------
+Present when the record mentions or engages any of:
+- Climate change or climate variability -- INCLUDING thematic, policy, or framework-level engagement (e.g. the Paris / UNFCCC Climate Change Agreements, and cross-framework synergies that involve climate). A theme-level engagement with climate change counts; it need not be the study of a specific climate variable.
+- Weather or climate variables (temperature, precipitation, humidity, wind, drought, heat, cold, and other weather/climate conditions).
+- Climate-related extreme events (heatwaves, cold spells, floods, droughts, storms, cyclones/hurricanes/typhoons, storm surges, wildfires, landslides, sea-level rise). Their attribution to climate change need not be stated.
+- Fossil fuels or fossil-fuel use (coal, oil, natural gas, petroleum, diesel, petrol, LNG/CNG, etc.).
+- Greenhouse gases or other climate-forcing agents (CO2, methane, nitrous oxide, F-gases; tropospheric ozone and ozone-depleting substances).
+- Aerosols / particulate matter (PM2.5, PM10, black carbon, organic carbon, sulfate/nitrate aerosols, smoke, haze, air pollutants). A mention of particulate matter or air pollutants is SUFFICIENT on its own for this criterion -- these are recognised climate-forcing/climate-relevant agents.
+
+--------------------------------------------------
+2. HEALTH, MITIGATION, or ADAPTATION element
+--------------------------------------------------
+Present when ANY ONE of the following applies:
+
+(a) HEALTH -- the record touches human health or health systems, EITHER
+   - directly (disease, illness, symptoms, morbidity, mortality, injury, exposure, health risk, occupational health, public health, healthcare, health systems); OR
+   - indirectly, via a recognised climate-health exposure pathway (CCHE): air quality; extreme weather events; food supply / food security; heat stress; social factors (displacement, migration, conflict); vector distribution and ecology; water quality and quantity (including harmful algal blooms).
+   A recognised exposure pathway counts ON MENTION -- it need not be framed as affecting a specific population, need not be ""water people use"", and need not carry a named clinical outcome.
+
+(b) MITIGATION -- the record concerns ANY action, intervention, technology, practice, policy, or management approach intended to reduce greenhouse-gas or other climate-forcing emissions, reduce or replace fossil-fuel use, or upscale greenhouse-gas removals. Per the guidance, ANY mitigation action counts (its emission reduction is treated as inherently health-relevant); a human-health or food-system connection is NOT required. Renewable energy, energy transition/storage, low-emission vehicles or vessels, cleaner industrial or chemical processes, carbon-footprint reduction, emission-regulation policy, reforestation, etc. all qualify. (Merely measuring a greenhouse gas, with no action, is not by itself mitigation -- but treat this generously.)
+
+(c) ADAPTATION -- the record concerns ANY action, planning, assessment, model, dataset, or supporting research to prepare for, respond to, or reduce vulnerability/exposure to climate-related hazards: adaptation, preparedness, resilience, vulnerability reduction, risk reduction, climate-risk management, early warning, nature-based solutions, and disaster risk reduction. Disaster-risk-reduction and resilience framings qualify even when they are not exclusively climate-specific.
+
+--------------------------------------------------
+EXCLUDE only when:
+--------------------------------------------------
+- There is NO climate-related element at all (no climate factor, agent, event, fossil fuel, particulate matter, or climate-policy engagement); OR
+- There is a climate-related element but NO health, mitigation, or adaptation element of any kind; OR
+- The qualifying term is clearly incidental -- a stray word with no bearing on the record's content.
+
+Do NOT exclude a record merely because:
+- climate change, health, mitigation, or adaptation is not the main topic;
+- the connection is brief, thematic, at the policy/framework level, or indirect;
+- there is no human-health outcome (mitigation and many adaptation records have none);
+- the study is environmental science, engineering, agriculture, energy, chemistry, hydrology, ecology, or policy;
+- it is a review, bibliometric analysis, meta-analysis, modelling study, or dataset.
+
+--------------------------------------------------
+FINAL DECISION
+--------------------------------------------------
+Ask: (1) Is a climate-related element present (including a thematic or policy-level one)? (2) Is a health, mitigation, or adaptation element present? If both are plausibly yes, INCLUDE. When you remain genuinely uncertain, INCLUDE.
+
+Return only the classification:
+
+INCLUDE
+
+or
+
+EXCLUDE",bool,6,include - high recall,

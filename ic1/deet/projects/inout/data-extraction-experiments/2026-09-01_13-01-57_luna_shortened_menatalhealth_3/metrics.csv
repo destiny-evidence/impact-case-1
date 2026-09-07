@@ -1,0 +1,6 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+5,include - best balance,0.9538461538461539,2026-09-01_13-01-57_luna_shortened_menatalhealth_3,accuracy
+5,include - best balance,0.6428571428571429,2026-09-01_13-01-57_luna_shortened_menatalhealth_3,recall
+5,include - best balance,0.9,2026-09-01_13-01-57_luna_shortened_menatalhealth_3,precision
+5,include - best balance,0.75,2026-09-01_13-01-57_luna_shortened_menatalhealth_3,f1_score
+5,include - best balance,14.0,2026-09-01_13-01-57_luna_shortened_menatalhealth_3,n_labels

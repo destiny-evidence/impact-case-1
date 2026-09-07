@@ -6,9 +6,9 @@ import typer
 import pandas as pd
 import json
 import yaml
-
+import typer
 from ic1.core.config import TASKS, TaskName, settings
-
+from sklearn.metrics import precision_score, recall_score, f1_score
 import pandas as pd
 import yaml
 from pathlib import Path
@@ -116,17 +116,65 @@ def extract_scalar_values(obj: BaseModel | dict, prefix: str = ""):
         if isinstance(v, (dict, BaseModel)):
             continue
             result.update(extract_scalar_values(v, f"{key}_"))
+        elif isinstance(v, list):
+            v = "; ".join(v)
         elif v:
             result[key] = v
 
     return result
 
+def _micro_macro(g, group_label):
+    """Micro and macro precision/recall/f1 over the attributes in ``g``."""
+    yt, yp = g.human_extraction.astype(int), g.llm_extraction.astype(int)
+    micro = {"scheme": group_label, "avg": "micro",
+             "precision": precision_score(yt, yp, zero_division=0),
+             "recall": recall_score(yt, yp, zero_division=0),
+             "f1": f1_score(yt, yp, zero_division=0)}
+    per = g.groupby("attribute_label").apply(lambda a: pd.Series({
+        "precision": precision_score(a.human_extraction, a.llm_extraction, zero_division=0),
+        "recall":    recall_score(a.human_extraction, a.llm_extraction, zero_division=0),
+        "f1":        f1_score(a.human_extraction, a.llm_extraction, zero_division=0),
+    }), include_groups=False)
+    macro = {"scheme": group_label, "avg": "macro", **per.mean().to_dict()}
+    return [micro, macro]
 
-def compare(project_path: Path):
+def aggregate(g, scheme_map):
+    g = g.copy()
+    g["scheme_name"] = g["attribute_label"].map(scheme_map)
+    rows = _micro_macro(g, "ALL")
+    for scheme, sg in g.groupby("scheme_name"):
+        rows += _micro_macro(sg, scheme)
+    return pd.DataFrame(rows)
+
+
+def compare(project_path: Path, min_labels: int, all_attributes=True):
     project = DeetProject.load(project_dir=project_path)
+    scheme_map = (
+        pd.read_csv(settings.MAPPING_CSV)
+        .set_index("pref_label")["scheme_name"]
+        .to_dict()
+    )
     df = pd.DataFrame()
+    aggregates = pd.DataFrame()
     for d in project.experiments_dir.iterdir():
         exp = ExperimentArtefacts(base_dir=d)
+        if not exp.is_complete:
+            continue
+        comp = pd.read_csv(exp.comparison)
+        if comp[["human_extraction", "llm_extraction"]].isna().any().any():
+            console.print(
+                f"[yellow]Skipping {exp.run_id}: missing human/llm extraction values[/]"
+            )
+            continue
+        # Keep only scoreable concepts (>= min_labels gold positives)
+        gold_counts = comp.groupby("attribute_label")["human_extraction"].sum()
+        keep = gold_counts[gold_counts >= min_labels].index
+        agged_scores = aggregate(comp[comp["attribute_label"].isin(keep)], scheme_map)
+        agged_scores["run_id"] = exp.run_id
+        aggregates = pd.concat([
+            aggregates,
+            agged_scores
+        ])
         metrics = pd.read_csv(exp.metrics)
         metrics["run_id"] = exp.run_id
         config = DataExtractionConfig.model_validate(
@@ -142,6 +190,13 @@ def compare(project_path: Path):
 
         df = pd.concat([df, metrics])
 
+    valid_attributes = df.loc[
+        (df["metric_name"]=='n_labels') &
+        (df['value']>=min_labels),
+        'attribute_label'
+    ]
+    df = df[df['attribute_label'].isin(valid_attributes)]
+
     cost = df.groupby(["run_id", "model"])[
         [
             "total_input_tokens",
@@ -149,36 +204,48 @@ def compare(project_path: Path):
             "total_pipeline_duration_seconds",
             "total_cost_usd",
         ]
-    ].sum()
+    ].first()
     console.print(df_to_table(cost, title="Cost & throughput per run"))
 
-    scores = (
-        df.groupby(["run_id", "model", "attribute_label", "metric_name"])["value"]
-        .mean()
-        .unstack()
-    )
+    if all_attributes:
+        scores = (
+            df.groupby(["attribute_label", "run_id", "model", "metric_name"])["value"]
+            .mean()
+            .unstack()
+            .sort_index()
+        )
+
+        console.print(
+            df_to_table(
+                scores, title="Metrics per attribute", compare_key="attribute_label"
+            )
+        )
+
     console.print(
         df_to_table(
-            scores, title="Metrics per attribute", compare_key="attribute_label"
+            (
+                aggregates
+                .sort_values(["scheme","avg","run_id"])
+                .set_index(["scheme", "avg", "run_id"])
+            )
         )
     )
 
-    # for (method, metric), group in df.groupby(["method", "metric_name"]):
-    #     print(method)
-    #     print(metric)
-    #     print(group[""])
-
-def main(task: Annotated[TaskName, typer.Option(help='The annotation task task to be exported')] = TaskName.INOUT):
+def main(
+        task: Annotated[TaskName, typer.Option(help='The annotation task task to be exported')] = TaskName.INOUT,
+        min_labels: int = 1,
+        all_attributes: bool = True
+    ):
     if task == TaskName.ALL:
         selected = TASKS
     else:
         selected = {task.value: TASKS[task]}
 
     for task_config in selected.values():
-        compare(task_config.deet_project_path)
+        compare(task_config.deet_project_path, min_labels, all_attributes=all_attributes)
 
 if __name__ == "__main__":
-    main()
+    typer.run(main)
 
 
 

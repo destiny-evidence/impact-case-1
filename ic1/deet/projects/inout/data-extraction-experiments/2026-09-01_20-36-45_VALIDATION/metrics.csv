@@ -1,0 +1,16 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+0,include - high precision,0.8714285714285714,2026-09-01_20-36-45_VALIDATION,accuracy
+0,include - high precision,0.2,2026-09-01_20-36-45_VALIDATION,recall
+0,include - high precision,0.6666666666666666,2026-09-01_20-36-45_VALIDATION,precision
+0,include - high precision,0.3076923076923077,2026-09-01_20-36-45_VALIDATION,f1_score
+0,include - high precision,10.0,2026-09-01_20-36-45_VALIDATION,n_labels
+5,include - best balance,0.9142857142857143,2026-09-01_20-36-45_VALIDATION,accuracy
+5,include - best balance,0.6,2026-09-01_20-36-45_VALIDATION,recall
+5,include - best balance,0.75,2026-09-01_20-36-45_VALIDATION,precision
+5,include - best balance,0.6666666666666666,2026-09-01_20-36-45_VALIDATION,f1_score
+5,include - best balance,10.0,2026-09-01_20-36-45_VALIDATION,n_labels
+6,include - high recall,0.9285714285714286,2026-09-01_20-36-45_VALIDATION,accuracy
+6,include - high recall,0.8,2026-09-01_20-36-45_VALIDATION,recall
+6,include - high recall,0.7272727272727273,2026-09-01_20-36-45_VALIDATION,precision
+6,include - high recall,0.7619047619047619,2026-09-01_20-36-45_VALIDATION,f1_score
+6,include - high recall,10.0,2026-09-01_20-36-45_VALIDATION,n_labels

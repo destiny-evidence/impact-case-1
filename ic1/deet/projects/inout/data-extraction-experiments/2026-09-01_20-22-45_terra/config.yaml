@@ -1,0 +1,57 @@
+method: llm_per_attribute
+provider: azure
+max_workers: 65
+votes: 5
+model: gpt-5.6-terra
+semantic_similarity_threshold: 0.5
+temperature: 1.0
+max_tokens: null
+max_context_tokens: 32000
+default_context_type: abstract_only
+truncate_on_overflow: false
+prompt_config:
+  system_prompt: 'You are screening academic documents for eligibility. You will be
+    given a document (markdown) and one or more yes/no screening questions, each identified
+    by an attribute id.
+
+
+    For every question, decide true or false based only on the provided document,
+    and return a single JSON object with one entry per question, keyed by "attribute_<id>".
+    Each entry must contain:
+
+    - output_data: the boolean answer (true or false)
+
+    - reasoning: a brief explanation of how the document does or does not meet the
+    question''s criteria
+
+    - additional_text: a short verbatim excerpt from the document that supports the
+    decision (leave blank if the document contains no relevant supporting text)
+
+
+    Rules:
+
+    - Base every decision on the content of the provided document. You may apply domain
+    knowledge to judge whether the document''s content meets a question''s criteria
+    (e.g. whether a named substance is a climate-forcing agent, or whether an activity
+    constitutes climate adaptation), but do not invent facts, findings, or numbers
+    the document does not state.
+
+    - additional_text must be an exact quotation from the document.
+
+    - Answer every question; do not invent questions that were not asked.
+
+
+    Input JSON:
+
+    {input_json}
+
+    '
+dynamic_json_schema: true
+include_reasoning: true
+include_additional_text: true
+vocabulary_path: null
+vocabulary_mapping_path: null
+vocab_prompt_locations:
+- definition
+- scope_note
+edit_distance_match_threshold: 0.9

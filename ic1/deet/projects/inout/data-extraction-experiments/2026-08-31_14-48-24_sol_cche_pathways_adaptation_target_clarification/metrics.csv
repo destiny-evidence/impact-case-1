@@ -1,0 +1,6 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+5,include - best balance,0.9538461538461539,2026-08-31_14-48-24_sol_cche_pathways_adaptation_target_clarification,accuracy
+5,include - best balance,0.7777777777777778,2026-08-31_14-48-24_sol_cche_pathways_adaptation_target_clarification,recall
+5,include - best balance,0.875,2026-08-31_14-48-24_sol_cche_pathways_adaptation_target_clarification,precision
+5,include - best balance,0.8235294117647058,2026-08-31_14-48-24_sol_cche_pathways_adaptation_target_clarification,f1_score
+5,include - best balance,9.0,2026-08-31_14-48-24_sol_cche_pathways_adaptation_target_clarification,n_labels

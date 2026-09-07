@@ -1,0 +1,2431 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+37,Natural gas,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+37,Natural gas,0.0,2026-09-02_12-33-42_top_down_luna,recall
+37,Natural gas,0.0,2026-09-02_12-33-42_top_down_luna,precision
+37,Natural gas,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+37,Natural gas,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+36,Coal,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+36,Coal,0.0,2026-09-02_12-33-42_top_down_luna,recall
+36,Coal,0.0,2026-09-02_12-33-42_top_down_luna,precision
+36,Coal,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+36,Coal,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+35,(Unspecified) fossil fuels,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+35,(Unspecified) fossil fuels,0.0,2026-09-02_12-33-42_top_down_luna,recall
+35,(Unspecified) fossil fuels,0.0,2026-09-02_12-33-42_top_down_luna,precision
+35,(Unspecified) fossil fuels,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+35,(Unspecified) fossil fuels,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+38,Oil,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+38,Oil,0.0,2026-09-02_12-33-42_top_down_luna,recall
+38,Oil,0.0,2026-09-02_12-33-42_top_down_luna,precision
+38,Oil,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+38,Oil,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+456,Female,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+456,Female,0.0,2026-09-02_12-33-42_top_down_luna,recall
+456,Female,0.0,2026-09-02_12-33-42_top_down_luna,precision
+456,Female,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+456,Female,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+454,All genders,0.52,2026-09-02_12-33-42_top_down_luna,accuracy
+454,All genders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+454,All genders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+454,All genders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+454,All genders,12.0,2026-09-02_12-33-42_top_down_luna,n_labels
+457,Male,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+457,Male,0.0,2026-09-02_12-33-42_top_down_luna,recall
+457,Male,0.0,2026-09-02_12-33-42_top_down_luna,precision
+457,Male,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+457,Male,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+455,Diverse,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+455,Diverse,0.0,2026-09-02_12-33-42_top_down_luna,recall
+455,Diverse,0.0,2026-09-02_12-33-42_top_down_luna,precision
+455,Diverse,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+455,Diverse,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+1,1. Supranational and international organizations (Actor),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+1,1. Supranational and international organizations (Actor),0.0,2026-09-02_12-33-42_top_down_luna,recall
+1,1. Supranational and international organizations (Actor),0.0,2026-09-02_12-33-42_top_down_luna,precision
+1,1. Supranational and international organizations (Actor),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+1,1. Supranational and international organizations (Actor),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+5,5. Households / individuals (Actor),0.68,2026-09-02_12-33-42_top_down_luna,accuracy
+5,5. Households / individuals (Actor),1.0,2026-09-02_12-33-42_top_down_luna,recall
+5,5. Households / individuals (Actor),0.2,2026-09-02_12-33-42_top_down_luna,precision
+5,5. Households / individuals (Actor),0.3333333333333333,2026-09-02_12-33-42_top_down_luna,f1_score
+5,5. Households / individuals (Actor),2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+2,2. Governments (Actor),0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+2,2. Governments (Actor),0.6,2026-09-02_12-33-42_top_down_luna,recall
+2,2. Governments (Actor),0.75,2026-09-02_12-33-42_top_down_luna,precision
+2,2. Governments (Actor),0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+2,2. Governments (Actor),5.0,2026-09-02_12-33-42_top_down_luna,n_labels
+4,4. Civil society (Actor),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+4,4. Civil society (Actor),0.0,2026-09-02_12-33-42_top_down_luna,recall
+4,4. Civil society (Actor),0.0,2026-09-02_12-33-42_top_down_luna,precision
+4,4. Civil society (Actor),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+4,4. Civil society (Actor),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+3,3. Private sector (Actor),0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+3,3. Private sector (Actor),0.0,2026-09-02_12-33-42_top_down_luna,recall
+3,3. Private sector (Actor),0.0,2026-09-02_12-33-42_top_down_luna,precision
+3,3. Private sector (Actor),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+3,3. Private sector (Actor),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+39,Continental,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+39,Continental,0.0,2026-09-02_12-33-42_top_down_luna,recall
+39,Continental,0.0,2026-09-02_12-33-42_top_down_luna,precision
+39,Continental,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+39,Continental,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+41,Polar,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+41,Polar,0.0,2026-09-02_12-33-42_top_down_luna,recall
+41,Polar,0.0,2026-09-02_12-33-42_top_down_luna,precision
+41,Polar,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+41,Polar,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+43,Tropical,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+43,Tropical,0.0,2026-09-02_12-33-42_top_down_luna,recall
+43,Tropical,0.0,2026-09-02_12-33-42_top_down_luna,precision
+43,Tropical,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+43,Tropical,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+42,Temperate,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+42,Temperate,0.0,2026-09-02_12-33-42_top_down_luna,recall
+42,Temperate,0.0,2026-09-02_12-33-42_top_down_luna,precision
+42,Temperate,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+42,Temperate,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+40,Dry / arid,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+40,Dry / arid,0.0,2026-09-02_12-33-42_top_down_luna,recall
+40,Dry / arid,0.0,2026-09-02_12-33-42_top_down_luna,precision
+40,Dry / arid,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+40,Dry / arid,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+71,International - regional (Governance scale),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+71,International - regional (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,recall
+71,International - regional (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,precision
+71,International - regional (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+71,International - regional (Governance scale),2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+73,Sub-national - local / municipal (Governance scale),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+73,Sub-national - local / municipal (Governance scale),0.3333333333333333,2026-09-02_12-33-42_top_down_luna,recall
+73,Sub-national - local / municipal (Governance scale),1.0,2026-09-02_12-33-42_top_down_luna,precision
+73,Sub-national - local / municipal (Governance scale),0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+73,Sub-national - local / municipal (Governance scale),3.0,2026-09-02_12-33-42_top_down_luna,n_labels
+74,Sub-national - regional (Governance scale),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+74,Sub-national - regional (Governance scale),0.6666666666666666,2026-09-02_12-33-42_top_down_luna,recall
+74,Sub-national - regional (Governance scale),1.0,2026-09-02_12-33-42_top_down_luna,precision
+74,Sub-national - regional (Governance scale),0.8,2026-09-02_12-33-42_top_down_luna,f1_score
+74,Sub-national - regional (Governance scale),3.0,2026-09-02_12-33-42_top_down_luna,n_labels
+72,National (Governance scale),0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+72,National (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,recall
+72,National (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,precision
+72,National (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+72,National (Governance scale),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+75,Z_Household / individual (Governance scale),0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+75,Z_Household / individual (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,recall
+75,Z_Household / individual (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,precision
+75,Z_Household / individual (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+75,Z_Household / individual (Governance scale),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+70,International - multi-country (Governance scale),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+70,International - multi-country (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,recall
+70,International - multi-country (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,precision
+70,International - multi-country (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+70,International - multi-country (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+69,Global (Governance scale),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+69,Global (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,recall
+69,Global (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,precision
+69,Global (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+69,Global (Governance scale),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+24,Tropospheric ozone (O₃),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+24,Tropospheric ozone (O₃),0.0,2026-09-02_12-33-42_top_down_luna,recall
+24,Tropospheric ozone (O₃),0.0,2026-09-02_12-33-42_top_down_luna,precision
+24,Tropospheric ozone (O₃),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+24,Tropospheric ozone (O₃),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+17,(Unspecified) greenhouse gases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+17,(Unspecified) greenhouse gases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+17,(Unspecified) greenhouse gases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+17,(Unspecified) greenhouse gases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+17,(Unspecified) greenhouse gases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.6,2026-09-02_12-33-42_top_down_luna,recall
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.75,2026-09-02_12-33-42_top_down_luna,precision
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,5.0,2026-09-02_12-33-42_top_down_luna,n_labels
+21,Nitrous oxide (N₂O),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+21,Nitrous oxide (N₂O),0.0,2026-09-02_12-33-42_top_down_luna,recall
+21,Nitrous oxide (N₂O),0.0,2026-09-02_12-33-42_top_down_luna,precision
+21,Nitrous oxide (N₂O),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+21,Nitrous oxide (N₂O),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+20,Methane (CH₄),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+20,Methane (CH₄),1.0,2026-09-02_12-33-42_top_down_luna,recall
+20,Methane (CH₄),1.0,2026-09-02_12-33-42_top_down_luna,precision
+20,Methane (CH₄),1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+20,Methane (CH₄),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+18,Carbon dioxide (CO₂),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+18,Carbon dioxide (CO₂),1.0,2026-09-02_12-33-42_top_down_luna,recall
+18,Carbon dioxide (CO₂),1.0,2026-09-02_12-33-42_top_down_luna,precision
+18,Carbon dioxide (CO₂),1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+18,Carbon dioxide (CO₂),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-09-02_12-33-42_top_down_luna,recall
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-09-02_12-33-42_top_down_luna,precision
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-09-02_12-33-42_top_down_luna,recall
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-09-02_12-33-42_top_down_luna,precision
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+313,2. Million-cities,0.84,2026-09-02_12-33-42_top_down_luna,accuracy
+313,2. Million-cities,0.0,2026-09-02_12-33-42_top_down_luna,recall
+313,2. Million-cities,0.0,2026-09-02_12-33-42_top_down_luna,precision
+313,2. Million-cities,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+313,2. Million-cities,4.0,2026-09-02_12-33-42_top_down_luna,n_labels
+315,4. Towns,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+315,4. Towns,0.0,2026-09-02_12-33-42_top_down_luna,recall
+315,4. Towns,0.0,2026-09-02_12-33-42_top_down_luna,precision
+315,4. Towns,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+315,4. Towns,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+308,2. Peri-urban settlements,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+308,2. Peri-urban settlements,0.0,2026-09-02_12-33-42_top_down_luna,recall
+308,2. Peri-urban settlements,0.0,2026-09-02_12-33-42_top_down_luna,precision
+308,2. Peri-urban settlements,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+308,2. Peri-urban settlements,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+312,1. Megacities,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+312,1. Megacities,0.0,2026-09-02_12-33-42_top_down_luna,recall
+312,1. Megacities,0.0,2026-09-02_12-33-42_top_down_luna,precision
+312,1. Megacities,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+312,1. Megacities,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+310,4. Refugee/displaced settlements,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+310,4. Refugee/displaced settlements,0.0,2026-09-02_12-33-42_top_down_luna,recall
+310,4. Refugee/displaced settlements,0.0,2026-09-02_12-33-42_top_down_luna,precision
+310,4. Refugee/displaced settlements,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+310,4. Refugee/displaced settlements,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+311,5. Rural settlements,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+311,5. Rural settlements,0.75,2026-09-02_12-33-42_top_down_luna,recall
+311,5. Rural settlements,1.0,2026-09-02_12-33-42_top_down_luna,precision
+311,5. Rural settlements,0.8571428571428571,2026-09-02_12-33-42_top_down_luna,f1_score
+311,5. Rural settlements,4.0,2026-09-02_12-33-42_top_down_luna,n_labels
+309,3. Informal settlements,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+309,3. Informal settlements,0.0,2026-09-02_12-33-42_top_down_luna,recall
+309,3. Informal settlements,0.0,2026-09-02_12-33-42_top_down_luna,precision
+309,3. Informal settlements,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+309,3. Informal settlements,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+307,1. Formal urban settlements,0.8,2026-09-02_12-33-42_top_down_luna,accuracy
+307,1. Formal urban settlements,0.0,2026-09-02_12-33-42_top_down_luna,recall
+307,1. Formal urban settlements,0.0,2026-09-02_12-33-42_top_down_luna,precision
+307,1. Formal urban settlements,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+307,1. Formal urban settlements,5.0,2026-09-02_12-33-42_top_down_luna,n_labels
+314,3. Cities,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+314,3. Cities,0.0,2026-09-02_12-33-42_top_down_luna,recall
+314,3. Cities,0.0,2026-09-02_12-33-42_top_down_luna,precision
+314,3. Cities,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+314,3. Cities,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+29,Extreme snow/ice events,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+29,Extreme snow/ice events,0.0,2026-09-02_12-33-42_top_down_luna,recall
+29,Extreme snow/ice events,0.0,2026-09-02_12-33-42_top_down_luna,precision
+29,Extreme snow/ice events,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+29,Extreme snow/ice events,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+26,Extreme cold,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+26,Extreme cold,0.0,2026-09-02_12-33-42_top_down_luna,recall
+26,Extreme cold,0.0,2026-09-02_12-33-42_top_down_luna,precision
+26,Extreme cold,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+26,Extreme cold,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+27,Extreme heat,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+27,Extreme heat,1.0,2026-09-02_12-33-42_top_down_luna,recall
+27,Extreme heat,1.0,2026-09-02_12-33-42_top_down_luna,precision
+27,Extreme heat,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+27,Extreme heat,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+25,Droughts,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+25,Droughts,0.0,2026-09-02_12-33-42_top_down_luna,recall
+25,Droughts,0.0,2026-09-02_12-33-42_top_down_luna,precision
+25,Droughts,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+25,Droughts,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+33,Wildfires,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+33,Wildfires,1.0,2026-09-02_12-33-42_top_down_luna,recall
+33,Wildfires,1.0,2026-09-02_12-33-42_top_down_luna,precision
+33,Wildfires,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+33,Wildfires,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+30,Floods,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+30,Floods,1.0,2026-09-02_12-33-42_top_down_luna,recall
+30,Floods,1.0,2026-09-02_12-33-42_top_down_luna,precision
+30,Floods,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+30,Floods,3.0,2026-09-02_12-33-42_top_down_luna,n_labels
+28,Extreme precipitation,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+28,Extreme precipitation,1.0,2026-09-02_12-33-42_top_down_luna,recall
+28,Extreme precipitation,1.0,2026-09-02_12-33-42_top_down_luna,precision
+28,Extreme precipitation,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+28,Extreme precipitation,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+31,Sand and dust storms,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+31,Sand and dust storms,0.0,2026-09-02_12-33-42_top_down_luna,recall
+31,Sand and dust storms,0.0,2026-09-02_12-33-42_top_down_luna,precision
+31,Sand and dust storms,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+31,Sand and dust storms,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+34,Z_(Unspecified) extreme weather events,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+34,Z_(Unspecified) extreme weather events,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,recall
+34,Z_(Unspecified) extreme weather events,1.0,2026-09-02_12-33-42_top_down_luna,precision
+34,Z_(Unspecified) extreme weather events,0.8,2026-09-02_12-33-42_top_down_luna,f1_score
+34,Z_(Unspecified) extreme weather events,3.0,2026-09-02_12-33-42_top_down_luna,n_labels
+32,Storms and severe wind,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+32,Storms and severe wind,0.5,2026-09-02_12-33-42_top_down_luna,recall
+32,Storms and severe wind,1.0,2026-09-02_12-33-42_top_down_luna,precision
+32,Storms and severe wind,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+32,Storms and severe wind,4.0,2026-09-02_12-33-42_top_down_luna,n_labels
+491,Preparedness,0.8,2026-09-02_12-33-42_top_down_luna,accuracy
+491,Preparedness,0.25,2026-09-02_12-33-42_top_down_luna,recall
+491,Preparedness,0.3333333333333333,2026-09-02_12-33-42_top_down_luna,precision
+491,Preparedness,0.2857142857142857,2026-09-02_12-33-42_top_down_luna,f1_score
+491,Preparedness,4.0,2026-09-02_12-33-42_top_down_luna,n_labels
+489,Mitigation,0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+489,Mitigation,0.4,2026-09-02_12-33-42_top_down_luna,recall
+489,Mitigation,1.0,2026-09-02_12-33-42_top_down_luna,precision
+489,Mitigation,0.5714285714285714,2026-09-02_12-33-42_top_down_luna,f1_score
+489,Mitigation,5.0,2026-09-02_12-33-42_top_down_luna,n_labels
+488,Impact,0.64,2026-09-02_12-33-42_top_down_luna,accuracy
+488,Impact,0.36363636363636365,2026-09-02_12-33-42_top_down_luna,recall
+488,Impact,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,precision
+488,Impact,0.47058823529411764,2026-09-02_12-33-42_top_down_luna,f1_score
+488,Impact,11.0,2026-09-02_12-33-42_top_down_luna,n_labels
+492,Resilience,0.76,2026-09-02_12-33-42_top_down_luna,accuracy
+492,Resilience,0.3333333333333333,2026-09-02_12-33-42_top_down_luna,recall
+492,Resilience,1.0,2026-09-02_12-33-42_top_down_luna,precision
+492,Resilience,0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+492,Resilience,9.0,2026-09-02_12-33-42_top_down_luna,n_labels
+495,Loss and damage,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+495,Loss and damage,0.0,2026-09-02_12-33-42_top_down_luna,recall
+495,Loss and damage,0.0,2026-09-02_12-33-42_top_down_luna,precision
+495,Loss and damage,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+495,Loss and damage,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+490,Maladaptation,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+490,Maladaptation,0.0,2026-09-02_12-33-42_top_down_luna,recall
+490,Maladaptation,0.0,2026-09-02_12-33-42_top_down_luna,precision
+490,Maladaptation,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+490,Maladaptation,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+494,Future impact,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+494,Future impact,0.5,2026-09-02_12-33-42_top_down_luna,recall
+494,Future impact,0.5,2026-09-02_12-33-42_top_down_luna,precision
+494,Future impact,0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+494,Future impact,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+496,Co-Benefits,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+496,Co-Benefits,0.5,2026-09-02_12-33-42_top_down_luna,recall
+496,Co-Benefits,0.5,2026-09-02_12-33-42_top_down_luna,precision
+496,Co-Benefits,0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+496,Co-Benefits,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+487,Adaptation,0.8,2026-09-02_12-33-42_top_down_luna,accuracy
+487,Adaptation,0.5833333333333334,2026-09-02_12-33-42_top_down_luna,recall
+487,Adaptation,1.0,2026-09-02_12-33-42_top_down_luna,precision
+487,Adaptation,0.7368421052631579,2026-09-02_12-33-42_top_down_luna,f1_score
+487,Adaptation,12.0,2026-09-02_12-33-42_top_down_luna,n_labels
+493,Attribution,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+493,Attribution,0.0,2026-09-02_12-33-42_top_down_luna,recall
+493,Attribution,0.0,2026-09-02_12-33-42_top_down_luna,precision
+493,Attribution,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+493,Attribution,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+11,Changes in precipitation,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+11,Changes in precipitation,0.0,2026-09-02_12-33-42_top_down_luna,recall
+11,Changes in precipitation,0.0,2026-09-02_12-33-42_top_down_luna,precision
+11,Changes in precipitation,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+11,Changes in precipitation,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+7,(Unspecified) climate change,0.8,2026-09-02_12-33-42_top_down_luna,accuracy
+7,(Unspecified) climate change,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,recall
+7,(Unspecified) climate change,0.3333333333333333,2026-09-02_12-33-42_top_down_luna,precision
+7,(Unspecified) climate change,0.4444444444444444,2026-09-02_12-33-42_top_down_luna,f1_score
+7,(Unspecified) climate change,3.0,2026-09-02_12-33-42_top_down_luna,n_labels
+9,Changes in humidity,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+9,Changes in humidity,0.5,2026-09-02_12-33-42_top_down_luna,recall
+9,Changes in humidity,1.0,2026-09-02_12-33-42_top_down_luna,precision
+9,Changes in humidity,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+9,Changes in humidity,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+16,Climate variability,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+16,Climate variability,1.0,2026-09-02_12-33-42_top_down_luna,recall
+16,Climate variability,0.3333333333333333,2026-09-02_12-33-42_top_down_luna,precision
+16,Climate variability,0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+16,Climate variability,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+15,Changes in wind speed,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+15,Changes in wind speed,0.5,2026-09-02_12-33-42_top_down_luna,recall
+15,Changes in wind speed,1.0,2026-09-02_12-33-42_top_down_luna,precision
+15,Changes in wind speed,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+15,Changes in wind speed,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+12,Changes in sea level,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+12,Changes in sea level,0.5,2026-09-02_12-33-42_top_down_luna,recall
+12,Changes in sea level,1.0,2026-09-02_12-33-42_top_down_luna,precision
+12,Changes in sea level,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+12,Changes in sea level,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+6,(Unspecified) changes in weather,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+6,(Unspecified) changes in weather,0.0,2026-09-02_12-33-42_top_down_luna,recall
+6,(Unspecified) changes in weather,0.0,2026-09-02_12-33-42_top_down_luna,precision
+6,(Unspecified) changes in weather,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+6,(Unspecified) changes in weather,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+13,Changes in season length,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+13,Changes in season length,0.0,2026-09-02_12-33-42_top_down_luna,recall
+13,Changes in season length,0.0,2026-09-02_12-33-42_top_down_luna,precision
+13,Changes in season length,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+13,Changes in season length,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+8,Changes in glacier / snow melt,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+8,Changes in glacier / snow melt,0.0,2026-09-02_12-33-42_top_down_luna,recall
+8,Changes in glacier / snow melt,0.0,2026-09-02_12-33-42_top_down_luna,precision
+8,Changes in glacier / snow melt,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+8,Changes in glacier / snow melt,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+14,Changes in temperature,0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+14,Changes in temperature,0.25,2026-09-02_12-33-42_top_down_luna,recall
+14,Changes in temperature,1.0,2026-09-02_12-33-42_top_down_luna,precision
+14,Changes in temperature,0.4,2026-09-02_12-33-42_top_down_luna,f1_score
+14,Changes in temperature,4.0,2026-09-02_12-33-42_top_down_luna,n_labels
+10,Changes in inland water bodies,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+10,Changes in inland water bodies,0.0,2026-09-02_12-33-42_top_down_luna,recall
+10,Changes in inland water bodies,0.0,2026-09-02_12-33-42_top_down_luna,precision
+10,Changes in inland water bodies,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+10,Changes in inland water bodies,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+459,Disabled (Vulnerability),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+459,Disabled (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+459,Disabled (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+459,Disabled (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+459,Disabled (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+458,Chronic conditions (Vulnerability),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+458,Chronic conditions (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+458,Chronic conditions (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+458,Chronic conditions (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+458,Chronic conditions (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+468,Women (Vulnerability),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+468,Women (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+468,Women (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+468,Women (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+468,Women (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+461,Frail elderly (Vulnerability),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+461,Frail elderly (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+461,Frail elderly (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+461,Frail elderly (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+461,Frail elderly (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+463,Infants / children (Vulnerability),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+463,Infants / children (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+463,Infants / children (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+463,Infants / children (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+463,Infants / children (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+465,Migrants (Vulnerability),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+465,Migrants (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+465,Migrants (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+465,Migrants (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+465,Migrants (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+460,Ethnic minorities (Vulnerability),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+460,Ethnic minorities (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+460,Ethnic minorities (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+460,Ethnic minorities (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+460,Ethnic minorities (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+466,Occupation-based (Vulnerability),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+466,Occupation-based (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+466,Occupation-based (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+466,Occupation-based (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+466,Occupation-based (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+464,Low-income (Vulnerability),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+464,Low-income (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+464,Low-income (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+464,Low-income (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+464,Low-income (Vulnerability),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+467,Pregnancy (Vulnerability),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+467,Pregnancy (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+467,Pregnancy (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+467,Pregnancy (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+467,Pregnancy (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+462,Indigenous peoples (Vulnerability),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+462,Indigenous peoples (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,recall
+462,Indigenous peoples (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,precision
+462,Indigenous peoples (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+462,Indigenous peoples (Vulnerability),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+83,Water quality and quantity (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+83,Water quality and quantity (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,recall
+83,Water quality and quantity (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,precision
+83,Water quality and quantity (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+83,Water quality and quantity (Exposure),2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+86,Loss of place attachment / cultural identity (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+86,Loss of place attachment / cultural identity (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,recall
+86,Loss of place attachment / cultural identity (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,precision
+86,Loss of place attachment / cultural identity (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+86,Loss of place attachment / cultural identity (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+80,Social factors (Exposure),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+80,Social factors (Exposure),0.5,2026-09-02_12-33-42_top_down_luna,recall
+80,Social factors (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,precision
+80,Social factors (Exposure),0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+80,Social factors (Exposure),2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+84,Housing quality / overcrowding (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+84,Housing quality / overcrowding (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,recall
+84,Housing quality / overcrowding (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,precision
+84,Housing quality / overcrowding (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+84,Housing quality / overcrowding (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+81,Ultraviolet / solar radiation (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+81,Ultraviolet / solar radiation (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,recall
+81,Ultraviolet / solar radiation (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,precision
+81,Ultraviolet / solar radiation (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+81,Ultraviolet / solar radiation (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+78,Food supply and safety (Exposure),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+78,Food supply and safety (Exposure),0.6,2026-09-02_12-33-42_top_down_luna,recall
+78,Food supply and safety (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,precision
+78,Food supply and safety (Exposure),0.75,2026-09-02_12-33-42_top_down_luna,f1_score
+78,Food supply and safety (Exposure),5.0,2026-09-02_12-33-42_top_down_luna,n_labels
+87,Migration / forced displacement (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+87,Migration / forced displacement (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,recall
+87,Migration / forced displacement (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,precision
+87,Migration / forced displacement (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+87,Migration / forced displacement (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+76,Air quality (Exposure),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+76,Air quality (Exposure),0.8,2026-09-02_12-33-42_top_down_luna,recall
+76,Air quality (Exposure),0.8,2026-09-02_12-33-42_top_down_luna,precision
+76,Air quality (Exposure),0.8,2026-09-02_12-33-42_top_down_luna,f1_score
+76,Air quality (Exposure),5.0,2026-09-02_12-33-42_top_down_luna,n_labels
+77,Extreme weather events (Exposure),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+77,Extreme weather events (Exposure),0.6666666666666666,2026-09-02_12-33-42_top_down_luna,recall
+77,Extreme weather events (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,precision
+77,Extreme weather events (Exposure),0.8,2026-09-02_12-33-42_top_down_luna,f1_score
+77,Extreme weather events (Exposure),6.0,2026-09-02_12-33-42_top_down_luna,n_labels
+85,Loss of livelihood / income (Exposure),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+85,Loss of livelihood / income (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,recall
+85,Loss of livelihood / income (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,precision
+85,Loss of livelihood / income (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+85,Loss of livelihood / income (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+79,Heat stress (Exposure),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+79,Heat stress (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,recall
+79,Heat stress (Exposure),0.5,2026-09-02_12-33-42_top_down_luna,precision
+79,Heat stress (Exposure),0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+79,Heat stress (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+88,Violence / conflict (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+88,Violence / conflict (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,recall
+88,Violence / conflict (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,precision
+88,Violence / conflict (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+88,Violence / conflict (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+82,Vector distribution and ecology (Exposure),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+82,Vector distribution and ecology (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,recall
+82,Vector distribution and ecology (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,precision
+82,Vector distribution and ecology (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+82,Vector distribution and ecology (Exposure),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+475,Buildings / housing (Sector),0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+475,Buildings / housing (Sector),0.0,2026-09-02_12-33-42_top_down_luna,recall
+475,Buildings / housing (Sector),0.0,2026-09-02_12-33-42_top_down_luna,precision
+475,Buildings / housing (Sector),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+475,Buildings / housing (Sector),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+486,"Water, sanitation, and waste management (Sector)",1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+486,"Water, sanitation, and waste management (Sector)",1.0,2026-09-02_12-33-42_top_down_luna,recall
+486,"Water, sanitation, and waste management (Sector)",1.0,2026-09-02_12-33-42_top_down_luna,precision
+486,"Water, sanitation, and waste management (Sector)",1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+486,"Water, sanitation, and waste management (Sector)",2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+484,Social protection (Sector),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+484,Social protection (Sector),0.0,2026-09-02_12-33-42_top_down_luna,recall
+484,Social protection (Sector),0.0,2026-09-02_12-33-42_top_down_luna,precision
+484,Social protection (Sector),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+484,Social protection (Sector),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+476,Education (Sector),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+476,Education (Sector),0.0,2026-09-02_12-33-42_top_down_luna,recall
+476,Education (Sector),0.0,2026-09-02_12-33-42_top_down_luna,precision
+476,Education (Sector),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+476,Education (Sector),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+485,Transportation (Sector),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+485,Transportation (Sector),1.0,2026-09-02_12-33-42_top_down_luna,recall
+485,Transportation (Sector),0.3333333333333333,2026-09-02_12-33-42_top_down_luna,precision
+485,Transportation (Sector),0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+485,Transportation (Sector),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+478,Finance (Sector),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+478,Finance (Sector),0.0,2026-09-02_12-33-42_top_down_luna,recall
+478,Finance (Sector),0.0,2026-09-02_12-33-42_top_down_luna,precision
+478,Finance (Sector),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+478,Finance (Sector),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+483,Public administration (Sector),0.84,2026-09-02_12-33-42_top_down_luna,accuracy
+483,Public administration (Sector),1.0,2026-09-02_12-33-42_top_down_luna,recall
+483,Public administration (Sector),0.2,2026-09-02_12-33-42_top_down_luna,precision
+483,Public administration (Sector),0.3333333333333333,2026-09-02_12-33-42_top_down_luna,f1_score
+483,Public administration (Sector),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+474,"Agriculture, fishing, and forestry (Sector)",0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+474,"Agriculture, fishing, and forestry (Sector)",0.8571428571428571,2026-09-02_12-33-42_top_down_luna,recall
+474,"Agriculture, fishing, and forestry (Sector)",0.8571428571428571,2026-09-02_12-33-42_top_down_luna,precision
+474,"Agriculture, fishing, and forestry (Sector)",0.8571428571428571,2026-09-02_12-33-42_top_down_luna,f1_score
+474,"Agriculture, fishing, and forestry (Sector)",7.0,2026-09-02_12-33-42_top_down_luna,n_labels
+482,Military (Sector),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+482,Military (Sector),0.0,2026-09-02_12-33-42_top_down_luna,recall
+482,Military (Sector),0.0,2026-09-02_12-33-42_top_down_luna,precision
+482,Military (Sector),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+482,Military (Sector),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+481,Information and communications technologies (Sector),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+481,Information and communications technologies (Sector),0.0,2026-09-02_12-33-42_top_down_luna,recall
+481,Information and communications technologies (Sector),0.0,2026-09-02_12-33-42_top_down_luna,precision
+481,Information and communications technologies (Sector),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+481,Information and communications technologies (Sector),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+477,Energy and extractives (Sector),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+477,Energy and extractives (Sector),1.0,2026-09-02_12-33-42_top_down_luna,recall
+477,Energy and extractives (Sector),1.0,2026-09-02_12-33-42_top_down_luna,precision
+477,Energy and extractives (Sector),1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+477,Energy and extractives (Sector),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+480,"Industry, trade, and services (Sector)",0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+480,"Industry, trade, and services (Sector)",0.0,2026-09-02_12-33-42_top_down_luna,recall
+480,"Industry, trade, and services (Sector)",0.0,2026-09-02_12-33-42_top_down_luna,precision
+480,"Industry, trade, and services (Sector)",0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+480,"Industry, trade, and services (Sector)",0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+479,Healthcare (Sector),0.8,2026-09-02_12-33-42_top_down_luna,accuracy
+479,Healthcare (Sector),0.0,2026-09-02_12-33-42_top_down_luna,recall
+479,Healthcare (Sector),0.0,2026-09-02_12-33-42_top_down_luna,precision
+479,Healthcare (Sector),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+479,Healthcare (Sector),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+448,3.2. Child (6-12 years),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+448,3.2. Child (6-12 years),0.0,2026-09-02_12-33-42_top_down_luna,recall
+448,3.2. Child (6-12 years),0.0,2026-09-02_12-33-42_top_down_luna,precision
+448,3.2. Child (6-12 years),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+448,3.2. Child (6-12 years),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+449,5.1. Adult (19-44 years),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+449,5.1. Adult (19-44 years),0.0,2026-09-02_12-33-42_top_down_luna,recall
+449,5.1. Adult (19-44 years),0.0,2026-09-02_12-33-42_top_down_luna,precision
+449,5.1. Adult (19-44 years),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+449,5.1. Adult (19-44 years),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+443,3. Child (2-12 years),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+443,3. Child (2-12 years),0.0,2026-09-02_12-33-42_top_down_luna,recall
+443,3. Child (2-12 years),0.0,2026-09-02_12-33-42_top_down_luna,precision
+443,3. Child (2-12 years),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+443,3. Child (2-12 years),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+442,2. Infant (1-23 months),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+442,2. Infant (1-23 months),0.0,2026-09-02_12-33-42_top_down_luna,recall
+442,2. Infant (1-23 months),0.0,2026-09-02_12-33-42_top_down_luna,precision
+442,2. Infant (1-23 months),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+442,2. Infant (1-23 months),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+451,5.3. Aged (65 years and older),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+451,5.3. Aged (65 years and older),1.0,2026-09-02_12-33-42_top_down_luna,recall
+451,5.3. Aged (65 years and older),1.0,2026-09-02_12-33-42_top_down_luna,precision
+451,5.3. Aged (65 years and older),1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+451,5.3. Aged (65 years and older),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+444,4. Adolescent (13-18 years),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+444,4. Adolescent (13-18 years),0.0,2026-09-02_12-33-42_top_down_luna,recall
+444,4. Adolescent (13-18 years),0.0,2026-09-02_12-33-42_top_down_luna,precision
+444,4. Adolescent (13-18 years),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+444,4. Adolescent (13-18 years),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+450,5.2. Middle aged (45-64 years),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+450,5.2. Middle aged (45-64 years),1.0,2026-09-02_12-33-42_top_down_luna,recall
+450,5.2. Middle aged (45-64 years),1.0,2026-09-02_12-33-42_top_down_luna,precision
+450,5.2. Middle aged (45-64 years),1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+450,5.2. Middle aged (45-64 years),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+446,Newborn infant,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+446,Newborn infant,0.0,2026-09-02_12-33-42_top_down_luna,recall
+446,Newborn infant,0.0,2026-09-02_12-33-42_top_down_luna,precision
+446,Newborn infant,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+446,Newborn infant,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+445,5. Adult,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+445,5. Adult,0.5,2026-09-02_12-33-42_top_down_luna,recall
+445,5. Adult,1.0,2026-09-02_12-33-42_top_down_luna,precision
+445,5. Adult,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+445,5. Adult,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+453,Aged (80 years and older),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+453,Aged (80 years and older),0.0,2026-09-02_12-33-42_top_down_luna,recall
+453,Aged (80 years and older),0.0,2026-09-02_12-33-42_top_down_luna,precision
+453,Aged (80 years and older),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+453,Aged (80 years and older),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+441,1. All ages,0.6,2026-09-02_12-33-42_top_down_luna,accuracy
+441,1. All ages,0.0,2026-09-02_12-33-42_top_down_luna,recall
+441,1. All ages,0.0,2026-09-02_12-33-42_top_down_luna,precision
+441,1. All ages,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+441,1. All ages,10.0,2026-09-02_12-33-42_top_down_luna,n_labels
+452,Aged (65-78 years),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+452,Aged (65-78 years),0.0,2026-09-02_12-33-42_top_down_luna,recall
+452,Aged (65-78 years),0.0,2026-09-02_12-33-42_top_down_luna,precision
+452,Aged (65-78 years),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+452,Aged (65-78 years),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+447,3.1. Preschool child (2-5 years),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+447,3.1. Preschool child (2-5 years),0.0,2026-09-02_12-33-42_top_down_luna,recall
+447,3.1. Preschool child (2-5 years),0.0,2026-09-02_12-33-42_top_down_luna,precision
+447,3.1. Preschool child (2-5 years),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+447,3.1. Preschool child (2-5 years),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+64,Tropical rainforest,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+64,Tropical rainforest,0.0,2026-09-02_12-33-42_top_down_luna,recall
+64,Tropical rainforest,0.0,2026-09-02_12-33-42_top_down_luna,precision
+64,Tropical rainforest,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+64,Tropical rainforest,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+65,Tundra,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+65,Tundra,0.0,2026-09-02_12-33-42_top_down_luna,recall
+65,Tundra,0.0,2026-09-02_12-33-42_top_down_luna,precision
+65,Tundra,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+65,Tundra,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+59,Ocean / marine,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+59,Ocean / marine,0.0,2026-09-02_12-33-42_top_down_luna,recall
+59,Ocean / marine,0.0,2026-09-02_12-33-42_top_down_luna,precision
+59,Ocean / marine,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+59,Ocean / marine,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+56,Mangrove,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+56,Mangrove,1.0,2026-09-02_12-33-42_top_down_luna,recall
+56,Mangrove,1.0,2026-09-02_12-33-42_top_down_luna,precision
+56,Mangrove,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+56,Mangrove,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+55,Island,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+55,Island,0.0,2026-09-02_12-33-42_top_down_luna,recall
+55,Island,0.0,2026-09-02_12-33-42_top_down_luna,precision
+55,Island,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+55,Island,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+49,Coastal,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+49,Coastal,0.5,2026-09-02_12-33-42_top_down_luna,recall
+49,Coastal,0.5,2026-09-02_12-33-42_top_down_luna,precision
+49,Coastal,0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+49,Coastal,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+54,"Freshwater (rivers, lakes)",0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+54,"Freshwater (rivers, lakes)",0.0,2026-09-02_12-33-42_top_down_luna,recall
+54,"Freshwater (rivers, lakes)",0.0,2026-09-02_12-33-42_top_down_luna,precision
+54,"Freshwater (rivers, lakes)",0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+54,"Freshwater (rivers, lakes)",0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+51,Delta / floodplain,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+51,Delta / floodplain,1.0,2026-09-02_12-33-42_top_down_luna,recall
+51,Delta / floodplain,1.0,2026-09-02_12-33-42_top_down_luna,precision
+51,Delta / floodplain,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+51,Delta / floodplain,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+57,Mediterranean / chaparral,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+57,Mediterranean / chaparral,0.0,2026-09-02_12-33-42_top_down_luna,recall
+57,Mediterranean / chaparral,0.0,2026-09-02_12-33-42_top_down_luna,precision
+57,Mediterranean / chaparral,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+57,Mediterranean / chaparral,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+53,Farmland,0.76,2026-09-02_12-33-42_top_down_luna,accuracy
+53,Farmland,0.0,2026-09-02_12-33-42_top_down_luna,recall
+53,Farmland,0.0,2026-09-02_12-33-42_top_down_luna,precision
+53,Farmland,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+53,Farmland,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+50,Coral reef,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+50,Coral reef,0.0,2026-09-02_12-33-42_top_down_luna,recall
+50,Coral reef,0.0,2026-09-02_12-33-42_top_down_luna,precision
+50,Coral reef,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+50,Coral reef,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+48,Boreal forest / taiga,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+48,Boreal forest / taiga,0.0,2026-09-02_12-33-42_top_down_luna,recall
+48,Boreal forest / taiga,0.0,2026-09-02_12-33-42_top_down_luna,precision
+48,Boreal forest / taiga,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+48,Boreal forest / taiga,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+62,Temperate grassland,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+62,Temperate grassland,0.0,2026-09-02_12-33-42_top_down_luna,recall
+62,Temperate grassland,0.0,2026-09-02_12-33-42_top_down_luna,precision
+62,Temperate grassland,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+62,Temperate grassland,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+58,Mountain (alpine),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+58,Mountain (alpine),1.0,2026-09-02_12-33-42_top_down_luna,recall
+58,Mountain (alpine),1.0,2026-09-02_12-33-42_top_down_luna,precision
+58,Mountain (alpine),1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+58,Mountain (alpine),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+52,Desert (arid/semi-arid),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+52,Desert (arid/semi-arid),0.0,2026-09-02_12-33-42_top_down_luna,recall
+52,Desert (arid/semi-arid),0.0,2026-09-02_12-33-42_top_down_luna,precision
+52,Desert (arid/semi-arid),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+52,Desert (arid/semi-arid),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+66,Valley,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+66,Valley,0.0,2026-09-02_12-33-42_top_down_luna,recall
+66,Valley,0.0,2026-09-02_12-33-42_top_down_luna,precision
+66,Valley,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+66,Valley,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+67,Wetland / peatland,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+67,Wetland / peatland,0.0,2026-09-02_12-33-42_top_down_luna,recall
+67,Wetland / peatland,0.0,2026-09-02_12-33-42_top_down_luna,precision
+67,Wetland / peatland,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+67,Wetland / peatland,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+61,Temperate forest,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+61,Temperate forest,0.0,2026-09-02_12-33-42_top_down_luna,recall
+61,Temperate forest,0.0,2026-09-02_12-33-42_top_down_luna,precision
+61,Temperate forest,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+61,Temperate forest,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+63,Tropical grassland / savanna,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+63,Tropical grassland / savanna,0.0,2026-09-02_12-33-42_top_down_luna,recall
+63,Tropical grassland / savanna,0.0,2026-09-02_12-33-42_top_down_luna,precision
+63,Tropical grassland / savanna,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+63,Tropical grassland / savanna,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+60,Riparian,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+60,Riparian,0.0,2026-09-02_12-33-42_top_down_luna,recall
+60,Riparian,0.0,2026-09-02_12-33-42_top_down_luna,precision
+60,Riparian,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+60,Riparian,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+95,Excess mortality (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+95,Excess mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+95,Excess mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+95,Excess mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+95,Excess mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+106,Relative risk / odds ratio (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+106,Relative risk / odds ratio (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+106,Relative risk / odds ratio (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+106,Relative risk / odds ratio (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+106,Relative risk / odds ratio (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+101,Disability-adjusted life years (DALY) (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+101,Disability-adjusted life years (DALY) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+101,Disability-adjusted life years (DALY) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+101,Disability-adjusted life years (DALY) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+101,Disability-adjusted life years (DALY) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+97,Maternal mortality (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+97,Maternal mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+97,Maternal mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+97,Maternal mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+97,Maternal mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+107,Emergency department visit (Metric),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+107,Emergency department visit (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+107,Emergency department visit (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+107,Emergency department visit (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+107,Emergency department visit (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+94,Cause-specific mortality (Metric),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+94,Cause-specific mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+94,Cause-specific mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+94,Cause-specific mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+94,Cause-specific mortality (Metric),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+100,(Health-related) quality of life (HrQoL/QoL) (Metric),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+100,(Health-related) quality of life (HrQoL/QoL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+100,(Health-related) quality of life (HrQoL/QoL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+100,(Health-related) quality of life (HrQoL/QoL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+100,(Health-related) quality of life (HrQoL/QoL) (Metric),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+104,Years lived with disability (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+104,Years lived with disability (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+104,Years lived with disability (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+104,Years lived with disability (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+104,Years lived with disability (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+93,All-cause mortality (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+93,All-cause mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+93,All-cause mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+93,All-cause mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+93,All-cause mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+99,Years of life lost (YLL) (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+99,Years of life lost (YLL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+99,Years of life lost (YLL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+99,Years of life lost (YLL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+99,Years of life lost (YLL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+98,Potential years of life lost (PYLL) (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+98,Potential years of life lost (PYLL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+98,Potential years of life lost (PYLL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+98,Potential years of life lost (PYLL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+98,Potential years of life lost (PYLL) (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+111,Outpatient / primary care visit (Metric),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+111,Outpatient / primary care visit (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+111,Outpatient / primary care visit (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+111,Outpatient / primary care visit (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+111,Outpatient / primary care visit (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+91,Exposure quantification (Metric),0.72,2026-09-02_12-33-42_top_down_luna,accuracy
+91,Exposure quantification (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+91,Exposure quantification (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+91,Exposure quantification (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+91,Exposure quantification (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+102,Incidence (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+102,Incidence (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+102,Incidence (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+102,Incidence (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+102,Incidence (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+103,Prevalence (Metric),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+103,Prevalence (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+103,Prevalence (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+103,Prevalence (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+103,Prevalence (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+96,Infant / child mortality (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+96,Infant / child mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+96,Infant / child mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+96,Infant / child mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+96,Infant / child mortality (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+105,Attributable fraction / risk (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+105,Attributable fraction / risk (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+105,Attributable fraction / risk (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+105,Attributable fraction / risk (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+105,Attributable fraction / risk (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+90,Disease burden / quality of life (Metric),0.76,2026-09-02_12-33-42_top_down_luna,accuracy
+90,Disease burden / quality of life (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+90,Disease burden / quality of life (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+90,Disease burden / quality of life (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+90,Disease burden / quality of life (Metric),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+92,Healthcare utilisation (Metric),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+92,Healthcare utilisation (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+92,Healthcare utilisation (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+92,Healthcare utilisation (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+92,Healthcare utilisation (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+109,Hospital admission (Metric),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+109,Hospital admission (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+109,Hospital admission (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+109,Hospital admission (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+109,Hospital admission (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+89,Death (Metric),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+89,Death (Metric),1.0,2026-09-02_12-33-42_top_down_luna,recall
+89,Death (Metric),0.5,2026-09-02_12-33-42_top_down_luna,precision
+89,Death (Metric),0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+89,Death (Metric),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+108,Healthcare access disruption (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+108,Healthcare access disruption (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+108,Healthcare access disruption (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+108,Healthcare access disruption (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+108,Healthcare access disruption (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+110,Length of hospital stay (Metric),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+110,Length of hospital stay (Metric),0.0,2026-09-02_12-33-42_top_down_luna,recall
+110,Length of hospital stay (Metric),0.0,2026-09-02_12-33-42_top_down_luna,precision
+110,Length of hospital stay (Metric),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+110,Length of hospital stay (Metric),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+430,Systematic reviews,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+430,Systematic reviews,1.0,2026-09-02_12-33-42_top_down_luna,recall
+430,Systematic reviews,1.0,2026-09-02_12-33-42_top_down_luna,precision
+430,Systematic reviews,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+430,Systematic reviews,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+424,Focus group,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+424,Focus group,0.0,2026-09-02_12-33-42_top_down_luna,recall
+424,Focus group,0.0,2026-09-02_12-33-42_top_down_luna,precision
+424,Focus group,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+424,Focus group,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+417,Case-control / mached sample design,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+417,Case-control / mached sample design,0.0,2026-09-02_12-33-42_top_down_luna,recall
+417,Case-control / mached sample design,0.0,2026-09-02_12-33-42_top_down_luna,precision
+417,Case-control / mached sample design,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+417,Case-control / mached sample design,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+404,Fixed effects / panel regression,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+404,Fixed effects / panel regression,0.0,2026-09-02_12-33-42_top_down_luna,recall
+404,Fixed effects / panel regression,0.0,2026-09-02_12-33-42_top_down_luna,precision
+404,Fixed effects / panel regression,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+404,Fixed effects / panel regression,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+388,2. Evidence synthesis,0.72,2026-09-02_12-33-42_top_down_luna,accuracy
+388,2. Evidence synthesis,0.2857142857142857,2026-09-02_12-33-42_top_down_luna,recall
+388,2. Evidence synthesis,0.5,2026-09-02_12-33-42_top_down_luna,precision
+388,2. Evidence synthesis,0.36363636363636365,2026-09-02_12-33-42_top_down_luna,f1_score
+388,2. Evidence synthesis,7.0,2026-09-02_12-33-42_top_down_luna,n_labels
+434,Mixed-methods review,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+434,Mixed-methods review,0.0,2026-09-02_12-33-42_top_down_luna,recall
+434,Mixed-methods review,0.0,2026-09-02_12-33-42_top_down_luna,precision
+434,Mixed-methods review,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+434,Mixed-methods review,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+390,(Quasi-)Experimental / single-group designs,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+390,(Quasi-)Experimental / single-group designs,0.0,2026-09-02_12-33-42_top_down_luna,recall
+390,(Quasi-)Experimental / single-group designs,0.0,2026-09-02_12-33-42_top_down_luna,precision
+390,(Quasi-)Experimental / single-group designs,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+390,(Quasi-)Experimental / single-group designs,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+399,2. Quasi-randomised / natural experiment,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+399,2. Quasi-randomised / natural experiment,0.0,2026-09-02_12-33-42_top_down_luna,recall
+399,2. Quasi-randomised / natural experiment,0.0,2026-09-02_12-33-42_top_down_luna,precision
+399,2. Quasi-randomised / natural experiment,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+399,2. Quasi-randomised / natural experiment,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+433,Living systematic review,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+433,Living systematic review,0.0,2026-09-02_12-33-42_top_down_luna,recall
+433,Living systematic review,0.0,2026-09-02_12-33-42_top_down_luna,precision
+433,Living systematic review,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+433,Living systematic review,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+412,Computable general equilibrium (CGE) model,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+412,Computable general equilibrium (CGE) model,0.0,2026-09-02_12-33-42_top_down_luna,recall
+412,Computable general equilibrium (CGE) model,0.0,2026-09-02_12-33-42_top_down_luna,precision
+412,Computable general equilibrium (CGE) model,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+412,Computable general equilibrium (CGE) model,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+422,Interrupted time series (uncontrolled),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+422,Interrupted time series (uncontrolled),0.0,2026-09-02_12-33-42_top_down_luna,recall
+422,Interrupted time series (uncontrolled),0.0,2026-09-02_12-33-42_top_down_luna,precision
+422,Interrupted time series (uncontrolled),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+422,Interrupted time series (uncontrolled),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+440,Umbrella review / overview of reviews,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+440,Umbrella review / overview of reviews,0.0,2026-09-02_12-33-42_top_down_luna,recall
+440,Umbrella review / overview of reviews,0.0,2026-09-02_12-33-42_top_down_luna,precision
+440,Umbrella review / overview of reviews,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+440,Umbrella review / overview of reviews,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+429,Narrative review,0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+429,Narrative review,0.5,2026-09-02_12-33-42_top_down_luna,recall
+429,Narrative review,0.3333333333333333,2026-09-02_12-33-42_top_down_luna,precision
+429,Narrative review,0.4,2026-09-02_12-33-42_top_down_luna,f1_score
+429,Narrative review,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+400,3. Non-randomised,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+400,3. Non-randomised,0.0,2026-09-02_12-33-42_top_down_luna,recall
+400,3. Non-randomised,0.0,2026-09-02_12-33-42_top_down_luna,precision
+400,3. Non-randomised,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+400,3. Non-randomised,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+393,Modelling / simulation,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+393,Modelling / simulation,0.875,2026-09-02_12-33-42_top_down_luna,recall
+393,Modelling / simulation,0.875,2026-09-02_12-33-42_top_down_luna,precision
+393,Modelling / simulation,0.875,2026-09-02_12-33-42_top_down_luna,f1_score
+393,Modelling / simulation,8.0,2026-09-02_12-33-42_top_down_luna,n_labels
+437,Realist review,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+437,Realist review,0.0,2026-09-02_12-33-42_top_down_luna,recall
+437,Realist review,0.0,2026-09-02_12-33-42_top_down_luna,precision
+437,Realist review,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+437,Realist review,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+401,4. Randomisation unclear,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+401,4. Randomisation unclear,0.0,2026-09-02_12-33-42_top_down_luna,recall
+401,4. Randomisation unclear,0.0,2026-09-02_12-33-42_top_down_luna,precision
+401,4. Randomisation unclear,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+401,4. Randomisation unclear,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+392,Mixed-methods,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+392,Mixed-methods,0.0,2026-09-02_12-33-42_top_down_luna,recall
+392,Mixed-methods,0.0,2026-09-02_12-33-42_top_down_luna,precision
+392,Mixed-methods,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+392,Mixed-methods,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+436,Rapid review,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+436,Rapid review,0.0,2026-09-02_12-33-42_top_down_luna,recall
+436,Rapid review,0.0,2026-09-02_12-33-42_top_down_luna,precision
+436,Rapid review,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+436,Rapid review,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+413,Integrated assessment model (IAM) / health impact projection,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+413,Integrated assessment model (IAM) / health impact projection,0.0,2026-09-02_12-33-42_top_down_luna,recall
+413,Integrated assessment model (IAM) / health impact projection,0.0,2026-09-02_12-33-42_top_down_luna,precision
+413,Integrated assessment model (IAM) / health impact projection,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+413,Integrated assessment model (IAM) / health impact projection,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+411,Cross-sectional / single-round survey,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+411,Cross-sectional / single-round survey,0.0,2026-09-02_12-33-42_top_down_luna,recall
+411,Cross-sectional / single-round survey,0.0,2026-09-02_12-33-42_top_down_luna,precision
+411,Cross-sectional / single-round survey,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+411,Cross-sectional / single-round survey,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+391,Descriptive / single-group designs,0.76,2026-09-02_12-33-42_top_down_luna,accuracy
+391,Descriptive / single-group designs,0.2,2026-09-02_12-33-42_top_down_luna,recall
+391,Descriptive / single-group designs,0.3333333333333333,2026-09-02_12-33-42_top_down_luna,precision
+391,Descriptive / single-group designs,0.25,2026-09-02_12-33-42_top_down_luna,f1_score
+391,Descriptive / single-group designs,5.0,2026-09-02_12-33-42_top_down_luna,n_labels
+421,Before-after / pre-post study,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+421,Before-after / pre-post study,0.0,2026-09-02_12-33-42_top_down_luna,recall
+421,Before-after / pre-post study,0.0,2026-09-02_12-33-42_top_down_luna,precision
+421,Before-after / pre-post study,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+421,Before-after / pre-post study,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+420,Interrupted time series (controlled),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+420,Interrupted time series (controlled),0.0,2026-09-02_12-33-42_top_down_luna,recall
+420,Interrupted time series (controlled),0.0,2026-09-02_12-33-42_top_down_luna,precision
+420,Interrupted time series (controlled),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+420,Interrupted time series (controlled),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+405,Instrumental variables,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+405,Instrumental variables,0.0,2026-09-02_12-33-42_top_down_luna,recall
+405,Instrumental variables,0.0,2026-09-02_12-33-42_top_down_luna,precision
+405,Instrumental variables,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+405,Instrumental variables,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+425,Interviews,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+425,Interviews,0.0,2026-09-02_12-33-42_top_down_luna,recall
+425,Interviews,0.0,2026-09-02_12-33-42_top_down_luna,precision
+425,Interviews,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+425,Interviews,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+423,Ethnographic,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+423,Ethnographic,0.0,2026-09-02_12-33-42_top_down_luna,recall
+423,Ethnographic,0.0,2026-09-02_12-33-42_top_down_luna,precision
+423,Ethnographic,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+423,Ethnographic,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+428,Meta-analysis (unsystematic),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+428,Meta-analysis (unsystematic),0.0,2026-09-02_12-33-42_top_down_luna,recall
+428,Meta-analysis (unsystematic),0.0,2026-09-02_12-33-42_top_down_luna,precision
+428,Meta-analysis (unsystematic),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+428,Meta-analysis (unsystematic),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+410,Case series / descriptive multi-case study,0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+410,Case series / descriptive multi-case study,0.0,2026-09-02_12-33-42_top_down_luna,recall
+410,Case series / descriptive multi-case study,0.0,2026-09-02_12-33-42_top_down_luna,precision
+410,Case series / descriptive multi-case study,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+410,Case series / descriptive multi-case study,3.0,2026-09-02_12-33-42_top_down_luna,n_labels
+427,Health technology assessment (HTA),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+427,Health technology assessment (HTA),0.0,2026-09-02_12-33-42_top_down_luna,recall
+427,Health technology assessment (HTA),0.0,2026-09-02_12-33-42_top_down_luna,precision
+427,Health technology assessment (HTA),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+427,Health technology assessment (HTA),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+431,Z_Other evidence synthesis type,0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+431,Z_Other evidence synthesis type,0.0,2026-09-02_12-33-42_top_down_luna,recall
+431,Z_Other evidence synthesis type,0.0,2026-09-02_12-33-42_top_down_luna,precision
+431,Z_Other evidence synthesis type,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+431,Z_Other evidence synthesis type,3.0,2026-09-02_12-33-42_top_down_luna,n_labels
+403,Difference-in-differences / event study,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+403,Difference-in-differences / event study,0.0,2026-09-02_12-33-42_top_down_luna,recall
+403,Difference-in-differences / event study,0.0,2026-09-02_12-33-42_top_down_luna,precision
+403,Difference-in-differences / event study,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+403,Difference-in-differences / event study,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+415,Other climate-related modelling / simulation,0.84,2026-09-02_12-33-42_top_down_luna,accuracy
+415,Other climate-related modelling / simulation,0.5714285714285714,2026-09-02_12-33-42_top_down_luna,recall
+415,Other climate-related modelling / simulation,0.8,2026-09-02_12-33-42_top_down_luna,precision
+415,Other climate-related modelling / simulation,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+415,Other climate-related modelling / simulation,7.0,2026-09-02_12-33-42_top_down_luna,n_labels
+409,Case report / case study,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+409,Case report / case study,0.0,2026-09-02_12-33-42_top_down_luna,recall
+409,Case report / case study,0.0,2026-09-02_12-33-42_top_down_luna,precision
+409,Case report / case study,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+409,Case report / case study,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+402,(Propensity score) Matched differences-in-differences,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+402,(Propensity score) Matched differences-in-differences,0.0,2026-09-02_12-33-42_top_down_luna,recall
+402,(Propensity score) Matched differences-in-differences,0.0,2026-09-02_12-33-42_top_down_luna,precision
+402,(Propensity score) Matched differences-in-differences,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+402,(Propensity score) Matched differences-in-differences,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+416,Other health-related modelling / simulation,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+416,Other health-related modelling / simulation,0.0,2026-09-02_12-33-42_top_down_luna,recall
+416,Other health-related modelling / simulation,0.0,2026-09-02_12-33-42_top_down_luna,precision
+416,Other health-related modelling / simulation,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+416,Other health-related modelling / simulation,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+397,Z_Other study design,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+397,Z_Other study design,0.0,2026-09-02_12-33-42_top_down_luna,recall
+397,Z_Other study design,0.0,2026-09-02_12-33-42_top_down_luna,precision
+397,Z_Other study design,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+397,Z_Other study design,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+435,Qualitative evidence synthesis,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+435,Qualitative evidence synthesis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+435,Qualitative evidence synthesis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+435,Qualitative evidence synthesis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+435,Qualitative evidence synthesis,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+389,(Quasi-)Experimental / group comparison designs,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-09-02_12-33-42_top_down_luna,recall
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-09-02_12-33-42_top_down_luna,precision
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+432,Evidence map / evidence gap map,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+432,Evidence map / evidence gap map,0.0,2026-09-02_12-33-42_top_down_luna,recall
+432,Evidence map / evidence gap map,0.0,2026-09-02_12-33-42_top_down_luna,precision
+432,Evidence map / evidence gap map,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+432,Evidence map / evidence gap map,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+407,Synthetic control,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+407,Synthetic control,0.0,2026-09-02_12-33-42_top_down_luna,recall
+407,Synthetic control,0.0,2026-09-02_12-33-42_top_down_luna,precision
+407,Synthetic control,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+407,Synthetic control,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+408,Single arm trial / single arm experiment,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+408,Single arm trial / single arm experiment,0.0,2026-09-02_12-33-42_top_down_luna,recall
+408,Single arm trial / single arm experiment,0.0,2026-09-02_12-33-42_top_down_luna,precision
+408,Single arm trial / single arm experiment,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+408,Single arm trial / single arm experiment,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+414,Microsimulation,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+414,Microsimulation,0.0,2026-09-02_12-33-42_top_down_luna,recall
+414,Microsimulation,0.0,2026-09-02_12-33-42_top_down_luna,precision
+414,Microsimulation,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+414,Microsimulation,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+396,Qualitative designs,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+396,Qualitative designs,0.0,2026-09-02_12-33-42_top_down_luna,recall
+396,Qualitative designs,0.0,2026-09-02_12-33-42_top_down_luna,precision
+396,Qualitative designs,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+396,Qualitative designs,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+398,1. Randomised (RCT),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+398,1. Randomised (RCT),0.0,2026-09-02_12-33-42_top_down_luna,recall
+398,1. Randomised (RCT),0.0,2026-09-02_12-33-42_top_down_luna,precision
+398,1. Randomised (RCT),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+398,1. Randomised (RCT),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+394,Observational / group comparison designs,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+394,Observational / group comparison designs,1.0,2026-09-02_12-33-42_top_down_luna,recall
+394,Observational / group comparison designs,0.5,2026-09-02_12-33-42_top_down_luna,precision
+394,Observational / group comparison designs,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+394,Observational / group comparison designs,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+418,Cohort / panel data / longitudinal study,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+418,Cohort / panel data / longitudinal study,1.0,2026-09-02_12-33-42_top_down_luna,recall
+418,Cohort / panel data / longitudinal study,1.0,2026-09-02_12-33-42_top_down_luna,precision
+418,Cohort / panel data / longitudinal study,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+418,Cohort / panel data / longitudinal study,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+426,Guideline (clinical or public health),0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+426,Guideline (clinical or public health),0.0,2026-09-02_12-33-42_top_down_luna,recall
+426,Guideline (clinical or public health),0.0,2026-09-02_12-33-42_top_down_luna,precision
+426,Guideline (clinical or public health),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+426,Guideline (clinical or public health),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+395,Observational / single-group designs,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+395,Observational / single-group designs,0.3333333333333333,2026-09-02_12-33-42_top_down_luna,recall
+395,Observational / single-group designs,1.0,2026-09-02_12-33-42_top_down_luna,precision
+395,Observational / single-group designs,0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+395,Observational / single-group designs,3.0,2026-09-02_12-33-42_top_down_luna,n_labels
+387,1. Primary research,0.84,2026-09-02_12-33-42_top_down_luna,accuracy
+387,1. Primary research,0.8666666666666667,2026-09-02_12-33-42_top_down_luna,recall
+387,1. Primary research,0.8666666666666667,2026-09-02_12-33-42_top_down_luna,precision
+387,1. Primary research,0.8666666666666667,2026-09-02_12-33-42_top_down_luna,f1_score
+387,1. Primary research,15.0,2026-09-02_12-33-42_top_down_luna,n_labels
+406,Regression discontinuity,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+406,Regression discontinuity,0.0,2026-09-02_12-33-42_top_down_luna,recall
+406,Regression discontinuity,0.0,2026-09-02_12-33-42_top_down_luna,precision
+406,Regression discontinuity,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+406,Regression discontinuity,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+439,Systematic review,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+439,Systematic review,0.0,2026-09-02_12-33-42_top_down_luna,recall
+439,Systematic review,0.0,2026-09-02_12-33-42_top_down_luna,precision
+439,Systematic review,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+439,Systematic review,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+438,Scoping review,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+438,Scoping review,0.0,2026-09-02_12-33-42_top_down_luna,recall
+438,Scoping review,0.0,2026-09-02_12-33-42_top_down_luna,precision
+438,Scoping review,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+438,Scoping review,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+419,Controlled before-after (CBA),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+419,Controlled before-after (CBA),0.0,2026-09-02_12-33-42_top_down_luna,recall
+419,Controlled before-after (CBA),0.0,2026-09-02_12-33-42_top_down_luna,precision
+419,Controlled before-after (CBA),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+419,Controlled before-after (CBA),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+330,Self-protection,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+330,Self-protection,0.0,2026-09-02_12-33-42_top_down_luna,recall
+330,Self-protection,0.0,2026-09-02_12-33-42_top_down_luna,precision
+330,Self-protection,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+330,Self-protection,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+362,National / subnational policy,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+362,National / subnational policy,0.0,2026-09-02_12-33-42_top_down_luna,recall
+362,National / subnational policy,0.0,2026-09-02_12-33-42_top_down_luna,precision
+362,National / subnational policy,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+362,National / subnational policy,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+345,Urban green-blue infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+345,Urban green-blue infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,recall
+345,Urban green-blue infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,precision
+345,Urban green-blue infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+345,Urban green-blue infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+328,Migration,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+328,Migration,0.0,2026-09-02_12-33-42_top_down_luna,recall
+328,Migration,0.0,2026-09-02_12-33-42_top_down_luna,precision
+328,Migration,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+328,Migration,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+349,International development / aid,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+349,International development / aid,0.0,2026-09-02_12-33-42_top_down_luna,recall
+349,International development / aid,0.0,2026-09-02_12-33-42_top_down_luna,precision
+349,International development / aid,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+349,International development / aid,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+366,Mitigation technologies / infrastructure,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+366,Mitigation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,recall
+366,Mitigation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,precision
+366,Mitigation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+366,Mitigation technologies / infrastructure,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+357,Z_Other clinical / biomedical interventions,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+357,Z_Other clinical / biomedical interventions,0.0,2026-09-02_12-33-42_top_down_luna,recall
+357,Z_Other clinical / biomedical interventions,0.0,2026-09-02_12-33-42_top_down_luna,precision
+357,Z_Other clinical / biomedical interventions,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+357,Z_Other clinical / biomedical interventions,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+363,Regulatory / legislative policy,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+363,Regulatory / legislative policy,0.0,2026-09-02_12-33-42_top_down_luna,recall
+363,Regulatory / legislative policy,0.0,2026-09-02_12-33-42_top_down_luna,precision
+363,Regulatory / legislative policy,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+363,Regulatory / legislative policy,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+355,Vaccines and immunization,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+355,Vaccines and immunization,0.0,2026-09-02_12-33-42_top_down_luna,recall
+355,Vaccines and immunization,0.0,2026-09-02_12-33-42_top_down_luna,precision
+355,Vaccines and immunization,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+355,Vaccines and immunization,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+368,Climate-resilient water / sanitation,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+368,Climate-resilient water / sanitation,0.0,2026-09-02_12-33-42_top_down_luna,recall
+368,Climate-resilient water / sanitation,0.0,2026-09-02_12-33-42_top_down_luna,precision
+368,Climate-resilient water / sanitation,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+368,Climate-resilient water / sanitation,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+382,Energy-efficiency,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+382,Energy-efficiency,0.0,2026-09-02_12-33-42_top_down_luna,recall
+382,Energy-efficiency,0.0,2026-09-02_12-33-42_top_down_luna,precision
+382,Energy-efficiency,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+382,Energy-efficiency,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+383,Low-emission transport,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+383,Low-emission transport,0.0,2026-09-02_12-33-42_top_down_luna,recall
+383,Low-emission transport,0.0,2026-09-02_12-33-42_top_down_luna,precision
+383,Low-emission transport,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+383,Low-emission transport,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+365,Emitting technologies / infrastructure,0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+365,Emitting technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,recall
+365,Emitting technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,precision
+365,Emitting technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+365,Emitting technologies / infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+358,Z_Other public health response,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+358,Z_Other public health response,0.0,2026-09-02_12-33-42_top_down_luna,recall
+358,Z_Other public health response,0.0,2026-09-02_12-33-42_top_down_luna,precision
+358,Z_Other public health response,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+358,Z_Other public health response,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+371,Food security technology,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+371,Food security technology,0.0,2026-09-02_12-33-42_top_down_luna,recall
+371,Food security technology,0.0,2026-09-02_12-33-42_top_down_luna,precision
+371,Food security technology,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+371,Food security technology,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+323,Mitigation behaviours,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+323,Mitigation behaviours,0.0,2026-09-02_12-33-42_top_down_luna,recall
+323,Mitigation behaviours,0.0,2026-09-02_12-33-42_top_down_luna,precision
+323,Mitigation behaviours,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+323,Mitigation behaviours,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+338,Cultural identity,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+338,Cultural identity,0.0,2026-09-02_12-33-42_top_down_luna,recall
+338,Cultural identity,0.0,2026-09-02_12-33-42_top_down_luna,precision
+338,Cultural identity,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+338,Cultural identity,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+352,Diagnostics and surveillance tools,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+352,Diagnostics and surveillance tools,0.0,2026-09-02_12-33-42_top_down_luna,recall
+352,Diagnostics and surveillance tools,0.0,2026-09-02_12-33-42_top_down_luna,precision
+352,Diagnostics and surveillance tools,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+352,Diagnostics and surveillance tools,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+385,Waste management / circular economy,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+385,Waste management / circular economy,0.0,2026-09-02_12-33-42_top_down_luna,recall
+385,Waste management / circular economy,0.0,2026-09-02_12-33-42_top_down_luna,precision
+385,Waste management / circular economy,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+385,Waste management / circular economy,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+377,Internal combustion transport infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+377,Internal combustion transport infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,recall
+377,Internal combustion transport infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,precision
+377,Internal combustion transport infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+377,Internal combustion transport infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+380,Carbon capture,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+380,Carbon capture,0.0,2026-09-02_12-33-42_top_down_luna,recall
+380,Carbon capture,0.0,2026-09-02_12-33-42_top_down_luna,precision
+380,Carbon capture,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+380,Carbon capture,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+341,Social cohesion / mutual aid,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+341,Social cohesion / mutual aid,0.0,2026-09-02_12-33-42_top_down_luna,recall
+341,Social cohesion / mutual aid,0.0,2026-09-02_12-33-42_top_down_luna,precision
+341,Social cohesion / mutual aid,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+341,Social cohesion / mutual aid,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+374,Fossil fuel-based energy systems,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+374,Fossil fuel-based energy systems,0.0,2026-09-02_12-33-42_top_down_luna,recall
+374,Fossil fuel-based energy systems,0.0,2026-09-02_12-33-42_top_down_luna,precision
+374,Fossil fuel-based energy systems,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+374,Fossil fuel-based energy systems,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+342,Z_Other community-based interventions,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+342,Z_Other community-based interventions,0.0,2026-09-02_12-33-42_top_down_luna,recall
+342,Z_Other community-based interventions,0.0,2026-09-02_12-33-42_top_down_luna,precision
+342,Z_Other community-based interventions,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+342,Z_Other community-based interventions,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+360,Health-in-all-policies,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+360,Health-in-all-policies,0.0,2026-09-02_12-33-42_top_down_luna,recall
+360,Health-in-all-policies,0.0,2026-09-02_12-33-42_top_down_luna,precision
+360,Health-in-all-policies,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+360,Health-in-all-policies,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+340,Participatory governance,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+340,Participatory governance,0.0,2026-09-02_12-33-42_top_down_luna,recall
+340,Participatory governance,0.0,2026-09-02_12-33-42_top_down_luna,precision
+340,Participatory governance,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+340,Participatory governance,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+364,Adaptation technologies / infractstructure,0.8,2026-09-02_12-33-42_top_down_luna,accuracy
+364,Adaptation technologies / infractstructure,0.4444444444444444,2026-09-02_12-33-42_top_down_luna,recall
+364,Adaptation technologies / infractstructure,1.0,2026-09-02_12-33-42_top_down_luna,precision
+364,Adaptation technologies / infractstructure,0.6153846153846154,2026-09-02_12-33-42_top_down_luna,f1_score
+364,Adaptation technologies / infractstructure,9.0,2026-09-02_12-33-42_top_down_luna,n_labels
+317,Community-based,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+317,Community-based,0.0,2026-09-02_12-33-42_top_down_luna,recall
+317,Community-based,0.0,2026-09-02_12-33-42_top_down_luna,precision
+317,Community-based,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+317,Community-based,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+373,Carbon-intensive built environment,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+373,Carbon-intensive built environment,0.0,2026-09-02_12-33-42_top_down_luna,recall
+373,Carbon-intensive built environment,0.0,2026-09-02_12-33-42_top_down_luna,precision
+373,Carbon-intensive built environment,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+373,Carbon-intensive built environment,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+325,Household protection,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+325,Household protection,1.0,2026-09-02_12-33-42_top_down_luna,recall
+325,Household protection,1.0,2026-09-02_12-33-42_top_down_luna,precision
+325,Household protection,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+325,Household protection,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+324,Civic engagement,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+324,Civic engagement,0.0,2026-09-02_12-33-42_top_down_luna,recall
+324,Civic engagement,0.0,2026-09-02_12-33-42_top_down_luna,precision
+324,Civic engagement,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+324,Civic engagement,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+332,Behaviour related to food/diet,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+332,Behaviour related to food/diet,0.0,2026-09-02_12-33-42_top_down_luna,recall
+332,Behaviour related to food/diet,0.0,2026-09-02_12-33-42_top_down_luna,precision
+332,Behaviour related to food/diet,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+332,Behaviour related to food/diet,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+361,International / multilateral agreements,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+361,International / multilateral agreements,0.0,2026-09-02_12-33-42_top_down_luna,recall
+361,International / multilateral agreements,0.0,2026-09-02_12-33-42_top_down_luna,precision
+361,International / multilateral agreements,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+361,International / multilateral agreements,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+326,Learning,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+326,Learning,0.0,2026-09-02_12-33-42_top_down_luna,recall
+326,Learning,0.0,2026-09-02_12-33-42_top_down_luna,precision
+326,Learning,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+326,Learning,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+322,Adaptation behaviours,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+322,Adaptation behaviours,1.0,2026-09-02_12-33-42_top_down_luna,recall
+322,Adaptation behaviours,0.3333333333333333,2026-09-02_12-33-42_top_down_luna,precision
+322,Adaptation behaviours,0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+322,Adaptation behaviours,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+367,Adaptive built environment,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+367,Adaptive built environment,0.0,2026-09-02_12-33-42_top_down_luna,recall
+367,Adaptive built environment,0.0,2026-09-02_12-33-42_top_down_luna,precision
+367,Adaptive built environment,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+367,Adaptive built environment,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+331,Z_Other behaviour related to adaptation,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+331,Z_Other behaviour related to adaptation,0.0,2026-09-02_12-33-42_top_down_luna,recall
+331,Z_Other behaviour related to adaptation,0.0,2026-09-02_12-33-42_top_down_luna,precision
+331,Z_Other behaviour related to adaptation,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+331,Z_Other behaviour related to adaptation,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+350,Research / knowledge systems / education,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+350,Research / knowledge systems / education,0.5,2026-09-02_12-33-42_top_down_luna,recall
+350,Research / knowledge systems / education,0.5,2026-09-02_12-33-42_top_down_luna,precision
+350,Research / knowledge systems / education,0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+350,Research / knowledge systems / education,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+348,Health systems and public health,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+348,Health systems and public health,0.0,2026-09-02_12-33-42_top_down_luna,recall
+348,Health systems and public health,0.0,2026-09-02_12-33-42_top_down_luna,precision
+348,Health systems and public health,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+348,Health systems and public health,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+335,Behaviour related to mobility,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+335,Behaviour related to mobility,0.0,2026-09-02_12-33-42_top_down_luna,recall
+335,Behaviour related to mobility,0.0,2026-09-02_12-33-42_top_down_luna,precision
+335,Behaviour related to mobility,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+335,Behaviour related to mobility,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+384,Sustainable food systems,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+384,Sustainable food systems,0.0,2026-09-02_12-33-42_top_down_luna,recall
+384,Sustainable food systems,0.0,2026-09-02_12-33-42_top_down_luna,precision
+384,Sustainable food systems,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+384,Sustainable food systems,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+370,Digital / data-based technology / infrastructure,0.76,2026-09-02_12-33-42_top_down_luna,accuracy
+370,Digital / data-based technology / infrastructure,0.14285714285714285,2026-09-02_12-33-42_top_down_luna,recall
+370,Digital / data-based technology / infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,precision
+370,Digital / data-based technology / infrastructure,0.25,2026-09-02_12-33-42_top_down_luna,f1_score
+370,Digital / data-based technology / infrastructure,7.0,2026-09-02_12-33-42_top_down_luna,n_labels
+327,Lifestyle change in place,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+327,Lifestyle change in place,0.0,2026-09-02_12-33-42_top_down_luna,recall
+327,Lifestyle change in place,0.0,2026-09-02_12-33-42_top_down_luna,precision
+327,Lifestyle change in place,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+327,Lifestyle change in place,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+318,Ecosystem-based,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+318,Ecosystem-based,1.0,2026-09-02_12-33-42_top_down_luna,recall
+318,Ecosystem-based,1.0,2026-09-02_12-33-42_top_down_luna,precision
+318,Ecosystem-based,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+318,Ecosystem-based,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+321,Technology / infrastructure,0.64,2026-09-02_12-33-42_top_down_luna,accuracy
+321,Technology / infrastructure,0.5,2026-09-02_12-33-42_top_down_luna,recall
+321,Technology / infrastructure,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,precision
+321,Technology / infrastructure,0.5714285714285714,2026-09-02_12-33-42_top_down_luna,f1_score
+321,Technology / infrastructure,12.0,2026-09-02_12-33-42_top_down_luna,n_labels
+336,Z_Other behaviour related to mitigation,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+336,Z_Other behaviour related to mitigation,0.0,2026-09-02_12-33-42_top_down_luna,recall
+336,Z_Other behaviour related to mitigation,0.0,2026-09-02_12-33-42_top_down_luna,precision
+336,Z_Other behaviour related to mitigation,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+336,Z_Other behaviour related to mitigation,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+343,Coastal / marine protection,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+343,Coastal / marine protection,1.0,2026-09-02_12-33-42_top_down_luna,recall
+343,Coastal / marine protection,1.0,2026-09-02_12-33-42_top_down_luna,precision
+343,Coastal / marine protection,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+343,Coastal / marine protection,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+353,Health system governance,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+353,Health system governance,0.0,2026-09-02_12-33-42_top_down_luna,recall
+353,Health system governance,0.0,2026-09-02_12-33-42_top_down_luna,precision
+353,Health system governance,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+353,Health system governance,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+359,Fiscal / incentive policy,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+359,Fiscal / incentive policy,0.0,2026-09-02_12-33-42_top_down_luna,recall
+359,Fiscal / incentive policy,0.0,2026-09-02_12-33-42_top_down_luna,precision
+359,Fiscal / incentive policy,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+359,Fiscal / incentive policy,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+346,Z_Other ecosystem-based interventions,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+346,Z_Other ecosystem-based interventions,1.0,2026-09-02_12-33-42_top_down_luna,recall
+346,Z_Other ecosystem-based interventions,1.0,2026-09-02_12-33-42_top_down_luna,precision
+346,Z_Other ecosystem-based interventions,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+346,Z_Other ecosystem-based interventions,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+344,Forest / land management,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+344,Forest / land management,0.0,2026-09-02_12-33-42_top_down_luna,recall
+344,Forest / land management,0.0,2026-09-02_12-33-42_top_down_luna,precision
+344,Forest / land management,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+344,Forest / land management,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+334,Behaviour related to households,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+334,Behaviour related to households,0.0,2026-09-02_12-33-42_top_down_luna,recall
+334,Behaviour related to households,0.0,2026-09-02_12-33-42_top_down_luna,precision
+334,Behaviour related to households,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+334,Behaviour related to households,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+333,Behaviour related to goods/consumption/services,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+333,Behaviour related to goods/consumption/services,0.0,2026-09-02_12-33-42_top_down_luna,recall
+333,Behaviour related to goods/consumption/services,0.0,2026-09-02_12-33-42_top_down_luna,precision
+333,Behaviour related to goods/consumption/services,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+333,Behaviour related to goods/consumption/services,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+339,Land / resource rights,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+339,Land / resource rights,0.0,2026-09-02_12-33-42_top_down_luna,recall
+339,Land / resource rights,0.0,2026-09-02_12-33-42_top_down_luna,precision
+339,Land / resource rights,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+339,Land / resource rights,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+386,Z_Other mitigation technologies / infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+386,Z_Other mitigation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,recall
+386,Z_Other mitigation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,precision
+386,Z_Other mitigation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+386,Z_Other mitigation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+372,Other adaptation technologies / infrastructure,0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+372,Other adaptation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,recall
+372,Other adaptation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,precision
+372,Other adaptation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+372,Other adaptation technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+316,Behavior / culture,0.84,2026-09-02_12-33-42_top_down_luna,accuracy
+316,Behavior / culture,0.5,2026-09-02_12-33-42_top_down_luna,recall
+316,Behavior / culture,0.25,2026-09-02_12-33-42_top_down_luna,precision
+316,Behavior / culture,0.3333333333333333,2026-09-02_12-33-42_top_down_luna,f1_score
+316,Behavior / culture,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+329,Psychological coping,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+329,Psychological coping,0.0,2026-09-02_12-33-42_top_down_luna,recall
+329,Psychological coping,0.0,2026-09-02_12-33-42_top_down_luna,precision
+329,Psychological coping,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+329,Psychological coping,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+381,Clean energy systems,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+381,Clean energy systems,0.0,2026-09-02_12-33-42_top_down_luna,recall
+381,Clean energy systems,0.0,2026-09-02_12-33-42_top_down_luna,precision
+381,Clean energy systems,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+381,Clean energy systems,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+354,Therapeutics and pharmaceuticals,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+354,Therapeutics and pharmaceuticals,0.0,2026-09-02_12-33-42_top_down_luna,recall
+354,Therapeutics and pharmaceuticals,0.0,2026-09-02_12-33-42_top_down_luna,precision
+354,Therapeutics and pharmaceuticals,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+354,Therapeutics and pharmaceuticals,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+369,Coastal / flood defence,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+369,Coastal / flood defence,0.0,2026-09-02_12-33-42_top_down_luna,recall
+369,Coastal / flood defence,0.0,2026-09-02_12-33-42_top_down_luna,precision
+369,Coastal / flood defence,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+369,Coastal / flood defence,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+320,Policy,0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+320,Policy,0.5,2026-09-02_12-33-42_top_down_luna,recall
+320,Policy,0.3333333333333333,2026-09-02_12-33-42_top_down_luna,precision
+320,Policy,0.4,2026-09-02_12-33-42_top_down_luna,f1_score
+320,Policy,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+379,Z_Other emitting technologies / infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+379,Z_Other emitting technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,recall
+379,Z_Other emitting technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,precision
+379,Z_Other emitting technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+379,Z_Other emitting technologies / infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+319,Institutional,0.76,2026-09-02_12-33-42_top_down_luna,accuracy
+319,Institutional,0.4,2026-09-02_12-33-42_top_down_luna,recall
+319,Institutional,0.4,2026-09-02_12-33-42_top_down_luna,precision
+319,Institutional,0.4,2026-09-02_12-33-42_top_down_luna,f1_score
+319,Institutional,5.0,2026-09-02_12-33-42_top_down_luna,n_labels
+375,High-emission agricultural infrastructure,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+375,High-emission agricultural infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,recall
+375,High-emission agricultural infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,precision
+375,High-emission agricultural infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+375,High-emission agricultural infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+351,Z_Other institution-based interventions,0.88,2026-09-02_12-33-42_top_down_luna,accuracy
+351,Z_Other institution-based interventions,0.0,2026-09-02_12-33-42_top_down_luna,recall
+351,Z_Other institution-based interventions,0.0,2026-09-02_12-33-42_top_down_luna,precision
+351,Z_Other institution-based interventions,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+351,Z_Other institution-based interventions,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+356,Vector control,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+356,Vector control,0.0,2026-09-02_12-33-42_top_down_luna,recall
+356,Vector control,0.0,2026-09-02_12-33-42_top_down_luna,precision
+356,Vector control,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+356,Vector control,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+376,Industrial / extractive infrastructure,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+376,Industrial / extractive infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,recall
+376,Industrial / extractive infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,precision
+376,Industrial / extractive infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+376,Industrial / extractive infrastructure,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+347,Emergency / disaster management,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+347,Emergency / disaster management,0.5,2026-09-02_12-33-42_top_down_luna,recall
+347,Emergency / disaster management,1.0,2026-09-02_12-33-42_top_down_luna,precision
+347,Emergency / disaster management,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+347,Emergency / disaster management,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+337,Community-based adaptation,0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+337,Community-based adaptation,0.0,2026-09-02_12-33-42_top_down_luna,recall
+337,Community-based adaptation,0.0,2026-09-02_12-33-42_top_down_luna,precision
+337,Community-based adaptation,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+337,Community-based adaptation,2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+378,Waste infrastructure with high emissions,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+378,Waste infrastructure with high emissions,0.0,2026-09-02_12-33-42_top_down_luna,recall
+378,Waste infrastructure with high emissions,0.0,2026-09-02_12-33-42_top_down_luna,precision
+378,Waste infrastructure with high emissions,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+378,Waste infrastructure with high emissions,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+216,Rheumatic heart disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+216,Rheumatic heart disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+216,Rheumatic heart disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+216,Rheumatic heart disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+216,Rheumatic heart disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+172,Zika virus,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+172,Zika virus,0.0,2026-09-02_12-33-42_top_down_luna,recall
+172,Zika virus,0.0,2026-09-02_12-33-42_top_down_luna,precision
+172,Zika virus,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+172,Zika virus,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+206,Z_Other non-communicable diseases,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+206,Z_Other non-communicable diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+206,Z_Other non-communicable diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+206,Z_Other non-communicable diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+206,Z_Other non-communicable diseases,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+264,Blindness and vision loss,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+264,Blindness and vision loss,0.0,2026-09-02_12-33-42_top_down_luna,recall
+264,Blindness and vision loss,0.0,2026-09-02_12-33-42_top_down_luna,precision
+264,Blindness and vision loss,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+264,Blindness and vision loss,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+136,Neglected tropical diseases and malaria,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+136,Neglected tropical diseases and malaria,0.0,2026-09-02_12-33-42_top_down_luna,recall
+136,Neglected tropical diseases and malaria,0.0,2026-09-02_12-33-42_top_down_luna,precision
+136,Neglected tropical diseases and malaria,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+136,Neglected tropical diseases and malaria,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+247,Idiopathic developmental intellectual disability,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+247,Idiopathic developmental intellectual disability,0.0,2026-09-02_12-33-42_top_down_luna,recall
+247,Idiopathic developmental intellectual disability,0.0,2026-09-02_12-33-42_top_down_luna,precision
+247,Idiopathic developmental intellectual disability,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+247,Idiopathic developmental intellectual disability,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+249,Schizophrenia,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+249,Schizophrenia,0.0,2026-09-02_12-33-42_top_down_luna,recall
+249,Schizophrenia,0.0,2026-09-02_12-33-42_top_down_luna,precision
+249,Schizophrenia,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+249,Schizophrenia,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+287,Urinary diseases and male infertility,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+287,Urinary diseases and male infertility,0.0,2026-09-02_12-33-42_top_down_luna,recall
+287,Urinary diseases and male infertility,0.0,2026-09-02_12-33-42_top_down_luna,precision
+287,Urinary diseases and male infertility,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+287,Urinary diseases and male infertility,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+245,Depressive disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+245,Depressive disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+245,Depressive disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+245,Depressive disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+245,Depressive disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+273,Psoriasis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+273,Psoriasis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+273,Psoriasis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+273,Psoriasis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+273,Psoriasis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+185,Acute hepatitis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+185,Acute hepatitis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+185,Acute hepatitis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+185,Acute hepatitis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+185,Acute hepatitis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+225,Acute glomerulonephritis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+225,Acute glomerulonephritis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+225,Acute glomerulonephritis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+225,Acute glomerulonephritis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+225,Acute glomerulonephritis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+257,Headache disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+257,Headache disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+257,Headache disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+257,Headache disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+257,Headache disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+158,Ebola,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+158,Ebola,0.0,2026-09-02_12-33-42_top_down_luna,recall
+158,Ebola,0.0,2026-09-02_12-33-42_top_down_luna,precision
+158,Ebola,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+158,Ebola,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+222,Interstitial lung disease and pulmonary sarcoidosis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+222,Interstitial lung disease and pulmonary sarcoidosis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+222,Interstitial lung disease and pulmonary sarcoidosis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+222,Interstitial lung disease and pulmonary sarcoidosis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+222,Interstitial lung disease and pulmonary sarcoidosis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+227,Kidney dysfunction,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+227,Kidney dysfunction,0.0,2026-09-02_12-33-42_top_down_luna,recall
+227,Kidney dysfunction,0.0,2026-09-02_12-33-42_top_down_luna,precision
+227,Kidney dysfunction,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+227,Kidney dysfunction,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+210,Endocarditis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+210,Endocarditis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+210,Endocarditis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+210,Endocarditis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+210,Endocarditis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+281,Congenital birth defects,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+281,Congenital birth defects,0.0,2026-09-02_12-33-42_top_down_luna,recall
+281,Congenital birth defects,0.0,2026-09-02_12-33-42_top_down_luna,precision
+281,Congenital birth defects,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+281,Congenital birth defects,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+155,Cystic echinococcosis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+155,Cystic echinococcosis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+155,Cystic echinococcosis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+155,Cystic echinococcosis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+155,Cystic echinococcosis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+157,Dengue,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+157,Dengue,0.0,2026-09-02_12-33-42_top_down_luna,recall
+157,Dengue,0.0,2026-09-02_12-33-42_top_down_luna,precision
+157,Dengue,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+157,Dengue,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+126,Respiratory infections mortality (including tuberculosis),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+126,Respiratory infections mortality (including tuberculosis),0.0,2026-09-02_12-33-42_top_down_luna,recall
+126,Respiratory infections mortality (including tuberculosis),0.0,2026-09-02_12-33-42_top_down_luna,precision
+126,Respiratory infections mortality (including tuberculosis),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+126,Respiratory infections mortality (including tuberculosis),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+282,"Endocrine, metabolic, blood, and immune disorders",1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+282,"Endocrine, metabolic, blood, and immune disorders",0.0,2026-09-02_12-33-42_top_down_luna,recall
+282,"Endocrine, metabolic, blood, and immune disorders",0.0,2026-09-02_12-33-42_top_down_luna,precision
+282,"Endocrine, metabolic, blood, and immune disorders",0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+282,"Endocrine, metabolic, blood, and immune disorders",0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+293,Police conflict and executions,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+293,Police conflict and executions,0.0,2026-09-02_12-33-42_top_down_luna,recall
+293,Police conflict and executions,0.0,2026-09-02_12-33-42_top_down_luna,precision
+293,Police conflict and executions,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+293,Police conflict and executions,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+209,Cardiomyopathy and myocarditis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+209,Cardiomyopathy and myocarditis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+209,Cardiomyopathy and myocarditis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+209,Cardiomyopathy and myocarditis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+209,Cardiomyopathy and myocarditis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+161,Intestinal nematode infections,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+161,Intestinal nematode infections,0.0,2026-09-02_12-33-42_top_down_luna,recall
+161,Intestinal nematode infections,0.0,2026-09-02_12-33-42_top_down_luna,precision
+161,Intestinal nematode infections,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+161,Intestinal nematode infections,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+196,Chronic respiratory diseases,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+196,Chronic respiratory diseases,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,recall
+196,Chronic respiratory diseases,1.0,2026-09-02_12-33-42_top_down_luna,precision
+196,Chronic respiratory diseases,0.8,2026-09-02_12-33-42_top_down_luna,f1_score
+196,Chronic respiratory diseases,3.0,2026-09-02_12-33-42_top_down_luna,n_labels
+270,Dermatitis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+270,Dermatitis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+270,Dermatitis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+270,Dermatitis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+270,Dermatitis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+250,Z_Other mental disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+250,Z_Other mental disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+250,Z_Other mental disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+250,Z_Other mental disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+250,Z_Other mental disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+186,Diphtheria,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+186,Diphtheria,0.0,2026-09-02_12-33-42_top_down_luna,recall
+186,Diphtheria,0.0,2026-09-02_12-33-42_top_down_luna,precision
+186,Diphtheria,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+186,Diphtheria,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+295,Adverse effects of medical treatment,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+295,Adverse effects of medical treatment,0.0,2026-09-02_12-33-42_top_down_luna,recall
+295,Adverse effects of medical treatment,0.0,2026-09-02_12-33-42_top_down_luna,precision
+295,Adverse effects of medical treatment,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+295,Adverse effects of medical treatment,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-09-02_12-33-42_top_down_luna,recall
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-09-02_12-33-42_top_down_luna,precision
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+305,Poisonings,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+305,Poisonings,0.0,2026-09-02_12-33-42_top_down_luna,recall
+305,Poisonings,0.0,2026-09-02_12-33-42_top_down_luna,precision
+305,Poisonings,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+305,Poisonings,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+219,Allergic rhinitis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+219,Allergic rhinitis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+219,Allergic rhinitis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+219,Allergic rhinitis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+219,Allergic rhinitis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+290,Unintentional injuries,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+290,Unintentional injuries,0.0,2026-09-02_12-33-42_top_down_luna,recall
+290,Unintentional injuries,0.0,2026-09-02_12-33-42_top_down_luna,precision
+290,Unintentional injuries,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+290,Unintentional injuries,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+267,Alopecia areata,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+267,Alopecia areata,0.0,2026-09-02_12-33-42_top_down_luna,recall
+267,Alopecia areata,0.0,2026-09-02_12-33-42_top_down_luna,precision
+267,Alopecia areata,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+267,Alopecia areata,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+220,Asthma,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+220,Asthma,1.0,2026-09-02_12-33-42_top_down_luna,recall
+220,Asthma,1.0,2026-09-02_12-33-42_top_down_luna,precision
+220,Asthma,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+220,Asthma,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+160,Guinea worm disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+160,Guinea worm disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+160,Guinea worm disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+160,Guinea worm disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+160,Guinea worm disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+200,Musculoskeletal disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+200,Musculoskeletal disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+200,Musculoskeletal disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+200,Musculoskeletal disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+200,Musculoskeletal disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+143,Z_Other intestinal infectious diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+143,Z_Other intestinal infectious diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+143,Z_Other intestinal infectious diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+143,Z_Other intestinal infectious diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+143,Z_Other intestinal infectious diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+297,Drowning,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+297,Drowning,0.0,2026-09-02_12-33-42_top_down_luna,recall
+297,Drowning,0.0,2026-09-02_12-33-42_top_down_luna,precision
+297,Drowning,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+297,Drowning,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+223,Pneumoconiosis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+223,Pneumoconiosis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+223,Pneumoconiosis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+223,Pneumoconiosis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+223,Pneumoconiosis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+212,Ischemic heart disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+212,Ischemic heart disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+212,Ischemic heart disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+212,Ischemic heart disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+212,Ischemic heart disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+231,Cirrhosis and other chronic liver diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+231,Cirrhosis and other chronic liver diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+231,Cirrhosis and other chronic liver diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+231,Cirrhosis and other chronic liver diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+231,Cirrhosis and other chronic liver diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+164,Leptospirosis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+164,Leptospirosis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+164,Leptospirosis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+164,Leptospirosis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+164,Leptospirosis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+187,Encephalitis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+187,Encephalitis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+187,Encephalitis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+187,Encephalitis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+187,Encephalitis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+208,Atrial fibrillation and flutter,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+208,Atrial fibrillation and flutter,0.0,2026-09-02_12-33-42_top_down_luna,recall
+208,Atrial fibrillation and flutter,0.0,2026-09-02_12-33-42_top_down_luna,precision
+208,Atrial fibrillation and flutter,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+208,Atrial fibrillation and flutter,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+190,Meningitis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+190,Meningitis,1.0,2026-09-02_12-33-42_top_down_luna,recall
+190,Meningitis,1.0,2026-09-02_12-33-42_top_down_luna,precision
+190,Meningitis,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+190,Meningitis,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+279,Drug use disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+279,Drug use disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+279,Drug use disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+279,Drug use disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+279,Drug use disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+194,Z_Other unspecified infectious diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+194,Z_Other unspecified infectious diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+194,Z_Other unspecified infectious diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+194,Z_Other unspecified infectious diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+194,Z_Other unspecified infectious diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+183,Tuberculosis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+183,Tuberculosis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+183,Tuberculosis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+183,Tuberculosis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+183,Tuberculosis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+218,Z_Other cardiovascular and circulatory diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+218,Z_Other cardiovascular and circulatory diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+218,Z_Other cardiovascular and circulatory diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+218,Z_Other cardiovascular and circulatory diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+218,Z_Other cardiovascular and circulatory diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+169,Schistosomiasis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+169,Schistosomiasis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+169,Schistosomiasis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+169,Schistosomiasis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+169,Schistosomiasis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+289,Transport injuries,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+289,Transport injuries,0.0,2026-09-02_12-33-42_top_down_luna,recall
+289,Transport injuries,0.0,2026-09-02_12-33-42_top_down_luna,precision
+289,Transport injuries,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+289,Transport injuries,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+156,Cysticercosis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+156,Cysticercosis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+156,Cysticercosis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+156,Cysticercosis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+156,Cysticercosis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+215,Pulmonary Arterial Hypertension,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+215,Pulmonary Arterial Hypertension,0.0,2026-09-02_12-33-42_top_down_luna,recall
+215,Pulmonary Arterial Hypertension,0.0,2026-09-02_12-33-42_top_down_luna,precision
+215,Pulmonary Arterial Hypertension,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+215,Pulmonary Arterial Hypertension,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+174,Childhood stunting and wasting,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+174,Childhood stunting and wasting,0.0,2026-09-02_12-33-42_top_down_luna,recall
+174,Childhood stunting and wasting,0.0,2026-09-02_12-33-42_top_down_luna,precision
+174,Childhood stunting and wasting,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+174,Childhood stunting and wasting,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+207,Aortic aneurysm,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+207,Aortic aneurysm,0.0,2026-09-02_12-33-42_top_down_luna,recall
+207,Aortic aneurysm,0.0,2026-09-02_12-33-42_top_down_luna,precision
+207,Aortic aneurysm,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+207,Aortic aneurysm,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+285,Oral disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+285,Oral disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+285,Oral disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+285,Oral disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+285,Oral disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+135,Maternal and neonatal disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+135,Maternal and neonatal disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+135,Maternal and neonatal disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+135,Maternal and neonatal disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+135,Maternal and neonatal disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+124,Neglected tropical diseases and malaria mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+124,Neglected tropical diseases and malaria mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+124,Neglected tropical diseases and malaria mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+124,Neglected tropical diseases and malaria mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+124,Neglected tropical diseases and malaria mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+243,Bipolar disorder,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+243,Bipolar disorder,0.0,2026-09-02_12-33-42_top_down_luna,recall
+243,Bipolar disorder,0.0,2026-09-02_12-33-42_top_down_luna,precision
+243,Bipolar disorder,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+243,Bipolar disorder,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+153,Chagas disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+153,Chagas disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+153,Chagas disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+153,Chagas disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+153,Chagas disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+116,1.1. Total / all-cause mortality (Outcome),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-09-02_12-33-42_top_down_luna,recall
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-09-02_12-33-42_top_down_luna,precision
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+141,Invasive Non-typhoidal Salmonella (iNTS),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+141,Invasive Non-typhoidal Salmonella (iNTS),0.0,2026-09-02_12-33-42_top_down_luna,recall
+141,Invasive Non-typhoidal Salmonella (iNTS),0.0,2026-09-02_12-33-42_top_down_luna,precision
+141,Invasive Non-typhoidal Salmonella (iNTS),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+141,Invasive Non-typhoidal Salmonella (iNTS),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+268,Bacterial skin diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+268,Bacterial skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+268,Bacterial skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+268,Bacterial skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+268,Bacterial skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+203,Sense organ diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+203,Sense organ diseases,1.0,2026-09-02_12-33-42_top_down_luna,recall
+203,Sense organ diseases,1.0,2026-09-02_12-33-42_top_down_luna,precision
+203,Sense organ diseases,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+203,Sense organ diseases,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+277,Z_Other skin and subcutaneous diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+277,Z_Other skin and subcutaneous diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+277,Z_Other skin and subcutaneous diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+277,Z_Other skin and subcutaneous diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+277,Z_Other skin and subcutaneous diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+217,Stroke,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+217,Stroke,0.0,2026-09-02_12-33-42_top_down_luna,recall
+217,Stroke,0.0,2026-09-02_12-33-42_top_down_luna,precision
+217,Stroke,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+217,Stroke,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+114,3. Non-communicable diseases,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+114,3. Non-communicable diseases,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,recall
+114,3. Non-communicable diseases,1.0,2026-09-02_12-33-42_top_down_luna,precision
+114,3. Non-communicable diseases,0.8,2026-09-02_12-33-42_top_down_luna,f1_score
+114,3. Non-communicable diseases,3.0,2026-09-02_12-33-42_top_down_luna,n_labels
+149,Maternal abortion and miscarriage,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+149,Maternal abortion and miscarriage,0.0,2026-09-02_12-33-42_top_down_luna,recall
+149,Maternal abortion and miscarriage,0.0,2026-09-02_12-33-42_top_down_luna,precision
+149,Maternal abortion and miscarriage,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+149,Maternal abortion and miscarriage,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+179,Z_Other nutritional deficiencies,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+179,Z_Other nutritional deficiencies,0.0,2026-09-02_12-33-42_top_down_luna,recall
+179,Z_Other nutritional deficiencies,0.0,2026-09-02_12-33-42_top_down_luna,precision
+179,Z_Other nutritional deficiencies,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+179,Z_Other nutritional deficiencies,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+139,Z_Other infectious diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+139,Z_Other infectious diseases,1.0,2026-09-02_12-33-42_top_down_luna,recall
+139,Z_Other infectious diseases,1.0,2026-09-02_12-33-42_top_down_luna,precision
+139,Z_Other infectious diseases,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+139,Z_Other infectious diseases,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+121,Neonatal mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+121,Neonatal mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+121,Neonatal mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+121,Neonatal mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+121,Neonatal mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+291,Conflict and terrorism,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+291,Conflict and terrorism,0.0,2026-09-02_12-33-42_top_down_luna,recall
+291,Conflict and terrorism,0.0,2026-09-02_12-33-42_top_down_luna,precision
+291,Conflict and terrorism,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+291,Conflict and terrorism,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+138,Respiratory infections and tuberculosis,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+138,Respiratory infections and tuberculosis,1.0,2026-09-02_12-33-42_top_down_luna,recall
+138,Respiratory infections and tuberculosis,0.5,2026-09-02_12-33-42_top_down_luna,precision
+138,Respiratory infections and tuberculosis,0.6666666666666666,2026-09-02_12-33-42_top_down_luna,f1_score
+138,Respiratory infections and tuberculosis,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+286,Sudden infant death syndrome,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+286,Sudden infant death syndrome,0.0,2026-09-02_12-33-42_top_down_luna,recall
+286,Sudden infant death syndrome,0.0,2026-09-02_12-33-42_top_down_luna,precision
+286,Sudden infant death syndrome,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+286,Sudden infant death syndrome,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+280,Nicotine dependence,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+280,Nicotine dependence,0.0,2026-09-02_12-33-42_top_down_luna,recall
+280,Nicotine dependence,0.0,2026-09-02_12-33-42_top_down_luna,precision
+280,Nicotine dependence,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+280,Nicotine dependence,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+182,Otitis media,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+182,Otitis media,0.0,2026-09-02_12-33-42_top_down_luna,recall
+182,Otitis media,0.0,2026-09-02_12-33-42_top_down_luna,precision
+182,Otitis media,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+182,Otitis media,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+188,Lyme disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+188,Lyme disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+188,Lyme disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+188,Lyme disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+188,Lyme disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+128,Chronic respiratory diseases mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+128,Chronic respiratory diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+128,Chronic respiratory diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+128,Chronic respiratory diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+128,Chronic respiratory diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+256,Alzheimer's disease and other dementias,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+256,Alzheimer's disease and other dementias,0.0,2026-09-02_12-33-42_top_down_luna,recall
+256,Alzheimer's disease and other dementias,0.0,2026-09-02_12-33-42_top_down_luna,precision
+256,Alzheimer's disease and other dementias,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+256,Alzheimer's disease and other dementias,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+112,1. Mortality (Outcome),0.92,2026-09-02_12-33-42_top_down_luna,accuracy
+112,1. Mortality (Outcome),1.0,2026-09-02_12-33-42_top_down_luna,recall
+112,1. Mortality (Outcome),0.3333333333333333,2026-09-02_12-33-42_top_down_luna,precision
+112,1. Mortality (Outcome),0.5,2026-09-02_12-33-42_top_down_luna,f1_score
+112,1. Mortality (Outcome),1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+176,Iodine deficiency,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+176,Iodine deficiency,0.0,2026-09-02_12-33-42_top_down_luna,recall
+176,Iodine deficiency,0.0,2026-09-02_12-33-42_top_down_luna,precision
+176,Iodine deficiency,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+176,Iodine deficiency,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+167,Onchocerciasis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+167,Onchocerciasis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+167,Onchocerciasis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+167,Onchocerciasis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+167,Onchocerciasis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+131,Neoplasms mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+131,Neoplasms mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+131,Neoplasms mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+131,Neoplasms mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+131,Neoplasms mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+166,Malaria,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+166,Malaria,0.0,2026-09-02_12-33-42_top_down_luna,recall
+166,Malaria,0.0,2026-09-02_12-33-42_top_down_luna,precision
+166,Malaria,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+166,Malaria,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+191,Pertussis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+191,Pertussis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+191,Pertussis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+191,Pertussis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+191,Pertussis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+168,Rabies,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+168,Rabies,0.0,2026-09-02_12-33-42_top_down_luna,recall
+168,Rabies,0.0,2026-09-02_12-33-42_top_down_luna,precision
+168,Rabies,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+168,Rabies,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+226,Diabetes mellitus,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+226,Diabetes mellitus,0.0,2026-09-02_12-33-42_top_down_luna,recall
+226,Diabetes mellitus,0.0,2026-09-02_12-33-42_top_down_luna,precision
+226,Diabetes mellitus,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+226,Diabetes mellitus,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+272,Pruritus,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+272,Pruritus,0.0,2026-09-02_12-33-42_top_down_luna,recall
+272,Pruritus,0.0,2026-09-02_12-33-42_top_down_luna,precision
+272,Pruritus,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+272,Pruritus,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+181,Lower respiratory infections,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+181,Lower respiratory infections,0.0,2026-09-02_12-33-42_top_down_luna,recall
+181,Lower respiratory infections,0.0,2026-09-02_12-33-42_top_down_luna,precision
+181,Lower respiratory infections,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+181,Lower respiratory infections,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+177,Protein-energy malnutrition,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+177,Protein-energy malnutrition,0.0,2026-09-02_12-33-42_top_down_luna,recall
+177,Protein-energy malnutrition,0.0,2026-09-02_12-33-42_top_down_luna,precision
+177,Protein-energy malnutrition,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+177,Protein-energy malnutrition,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+235,Pancreatitis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+235,Pancreatitis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+235,Pancreatitis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+235,Pancreatitis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+235,Pancreatitis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+178,Vitamin A deficiency,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+178,Vitamin A deficiency,0.0,2026-09-02_12-33-42_top_down_luna,recall
+178,Vitamin A deficiency,0.0,2026-09-02_12-33-42_top_down_luna,precision
+178,Vitamin A deficiency,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+178,Vitamin A deficiency,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+251,Malignant skin melanoma,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+251,Malignant skin melanoma,0.0,2026-09-02_12-33-42_top_down_luna,recall
+251,Malignant skin melanoma,0.0,2026-09-02_12-33-42_top_down_luna,precision
+251,Malignant skin melanoma,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+251,Malignant skin melanoma,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+232,Gallbladder and biliary diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+232,Gallbladder and biliary diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+232,Gallbladder and biliary diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+232,Gallbladder and biliary diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+232,Gallbladder and biliary diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+262,Z_Other neurological disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+262,Z_Other neurological disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+262,Z_Other neurological disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+262,Z_Other neurological disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+262,Z_Other neurological disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+284,Hemoglobinopathies and hemolytic anemias,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+284,Hemoglobinopathies and hemolytic anemias,0.0,2026-09-02_12-33-42_top_down_luna,recall
+284,Hemoglobinopathies and hemolytic anemias,0.0,2026-09-02_12-33-42_top_down_luna,precision
+284,Hemoglobinopathies and hemolytic anemias,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+284,Hemoglobinopathies and hemolytic anemias,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+115,4. Injuries,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+115,4. Injuries,0.0,2026-09-02_12-33-42_top_down_luna,recall
+115,4. Injuries,0.0,2026-09-02_12-33-42_top_down_luna,precision
+115,4. Injuries,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+115,4. Injuries,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+229,Chronic kidney disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+229,Chronic kidney disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+229,Chronic kidney disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+229,Chronic kidney disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+229,Chronic kidney disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+118,1.3. Non-communicable mortality,0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+118,1.3. Non-communicable mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+118,1.3. Non-communicable mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+118,1.3. Non-communicable mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+118,1.3. Non-communicable mortality,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+195,Cardiovascular diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+195,Cardiovascular diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+195,Cardiovascular diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+195,Cardiovascular diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+195,Cardiovascular diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+301,Exposure to mechanical forces,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+301,Exposure to mechanical forces,0.0,2026-09-02_12-33-42_top_down_luna,recall
+301,Exposure to mechanical forces,0.0,2026-09-02_12-33-42_top_down_luna,precision
+301,Exposure to mechanical forces,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+301,Exposure to mechanical forces,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+175,Dietary iron deficiency,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+175,Dietary iron deficiency,0.0,2026-09-02_12-33-42_top_down_luna,recall
+175,Dietary iron deficiency,0.0,2026-09-02_12-33-42_top_down_luna,precision
+175,Dietary iron deficiency,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+175,Dietary iron deficiency,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+252,Non-melanoma skin cancer,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+252,Non-melanoma skin cancer,0.0,2026-09-02_12-33-42_top_down_luna,recall
+252,Non-melanoma skin cancer,0.0,2026-09-02_12-33-42_top_down_luna,precision
+252,Non-melanoma skin cancer,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+252,Non-melanoma skin cancer,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+254,Z_Other malignant neoplasms,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+254,Z_Other malignant neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,recall
+254,Z_Other malignant neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,precision
+254,Z_Other malignant neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+254,Z_Other malignant neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+204,Skin and subcutaneous diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+204,Skin and subcutaneous diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+204,Skin and subcutaneous diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+204,Skin and subcutaneous diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+204,Skin and subcutaneous diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+271,Fungal skin diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+271,Fungal skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+271,Fungal skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+271,Fungal skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+271,Fungal skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+144,Cholera,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+144,Cholera,0.0,2026-09-02_12-33-42_top_down_luna,recall
+144,Cholera,0.0,2026-09-02_12-33-42_top_down_luna,precision
+144,Cholera,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+144,Cholera,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+248,Post-traumatic stress disorder (PTSD),1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+248,Post-traumatic stress disorder (PTSD),0.0,2026-09-02_12-33-42_top_down_luna,recall
+248,Post-traumatic stress disorder (PTSD),0.0,2026-09-02_12-33-42_top_down_luna,precision
+248,Post-traumatic stress disorder (PTSD),0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+248,Post-traumatic stress disorder (PTSD),0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+140,Diarrheal diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+140,Diarrheal diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+140,Diarrheal diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+140,Diarrheal diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+140,Diarrheal diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+304,Foreign body,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+304,Foreign body,0.0,2026-09-02_12-33-42_top_down_luna,recall
+304,Foreign body,0.0,2026-09-02_12-33-42_top_down_luna,precision
+304,Foreign body,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+304,Foreign body,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+224,Z_Other chronic respiratory diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+224,Z_Other chronic respiratory diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+224,Z_Other chronic respiratory diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+224,Z_Other chronic respiratory diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+224,Z_Other chronic respiratory diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+199,Mental disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+199,Mental disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+199,Mental disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+199,Mental disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+199,Mental disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+221,Chronic obstructive pulmonary disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+221,Chronic obstructive pulmonary disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+221,Chronic obstructive pulmonary disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+221,Chronic obstructive pulmonary disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+221,Chronic obstructive pulmonary disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+147,Maternal disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+147,Maternal disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+147,Maternal disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+147,Maternal disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+147,Maternal disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+241,Attention-deficit/hyperactivity disorder,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+241,Attention-deficit/hyperactivity disorder,0.0,2026-09-02_12-33-42_top_down_luna,recall
+241,Attention-deficit/hyperactivity disorder,0.0,2026-09-02_12-33-42_top_down_luna,precision
+241,Attention-deficit/hyperactivity disorder,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+241,Attention-deficit/hyperactivity disorder,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+151,Neonatal preterm birth,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+151,Neonatal preterm birth,0.0,2026-09-02_12-33-42_top_down_luna,recall
+151,Neonatal preterm birth,0.0,2026-09-02_12-33-42_top_down_luna,precision
+151,Neonatal preterm birth,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+151,Neonatal preterm birth,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+244,Conduct disorder,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+244,Conduct disorder,0.0,2026-09-02_12-33-42_top_down_luna,recall
+244,Conduct disorder,0.0,2026-09-02_12-33-42_top_down_luna,precision
+244,Conduct disorder,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+244,Conduct disorder,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+193,Varicella and herpes zoster,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+193,Varicella and herpes zoster,0.0,2026-09-02_12-33-42_top_down_luna,recall
+193,Varicella and herpes zoster,0.0,2026-09-02_12-33-42_top_down_luna,precision
+193,Varicella and herpes zoster,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+193,Varicella and herpes zoster,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+274,Scabies,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+274,Scabies,0.0,2026-09-02_12-33-42_top_down_luna,recall
+274,Scabies,0.0,2026-09-02_12-33-42_top_down_luna,precision
+274,Scabies,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+274,Scabies,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+298,Electrocution,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+298,Electrocution,0.0,2026-09-02_12-33-42_top_down_luna,recall
+298,Electrocution,0.0,2026-09-02_12-33-42_top_down_luna,precision
+298,Electrocution,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+298,Electrocution,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+130,"Injury-related mortality (drowning, fires, disasters, suicide, violence)",1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+130,"Injury-related mortality (drowning, fires, disasters, suicide, violence)",0.0,2026-09-02_12-33-42_top_down_luna,recall
+130,"Injury-related mortality (drowning, fires, disasters, suicide, violence)",0.0,2026-09-02_12-33-42_top_down_luna,precision
+130,"Injury-related mortality (drowning, fires, disasters, suicide, violence)",0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+130,"Injury-related mortality (drowning, fires, disasters, suicide, violence)",0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+173,Zz_Other neglected tropical diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+173,Zz_Other neglected tropical diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+173,Zz_Other neglected tropical diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+173,Zz_Other neglected tropical diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+173,Zz_Other neglected tropical diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+133,Enteric infections,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+133,Enteric infections,0.0,2026-09-02_12-33-42_top_down_luna,recall
+133,Enteric infections,0.0,2026-09-02_12-33-42_top_down_luna,precision
+133,Enteric infections,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+133,Enteric infections,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+263,Age-related and other hearing loss,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+263,Age-related and other hearing loss,0.0,2026-09-02_12-33-42_top_down_luna,recall
+263,Age-related and other hearing loss,0.0,2026-09-02_12-33-42_top_down_luna,precision
+263,Age-related and other hearing loss,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+263,Age-related and other hearing loss,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+192,Tetanus,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+192,Tetanus,0.0,2026-09-02_12-33-42_top_down_luna,recall
+192,Tetanus,0.0,2026-09-02_12-33-42_top_down_luna,precision
+192,Tetanus,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+192,Tetanus,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+197,Diabetes and kidney diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+197,Diabetes and kidney diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+197,Diabetes and kidney diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+197,Diabetes and kidney diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+197,Diabetes and kidney diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+242,Autism spectrum disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+242,Autism spectrum disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+242,Autism spectrum disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+242,Autism spectrum disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+242,Autism spectrum disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+300,Exposure to forces of nature,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+300,Exposure to forces of nature,0.0,2026-09-02_12-33-42_top_down_luna,recall
+300,Exposure to forces of nature,0.0,2026-09-02_12-33-42_top_down_luna,precision
+300,Exposure to forces of nature,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+300,Exposure to forces of nature,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+283,Gynecological diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+283,Gynecological diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+283,Gynecological diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+283,Gynecological diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+283,Gynecological diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+239,Z_Other digestive diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+239,Z_Other digestive diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+239,Z_Other digestive diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+239,Z_Other digestive diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+239,Z_Other digestive diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+228,Acute kidney injury,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+228,Acute kidney injury,0.0,2026-09-02_12-33-42_top_down_luna,recall
+228,Acute kidney injury,0.0,2026-09-02_12-33-42_top_down_luna,precision
+228,Acute kidney injury,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+228,Acute kidney injury,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+260,Multiple sclerosis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+260,Multiple sclerosis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+260,Multiple sclerosis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+260,Multiple sclerosis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+260,Multiple sclerosis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+278,Alcohol use disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+278,Alcohol use disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+278,Alcohol use disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+278,Alcohol use disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+278,Alcohol use disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+214,Non-rheumatic valvular heart disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+214,Non-rheumatic valvular heart disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+214,Non-rheumatic valvular heart disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+214,Non-rheumatic valvular heart disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+214,Non-rheumatic valvular heart disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+127,Cardiovascular mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+127,Cardiovascular mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+127,Cardiovascular mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+127,Cardiovascular mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+127,Cardiovascular mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+238,Vascular intestinal disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+238,Vascular intestinal disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+238,Vascular intestinal disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+238,Vascular intestinal disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+238,Vascular intestinal disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+165,Lymphatic filariasis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+165,Lymphatic filariasis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+165,Lymphatic filariasis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+165,Lymphatic filariasis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+165,Lymphatic filariasis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+303,"Fire, heat, and hot substances",1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+303,"Fire, heat, and hot substances",0.0,2026-09-02_12-33-42_top_down_luna,recall
+303,"Fire, heat, and hot substances",0.0,2026-09-02_12-33-42_top_down_luna,precision
+303,"Fire, heat, and hot substances",0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+303,"Fire, heat, and hot substances",0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+294,Self-harm,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+294,Self-harm,0.0,2026-09-02_12-33-42_top_down_luna,recall
+294,Self-harm,0.0,2026-09-02_12-33-42_top_down_luna,precision
+294,Self-harm,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+294,Self-harm,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+119,Infectious diseases mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+119,Infectious diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+119,Infectious diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+119,Infectious diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+119,Infectious diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+125,Other infectious diseases mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+125,Other infectious diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+125,Other infectious diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+125,Other infectious diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+125,Other infectious diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+234,"Inguinal, femoral, and abdominal hernia",1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+234,"Inguinal, femoral, and abdominal hernia",0.0,2026-09-02_12-33-42_top_down_luna,recall
+234,"Inguinal, femoral, and abdominal hernia",0.0,2026-09-02_12-33-42_top_down_luna,precision
+234,"Inguinal, femoral, and abdominal hernia",0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+234,"Inguinal, femoral, and abdominal hernia",0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+205,Substance use disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+205,Substance use disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+205,Substance use disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+205,Substance use disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+205,Substance use disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+202,Neurological disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+202,Neurological disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+202,Neurological disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+202,Neurological disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+202,Neurological disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+266,Acne vulgaris,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+266,Acne vulgaris,0.0,2026-09-02_12-33-42_top_down_luna,recall
+266,Acne vulgaris,0.0,2026-09-02_12-33-42_top_down_luna,precision
+266,Acne vulgaris,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+266,Acne vulgaris,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+132,Other non-communicable diseases mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+132,Other non-communicable diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+132,Other non-communicable diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+132,Other non-communicable diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+132,Other non-communicable diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+159,Food-borne trematodiases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+159,Food-borne trematodiases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+159,Food-borne trematodiases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+159,Food-borne trematodiases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+159,Food-borne trematodiases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+146,Sexually transmitted infections excluding HIV,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+146,Sexually transmitted infections excluding HIV,0.0,2026-09-02_12-33-42_top_down_luna,recall
+146,Sexually transmitted infections excluding HIV,0.0,2026-09-02_12-33-42_top_down_luna,precision
+146,Sexually transmitted infections excluding HIV,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+146,Sexually transmitted infections excluding HIV,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+142,Typhoid and paratyphoid,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+142,Typhoid and paratyphoid,0.0,2026-09-02_12-33-42_top_down_luna,recall
+142,Typhoid and paratyphoid,0.0,2026-09-02_12-33-42_top_down_luna,precision
+142,Typhoid and paratyphoid,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+142,Typhoid and paratyphoid,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+154,Chikungunya,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+154,Chikungunya,0.0,2026-09-02_12-33-42_top_down_luna,recall
+154,Chikungunya,0.0,2026-09-02_12-33-42_top_down_luna,precision
+154,Chikungunya,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+154,Chikungunya,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+306,Z_Other unintentional injuries,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+306,Z_Other unintentional injuries,0.0,2026-09-02_12-33-42_top_down_luna,recall
+306,Z_Other unintentional injuries,0.0,2026-09-02_12-33-42_top_down_luna,precision
+306,Z_Other unintentional injuries,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+306,Z_Other unintentional injuries,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+237,Upper digestive system diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+237,Upper digestive system diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+237,Upper digestive system diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+237,Upper digestive system diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+237,Upper digestive system diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+120,Maternal mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+120,Maternal mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+120,Maternal mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+120,Maternal mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+120,Maternal mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+134,HIV/AIDS and sexually transmitted infections,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-09-02_12-33-42_top_down_luna,recall
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-09-02_12-33-42_top_down_luna,precision
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+145,HIV/AIDS,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+145,HIV/AIDS,0.0,2026-09-02_12-33-42_top_down_luna,recall
+145,HIV/AIDS,0.0,2026-09-02_12-33-42_top_down_luna,precision
+145,HIV/AIDS,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+145,HIV/AIDS,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+152,African trypanosomiasis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+152,African trypanosomiasis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+152,African trypanosomiasis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+152,African trypanosomiasis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+152,African trypanosomiasis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+296,Animal contact,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+296,Animal contact,0.0,2026-09-02_12-33-42_top_down_luna,recall
+296,Animal contact,0.0,2026-09-02_12-33-42_top_down_luna,precision
+296,Animal contact,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+296,Animal contact,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+189,Measles,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+189,Measles,0.0,2026-09-02_12-33-42_top_down_luna,recall
+189,Measles,0.0,2026-09-02_12-33-42_top_down_luna,precision
+189,Measles,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+189,Measles,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+246,Eating disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+246,Eating disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+246,Eating disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+246,Eating disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+246,Eating disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+137,Nutritional deficiencies,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+137,Nutritional deficiencies,0.0,2026-09-02_12-33-42_top_down_luna,recall
+137,Nutritional deficiencies,0.0,2026-09-02_12-33-42_top_down_luna,precision
+137,Nutritional deficiencies,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+137,Nutritional deficiencies,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+198,Digestive diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+198,Digestive diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+198,Digestive diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+198,Digestive diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+198,Digestive diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+292,Interpersonal violence,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+292,Interpersonal violence,0.0,2026-09-02_12-33-42_top_down_luna,recall
+292,Interpersonal violence,0.0,2026-09-02_12-33-42_top_down_luna,precision
+292,Interpersonal violence,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+292,Interpersonal violence,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+213,Lower extremity peripheral arterial disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+213,Lower extremity peripheral arterial disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+213,Lower extremity peripheral arterial disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+213,Lower extremity peripheral arterial disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+213,Lower extremity peripheral arterial disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+265,Other sense organ diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+265,Other sense organ diseases,1.0,2026-09-02_12-33-42_top_down_luna,recall
+265,Other sense organ diseases,1.0,2026-09-02_12-33-42_top_down_luna,precision
+265,Other sense organ diseases,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+265,Other sense organ diseases,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+184,Upper respiratory infections,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+184,Upper respiratory infections,1.0,2026-09-02_12-33-42_top_down_luna,recall
+184,Upper respiratory infections,1.0,2026-09-02_12-33-42_top_down_luna,precision
+184,Upper respiratory infections,1.0,2026-09-02_12-33-42_top_down_luna,f1_score
+184,Upper respiratory infections,1.0,2026-09-02_12-33-42_top_down_luna,n_labels
+171,Yellow fever,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+171,Yellow fever,0.0,2026-09-02_12-33-42_top_down_luna,recall
+171,Yellow fever,0.0,2026-09-02_12-33-42_top_down_luna,precision
+171,Yellow fever,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+171,Yellow fever,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+163,Leprosy,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+163,Leprosy,0.0,2026-09-02_12-33-42_top_down_luna,recall
+163,Leprosy,0.0,2026-09-02_12-33-42_top_down_luna,precision
+163,Leprosy,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+163,Leprosy,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+233,Inflammatory bowel disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+233,Inflammatory bowel disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+233,Inflammatory bowel disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+233,Inflammatory bowel disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+233,Inflammatory bowel disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+122,Nutrition-related mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+122,Nutrition-related mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+122,Nutrition-related mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+122,Nutrition-related mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+122,Nutrition-related mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+129,Diabetes and kidney diseases mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+129,Diabetes and kidney diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+129,Diabetes and kidney diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+129,Diabetes and kidney diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+129,Diabetes and kidney diseases mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+180,COVID-19,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+180,COVID-19,0.0,2026-09-02_12-33-42_top_down_luna,recall
+180,COVID-19,0.0,2026-09-02_12-33-42_top_down_luna,precision
+180,COVID-19,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+180,COVID-19,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+255,Z_Other neoplasms,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+255,Z_Other neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,recall
+255,Z_Other neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,precision
+255,Z_Other neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+255,Z_Other neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+148,Neonatal disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+148,Neonatal disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+148,Neonatal disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+148,Neonatal disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+148,Neonatal disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+162,Leishmaniasis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+162,Leishmaniasis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+162,Leishmaniasis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+162,Leishmaniasis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+162,Leishmaniasis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+123,Enteric infections mortality,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+123,Enteric infections mortality,0.0,2026-09-02_12-33-42_top_down_luna,recall
+123,Enteric infections mortality,0.0,2026-09-02_12-33-42_top_down_luna,precision
+123,Enteric infections mortality,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+123,Enteric infections mortality,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+259,Motor neuron disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+259,Motor neuron disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+259,Motor neuron disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+259,Motor neuron disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+259,Motor neuron disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+236,Paralytic ileus and intestinal obstruction,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+236,Paralytic ileus and intestinal obstruction,0.0,2026-09-02_12-33-42_top_down_luna,recall
+236,Paralytic ileus and intestinal obstruction,0.0,2026-09-02_12-33-42_top_down_luna,precision
+236,Paralytic ileus and intestinal obstruction,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+236,Paralytic ileus and intestinal obstruction,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+261,Parkinson's disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+261,Parkinson's disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+261,Parkinson's disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+261,Parkinson's disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+261,Parkinson's disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+299,Environmental heat and cold exposure,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+299,Environmental heat and cold exposure,0.0,2026-09-02_12-33-42_top_down_luna,recall
+299,Environmental heat and cold exposure,0.0,2026-09-02_12-33-42_top_down_luna,precision
+299,Environmental heat and cold exposure,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+299,Environmental heat and cold exposure,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+170,Trachoma,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+170,Trachoma,0.0,2026-09-02_12-33-42_top_down_luna,recall
+170,Trachoma,0.0,2026-09-02_12-33-42_top_down_luna,precision
+170,Trachoma,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+170,Trachoma,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+275,Urticaria,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+275,Urticaria,0.0,2026-09-02_12-33-42_top_down_luna,recall
+275,Urticaria,0.0,2026-09-02_12-33-42_top_down_luna,precision
+275,Urticaria,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+275,Urticaria,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+240,Anxiety disorders,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+240,Anxiety disorders,0.0,2026-09-02_12-33-42_top_down_luna,recall
+240,Anxiety disorders,0.0,2026-09-02_12-33-42_top_down_luna,precision
+240,Anxiety disorders,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+240,Anxiety disorders,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+288,Self-harm and interpersonal violence,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+288,Self-harm and interpersonal violence,0.0,2026-09-02_12-33-42_top_down_luna,recall
+288,Self-harm and interpersonal violence,0.0,2026-09-02_12-33-42_top_down_luna,precision
+288,Self-harm and interpersonal violence,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+288,Self-harm and interpersonal violence,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+211,Hypertensive heart disease,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+211,Hypertensive heart disease,0.0,2026-09-02_12-33-42_top_down_luna,recall
+211,Hypertensive heart disease,0.0,2026-09-02_12-33-42_top_down_luna,precision
+211,Hypertensive heart disease,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+211,Hypertensive heart disease,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+276,Viral skin diseases,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+276,Viral skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,recall
+276,Viral skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,precision
+276,Viral skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+276,Viral skin diseases,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+258,Idiopathic epilepsy,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+258,Idiopathic epilepsy,0.0,2026-09-02_12-33-42_top_down_luna,recall
+258,Idiopathic epilepsy,0.0,2026-09-02_12-33-42_top_down_luna,precision
+258,Idiopathic epilepsy,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+258,Idiopathic epilepsy,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+230,Appendicitis,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+230,Appendicitis,0.0,2026-09-02_12-33-42_top_down_luna,recall
+230,Appendicitis,0.0,2026-09-02_12-33-42_top_down_luna,precision
+230,Appendicitis,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+230,Appendicitis,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+150,Low birth weight,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+150,Low birth weight,0.0,2026-09-02_12-33-42_top_down_luna,recall
+150,Low birth weight,0.0,2026-09-02_12-33-42_top_down_luna,precision
+150,Low birth weight,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+150,Low birth weight,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+201,Neoplasms,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+201,Neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,recall
+201,Neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,precision
+201,Neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+201,Neoplasms,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+253,"Tracheal, bronchus, and lung cancer",1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+253,"Tracheal, bronchus, and lung cancer",0.0,2026-09-02_12-33-42_top_down_luna,recall
+253,"Tracheal, bronchus, and lung cancer",0.0,2026-09-02_12-33-42_top_down_luna,precision
+253,"Tracheal, bronchus, and lung cancer",0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+253,"Tracheal, bronchus, and lung cancer",0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+269,Decubitus ulcer,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+269,Decubitus ulcer,0.0,2026-09-02_12-33-42_top_down_luna,recall
+269,Decubitus ulcer,0.0,2026-09-02_12-33-42_top_down_luna,precision
+269,Decubitus ulcer,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+269,Decubitus ulcer,0.0,2026-09-02_12-33-42_top_down_luna,n_labels
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.96,2026-09-02_12-33-42_top_down_luna,accuracy
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",1.0,2026-09-02_12-33-42_top_down_luna,recall
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.6666666666666666,2026-09-02_12-33-42_top_down_luna,precision
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.8,2026-09-02_12-33-42_top_down_luna,f1_score
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",2.0,2026-09-02_12-33-42_top_down_luna,n_labels
+302,Falls,1.0,2026-09-02_12-33-42_top_down_luna,accuracy
+302,Falls,0.0,2026-09-02_12-33-42_top_down_luna,recall
+302,Falls,0.0,2026-09-02_12-33-42_top_down_luna,precision
+302,Falls,0.0,2026-09-02_12-33-42_top_down_luna,f1_score
+302,Falls,0.0,2026-09-02_12-33-42_top_down_luna,n_labels

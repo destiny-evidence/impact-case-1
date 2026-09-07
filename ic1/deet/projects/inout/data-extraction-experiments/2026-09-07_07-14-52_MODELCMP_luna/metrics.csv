@@ -1,0 +1,16 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+0,include - high precision,0.88,2026-09-07_07-14-52_MODELCMP_luna,accuracy
+0,include - high precision,0.2222222222222222,2026-09-07_07-14-52_MODELCMP_luna,recall
+0,include - high precision,0.5,2026-09-07_07-14-52_MODELCMP_luna,precision
+0,include - high precision,0.3076923076923077,2026-09-07_07-14-52_MODELCMP_luna,f1_score
+0,include - high precision,18.0,2026-09-07_07-14-52_MODELCMP_luna,n_labels
+5,include - best balance,0.9066666666666666,2026-09-07_07-14-52_MODELCMP_luna,accuracy
+5,include - best balance,0.5555555555555556,2026-09-07_07-14-52_MODELCMP_luna,recall
+5,include - best balance,0.625,2026-09-07_07-14-52_MODELCMP_luna,precision
+5,include - best balance,0.5882352941176471,2026-09-07_07-14-52_MODELCMP_luna,f1_score
+5,include - best balance,18.0,2026-09-07_07-14-52_MODELCMP_luna,n_labels
+6,include - high recall,0.9133333333333333,2026-09-07_07-14-52_MODELCMP_luna,accuracy
+6,include - high recall,0.7222222222222222,2026-09-07_07-14-52_MODELCMP_luna,recall
+6,include - high recall,0.6190476190476191,2026-09-07_07-14-52_MODELCMP_luna,precision
+6,include - high recall,0.6666666666666666,2026-09-07_07-14-52_MODELCMP_luna,f1_score
+6,include - high recall,18.0,2026-09-07_07-14-52_MODELCMP_luna,n_labels

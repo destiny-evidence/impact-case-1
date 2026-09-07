@@ -1,0 +1,16 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+0,include - high precision,,2026-09-07_09-37-05_MODELCMP_deepseek,accuracy
+0,include - high precision,,2026-09-07_09-37-05_MODELCMP_deepseek,recall
+0,include - high precision,,2026-09-07_09-37-05_MODELCMP_deepseek,precision
+0,include - high precision,,2026-09-07_09-37-05_MODELCMP_deepseek,f1_score
+0,include - high precision,18.0,2026-09-07_09-37-05_MODELCMP_deepseek,n_labels
+5,include - best balance,,2026-09-07_09-37-05_MODELCMP_deepseek,accuracy
+5,include - best balance,,2026-09-07_09-37-05_MODELCMP_deepseek,recall
+5,include - best balance,,2026-09-07_09-37-05_MODELCMP_deepseek,precision
+5,include - best balance,,2026-09-07_09-37-05_MODELCMP_deepseek,f1_score
+5,include - best balance,18.0,2026-09-07_09-37-05_MODELCMP_deepseek,n_labels
+6,include - high recall,,2026-09-07_09-37-05_MODELCMP_deepseek,accuracy
+6,include - high recall,,2026-09-07_09-37-05_MODELCMP_deepseek,recall
+6,include - high recall,,2026-09-07_09-37-05_MODELCMP_deepseek,precision
+6,include - high recall,,2026-09-07_09-37-05_MODELCMP_deepseek,f1_score
+6,include - high recall,18.0,2026-09-07_09-37-05_MODELCMP_deepseek,n_labels

@@ -12,3 +12,10 @@ deet.log
 *.slurm
 data/models/**/weights
 data/.cache
+__marimo__
+**/llm_annotations.json
+docs/_build/
+docs/node_modules/
+docs/exports/
+# Private figures rendered with real coder names (never commit)
+docs/figures/**/*_private.*

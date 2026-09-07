@@ -1,0 +1,207 @@
+{
+  "model": "gpt-5.6-luna",
+  "total_input_tokens": 950299,
+  "total_output_tokens": 343271,
+  "total_cost_usd": 0.601987,
+  "per_document": {
+    "2936": {
+      "input_tokens": 37919,
+      "output_tokens": 14726,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 100.53
+    },
+    "1102967171": {
+      "input_tokens": 37956,
+      "output_tokens": 14177,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 89.96
+    },
+    "4595111": {
+      "input_tokens": 37981,
+      "output_tokens": 14545,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 145.313
+    },
+    "747982": {
+      "input_tokens": 38007,
+      "output_tokens": 13031,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 86.565
+    },
+    "10988066": {
+      "input_tokens": 38006,
+      "output_tokens": 14831,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 99.721
+    },
+    "207894680": {
+      "input_tokens": 38148,
+      "output_tokens": 13365,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 104.253
+    },
+    "9392410": {
+      "input_tokens": 37954,
+      "output_tokens": 13216,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 86.011
+    },
+    "22339": {
+      "input_tokens": 37909,
+      "output_tokens": 10235,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 60.703
+    },
+    "45858": {
+      "input_tokens": 37901,
+      "output_tokens": 13934,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 87.963
+    },
+    "1743198": {
+      "input_tokens": 38217,
+      "output_tokens": 13558,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 87.433
+    },
+    "93858": {
+      "input_tokens": 38098,
+      "output_tokens": 14559,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 143.926
+    },
+    "3169228412": {
+      "input_tokens": 38082,
+      "output_tokens": 13558,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 87.328
+    },
+    "6572": {
+      "input_tokens": 37970,
+      "output_tokens": 13258,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 86.902
+    },
+    "2313805": {
+      "input_tokens": 38018,
+      "output_tokens": 12975,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 81.976
+    },
+    "58762": {
+      "input_tokens": 37997,
+      "output_tokens": 13708,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 93.836
+    },
+    "97493682": {
+      "input_tokens": 37973,
+      "output_tokens": 14481,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 91.639
+    },
+    "388257": {
+      "input_tokens": 38112,
+      "output_tokens": 13591,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 139.276
+    },
+    "6292633": {
+      "input_tokens": 37934,
+      "output_tokens": 13855,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 87.085
+    },
+    "731154288": {
+      "input_tokens": 37996,
+      "output_tokens": 14394,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 95.526
+    },
+    "395594": {
+      "input_tokens": 37950,
+      "output_tokens": 14139,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 95.571
+    },
+    "347011": {
+      "input_tokens": 38086,
+      "output_tokens": 14300,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 91.593
+    },
+    "4049454059": {
+      "input_tokens": 37993,
+      "output_tokens": 13893,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 91.451
+    },
+    "315068": {
+      "input_tokens": 38017,
+      "output_tokens": 13906,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 86.699
+    },
+    "603894": {
+      "input_tokens": 38076,
+      "output_tokens": 13578,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 88.169
+    },
+    "417545": {
+      "input_tokens": 37999,
+      "output_tokens": 13458,
+      "parsing_seconds": null,
+      "parsing_skipped": true,
+      "llm_call_seconds": 89.112
+    }
+  },
+  "total_pipeline_duration_seconds": 146.352,
+  "stage_durations_seconds": {
+    "annotation_conversion": 0.57,
+    "prompt_population": 0.127,
+    "document_preparation": 0.0,
+    "llm_extraction": 145.615,
+    "artifact_export": 0.026
+  },
+  "notes": {
+    "total_pipeline_duration_seconds": "Wall-clock time for the extraction run, from loading project data through export of experiment snapshots. Includes time spent answering the interactive config wizard when no config file is provided.",
+    "stage_durations_seconds": {
+      "annotation_conversion": "Load and normalise the gold-standard import into documents and attributes.",
+      "prompt_population": "Attach custom prompts from the project prompt CSV. Zero if skipped.",
+      "document_preparation": "Load linked documents from cache or parse/read PDF and markdown sources. See per_document.parsing_seconds.",
+      "llm_extraction": "LLM extraction for each document. See per_document.llm_call_seconds.",
+      "artifact_export": "Write prompts snapshot, config snapshot, and this metadata file."
+    },
+    "per_document": {
+      "parsing_seconds": "Parse/read time during document preparation; null when parsing_skipped is true.",
+      "parsing_skipped": "True when full text came from cache and was not parsed this run.",
+      "llm_call_seconds": "Wall-clock time for the LLM request, including local prompt setup."
+    }
+  },
+  "timestamp": "2026-09-02T13:45:57.948049Z"
+}

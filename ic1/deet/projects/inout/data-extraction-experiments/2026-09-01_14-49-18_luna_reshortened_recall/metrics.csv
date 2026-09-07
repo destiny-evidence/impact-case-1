@@ -1,0 +1,11 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+5,include - best balance,0.9692307692307692,2026-09-01_14-49-18_luna_reshortened_recall,accuracy
+5,include - best balance,0.7142857142857143,2026-09-01_14-49-18_luna_reshortened_recall,recall
+5,include - best balance,1.0,2026-09-01_14-49-18_luna_reshortened_recall,precision
+5,include - best balance,0.8333333333333334,2026-09-01_14-49-18_luna_reshortened_recall,f1_score
+5,include - best balance,14.0,2026-09-01_14-49-18_luna_reshortened_recall,n_labels
+6,include - high recall,0.8615384615384616,2026-09-01_14-49-18_luna_reshortened_recall,accuracy
+6,include - high recall,0.8571428571428571,2026-09-01_14-49-18_luna_reshortened_recall,recall
+6,include - high recall,0.42857142857142855,2026-09-01_14-49-18_luna_reshortened_recall,precision
+6,include - high recall,0.5714285714285714,2026-09-01_14-49-18_luna_reshortened_recall,f1_score
+6,include - high recall,14.0,2026-09-01_14-49-18_luna_reshortened_recall,n_labels

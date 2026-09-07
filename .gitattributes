@@ -1,0 +1,2 @@
+*.dvc merge=dvc
+dvc.lock merge=dvc

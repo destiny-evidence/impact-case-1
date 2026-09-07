@@ -1,0 +1,6 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+6,include - high recall,0.7923076923076923,2026-08-31_19-33-18_high_recall,accuracy
+6,include - high recall,1.0,2026-08-31_19-33-18_high_recall,recall
+6,include - high recall,0.34146341463414637,2026-08-31_19-33-18_high_recall,precision
+6,include - high recall,0.509090909090909,2026-08-31_19-33-18_high_recall,f1_score
+6,include - high recall,14.0,2026-08-31_19-33-18_high_recall,n_labels

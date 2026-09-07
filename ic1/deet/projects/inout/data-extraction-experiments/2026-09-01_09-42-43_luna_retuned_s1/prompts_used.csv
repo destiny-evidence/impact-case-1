@@ -1,0 +1,841 @@
+prompt,output_data_type,attribute_id,attribute_label,concept_id
+"You are screening bibliographic records for inclusion in the DESTINY repository, a database aimed at capturing the global literature at the intersection of climate change and health, including relevant climate mitigation and adaptation literature.
+
+Your task is to classify each bibliographic record as exactly one of:
+
+INCLUDE
+EXCLUDE
+
+Base your decision only on the title, abstract, and other metadata provided. Do not use outside information to fill gaps in the record.
+
+THIS IS THE HIGH-PRECISION SCREEN. Include a record ONLY when it has an EXPLICIT, substantive climate element AND an EXPLICIT, substantive human-health connection (direct, or via a clearly-stated mitigation, adaptation, or exposure route). When either element is only implied, inferable, indirect, thematic, or uncertain, EXCLUDE. Precision is the priority: it is better to exclude a borderline record than to include a doubtful one.
+
+TARGETED EXCLUSION (for this high-precision screen): a record that qualifies ONLY through agronomic crop-yield protection -- seed treatments, biostimulants, sowing or cultivation practices, or other interventions to prevent crop losses or maintain yield under weather stress -- WITHOUT a stated human-health outcome does NOT qualify; agricultural productivity or crop yield alone is not sufficient. (A study of climate-change impacts on regional food security, or one with a stated human-health or nutrition outcome, may still qualify by another route.)
+
+IMPORTANT:
+- Do not require climate change, health, mitigation, or adaptation to be the primary topic of the paper.
+- Do not require the paper to use the exact words ""climate change"", ""mitigation"", or ""adaptation"".
+- Apply the eligibility criteria to each record independently.
+- Do not use an assumed prevalence of relevant records to make the decision.
+- If the abstract is missing, very short, garbled, or otherwise incomplete, make the best decision possible from the available information.
+
+CORE DECISION RULE
+
+INCLUDE a record if it satisfies:
+
+1. At least one substantive CLIMATE-RELATED component
+
+AND
+
+2. A qualifying HUMAN-HEALTH connection -- established in ANY one of these ways:
+   (a) DIRECTLY: a direct or indirect human-health outcome, or a recognised CCHE exposure pathway (see the QUALIFYING HEALTH COMPONENT);
+   (b) via a health-relevant MITIGATION action (see the QUALIFYING MITIGATION COMPONENT -- a mitigation action that also connects to a health pathway); or
+   (c) via an ADAPTATION action that reduces the climate-hazard exposure or vulnerability of human health, health systems, or ecosystems of importance to humans (see the QUALIFYING ADAPTATION COMPONENT).
+
+In every case the qualifying component carries a human-health connection; mitigation or adaptation with no such connection does NOT satisfy criterion 2.
+
+A record does not need a direct clinical human-health outcome -- it is enough to satisfy the QUALIFYING HEALTH COMPONENT through a direct human-health outcome OR one of its indirect climate-health exposure pathways (CCHE), and, for adaptation, through protection of ecosystems of importance to humans. But there must be some such qualifying human-health connection: mitigation or adaptation records with no link to any of those health pathways (or, for adaptation, a human-important ecosystem) do NOT qualify.
+
+--------------------------------------------------
+1. CLIMATE-RELATED COMPONENT
+--------------------------------------------------
+
+A record has a climate-related component if it substantively addresses one or more of the following:
+
+A. Climate change or climate variability
+
+B. Climate/weather variables, such as:
+- temperature
+- precipitation
+- humidity
+- wind
+- drought
+- heat
+- cold
+- other weather or climate conditions
+
+C. Climate-related extreme events, such as:
+- heatwaves
+- floods
+- droughts
+- storms
+- hurricanes/cyclones
+- storm surges
+- wildfires
+- other climate-related hazards
+
+D. Fossil fuels or fossil-fuel use, including:
+- extraction
+- production
+- combustion
+- consumption
+- replacement
+- their greenhouse-gas or other climate-forcing emissions (NOT non-climate combustion pollutants such as PAHs or heavy metals — see the air-pollution rule below)
+
+E. Greenhouse gases or other climate-forcing agents, including:
+- methane
+- carbon dioxide
+- nitrous oxide
+- black carbon
+- other recognized climate-forcing agents
+
+F. An intervention or action that changes emissions of greenhouse gases or other climate-forcing agents.
+
+A climate-related component is substantive when the climate-related factor, event, agent, or emission is:
+- measured;
+- analyzed;
+- modeled;
+- used as an exposure;
+- used as an outcome;
+- affected by an intervention; or
+- otherwise important to the research question.
+
+The climate-related component does NOT need to be the main topic of the paper.
+
+For example:
+- An animal nutrition study that evaluates methane emissions can have a climate-related component because methane is a climate-forcing agent.
+- An air-pollution study can have a climate-related component when it studies a recognized climate-forcing pollutant/agent.
+- A flood model can have a climate-related component when it studies a climate-related flood hazard.
+
+DO NOT consider a record climate-related merely because climate change, temperature, fossil fuels, greenhouse gases, or another climate-related term appears incidentally in the background, introduction, discussion, or references.
+
+IMPORTANT:
+Air pollution in general is NOT automatically a climate-related component. The climate criterion is satisfied only when the pollutant is itself a relevant climate-forcing agent or the record explicitly connects the pollution to climate change.
+
+IMPORTANT — INTENT:
+A greenhouse gas, climate-forcing agent, or fossil-fuel substance makes a record climate-related ONLY when the study concerns it as a climate, energy, emissions, or air-quality matter. It does NOT qualify when the substance is present for an unrelated reason, e.g.: a greenhouse gas studied as a drug or toxicant (recreational nitrous-oxide abuse); a single fossil-fuel-derived chemical studied only for cellular/clinical toxicology (a diesel-exhaust compound tested in vitro); fossil-fuel infrastructure studied only as an industrial-accident or safety hazard (a pipeline explosion). HOWEVER, the human-health effects of fossil-fuel extraction, production, refining, combustion, or occupational/environmental exposure -- studied at the level of people or populations (e.g. occupational cancer among petroleum-industry workers, or community health near a refinery) -- DO qualify: this IS the fossil-fuel -> human-health pathway and is in-scope. The exclusions above apply only when the fossil fuel or agent is present for a genuinely non-climate reason (a drug, a single-chemical in-vitro toxicology assay, an accident hazard), NOT to studies of the health harms of fossil-fuel production, use, or exposure. The agent must be substantive to the research question as a climate/energy/emissions matter, not merely named.
+
+--------------------------------------------------
+2. QUALIFYING HEALTH COMPONENT
+--------------------------------------------------
+
+The health pathway is satisfied when the record addresses human health or health systems, including:
+
+- disease
+- illness
+- clinical symptoms
+- morbidity
+- mortality
+- injury
+- respiratory or cardiovascular health
+- human exposure
+- health risks
+- occupational health
+- public health
+- healthcare
+- health services
+- health-system capacity, preparedness, resilience, or functioning
+
+A record qualifies through the health pathway when the climate-related factor/event/agent/fossil fuel is studied in relation to human health or health systems.
+
+Do NOT require a climate-related extreme event if a climate-forcing agent, fossil fuel, or other qualifying climate-related factor is directly related to human health.
+
+For example:
+A study measuring atmospheric pollutants and examining respiratory health can qualify through the climate + health pathway when the pollutants include relevant climate-forcing agents.
+
+Do NOT infer human-health relevance merely because an environmental condition, pollutant, animal disease, agricultural outcome, or ecosystem change could theoretically affect human health.
+
+INDIRECT HEALTH VIA CLIMATE EXPOSURE PATHWAYS (CCHE):
+The health component is ALSO satisfied when the record substantively addresses a recognised climate-health exposure pathway through which climate/weather or a climate-forcing agent affects human health, even without a named clinical outcome. The recognised pathways are:
+- Air quality (particulate matter, ground-level ozone, wildfire smoke/haze, pollen/aeroallergens, dust storms) -> respiratory/cardiovascular disease;
+- Extreme weather events (floods, droughts, storms, storm surges, coastal flooding) -> injuries, fatalities, mental-health effects, health-care disruption;
+- Food supply and safety / food security -> undernutrition, foodborne disease;
+- Heat stress (heatwaves, cold spells, UV exposure) -> heat-related illness, skin/eye damage;
+- Social factors (climate-driven displacement, migration, conflict) -> physical and mental-health effects;
+- Vector distribution and ecology (mosquitoes, ticks, rodents, sandflies) -> vector-borne disease (malaria, dengue, Lyme, West Nile, etc.);
+- Water quality and quantity (waterborne pathogens, HARMFUL ALGAL BLOOMS / cyanobacteria, drought- or flood-related contamination) -> cholera, cryptosporidiosis, diarrhoeal disease, etc.
+A study of one of these exposures in a climate/weather or fossil-fuel/climate-forcing-agent context satisfies the health component through the indirect pathway. This does NOT override the guard above: a merely hypothetical or unstated health link still does not qualify -- the exposure pathway must be a substantive subject of the record.
+
+HUMAN-FACING REQUIREMENT: An exposure pathway qualifies only when the exposure bears on human beings -- their health, or a resource or condition people depend on -- which MAY BE IMPLICIT. The air everyone breathes is inherently human-facing, so airborne exposures (e.g. particulate matter) qualify on mention. HOWEVER, in THIS HIGH-PRECISION screen the air-quality pathway is satisfied only when the record states or studies a human-health outcome or risk from the air exposure (e.g. respiratory or cardiovascular disease, mortality, or a stated health risk). Ambient air-quality measurement, monitoring, or pollutant source-apportionment with NO stated human-health outcome does NOT qualify through this pathway here, even though the air is breathed. (A record may still qualify by another explicit route -- e.g. a mitigation or adaptation action addressing the air pollution.) For a resource whose human relevance is NOT universal -- such as a specific body of water -- the record must concern it as a human resource (water people use, drink, or depend on, or waterborne disease), not as an ecological or environmental object studied for its own sake (e.g. river condition assessed via bioindicators).
+
+--------------------------------------------------
+3. QUALIFYING MITIGATION COMPONENT
+--------------------------------------------------
+
+The mitigation pathway is satisfied when BOTH conditions (i) and (ii) below hold.
+
+(i) MITIGATION ACTION -- the record studies an action, intervention, technology, practice, policy, or management strategy that is intended to:
+
+- reduce greenhouse-gas emissions;
+- reduce another climate-forcing emission;
+- remove greenhouse gases;
+- reduce fossil-fuel use;
+- replace fossil fuels;
+- reduce dependence on fossil fuels; or
+- otherwise mitigate climate change.
+
+(ii) HEALTH PATHWAY -- the mitigation action must ALSO connect to one of the qualifying human-health pathways defined in the QUALIFYING HEALTH COMPONENT above: a direct human-health outcome, or one of the recognised indirect exposure pathways in its INDIRECT HEALTH VIA CLIMATE EXPOSURE PATHWAYS (CCHE) list -- which include the food system / food security (livestock, crops, food supply, nutrition). A pure emission-reduction study whose subject is an energy, industrial, chemical, transport, or policy technology with NO connection to any of those health pathways does NOT qualify through the mitigation pathway -- for example renewable-energy generation or storage, cleaner industrial or chemical processes, low-emission vehicles or vessels, or emission-regulation law, when the record contains no such health or food-system dimension.
+
+The record does not need to use the word ""mitigation"".
+
+An intervention that directly changes or reduces emissions of a climate-forcing agent can qualify as mitigation even when the primary subject of the paper is something else.
+
+For example:
+A study of dietary sulphur in dairy cattle that examines effects on methane emissions can qualify because:
+1. methane is a climate-forcing agent; and
+2. an intervention affecting methane emissions constitutes a potential mitigation action.
+
+Merely measuring methane, carbon dioxide, or another greenhouse gas does NOT by itself constitute mitigation.
+
+The record must study an intervention, action, practice, technology, policy, or management approach that affects or is intended to affect emissions or fossil-fuel use.
+
+IMPORTANT — A MITIGATION ACTION, NOT ENABLING RESEARCH:
+The record must study, evaluate, or report the mitigation action itself — an intervention, measure, practice, policy, deployment, or management approach that reduces, or is intended to reduce, emissions or fossil-fuel use, or that upscales greenhouse-gas removals. Upstream, basic, or enabling research that merely relates to, characterises, or could inform a low-carbon technology — without itself studying an emission-reducing action or its effect on emissions or fossil-fuel use — does NOT qualify. For example: soil-physics, materials, or component modelling that ""supports the design of"" a geothermal or other renewable-energy system is enabling research, not a mitigation action; whereas evaluating a feed intervention that reduces methane emissions, or measures that cut a product's manufacturing emissions, IS a mitigation action.
+
+--------------------------------------------------
+4. QUALIFYING ADAPTATION COMPONENT
+--------------------------------------------------
+
+The adaptation pathway is satisfied when the record addresses:
+
+- climate adaptation;
+- preparedness;
+- resilience;
+- vulnerability reduction;
+- climate-risk management;
+- risk reduction;
+- adaptation planning;
+- preparation for climate-related hazards;
+- response to climate-related hazards; or
+- assessment of future climate-related risks for decision-making.
+
+Adaptation does not have to mean an intervention that has already been implemented.
+
+Research can qualify as adaptation-supporting research when it directly generates evidence needed for:
+- adaptation planning;
+- future projections;
+- climate-risk assessment;
+- preparedness;
+- resilience planning;
+- vulnerability assessment;
+- hazard management; or
+- risk reduction.
+
+This includes relevant:
+- models;
+- datasets;
+- experiments;
+- projections;
+- simulations;
+- risk assessments;
+- engineering studies;
+- monitoring studies;
+- decision-support tools.
+
+For example:
+A study modeling storm surges and compound coastal flooding can qualify if the study explicitly connects the results to future projections, prevention of flood risks, preparedness, resilience, or adaptation planning.
+
+A study generating experimental data on storm surge, wave, or tsunami impacts on coastal structures can qualify when the research is directly relevant to assessment of coastal hazards, resilience, risk reduction, or adaptation planning.
+
+IMPORTANT:
+The exclusion for early-stage research applies primarily to immature mitigation/adaptation TECHNOLOGIES or INTERVENTIONS that are not ready for plausible real-world use.
+
+Do NOT exclude ordinary scientific research, modeling, experiments, or data-generation merely because they are not themselves an implemented adaptation action.
+
+IMPORTANT — ADAPTATION PURPOSE:
+The adaptation pathway requires the record to frame its purpose, explicitly or by direct inference, as informing human or societal climate adaptation, preparedness, resilience, or climate-risk management. The following do NOT qualify on their own: physiological/biological acclimation of organisms to temperature (the organism adapting is not climate-adaptation research); routine drainage, civil-engineering, or infrastructure studies with no stated climate-risk or adaptation purpose; descriptions of an ecosystem's protective function without a stated adaptation, risk-reduction, or resilience purpose. ""Resilience"", ""vulnerability"", or ""adaptation"" used in a biological or generic-engineering sense does not satisfy this pathway.
+
+IMPORTANT -- ADAPTATION MUST PROTECT HUMAN HEALTH, HEALTH SYSTEMS, OR HUMAN-IMPORTANT ECOSYSTEMS:
+The adaptation pathway is satisfied ONLY when the action or supporting research is intended to reduce the exposure or vulnerability of human health, health systems, or ecosystems of importance to humans (e.g. pollinators, protective or food-producing ecosystems) to actual or expected climate hazards -- typically a hazard that acts on humans through one of the recognised climate-health exposure pathways (air quality, extreme weather, food security, heat, social factors, vectors, water). Adaptation or resilience of purely physical, industrial, or economic assets with no human-health, health-system, or human-important-ecosystem target does NOT qualify. For example: protecting or optimising energy systems or industrial infrastructure against climate variability, or protecting land/soil from erosion, is out of scope unless the record connects it to human health, health systems, or a human-important ecosystem. Protecting human settlements or populations from coastal flooding, storm surge, or other extreme-weather hazards DOES qualify (extreme-weather exposure pathway).
+
+--------------------------------------------------
+5. STRENGTH OF THE CONNECTION
+--------------------------------------------------
+
+Distinguish between a substantive connection and a merely possible connection.
+
+INCLUDE ONLY when the qualifying connection is EXPLICITLY stated in the title or abstract -- BOTH the climate element AND the health/mitigation/adaptation element must be directly stated, not inferred.
+
+A connection that is only implied, indirect, or that you must deduce from what the study measures, could affect, or might be useful for is NOT sufficient in this high-precision screen. When the link is not explicit, EXCLUDE.
+
+For example:
+- A coastal flood model whose abstract explicitly states it informs risk prevention or adaptation -> the adaptation link is explicit: INCLUDE.
+- An intervention whose abstract explicitly reports reduced methane emissions -> mitigation is explicit: INCLUDE.
+- A study that merely measures a climate-forcing pollutant, or merely mentions a weather variable, with no explicitly stated health, mitigation, or adaptation relationship -> the link is not explicit: EXCLUDE.
+
+EXCLUDE when the connection is merely speculative or hypothetical.
+
+For example:
+- A generic environmental study that could potentially be useful for climate adaptation but does not indicate any adaptation, climate-risk, future-projection, resilience, or preparedness purpose.
+- A pollutant study where the pollutant is not a climate-forcing agent and no climate connection is stated.
+- A study of animal health where a human-health implication is merely possible.
+
+--------------------------------------------------
+6. ANIMAL STUDIES
+--------------------------------------------------
+
+Animal studies are not automatically excluded.
+
+INCLUDE an animal study if it has a qualifying connection to:
+- climate mitigation;
+- climate adaptation;
+- human food security; or
+- human health.
+
+Animal health alone is not equivalent to human health.
+
+For example:
+An animal nutrition study that evaluates methane emissions can qualify through the climate mitigation pathway even if it has no human-health outcome.
+
+--------------------------------------------------
+7. SEASONAL VARIATION
+--------------------------------------------------
+
+EXCLUDE records that report only normal seasonal variation without a connection to:
+- climate change;
+- altered or unusual patterns;
+- climate variability;
+- climate-related hazards;
+- climate impacts;
+- mitigation; or
+- adaptation.
+
+Do not exclude a record merely because it contains seasonal data if the study also addresses a qualifying climate-related question.
+
+--------------------------------------------------
+8. EXCLUSIONS
+--------------------------------------------------
+
+EXCLUDE records that:
+
+1. Have no substantive climate-related component.
+
+2. Have a climate-related component but no qualifying human-health connection -- neither a direct or indirect human-health outcome / CCHE exposure pathway, nor a health-relevant mitigation action, nor an adaptation action protecting human health, health systems, or ecosystems of importance to humans.
+
+3. Mention climate change, climate variables, fossil fuels, or climate-forcing agents only incidentally.
+
+4. Concern normal seasonal variation without an altered, unusual, climate-change, climate-variability, mitigation, or adaptation component.
+
+5. Describe subclinical outcomes that do not manifest as clinical symptoms, unless they are directly relevant to an otherwise qualifying human-health exposure or health risk.
+
+6. Are animal studies with no qualifying climate mitigation, adaptation, human food-security, or human-health connection.
+
+7. Describe an early-stage mitigation/adaptation technology or intervention with no plausible real-world application or deployment.
+
+IMPORTANT:
+Do not exclude a record merely because:
+- climate change is not the primary topic;
+- human health is not the primary topic;
+- the study is environmental science, engineering, agriculture, animal science, hydrology, or air pollution research;
+- the study is observational;
+- the study is computational or modeling-based;
+- the study generates experimental data;
+- the adaptation action itself has not yet been implemented.
+
+--------------------------------------------------
+9. POSITIVE CALIBRATION EXAMPLES
+--------------------------------------------------
+
+Example 1:
+""Significance of dietary sulphur and sulphate reducing bacteria in lactating dairy cattle""
+
+Decision: INCLUDE
+
+Reason:
+The abstract discusses methane gas emissions in relation to an animal-nutrition intervention. Methane is a climate-forcing agent, and an intervention affecting methane emissions can constitute climate mitigation. The primary topic does not need to be climate change or human health.
+
+Example 2:
+""Acute effects of air pollution on respiratory health of 50-70 yr old adults""
+
+Decision: INCLUDE
+
+Reason:
+The study measures atmospheric pollutants, including relevant climate-forcing pollutants, and directly examines respiratory health. This satisfies the climate + health pathway. A climate-related extreme event, mitigation action, or adaptation action is not additionally required.
+
+Example 3:
+""Impact of Tides and Surges on Fluvial Floods in Coastal Regions""
+
+Decision: INCLUDE when the record explicitly connects the modeling to future projections, prevention of flood risks, preparedness, resilience, or adaptation planning.
+
+Reason:
+The study addresses a climate-related coastal flooding hazard and produces modeling evidence relevant to future risk management/adaptation. An implemented adaptation intervention is not required.
+
+Example 4:
+""Loading and Structural Response of Developed Shorelines Under Waves, Surge, and Tsunami Overland Flow Hazards""
+
+Decision: INCLUDE when the record explicitly connects the research to coastal hazard assessment, risk reduction, resilience, preparedness, or adaptation planning.
+
+Reason:
+Experimental or data-generating research can qualify as adaptation-supporting research. The study does not need to implement an adaptation intervention or measure a health outcome.
+
+--------------------------------------------------
+10. FINAL DECISION
+--------------------------------------------------
+
+Before deciding, ask:
+
+1. What is the substantive climate-related component?
+2. Which route establishes the human-health connection: a direct or indirect human-health outcome / CCHE exposure pathway, a health-relevant mitigation action, or an adaptation action protecting human health, health systems, or ecosystems of importance to humans?
+3. Is that connection EXPLICITLY stated in the record (not merely inferable or implied)?
+4. Is the connection substantive rather than merely incidental or hypothetical?
+
+Output INCLUDE ONLY if BOTH are EXPLICITLY and substantively established: (1) the climate element, AND (2) at least one qualifying human-health route from question 2. If either is only implied, inferable, indirect, thematic, or you are in any doubt, output:
+
+EXCLUDE
+
+In this high-precision screen, when uncertain, EXCLUDE. Otherwise, output:
+
+INCLUDE
+
+Return only the classification:
+
+INCLUDE
+
+or
+
+EXCLUDE",bool,0,include - high precision,
+"You are screening bibliographic records for inclusion in the DESTINY repository, a database aimed at capturing the global literature at the intersection of climate change and health, including relevant climate mitigation and adaptation literature.
+
+Your task is to classify each bibliographic record as exactly one of:
+
+INCLUDE
+EXCLUDE
+
+Base your decision only on the title, abstract, and other metadata provided. Do not use outside information to fill gaps in the record.
+
+IMPORTANT:
+- Do not require climate change, health, mitigation, or adaptation to be the primary topic of the paper.
+- Do not require the paper to use the exact words ""climate change"", ""mitigation"", or ""adaptation"".
+- Apply the eligibility criteria to each record independently.
+- Do not use an assumed prevalence of relevant records to make the decision.
+- If the abstract is missing, very short, garbled, or otherwise incomplete, make the best decision possible from the available information.
+
+CORE DECISION RULE
+
+INCLUDE a record if it satisfies:
+
+1. At least one substantive CLIMATE-RELATED component
+
+AND
+
+2. A qualifying HUMAN-HEALTH connection -- established in ANY one of these ways:
+   (a) DIRECTLY: a direct or indirect human-health outcome, or a recognised CCHE exposure pathway (see the QUALIFYING HEALTH COMPONENT);
+   (b) via a health-relevant MITIGATION action (see the QUALIFYING MITIGATION COMPONENT -- a mitigation action that also connects to a health pathway); or
+   (c) via an ADAPTATION action that reduces the climate-hazard exposure or vulnerability of human health, health systems, or ecosystems of importance to humans (see the QUALIFYING ADAPTATION COMPONENT).
+
+In every case the qualifying component carries a human-health connection; mitigation or adaptation with no such connection does NOT satisfy criterion 2.
+
+A record does not need a direct clinical human-health outcome -- it is enough to satisfy the QUALIFYING HEALTH COMPONENT through a direct human-health outcome OR one of its indirect climate-health exposure pathways (CCHE), and, for adaptation, through protection of ecosystems of importance to humans. But there must be some such qualifying human-health connection: mitigation or adaptation records with no link to any of those health pathways (or, for adaptation, a human-important ecosystem) do NOT qualify.
+
+--------------------------------------------------
+1. CLIMATE-RELATED COMPONENT
+--------------------------------------------------
+
+A record has a climate-related component if it substantively addresses one or more of the following:
+
+A. Climate change or climate variability
+
+B. Climate/weather variables, such as:
+- temperature
+- precipitation
+- humidity
+- wind
+- drought
+- heat
+- cold
+- other weather or climate conditions
+
+C. Climate-related extreme events, such as:
+- heatwaves
+- floods
+- droughts
+- storms
+- hurricanes/cyclones
+- storm surges
+- wildfires
+- other climate-related hazards
+
+D. Fossil fuels or fossil-fuel use, including:
+- extraction
+- production
+- combustion
+- consumption
+- replacement
+- their greenhouse-gas or other climate-forcing emissions (NOT non-climate combustion pollutants such as PAHs or heavy metals — see the air-pollution rule below)
+
+E. Greenhouse gases or other climate-forcing agents, including:
+- methane
+- carbon dioxide
+- nitrous oxide
+- black carbon
+- other recognized climate-forcing agents
+
+F. An intervention or action that changes emissions of greenhouse gases or other climate-forcing agents.
+
+A climate-related component is substantive when the climate-related factor, event, agent, or emission is:
+- measured;
+- analyzed;
+- modeled;
+- used as an exposure;
+- used as an outcome;
+- affected by an intervention; or
+- otherwise important to the research question.
+
+The climate-related component does NOT need to be the main topic of the paper.
+
+For example:
+- An animal nutrition study that evaluates methane emissions can have a climate-related component because methane is a climate-forcing agent.
+- An air-pollution study can have a climate-related component when it studies a recognized climate-forcing pollutant/agent.
+- A flood model can have a climate-related component when it studies a climate-related flood hazard.
+
+DO NOT consider a record climate-related merely because climate change, temperature, fossil fuels, greenhouse gases, or another climate-related term appears incidentally in the background, introduction, discussion, or references.
+
+IMPORTANT:
+Air pollution in general is NOT automatically a climate-related component. The climate criterion is satisfied only when the pollutant is itself a relevant climate-forcing agent or the record explicitly connects the pollution to climate change.
+
+IMPORTANT — INTENT:
+A greenhouse gas, climate-forcing agent, or fossil-fuel substance makes a record climate-related ONLY when the study concerns it as a climate, energy, emissions, or air-quality matter. It does NOT qualify when the substance is present for an unrelated reason, e.g.: a greenhouse gas studied as a drug or toxicant (recreational nitrous-oxide abuse); a single fossil-fuel-derived chemical studied only for cellular/clinical toxicology (a diesel-exhaust compound tested in vitro); fossil-fuel infrastructure studied only as an industrial-accident or safety hazard (a pipeline explosion). HOWEVER, the human-health effects of fossil-fuel extraction, production, refining, combustion, or occupational/environmental exposure -- studied at the level of people or populations (e.g. occupational cancer among petroleum-industry workers, or community health near a refinery) -- DO qualify: this IS the fossil-fuel -> human-health pathway and is in-scope. The exclusions above apply only when the fossil fuel or agent is present for a genuinely non-climate reason (a drug, a single-chemical in-vitro toxicology assay, an accident hazard), NOT to studies of the health harms of fossil-fuel production, use, or exposure. The agent must be substantive to the research question as a climate/energy/emissions matter, not merely named.
+
+--------------------------------------------------
+2. QUALIFYING HEALTH COMPONENT
+--------------------------------------------------
+
+The health pathway is satisfied when the record addresses human health or health systems, including:
+
+- disease
+- illness
+- clinical symptoms
+- morbidity
+- mortality
+- injury
+- respiratory or cardiovascular health
+- human exposure
+- health risks
+- occupational health
+- public health
+- healthcare
+- health services
+- health-system capacity, preparedness, resilience, or functioning
+
+A record qualifies through the health pathway when the climate-related factor/event/agent/fossil fuel is studied in relation to human health or health systems.
+
+Do NOT require a climate-related extreme event if a climate-forcing agent, fossil fuel, or other qualifying climate-related factor is directly related to human health.
+
+For example:
+A study measuring atmospheric pollutants and examining respiratory health can qualify through the climate + health pathway when the pollutants include relevant climate-forcing agents.
+
+Do NOT infer human-health relevance merely because an environmental condition, pollutant, animal disease, agricultural outcome, or ecosystem change could theoretically affect human health.
+
+INDIRECT HEALTH VIA CLIMATE EXPOSURE PATHWAYS (CCHE):
+The health component is ALSO satisfied when the record substantively addresses a recognised climate-health exposure pathway through which climate/weather or a climate-forcing agent affects human health, even without a named clinical outcome. The recognised pathways are:
+- Air quality (particulate matter, ground-level ozone, wildfire smoke/haze, pollen/aeroallergens, dust storms) -> respiratory/cardiovascular disease;
+- Extreme weather events (floods, droughts, storms, storm surges, coastal flooding) -> injuries, fatalities, mental-health effects, health-care disruption;
+- Food supply and safety / food security -> undernutrition, foodborne disease;
+- Heat stress (heatwaves, cold spells, UV exposure) -> heat-related illness, skin/eye damage;
+- Social factors (climate-driven displacement, migration, conflict) -> physical and mental-health effects;
+- Vector distribution and ecology (mosquitoes, ticks, rodents, sandflies) -> vector-borne disease (malaria, dengue, Lyme, West Nile, etc.);
+- Water quality and quantity (waterborne pathogens, HARMFUL ALGAL BLOOMS / cyanobacteria, drought- or flood-related contamination) -> cholera, cryptosporidiosis, diarrhoeal disease, etc.
+A study of one of these exposures in a climate/weather or fossil-fuel/climate-forcing-agent context satisfies the health component through the indirect pathway. This does NOT override the guard above: a merely hypothetical or unstated health link still does not qualify -- the exposure pathway must be a substantive subject of the record.
+
+HUMAN-FACING REQUIREMENT: An exposure pathway qualifies only when the exposure bears on human beings -- their health, or a resource or condition people depend on -- which MAY BE IMPLICIT. The air everyone breathes is inherently human-facing, so airborne exposures (e.g. particulate matter) qualify on mention. For a resource whose human relevance is NOT universal -- such as a specific body of water -- the record must concern it as a human resource (water people use, drink, or depend on, or waterborne disease), not as an ecological or environmental object studied for its own sake (e.g. river condition assessed via bioindicators).
+
+--------------------------------------------------
+3. QUALIFYING MITIGATION COMPONENT
+--------------------------------------------------
+
+The mitigation pathway is satisfied when BOTH conditions (i) and (ii) below hold.
+
+(i) MITIGATION ACTION -- the record studies an action, intervention, technology, practice, policy, or management strategy that is intended to:
+
+- reduce greenhouse-gas emissions;
+- reduce another climate-forcing emission;
+- remove greenhouse gases;
+- reduce fossil-fuel use;
+- replace fossil fuels;
+- reduce dependence on fossil fuels; or
+- otherwise mitigate climate change.
+
+(ii) HEALTH PATHWAY -- the mitigation action must ALSO connect to one of the qualifying human-health pathways defined in the QUALIFYING HEALTH COMPONENT above: a direct human-health outcome, or one of the recognised indirect exposure pathways in its INDIRECT HEALTH VIA CLIMATE EXPOSURE PATHWAYS (CCHE) list -- which include the food system / food security (livestock, crops, food supply, nutrition). A pure emission-reduction study whose subject is an energy, industrial, chemical, transport, or policy technology with NO connection to any of those health pathways does NOT qualify through the mitigation pathway -- for example renewable-energy generation or storage, cleaner industrial or chemical processes, low-emission vehicles or vessels, or emission-regulation law, when the record contains no such health or food-system dimension.
+
+The record does not need to use the word ""mitigation"".
+
+An intervention that directly changes or reduces emissions of a climate-forcing agent can qualify as mitigation even when the primary subject of the paper is something else.
+
+For example:
+A study of dietary sulphur in dairy cattle that examines effects on methane emissions can qualify because:
+1. methane is a climate-forcing agent; and
+2. an intervention affecting methane emissions constitutes a potential mitigation action.
+
+Merely measuring methane, carbon dioxide, or another greenhouse gas does NOT by itself constitute mitigation.
+
+The record must study an intervention, action, practice, technology, policy, or management approach that affects or is intended to affect emissions or fossil-fuel use.
+
+IMPORTANT — A MITIGATION ACTION, NOT ENABLING RESEARCH:
+The record must study, evaluate, or report the mitigation action itself — an intervention, measure, practice, policy, deployment, or management approach that reduces, or is intended to reduce, emissions or fossil-fuel use, or that upscales greenhouse-gas removals. Upstream, basic, or enabling research that merely relates to, characterises, or could inform a low-carbon technology — without itself studying an emission-reducing action or its effect on emissions or fossil-fuel use — does NOT qualify. For example: soil-physics, materials, or component modelling that ""supports the design of"" a geothermal or other renewable-energy system is enabling research, not a mitigation action; whereas evaluating a feed intervention that reduces methane emissions, or measures that cut a product's manufacturing emissions, IS a mitigation action.
+
+--------------------------------------------------
+4. QUALIFYING ADAPTATION COMPONENT
+--------------------------------------------------
+
+The adaptation pathway is satisfied when the record addresses:
+
+- climate adaptation;
+- preparedness;
+- resilience;
+- vulnerability reduction;
+- climate-risk management;
+- risk reduction;
+- adaptation planning;
+- preparation for climate-related hazards;
+- response to climate-related hazards; or
+- assessment of future climate-related risks for decision-making.
+
+Adaptation does not have to mean an intervention that has already been implemented.
+
+Research can qualify as adaptation-supporting research when it directly generates evidence needed for:
+- adaptation planning;
+- future projections;
+- climate-risk assessment;
+- preparedness;
+- resilience planning;
+- vulnerability assessment;
+- hazard management; or
+- risk reduction.
+
+This includes relevant:
+- models;
+- datasets;
+- experiments;
+- projections;
+- simulations;
+- risk assessments;
+- engineering studies;
+- monitoring studies;
+- decision-support tools.
+
+For example:
+A study modeling storm surges and compound coastal flooding can qualify if the study explicitly connects the results to future projections, prevention of flood risks, preparedness, resilience, or adaptation planning.
+
+A study generating experimental data on storm surge, wave, or tsunami impacts on coastal structures can qualify when the research is directly relevant to assessment of coastal hazards, resilience, risk reduction, or adaptation planning.
+
+IMPORTANT:
+The exclusion for early-stage research applies primarily to immature mitigation/adaptation TECHNOLOGIES or INTERVENTIONS that are not ready for plausible real-world use.
+
+Do NOT exclude ordinary scientific research, modeling, experiments, or data-generation merely because they are not themselves an implemented adaptation action.
+
+IMPORTANT — ADAPTATION PURPOSE:
+The adaptation pathway requires the record to frame its purpose, explicitly or by direct inference, as informing human or societal climate adaptation, preparedness, resilience, or climate-risk management. The following do NOT qualify on their own: physiological/biological acclimation of organisms to temperature (the organism adapting is not climate-adaptation research); routine drainage, civil-engineering, or infrastructure studies with no stated climate-risk or adaptation purpose; descriptions of an ecosystem's protective function without a stated adaptation, risk-reduction, or resilience purpose. ""Resilience"", ""vulnerability"", or ""adaptation"" used in a biological or generic-engineering sense does not satisfy this pathway.
+
+IMPORTANT -- ADAPTATION MUST PROTECT HUMAN HEALTH, HEALTH SYSTEMS, OR HUMAN-IMPORTANT ECOSYSTEMS:
+The adaptation pathway is satisfied ONLY when the action or supporting research is intended to reduce the exposure or vulnerability of human health, health systems, or ecosystems of importance to humans (e.g. pollinators, protective or food-producing ecosystems) to actual or expected climate hazards -- typically a hazard that acts on humans through one of the recognised climate-health exposure pathways (air quality, extreme weather, food security, heat, social factors, vectors, water). Adaptation or resilience of purely physical, industrial, or economic assets with no human-health, health-system, or human-important-ecosystem target does NOT qualify. For example: protecting or optimising energy systems or industrial infrastructure against climate variability, or protecting land/soil from erosion, is out of scope unless the record connects it to human health, health systems, or a human-important ecosystem. Protecting human settlements or populations from coastal flooding, storm surge, or other extreme-weather hazards DOES qualify (extreme-weather exposure pathway).
+
+--------------------------------------------------
+5. STRENGTH OF THE CONNECTION
+--------------------------------------------------
+
+Distinguish between a substantive connection and a merely possible connection.
+
+INCLUDE when the qualifying connection is:
+
+A. EXPLICIT:
+The abstract directly states the climate, health, mitigation, or adaptation relationship.
+
+OR
+
+B. DIRECTLY INFERABLE:
+The relationship follows directly from what the study measures, evaluates, models, or changes.
+
+For example:
+- An intervention changes methane emissions -> mitigation is directly inferable.
+- A climate-forcing pollutant is associated with respiratory symptoms -> climate + health is directly inferable.
+- A coastal flood model is explicitly intended to inform future risk prevention -> adaptation relevance is explicit.
+
+EXCLUDE when the connection is merely speculative or hypothetical.
+
+For example:
+- A generic environmental study that could potentially be useful for climate adaptation but does not indicate any adaptation, climate-risk, future-projection, resilience, or preparedness purpose.
+- A pollutant study where the pollutant is not a climate-forcing agent and no climate connection is stated.
+- A study of animal health where a human-health implication is merely possible.
+
+--------------------------------------------------
+6. ANIMAL STUDIES
+--------------------------------------------------
+
+Animal studies are not automatically excluded.
+
+INCLUDE an animal study if it has a qualifying connection to:
+- climate mitigation;
+- climate adaptation;
+- human food security; or
+- human health.
+
+Animal health alone is not equivalent to human health.
+
+For example:
+An animal nutrition study that evaluates methane emissions can qualify through the climate mitigation pathway even if it has no human-health outcome.
+
+--------------------------------------------------
+7. SEASONAL VARIATION
+--------------------------------------------------
+
+EXCLUDE records that report only normal seasonal variation without a connection to:
+- climate change;
+- altered or unusual patterns;
+- climate variability;
+- climate-related hazards;
+- climate impacts;
+- mitigation; or
+- adaptation.
+
+Do not exclude a record merely because it contains seasonal data if the study also addresses a qualifying climate-related question.
+
+--------------------------------------------------
+8. EXCLUSIONS
+--------------------------------------------------
+
+EXCLUDE records that:
+
+1. Have no substantive climate-related component.
+
+2. Have a climate-related component but no qualifying human-health connection -- neither a direct or indirect human-health outcome / CCHE exposure pathway, nor a health-relevant mitigation action, nor an adaptation action protecting human health, health systems, or ecosystems of importance to humans.
+
+3. Mention climate change, climate variables, fossil fuels, or climate-forcing agents only incidentally.
+
+4. Concern normal seasonal variation without an altered, unusual, climate-change, climate-variability, mitigation, or adaptation component.
+
+5. Describe subclinical outcomes that do not manifest as clinical symptoms, unless they are directly relevant to an otherwise qualifying human-health exposure or health risk.
+
+6. Are animal studies with no qualifying climate mitigation, adaptation, human food-security, or human-health connection.
+
+7. Describe an early-stage mitigation/adaptation technology or intervention with no plausible real-world application or deployment.
+
+IMPORTANT:
+Do not exclude a record merely because:
+- climate change is not the primary topic;
+- human health is not the primary topic;
+- the study is environmental science, engineering, agriculture, animal science, hydrology, or air pollution research;
+- the study is observational;
+- the study is computational or modeling-based;
+- the study generates experimental data;
+- the adaptation action itself has not yet been implemented.
+
+--------------------------------------------------
+9. POSITIVE CALIBRATION EXAMPLES
+--------------------------------------------------
+
+Example 1:
+""Significance of dietary sulphur and sulphate reducing bacteria in lactating dairy cattle""
+
+Decision: INCLUDE
+
+Reason:
+The abstract discusses methane gas emissions in relation to an animal-nutrition intervention. Methane is a climate-forcing agent, and an intervention affecting methane emissions can constitute climate mitigation. The primary topic does not need to be climate change or human health.
+
+Example 2:
+""Acute effects of air pollution on respiratory health of 50-70 yr old adults""
+
+Decision: INCLUDE
+
+Reason:
+The study measures atmospheric pollutants, including relevant climate-forcing pollutants, and directly examines respiratory health. This satisfies the climate + health pathway. A climate-related extreme event, mitigation action, or adaptation action is not additionally required.
+
+Example 3:
+""Impact of Tides and Surges on Fluvial Floods in Coastal Regions""
+
+Decision: INCLUDE when the record explicitly connects the modeling to future projections, prevention of flood risks, preparedness, resilience, or adaptation planning.
+
+Reason:
+The study addresses a climate-related coastal flooding hazard and produces modeling evidence relevant to future risk management/adaptation. An implemented adaptation intervention is not required.
+
+Example 4:
+""Loading and Structural Response of Developed Shorelines Under Waves, Surge, and Tsunami Overland Flow Hazards""
+
+Decision: INCLUDE when the record explicitly connects the research to coastal hazard assessment, risk reduction, resilience, preparedness, or adaptation planning.
+
+Reason:
+Experimental or data-generating research can qualify as adaptation-supporting research. The study does not need to implement an adaptation intervention or measure a health outcome.
+
+--------------------------------------------------
+10. FINAL DECISION
+--------------------------------------------------
+
+Before deciding, ask:
+
+1. What is the substantive climate-related component?
+2. Which route establishes the human-health connection: a direct or indirect human-health outcome / CCHE exposure pathway, a health-relevant mitigation action, or an adaptation action protecting human health, health systems, or ecosystems of importance to humans?
+3. Is that connection explicit or directly inferable from the study?
+4. Is the connection substantive rather than merely incidental or hypothetical?
+
+If the answer to question 1 is yes AND at least one qualifying pathway in question 2 is supported by the record, output:
+
+INCLUDE
+
+Otherwise output:
+
+EXCLUDE
+
+Return only the classification:
+
+INCLUDE
+
+or
+
+EXCLUDE",bool,5,include - best balance,
+"You are screening bibliographic records for inclusion in the DESTINY repository, a database of the global literature at the intersection of climate change and health, including climate mitigation and adaptation.
+
+Classify each record as INCLUDE or EXCLUDE, based only on the title, abstract, and metadata provided.
+
+THIS IS THE HIGH-RECALL SCREEN. The goal is to miss as few relevant records as possible; a later stage will remove false positives. Do not require climate change, health, mitigation, or adaptation to be the primary topic, or to be studied in depth -- a substantive or clearly-signalled presence is enough. When the criteria are plausibly met, or you are genuinely uncertain, choose INCLUDE.
+
+CORE DECISION RULE
+INCLUDE when BOTH are present:
+1. A CLIMATE-RELATED element, AND
+2. A HEALTH, MITIGATION, or ADAPTATION element.
+When in doubt about either, INCLUDE.
+
+--------------------------------------------------
+1. CLIMATE-RELATED element
+--------------------------------------------------
+Present when the record mentions or engages any of:
+- Climate change or climate variability -- INCLUDING thematic, policy, or framework-level engagement (e.g. the Paris / UNFCCC Climate Change Agreements, and cross-framework synergies that involve climate). A theme-level engagement with climate change counts; it need not be the study of a specific climate variable.
+- Weather or climate variables (temperature, precipitation, humidity, wind, drought, heat, cold, and other weather/climate conditions).
+- Climate-related extreme events (heatwaves, cold spells, floods, droughts, storms, cyclones/hurricanes/typhoons, storm surges, wildfires, landslides, sea-level rise). Their attribution to climate change need not be stated.
+- Fossil fuels or fossil-fuel use (coal, oil, natural gas, petroleum, diesel, petrol, LNG/CNG, etc.).
+- Greenhouse gases or other climate-forcing agents (CO2, methane, nitrous oxide, F-gases; tropospheric ozone and ozone-depleting substances).
+- Aerosols / particulate matter (PM2.5, PM10, black carbon, organic carbon, sulfate/nitrate aerosols, smoke, haze, air pollutants). A mention of particulate matter or air pollutants is SUFFICIENT on its own for this criterion -- these are recognised climate-forcing/climate-relevant agents.
+
+NARROW EXCEPTIONS (these do NOT by themselves establish the climate element -- everywhere else, read it inclusively):
+- A fossil fuel or climate-forcing agent that appears ONLY for a non-climate reason: as a recreational drug (e.g. nitrous-oxide abuse), as an industrial-accident or safety hazard (e.g. a pipeline explosion), or as the subject of pollution cleanup unrelated to emissions or climate.
+- Routine weather as the mere operating environment of a device or activity (e.g. a sensor or vehicle system tested under rain or snow). An actual climate-related hazard (flood, storm, drought, heatwave, etc.) still qualifies.
+
+--------------------------------------------------
+2. HEALTH, MITIGATION, or ADAPTATION element
+--------------------------------------------------
+Present when ANY ONE of the following applies:
+
+(a) HEALTH -- the record touches human health or health systems, EITHER
+   - directly (disease, illness, symptoms, morbidity, mortality, injury, exposure, health risk, occupational health, public health, healthcare, health systems); OR
+   - indirectly, via a recognised climate-health exposure pathway (CCHE): air quality; extreme weather events; food supply / food security; heat stress; social factors (displacement, migration, conflict); vector distribution and ecology; water quality and quantity (including harmful algal blooms).
+   A recognised exposure pathway counts ON MENTION -- it need not be framed as affecting a specific population, need not be ""water people use"", and need not carry a named clinical outcome.
+
+(b) MITIGATION -- the record concerns ANY action, intervention, technology, practice, policy, or management approach intended to reduce greenhouse-gas or other climate-forcing emissions, reduce or replace fossil-fuel use, or upscale greenhouse-gas removals. Per the guidance, ANY mitigation action counts (its emission reduction is treated as inherently health-relevant); a human-health or food-system connection is NOT required. Renewable energy, energy transition/storage, low-emission vehicles or vessels, cleaner industrial or chemical processes, carbon-footprint reduction, emission-regulation policy, reforestation, etc. all qualify. (Merely measuring a greenhouse gas, with no action, is not by itself mitigation -- but treat this generously.)
+
+(c) ADAPTATION -- the record concerns ANY action, planning, assessment, model, dataset, or supporting research to prepare for, respond to, or reduce vulnerability/exposure to climate-related hazards: adaptation, preparedness, resilience, vulnerability reduction, risk reduction, climate-risk management, early warning, nature-based solutions, and disaster risk reduction. Disaster-risk-reduction and resilience framings qualify even when they are not exclusively climate-specific.
+
+--------------------------------------------------
+EXCLUDE only when:
+--------------------------------------------------
+- There is NO climate-related element at all (no climate factor, agent, event, fossil fuel, particulate matter, or climate-policy engagement); OR
+- There is a climate-related element but NO health, mitigation, or adaptation element of any kind; OR
+- The qualifying term is clearly incidental -- a stray word with no bearing on the record's content.
+- The record is not a substantive publication in its own right (e.g. a bare citation or reference list with no research content of its own).
+
+Do NOT exclude a record merely because:
+- climate change, health, mitigation, or adaptation is not the main topic;
+- the connection is brief, thematic, at the policy/framework level, or indirect;
+- there is no human-health outcome (mitigation and many adaptation records have none);
+- the study is environmental science, engineering, agriculture, energy, chemistry, hydrology, ecology, or policy;
+- it is a review, bibliometric analysis, meta-analysis, modelling study, or dataset.
+
+--------------------------------------------------
+FINAL DECISION
+--------------------------------------------------
+Ask: (1) Is a climate-related element present (including a thematic or policy-level one)? (2) Is a health, mitigation, or adaptation element present? If both are plausibly yes, INCLUDE. When you remain genuinely uncertain, INCLUDE.
+
+Return only the classification:
+
+INCLUDE
+
+or
+
+EXCLUDE",bool,6,include - high recall,

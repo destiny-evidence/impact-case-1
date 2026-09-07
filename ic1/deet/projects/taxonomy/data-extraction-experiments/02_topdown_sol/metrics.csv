@@ -1,0 +1,2431 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+35,(Unspecified) fossil fuels,0.96,2026-08-31_11-15-46_,accuracy
+35,(Unspecified) fossil fuels,0.0,2026-08-31_11-15-46_,recall
+35,(Unspecified) fossil fuels,0.0,2026-08-31_11-15-46_,precision
+35,(Unspecified) fossil fuels,0.0,2026-08-31_11-15-46_,f1_score
+35,(Unspecified) fossil fuels,1.0,2026-08-31_11-15-46_,n_labels
+37,Natural gas,1.0,2026-08-31_11-15-46_,accuracy
+37,Natural gas,0.0,2026-08-31_11-15-46_,recall
+37,Natural gas,0.0,2026-08-31_11-15-46_,precision
+37,Natural gas,0.0,2026-08-31_11-15-46_,f1_score
+37,Natural gas,0.0,2026-08-31_11-15-46_,n_labels
+38,Oil,1.0,2026-08-31_11-15-46_,accuracy
+38,Oil,0.0,2026-08-31_11-15-46_,recall
+38,Oil,0.0,2026-08-31_11-15-46_,precision
+38,Oil,0.0,2026-08-31_11-15-46_,f1_score
+38,Oil,0.0,2026-08-31_11-15-46_,n_labels
+36,Coal,1.0,2026-08-31_11-15-46_,accuracy
+36,Coal,0.0,2026-08-31_11-15-46_,recall
+36,Coal,0.0,2026-08-31_11-15-46_,precision
+36,Coal,0.0,2026-08-31_11-15-46_,f1_score
+36,Coal,0.0,2026-08-31_11-15-46_,n_labels
+454,All genders,0.56,2026-08-31_11-15-46_,accuracy
+454,All genders,0.08333333333333333,2026-08-31_11-15-46_,recall
+454,All genders,1.0,2026-08-31_11-15-46_,precision
+454,All genders,0.15384615384615385,2026-08-31_11-15-46_,f1_score
+454,All genders,12.0,2026-08-31_11-15-46_,n_labels
+456,Female,1.0,2026-08-31_11-15-46_,accuracy
+456,Female,0.0,2026-08-31_11-15-46_,recall
+456,Female,0.0,2026-08-31_11-15-46_,precision
+456,Female,0.0,2026-08-31_11-15-46_,f1_score
+456,Female,0.0,2026-08-31_11-15-46_,n_labels
+455,Diverse,1.0,2026-08-31_11-15-46_,accuracy
+455,Diverse,0.0,2026-08-31_11-15-46_,recall
+455,Diverse,0.0,2026-08-31_11-15-46_,precision
+455,Diverse,0.0,2026-08-31_11-15-46_,f1_score
+455,Diverse,0.0,2026-08-31_11-15-46_,n_labels
+457,Male,1.0,2026-08-31_11-15-46_,accuracy
+457,Male,0.0,2026-08-31_11-15-46_,recall
+457,Male,0.0,2026-08-31_11-15-46_,precision
+457,Male,0.0,2026-08-31_11-15-46_,f1_score
+457,Male,0.0,2026-08-31_11-15-46_,n_labels
+1,1. Supranational and international organizations (Actor),0.92,2026-08-31_11-15-46_,accuracy
+1,1. Supranational and international organizations (Actor),0.0,2026-08-31_11-15-46_,recall
+1,1. Supranational and international organizations (Actor),0.0,2026-08-31_11-15-46_,precision
+1,1. Supranational and international organizations (Actor),0.0,2026-08-31_11-15-46_,f1_score
+1,1. Supranational and international organizations (Actor),0.0,2026-08-31_11-15-46_,n_labels
+4,4. Civil society (Actor),0.96,2026-08-31_11-15-46_,accuracy
+4,4. Civil society (Actor),0.0,2026-08-31_11-15-46_,recall
+4,4. Civil society (Actor),0.0,2026-08-31_11-15-46_,precision
+4,4. Civil society (Actor),0.0,2026-08-31_11-15-46_,f1_score
+4,4. Civil society (Actor),1.0,2026-08-31_11-15-46_,n_labels
+2,2. Governments (Actor),0.84,2026-08-31_11-15-46_,accuracy
+2,2. Governments (Actor),0.6,2026-08-31_11-15-46_,recall
+2,2. Governments (Actor),0.6,2026-08-31_11-15-46_,precision
+2,2. Governments (Actor),0.6,2026-08-31_11-15-46_,f1_score
+2,2. Governments (Actor),5.0,2026-08-31_11-15-46_,n_labels
+3,3. Private sector (Actor),0.88,2026-08-31_11-15-46_,accuracy
+3,3. Private sector (Actor),0.0,2026-08-31_11-15-46_,recall
+3,3. Private sector (Actor),0.0,2026-08-31_11-15-46_,precision
+3,3. Private sector (Actor),0.0,2026-08-31_11-15-46_,f1_score
+3,3. Private sector (Actor),0.0,2026-08-31_11-15-46_,n_labels
+5,5. Households / individuals (Actor),0.6,2026-08-31_11-15-46_,accuracy
+5,5. Households / individuals (Actor),1.0,2026-08-31_11-15-46_,recall
+5,5. Households / individuals (Actor),0.16666666666666666,2026-08-31_11-15-46_,precision
+5,5. Households / individuals (Actor),0.2857142857142857,2026-08-31_11-15-46_,f1_score
+5,5. Households / individuals (Actor),2.0,2026-08-31_11-15-46_,n_labels
+41,Polar,1.0,2026-08-31_11-15-46_,accuracy
+41,Polar,0.0,2026-08-31_11-15-46_,recall
+41,Polar,0.0,2026-08-31_11-15-46_,precision
+41,Polar,0.0,2026-08-31_11-15-46_,f1_score
+41,Polar,0.0,2026-08-31_11-15-46_,n_labels
+40,Dry / arid,0.92,2026-08-31_11-15-46_,accuracy
+40,Dry / arid,0.0,2026-08-31_11-15-46_,recall
+40,Dry / arid,0.0,2026-08-31_11-15-46_,precision
+40,Dry / arid,0.0,2026-08-31_11-15-46_,f1_score
+40,Dry / arid,0.0,2026-08-31_11-15-46_,n_labels
+42,Temperate,0.96,2026-08-31_11-15-46_,accuracy
+42,Temperate,0.0,2026-08-31_11-15-46_,recall
+42,Temperate,0.0,2026-08-31_11-15-46_,precision
+42,Temperate,0.0,2026-08-31_11-15-46_,f1_score
+42,Temperate,0.0,2026-08-31_11-15-46_,n_labels
+39,Continental,0.96,2026-08-31_11-15-46_,accuracy
+39,Continental,0.0,2026-08-31_11-15-46_,recall
+39,Continental,0.0,2026-08-31_11-15-46_,precision
+39,Continental,0.0,2026-08-31_11-15-46_,f1_score
+39,Continental,1.0,2026-08-31_11-15-46_,n_labels
+43,Tropical,0.96,2026-08-31_11-15-46_,accuracy
+43,Tropical,0.0,2026-08-31_11-15-46_,recall
+43,Tropical,0.0,2026-08-31_11-15-46_,precision
+43,Tropical,0.0,2026-08-31_11-15-46_,f1_score
+43,Tropical,0.0,2026-08-31_11-15-46_,n_labels
+70,International - multi-country (Governance scale),0.96,2026-08-31_11-15-46_,accuracy
+70,International - multi-country (Governance scale),0.0,2026-08-31_11-15-46_,recall
+70,International - multi-country (Governance scale),0.0,2026-08-31_11-15-46_,precision
+70,International - multi-country (Governance scale),0.0,2026-08-31_11-15-46_,f1_score
+70,International - multi-country (Governance scale),0.0,2026-08-31_11-15-46_,n_labels
+74,Sub-national - regional (Governance scale),0.96,2026-08-31_11-15-46_,accuracy
+74,Sub-national - regional (Governance scale),0.6666666666666666,2026-08-31_11-15-46_,recall
+74,Sub-national - regional (Governance scale),1.0,2026-08-31_11-15-46_,precision
+74,Sub-national - regional (Governance scale),0.8,2026-08-31_11-15-46_,f1_score
+74,Sub-national - regional (Governance scale),3.0,2026-08-31_11-15-46_,n_labels
+69,Global (Governance scale),0.96,2026-08-31_11-15-46_,accuracy
+69,Global (Governance scale),0.0,2026-08-31_11-15-46_,recall
+69,Global (Governance scale),0.0,2026-08-31_11-15-46_,precision
+69,Global (Governance scale),0.0,2026-08-31_11-15-46_,f1_score
+69,Global (Governance scale),0.0,2026-08-31_11-15-46_,n_labels
+75,Z_Household / individual (Governance scale),0.92,2026-08-31_11-15-46_,accuracy
+75,Z_Household / individual (Governance scale),1.0,2026-08-31_11-15-46_,recall
+75,Z_Household / individual (Governance scale),0.3333333333333333,2026-08-31_11-15-46_,precision
+75,Z_Household / individual (Governance scale),0.5,2026-08-31_11-15-46_,f1_score
+75,Z_Household / individual (Governance scale),1.0,2026-08-31_11-15-46_,n_labels
+73,Sub-national - local / municipal (Governance scale),0.88,2026-08-31_11-15-46_,accuracy
+73,Sub-national - local / municipal (Governance scale),0.3333333333333333,2026-08-31_11-15-46_,recall
+73,Sub-national - local / municipal (Governance scale),0.5,2026-08-31_11-15-46_,precision
+73,Sub-national - local / municipal (Governance scale),0.4,2026-08-31_11-15-46_,f1_score
+73,Sub-national - local / municipal (Governance scale),3.0,2026-08-31_11-15-46_,n_labels
+71,International - regional (Governance scale),0.96,2026-08-31_11-15-46_,accuracy
+71,International - regional (Governance scale),0.5,2026-08-31_11-15-46_,recall
+71,International - regional (Governance scale),1.0,2026-08-31_11-15-46_,precision
+71,International - regional (Governance scale),0.6666666666666666,2026-08-31_11-15-46_,f1_score
+71,International - regional (Governance scale),2.0,2026-08-31_11-15-46_,n_labels
+72,National (Governance scale),0.84,2026-08-31_11-15-46_,accuracy
+72,National (Governance scale),0.0,2026-08-31_11-15-46_,recall
+72,National (Governance scale),0.0,2026-08-31_11-15-46_,precision
+72,National (Governance scale),0.0,2026-08-31_11-15-46_,f1_score
+72,National (Governance scale),1.0,2026-08-31_11-15-46_,n_labels
+17,(Unspecified) greenhouse gases,1.0,2026-08-31_11-15-46_,accuracy
+17,(Unspecified) greenhouse gases,0.0,2026-08-31_11-15-46_,recall
+17,(Unspecified) greenhouse gases,0.0,2026-08-31_11-15-46_,precision
+17,(Unspecified) greenhouse gases,0.0,2026-08-31_11-15-46_,f1_score
+17,(Unspecified) greenhouse gases,0.0,2026-08-31_11-15-46_,n_labels
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,1.0,2026-08-31_11-15-46_,accuracy
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-08-31_11-15-46_,recall
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-08-31_11-15-46_,precision
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-08-31_11-15-46_,f1_score
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-08-31_11-15-46_,n_labels
+24,Tropospheric ozone (O₃),1.0,2026-08-31_11-15-46_,accuracy
+24,Tropospheric ozone (O₃),0.0,2026-08-31_11-15-46_,recall
+24,Tropospheric ozone (O₃),0.0,2026-08-31_11-15-46_,precision
+24,Tropospheric ozone (O₃),0.0,2026-08-31_11-15-46_,f1_score
+24,Tropospheric ozone (O₃),0.0,2026-08-31_11-15-46_,n_labels
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,1.0,2026-08-31_11-15-46_,accuracy
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-08-31_11-15-46_,recall
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-08-31_11-15-46_,precision
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-08-31_11-15-46_,f1_score
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-08-31_11-15-46_,n_labels
+21,Nitrous oxide (N₂O),1.0,2026-08-31_11-15-46_,accuracy
+21,Nitrous oxide (N₂O),0.0,2026-08-31_11-15-46_,recall
+21,Nitrous oxide (N₂O),0.0,2026-08-31_11-15-46_,precision
+21,Nitrous oxide (N₂O),0.0,2026-08-31_11-15-46_,f1_score
+21,Nitrous oxide (N₂O),0.0,2026-08-31_11-15-46_,n_labels
+20,Methane (CH₄),1.0,2026-08-31_11-15-46_,accuracy
+20,Methane (CH₄),1.0,2026-08-31_11-15-46_,recall
+20,Methane (CH₄),1.0,2026-08-31_11-15-46_,precision
+20,Methane (CH₄),1.0,2026-08-31_11-15-46_,f1_score
+20,Methane (CH₄),1.0,2026-08-31_11-15-46_,n_labels
+18,Carbon dioxide (CO₂),1.0,2026-08-31_11-15-46_,accuracy
+18,Carbon dioxide (CO₂),1.0,2026-08-31_11-15-46_,recall
+18,Carbon dioxide (CO₂),1.0,2026-08-31_11-15-46_,precision
+18,Carbon dioxide (CO₂),1.0,2026-08-31_11-15-46_,f1_score
+18,Carbon dioxide (CO₂),1.0,2026-08-31_11-15-46_,n_labels
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.84,2026-08-31_11-15-46_,accuracy
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.6,2026-08-31_11-15-46_,recall
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.6,2026-08-31_11-15-46_,precision
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.6,2026-08-31_11-15-46_,f1_score
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,5.0,2026-08-31_11-15-46_,n_labels
+313,2. Million-cities,0.84,2026-08-31_11-15-46_,accuracy
+313,2. Million-cities,0.0,2026-08-31_11-15-46_,recall
+313,2. Million-cities,0.0,2026-08-31_11-15-46_,precision
+313,2. Million-cities,0.0,2026-08-31_11-15-46_,f1_score
+313,2. Million-cities,4.0,2026-08-31_11-15-46_,n_labels
+314,3. Cities,0.96,2026-08-31_11-15-46_,accuracy
+314,3. Cities,0.0,2026-08-31_11-15-46_,recall
+314,3. Cities,0.0,2026-08-31_11-15-46_,precision
+314,3. Cities,0.0,2026-08-31_11-15-46_,f1_score
+314,3. Cities,1.0,2026-08-31_11-15-46_,n_labels
+307,1. Formal urban settlements,0.96,2026-08-31_11-15-46_,accuracy
+307,1. Formal urban settlements,0.8,2026-08-31_11-15-46_,recall
+307,1. Formal urban settlements,1.0,2026-08-31_11-15-46_,precision
+307,1. Formal urban settlements,0.8888888888888888,2026-08-31_11-15-46_,f1_score
+307,1. Formal urban settlements,5.0,2026-08-31_11-15-46_,n_labels
+312,1. Megacities,1.0,2026-08-31_11-15-46_,accuracy
+312,1. Megacities,0.0,2026-08-31_11-15-46_,recall
+312,1. Megacities,0.0,2026-08-31_11-15-46_,precision
+312,1. Megacities,0.0,2026-08-31_11-15-46_,f1_score
+312,1. Megacities,0.0,2026-08-31_11-15-46_,n_labels
+309,3. Informal settlements,1.0,2026-08-31_11-15-46_,accuracy
+309,3. Informal settlements,0.0,2026-08-31_11-15-46_,recall
+309,3. Informal settlements,0.0,2026-08-31_11-15-46_,precision
+309,3. Informal settlements,0.0,2026-08-31_11-15-46_,f1_score
+309,3. Informal settlements,0.0,2026-08-31_11-15-46_,n_labels
+310,4. Refugee/displaced settlements,1.0,2026-08-31_11-15-46_,accuracy
+310,4. Refugee/displaced settlements,0.0,2026-08-31_11-15-46_,recall
+310,4. Refugee/displaced settlements,0.0,2026-08-31_11-15-46_,precision
+310,4. Refugee/displaced settlements,0.0,2026-08-31_11-15-46_,f1_score
+310,4. Refugee/displaced settlements,0.0,2026-08-31_11-15-46_,n_labels
+311,5. Rural settlements,0.92,2026-08-31_11-15-46_,accuracy
+311,5. Rural settlements,0.75,2026-08-31_11-15-46_,recall
+311,5. Rural settlements,0.75,2026-08-31_11-15-46_,precision
+311,5. Rural settlements,0.75,2026-08-31_11-15-46_,f1_score
+311,5. Rural settlements,4.0,2026-08-31_11-15-46_,n_labels
+315,4. Towns,1.0,2026-08-31_11-15-46_,accuracy
+315,4. Towns,0.0,2026-08-31_11-15-46_,recall
+315,4. Towns,0.0,2026-08-31_11-15-46_,precision
+315,4. Towns,0.0,2026-08-31_11-15-46_,f1_score
+315,4. Towns,0.0,2026-08-31_11-15-46_,n_labels
+308,2. Peri-urban settlements,1.0,2026-08-31_11-15-46_,accuracy
+308,2. Peri-urban settlements,0.0,2026-08-31_11-15-46_,recall
+308,2. Peri-urban settlements,0.0,2026-08-31_11-15-46_,precision
+308,2. Peri-urban settlements,0.0,2026-08-31_11-15-46_,f1_score
+308,2. Peri-urban settlements,0.0,2026-08-31_11-15-46_,n_labels
+30,Floods,1.0,2026-08-31_11-15-46_,accuracy
+30,Floods,1.0,2026-08-31_11-15-46_,recall
+30,Floods,1.0,2026-08-31_11-15-46_,precision
+30,Floods,1.0,2026-08-31_11-15-46_,f1_score
+30,Floods,3.0,2026-08-31_11-15-46_,n_labels
+32,Storms and severe wind,0.92,2026-08-31_11-15-46_,accuracy
+32,Storms and severe wind,0.5,2026-08-31_11-15-46_,recall
+32,Storms and severe wind,1.0,2026-08-31_11-15-46_,precision
+32,Storms and severe wind,0.6666666666666666,2026-08-31_11-15-46_,f1_score
+32,Storms and severe wind,4.0,2026-08-31_11-15-46_,n_labels
+25,Droughts,1.0,2026-08-31_11-15-46_,accuracy
+25,Droughts,0.0,2026-08-31_11-15-46_,recall
+25,Droughts,0.0,2026-08-31_11-15-46_,precision
+25,Droughts,0.0,2026-08-31_11-15-46_,f1_score
+25,Droughts,0.0,2026-08-31_11-15-46_,n_labels
+26,Extreme cold,1.0,2026-08-31_11-15-46_,accuracy
+26,Extreme cold,0.0,2026-08-31_11-15-46_,recall
+26,Extreme cold,0.0,2026-08-31_11-15-46_,precision
+26,Extreme cold,0.0,2026-08-31_11-15-46_,f1_score
+26,Extreme cold,0.0,2026-08-31_11-15-46_,n_labels
+28,Extreme precipitation,1.0,2026-08-31_11-15-46_,accuracy
+28,Extreme precipitation,1.0,2026-08-31_11-15-46_,recall
+28,Extreme precipitation,1.0,2026-08-31_11-15-46_,precision
+28,Extreme precipitation,1.0,2026-08-31_11-15-46_,f1_score
+28,Extreme precipitation,1.0,2026-08-31_11-15-46_,n_labels
+33,Wildfires,1.0,2026-08-31_11-15-46_,accuracy
+33,Wildfires,1.0,2026-08-31_11-15-46_,recall
+33,Wildfires,1.0,2026-08-31_11-15-46_,precision
+33,Wildfires,1.0,2026-08-31_11-15-46_,f1_score
+33,Wildfires,1.0,2026-08-31_11-15-46_,n_labels
+34,Z_(Unspecified) extreme weather events,0.92,2026-08-31_11-15-46_,accuracy
+34,Z_(Unspecified) extreme weather events,0.3333333333333333,2026-08-31_11-15-46_,recall
+34,Z_(Unspecified) extreme weather events,1.0,2026-08-31_11-15-46_,precision
+34,Z_(Unspecified) extreme weather events,0.5,2026-08-31_11-15-46_,f1_score
+34,Z_(Unspecified) extreme weather events,3.0,2026-08-31_11-15-46_,n_labels
+29,Extreme snow/ice events,1.0,2026-08-31_11-15-46_,accuracy
+29,Extreme snow/ice events,0.0,2026-08-31_11-15-46_,recall
+29,Extreme snow/ice events,0.0,2026-08-31_11-15-46_,precision
+29,Extreme snow/ice events,0.0,2026-08-31_11-15-46_,f1_score
+29,Extreme snow/ice events,0.0,2026-08-31_11-15-46_,n_labels
+31,Sand and dust storms,1.0,2026-08-31_11-15-46_,accuracy
+31,Sand and dust storms,0.0,2026-08-31_11-15-46_,recall
+31,Sand and dust storms,0.0,2026-08-31_11-15-46_,precision
+31,Sand and dust storms,0.0,2026-08-31_11-15-46_,f1_score
+31,Sand and dust storms,0.0,2026-08-31_11-15-46_,n_labels
+27,Extreme heat,1.0,2026-08-31_11-15-46_,accuracy
+27,Extreme heat,1.0,2026-08-31_11-15-46_,recall
+27,Extreme heat,1.0,2026-08-31_11-15-46_,precision
+27,Extreme heat,1.0,2026-08-31_11-15-46_,f1_score
+27,Extreme heat,2.0,2026-08-31_11-15-46_,n_labels
+490,Maladaptation,0.96,2026-08-31_11-15-46_,accuracy
+490,Maladaptation,0.0,2026-08-31_11-15-46_,recall
+490,Maladaptation,0.0,2026-08-31_11-15-46_,precision
+490,Maladaptation,0.0,2026-08-31_11-15-46_,f1_score
+490,Maladaptation,0.0,2026-08-31_11-15-46_,n_labels
+488,Impact,0.64,2026-08-31_11-15-46_,accuracy
+488,Impact,0.36363636363636365,2026-08-31_11-15-46_,recall
+488,Impact,0.6666666666666666,2026-08-31_11-15-46_,precision
+488,Impact,0.47058823529411764,2026-08-31_11-15-46_,f1_score
+488,Impact,11.0,2026-08-31_11-15-46_,n_labels
+496,Co-Benefits,0.96,2026-08-31_11-15-46_,accuracy
+496,Co-Benefits,0.5,2026-08-31_11-15-46_,recall
+496,Co-Benefits,1.0,2026-08-31_11-15-46_,precision
+496,Co-Benefits,0.6666666666666666,2026-08-31_11-15-46_,f1_score
+496,Co-Benefits,2.0,2026-08-31_11-15-46_,n_labels
+493,Attribution,1.0,2026-08-31_11-15-46_,accuracy
+493,Attribution,0.0,2026-08-31_11-15-46_,recall
+493,Attribution,0.0,2026-08-31_11-15-46_,precision
+493,Attribution,0.0,2026-08-31_11-15-46_,f1_score
+493,Attribution,0.0,2026-08-31_11-15-46_,n_labels
+494,Future impact,0.96,2026-08-31_11-15-46_,accuracy
+494,Future impact,1.0,2026-08-31_11-15-46_,recall
+494,Future impact,0.6666666666666666,2026-08-31_11-15-46_,precision
+494,Future impact,0.8,2026-08-31_11-15-46_,f1_score
+494,Future impact,2.0,2026-08-31_11-15-46_,n_labels
+491,Preparedness,0.76,2026-08-31_11-15-46_,accuracy
+491,Preparedness,0.25,2026-08-31_11-15-46_,recall
+491,Preparedness,0.25,2026-08-31_11-15-46_,precision
+491,Preparedness,0.25,2026-08-31_11-15-46_,f1_score
+491,Preparedness,4.0,2026-08-31_11-15-46_,n_labels
+495,Loss and damage,1.0,2026-08-31_11-15-46_,accuracy
+495,Loss and damage,0.0,2026-08-31_11-15-46_,recall
+495,Loss and damage,0.0,2026-08-31_11-15-46_,precision
+495,Loss and damage,0.0,2026-08-31_11-15-46_,f1_score
+495,Loss and damage,0.0,2026-08-31_11-15-46_,n_labels
+492,Resilience,0.76,2026-08-31_11-15-46_,accuracy
+492,Resilience,0.3333333333333333,2026-08-31_11-15-46_,recall
+492,Resilience,1.0,2026-08-31_11-15-46_,precision
+492,Resilience,0.5,2026-08-31_11-15-46_,f1_score
+492,Resilience,9.0,2026-08-31_11-15-46_,n_labels
+489,Mitigation,0.84,2026-08-31_11-15-46_,accuracy
+489,Mitigation,0.2,2026-08-31_11-15-46_,recall
+489,Mitigation,1.0,2026-08-31_11-15-46_,precision
+489,Mitigation,0.3333333333333333,2026-08-31_11-15-46_,f1_score
+489,Mitigation,5.0,2026-08-31_11-15-46_,n_labels
+487,Adaptation,0.76,2026-08-31_11-15-46_,accuracy
+487,Adaptation,0.5833333333333334,2026-08-31_11-15-46_,recall
+487,Adaptation,0.875,2026-08-31_11-15-46_,precision
+487,Adaptation,0.7,2026-08-31_11-15-46_,f1_score
+487,Adaptation,12.0,2026-08-31_11-15-46_,n_labels
+7,(Unspecified) climate change,0.8,2026-08-31_11-15-46_,accuracy
+7,(Unspecified) climate change,0.6666666666666666,2026-08-31_11-15-46_,recall
+7,(Unspecified) climate change,0.3333333333333333,2026-08-31_11-15-46_,precision
+7,(Unspecified) climate change,0.4444444444444444,2026-08-31_11-15-46_,f1_score
+7,(Unspecified) climate change,3.0,2026-08-31_11-15-46_,n_labels
+6,(Unspecified) changes in weather,1.0,2026-08-31_11-15-46_,accuracy
+6,(Unspecified) changes in weather,0.0,2026-08-31_11-15-46_,recall
+6,(Unspecified) changes in weather,0.0,2026-08-31_11-15-46_,precision
+6,(Unspecified) changes in weather,0.0,2026-08-31_11-15-46_,f1_score
+6,(Unspecified) changes in weather,0.0,2026-08-31_11-15-46_,n_labels
+13,Changes in season length,1.0,2026-08-31_11-15-46_,accuracy
+13,Changes in season length,0.0,2026-08-31_11-15-46_,recall
+13,Changes in season length,0.0,2026-08-31_11-15-46_,precision
+13,Changes in season length,0.0,2026-08-31_11-15-46_,f1_score
+13,Changes in season length,0.0,2026-08-31_11-15-46_,n_labels
+15,Changes in wind speed,0.96,2026-08-31_11-15-46_,accuracy
+15,Changes in wind speed,0.5,2026-08-31_11-15-46_,recall
+15,Changes in wind speed,1.0,2026-08-31_11-15-46_,precision
+15,Changes in wind speed,0.6666666666666666,2026-08-31_11-15-46_,f1_score
+15,Changes in wind speed,2.0,2026-08-31_11-15-46_,n_labels
+14,Changes in temperature,0.88,2026-08-31_11-15-46_,accuracy
+14,Changes in temperature,0.25,2026-08-31_11-15-46_,recall
+14,Changes in temperature,1.0,2026-08-31_11-15-46_,precision
+14,Changes in temperature,0.4,2026-08-31_11-15-46_,f1_score
+14,Changes in temperature,4.0,2026-08-31_11-15-46_,n_labels
+11,Changes in precipitation,0.92,2026-08-31_11-15-46_,accuracy
+11,Changes in precipitation,0.0,2026-08-31_11-15-46_,recall
+11,Changes in precipitation,0.0,2026-08-31_11-15-46_,precision
+11,Changes in precipitation,0.0,2026-08-31_11-15-46_,f1_score
+11,Changes in precipitation,1.0,2026-08-31_11-15-46_,n_labels
+12,Changes in sea level,0.96,2026-08-31_11-15-46_,accuracy
+12,Changes in sea level,0.5,2026-08-31_11-15-46_,recall
+12,Changes in sea level,1.0,2026-08-31_11-15-46_,precision
+12,Changes in sea level,0.6666666666666666,2026-08-31_11-15-46_,f1_score
+12,Changes in sea level,2.0,2026-08-31_11-15-46_,n_labels
+10,Changes in inland water bodies,1.0,2026-08-31_11-15-46_,accuracy
+10,Changes in inland water bodies,0.0,2026-08-31_11-15-46_,recall
+10,Changes in inland water bodies,0.0,2026-08-31_11-15-46_,precision
+10,Changes in inland water bodies,0.0,2026-08-31_11-15-46_,f1_score
+10,Changes in inland water bodies,0.0,2026-08-31_11-15-46_,n_labels
+16,Climate variability,1.0,2026-08-31_11-15-46_,accuracy
+16,Climate variability,1.0,2026-08-31_11-15-46_,recall
+16,Climate variability,1.0,2026-08-31_11-15-46_,precision
+16,Climate variability,1.0,2026-08-31_11-15-46_,f1_score
+16,Climate variability,1.0,2026-08-31_11-15-46_,n_labels
+8,Changes in glacier / snow melt,1.0,2026-08-31_11-15-46_,accuracy
+8,Changes in glacier / snow melt,0.0,2026-08-31_11-15-46_,recall
+8,Changes in glacier / snow melt,0.0,2026-08-31_11-15-46_,precision
+8,Changes in glacier / snow melt,0.0,2026-08-31_11-15-46_,f1_score
+8,Changes in glacier / snow melt,0.0,2026-08-31_11-15-46_,n_labels
+9,Changes in humidity,0.96,2026-08-31_11-15-46_,accuracy
+9,Changes in humidity,0.5,2026-08-31_11-15-46_,recall
+9,Changes in humidity,1.0,2026-08-31_11-15-46_,precision
+9,Changes in humidity,0.6666666666666666,2026-08-31_11-15-46_,f1_score
+9,Changes in humidity,2.0,2026-08-31_11-15-46_,n_labels
+460,Ethnic minorities (Vulnerability),0.96,2026-08-31_11-15-46_,accuracy
+460,Ethnic minorities (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+460,Ethnic minorities (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+460,Ethnic minorities (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+460,Ethnic minorities (Vulnerability),0.0,2026-08-31_11-15-46_,n_labels
+458,Chronic conditions (Vulnerability),0.96,2026-08-31_11-15-46_,accuracy
+458,Chronic conditions (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+458,Chronic conditions (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+458,Chronic conditions (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+458,Chronic conditions (Vulnerability),0.0,2026-08-31_11-15-46_,n_labels
+461,Frail elderly (Vulnerability),1.0,2026-08-31_11-15-46_,accuracy
+461,Frail elderly (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+461,Frail elderly (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+461,Frail elderly (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+461,Frail elderly (Vulnerability),0.0,2026-08-31_11-15-46_,n_labels
+468,Women (Vulnerability),1.0,2026-08-31_11-15-46_,accuracy
+468,Women (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+468,Women (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+468,Women (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+468,Women (Vulnerability),0.0,2026-08-31_11-15-46_,n_labels
+466,Occupation-based (Vulnerability),0.92,2026-08-31_11-15-46_,accuracy
+466,Occupation-based (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+466,Occupation-based (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+466,Occupation-based (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+466,Occupation-based (Vulnerability),0.0,2026-08-31_11-15-46_,n_labels
+465,Migrants (Vulnerability),1.0,2026-08-31_11-15-46_,accuracy
+465,Migrants (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+465,Migrants (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+465,Migrants (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+465,Migrants (Vulnerability),0.0,2026-08-31_11-15-46_,n_labels
+467,Pregnancy (Vulnerability),1.0,2026-08-31_11-15-46_,accuracy
+467,Pregnancy (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+467,Pregnancy (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+467,Pregnancy (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+467,Pregnancy (Vulnerability),0.0,2026-08-31_11-15-46_,n_labels
+462,Indigenous peoples (Vulnerability),1.0,2026-08-31_11-15-46_,accuracy
+462,Indigenous peoples (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+462,Indigenous peoples (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+462,Indigenous peoples (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+462,Indigenous peoples (Vulnerability),0.0,2026-08-31_11-15-46_,n_labels
+463,Infants / children (Vulnerability),1.0,2026-08-31_11-15-46_,accuracy
+463,Infants / children (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+463,Infants / children (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+463,Infants / children (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+463,Infants / children (Vulnerability),0.0,2026-08-31_11-15-46_,n_labels
+459,Disabled (Vulnerability),1.0,2026-08-31_11-15-46_,accuracy
+459,Disabled (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+459,Disabled (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+459,Disabled (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+459,Disabled (Vulnerability),0.0,2026-08-31_11-15-46_,n_labels
+464,Low-income (Vulnerability),0.96,2026-08-31_11-15-46_,accuracy
+464,Low-income (Vulnerability),0.0,2026-08-31_11-15-46_,recall
+464,Low-income (Vulnerability),0.0,2026-08-31_11-15-46_,precision
+464,Low-income (Vulnerability),0.0,2026-08-31_11-15-46_,f1_score
+464,Low-income (Vulnerability),1.0,2026-08-31_11-15-46_,n_labels
+78,Food supply and safety (Exposure),0.88,2026-08-31_11-15-46_,accuracy
+78,Food supply and safety (Exposure),0.6,2026-08-31_11-15-46_,recall
+78,Food supply and safety (Exposure),0.75,2026-08-31_11-15-46_,precision
+78,Food supply and safety (Exposure),0.6666666666666666,2026-08-31_11-15-46_,f1_score
+78,Food supply and safety (Exposure),5.0,2026-08-31_11-15-46_,n_labels
+82,Vector distribution and ecology (Exposure),1.0,2026-08-31_11-15-46_,accuracy
+82,Vector distribution and ecology (Exposure),0.0,2026-08-31_11-15-46_,recall
+82,Vector distribution and ecology (Exposure),0.0,2026-08-31_11-15-46_,precision
+82,Vector distribution and ecology (Exposure),0.0,2026-08-31_11-15-46_,f1_score
+82,Vector distribution and ecology (Exposure),0.0,2026-08-31_11-15-46_,n_labels
+76,Air quality (Exposure),0.92,2026-08-31_11-15-46_,accuracy
+76,Air quality (Exposure),0.8,2026-08-31_11-15-46_,recall
+76,Air quality (Exposure),0.8,2026-08-31_11-15-46_,precision
+76,Air quality (Exposure),0.8,2026-08-31_11-15-46_,f1_score
+76,Air quality (Exposure),5.0,2026-08-31_11-15-46_,n_labels
+83,Water quality and quantity (Exposure),0.92,2026-08-31_11-15-46_,accuracy
+83,Water quality and quantity (Exposure),1.0,2026-08-31_11-15-46_,recall
+83,Water quality and quantity (Exposure),0.5,2026-08-31_11-15-46_,precision
+83,Water quality and quantity (Exposure),0.6666666666666666,2026-08-31_11-15-46_,f1_score
+83,Water quality and quantity (Exposure),2.0,2026-08-31_11-15-46_,n_labels
+80,Social factors (Exposure),0.8,2026-08-31_11-15-46_,accuracy
+80,Social factors (Exposure),0.0,2026-08-31_11-15-46_,recall
+80,Social factors (Exposure),0.0,2026-08-31_11-15-46_,precision
+80,Social factors (Exposure),0.0,2026-08-31_11-15-46_,f1_score
+80,Social factors (Exposure),2.0,2026-08-31_11-15-46_,n_labels
+86,Loss of place attachment / cultural identity (Exposure),1.0,2026-08-31_11-15-46_,accuracy
+86,Loss of place attachment / cultural identity (Exposure),0.0,2026-08-31_11-15-46_,recall
+86,Loss of place attachment / cultural identity (Exposure),0.0,2026-08-31_11-15-46_,precision
+86,Loss of place attachment / cultural identity (Exposure),0.0,2026-08-31_11-15-46_,f1_score
+86,Loss of place attachment / cultural identity (Exposure),0.0,2026-08-31_11-15-46_,n_labels
+85,Loss of livelihood / income (Exposure),0.92,2026-08-31_11-15-46_,accuracy
+85,Loss of livelihood / income (Exposure),0.0,2026-08-31_11-15-46_,recall
+85,Loss of livelihood / income (Exposure),0.0,2026-08-31_11-15-46_,precision
+85,Loss of livelihood / income (Exposure),0.0,2026-08-31_11-15-46_,f1_score
+85,Loss of livelihood / income (Exposure),1.0,2026-08-31_11-15-46_,n_labels
+84,Housing quality / overcrowding (Exposure),1.0,2026-08-31_11-15-46_,accuracy
+84,Housing quality / overcrowding (Exposure),0.0,2026-08-31_11-15-46_,recall
+84,Housing quality / overcrowding (Exposure),0.0,2026-08-31_11-15-46_,precision
+84,Housing quality / overcrowding (Exposure),0.0,2026-08-31_11-15-46_,f1_score
+84,Housing quality / overcrowding (Exposure),0.0,2026-08-31_11-15-46_,n_labels
+77,Extreme weather events (Exposure),0.96,2026-08-31_11-15-46_,accuracy
+77,Extreme weather events (Exposure),0.8333333333333334,2026-08-31_11-15-46_,recall
+77,Extreme weather events (Exposure),1.0,2026-08-31_11-15-46_,precision
+77,Extreme weather events (Exposure),0.9090909090909091,2026-08-31_11-15-46_,f1_score
+77,Extreme weather events (Exposure),6.0,2026-08-31_11-15-46_,n_labels
+88,Violence / conflict (Exposure),1.0,2026-08-31_11-15-46_,accuracy
+88,Violence / conflict (Exposure),0.0,2026-08-31_11-15-46_,recall
+88,Violence / conflict (Exposure),0.0,2026-08-31_11-15-46_,precision
+88,Violence / conflict (Exposure),0.0,2026-08-31_11-15-46_,f1_score
+88,Violence / conflict (Exposure),0.0,2026-08-31_11-15-46_,n_labels
+81,Ultraviolet / solar radiation (Exposure),1.0,2026-08-31_11-15-46_,accuracy
+81,Ultraviolet / solar radiation (Exposure),0.0,2026-08-31_11-15-46_,recall
+81,Ultraviolet / solar radiation (Exposure),0.0,2026-08-31_11-15-46_,precision
+81,Ultraviolet / solar radiation (Exposure),0.0,2026-08-31_11-15-46_,f1_score
+81,Ultraviolet / solar radiation (Exposure),0.0,2026-08-31_11-15-46_,n_labels
+87,Migration / forced displacement (Exposure),1.0,2026-08-31_11-15-46_,accuracy
+87,Migration / forced displacement (Exposure),0.0,2026-08-31_11-15-46_,recall
+87,Migration / forced displacement (Exposure),0.0,2026-08-31_11-15-46_,precision
+87,Migration / forced displacement (Exposure),0.0,2026-08-31_11-15-46_,f1_score
+87,Migration / forced displacement (Exposure),0.0,2026-08-31_11-15-46_,n_labels
+79,Heat stress (Exposure),0.96,2026-08-31_11-15-46_,accuracy
+79,Heat stress (Exposure),1.0,2026-08-31_11-15-46_,recall
+79,Heat stress (Exposure),0.5,2026-08-31_11-15-46_,precision
+79,Heat stress (Exposure),0.6666666666666666,2026-08-31_11-15-46_,f1_score
+79,Heat stress (Exposure),1.0,2026-08-31_11-15-46_,n_labels
+475,Buildings / housing (Sector),0.84,2026-08-31_11-15-46_,accuracy
+475,Buildings / housing (Sector),0.0,2026-08-31_11-15-46_,recall
+475,Buildings / housing (Sector),0.0,2026-08-31_11-15-46_,precision
+475,Buildings / housing (Sector),0.0,2026-08-31_11-15-46_,f1_score
+475,Buildings / housing (Sector),0.0,2026-08-31_11-15-46_,n_labels
+486,"Water, sanitation, and waste management (Sector)",1.0,2026-08-31_11-15-46_,accuracy
+486,"Water, sanitation, and waste management (Sector)",1.0,2026-08-31_11-15-46_,recall
+486,"Water, sanitation, and waste management (Sector)",1.0,2026-08-31_11-15-46_,precision
+486,"Water, sanitation, and waste management (Sector)",1.0,2026-08-31_11-15-46_,f1_score
+486,"Water, sanitation, and waste management (Sector)",2.0,2026-08-31_11-15-46_,n_labels
+477,Energy and extractives (Sector),1.0,2026-08-31_11-15-46_,accuracy
+477,Energy and extractives (Sector),1.0,2026-08-31_11-15-46_,recall
+477,Energy and extractives (Sector),1.0,2026-08-31_11-15-46_,precision
+477,Energy and extractives (Sector),1.0,2026-08-31_11-15-46_,f1_score
+477,Energy and extractives (Sector),1.0,2026-08-31_11-15-46_,n_labels
+485,Transportation (Sector),0.88,2026-08-31_11-15-46_,accuracy
+485,Transportation (Sector),1.0,2026-08-31_11-15-46_,recall
+485,Transportation (Sector),0.25,2026-08-31_11-15-46_,precision
+485,Transportation (Sector),0.4,2026-08-31_11-15-46_,f1_score
+485,Transportation (Sector),1.0,2026-08-31_11-15-46_,n_labels
+480,"Industry, trade, and services (Sector)",0.96,2026-08-31_11-15-46_,accuracy
+480,"Industry, trade, and services (Sector)",0.0,2026-08-31_11-15-46_,recall
+480,"Industry, trade, and services (Sector)",0.0,2026-08-31_11-15-46_,precision
+480,"Industry, trade, and services (Sector)",0.0,2026-08-31_11-15-46_,f1_score
+480,"Industry, trade, and services (Sector)",0.0,2026-08-31_11-15-46_,n_labels
+478,Finance (Sector),1.0,2026-08-31_11-15-46_,accuracy
+478,Finance (Sector),0.0,2026-08-31_11-15-46_,recall
+478,Finance (Sector),0.0,2026-08-31_11-15-46_,precision
+478,Finance (Sector),0.0,2026-08-31_11-15-46_,f1_score
+478,Finance (Sector),0.0,2026-08-31_11-15-46_,n_labels
+483,Public administration (Sector),0.88,2026-08-31_11-15-46_,accuracy
+483,Public administration (Sector),1.0,2026-08-31_11-15-46_,recall
+483,Public administration (Sector),0.25,2026-08-31_11-15-46_,precision
+483,Public administration (Sector),0.4,2026-08-31_11-15-46_,f1_score
+483,Public administration (Sector),1.0,2026-08-31_11-15-46_,n_labels
+482,Military (Sector),1.0,2026-08-31_11-15-46_,accuracy
+482,Military (Sector),0.0,2026-08-31_11-15-46_,recall
+482,Military (Sector),0.0,2026-08-31_11-15-46_,precision
+482,Military (Sector),0.0,2026-08-31_11-15-46_,f1_score
+482,Military (Sector),0.0,2026-08-31_11-15-46_,n_labels
+484,Social protection (Sector),1.0,2026-08-31_11-15-46_,accuracy
+484,Social protection (Sector),0.0,2026-08-31_11-15-46_,recall
+484,Social protection (Sector),0.0,2026-08-31_11-15-46_,precision
+484,Social protection (Sector),0.0,2026-08-31_11-15-46_,f1_score
+484,Social protection (Sector),0.0,2026-08-31_11-15-46_,n_labels
+481,Information and communications technologies (Sector),0.92,2026-08-31_11-15-46_,accuracy
+481,Information and communications technologies (Sector),0.0,2026-08-31_11-15-46_,recall
+481,Information and communications technologies (Sector),0.0,2026-08-31_11-15-46_,precision
+481,Information and communications technologies (Sector),0.0,2026-08-31_11-15-46_,f1_score
+481,Information and communications technologies (Sector),0.0,2026-08-31_11-15-46_,n_labels
+476,Education (Sector),0.92,2026-08-31_11-15-46_,accuracy
+476,Education (Sector),0.0,2026-08-31_11-15-46_,recall
+476,Education (Sector),0.0,2026-08-31_11-15-46_,precision
+476,Education (Sector),0.0,2026-08-31_11-15-46_,f1_score
+476,Education (Sector),0.0,2026-08-31_11-15-46_,n_labels
+474,"Agriculture, fishing, and forestry (Sector)",0.96,2026-08-31_11-15-46_,accuracy
+474,"Agriculture, fishing, and forestry (Sector)",1.0,2026-08-31_11-15-46_,recall
+474,"Agriculture, fishing, and forestry (Sector)",0.875,2026-08-31_11-15-46_,precision
+474,"Agriculture, fishing, and forestry (Sector)",0.9333333333333333,2026-08-31_11-15-46_,f1_score
+474,"Agriculture, fishing, and forestry (Sector)",7.0,2026-08-31_11-15-46_,n_labels
+479,Healthcare (Sector),0.72,2026-08-31_11-15-46_,accuracy
+479,Healthcare (Sector),0.0,2026-08-31_11-15-46_,recall
+479,Healthcare (Sector),0.0,2026-08-31_11-15-46_,precision
+479,Healthcare (Sector),0.0,2026-08-31_11-15-46_,f1_score
+479,Healthcare (Sector),0.0,2026-08-31_11-15-46_,n_labels
+453,Aged (80 years and older),1.0,2026-08-31_11-15-46_,accuracy
+453,Aged (80 years and older),0.0,2026-08-31_11-15-46_,recall
+453,Aged (80 years and older),0.0,2026-08-31_11-15-46_,precision
+453,Aged (80 years and older),0.0,2026-08-31_11-15-46_,f1_score
+453,Aged (80 years and older),0.0,2026-08-31_11-15-46_,n_labels
+450,5.2. Middle aged (45-64 years),1.0,2026-08-31_11-15-46_,accuracy
+450,5.2. Middle aged (45-64 years),1.0,2026-08-31_11-15-46_,recall
+450,5.2. Middle aged (45-64 years),1.0,2026-08-31_11-15-46_,precision
+450,5.2. Middle aged (45-64 years),1.0,2026-08-31_11-15-46_,f1_score
+450,5.2. Middle aged (45-64 years),1.0,2026-08-31_11-15-46_,n_labels
+452,Aged (65-78 years),0.96,2026-08-31_11-15-46_,accuracy
+452,Aged (65-78 years),0.0,2026-08-31_11-15-46_,recall
+452,Aged (65-78 years),0.0,2026-08-31_11-15-46_,precision
+452,Aged (65-78 years),0.0,2026-08-31_11-15-46_,f1_score
+452,Aged (65-78 years),1.0,2026-08-31_11-15-46_,n_labels
+442,2. Infant (1-23 months),1.0,2026-08-31_11-15-46_,accuracy
+442,2. Infant (1-23 months),0.0,2026-08-31_11-15-46_,recall
+442,2. Infant (1-23 months),0.0,2026-08-31_11-15-46_,precision
+442,2. Infant (1-23 months),0.0,2026-08-31_11-15-46_,f1_score
+442,2. Infant (1-23 months),0.0,2026-08-31_11-15-46_,n_labels
+446,Newborn infant,1.0,2026-08-31_11-15-46_,accuracy
+446,Newborn infant,0.0,2026-08-31_11-15-46_,recall
+446,Newborn infant,0.0,2026-08-31_11-15-46_,precision
+446,Newborn infant,0.0,2026-08-31_11-15-46_,f1_score
+446,Newborn infant,0.0,2026-08-31_11-15-46_,n_labels
+449,5.1. Adult (19-44 years),1.0,2026-08-31_11-15-46_,accuracy
+449,5.1. Adult (19-44 years),0.0,2026-08-31_11-15-46_,recall
+449,5.1. Adult (19-44 years),0.0,2026-08-31_11-15-46_,precision
+449,5.1. Adult (19-44 years),0.0,2026-08-31_11-15-46_,f1_score
+449,5.1. Adult (19-44 years),0.0,2026-08-31_11-15-46_,n_labels
+451,5.3. Aged (65 years and older),1.0,2026-08-31_11-15-46_,accuracy
+451,5.3. Aged (65 years and older),1.0,2026-08-31_11-15-46_,recall
+451,5.3. Aged (65 years and older),1.0,2026-08-31_11-15-46_,precision
+451,5.3. Aged (65 years and older),1.0,2026-08-31_11-15-46_,f1_score
+451,5.3. Aged (65 years and older),1.0,2026-08-31_11-15-46_,n_labels
+445,5. Adult,0.96,2026-08-31_11-15-46_,accuracy
+445,5. Adult,0.5,2026-08-31_11-15-46_,recall
+445,5. Adult,1.0,2026-08-31_11-15-46_,precision
+445,5. Adult,0.6666666666666666,2026-08-31_11-15-46_,f1_score
+445,5. Adult,2.0,2026-08-31_11-15-46_,n_labels
+444,4. Adolescent (13-18 years),1.0,2026-08-31_11-15-46_,accuracy
+444,4. Adolescent (13-18 years),0.0,2026-08-31_11-15-46_,recall
+444,4. Adolescent (13-18 years),0.0,2026-08-31_11-15-46_,precision
+444,4. Adolescent (13-18 years),0.0,2026-08-31_11-15-46_,f1_score
+444,4. Adolescent (13-18 years),0.0,2026-08-31_11-15-46_,n_labels
+447,3.1. Preschool child (2-5 years),1.0,2026-08-31_11-15-46_,accuracy
+447,3.1. Preschool child (2-5 years),0.0,2026-08-31_11-15-46_,recall
+447,3.1. Preschool child (2-5 years),0.0,2026-08-31_11-15-46_,precision
+447,3.1. Preschool child (2-5 years),0.0,2026-08-31_11-15-46_,f1_score
+447,3.1. Preschool child (2-5 years),0.0,2026-08-31_11-15-46_,n_labels
+441,1. All ages,0.6,2026-08-31_11-15-46_,accuracy
+441,1. All ages,0.0,2026-08-31_11-15-46_,recall
+441,1. All ages,0.0,2026-08-31_11-15-46_,precision
+441,1. All ages,0.0,2026-08-31_11-15-46_,f1_score
+441,1. All ages,10.0,2026-08-31_11-15-46_,n_labels
+448,3.2. Child (6-12 years),1.0,2026-08-31_11-15-46_,accuracy
+448,3.2. Child (6-12 years),0.0,2026-08-31_11-15-46_,recall
+448,3.2. Child (6-12 years),0.0,2026-08-31_11-15-46_,precision
+448,3.2. Child (6-12 years),0.0,2026-08-31_11-15-46_,f1_score
+448,3.2. Child (6-12 years),0.0,2026-08-31_11-15-46_,n_labels
+443,3. Child (2-12 years),1.0,2026-08-31_11-15-46_,accuracy
+443,3. Child (2-12 years),0.0,2026-08-31_11-15-46_,recall
+443,3. Child (2-12 years),0.0,2026-08-31_11-15-46_,precision
+443,3. Child (2-12 years),0.0,2026-08-31_11-15-46_,f1_score
+443,3. Child (2-12 years),0.0,2026-08-31_11-15-46_,n_labels
+55,Island,0.96,2026-08-31_11-15-46_,accuracy
+55,Island,0.0,2026-08-31_11-15-46_,recall
+55,Island,0.0,2026-08-31_11-15-46_,precision
+55,Island,0.0,2026-08-31_11-15-46_,f1_score
+55,Island,1.0,2026-08-31_11-15-46_,n_labels
+49,Coastal,0.92,2026-08-31_11-15-46_,accuracy
+49,Coastal,0.5,2026-08-31_11-15-46_,recall
+49,Coastal,0.5,2026-08-31_11-15-46_,precision
+49,Coastal,0.5,2026-08-31_11-15-46_,f1_score
+49,Coastal,2.0,2026-08-31_11-15-46_,n_labels
+50,Coral reef,1.0,2026-08-31_11-15-46_,accuracy
+50,Coral reef,0.0,2026-08-31_11-15-46_,recall
+50,Coral reef,0.0,2026-08-31_11-15-46_,precision
+50,Coral reef,0.0,2026-08-31_11-15-46_,f1_score
+50,Coral reef,0.0,2026-08-31_11-15-46_,n_labels
+56,Mangrove,1.0,2026-08-31_11-15-46_,accuracy
+56,Mangrove,1.0,2026-08-31_11-15-46_,recall
+56,Mangrove,1.0,2026-08-31_11-15-46_,precision
+56,Mangrove,1.0,2026-08-31_11-15-46_,f1_score
+56,Mangrove,1.0,2026-08-31_11-15-46_,n_labels
+58,Mountain (alpine),1.0,2026-08-31_11-15-46_,accuracy
+58,Mountain (alpine),1.0,2026-08-31_11-15-46_,recall
+58,Mountain (alpine),1.0,2026-08-31_11-15-46_,precision
+58,Mountain (alpine),1.0,2026-08-31_11-15-46_,f1_score
+58,Mountain (alpine),1.0,2026-08-31_11-15-46_,n_labels
+51,Delta / floodplain,1.0,2026-08-31_11-15-46_,accuracy
+51,Delta / floodplain,1.0,2026-08-31_11-15-46_,recall
+51,Delta / floodplain,1.0,2026-08-31_11-15-46_,precision
+51,Delta / floodplain,1.0,2026-08-31_11-15-46_,f1_score
+51,Delta / floodplain,1.0,2026-08-31_11-15-46_,n_labels
+59,Ocean / marine,0.92,2026-08-31_11-15-46_,accuracy
+59,Ocean / marine,0.0,2026-08-31_11-15-46_,recall
+59,Ocean / marine,0.0,2026-08-31_11-15-46_,precision
+59,Ocean / marine,0.0,2026-08-31_11-15-46_,f1_score
+59,Ocean / marine,0.0,2026-08-31_11-15-46_,n_labels
+65,Tundra,1.0,2026-08-31_11-15-46_,accuracy
+65,Tundra,0.0,2026-08-31_11-15-46_,recall
+65,Tundra,0.0,2026-08-31_11-15-46_,precision
+65,Tundra,0.0,2026-08-31_11-15-46_,f1_score
+65,Tundra,0.0,2026-08-31_11-15-46_,n_labels
+62,Temperate grassland,1.0,2026-08-31_11-15-46_,accuracy
+62,Temperate grassland,0.0,2026-08-31_11-15-46_,recall
+62,Temperate grassland,0.0,2026-08-31_11-15-46_,precision
+62,Temperate grassland,0.0,2026-08-31_11-15-46_,f1_score
+62,Temperate grassland,0.0,2026-08-31_11-15-46_,n_labels
+67,Wetland / peatland,0.92,2026-08-31_11-15-46_,accuracy
+67,Wetland / peatland,0.0,2026-08-31_11-15-46_,recall
+67,Wetland / peatland,0.0,2026-08-31_11-15-46_,precision
+67,Wetland / peatland,0.0,2026-08-31_11-15-46_,f1_score
+67,Wetland / peatland,0.0,2026-08-31_11-15-46_,n_labels
+52,Desert (arid/semi-arid),0.96,2026-08-31_11-15-46_,accuracy
+52,Desert (arid/semi-arid),0.0,2026-08-31_11-15-46_,recall
+52,Desert (arid/semi-arid),0.0,2026-08-31_11-15-46_,precision
+52,Desert (arid/semi-arid),0.0,2026-08-31_11-15-46_,f1_score
+52,Desert (arid/semi-arid),0.0,2026-08-31_11-15-46_,n_labels
+57,Mediterranean / chaparral,1.0,2026-08-31_11-15-46_,accuracy
+57,Mediterranean / chaparral,0.0,2026-08-31_11-15-46_,recall
+57,Mediterranean / chaparral,0.0,2026-08-31_11-15-46_,precision
+57,Mediterranean / chaparral,0.0,2026-08-31_11-15-46_,f1_score
+57,Mediterranean / chaparral,0.0,2026-08-31_11-15-46_,n_labels
+64,Tropical rainforest,1.0,2026-08-31_11-15-46_,accuracy
+64,Tropical rainforest,0.0,2026-08-31_11-15-46_,recall
+64,Tropical rainforest,0.0,2026-08-31_11-15-46_,precision
+64,Tropical rainforest,0.0,2026-08-31_11-15-46_,f1_score
+64,Tropical rainforest,0.0,2026-08-31_11-15-46_,n_labels
+60,Riparian,0.96,2026-08-31_11-15-46_,accuracy
+60,Riparian,0.0,2026-08-31_11-15-46_,recall
+60,Riparian,0.0,2026-08-31_11-15-46_,precision
+60,Riparian,0.0,2026-08-31_11-15-46_,f1_score
+60,Riparian,1.0,2026-08-31_11-15-46_,n_labels
+63,Tropical grassland / savanna,1.0,2026-08-31_11-15-46_,accuracy
+63,Tropical grassland / savanna,0.0,2026-08-31_11-15-46_,recall
+63,Tropical grassland / savanna,0.0,2026-08-31_11-15-46_,precision
+63,Tropical grassland / savanna,0.0,2026-08-31_11-15-46_,f1_score
+63,Tropical grassland / savanna,0.0,2026-08-31_11-15-46_,n_labels
+53,Farmland,0.76,2026-08-31_11-15-46_,accuracy
+53,Farmland,0.0,2026-08-31_11-15-46_,recall
+53,Farmland,0.0,2026-08-31_11-15-46_,precision
+53,Farmland,0.0,2026-08-31_11-15-46_,f1_score
+53,Farmland,0.0,2026-08-31_11-15-46_,n_labels
+54,"Freshwater (rivers, lakes)",0.92,2026-08-31_11-15-46_,accuracy
+54,"Freshwater (rivers, lakes)",0.0,2026-08-31_11-15-46_,recall
+54,"Freshwater (rivers, lakes)",0.0,2026-08-31_11-15-46_,precision
+54,"Freshwater (rivers, lakes)",0.0,2026-08-31_11-15-46_,f1_score
+54,"Freshwater (rivers, lakes)",0.0,2026-08-31_11-15-46_,n_labels
+66,Valley,0.96,2026-08-31_11-15-46_,accuracy
+66,Valley,0.0,2026-08-31_11-15-46_,recall
+66,Valley,0.0,2026-08-31_11-15-46_,precision
+66,Valley,0.0,2026-08-31_11-15-46_,f1_score
+66,Valley,1.0,2026-08-31_11-15-46_,n_labels
+48,Boreal forest / taiga,1.0,2026-08-31_11-15-46_,accuracy
+48,Boreal forest / taiga,0.0,2026-08-31_11-15-46_,recall
+48,Boreal forest / taiga,0.0,2026-08-31_11-15-46_,precision
+48,Boreal forest / taiga,0.0,2026-08-31_11-15-46_,f1_score
+48,Boreal forest / taiga,0.0,2026-08-31_11-15-46_,n_labels
+61,Temperate forest,0.96,2026-08-31_11-15-46_,accuracy
+61,Temperate forest,0.0,2026-08-31_11-15-46_,recall
+61,Temperate forest,0.0,2026-08-31_11-15-46_,precision
+61,Temperate forest,0.0,2026-08-31_11-15-46_,f1_score
+61,Temperate forest,0.0,2026-08-31_11-15-46_,n_labels
+89,Death (Metric),1.0,2026-08-31_11-15-46_,accuracy
+89,Death (Metric),1.0,2026-08-31_11-15-46_,recall
+89,Death (Metric),1.0,2026-08-31_11-15-46_,precision
+89,Death (Metric),1.0,2026-08-31_11-15-46_,f1_score
+89,Death (Metric),1.0,2026-08-31_11-15-46_,n_labels
+110,Length of hospital stay (Metric),1.0,2026-08-31_11-15-46_,accuracy
+110,Length of hospital stay (Metric),0.0,2026-08-31_11-15-46_,recall
+110,Length of hospital stay (Metric),0.0,2026-08-31_11-15-46_,precision
+110,Length of hospital stay (Metric),0.0,2026-08-31_11-15-46_,f1_score
+110,Length of hospital stay (Metric),0.0,2026-08-31_11-15-46_,n_labels
+107,Emergency department visit (Metric),1.0,2026-08-31_11-15-46_,accuracy
+107,Emergency department visit (Metric),0.0,2026-08-31_11-15-46_,recall
+107,Emergency department visit (Metric),0.0,2026-08-31_11-15-46_,precision
+107,Emergency department visit (Metric),0.0,2026-08-31_11-15-46_,f1_score
+107,Emergency department visit (Metric),0.0,2026-08-31_11-15-46_,n_labels
+108,Healthcare access disruption (Metric),1.0,2026-08-31_11-15-46_,accuracy
+108,Healthcare access disruption (Metric),0.0,2026-08-31_11-15-46_,recall
+108,Healthcare access disruption (Metric),0.0,2026-08-31_11-15-46_,precision
+108,Healthcare access disruption (Metric),0.0,2026-08-31_11-15-46_,f1_score
+108,Healthcare access disruption (Metric),0.0,2026-08-31_11-15-46_,n_labels
+105,Attributable fraction / risk (Metric),1.0,2026-08-31_11-15-46_,accuracy
+105,Attributable fraction / risk (Metric),0.0,2026-08-31_11-15-46_,recall
+105,Attributable fraction / risk (Metric),0.0,2026-08-31_11-15-46_,precision
+105,Attributable fraction / risk (Metric),0.0,2026-08-31_11-15-46_,f1_score
+105,Attributable fraction / risk (Metric),0.0,2026-08-31_11-15-46_,n_labels
+103,Prevalence (Metric),0.92,2026-08-31_11-15-46_,accuracy
+103,Prevalence (Metric),0.0,2026-08-31_11-15-46_,recall
+103,Prevalence (Metric),0.0,2026-08-31_11-15-46_,precision
+103,Prevalence (Metric),0.0,2026-08-31_11-15-46_,f1_score
+103,Prevalence (Metric),0.0,2026-08-31_11-15-46_,n_labels
+100,(Health-related) quality of life (HrQoL/QoL) (Metric),0.96,2026-08-31_11-15-46_,accuracy
+100,(Health-related) quality of life (HrQoL/QoL) (Metric),0.0,2026-08-31_11-15-46_,recall
+100,(Health-related) quality of life (HrQoL/QoL) (Metric),0.0,2026-08-31_11-15-46_,precision
+100,(Health-related) quality of life (HrQoL/QoL) (Metric),0.0,2026-08-31_11-15-46_,f1_score
+100,(Health-related) quality of life (HrQoL/QoL) (Metric),1.0,2026-08-31_11-15-46_,n_labels
+99,Years of life lost (YLL) (Metric),1.0,2026-08-31_11-15-46_,accuracy
+99,Years of life lost (YLL) (Metric),0.0,2026-08-31_11-15-46_,recall
+99,Years of life lost (YLL) (Metric),0.0,2026-08-31_11-15-46_,precision
+99,Years of life lost (YLL) (Metric),0.0,2026-08-31_11-15-46_,f1_score
+99,Years of life lost (YLL) (Metric),0.0,2026-08-31_11-15-46_,n_labels
+111,Outpatient / primary care visit (Metric),1.0,2026-08-31_11-15-46_,accuracy
+111,Outpatient / primary care visit (Metric),0.0,2026-08-31_11-15-46_,recall
+111,Outpatient / primary care visit (Metric),0.0,2026-08-31_11-15-46_,precision
+111,Outpatient / primary care visit (Metric),0.0,2026-08-31_11-15-46_,f1_score
+111,Outpatient / primary care visit (Metric),0.0,2026-08-31_11-15-46_,n_labels
+102,Incidence (Metric),1.0,2026-08-31_11-15-46_,accuracy
+102,Incidence (Metric),0.0,2026-08-31_11-15-46_,recall
+102,Incidence (Metric),0.0,2026-08-31_11-15-46_,precision
+102,Incidence (Metric),0.0,2026-08-31_11-15-46_,f1_score
+102,Incidence (Metric),0.0,2026-08-31_11-15-46_,n_labels
+91,Exposure quantification (Metric),0.72,2026-08-31_11-15-46_,accuracy
+91,Exposure quantification (Metric),0.0,2026-08-31_11-15-46_,recall
+91,Exposure quantification (Metric),0.0,2026-08-31_11-15-46_,precision
+91,Exposure quantification (Metric),0.0,2026-08-31_11-15-46_,f1_score
+91,Exposure quantification (Metric),0.0,2026-08-31_11-15-46_,n_labels
+101,Disability-adjusted life years (DALY) (Metric),1.0,2026-08-31_11-15-46_,accuracy
+101,Disability-adjusted life years (DALY) (Metric),0.0,2026-08-31_11-15-46_,recall
+101,Disability-adjusted life years (DALY) (Metric),0.0,2026-08-31_11-15-46_,precision
+101,Disability-adjusted life years (DALY) (Metric),0.0,2026-08-31_11-15-46_,f1_score
+101,Disability-adjusted life years (DALY) (Metric),0.0,2026-08-31_11-15-46_,n_labels
+98,Potential years of life lost (PYLL) (Metric),1.0,2026-08-31_11-15-46_,accuracy
+98,Potential years of life lost (PYLL) (Metric),0.0,2026-08-31_11-15-46_,recall
+98,Potential years of life lost (PYLL) (Metric),0.0,2026-08-31_11-15-46_,precision
+98,Potential years of life lost (PYLL) (Metric),0.0,2026-08-31_11-15-46_,f1_score
+98,Potential years of life lost (PYLL) (Metric),0.0,2026-08-31_11-15-46_,n_labels
+104,Years lived with disability (Metric),1.0,2026-08-31_11-15-46_,accuracy
+104,Years lived with disability (Metric),0.0,2026-08-31_11-15-46_,recall
+104,Years lived with disability (Metric),0.0,2026-08-31_11-15-46_,precision
+104,Years lived with disability (Metric),0.0,2026-08-31_11-15-46_,f1_score
+104,Years lived with disability (Metric),0.0,2026-08-31_11-15-46_,n_labels
+93,All-cause mortality (Metric),0.96,2026-08-31_11-15-46_,accuracy
+93,All-cause mortality (Metric),0.0,2026-08-31_11-15-46_,recall
+93,All-cause mortality (Metric),0.0,2026-08-31_11-15-46_,precision
+93,All-cause mortality (Metric),0.0,2026-08-31_11-15-46_,f1_score
+93,All-cause mortality (Metric),0.0,2026-08-31_11-15-46_,n_labels
+97,Maternal mortality (Metric),1.0,2026-08-31_11-15-46_,accuracy
+97,Maternal mortality (Metric),0.0,2026-08-31_11-15-46_,recall
+97,Maternal mortality (Metric),0.0,2026-08-31_11-15-46_,precision
+97,Maternal mortality (Metric),0.0,2026-08-31_11-15-46_,f1_score
+97,Maternal mortality (Metric),0.0,2026-08-31_11-15-46_,n_labels
+96,Infant / child mortality (Metric),1.0,2026-08-31_11-15-46_,accuracy
+96,Infant / child mortality (Metric),0.0,2026-08-31_11-15-46_,recall
+96,Infant / child mortality (Metric),0.0,2026-08-31_11-15-46_,precision
+96,Infant / child mortality (Metric),0.0,2026-08-31_11-15-46_,f1_score
+96,Infant / child mortality (Metric),0.0,2026-08-31_11-15-46_,n_labels
+90,Disease burden / quality of life (Metric),0.76,2026-08-31_11-15-46_,accuracy
+90,Disease burden / quality of life (Metric),0.0,2026-08-31_11-15-46_,recall
+90,Disease burden / quality of life (Metric),0.0,2026-08-31_11-15-46_,precision
+90,Disease burden / quality of life (Metric),0.0,2026-08-31_11-15-46_,f1_score
+90,Disease burden / quality of life (Metric),1.0,2026-08-31_11-15-46_,n_labels
+95,Excess mortality (Metric),1.0,2026-08-31_11-15-46_,accuracy
+95,Excess mortality (Metric),0.0,2026-08-31_11-15-46_,recall
+95,Excess mortality (Metric),0.0,2026-08-31_11-15-46_,precision
+95,Excess mortality (Metric),0.0,2026-08-31_11-15-46_,f1_score
+95,Excess mortality (Metric),0.0,2026-08-31_11-15-46_,n_labels
+106,Relative risk / odds ratio (Metric),0.96,2026-08-31_11-15-46_,accuracy
+106,Relative risk / odds ratio (Metric),0.0,2026-08-31_11-15-46_,recall
+106,Relative risk / odds ratio (Metric),0.0,2026-08-31_11-15-46_,precision
+106,Relative risk / odds ratio (Metric),0.0,2026-08-31_11-15-46_,f1_score
+106,Relative risk / odds ratio (Metric),0.0,2026-08-31_11-15-46_,n_labels
+94,Cause-specific mortality (Metric),0.96,2026-08-31_11-15-46_,accuracy
+94,Cause-specific mortality (Metric),0.0,2026-08-31_11-15-46_,recall
+94,Cause-specific mortality (Metric),0.0,2026-08-31_11-15-46_,precision
+94,Cause-specific mortality (Metric),0.0,2026-08-31_11-15-46_,f1_score
+94,Cause-specific mortality (Metric),1.0,2026-08-31_11-15-46_,n_labels
+92,Healthcare utilisation (Metric),1.0,2026-08-31_11-15-46_,accuracy
+92,Healthcare utilisation (Metric),0.0,2026-08-31_11-15-46_,recall
+92,Healthcare utilisation (Metric),0.0,2026-08-31_11-15-46_,precision
+92,Healthcare utilisation (Metric),0.0,2026-08-31_11-15-46_,f1_score
+92,Healthcare utilisation (Metric),0.0,2026-08-31_11-15-46_,n_labels
+109,Hospital admission (Metric),1.0,2026-08-31_11-15-46_,accuracy
+109,Hospital admission (Metric),0.0,2026-08-31_11-15-46_,recall
+109,Hospital admission (Metric),0.0,2026-08-31_11-15-46_,precision
+109,Hospital admission (Metric),0.0,2026-08-31_11-15-46_,f1_score
+109,Hospital admission (Metric),0.0,2026-08-31_11-15-46_,n_labels
+436,Rapid review,1.0,2026-08-31_11-15-46_,accuracy
+436,Rapid review,0.0,2026-08-31_11-15-46_,recall
+436,Rapid review,0.0,2026-08-31_11-15-46_,precision
+436,Rapid review,0.0,2026-08-31_11-15-46_,f1_score
+436,Rapid review,0.0,2026-08-31_11-15-46_,n_labels
+420,Interrupted time series (controlled),1.0,2026-08-31_11-15-46_,accuracy
+420,Interrupted time series (controlled),0.0,2026-08-31_11-15-46_,recall
+420,Interrupted time series (controlled),0.0,2026-08-31_11-15-46_,precision
+420,Interrupted time series (controlled),0.0,2026-08-31_11-15-46_,f1_score
+420,Interrupted time series (controlled),0.0,2026-08-31_11-15-46_,n_labels
+424,Focus group,1.0,2026-08-31_11-15-46_,accuracy
+424,Focus group,0.0,2026-08-31_11-15-46_,recall
+424,Focus group,0.0,2026-08-31_11-15-46_,precision
+424,Focus group,0.0,2026-08-31_11-15-46_,f1_score
+424,Focus group,0.0,2026-08-31_11-15-46_,n_labels
+429,Narrative review,0.92,2026-08-31_11-15-46_,accuracy
+429,Narrative review,1.0,2026-08-31_11-15-46_,recall
+429,Narrative review,0.5,2026-08-31_11-15-46_,precision
+429,Narrative review,0.6666666666666666,2026-08-31_11-15-46_,f1_score
+429,Narrative review,2.0,2026-08-31_11-15-46_,n_labels
+399,2. Quasi-randomised / natural experiment,1.0,2026-08-31_11-15-46_,accuracy
+399,2. Quasi-randomised / natural experiment,0.0,2026-08-31_11-15-46_,recall
+399,2. Quasi-randomised / natural experiment,0.0,2026-08-31_11-15-46_,precision
+399,2. Quasi-randomised / natural experiment,0.0,2026-08-31_11-15-46_,f1_score
+399,2. Quasi-randomised / natural experiment,0.0,2026-08-31_11-15-46_,n_labels
+421,Before-after / pre-post study,1.0,2026-08-31_11-15-46_,accuracy
+421,Before-after / pre-post study,0.0,2026-08-31_11-15-46_,recall
+421,Before-after / pre-post study,0.0,2026-08-31_11-15-46_,precision
+421,Before-after / pre-post study,0.0,2026-08-31_11-15-46_,f1_score
+421,Before-after / pre-post study,0.0,2026-08-31_11-15-46_,n_labels
+430,Systematic reviews,1.0,2026-08-31_11-15-46_,accuracy
+430,Systematic reviews,1.0,2026-08-31_11-15-46_,recall
+430,Systematic reviews,1.0,2026-08-31_11-15-46_,precision
+430,Systematic reviews,1.0,2026-08-31_11-15-46_,f1_score
+430,Systematic reviews,1.0,2026-08-31_11-15-46_,n_labels
+396,Qualitative designs,0.96,2026-08-31_11-15-46_,accuracy
+396,Qualitative designs,0.0,2026-08-31_11-15-46_,recall
+396,Qualitative designs,0.0,2026-08-31_11-15-46_,precision
+396,Qualitative designs,0.0,2026-08-31_11-15-46_,f1_score
+396,Qualitative designs,1.0,2026-08-31_11-15-46_,n_labels
+427,Health technology assessment (HTA),1.0,2026-08-31_11-15-46_,accuracy
+427,Health technology assessment (HTA),0.0,2026-08-31_11-15-46_,recall
+427,Health technology assessment (HTA),0.0,2026-08-31_11-15-46_,precision
+427,Health technology assessment (HTA),0.0,2026-08-31_11-15-46_,f1_score
+427,Health technology assessment (HTA),0.0,2026-08-31_11-15-46_,n_labels
+394,Observational / group comparison designs,0.96,2026-08-31_11-15-46_,accuracy
+394,Observational / group comparison designs,1.0,2026-08-31_11-15-46_,recall
+394,Observational / group comparison designs,0.5,2026-08-31_11-15-46_,precision
+394,Observational / group comparison designs,0.6666666666666666,2026-08-31_11-15-46_,f1_score
+394,Observational / group comparison designs,1.0,2026-08-31_11-15-46_,n_labels
+411,Cross-sectional / single-round survey,0.92,2026-08-31_11-15-46_,accuracy
+411,Cross-sectional / single-round survey,0.0,2026-08-31_11-15-46_,recall
+411,Cross-sectional / single-round survey,0.0,2026-08-31_11-15-46_,precision
+411,Cross-sectional / single-round survey,0.0,2026-08-31_11-15-46_,f1_score
+411,Cross-sectional / single-round survey,1.0,2026-08-31_11-15-46_,n_labels
+431,Z_Other evidence synthesis type,0.88,2026-08-31_11-15-46_,accuracy
+431,Z_Other evidence synthesis type,0.0,2026-08-31_11-15-46_,recall
+431,Z_Other evidence synthesis type,0.0,2026-08-31_11-15-46_,precision
+431,Z_Other evidence synthesis type,0.0,2026-08-31_11-15-46_,f1_score
+431,Z_Other evidence synthesis type,3.0,2026-08-31_11-15-46_,n_labels
+426,Guideline (clinical or public health),0.96,2026-08-31_11-15-46_,accuracy
+426,Guideline (clinical or public health),0.0,2026-08-31_11-15-46_,recall
+426,Guideline (clinical or public health),0.0,2026-08-31_11-15-46_,precision
+426,Guideline (clinical or public health),0.0,2026-08-31_11-15-46_,f1_score
+426,Guideline (clinical or public health),1.0,2026-08-31_11-15-46_,n_labels
+437,Realist review,1.0,2026-08-31_11-15-46_,accuracy
+437,Realist review,0.0,2026-08-31_11-15-46_,recall
+437,Realist review,0.0,2026-08-31_11-15-46_,precision
+437,Realist review,0.0,2026-08-31_11-15-46_,f1_score
+437,Realist review,0.0,2026-08-31_11-15-46_,n_labels
+423,Ethnographic,1.0,2026-08-31_11-15-46_,accuracy
+423,Ethnographic,0.0,2026-08-31_11-15-46_,recall
+423,Ethnographic,0.0,2026-08-31_11-15-46_,precision
+423,Ethnographic,0.0,2026-08-31_11-15-46_,f1_score
+423,Ethnographic,0.0,2026-08-31_11-15-46_,n_labels
+413,Integrated assessment model (IAM) / health impact projection,1.0,2026-08-31_11-15-46_,accuracy
+413,Integrated assessment model (IAM) / health impact projection,0.0,2026-08-31_11-15-46_,recall
+413,Integrated assessment model (IAM) / health impact projection,0.0,2026-08-31_11-15-46_,precision
+413,Integrated assessment model (IAM) / health impact projection,0.0,2026-08-31_11-15-46_,f1_score
+413,Integrated assessment model (IAM) / health impact projection,0.0,2026-08-31_11-15-46_,n_labels
+393,Modelling / simulation,0.92,2026-08-31_11-15-46_,accuracy
+393,Modelling / simulation,0.875,2026-08-31_11-15-46_,recall
+393,Modelling / simulation,0.875,2026-08-31_11-15-46_,precision
+393,Modelling / simulation,0.875,2026-08-31_11-15-46_,f1_score
+393,Modelling / simulation,8.0,2026-08-31_11-15-46_,n_labels
+412,Computable general equilibrium (CGE) model,1.0,2026-08-31_11-15-46_,accuracy
+412,Computable general equilibrium (CGE) model,0.0,2026-08-31_11-15-46_,recall
+412,Computable general equilibrium (CGE) model,0.0,2026-08-31_11-15-46_,precision
+412,Computable general equilibrium (CGE) model,0.0,2026-08-31_11-15-46_,f1_score
+412,Computable general equilibrium (CGE) model,0.0,2026-08-31_11-15-46_,n_labels
+410,Case series / descriptive multi-case study,0.88,2026-08-31_11-15-46_,accuracy
+410,Case series / descriptive multi-case study,0.0,2026-08-31_11-15-46_,recall
+410,Case series / descriptive multi-case study,0.0,2026-08-31_11-15-46_,precision
+410,Case series / descriptive multi-case study,0.0,2026-08-31_11-15-46_,f1_score
+410,Case series / descriptive multi-case study,3.0,2026-08-31_11-15-46_,n_labels
+402,(Propensity score) Matched differences-in-differences,1.0,2026-08-31_11-15-46_,accuracy
+402,(Propensity score) Matched differences-in-differences,0.0,2026-08-31_11-15-46_,recall
+402,(Propensity score) Matched differences-in-differences,0.0,2026-08-31_11-15-46_,precision
+402,(Propensity score) Matched differences-in-differences,0.0,2026-08-31_11-15-46_,f1_score
+402,(Propensity score) Matched differences-in-differences,0.0,2026-08-31_11-15-46_,n_labels
+391,Descriptive / single-group designs,0.84,2026-08-31_11-15-46_,accuracy
+391,Descriptive / single-group designs,0.4,2026-08-31_11-15-46_,recall
+391,Descriptive / single-group designs,0.6666666666666666,2026-08-31_11-15-46_,precision
+391,Descriptive / single-group designs,0.5,2026-08-31_11-15-46_,f1_score
+391,Descriptive / single-group designs,5.0,2026-08-31_11-15-46_,n_labels
+389,(Quasi-)Experimental / group comparison designs,1.0,2026-08-31_11-15-46_,accuracy
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-08-31_11-15-46_,recall
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-08-31_11-15-46_,precision
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-08-31_11-15-46_,f1_score
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-08-31_11-15-46_,n_labels
+433,Living systematic review,1.0,2026-08-31_11-15-46_,accuracy
+433,Living systematic review,0.0,2026-08-31_11-15-46_,recall
+433,Living systematic review,0.0,2026-08-31_11-15-46_,precision
+433,Living systematic review,0.0,2026-08-31_11-15-46_,f1_score
+433,Living systematic review,0.0,2026-08-31_11-15-46_,n_labels
+439,Systematic review,1.0,2026-08-31_11-15-46_,accuracy
+439,Systematic review,1.0,2026-08-31_11-15-46_,recall
+439,Systematic review,1.0,2026-08-31_11-15-46_,precision
+439,Systematic review,1.0,2026-08-31_11-15-46_,f1_score
+439,Systematic review,1.0,2026-08-31_11-15-46_,n_labels
+415,Other climate-related modelling / simulation,0.88,2026-08-31_11-15-46_,accuracy
+415,Other climate-related modelling / simulation,0.7142857142857143,2026-08-31_11-15-46_,recall
+415,Other climate-related modelling / simulation,0.8333333333333334,2026-08-31_11-15-46_,precision
+415,Other climate-related modelling / simulation,0.7692307692307693,2026-08-31_11-15-46_,f1_score
+415,Other climate-related modelling / simulation,7.0,2026-08-31_11-15-46_,n_labels
+400,3. Non-randomised,1.0,2026-08-31_11-15-46_,accuracy
+400,3. Non-randomised,0.0,2026-08-31_11-15-46_,recall
+400,3. Non-randomised,0.0,2026-08-31_11-15-46_,precision
+400,3. Non-randomised,0.0,2026-08-31_11-15-46_,f1_score
+400,3. Non-randomised,0.0,2026-08-31_11-15-46_,n_labels
+425,Interviews,1.0,2026-08-31_11-15-46_,accuracy
+425,Interviews,0.0,2026-08-31_11-15-46_,recall
+425,Interviews,0.0,2026-08-31_11-15-46_,precision
+425,Interviews,0.0,2026-08-31_11-15-46_,f1_score
+425,Interviews,0.0,2026-08-31_11-15-46_,n_labels
+408,Single arm trial / single arm experiment,1.0,2026-08-31_11-15-46_,accuracy
+408,Single arm trial / single arm experiment,0.0,2026-08-31_11-15-46_,recall
+408,Single arm trial / single arm experiment,0.0,2026-08-31_11-15-46_,precision
+408,Single arm trial / single arm experiment,0.0,2026-08-31_11-15-46_,f1_score
+408,Single arm trial / single arm experiment,0.0,2026-08-31_11-15-46_,n_labels
+414,Microsimulation,1.0,2026-08-31_11-15-46_,accuracy
+414,Microsimulation,0.0,2026-08-31_11-15-46_,recall
+414,Microsimulation,0.0,2026-08-31_11-15-46_,precision
+414,Microsimulation,0.0,2026-08-31_11-15-46_,f1_score
+414,Microsimulation,0.0,2026-08-31_11-15-46_,n_labels
+417,Case-control / mached sample design,1.0,2026-08-31_11-15-46_,accuracy
+417,Case-control / mached sample design,0.0,2026-08-31_11-15-46_,recall
+417,Case-control / mached sample design,0.0,2026-08-31_11-15-46_,precision
+417,Case-control / mached sample design,0.0,2026-08-31_11-15-46_,f1_score
+417,Case-control / mached sample design,0.0,2026-08-31_11-15-46_,n_labels
+438,Scoping review,1.0,2026-08-31_11-15-46_,accuracy
+438,Scoping review,0.0,2026-08-31_11-15-46_,recall
+438,Scoping review,0.0,2026-08-31_11-15-46_,precision
+438,Scoping review,0.0,2026-08-31_11-15-46_,f1_score
+438,Scoping review,0.0,2026-08-31_11-15-46_,n_labels
+407,Synthetic control,1.0,2026-08-31_11-15-46_,accuracy
+407,Synthetic control,0.0,2026-08-31_11-15-46_,recall
+407,Synthetic control,0.0,2026-08-31_11-15-46_,precision
+407,Synthetic control,0.0,2026-08-31_11-15-46_,f1_score
+407,Synthetic control,0.0,2026-08-31_11-15-46_,n_labels
+395,Observational / single-group designs,0.96,2026-08-31_11-15-46_,accuracy
+395,Observational / single-group designs,0.6666666666666666,2026-08-31_11-15-46_,recall
+395,Observational / single-group designs,1.0,2026-08-31_11-15-46_,precision
+395,Observational / single-group designs,0.8,2026-08-31_11-15-46_,f1_score
+395,Observational / single-group designs,3.0,2026-08-31_11-15-46_,n_labels
+388,2. Evidence synthesis,0.76,2026-08-31_11-15-46_,accuracy
+388,2. Evidence synthesis,0.42857142857142855,2026-08-31_11-15-46_,recall
+388,2. Evidence synthesis,0.6,2026-08-31_11-15-46_,precision
+388,2. Evidence synthesis,0.5,2026-08-31_11-15-46_,f1_score
+388,2. Evidence synthesis,7.0,2026-08-31_11-15-46_,n_labels
+435,Qualitative evidence synthesis,0.96,2026-08-31_11-15-46_,accuracy
+435,Qualitative evidence synthesis,0.0,2026-08-31_11-15-46_,recall
+435,Qualitative evidence synthesis,0.0,2026-08-31_11-15-46_,precision
+435,Qualitative evidence synthesis,0.0,2026-08-31_11-15-46_,f1_score
+435,Qualitative evidence synthesis,1.0,2026-08-31_11-15-46_,n_labels
+432,Evidence map / evidence gap map,1.0,2026-08-31_11-15-46_,accuracy
+432,Evidence map / evidence gap map,0.0,2026-08-31_11-15-46_,recall
+432,Evidence map / evidence gap map,0.0,2026-08-31_11-15-46_,precision
+432,Evidence map / evidence gap map,0.0,2026-08-31_11-15-46_,f1_score
+432,Evidence map / evidence gap map,0.0,2026-08-31_11-15-46_,n_labels
+401,4. Randomisation unclear,1.0,2026-08-31_11-15-46_,accuracy
+401,4. Randomisation unclear,0.0,2026-08-31_11-15-46_,recall
+401,4. Randomisation unclear,0.0,2026-08-31_11-15-46_,precision
+401,4. Randomisation unclear,0.0,2026-08-31_11-15-46_,f1_score
+401,4. Randomisation unclear,0.0,2026-08-31_11-15-46_,n_labels
+428,Meta-analysis (unsystematic),1.0,2026-08-31_11-15-46_,accuracy
+428,Meta-analysis (unsystematic),0.0,2026-08-31_11-15-46_,recall
+428,Meta-analysis (unsystematic),0.0,2026-08-31_11-15-46_,precision
+428,Meta-analysis (unsystematic),0.0,2026-08-31_11-15-46_,f1_score
+428,Meta-analysis (unsystematic),0.0,2026-08-31_11-15-46_,n_labels
+404,Fixed effects / panel regression,1.0,2026-08-31_11-15-46_,accuracy
+404,Fixed effects / panel regression,0.0,2026-08-31_11-15-46_,recall
+404,Fixed effects / panel regression,0.0,2026-08-31_11-15-46_,precision
+404,Fixed effects / panel regression,0.0,2026-08-31_11-15-46_,f1_score
+404,Fixed effects / panel regression,0.0,2026-08-31_11-15-46_,n_labels
+387,1. Primary research,0.8,2026-08-31_11-15-46_,accuracy
+387,1. Primary research,0.8666666666666667,2026-08-31_11-15-46_,recall
+387,1. Primary research,0.8125,2026-08-31_11-15-46_,precision
+387,1. Primary research,0.8387096774193549,2026-08-31_11-15-46_,f1_score
+387,1. Primary research,15.0,2026-08-31_11-15-46_,n_labels
+403,Difference-in-differences / event study,1.0,2026-08-31_11-15-46_,accuracy
+403,Difference-in-differences / event study,0.0,2026-08-31_11-15-46_,recall
+403,Difference-in-differences / event study,0.0,2026-08-31_11-15-46_,precision
+403,Difference-in-differences / event study,0.0,2026-08-31_11-15-46_,f1_score
+403,Difference-in-differences / event study,0.0,2026-08-31_11-15-46_,n_labels
+398,1. Randomised (RCT),1.0,2026-08-31_11-15-46_,accuracy
+398,1. Randomised (RCT),0.0,2026-08-31_11-15-46_,recall
+398,1. Randomised (RCT),0.0,2026-08-31_11-15-46_,precision
+398,1. Randomised (RCT),0.0,2026-08-31_11-15-46_,f1_score
+398,1. Randomised (RCT),0.0,2026-08-31_11-15-46_,n_labels
+392,Mixed-methods,1.0,2026-08-31_11-15-46_,accuracy
+392,Mixed-methods,0.0,2026-08-31_11-15-46_,recall
+392,Mixed-methods,0.0,2026-08-31_11-15-46_,precision
+392,Mixed-methods,0.0,2026-08-31_11-15-46_,f1_score
+392,Mixed-methods,0.0,2026-08-31_11-15-46_,n_labels
+440,Umbrella review / overview of reviews,1.0,2026-08-31_11-15-46_,accuracy
+440,Umbrella review / overview of reviews,0.0,2026-08-31_11-15-46_,recall
+440,Umbrella review / overview of reviews,0.0,2026-08-31_11-15-46_,precision
+440,Umbrella review / overview of reviews,0.0,2026-08-31_11-15-46_,f1_score
+440,Umbrella review / overview of reviews,0.0,2026-08-31_11-15-46_,n_labels
+434,Mixed-methods review,1.0,2026-08-31_11-15-46_,accuracy
+434,Mixed-methods review,0.0,2026-08-31_11-15-46_,recall
+434,Mixed-methods review,0.0,2026-08-31_11-15-46_,precision
+434,Mixed-methods review,0.0,2026-08-31_11-15-46_,f1_score
+434,Mixed-methods review,0.0,2026-08-31_11-15-46_,n_labels
+397,Z_Other study design,0.92,2026-08-31_11-15-46_,accuracy
+397,Z_Other study design,0.0,2026-08-31_11-15-46_,recall
+397,Z_Other study design,0.0,2026-08-31_11-15-46_,precision
+397,Z_Other study design,0.0,2026-08-31_11-15-46_,f1_score
+397,Z_Other study design,0.0,2026-08-31_11-15-46_,n_labels
+405,Instrumental variables,1.0,2026-08-31_11-15-46_,accuracy
+405,Instrumental variables,0.0,2026-08-31_11-15-46_,recall
+405,Instrumental variables,0.0,2026-08-31_11-15-46_,precision
+405,Instrumental variables,0.0,2026-08-31_11-15-46_,f1_score
+405,Instrumental variables,0.0,2026-08-31_11-15-46_,n_labels
+390,(Quasi-)Experimental / single-group designs,1.0,2026-08-31_11-15-46_,accuracy
+390,(Quasi-)Experimental / single-group designs,0.0,2026-08-31_11-15-46_,recall
+390,(Quasi-)Experimental / single-group designs,0.0,2026-08-31_11-15-46_,precision
+390,(Quasi-)Experimental / single-group designs,0.0,2026-08-31_11-15-46_,f1_score
+390,(Quasi-)Experimental / single-group designs,0.0,2026-08-31_11-15-46_,n_labels
+406,Regression discontinuity,1.0,2026-08-31_11-15-46_,accuracy
+406,Regression discontinuity,0.0,2026-08-31_11-15-46_,recall
+406,Regression discontinuity,0.0,2026-08-31_11-15-46_,precision
+406,Regression discontinuity,0.0,2026-08-31_11-15-46_,f1_score
+406,Regression discontinuity,0.0,2026-08-31_11-15-46_,n_labels
+416,Other health-related modelling / simulation,1.0,2026-08-31_11-15-46_,accuracy
+416,Other health-related modelling / simulation,0.0,2026-08-31_11-15-46_,recall
+416,Other health-related modelling / simulation,0.0,2026-08-31_11-15-46_,precision
+416,Other health-related modelling / simulation,0.0,2026-08-31_11-15-46_,f1_score
+416,Other health-related modelling / simulation,0.0,2026-08-31_11-15-46_,n_labels
+418,Cohort / panel data / longitudinal study,1.0,2026-08-31_11-15-46_,accuracy
+418,Cohort / panel data / longitudinal study,1.0,2026-08-31_11-15-46_,recall
+418,Cohort / panel data / longitudinal study,1.0,2026-08-31_11-15-46_,precision
+418,Cohort / panel data / longitudinal study,1.0,2026-08-31_11-15-46_,f1_score
+418,Cohort / panel data / longitudinal study,1.0,2026-08-31_11-15-46_,n_labels
+409,Case report / case study,0.96,2026-08-31_11-15-46_,accuracy
+409,Case report / case study,0.0,2026-08-31_11-15-46_,recall
+409,Case report / case study,0.0,2026-08-31_11-15-46_,precision
+409,Case report / case study,0.0,2026-08-31_11-15-46_,f1_score
+409,Case report / case study,1.0,2026-08-31_11-15-46_,n_labels
+419,Controlled before-after (CBA),1.0,2026-08-31_11-15-46_,accuracy
+419,Controlled before-after (CBA),0.0,2026-08-31_11-15-46_,recall
+419,Controlled before-after (CBA),0.0,2026-08-31_11-15-46_,precision
+419,Controlled before-after (CBA),0.0,2026-08-31_11-15-46_,f1_score
+419,Controlled before-after (CBA),0.0,2026-08-31_11-15-46_,n_labels
+422,Interrupted time series (uncontrolled),0.96,2026-08-31_11-15-46_,accuracy
+422,Interrupted time series (uncontrolled),0.0,2026-08-31_11-15-46_,recall
+422,Interrupted time series (uncontrolled),0.0,2026-08-31_11-15-46_,precision
+422,Interrupted time series (uncontrolled),0.0,2026-08-31_11-15-46_,f1_score
+422,Interrupted time series (uncontrolled),1.0,2026-08-31_11-15-46_,n_labels
+347,Emergency / disaster management,0.96,2026-08-31_11-15-46_,accuracy
+347,Emergency / disaster management,0.5,2026-08-31_11-15-46_,recall
+347,Emergency / disaster management,1.0,2026-08-31_11-15-46_,precision
+347,Emergency / disaster management,0.6666666666666666,2026-08-31_11-15-46_,f1_score
+347,Emergency / disaster management,2.0,2026-08-31_11-15-46_,n_labels
+351,Z_Other institution-based interventions,0.92,2026-08-31_11-15-46_,accuracy
+351,Z_Other institution-based interventions,0.0,2026-08-31_11-15-46_,recall
+351,Z_Other institution-based interventions,0.0,2026-08-31_11-15-46_,precision
+351,Z_Other institution-based interventions,0.0,2026-08-31_11-15-46_,f1_score
+351,Z_Other institution-based interventions,1.0,2026-08-31_11-15-46_,n_labels
+386,Z_Other mitigation technologies / infrastructure,1.0,2026-08-31_11-15-46_,accuracy
+386,Z_Other mitigation technologies / infrastructure,0.0,2026-08-31_11-15-46_,recall
+386,Z_Other mitigation technologies / infrastructure,0.0,2026-08-31_11-15-46_,precision
+386,Z_Other mitigation technologies / infrastructure,0.0,2026-08-31_11-15-46_,f1_score
+386,Z_Other mitigation technologies / infrastructure,0.0,2026-08-31_11-15-46_,n_labels
+372,Other adaptation technologies / infrastructure,1.0,2026-08-31_11-15-46_,accuracy
+372,Other adaptation technologies / infrastructure,0.0,2026-08-31_11-15-46_,recall
+372,Other adaptation technologies / infrastructure,0.0,2026-08-31_11-15-46_,precision
+372,Other adaptation technologies / infrastructure,0.0,2026-08-31_11-15-46_,f1_score
+372,Other adaptation technologies / infrastructure,0.0,2026-08-31_11-15-46_,n_labels
+384,Sustainable food systems,0.96,2026-08-31_11-15-46_,accuracy
+384,Sustainable food systems,0.0,2026-08-31_11-15-46_,recall
+384,Sustainable food systems,0.0,2026-08-31_11-15-46_,precision
+384,Sustainable food systems,0.0,2026-08-31_11-15-46_,f1_score
+384,Sustainable food systems,1.0,2026-08-31_11-15-46_,n_labels
+339,Land / resource rights,1.0,2026-08-31_11-15-46_,accuracy
+339,Land / resource rights,0.0,2026-08-31_11-15-46_,recall
+339,Land / resource rights,0.0,2026-08-31_11-15-46_,precision
+339,Land / resource rights,0.0,2026-08-31_11-15-46_,f1_score
+339,Land / resource rights,0.0,2026-08-31_11-15-46_,n_labels
+383,Low-emission transport,1.0,2026-08-31_11-15-46_,accuracy
+383,Low-emission transport,0.0,2026-08-31_11-15-46_,recall
+383,Low-emission transport,0.0,2026-08-31_11-15-46_,precision
+383,Low-emission transport,0.0,2026-08-31_11-15-46_,f1_score
+383,Low-emission transport,0.0,2026-08-31_11-15-46_,n_labels
+365,Emitting technologies / infrastructure,0.88,2026-08-31_11-15-46_,accuracy
+365,Emitting technologies / infrastructure,0.0,2026-08-31_11-15-46_,recall
+365,Emitting technologies / infrastructure,0.0,2026-08-31_11-15-46_,precision
+365,Emitting technologies / infrastructure,0.0,2026-08-31_11-15-46_,f1_score
+365,Emitting technologies / infrastructure,1.0,2026-08-31_11-15-46_,n_labels
+318,Ecosystem-based,0.96,2026-08-31_11-15-46_,accuracy
+318,Ecosystem-based,0.5,2026-08-31_11-15-46_,recall
+318,Ecosystem-based,1.0,2026-08-31_11-15-46_,precision
+318,Ecosystem-based,0.6666666666666666,2026-08-31_11-15-46_,f1_score
+318,Ecosystem-based,2.0,2026-08-31_11-15-46_,n_labels
+369,Coastal / flood defence,1.0,2026-08-31_11-15-46_,accuracy
+369,Coastal / flood defence,0.0,2026-08-31_11-15-46_,recall
+369,Coastal / flood defence,0.0,2026-08-31_11-15-46_,precision
+369,Coastal / flood defence,0.0,2026-08-31_11-15-46_,f1_score
+369,Coastal / flood defence,0.0,2026-08-31_11-15-46_,n_labels
+380,Carbon capture,1.0,2026-08-31_11-15-46_,accuracy
+380,Carbon capture,0.0,2026-08-31_11-15-46_,recall
+380,Carbon capture,0.0,2026-08-31_11-15-46_,precision
+380,Carbon capture,0.0,2026-08-31_11-15-46_,f1_score
+380,Carbon capture,0.0,2026-08-31_11-15-46_,n_labels
+373,Carbon-intensive built environment,1.0,2026-08-31_11-15-46_,accuracy
+373,Carbon-intensive built environment,0.0,2026-08-31_11-15-46_,recall
+373,Carbon-intensive built environment,0.0,2026-08-31_11-15-46_,precision
+373,Carbon-intensive built environment,0.0,2026-08-31_11-15-46_,f1_score
+373,Carbon-intensive built environment,0.0,2026-08-31_11-15-46_,n_labels
+349,International development / aid,1.0,2026-08-31_11-15-46_,accuracy
+349,International development / aid,0.0,2026-08-31_11-15-46_,recall
+349,International development / aid,0.0,2026-08-31_11-15-46_,precision
+349,International development / aid,0.0,2026-08-31_11-15-46_,f1_score
+349,International development / aid,0.0,2026-08-31_11-15-46_,n_labels
+350,Research / knowledge systems / education,0.92,2026-08-31_11-15-46_,accuracy
+350,Research / knowledge systems / education,0.5,2026-08-31_11-15-46_,recall
+350,Research / knowledge systems / education,0.5,2026-08-31_11-15-46_,precision
+350,Research / knowledge systems / education,0.5,2026-08-31_11-15-46_,f1_score
+350,Research / knowledge systems / education,2.0,2026-08-31_11-15-46_,n_labels
+340,Participatory governance,1.0,2026-08-31_11-15-46_,accuracy
+340,Participatory governance,0.0,2026-08-31_11-15-46_,recall
+340,Participatory governance,0.0,2026-08-31_11-15-46_,precision
+340,Participatory governance,0.0,2026-08-31_11-15-46_,f1_score
+340,Participatory governance,0.0,2026-08-31_11-15-46_,n_labels
+336,Z_Other behaviour related to mitigation,1.0,2026-08-31_11-15-46_,accuracy
+336,Z_Other behaviour related to mitigation,0.0,2026-08-31_11-15-46_,recall
+336,Z_Other behaviour related to mitigation,0.0,2026-08-31_11-15-46_,precision
+336,Z_Other behaviour related to mitigation,0.0,2026-08-31_11-15-46_,f1_score
+336,Z_Other behaviour related to mitigation,0.0,2026-08-31_11-15-46_,n_labels
+376,Industrial / extractive infrastructure,1.0,2026-08-31_11-15-46_,accuracy
+376,Industrial / extractive infrastructure,0.0,2026-08-31_11-15-46_,recall
+376,Industrial / extractive infrastructure,0.0,2026-08-31_11-15-46_,precision
+376,Industrial / extractive infrastructure,0.0,2026-08-31_11-15-46_,f1_score
+376,Industrial / extractive infrastructure,0.0,2026-08-31_11-15-46_,n_labels
+319,Institutional,0.88,2026-08-31_11-15-46_,accuracy
+319,Institutional,0.4,2026-08-31_11-15-46_,recall
+319,Institutional,1.0,2026-08-31_11-15-46_,precision
+319,Institutional,0.5714285714285714,2026-08-31_11-15-46_,f1_score
+319,Institutional,5.0,2026-08-31_11-15-46_,n_labels
+353,Health system governance,1.0,2026-08-31_11-15-46_,accuracy
+353,Health system governance,0.0,2026-08-31_11-15-46_,recall
+353,Health system governance,0.0,2026-08-31_11-15-46_,precision
+353,Health system governance,0.0,2026-08-31_11-15-46_,f1_score
+353,Health system governance,0.0,2026-08-31_11-15-46_,n_labels
+338,Cultural identity,0.96,2026-08-31_11-15-46_,accuracy
+338,Cultural identity,0.0,2026-08-31_11-15-46_,recall
+338,Cultural identity,0.0,2026-08-31_11-15-46_,precision
+338,Cultural identity,0.0,2026-08-31_11-15-46_,f1_score
+338,Cultural identity,1.0,2026-08-31_11-15-46_,n_labels
+335,Behaviour related to mobility,0.96,2026-08-31_11-15-46_,accuracy
+335,Behaviour related to mobility,0.0,2026-08-31_11-15-46_,recall
+335,Behaviour related to mobility,0.0,2026-08-31_11-15-46_,precision
+335,Behaviour related to mobility,0.0,2026-08-31_11-15-46_,f1_score
+335,Behaviour related to mobility,1.0,2026-08-31_11-15-46_,n_labels
+371,Food security technology,1.0,2026-08-31_11-15-46_,accuracy
+371,Food security technology,1.0,2026-08-31_11-15-46_,recall
+371,Food security technology,1.0,2026-08-31_11-15-46_,precision
+371,Food security technology,1.0,2026-08-31_11-15-46_,f1_score
+371,Food security technology,2.0,2026-08-31_11-15-46_,n_labels
+357,Z_Other clinical / biomedical interventions,1.0,2026-08-31_11-15-46_,accuracy
+357,Z_Other clinical / biomedical interventions,0.0,2026-08-31_11-15-46_,recall
+357,Z_Other clinical / biomedical interventions,0.0,2026-08-31_11-15-46_,precision
+357,Z_Other clinical / biomedical interventions,0.0,2026-08-31_11-15-46_,f1_score
+357,Z_Other clinical / biomedical interventions,0.0,2026-08-31_11-15-46_,n_labels
+381,Clean energy systems,1.0,2026-08-31_11-15-46_,accuracy
+381,Clean energy systems,0.0,2026-08-31_11-15-46_,recall
+381,Clean energy systems,0.0,2026-08-31_11-15-46_,precision
+381,Clean energy systems,0.0,2026-08-31_11-15-46_,f1_score
+381,Clean energy systems,0.0,2026-08-31_11-15-46_,n_labels
+375,High-emission agricultural infrastructure,1.0,2026-08-31_11-15-46_,accuracy
+375,High-emission agricultural infrastructure,0.0,2026-08-31_11-15-46_,recall
+375,High-emission agricultural infrastructure,0.0,2026-08-31_11-15-46_,precision
+375,High-emission agricultural infrastructure,0.0,2026-08-31_11-15-46_,f1_score
+375,High-emission agricultural infrastructure,0.0,2026-08-31_11-15-46_,n_labels
+322,Adaptation behaviours,0.88,2026-08-31_11-15-46_,accuracy
+322,Adaptation behaviours,1.0,2026-08-31_11-15-46_,recall
+322,Adaptation behaviours,0.25,2026-08-31_11-15-46_,precision
+322,Adaptation behaviours,0.4,2026-08-31_11-15-46_,f1_score
+322,Adaptation behaviours,1.0,2026-08-31_11-15-46_,n_labels
+317,Community-based,0.92,2026-08-31_11-15-46_,accuracy
+317,Community-based,0.0,2026-08-31_11-15-46_,recall
+317,Community-based,0.0,2026-08-31_11-15-46_,precision
+317,Community-based,0.0,2026-08-31_11-15-46_,f1_score
+317,Community-based,2.0,2026-08-31_11-15-46_,n_labels
+362,National / subnational policy,0.96,2026-08-31_11-15-46_,accuracy
+362,National / subnational policy,0.0,2026-08-31_11-15-46_,recall
+362,National / subnational policy,0.0,2026-08-31_11-15-46_,precision
+362,National / subnational policy,0.0,2026-08-31_11-15-46_,f1_score
+362,National / subnational policy,1.0,2026-08-31_11-15-46_,n_labels
+355,Vaccines and immunization,1.0,2026-08-31_11-15-46_,accuracy
+355,Vaccines and immunization,0.0,2026-08-31_11-15-46_,recall
+355,Vaccines and immunization,0.0,2026-08-31_11-15-46_,precision
+355,Vaccines and immunization,0.0,2026-08-31_11-15-46_,f1_score
+355,Vaccines and immunization,0.0,2026-08-31_11-15-46_,n_labels
+359,Fiscal / incentive policy,1.0,2026-08-31_11-15-46_,accuracy
+359,Fiscal / incentive policy,0.0,2026-08-31_11-15-46_,recall
+359,Fiscal / incentive policy,0.0,2026-08-31_11-15-46_,precision
+359,Fiscal / incentive policy,0.0,2026-08-31_11-15-46_,f1_score
+359,Fiscal / incentive policy,0.0,2026-08-31_11-15-46_,n_labels
+330,Self-protection,0.96,2026-08-31_11-15-46_,accuracy
+330,Self-protection,0.0,2026-08-31_11-15-46_,recall
+330,Self-protection,0.0,2026-08-31_11-15-46_,precision
+330,Self-protection,0.0,2026-08-31_11-15-46_,f1_score
+330,Self-protection,0.0,2026-08-31_11-15-46_,n_labels
+363,Regulatory / legislative policy,0.96,2026-08-31_11-15-46_,accuracy
+363,Regulatory / legislative policy,0.0,2026-08-31_11-15-46_,recall
+363,Regulatory / legislative policy,0.0,2026-08-31_11-15-46_,precision
+363,Regulatory / legislative policy,0.0,2026-08-31_11-15-46_,f1_score
+363,Regulatory / legislative policy,1.0,2026-08-31_11-15-46_,n_labels
+385,Waste management / circular economy,1.0,2026-08-31_11-15-46_,accuracy
+385,Waste management / circular economy,0.0,2026-08-31_11-15-46_,recall
+385,Waste management / circular economy,0.0,2026-08-31_11-15-46_,precision
+385,Waste management / circular economy,0.0,2026-08-31_11-15-46_,f1_score
+385,Waste management / circular economy,0.0,2026-08-31_11-15-46_,n_labels
+368,Climate-resilient water / sanitation,1.0,2026-08-31_11-15-46_,accuracy
+368,Climate-resilient water / sanitation,0.0,2026-08-31_11-15-46_,recall
+368,Climate-resilient water / sanitation,0.0,2026-08-31_11-15-46_,precision
+368,Climate-resilient water / sanitation,0.0,2026-08-31_11-15-46_,f1_score
+368,Climate-resilient water / sanitation,0.0,2026-08-31_11-15-46_,n_labels
+325,Household protection,1.0,2026-08-31_11-15-46_,accuracy
+325,Household protection,1.0,2026-08-31_11-15-46_,recall
+325,Household protection,1.0,2026-08-31_11-15-46_,precision
+325,Household protection,1.0,2026-08-31_11-15-46_,f1_score
+325,Household protection,1.0,2026-08-31_11-15-46_,n_labels
+320,Policy,0.88,2026-08-31_11-15-46_,accuracy
+320,Policy,0.0,2026-08-31_11-15-46_,recall
+320,Policy,0.0,2026-08-31_11-15-46_,precision
+320,Policy,0.0,2026-08-31_11-15-46_,f1_score
+320,Policy,2.0,2026-08-31_11-15-46_,n_labels
+377,Internal combustion transport infrastructure,1.0,2026-08-31_11-15-46_,accuracy
+377,Internal combustion transport infrastructure,1.0,2026-08-31_11-15-46_,recall
+377,Internal combustion transport infrastructure,1.0,2026-08-31_11-15-46_,precision
+377,Internal combustion transport infrastructure,1.0,2026-08-31_11-15-46_,f1_score
+377,Internal combustion transport infrastructure,1.0,2026-08-31_11-15-46_,n_labels
+348,Health systems and public health,0.96,2026-08-31_11-15-46_,accuracy
+348,Health systems and public health,0.0,2026-08-31_11-15-46_,recall
+348,Health systems and public health,0.0,2026-08-31_11-15-46_,precision
+348,Health systems and public health,0.0,2026-08-31_11-15-46_,f1_score
+348,Health systems and public health,1.0,2026-08-31_11-15-46_,n_labels
+360,Health-in-all-policies,1.0,2026-08-31_11-15-46_,accuracy
+360,Health-in-all-policies,0.0,2026-08-31_11-15-46_,recall
+360,Health-in-all-policies,0.0,2026-08-31_11-15-46_,precision
+360,Health-in-all-policies,0.0,2026-08-31_11-15-46_,f1_score
+360,Health-in-all-policies,0.0,2026-08-31_11-15-46_,n_labels
+331,Z_Other behaviour related to adaptation,0.96,2026-08-31_11-15-46_,accuracy
+331,Z_Other behaviour related to adaptation,0.0,2026-08-31_11-15-46_,recall
+331,Z_Other behaviour related to adaptation,0.0,2026-08-31_11-15-46_,precision
+331,Z_Other behaviour related to adaptation,0.0,2026-08-31_11-15-46_,f1_score
+331,Z_Other behaviour related to adaptation,0.0,2026-08-31_11-15-46_,n_labels
+327,Lifestyle change in place,1.0,2026-08-31_11-15-46_,accuracy
+327,Lifestyle change in place,0.0,2026-08-31_11-15-46_,recall
+327,Lifestyle change in place,0.0,2026-08-31_11-15-46_,precision
+327,Lifestyle change in place,0.0,2026-08-31_11-15-46_,f1_score
+327,Lifestyle change in place,0.0,2026-08-31_11-15-46_,n_labels
+374,Fossil fuel-based energy systems,0.96,2026-08-31_11-15-46_,accuracy
+374,Fossil fuel-based energy systems,0.0,2026-08-31_11-15-46_,recall
+374,Fossil fuel-based energy systems,0.0,2026-08-31_11-15-46_,precision
+374,Fossil fuel-based energy systems,0.0,2026-08-31_11-15-46_,f1_score
+374,Fossil fuel-based energy systems,1.0,2026-08-31_11-15-46_,n_labels
+329,Psychological coping,1.0,2026-08-31_11-15-46_,accuracy
+329,Psychological coping,0.0,2026-08-31_11-15-46_,recall
+329,Psychological coping,0.0,2026-08-31_11-15-46_,precision
+329,Psychological coping,0.0,2026-08-31_11-15-46_,f1_score
+329,Psychological coping,0.0,2026-08-31_11-15-46_,n_labels
+352,Diagnostics and surveillance tools,0.96,2026-08-31_11-15-46_,accuracy
+352,Diagnostics and surveillance tools,0.0,2026-08-31_11-15-46_,recall
+352,Diagnostics and surveillance tools,0.0,2026-08-31_11-15-46_,precision
+352,Diagnostics and surveillance tools,0.0,2026-08-31_11-15-46_,f1_score
+352,Diagnostics and surveillance tools,1.0,2026-08-31_11-15-46_,n_labels
+323,Mitigation behaviours,0.92,2026-08-31_11-15-46_,accuracy
+323,Mitigation behaviours,0.0,2026-08-31_11-15-46_,recall
+323,Mitigation behaviours,0.0,2026-08-31_11-15-46_,precision
+323,Mitigation behaviours,0.0,2026-08-31_11-15-46_,f1_score
+323,Mitigation behaviours,2.0,2026-08-31_11-15-46_,n_labels
+358,Z_Other public health response,1.0,2026-08-31_11-15-46_,accuracy
+358,Z_Other public health response,0.0,2026-08-31_11-15-46_,recall
+358,Z_Other public health response,0.0,2026-08-31_11-15-46_,precision
+358,Z_Other public health response,0.0,2026-08-31_11-15-46_,f1_score
+358,Z_Other public health response,0.0,2026-08-31_11-15-46_,n_labels
+337,Community-based adaptation,0.92,2026-08-31_11-15-46_,accuracy
+337,Community-based adaptation,0.0,2026-08-31_11-15-46_,recall
+337,Community-based adaptation,0.0,2026-08-31_11-15-46_,precision
+337,Community-based adaptation,0.0,2026-08-31_11-15-46_,f1_score
+337,Community-based adaptation,2.0,2026-08-31_11-15-46_,n_labels
+344,Forest / land management,1.0,2026-08-31_11-15-46_,accuracy
+344,Forest / land management,0.0,2026-08-31_11-15-46_,recall
+344,Forest / land management,0.0,2026-08-31_11-15-46_,precision
+344,Forest / land management,0.0,2026-08-31_11-15-46_,f1_score
+344,Forest / land management,0.0,2026-08-31_11-15-46_,n_labels
+342,Z_Other community-based interventions,1.0,2026-08-31_11-15-46_,accuracy
+342,Z_Other community-based interventions,0.0,2026-08-31_11-15-46_,recall
+342,Z_Other community-based interventions,0.0,2026-08-31_11-15-46_,precision
+342,Z_Other community-based interventions,0.0,2026-08-31_11-15-46_,f1_score
+342,Z_Other community-based interventions,0.0,2026-08-31_11-15-46_,n_labels
+321,Technology / infrastructure,0.6,2026-08-31_11-15-46_,accuracy
+321,Technology / infrastructure,0.4166666666666667,2026-08-31_11-15-46_,recall
+321,Technology / infrastructure,0.625,2026-08-31_11-15-46_,precision
+321,Technology / infrastructure,0.5,2026-08-31_11-15-46_,f1_score
+321,Technology / infrastructure,12.0,2026-08-31_11-15-46_,n_labels
+332,Behaviour related to food/diet,0.96,2026-08-31_11-15-46_,accuracy
+332,Behaviour related to food/diet,0.0,2026-08-31_11-15-46_,recall
+332,Behaviour related to food/diet,0.0,2026-08-31_11-15-46_,precision
+332,Behaviour related to food/diet,0.0,2026-08-31_11-15-46_,f1_score
+332,Behaviour related to food/diet,1.0,2026-08-31_11-15-46_,n_labels
+328,Migration,1.0,2026-08-31_11-15-46_,accuracy
+328,Migration,0.0,2026-08-31_11-15-46_,recall
+328,Migration,0.0,2026-08-31_11-15-46_,precision
+328,Migration,0.0,2026-08-31_11-15-46_,f1_score
+328,Migration,0.0,2026-08-31_11-15-46_,n_labels
+370,Digital / data-based technology / infrastructure,0.76,2026-08-31_11-15-46_,accuracy
+370,Digital / data-based technology / infrastructure,0.14285714285714285,2026-08-31_11-15-46_,recall
+370,Digital / data-based technology / infrastructure,1.0,2026-08-31_11-15-46_,precision
+370,Digital / data-based technology / infrastructure,0.25,2026-08-31_11-15-46_,f1_score
+370,Digital / data-based technology / infrastructure,7.0,2026-08-31_11-15-46_,n_labels
+326,Learning,0.92,2026-08-31_11-15-46_,accuracy
+326,Learning,0.0,2026-08-31_11-15-46_,recall
+326,Learning,0.0,2026-08-31_11-15-46_,precision
+326,Learning,0.0,2026-08-31_11-15-46_,f1_score
+326,Learning,0.0,2026-08-31_11-15-46_,n_labels
+379,Z_Other emitting technologies / infrastructure,1.0,2026-08-31_11-15-46_,accuracy
+379,Z_Other emitting technologies / infrastructure,0.0,2026-08-31_11-15-46_,recall
+379,Z_Other emitting technologies / infrastructure,0.0,2026-08-31_11-15-46_,precision
+379,Z_Other emitting technologies / infrastructure,0.0,2026-08-31_11-15-46_,f1_score
+379,Z_Other emitting technologies / infrastructure,0.0,2026-08-31_11-15-46_,n_labels
+345,Urban green-blue infrastructure,1.0,2026-08-31_11-15-46_,accuracy
+345,Urban green-blue infrastructure,0.0,2026-08-31_11-15-46_,recall
+345,Urban green-blue infrastructure,0.0,2026-08-31_11-15-46_,precision
+345,Urban green-blue infrastructure,0.0,2026-08-31_11-15-46_,f1_score
+345,Urban green-blue infrastructure,0.0,2026-08-31_11-15-46_,n_labels
+382,Energy-efficiency,1.0,2026-08-31_11-15-46_,accuracy
+382,Energy-efficiency,0.0,2026-08-31_11-15-46_,recall
+382,Energy-efficiency,0.0,2026-08-31_11-15-46_,precision
+382,Energy-efficiency,0.0,2026-08-31_11-15-46_,f1_score
+382,Energy-efficiency,0.0,2026-08-31_11-15-46_,n_labels
+366,Mitigation technologies / infrastructure,0.92,2026-08-31_11-15-46_,accuracy
+366,Mitigation technologies / infrastructure,0.0,2026-08-31_11-15-46_,recall
+366,Mitigation technologies / infrastructure,0.0,2026-08-31_11-15-46_,precision
+366,Mitigation technologies / infrastructure,0.0,2026-08-31_11-15-46_,f1_score
+366,Mitigation technologies / infrastructure,2.0,2026-08-31_11-15-46_,n_labels
+324,Civic engagement,0.96,2026-08-31_11-15-46_,accuracy
+324,Civic engagement,0.0,2026-08-31_11-15-46_,recall
+324,Civic engagement,0.0,2026-08-31_11-15-46_,precision
+324,Civic engagement,0.0,2026-08-31_11-15-46_,f1_score
+324,Civic engagement,1.0,2026-08-31_11-15-46_,n_labels
+343,Coastal / marine protection,1.0,2026-08-31_11-15-46_,accuracy
+343,Coastal / marine protection,1.0,2026-08-31_11-15-46_,recall
+343,Coastal / marine protection,1.0,2026-08-31_11-15-46_,precision
+343,Coastal / marine protection,1.0,2026-08-31_11-15-46_,f1_score
+343,Coastal / marine protection,1.0,2026-08-31_11-15-46_,n_labels
+316,Behavior / culture,0.8,2026-08-31_11-15-46_,accuracy
+316,Behavior / culture,0.5,2026-08-31_11-15-46_,recall
+316,Behavior / culture,0.2,2026-08-31_11-15-46_,precision
+316,Behavior / culture,0.2857142857142857,2026-08-31_11-15-46_,f1_score
+316,Behavior / culture,2.0,2026-08-31_11-15-46_,n_labels
+367,Adaptive built environment,0.96,2026-08-31_11-15-46_,accuracy
+367,Adaptive built environment,0.0,2026-08-31_11-15-46_,recall
+367,Adaptive built environment,0.0,2026-08-31_11-15-46_,precision
+367,Adaptive built environment,0.0,2026-08-31_11-15-46_,f1_score
+367,Adaptive built environment,0.0,2026-08-31_11-15-46_,n_labels
+361,International / multilateral agreements,1.0,2026-08-31_11-15-46_,accuracy
+361,International / multilateral agreements,0.0,2026-08-31_11-15-46_,recall
+361,International / multilateral agreements,0.0,2026-08-31_11-15-46_,precision
+361,International / multilateral agreements,0.0,2026-08-31_11-15-46_,f1_score
+361,International / multilateral agreements,0.0,2026-08-31_11-15-46_,n_labels
+364,Adaptation technologies / infractstructure,0.76,2026-08-31_11-15-46_,accuracy
+364,Adaptation technologies / infractstructure,0.4444444444444444,2026-08-31_11-15-46_,recall
+364,Adaptation technologies / infractstructure,0.8,2026-08-31_11-15-46_,precision
+364,Adaptation technologies / infractstructure,0.5714285714285714,2026-08-31_11-15-46_,f1_score
+364,Adaptation technologies / infractstructure,9.0,2026-08-31_11-15-46_,n_labels
+378,Waste infrastructure with high emissions,1.0,2026-08-31_11-15-46_,accuracy
+378,Waste infrastructure with high emissions,0.0,2026-08-31_11-15-46_,recall
+378,Waste infrastructure with high emissions,0.0,2026-08-31_11-15-46_,precision
+378,Waste infrastructure with high emissions,0.0,2026-08-31_11-15-46_,f1_score
+378,Waste infrastructure with high emissions,0.0,2026-08-31_11-15-46_,n_labels
+333,Behaviour related to goods/consumption/services,1.0,2026-08-31_11-15-46_,accuracy
+333,Behaviour related to goods/consumption/services,0.0,2026-08-31_11-15-46_,recall
+333,Behaviour related to goods/consumption/services,0.0,2026-08-31_11-15-46_,precision
+333,Behaviour related to goods/consumption/services,0.0,2026-08-31_11-15-46_,f1_score
+333,Behaviour related to goods/consumption/services,0.0,2026-08-31_11-15-46_,n_labels
+356,Vector control,1.0,2026-08-31_11-15-46_,accuracy
+356,Vector control,0.0,2026-08-31_11-15-46_,recall
+356,Vector control,0.0,2026-08-31_11-15-46_,precision
+356,Vector control,0.0,2026-08-31_11-15-46_,f1_score
+356,Vector control,0.0,2026-08-31_11-15-46_,n_labels
+354,Therapeutics and pharmaceuticals,1.0,2026-08-31_11-15-46_,accuracy
+354,Therapeutics and pharmaceuticals,0.0,2026-08-31_11-15-46_,recall
+354,Therapeutics and pharmaceuticals,0.0,2026-08-31_11-15-46_,precision
+354,Therapeutics and pharmaceuticals,0.0,2026-08-31_11-15-46_,f1_score
+354,Therapeutics and pharmaceuticals,0.0,2026-08-31_11-15-46_,n_labels
+346,Z_Other ecosystem-based interventions,0.96,2026-08-31_11-15-46_,accuracy
+346,Z_Other ecosystem-based interventions,0.0,2026-08-31_11-15-46_,recall
+346,Z_Other ecosystem-based interventions,0.0,2026-08-31_11-15-46_,precision
+346,Z_Other ecosystem-based interventions,0.0,2026-08-31_11-15-46_,f1_score
+346,Z_Other ecosystem-based interventions,1.0,2026-08-31_11-15-46_,n_labels
+334,Behaviour related to households,1.0,2026-08-31_11-15-46_,accuracy
+334,Behaviour related to households,0.0,2026-08-31_11-15-46_,recall
+334,Behaviour related to households,0.0,2026-08-31_11-15-46_,precision
+334,Behaviour related to households,0.0,2026-08-31_11-15-46_,f1_score
+334,Behaviour related to households,0.0,2026-08-31_11-15-46_,n_labels
+341,Social cohesion / mutual aid,1.0,2026-08-31_11-15-46_,accuracy
+341,Social cohesion / mutual aid,0.0,2026-08-31_11-15-46_,recall
+341,Social cohesion / mutual aid,0.0,2026-08-31_11-15-46_,precision
+341,Social cohesion / mutual aid,0.0,2026-08-31_11-15-46_,f1_score
+341,Social cohesion / mutual aid,0.0,2026-08-31_11-15-46_,n_labels
+224,Z_Other chronic respiratory diseases,1.0,2026-08-31_11-15-46_,accuracy
+224,Z_Other chronic respiratory diseases,0.0,2026-08-31_11-15-46_,recall
+224,Z_Other chronic respiratory diseases,0.0,2026-08-31_11-15-46_,precision
+224,Z_Other chronic respiratory diseases,0.0,2026-08-31_11-15-46_,f1_score
+224,Z_Other chronic respiratory diseases,0.0,2026-08-31_11-15-46_,n_labels
+249,Schizophrenia,1.0,2026-08-31_11-15-46_,accuracy
+249,Schizophrenia,0.0,2026-08-31_11-15-46_,recall
+249,Schizophrenia,0.0,2026-08-31_11-15-46_,precision
+249,Schizophrenia,0.0,2026-08-31_11-15-46_,f1_score
+249,Schizophrenia,0.0,2026-08-31_11-15-46_,n_labels
+151,Neonatal preterm birth,1.0,2026-08-31_11-15-46_,accuracy
+151,Neonatal preterm birth,0.0,2026-08-31_11-15-46_,recall
+151,Neonatal preterm birth,0.0,2026-08-31_11-15-46_,precision
+151,Neonatal preterm birth,0.0,2026-08-31_11-15-46_,f1_score
+151,Neonatal preterm birth,0.0,2026-08-31_11-15-46_,n_labels
+253,"Tracheal, bronchus, and lung cancer",1.0,2026-08-31_11-15-46_,accuracy
+253,"Tracheal, bronchus, and lung cancer",0.0,2026-08-31_11-15-46_,recall
+253,"Tracheal, bronchus, and lung cancer",0.0,2026-08-31_11-15-46_,precision
+253,"Tracheal, bronchus, and lung cancer",0.0,2026-08-31_11-15-46_,f1_score
+253,"Tracheal, bronchus, and lung cancer",0.0,2026-08-31_11-15-46_,n_labels
+244,Conduct disorder,1.0,2026-08-31_11-15-46_,accuracy
+244,Conduct disorder,0.0,2026-08-31_11-15-46_,recall
+244,Conduct disorder,0.0,2026-08-31_11-15-46_,precision
+244,Conduct disorder,0.0,2026-08-31_11-15-46_,f1_score
+244,Conduct disorder,0.0,2026-08-31_11-15-46_,n_labels
+130,"Injury-related mortality (drowning, fires, disasters, suicide, violence)",1.0,2026-08-31_11-15-46_,accuracy
+130,"Injury-related mortality (drowning, fires, disasters, suicide, violence)",0.0,2026-08-31_11-15-46_,recall
+130,"Injury-related mortality (drowning, fires, disasters, suicide, violence)",0.0,2026-08-31_11-15-46_,precision
+130,"Injury-related mortality (drowning, fires, disasters, suicide, violence)",0.0,2026-08-31_11-15-46_,f1_score
+130,"Injury-related mortality (drowning, fires, disasters, suicide, violence)",0.0,2026-08-31_11-15-46_,n_labels
+146,Sexually transmitted infections excluding HIV,1.0,2026-08-31_11-15-46_,accuracy
+146,Sexually transmitted infections excluding HIV,0.0,2026-08-31_11-15-46_,recall
+146,Sexually transmitted infections excluding HIV,0.0,2026-08-31_11-15-46_,precision
+146,Sexually transmitted infections excluding HIV,0.0,2026-08-31_11-15-46_,f1_score
+146,Sexually transmitted infections excluding HIV,0.0,2026-08-31_11-15-46_,n_labels
+272,Pruritus,1.0,2026-08-31_11-15-46_,accuracy
+272,Pruritus,0.0,2026-08-31_11-15-46_,recall
+272,Pruritus,0.0,2026-08-31_11-15-46_,precision
+272,Pruritus,0.0,2026-08-31_11-15-46_,f1_score
+272,Pruritus,0.0,2026-08-31_11-15-46_,n_labels
+262,Z_Other neurological disorders,1.0,2026-08-31_11-15-46_,accuracy
+262,Z_Other neurological disorders,0.0,2026-08-31_11-15-46_,recall
+262,Z_Other neurological disorders,0.0,2026-08-31_11-15-46_,precision
+262,Z_Other neurological disorders,0.0,2026-08-31_11-15-46_,f1_score
+262,Z_Other neurological disorders,0.0,2026-08-31_11-15-46_,n_labels
+270,Dermatitis,1.0,2026-08-31_11-15-46_,accuracy
+270,Dermatitis,0.0,2026-08-31_11-15-46_,recall
+270,Dermatitis,0.0,2026-08-31_11-15-46_,precision
+270,Dermatitis,0.0,2026-08-31_11-15-46_,f1_score
+270,Dermatitis,0.0,2026-08-31_11-15-46_,n_labels
+225,Acute glomerulonephritis,1.0,2026-08-31_11-15-46_,accuracy
+225,Acute glomerulonephritis,0.0,2026-08-31_11-15-46_,recall
+225,Acute glomerulonephritis,0.0,2026-08-31_11-15-46_,precision
+225,Acute glomerulonephritis,0.0,2026-08-31_11-15-46_,f1_score
+225,Acute glomerulonephritis,0.0,2026-08-31_11-15-46_,n_labels
+160,Guinea worm disease,1.0,2026-08-31_11-15-46_,accuracy
+160,Guinea worm disease,0.0,2026-08-31_11-15-46_,recall
+160,Guinea worm disease,0.0,2026-08-31_11-15-46_,precision
+160,Guinea worm disease,0.0,2026-08-31_11-15-46_,f1_score
+160,Guinea worm disease,0.0,2026-08-31_11-15-46_,n_labels
+215,Pulmonary Arterial Hypertension,1.0,2026-08-31_11-15-46_,accuracy
+215,Pulmonary Arterial Hypertension,0.0,2026-08-31_11-15-46_,recall
+215,Pulmonary Arterial Hypertension,0.0,2026-08-31_11-15-46_,precision
+215,Pulmonary Arterial Hypertension,0.0,2026-08-31_11-15-46_,f1_score
+215,Pulmonary Arterial Hypertension,0.0,2026-08-31_11-15-46_,n_labels
+200,Musculoskeletal disorders,1.0,2026-08-31_11-15-46_,accuracy
+200,Musculoskeletal disorders,0.0,2026-08-31_11-15-46_,recall
+200,Musculoskeletal disorders,0.0,2026-08-31_11-15-46_,precision
+200,Musculoskeletal disorders,0.0,2026-08-31_11-15-46_,f1_score
+200,Musculoskeletal disorders,0.0,2026-08-31_11-15-46_,n_labels
+221,Chronic obstructive pulmonary disease,1.0,2026-08-31_11-15-46_,accuracy
+221,Chronic obstructive pulmonary disease,0.0,2026-08-31_11-15-46_,recall
+221,Chronic obstructive pulmonary disease,0.0,2026-08-31_11-15-46_,precision
+221,Chronic obstructive pulmonary disease,0.0,2026-08-31_11-15-46_,f1_score
+221,Chronic obstructive pulmonary disease,0.0,2026-08-31_11-15-46_,n_labels
+267,Alopecia areata,1.0,2026-08-31_11-15-46_,accuracy
+267,Alopecia areata,0.0,2026-08-31_11-15-46_,recall
+267,Alopecia areata,0.0,2026-08-31_11-15-46_,precision
+267,Alopecia areata,0.0,2026-08-31_11-15-46_,f1_score
+267,Alopecia areata,0.0,2026-08-31_11-15-46_,n_labels
+245,Depressive disorders,1.0,2026-08-31_11-15-46_,accuracy
+245,Depressive disorders,0.0,2026-08-31_11-15-46_,recall
+245,Depressive disorders,0.0,2026-08-31_11-15-46_,precision
+245,Depressive disorders,0.0,2026-08-31_11-15-46_,f1_score
+245,Depressive disorders,0.0,2026-08-31_11-15-46_,n_labels
+195,Cardiovascular diseases,1.0,2026-08-31_11-15-46_,accuracy
+195,Cardiovascular diseases,0.0,2026-08-31_11-15-46_,recall
+195,Cardiovascular diseases,0.0,2026-08-31_11-15-46_,precision
+195,Cardiovascular diseases,0.0,2026-08-31_11-15-46_,f1_score
+195,Cardiovascular diseases,0.0,2026-08-31_11-15-46_,n_labels
+258,Idiopathic epilepsy,1.0,2026-08-31_11-15-46_,accuracy
+258,Idiopathic epilepsy,0.0,2026-08-31_11-15-46_,recall
+258,Idiopathic epilepsy,0.0,2026-08-31_11-15-46_,precision
+258,Idiopathic epilepsy,0.0,2026-08-31_11-15-46_,f1_score
+258,Idiopathic epilepsy,0.0,2026-08-31_11-15-46_,n_labels
+115,4. Injuries,1.0,2026-08-31_11-15-46_,accuracy
+115,4. Injuries,1.0,2026-08-31_11-15-46_,recall
+115,4. Injuries,1.0,2026-08-31_11-15-46_,precision
+115,4. Injuries,1.0,2026-08-31_11-15-46_,f1_score
+115,4. Injuries,1.0,2026-08-31_11-15-46_,n_labels
+147,Maternal disorders,1.0,2026-08-31_11-15-46_,accuracy
+147,Maternal disorders,0.0,2026-08-31_11-15-46_,recall
+147,Maternal disorders,0.0,2026-08-31_11-15-46_,precision
+147,Maternal disorders,0.0,2026-08-31_11-15-46_,f1_score
+147,Maternal disorders,0.0,2026-08-31_11-15-46_,n_labels
+167,Onchocerciasis,1.0,2026-08-31_11-15-46_,accuracy
+167,Onchocerciasis,0.0,2026-08-31_11-15-46_,recall
+167,Onchocerciasis,0.0,2026-08-31_11-15-46_,precision
+167,Onchocerciasis,0.0,2026-08-31_11-15-46_,f1_score
+167,Onchocerciasis,0.0,2026-08-31_11-15-46_,n_labels
+301,Exposure to mechanical forces,1.0,2026-08-31_11-15-46_,accuracy
+301,Exposure to mechanical forces,0.0,2026-08-31_11-15-46_,recall
+301,Exposure to mechanical forces,0.0,2026-08-31_11-15-46_,precision
+301,Exposure to mechanical forces,0.0,2026-08-31_11-15-46_,f1_score
+301,Exposure to mechanical forces,0.0,2026-08-31_11-15-46_,n_labels
+280,Nicotine dependence,1.0,2026-08-31_11-15-46_,accuracy
+280,Nicotine dependence,0.0,2026-08-31_11-15-46_,recall
+280,Nicotine dependence,0.0,2026-08-31_11-15-46_,precision
+280,Nicotine dependence,0.0,2026-08-31_11-15-46_,f1_score
+280,Nicotine dependence,0.0,2026-08-31_11-15-46_,n_labels
+213,Lower extremity peripheral arterial disease,1.0,2026-08-31_11-15-46_,accuracy
+213,Lower extremity peripheral arterial disease,0.0,2026-08-31_11-15-46_,recall
+213,Lower extremity peripheral arterial disease,0.0,2026-08-31_11-15-46_,precision
+213,Lower extremity peripheral arterial disease,0.0,2026-08-31_11-15-46_,f1_score
+213,Lower extremity peripheral arterial disease,0.0,2026-08-31_11-15-46_,n_labels
+210,Endocarditis,1.0,2026-08-31_11-15-46_,accuracy
+210,Endocarditis,0.0,2026-08-31_11-15-46_,recall
+210,Endocarditis,0.0,2026-08-31_11-15-46_,precision
+210,Endocarditis,0.0,2026-08-31_11-15-46_,f1_score
+210,Endocarditis,0.0,2026-08-31_11-15-46_,n_labels
+212,Ischemic heart disease,1.0,2026-08-31_11-15-46_,accuracy
+212,Ischemic heart disease,0.0,2026-08-31_11-15-46_,recall
+212,Ischemic heart disease,0.0,2026-08-31_11-15-46_,precision
+212,Ischemic heart disease,0.0,2026-08-31_11-15-46_,f1_score
+212,Ischemic heart disease,0.0,2026-08-31_11-15-46_,n_labels
+141,Invasive Non-typhoidal Salmonella (iNTS),1.0,2026-08-31_11-15-46_,accuracy
+141,Invasive Non-typhoidal Salmonella (iNTS),0.0,2026-08-31_11-15-46_,recall
+141,Invasive Non-typhoidal Salmonella (iNTS),0.0,2026-08-31_11-15-46_,precision
+141,Invasive Non-typhoidal Salmonella (iNTS),0.0,2026-08-31_11-15-46_,f1_score
+141,Invasive Non-typhoidal Salmonella (iNTS),0.0,2026-08-31_11-15-46_,n_labels
+194,Z_Other unspecified infectious diseases,1.0,2026-08-31_11-15-46_,accuracy
+194,Z_Other unspecified infectious diseases,0.0,2026-08-31_11-15-46_,recall
+194,Z_Other unspecified infectious diseases,0.0,2026-08-31_11-15-46_,precision
+194,Z_Other unspecified infectious diseases,0.0,2026-08-31_11-15-46_,f1_score
+194,Z_Other unspecified infectious diseases,0.0,2026-08-31_11-15-46_,n_labels
+291,Conflict and terrorism,1.0,2026-08-31_11-15-46_,accuracy
+291,Conflict and terrorism,0.0,2026-08-31_11-15-46_,recall
+291,Conflict and terrorism,0.0,2026-08-31_11-15-46_,precision
+291,Conflict and terrorism,0.0,2026-08-31_11-15-46_,f1_score
+291,Conflict and terrorism,0.0,2026-08-31_11-15-46_,n_labels
+211,Hypertensive heart disease,1.0,2026-08-31_11-15-46_,accuracy
+211,Hypertensive heart disease,0.0,2026-08-31_11-15-46_,recall
+211,Hypertensive heart disease,0.0,2026-08-31_11-15-46_,precision
+211,Hypertensive heart disease,0.0,2026-08-31_11-15-46_,f1_score
+211,Hypertensive heart disease,0.0,2026-08-31_11-15-46_,n_labels
+158,Ebola,1.0,2026-08-31_11-15-46_,accuracy
+158,Ebola,0.0,2026-08-31_11-15-46_,recall
+158,Ebola,0.0,2026-08-31_11-15-46_,precision
+158,Ebola,0.0,2026-08-31_11-15-46_,f1_score
+158,Ebola,0.0,2026-08-31_11-15-46_,n_labels
+152,African trypanosomiasis,1.0,2026-08-31_11-15-46_,accuracy
+152,African trypanosomiasis,0.0,2026-08-31_11-15-46_,recall
+152,African trypanosomiasis,0.0,2026-08-31_11-15-46_,precision
+152,African trypanosomiasis,0.0,2026-08-31_11-15-46_,f1_score
+152,African trypanosomiasis,0.0,2026-08-31_11-15-46_,n_labels
+128,Chronic respiratory diseases mortality,1.0,2026-08-31_11-15-46_,accuracy
+128,Chronic respiratory diseases mortality,0.0,2026-08-31_11-15-46_,recall
+128,Chronic respiratory diseases mortality,0.0,2026-08-31_11-15-46_,precision
+128,Chronic respiratory diseases mortality,0.0,2026-08-31_11-15-46_,f1_score
+128,Chronic respiratory diseases mortality,0.0,2026-08-31_11-15-46_,n_labels
+275,Urticaria,1.0,2026-08-31_11-15-46_,accuracy
+275,Urticaria,0.0,2026-08-31_11-15-46_,recall
+275,Urticaria,0.0,2026-08-31_11-15-46_,precision
+275,Urticaria,0.0,2026-08-31_11-15-46_,f1_score
+275,Urticaria,0.0,2026-08-31_11-15-46_,n_labels
+125,Other infectious diseases mortality,1.0,2026-08-31_11-15-46_,accuracy
+125,Other infectious diseases mortality,0.0,2026-08-31_11-15-46_,recall
+125,Other infectious diseases mortality,0.0,2026-08-31_11-15-46_,precision
+125,Other infectious diseases mortality,0.0,2026-08-31_11-15-46_,f1_score
+125,Other infectious diseases mortality,0.0,2026-08-31_11-15-46_,n_labels
+120,Maternal mortality,1.0,2026-08-31_11-15-46_,accuracy
+120,Maternal mortality,0.0,2026-08-31_11-15-46_,recall
+120,Maternal mortality,0.0,2026-08-31_11-15-46_,precision
+120,Maternal mortality,0.0,2026-08-31_11-15-46_,f1_score
+120,Maternal mortality,0.0,2026-08-31_11-15-46_,n_labels
+166,Malaria,1.0,2026-08-31_11-15-46_,accuracy
+166,Malaria,0.0,2026-08-31_11-15-46_,recall
+166,Malaria,0.0,2026-08-31_11-15-46_,precision
+166,Malaria,0.0,2026-08-31_11-15-46_,f1_score
+166,Malaria,0.0,2026-08-31_11-15-46_,n_labels
+188,Lyme disease,1.0,2026-08-31_11-15-46_,accuracy
+188,Lyme disease,0.0,2026-08-31_11-15-46_,recall
+188,Lyme disease,0.0,2026-08-31_11-15-46_,precision
+188,Lyme disease,0.0,2026-08-31_11-15-46_,f1_score
+188,Lyme disease,0.0,2026-08-31_11-15-46_,n_labels
+181,Lower respiratory infections,1.0,2026-08-31_11-15-46_,accuracy
+181,Lower respiratory infections,0.0,2026-08-31_11-15-46_,recall
+181,Lower respiratory infections,0.0,2026-08-31_11-15-46_,precision
+181,Lower respiratory infections,0.0,2026-08-31_11-15-46_,f1_score
+181,Lower respiratory infections,0.0,2026-08-31_11-15-46_,n_labels
+161,Intestinal nematode infections,1.0,2026-08-31_11-15-46_,accuracy
+161,Intestinal nematode infections,0.0,2026-08-31_11-15-46_,recall
+161,Intestinal nematode infections,0.0,2026-08-31_11-15-46_,precision
+161,Intestinal nematode infections,0.0,2026-08-31_11-15-46_,f1_score
+161,Intestinal nematode infections,0.0,2026-08-31_11-15-46_,n_labels
+296,Animal contact,1.0,2026-08-31_11-15-46_,accuracy
+296,Animal contact,0.0,2026-08-31_11-15-46_,recall
+296,Animal contact,0.0,2026-08-31_11-15-46_,precision
+296,Animal contact,0.0,2026-08-31_11-15-46_,f1_score
+296,Animal contact,0.0,2026-08-31_11-15-46_,n_labels
+132,Other non-communicable diseases mortality,1.0,2026-08-31_11-15-46_,accuracy
+132,Other non-communicable diseases mortality,0.0,2026-08-31_11-15-46_,recall
+132,Other non-communicable diseases mortality,0.0,2026-08-31_11-15-46_,precision
+132,Other non-communicable diseases mortality,0.0,2026-08-31_11-15-46_,f1_score
+132,Other non-communicable diseases mortality,0.0,2026-08-31_11-15-46_,n_labels
+246,Eating disorders,1.0,2026-08-31_11-15-46_,accuracy
+246,Eating disorders,0.0,2026-08-31_11-15-46_,recall
+246,Eating disorders,0.0,2026-08-31_11-15-46_,precision
+246,Eating disorders,0.0,2026-08-31_11-15-46_,f1_score
+246,Eating disorders,0.0,2026-08-31_11-15-46_,n_labels
+228,Acute kidney injury,1.0,2026-08-31_11-15-46_,accuracy
+228,Acute kidney injury,0.0,2026-08-31_11-15-46_,recall
+228,Acute kidney injury,0.0,2026-08-31_11-15-46_,precision
+228,Acute kidney injury,0.0,2026-08-31_11-15-46_,f1_score
+228,Acute kidney injury,0.0,2026-08-31_11-15-46_,n_labels
+305,Poisonings,1.0,2026-08-31_11-15-46_,accuracy
+305,Poisonings,0.0,2026-08-31_11-15-46_,recall
+305,Poisonings,0.0,2026-08-31_11-15-46_,precision
+305,Poisonings,0.0,2026-08-31_11-15-46_,f1_score
+305,Poisonings,0.0,2026-08-31_11-15-46_,n_labels
+203,Sense organ diseases,1.0,2026-08-31_11-15-46_,accuracy
+203,Sense organ diseases,1.0,2026-08-31_11-15-46_,recall
+203,Sense organ diseases,1.0,2026-08-31_11-15-46_,precision
+203,Sense organ diseases,1.0,2026-08-31_11-15-46_,f1_score
+203,Sense organ diseases,1.0,2026-08-31_11-15-46_,n_labels
+180,COVID-19,1.0,2026-08-31_11-15-46_,accuracy
+180,COVID-19,0.0,2026-08-31_11-15-46_,recall
+180,COVID-19,0.0,2026-08-31_11-15-46_,precision
+180,COVID-19,0.0,2026-08-31_11-15-46_,f1_score
+180,COVID-19,0.0,2026-08-31_11-15-46_,n_labels
+207,Aortic aneurysm,1.0,2026-08-31_11-15-46_,accuracy
+207,Aortic aneurysm,0.0,2026-08-31_11-15-46_,recall
+207,Aortic aneurysm,0.0,2026-08-31_11-15-46_,precision
+207,Aortic aneurysm,0.0,2026-08-31_11-15-46_,f1_score
+207,Aortic aneurysm,0.0,2026-08-31_11-15-46_,n_labels
+260,Multiple sclerosis,1.0,2026-08-31_11-15-46_,accuracy
+260,Multiple sclerosis,0.0,2026-08-31_11-15-46_,recall
+260,Multiple sclerosis,0.0,2026-08-31_11-15-46_,precision
+260,Multiple sclerosis,0.0,2026-08-31_11-15-46_,f1_score
+260,Multiple sclerosis,0.0,2026-08-31_11-15-46_,n_labels
+172,Zika virus,1.0,2026-08-31_11-15-46_,accuracy
+172,Zika virus,0.0,2026-08-31_11-15-46_,recall
+172,Zika virus,0.0,2026-08-31_11-15-46_,precision
+172,Zika virus,0.0,2026-08-31_11-15-46_,f1_score
+172,Zika virus,0.0,2026-08-31_11-15-46_,n_labels
+303,"Fire, heat, and hot substances",1.0,2026-08-31_11-15-46_,accuracy
+303,"Fire, heat, and hot substances",0.0,2026-08-31_11-15-46_,recall
+303,"Fire, heat, and hot substances",0.0,2026-08-31_11-15-46_,precision
+303,"Fire, heat, and hot substances",0.0,2026-08-31_11-15-46_,f1_score
+303,"Fire, heat, and hot substances",0.0,2026-08-31_11-15-46_,n_labels
+149,Maternal abortion and miscarriage,1.0,2026-08-31_11-15-46_,accuracy
+149,Maternal abortion and miscarriage,0.0,2026-08-31_11-15-46_,recall
+149,Maternal abortion and miscarriage,0.0,2026-08-31_11-15-46_,precision
+149,Maternal abortion and miscarriage,0.0,2026-08-31_11-15-46_,f1_score
+149,Maternal abortion and miscarriage,0.0,2026-08-31_11-15-46_,n_labels
+168,Rabies,1.0,2026-08-31_11-15-46_,accuracy
+168,Rabies,0.0,2026-08-31_11-15-46_,recall
+168,Rabies,0.0,2026-08-31_11-15-46_,precision
+168,Rabies,0.0,2026-08-31_11-15-46_,f1_score
+168,Rabies,0.0,2026-08-31_11-15-46_,n_labels
+278,Alcohol use disorders,1.0,2026-08-31_11-15-46_,accuracy
+278,Alcohol use disorders,0.0,2026-08-31_11-15-46_,recall
+278,Alcohol use disorders,0.0,2026-08-31_11-15-46_,precision
+278,Alcohol use disorders,0.0,2026-08-31_11-15-46_,f1_score
+278,Alcohol use disorders,0.0,2026-08-31_11-15-46_,n_labels
+230,Appendicitis,1.0,2026-08-31_11-15-46_,accuracy
+230,Appendicitis,0.0,2026-08-31_11-15-46_,recall
+230,Appendicitis,0.0,2026-08-31_11-15-46_,precision
+230,Appendicitis,0.0,2026-08-31_11-15-46_,f1_score
+230,Appendicitis,0.0,2026-08-31_11-15-46_,n_labels
+238,Vascular intestinal disorders,1.0,2026-08-31_11-15-46_,accuracy
+238,Vascular intestinal disorders,0.0,2026-08-31_11-15-46_,recall
+238,Vascular intestinal disorders,0.0,2026-08-31_11-15-46_,precision
+238,Vascular intestinal disorders,0.0,2026-08-31_11-15-46_,f1_score
+238,Vascular intestinal disorders,0.0,2026-08-31_11-15-46_,n_labels
+163,Leprosy,1.0,2026-08-31_11-15-46_,accuracy
+163,Leprosy,0.0,2026-08-31_11-15-46_,recall
+163,Leprosy,0.0,2026-08-31_11-15-46_,precision
+163,Leprosy,0.0,2026-08-31_11-15-46_,f1_score
+163,Leprosy,0.0,2026-08-31_11-15-46_,n_labels
+114,3. Non-communicable diseases,1.0,2026-08-31_11-15-46_,accuracy
+114,3. Non-communicable diseases,1.0,2026-08-31_11-15-46_,recall
+114,3. Non-communicable diseases,1.0,2026-08-31_11-15-46_,precision
+114,3. Non-communicable diseases,1.0,2026-08-31_11-15-46_,f1_score
+114,3. Non-communicable diseases,3.0,2026-08-31_11-15-46_,n_labels
+302,Falls,1.0,2026-08-31_11-15-46_,accuracy
+302,Falls,0.0,2026-08-31_11-15-46_,recall
+302,Falls,0.0,2026-08-31_11-15-46_,precision
+302,Falls,0.0,2026-08-31_11-15-46_,f1_score
+302,Falls,0.0,2026-08-31_11-15-46_,n_labels
+208,Atrial fibrillation and flutter,1.0,2026-08-31_11-15-46_,accuracy
+208,Atrial fibrillation and flutter,0.0,2026-08-31_11-15-46_,recall
+208,Atrial fibrillation and flutter,0.0,2026-08-31_11-15-46_,precision
+208,Atrial fibrillation and flutter,0.0,2026-08-31_11-15-46_,f1_score
+208,Atrial fibrillation and flutter,0.0,2026-08-31_11-15-46_,n_labels
+218,Z_Other cardiovascular and circulatory diseases,1.0,2026-08-31_11-15-46_,accuracy
+218,Z_Other cardiovascular and circulatory diseases,0.0,2026-08-31_11-15-46_,recall
+218,Z_Other cardiovascular and circulatory diseases,0.0,2026-08-31_11-15-46_,precision
+218,Z_Other cardiovascular and circulatory diseases,0.0,2026-08-31_11-15-46_,f1_score
+218,Z_Other cardiovascular and circulatory diseases,0.0,2026-08-31_11-15-46_,n_labels
+294,Self-harm,1.0,2026-08-31_11-15-46_,accuracy
+294,Self-harm,0.0,2026-08-31_11-15-46_,recall
+294,Self-harm,0.0,2026-08-31_11-15-46_,precision
+294,Self-harm,0.0,2026-08-31_11-15-46_,f1_score
+294,Self-harm,0.0,2026-08-31_11-15-46_,n_labels
+189,Measles,1.0,2026-08-31_11-15-46_,accuracy
+189,Measles,0.0,2026-08-31_11-15-46_,recall
+189,Measles,0.0,2026-08-31_11-15-46_,precision
+189,Measles,0.0,2026-08-31_11-15-46_,f1_score
+189,Measles,0.0,2026-08-31_11-15-46_,n_labels
+263,Age-related and other hearing loss,1.0,2026-08-31_11-15-46_,accuracy
+263,Age-related and other hearing loss,0.0,2026-08-31_11-15-46_,recall
+263,Age-related and other hearing loss,0.0,2026-08-31_11-15-46_,precision
+263,Age-related and other hearing loss,0.0,2026-08-31_11-15-46_,f1_score
+263,Age-related and other hearing loss,0.0,2026-08-31_11-15-46_,n_labels
+292,Interpersonal violence,1.0,2026-08-31_11-15-46_,accuracy
+292,Interpersonal violence,0.0,2026-08-31_11-15-46_,recall
+292,Interpersonal violence,0.0,2026-08-31_11-15-46_,precision
+292,Interpersonal violence,0.0,2026-08-31_11-15-46_,f1_score
+292,Interpersonal violence,0.0,2026-08-31_11-15-46_,n_labels
+177,Protein-energy malnutrition,1.0,2026-08-31_11-15-46_,accuracy
+177,Protein-energy malnutrition,0.0,2026-08-31_11-15-46_,recall
+177,Protein-energy malnutrition,0.0,2026-08-31_11-15-46_,precision
+177,Protein-energy malnutrition,0.0,2026-08-31_11-15-46_,f1_score
+177,Protein-energy malnutrition,0.0,2026-08-31_11-15-46_,n_labels
+204,Skin and subcutaneous diseases,1.0,2026-08-31_11-15-46_,accuracy
+204,Skin and subcutaneous diseases,0.0,2026-08-31_11-15-46_,recall
+204,Skin and subcutaneous diseases,0.0,2026-08-31_11-15-46_,precision
+204,Skin and subcutaneous diseases,0.0,2026-08-31_11-15-46_,f1_score
+204,Skin and subcutaneous diseases,0.0,2026-08-31_11-15-46_,n_labels
+299,Environmental heat and cold exposure,1.0,2026-08-31_11-15-46_,accuracy
+299,Environmental heat and cold exposure,0.0,2026-08-31_11-15-46_,recall
+299,Environmental heat and cold exposure,0.0,2026-08-31_11-15-46_,precision
+299,Environmental heat and cold exposure,0.0,2026-08-31_11-15-46_,f1_score
+299,Environmental heat and cold exposure,0.0,2026-08-31_11-15-46_,n_labels
+220,Asthma,1.0,2026-08-31_11-15-46_,accuracy
+220,Asthma,1.0,2026-08-31_11-15-46_,recall
+220,Asthma,1.0,2026-08-31_11-15-46_,precision
+220,Asthma,1.0,2026-08-31_11-15-46_,f1_score
+220,Asthma,1.0,2026-08-31_11-15-46_,n_labels
+297,Drowning,1.0,2026-08-31_11-15-46_,accuracy
+297,Drowning,0.0,2026-08-31_11-15-46_,recall
+297,Drowning,0.0,2026-08-31_11-15-46_,precision
+297,Drowning,0.0,2026-08-31_11-15-46_,f1_score
+297,Drowning,0.0,2026-08-31_11-15-46_,n_labels
+175,Dietary iron deficiency,1.0,2026-08-31_11-15-46_,accuracy
+175,Dietary iron deficiency,0.0,2026-08-31_11-15-46_,recall
+175,Dietary iron deficiency,0.0,2026-08-31_11-15-46_,precision
+175,Dietary iron deficiency,0.0,2026-08-31_11-15-46_,f1_score
+175,Dietary iron deficiency,0.0,2026-08-31_11-15-46_,n_labels
+127,Cardiovascular mortality,1.0,2026-08-31_11-15-46_,accuracy
+127,Cardiovascular mortality,0.0,2026-08-31_11-15-46_,recall
+127,Cardiovascular mortality,0.0,2026-08-31_11-15-46_,precision
+127,Cardiovascular mortality,0.0,2026-08-31_11-15-46_,f1_score
+127,Cardiovascular mortality,0.0,2026-08-31_11-15-46_,n_labels
+202,Neurological disorders,1.0,2026-08-31_11-15-46_,accuracy
+202,Neurological disorders,0.0,2026-08-31_11-15-46_,recall
+202,Neurological disorders,0.0,2026-08-31_11-15-46_,precision
+202,Neurological disorders,0.0,2026-08-31_11-15-46_,f1_score
+202,Neurological disorders,0.0,2026-08-31_11-15-46_,n_labels
+191,Pertussis,1.0,2026-08-31_11-15-46_,accuracy
+191,Pertussis,0.0,2026-08-31_11-15-46_,recall
+191,Pertussis,0.0,2026-08-31_11-15-46_,precision
+191,Pertussis,0.0,2026-08-31_11-15-46_,f1_score
+191,Pertussis,0.0,2026-08-31_11-15-46_,n_labels
+198,Digestive diseases,1.0,2026-08-31_11-15-46_,accuracy
+198,Digestive diseases,0.0,2026-08-31_11-15-46_,recall
+198,Digestive diseases,0.0,2026-08-31_11-15-46_,precision
+198,Digestive diseases,0.0,2026-08-31_11-15-46_,f1_score
+198,Digestive diseases,0.0,2026-08-31_11-15-46_,n_labels
+279,Drug use disorders,1.0,2026-08-31_11-15-46_,accuracy
+279,Drug use disorders,0.0,2026-08-31_11-15-46_,recall
+279,Drug use disorders,0.0,2026-08-31_11-15-46_,precision
+279,Drug use disorders,0.0,2026-08-31_11-15-46_,f1_score
+279,Drug use disorders,0.0,2026-08-31_11-15-46_,n_labels
+199,Mental disorders,1.0,2026-08-31_11-15-46_,accuracy
+199,Mental disorders,0.0,2026-08-31_11-15-46_,recall
+199,Mental disorders,0.0,2026-08-31_11-15-46_,precision
+199,Mental disorders,0.0,2026-08-31_11-15-46_,f1_score
+199,Mental disorders,0.0,2026-08-31_11-15-46_,n_labels
+216,Rheumatic heart disease,1.0,2026-08-31_11-15-46_,accuracy
+216,Rheumatic heart disease,0.0,2026-08-31_11-15-46_,recall
+216,Rheumatic heart disease,0.0,2026-08-31_11-15-46_,precision
+216,Rheumatic heart disease,0.0,2026-08-31_11-15-46_,f1_score
+216,Rheumatic heart disease,0.0,2026-08-31_11-15-46_,n_labels
+196,Chronic respiratory diseases,0.96,2026-08-31_11-15-46_,accuracy
+196,Chronic respiratory diseases,0.6666666666666666,2026-08-31_11-15-46_,recall
+196,Chronic respiratory diseases,1.0,2026-08-31_11-15-46_,precision
+196,Chronic respiratory diseases,0.8,2026-08-31_11-15-46_,f1_score
+196,Chronic respiratory diseases,3.0,2026-08-31_11-15-46_,n_labels
+193,Varicella and herpes zoster,1.0,2026-08-31_11-15-46_,accuracy
+193,Varicella and herpes zoster,0.0,2026-08-31_11-15-46_,recall
+193,Varicella and herpes zoster,0.0,2026-08-31_11-15-46_,precision
+193,Varicella and herpes zoster,0.0,2026-08-31_11-15-46_,f1_score
+193,Varicella and herpes zoster,0.0,2026-08-31_11-15-46_,n_labels
+140,Diarrheal diseases,1.0,2026-08-31_11-15-46_,accuracy
+140,Diarrheal diseases,0.0,2026-08-31_11-15-46_,recall
+140,Diarrheal diseases,0.0,2026-08-31_11-15-46_,precision
+140,Diarrheal diseases,0.0,2026-08-31_11-15-46_,f1_score
+140,Diarrheal diseases,0.0,2026-08-31_11-15-46_,n_labels
+235,Pancreatitis,1.0,2026-08-31_11-15-46_,accuracy
+235,Pancreatitis,0.0,2026-08-31_11-15-46_,recall
+235,Pancreatitis,0.0,2026-08-31_11-15-46_,precision
+235,Pancreatitis,0.0,2026-08-31_11-15-46_,f1_score
+235,Pancreatitis,0.0,2026-08-31_11-15-46_,n_labels
+256,Alzheimer's disease and other dementias,1.0,2026-08-31_11-15-46_,accuracy
+256,Alzheimer's disease and other dementias,0.0,2026-08-31_11-15-46_,recall
+256,Alzheimer's disease and other dementias,0.0,2026-08-31_11-15-46_,precision
+256,Alzheimer's disease and other dementias,0.0,2026-08-31_11-15-46_,f1_score
+256,Alzheimer's disease and other dementias,0.0,2026-08-31_11-15-46_,n_labels
+131,Neoplasms mortality,1.0,2026-08-31_11-15-46_,accuracy
+131,Neoplasms mortality,0.0,2026-08-31_11-15-46_,recall
+131,Neoplasms mortality,0.0,2026-08-31_11-15-46_,precision
+131,Neoplasms mortality,0.0,2026-08-31_11-15-46_,f1_score
+131,Neoplasms mortality,0.0,2026-08-31_11-15-46_,n_labels
+304,Foreign body,1.0,2026-08-31_11-15-46_,accuracy
+304,Foreign body,0.0,2026-08-31_11-15-46_,recall
+304,Foreign body,0.0,2026-08-31_11-15-46_,precision
+304,Foreign body,0.0,2026-08-31_11-15-46_,f1_score
+304,Foreign body,0.0,2026-08-31_11-15-46_,n_labels
+162,Leishmaniasis,1.0,2026-08-31_11-15-46_,accuracy
+162,Leishmaniasis,0.0,2026-08-31_11-15-46_,recall
+162,Leishmaniasis,0.0,2026-08-31_11-15-46_,precision
+162,Leishmaniasis,0.0,2026-08-31_11-15-46_,f1_score
+162,Leishmaniasis,0.0,2026-08-31_11-15-46_,n_labels
+156,Cysticercosis,1.0,2026-08-31_11-15-46_,accuracy
+156,Cysticercosis,0.0,2026-08-31_11-15-46_,recall
+156,Cysticercosis,0.0,2026-08-31_11-15-46_,precision
+156,Cysticercosis,0.0,2026-08-31_11-15-46_,f1_score
+156,Cysticercosis,0.0,2026-08-31_11-15-46_,n_labels
+171,Yellow fever,1.0,2026-08-31_11-15-46_,accuracy
+171,Yellow fever,0.0,2026-08-31_11-15-46_,recall
+171,Yellow fever,0.0,2026-08-31_11-15-46_,precision
+171,Yellow fever,0.0,2026-08-31_11-15-46_,f1_score
+171,Yellow fever,0.0,2026-08-31_11-15-46_,n_labels
+277,Z_Other skin and subcutaneous diseases,1.0,2026-08-31_11-15-46_,accuracy
+277,Z_Other skin and subcutaneous diseases,0.0,2026-08-31_11-15-46_,recall
+277,Z_Other skin and subcutaneous diseases,0.0,2026-08-31_11-15-46_,precision
+277,Z_Other skin and subcutaneous diseases,0.0,2026-08-31_11-15-46_,f1_score
+277,Z_Other skin and subcutaneous diseases,0.0,2026-08-31_11-15-46_,n_labels
+286,Sudden infant death syndrome,1.0,2026-08-31_11-15-46_,accuracy
+286,Sudden infant death syndrome,0.0,2026-08-31_11-15-46_,recall
+286,Sudden infant death syndrome,0.0,2026-08-31_11-15-46_,precision
+286,Sudden infant death syndrome,0.0,2026-08-31_11-15-46_,f1_score
+286,Sudden infant death syndrome,0.0,2026-08-31_11-15-46_,n_labels
+209,Cardiomyopathy and myocarditis,1.0,2026-08-31_11-15-46_,accuracy
+209,Cardiomyopathy and myocarditis,0.0,2026-08-31_11-15-46_,recall
+209,Cardiomyopathy and myocarditis,0.0,2026-08-31_11-15-46_,precision
+209,Cardiomyopathy and myocarditis,0.0,2026-08-31_11-15-46_,f1_score
+209,Cardiomyopathy and myocarditis,0.0,2026-08-31_11-15-46_,n_labels
+174,Childhood stunting and wasting,1.0,2026-08-31_11-15-46_,accuracy
+174,Childhood stunting and wasting,0.0,2026-08-31_11-15-46_,recall
+174,Childhood stunting and wasting,0.0,2026-08-31_11-15-46_,precision
+174,Childhood stunting and wasting,0.0,2026-08-31_11-15-46_,f1_score
+174,Childhood stunting and wasting,0.0,2026-08-31_11-15-46_,n_labels
+219,Allergic rhinitis,1.0,2026-08-31_11-15-46_,accuracy
+219,Allergic rhinitis,0.0,2026-08-31_11-15-46_,recall
+219,Allergic rhinitis,0.0,2026-08-31_11-15-46_,precision
+219,Allergic rhinitis,0.0,2026-08-31_11-15-46_,f1_score
+219,Allergic rhinitis,0.0,2026-08-31_11-15-46_,n_labels
+264,Blindness and vision loss,1.0,2026-08-31_11-15-46_,accuracy
+264,Blindness and vision loss,0.0,2026-08-31_11-15-46_,recall
+264,Blindness and vision loss,0.0,2026-08-31_11-15-46_,precision
+264,Blindness and vision loss,0.0,2026-08-31_11-15-46_,f1_score
+264,Blindness and vision loss,0.0,2026-08-31_11-15-46_,n_labels
+222,Interstitial lung disease and pulmonary sarcoidosis,1.0,2026-08-31_11-15-46_,accuracy
+222,Interstitial lung disease and pulmonary sarcoidosis,0.0,2026-08-31_11-15-46_,recall
+222,Interstitial lung disease and pulmonary sarcoidosis,0.0,2026-08-31_11-15-46_,precision
+222,Interstitial lung disease and pulmonary sarcoidosis,0.0,2026-08-31_11-15-46_,f1_score
+222,Interstitial lung disease and pulmonary sarcoidosis,0.0,2026-08-31_11-15-46_,n_labels
+118,1.3. Non-communicable mortality,0.96,2026-08-31_11-15-46_,accuracy
+118,1.3. Non-communicable mortality,0.0,2026-08-31_11-15-46_,recall
+118,1.3. Non-communicable mortality,0.0,2026-08-31_11-15-46_,precision
+118,1.3. Non-communicable mortality,0.0,2026-08-31_11-15-46_,f1_score
+118,1.3. Non-communicable mortality,1.0,2026-08-31_11-15-46_,n_labels
+214,Non-rheumatic valvular heart disease,1.0,2026-08-31_11-15-46_,accuracy
+214,Non-rheumatic valvular heart disease,0.0,2026-08-31_11-15-46_,recall
+214,Non-rheumatic valvular heart disease,0.0,2026-08-31_11-15-46_,precision
+214,Non-rheumatic valvular heart disease,0.0,2026-08-31_11-15-46_,f1_score
+214,Non-rheumatic valvular heart disease,0.0,2026-08-31_11-15-46_,n_labels
+282,"Endocrine, metabolic, blood, and immune disorders",1.0,2026-08-31_11-15-46_,accuracy
+282,"Endocrine, metabolic, blood, and immune disorders",0.0,2026-08-31_11-15-46_,recall
+282,"Endocrine, metabolic, blood, and immune disorders",0.0,2026-08-31_11-15-46_,precision
+282,"Endocrine, metabolic, blood, and immune disorders",0.0,2026-08-31_11-15-46_,f1_score
+282,"Endocrine, metabolic, blood, and immune disorders",0.0,2026-08-31_11-15-46_,n_labels
+122,Nutrition-related mortality,1.0,2026-08-31_11-15-46_,accuracy
+122,Nutrition-related mortality,0.0,2026-08-31_11-15-46_,recall
+122,Nutrition-related mortality,0.0,2026-08-31_11-15-46_,precision
+122,Nutrition-related mortality,0.0,2026-08-31_11-15-46_,f1_score
+122,Nutrition-related mortality,0.0,2026-08-31_11-15-46_,n_labels
+273,Psoriasis,1.0,2026-08-31_11-15-46_,accuracy
+273,Psoriasis,0.0,2026-08-31_11-15-46_,recall
+273,Psoriasis,0.0,2026-08-31_11-15-46_,precision
+273,Psoriasis,0.0,2026-08-31_11-15-46_,f1_score
+273,Psoriasis,0.0,2026-08-31_11-15-46_,n_labels
+139,Z_Other infectious diseases,1.0,2026-08-31_11-15-46_,accuracy
+139,Z_Other infectious diseases,1.0,2026-08-31_11-15-46_,recall
+139,Z_Other infectious diseases,1.0,2026-08-31_11-15-46_,precision
+139,Z_Other infectious diseases,1.0,2026-08-31_11-15-46_,f1_score
+139,Z_Other infectious diseases,1.0,2026-08-31_11-15-46_,n_labels
+143,Z_Other intestinal infectious diseases,1.0,2026-08-31_11-15-46_,accuracy
+143,Z_Other intestinal infectious diseases,0.0,2026-08-31_11-15-46_,recall
+143,Z_Other intestinal infectious diseases,0.0,2026-08-31_11-15-46_,precision
+143,Z_Other intestinal infectious diseases,0.0,2026-08-31_11-15-46_,f1_score
+143,Z_Other intestinal infectious diseases,0.0,2026-08-31_11-15-46_,n_labels
+289,Transport injuries,1.0,2026-08-31_11-15-46_,accuracy
+289,Transport injuries,1.0,2026-08-31_11-15-46_,recall
+289,Transport injuries,1.0,2026-08-31_11-15-46_,precision
+289,Transport injuries,1.0,2026-08-31_11-15-46_,f1_score
+289,Transport injuries,1.0,2026-08-31_11-15-46_,n_labels
+112,1. Mortality (Outcome),0.88,2026-08-31_11-15-46_,accuracy
+112,1. Mortality (Outcome),1.0,2026-08-31_11-15-46_,recall
+112,1. Mortality (Outcome),0.25,2026-08-31_11-15-46_,precision
+112,1. Mortality (Outcome),0.4,2026-08-31_11-15-46_,f1_score
+112,1. Mortality (Outcome),1.0,2026-08-31_11-15-46_,n_labels
+266,Acne vulgaris,1.0,2026-08-31_11-15-46_,accuracy
+266,Acne vulgaris,0.0,2026-08-31_11-15-46_,recall
+266,Acne vulgaris,0.0,2026-08-31_11-15-46_,precision
+266,Acne vulgaris,0.0,2026-08-31_11-15-46_,f1_score
+266,Acne vulgaris,0.0,2026-08-31_11-15-46_,n_labels
+157,Dengue,1.0,2026-08-31_11-15-46_,accuracy
+157,Dengue,0.0,2026-08-31_11-15-46_,recall
+157,Dengue,0.0,2026-08-31_11-15-46_,precision
+157,Dengue,0.0,2026-08-31_11-15-46_,f1_score
+157,Dengue,0.0,2026-08-31_11-15-46_,n_labels
+300,Exposure to forces of nature,1.0,2026-08-31_11-15-46_,accuracy
+300,Exposure to forces of nature,0.0,2026-08-31_11-15-46_,recall
+300,Exposure to forces of nature,0.0,2026-08-31_11-15-46_,precision
+300,Exposure to forces of nature,0.0,2026-08-31_11-15-46_,f1_score
+300,Exposure to forces of nature,0.0,2026-08-31_11-15-46_,n_labels
+236,Paralytic ileus and intestinal obstruction,1.0,2026-08-31_11-15-46_,accuracy
+236,Paralytic ileus and intestinal obstruction,0.0,2026-08-31_11-15-46_,recall
+236,Paralytic ileus and intestinal obstruction,0.0,2026-08-31_11-15-46_,precision
+236,Paralytic ileus and intestinal obstruction,0.0,2026-08-31_11-15-46_,f1_score
+236,Paralytic ileus and intestinal obstruction,0.0,2026-08-31_11-15-46_,n_labels
+123,Enteric infections mortality,1.0,2026-08-31_11-15-46_,accuracy
+123,Enteric infections mortality,0.0,2026-08-31_11-15-46_,recall
+123,Enteric infections mortality,0.0,2026-08-31_11-15-46_,precision
+123,Enteric infections mortality,0.0,2026-08-31_11-15-46_,f1_score
+123,Enteric infections mortality,0.0,2026-08-31_11-15-46_,n_labels
+129,Diabetes and kidney diseases mortality,1.0,2026-08-31_11-15-46_,accuracy
+129,Diabetes and kidney diseases mortality,0.0,2026-08-31_11-15-46_,recall
+129,Diabetes and kidney diseases mortality,0.0,2026-08-31_11-15-46_,precision
+129,Diabetes and kidney diseases mortality,0.0,2026-08-31_11-15-46_,f1_score
+129,Diabetes and kidney diseases mortality,0.0,2026-08-31_11-15-46_,n_labels
+185,Acute hepatitis,1.0,2026-08-31_11-15-46_,accuracy
+185,Acute hepatitis,0.0,2026-08-31_11-15-46_,recall
+185,Acute hepatitis,0.0,2026-08-31_11-15-46_,precision
+185,Acute hepatitis,0.0,2026-08-31_11-15-46_,f1_score
+185,Acute hepatitis,0.0,2026-08-31_11-15-46_,n_labels
+288,Self-harm and interpersonal violence,1.0,2026-08-31_11-15-46_,accuracy
+288,Self-harm and interpersonal violence,0.0,2026-08-31_11-15-46_,recall
+288,Self-harm and interpersonal violence,0.0,2026-08-31_11-15-46_,precision
+288,Self-harm and interpersonal violence,0.0,2026-08-31_11-15-46_,f1_score
+288,Self-harm and interpersonal violence,0.0,2026-08-31_11-15-46_,n_labels
+250,Z_Other mental disorders,1.0,2026-08-31_11-15-46_,accuracy
+250,Z_Other mental disorders,0.0,2026-08-31_11-15-46_,recall
+250,Z_Other mental disorders,0.0,2026-08-31_11-15-46_,precision
+250,Z_Other mental disorders,0.0,2026-08-31_11-15-46_,f1_score
+250,Z_Other mental disorders,0.0,2026-08-31_11-15-46_,n_labels
+186,Diphtheria,1.0,2026-08-31_11-15-46_,accuracy
+186,Diphtheria,0.0,2026-08-31_11-15-46_,recall
+186,Diphtheria,0.0,2026-08-31_11-15-46_,precision
+186,Diphtheria,0.0,2026-08-31_11-15-46_,f1_score
+186,Diphtheria,0.0,2026-08-31_11-15-46_,n_labels
+239,Z_Other digestive diseases,1.0,2026-08-31_11-15-46_,accuracy
+239,Z_Other digestive diseases,0.0,2026-08-31_11-15-46_,recall
+239,Z_Other digestive diseases,0.0,2026-08-31_11-15-46_,precision
+239,Z_Other digestive diseases,0.0,2026-08-31_11-15-46_,f1_score
+239,Z_Other digestive diseases,0.0,2026-08-31_11-15-46_,n_labels
+178,Vitamin A deficiency,1.0,2026-08-31_11-15-46_,accuracy
+178,Vitamin A deficiency,0.0,2026-08-31_11-15-46_,recall
+178,Vitamin A deficiency,0.0,2026-08-31_11-15-46_,precision
+178,Vitamin A deficiency,0.0,2026-08-31_11-15-46_,f1_score
+178,Vitamin A deficiency,0.0,2026-08-31_11-15-46_,n_labels
+205,Substance use disorders,1.0,2026-08-31_11-15-46_,accuracy
+205,Substance use disorders,0.0,2026-08-31_11-15-46_,recall
+205,Substance use disorders,0.0,2026-08-31_11-15-46_,precision
+205,Substance use disorders,0.0,2026-08-31_11-15-46_,f1_score
+205,Substance use disorders,0.0,2026-08-31_11-15-46_,n_labels
+243,Bipolar disorder,1.0,2026-08-31_11-15-46_,accuracy
+243,Bipolar disorder,0.0,2026-08-31_11-15-46_,recall
+243,Bipolar disorder,0.0,2026-08-31_11-15-46_,precision
+243,Bipolar disorder,0.0,2026-08-31_11-15-46_,f1_score
+243,Bipolar disorder,0.0,2026-08-31_11-15-46_,n_labels
+150,Low birth weight,1.0,2026-08-31_11-15-46_,accuracy
+150,Low birth weight,0.0,2026-08-31_11-15-46_,recall
+150,Low birth weight,0.0,2026-08-31_11-15-46_,precision
+150,Low birth weight,0.0,2026-08-31_11-15-46_,f1_score
+150,Low birth weight,0.0,2026-08-31_11-15-46_,n_labels
+240,Anxiety disorders,1.0,2026-08-31_11-15-46_,accuracy
+240,Anxiety disorders,0.0,2026-08-31_11-15-46_,recall
+240,Anxiety disorders,0.0,2026-08-31_11-15-46_,precision
+240,Anxiety disorders,0.0,2026-08-31_11-15-46_,f1_score
+240,Anxiety disorders,0.0,2026-08-31_11-15-46_,n_labels
+126,Respiratory infections mortality (including tuberculosis),1.0,2026-08-31_11-15-46_,accuracy
+126,Respiratory infections mortality (including tuberculosis),0.0,2026-08-31_11-15-46_,recall
+126,Respiratory infections mortality (including tuberculosis),0.0,2026-08-31_11-15-46_,precision
+126,Respiratory infections mortality (including tuberculosis),0.0,2026-08-31_11-15-46_,f1_score
+126,Respiratory infections mortality (including tuberculosis),0.0,2026-08-31_11-15-46_,n_labels
+261,Parkinson's disease,1.0,2026-08-31_11-15-46_,accuracy
+261,Parkinson's disease,0.0,2026-08-31_11-15-46_,recall
+261,Parkinson's disease,0.0,2026-08-31_11-15-46_,precision
+261,Parkinson's disease,0.0,2026-08-31_11-15-46_,f1_score
+261,Parkinson's disease,0.0,2026-08-31_11-15-46_,n_labels
+232,Gallbladder and biliary diseases,1.0,2026-08-31_11-15-46_,accuracy
+232,Gallbladder and biliary diseases,0.0,2026-08-31_11-15-46_,recall
+232,Gallbladder and biliary diseases,0.0,2026-08-31_11-15-46_,precision
+232,Gallbladder and biliary diseases,0.0,2026-08-31_11-15-46_,f1_score
+232,Gallbladder and biliary diseases,0.0,2026-08-31_11-15-46_,n_labels
+197,Diabetes and kidney diseases,1.0,2026-08-31_11-15-46_,accuracy
+197,Diabetes and kidney diseases,0.0,2026-08-31_11-15-46_,recall
+197,Diabetes and kidney diseases,0.0,2026-08-31_11-15-46_,precision
+197,Diabetes and kidney diseases,0.0,2026-08-31_11-15-46_,f1_score
+197,Diabetes and kidney diseases,0.0,2026-08-31_11-15-46_,n_labels
+182,Otitis media,1.0,2026-08-31_11-15-46_,accuracy
+182,Otitis media,0.0,2026-08-31_11-15-46_,recall
+182,Otitis media,0.0,2026-08-31_11-15-46_,precision
+182,Otitis media,0.0,2026-08-31_11-15-46_,f1_score
+182,Otitis media,0.0,2026-08-31_11-15-46_,n_labels
+134,HIV/AIDS and sexually transmitted infections,1.0,2026-08-31_11-15-46_,accuracy
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-08-31_11-15-46_,recall
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-08-31_11-15-46_,precision
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-08-31_11-15-46_,f1_score
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-08-31_11-15-46_,n_labels
+153,Chagas disease,1.0,2026-08-31_11-15-46_,accuracy
+153,Chagas disease,0.0,2026-08-31_11-15-46_,recall
+153,Chagas disease,0.0,2026-08-31_11-15-46_,precision
+153,Chagas disease,0.0,2026-08-31_11-15-46_,f1_score
+153,Chagas disease,0.0,2026-08-31_11-15-46_,n_labels
+259,Motor neuron disease,1.0,2026-08-31_11-15-46_,accuracy
+259,Motor neuron disease,0.0,2026-08-31_11-15-46_,recall
+259,Motor neuron disease,0.0,2026-08-31_11-15-46_,precision
+259,Motor neuron disease,0.0,2026-08-31_11-15-46_,f1_score
+259,Motor neuron disease,0.0,2026-08-31_11-15-46_,n_labels
+201,Neoplasms,1.0,2026-08-31_11-15-46_,accuracy
+201,Neoplasms,0.0,2026-08-31_11-15-46_,recall
+201,Neoplasms,0.0,2026-08-31_11-15-46_,precision
+201,Neoplasms,0.0,2026-08-31_11-15-46_,f1_score
+201,Neoplasms,0.0,2026-08-31_11-15-46_,n_labels
+184,Upper respiratory infections,0.96,2026-08-31_11-15-46_,accuracy
+184,Upper respiratory infections,0.0,2026-08-31_11-15-46_,recall
+184,Upper respiratory infections,0.0,2026-08-31_11-15-46_,precision
+184,Upper respiratory infections,0.0,2026-08-31_11-15-46_,f1_score
+184,Upper respiratory infections,1.0,2026-08-31_11-15-46_,n_labels
+229,Chronic kidney disease,1.0,2026-08-31_11-15-46_,accuracy
+229,Chronic kidney disease,0.0,2026-08-31_11-15-46_,recall
+229,Chronic kidney disease,0.0,2026-08-31_11-15-46_,precision
+229,Chronic kidney disease,0.0,2026-08-31_11-15-46_,f1_score
+229,Chronic kidney disease,0.0,2026-08-31_11-15-46_,n_labels
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",1.0,2026-08-31_11-15-46_,accuracy
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-08-31_11-15-46_,recall
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-08-31_11-15-46_,precision
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-08-31_11-15-46_,f1_score
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-08-31_11-15-46_,n_labels
+116,1.1. Total / all-cause mortality (Outcome),0.96,2026-08-31_11-15-46_,accuracy
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-08-31_11-15-46_,recall
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-08-31_11-15-46_,precision
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-08-31_11-15-46_,f1_score
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-08-31_11-15-46_,n_labels
+242,Autism spectrum disorders,1.0,2026-08-31_11-15-46_,accuracy
+242,Autism spectrum disorders,0.0,2026-08-31_11-15-46_,recall
+242,Autism spectrum disorders,0.0,2026-08-31_11-15-46_,precision
+242,Autism spectrum disorders,0.0,2026-08-31_11-15-46_,f1_score
+242,Autism spectrum disorders,0.0,2026-08-31_11-15-46_,n_labels
+148,Neonatal disorders,1.0,2026-08-31_11-15-46_,accuracy
+148,Neonatal disorders,0.0,2026-08-31_11-15-46_,recall
+148,Neonatal disorders,0.0,2026-08-31_11-15-46_,precision
+148,Neonatal disorders,0.0,2026-08-31_11-15-46_,f1_score
+148,Neonatal disorders,0.0,2026-08-31_11-15-46_,n_labels
+295,Adverse effects of medical treatment,1.0,2026-08-31_11-15-46_,accuracy
+295,Adverse effects of medical treatment,0.0,2026-08-31_11-15-46_,recall
+295,Adverse effects of medical treatment,0.0,2026-08-31_11-15-46_,precision
+295,Adverse effects of medical treatment,0.0,2026-08-31_11-15-46_,f1_score
+295,Adverse effects of medical treatment,0.0,2026-08-31_11-15-46_,n_labels
+276,Viral skin diseases,1.0,2026-08-31_11-15-46_,accuracy
+276,Viral skin diseases,0.0,2026-08-31_11-15-46_,recall
+276,Viral skin diseases,0.0,2026-08-31_11-15-46_,precision
+276,Viral skin diseases,0.0,2026-08-31_11-15-46_,f1_score
+276,Viral skin diseases,0.0,2026-08-31_11-15-46_,n_labels
+257,Headache disorders,1.0,2026-08-31_11-15-46_,accuracy
+257,Headache disorders,0.0,2026-08-31_11-15-46_,recall
+257,Headache disorders,0.0,2026-08-31_11-15-46_,precision
+257,Headache disorders,0.0,2026-08-31_11-15-46_,f1_score
+257,Headache disorders,0.0,2026-08-31_11-15-46_,n_labels
+169,Schistosomiasis,1.0,2026-08-31_11-15-46_,accuracy
+169,Schistosomiasis,0.0,2026-08-31_11-15-46_,recall
+169,Schistosomiasis,0.0,2026-08-31_11-15-46_,precision
+169,Schistosomiasis,0.0,2026-08-31_11-15-46_,f1_score
+169,Schistosomiasis,0.0,2026-08-31_11-15-46_,n_labels
+190,Meningitis,1.0,2026-08-31_11-15-46_,accuracy
+190,Meningitis,1.0,2026-08-31_11-15-46_,recall
+190,Meningitis,1.0,2026-08-31_11-15-46_,precision
+190,Meningitis,1.0,2026-08-31_11-15-46_,f1_score
+190,Meningitis,1.0,2026-08-31_11-15-46_,n_labels
+135,Maternal and neonatal disorders,1.0,2026-08-31_11-15-46_,accuracy
+135,Maternal and neonatal disorders,0.0,2026-08-31_11-15-46_,recall
+135,Maternal and neonatal disorders,0.0,2026-08-31_11-15-46_,precision
+135,Maternal and neonatal disorders,0.0,2026-08-31_11-15-46_,f1_score
+135,Maternal and neonatal disorders,0.0,2026-08-31_11-15-46_,n_labels
+255,Z_Other neoplasms,1.0,2026-08-31_11-15-46_,accuracy
+255,Z_Other neoplasms,0.0,2026-08-31_11-15-46_,recall
+255,Z_Other neoplasms,0.0,2026-08-31_11-15-46_,precision
+255,Z_Other neoplasms,0.0,2026-08-31_11-15-46_,f1_score
+255,Z_Other neoplasms,0.0,2026-08-31_11-15-46_,n_labels
+223,Pneumoconiosis,1.0,2026-08-31_11-15-46_,accuracy
+223,Pneumoconiosis,0.0,2026-08-31_11-15-46_,recall
+223,Pneumoconiosis,0.0,2026-08-31_11-15-46_,precision
+223,Pneumoconiosis,0.0,2026-08-31_11-15-46_,f1_score
+223,Pneumoconiosis,0.0,2026-08-31_11-15-46_,n_labels
+192,Tetanus,1.0,2026-08-31_11-15-46_,accuracy
+192,Tetanus,0.0,2026-08-31_11-15-46_,recall
+192,Tetanus,0.0,2026-08-31_11-15-46_,precision
+192,Tetanus,0.0,2026-08-31_11-15-46_,f1_score
+192,Tetanus,0.0,2026-08-31_11-15-46_,n_labels
+137,Nutritional deficiencies,1.0,2026-08-31_11-15-46_,accuracy
+137,Nutritional deficiencies,0.0,2026-08-31_11-15-46_,recall
+137,Nutritional deficiencies,0.0,2026-08-31_11-15-46_,precision
+137,Nutritional deficiencies,0.0,2026-08-31_11-15-46_,f1_score
+137,Nutritional deficiencies,0.0,2026-08-31_11-15-46_,n_labels
+164,Leptospirosis,1.0,2026-08-31_11-15-46_,accuracy
+164,Leptospirosis,0.0,2026-08-31_11-15-46_,recall
+164,Leptospirosis,0.0,2026-08-31_11-15-46_,precision
+164,Leptospirosis,0.0,2026-08-31_11-15-46_,f1_score
+164,Leptospirosis,0.0,2026-08-31_11-15-46_,n_labels
+124,Neglected tropical diseases and malaria mortality,1.0,2026-08-31_11-15-46_,accuracy
+124,Neglected tropical diseases and malaria mortality,0.0,2026-08-31_11-15-46_,recall
+124,Neglected tropical diseases and malaria mortality,0.0,2026-08-31_11-15-46_,precision
+124,Neglected tropical diseases and malaria mortality,0.0,2026-08-31_11-15-46_,f1_score
+124,Neglected tropical diseases and malaria mortality,0.0,2026-08-31_11-15-46_,n_labels
+269,Decubitus ulcer,1.0,2026-08-31_11-15-46_,accuracy
+269,Decubitus ulcer,0.0,2026-08-31_11-15-46_,recall
+269,Decubitus ulcer,0.0,2026-08-31_11-15-46_,precision
+269,Decubitus ulcer,0.0,2026-08-31_11-15-46_,f1_score
+269,Decubitus ulcer,0.0,2026-08-31_11-15-46_,n_labels
+268,Bacterial skin diseases,1.0,2026-08-31_11-15-46_,accuracy
+268,Bacterial skin diseases,0.0,2026-08-31_11-15-46_,recall
+268,Bacterial skin diseases,0.0,2026-08-31_11-15-46_,precision
+268,Bacterial skin diseases,0.0,2026-08-31_11-15-46_,f1_score
+268,Bacterial skin diseases,0.0,2026-08-31_11-15-46_,n_labels
+227,Kidney dysfunction,1.0,2026-08-31_11-15-46_,accuracy
+227,Kidney dysfunction,0.0,2026-08-31_11-15-46_,recall
+227,Kidney dysfunction,0.0,2026-08-31_11-15-46_,precision
+227,Kidney dysfunction,0.0,2026-08-31_11-15-46_,f1_score
+227,Kidney dysfunction,0.0,2026-08-31_11-15-46_,n_labels
+290,Unintentional injuries,1.0,2026-08-31_11-15-46_,accuracy
+290,Unintentional injuries,0.0,2026-08-31_11-15-46_,recall
+290,Unintentional injuries,0.0,2026-08-31_11-15-46_,precision
+290,Unintentional injuries,0.0,2026-08-31_11-15-46_,f1_score
+290,Unintentional injuries,0.0,2026-08-31_11-15-46_,n_labels
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.88,2026-08-31_11-15-46_,accuracy
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.5,2026-08-31_11-15-46_,recall
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.3333333333333333,2026-08-31_11-15-46_,precision
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.4,2026-08-31_11-15-46_,f1_score
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",2.0,2026-08-31_11-15-46_,n_labels
+206,Z_Other non-communicable diseases,0.96,2026-08-31_11-15-46_,accuracy
+206,Z_Other non-communicable diseases,0.0,2026-08-31_11-15-46_,recall
+206,Z_Other non-communicable diseases,0.0,2026-08-31_11-15-46_,precision
+206,Z_Other non-communicable diseases,0.0,2026-08-31_11-15-46_,f1_score
+206,Z_Other non-communicable diseases,1.0,2026-08-31_11-15-46_,n_labels
+187,Encephalitis,1.0,2026-08-31_11-15-46_,accuracy
+187,Encephalitis,0.0,2026-08-31_11-15-46_,recall
+187,Encephalitis,0.0,2026-08-31_11-15-46_,precision
+187,Encephalitis,0.0,2026-08-31_11-15-46_,f1_score
+187,Encephalitis,0.0,2026-08-31_11-15-46_,n_labels
+133,Enteric infections,0.96,2026-08-31_11-15-46_,accuracy
+133,Enteric infections,0.0,2026-08-31_11-15-46_,recall
+133,Enteric infections,0.0,2026-08-31_11-15-46_,precision
+133,Enteric infections,0.0,2026-08-31_11-15-46_,f1_score
+133,Enteric infections,0.0,2026-08-31_11-15-46_,n_labels
+144,Cholera,1.0,2026-08-31_11-15-46_,accuracy
+144,Cholera,0.0,2026-08-31_11-15-46_,recall
+144,Cholera,0.0,2026-08-31_11-15-46_,precision
+144,Cholera,0.0,2026-08-31_11-15-46_,f1_score
+144,Cholera,0.0,2026-08-31_11-15-46_,n_labels
+170,Trachoma,1.0,2026-08-31_11-15-46_,accuracy
+170,Trachoma,0.0,2026-08-31_11-15-46_,recall
+170,Trachoma,0.0,2026-08-31_11-15-46_,precision
+170,Trachoma,0.0,2026-08-31_11-15-46_,f1_score
+170,Trachoma,0.0,2026-08-31_11-15-46_,n_labels
+271,Fungal skin diseases,1.0,2026-08-31_11-15-46_,accuracy
+271,Fungal skin diseases,0.0,2026-08-31_11-15-46_,recall
+271,Fungal skin diseases,0.0,2026-08-31_11-15-46_,precision
+271,Fungal skin diseases,0.0,2026-08-31_11-15-46_,f1_score
+271,Fungal skin diseases,0.0,2026-08-31_11-15-46_,n_labels
+145,HIV/AIDS,1.0,2026-08-31_11-15-46_,accuracy
+145,HIV/AIDS,0.0,2026-08-31_11-15-46_,recall
+145,HIV/AIDS,0.0,2026-08-31_11-15-46_,precision
+145,HIV/AIDS,0.0,2026-08-31_11-15-46_,f1_score
+145,HIV/AIDS,0.0,2026-08-31_11-15-46_,n_labels
+183,Tuberculosis,1.0,2026-08-31_11-15-46_,accuracy
+183,Tuberculosis,0.0,2026-08-31_11-15-46_,recall
+183,Tuberculosis,0.0,2026-08-31_11-15-46_,precision
+183,Tuberculosis,0.0,2026-08-31_11-15-46_,f1_score
+183,Tuberculosis,0.0,2026-08-31_11-15-46_,n_labels
+233,Inflammatory bowel disease,1.0,2026-08-31_11-15-46_,accuracy
+233,Inflammatory bowel disease,0.0,2026-08-31_11-15-46_,recall
+233,Inflammatory bowel disease,0.0,2026-08-31_11-15-46_,precision
+233,Inflammatory bowel disease,0.0,2026-08-31_11-15-46_,f1_score
+233,Inflammatory bowel disease,0.0,2026-08-31_11-15-46_,n_labels
+155,Cystic echinococcosis,1.0,2026-08-31_11-15-46_,accuracy
+155,Cystic echinococcosis,0.0,2026-08-31_11-15-46_,recall
+155,Cystic echinococcosis,0.0,2026-08-31_11-15-46_,precision
+155,Cystic echinococcosis,0.0,2026-08-31_11-15-46_,f1_score
+155,Cystic echinococcosis,0.0,2026-08-31_11-15-46_,n_labels
+248,Post-traumatic stress disorder (PTSD),1.0,2026-08-31_11-15-46_,accuracy
+248,Post-traumatic stress disorder (PTSD),0.0,2026-08-31_11-15-46_,recall
+248,Post-traumatic stress disorder (PTSD),0.0,2026-08-31_11-15-46_,precision
+248,Post-traumatic stress disorder (PTSD),0.0,2026-08-31_11-15-46_,f1_score
+248,Post-traumatic stress disorder (PTSD),0.0,2026-08-31_11-15-46_,n_labels
+179,Z_Other nutritional deficiencies,1.0,2026-08-31_11-15-46_,accuracy
+179,Z_Other nutritional deficiencies,0.0,2026-08-31_11-15-46_,recall
+179,Z_Other nutritional deficiencies,0.0,2026-08-31_11-15-46_,precision
+179,Z_Other nutritional deficiencies,0.0,2026-08-31_11-15-46_,f1_score
+179,Z_Other nutritional deficiencies,0.0,2026-08-31_11-15-46_,n_labels
+119,Infectious diseases mortality,1.0,2026-08-31_11-15-46_,accuracy
+119,Infectious diseases mortality,0.0,2026-08-31_11-15-46_,recall
+119,Infectious diseases mortality,0.0,2026-08-31_11-15-46_,precision
+119,Infectious diseases mortality,0.0,2026-08-31_11-15-46_,f1_score
+119,Infectious diseases mortality,0.0,2026-08-31_11-15-46_,n_labels
+252,Non-melanoma skin cancer,1.0,2026-08-31_11-15-46_,accuracy
+252,Non-melanoma skin cancer,0.0,2026-08-31_11-15-46_,recall
+252,Non-melanoma skin cancer,0.0,2026-08-31_11-15-46_,precision
+252,Non-melanoma skin cancer,0.0,2026-08-31_11-15-46_,f1_score
+252,Non-melanoma skin cancer,0.0,2026-08-31_11-15-46_,n_labels
+247,Idiopathic developmental intellectual disability,1.0,2026-08-31_11-15-46_,accuracy
+247,Idiopathic developmental intellectual disability,0.0,2026-08-31_11-15-46_,recall
+247,Idiopathic developmental intellectual disability,0.0,2026-08-31_11-15-46_,precision
+247,Idiopathic developmental intellectual disability,0.0,2026-08-31_11-15-46_,f1_score
+247,Idiopathic developmental intellectual disability,0.0,2026-08-31_11-15-46_,n_labels
+251,Malignant skin melanoma,1.0,2026-08-31_11-15-46_,accuracy
+251,Malignant skin melanoma,0.0,2026-08-31_11-15-46_,recall
+251,Malignant skin melanoma,0.0,2026-08-31_11-15-46_,precision
+251,Malignant skin melanoma,0.0,2026-08-31_11-15-46_,f1_score
+251,Malignant skin melanoma,0.0,2026-08-31_11-15-46_,n_labels
+254,Z_Other malignant neoplasms,1.0,2026-08-31_11-15-46_,accuracy
+254,Z_Other malignant neoplasms,0.0,2026-08-31_11-15-46_,recall
+254,Z_Other malignant neoplasms,0.0,2026-08-31_11-15-46_,precision
+254,Z_Other malignant neoplasms,0.0,2026-08-31_11-15-46_,f1_score
+254,Z_Other malignant neoplasms,0.0,2026-08-31_11-15-46_,n_labels
+274,Scabies,1.0,2026-08-31_11-15-46_,accuracy
+274,Scabies,0.0,2026-08-31_11-15-46_,recall
+274,Scabies,0.0,2026-08-31_11-15-46_,precision
+274,Scabies,0.0,2026-08-31_11-15-46_,f1_score
+274,Scabies,0.0,2026-08-31_11-15-46_,n_labels
+173,Zz_Other neglected tropical diseases,1.0,2026-08-31_11-15-46_,accuracy
+173,Zz_Other neglected tropical diseases,0.0,2026-08-31_11-15-46_,recall
+173,Zz_Other neglected tropical diseases,0.0,2026-08-31_11-15-46_,precision
+173,Zz_Other neglected tropical diseases,0.0,2026-08-31_11-15-46_,f1_score
+173,Zz_Other neglected tropical diseases,0.0,2026-08-31_11-15-46_,n_labels
+176,Iodine deficiency,1.0,2026-08-31_11-15-46_,accuracy
+176,Iodine deficiency,0.0,2026-08-31_11-15-46_,recall
+176,Iodine deficiency,0.0,2026-08-31_11-15-46_,precision
+176,Iodine deficiency,0.0,2026-08-31_11-15-46_,f1_score
+176,Iodine deficiency,0.0,2026-08-31_11-15-46_,n_labels
+142,Typhoid and paratyphoid,1.0,2026-08-31_11-15-46_,accuracy
+142,Typhoid and paratyphoid,0.0,2026-08-31_11-15-46_,recall
+142,Typhoid and paratyphoid,0.0,2026-08-31_11-15-46_,precision
+142,Typhoid and paratyphoid,0.0,2026-08-31_11-15-46_,f1_score
+142,Typhoid and paratyphoid,0.0,2026-08-31_11-15-46_,n_labels
+138,Respiratory infections and tuberculosis,0.96,2026-08-31_11-15-46_,accuracy
+138,Respiratory infections and tuberculosis,0.0,2026-08-31_11-15-46_,recall
+138,Respiratory infections and tuberculosis,0.0,2026-08-31_11-15-46_,precision
+138,Respiratory infections and tuberculosis,0.0,2026-08-31_11-15-46_,f1_score
+138,Respiratory infections and tuberculosis,1.0,2026-08-31_11-15-46_,n_labels
+234,"Inguinal, femoral, and abdominal hernia",1.0,2026-08-31_11-15-46_,accuracy
+234,"Inguinal, femoral, and abdominal hernia",0.0,2026-08-31_11-15-46_,recall
+234,"Inguinal, femoral, and abdominal hernia",0.0,2026-08-31_11-15-46_,precision
+234,"Inguinal, femoral, and abdominal hernia",0.0,2026-08-31_11-15-46_,f1_score
+234,"Inguinal, femoral, and abdominal hernia",0.0,2026-08-31_11-15-46_,n_labels
+306,Z_Other unintentional injuries,1.0,2026-08-31_11-15-46_,accuracy
+306,Z_Other unintentional injuries,0.0,2026-08-31_11-15-46_,recall
+306,Z_Other unintentional injuries,0.0,2026-08-31_11-15-46_,precision
+306,Z_Other unintentional injuries,0.0,2026-08-31_11-15-46_,f1_score
+306,Z_Other unintentional injuries,0.0,2026-08-31_11-15-46_,n_labels
+265,Other sense organ diseases,1.0,2026-08-31_11-15-46_,accuracy
+265,Other sense organ diseases,1.0,2026-08-31_11-15-46_,recall
+265,Other sense organ diseases,1.0,2026-08-31_11-15-46_,precision
+265,Other sense organ diseases,1.0,2026-08-31_11-15-46_,f1_score
+265,Other sense organ diseases,1.0,2026-08-31_11-15-46_,n_labels
+283,Gynecological diseases,1.0,2026-08-31_11-15-46_,accuracy
+283,Gynecological diseases,0.0,2026-08-31_11-15-46_,recall
+283,Gynecological diseases,0.0,2026-08-31_11-15-46_,precision
+283,Gynecological diseases,0.0,2026-08-31_11-15-46_,f1_score
+283,Gynecological diseases,0.0,2026-08-31_11-15-46_,n_labels
+154,Chikungunya,1.0,2026-08-31_11-15-46_,accuracy
+154,Chikungunya,0.0,2026-08-31_11-15-46_,recall
+154,Chikungunya,0.0,2026-08-31_11-15-46_,precision
+154,Chikungunya,0.0,2026-08-31_11-15-46_,f1_score
+154,Chikungunya,0.0,2026-08-31_11-15-46_,n_labels
+226,Diabetes mellitus,1.0,2026-08-31_11-15-46_,accuracy
+226,Diabetes mellitus,0.0,2026-08-31_11-15-46_,recall
+226,Diabetes mellitus,0.0,2026-08-31_11-15-46_,precision
+226,Diabetes mellitus,0.0,2026-08-31_11-15-46_,f1_score
+226,Diabetes mellitus,0.0,2026-08-31_11-15-46_,n_labels
+284,Hemoglobinopathies and hemolytic anemias,1.0,2026-08-31_11-15-46_,accuracy
+284,Hemoglobinopathies and hemolytic anemias,0.0,2026-08-31_11-15-46_,recall
+284,Hemoglobinopathies and hemolytic anemias,0.0,2026-08-31_11-15-46_,precision
+284,Hemoglobinopathies and hemolytic anemias,0.0,2026-08-31_11-15-46_,f1_score
+284,Hemoglobinopathies and hemolytic anemias,0.0,2026-08-31_11-15-46_,n_labels
+217,Stroke,1.0,2026-08-31_11-15-46_,accuracy
+217,Stroke,0.0,2026-08-31_11-15-46_,recall
+217,Stroke,0.0,2026-08-31_11-15-46_,precision
+217,Stroke,0.0,2026-08-31_11-15-46_,f1_score
+217,Stroke,0.0,2026-08-31_11-15-46_,n_labels
+121,Neonatal mortality,1.0,2026-08-31_11-15-46_,accuracy
+121,Neonatal mortality,0.0,2026-08-31_11-15-46_,recall
+121,Neonatal mortality,0.0,2026-08-31_11-15-46_,precision
+121,Neonatal mortality,0.0,2026-08-31_11-15-46_,f1_score
+121,Neonatal mortality,0.0,2026-08-31_11-15-46_,n_labels
+159,Food-borne trematodiases,1.0,2026-08-31_11-15-46_,accuracy
+159,Food-borne trematodiases,0.0,2026-08-31_11-15-46_,recall
+159,Food-borne trematodiases,0.0,2026-08-31_11-15-46_,precision
+159,Food-borne trematodiases,0.0,2026-08-31_11-15-46_,f1_score
+159,Food-borne trematodiases,0.0,2026-08-31_11-15-46_,n_labels
+241,Attention-deficit/hyperactivity disorder,1.0,2026-08-31_11-15-46_,accuracy
+241,Attention-deficit/hyperactivity disorder,0.0,2026-08-31_11-15-46_,recall
+241,Attention-deficit/hyperactivity disorder,0.0,2026-08-31_11-15-46_,precision
+241,Attention-deficit/hyperactivity disorder,0.0,2026-08-31_11-15-46_,f1_score
+241,Attention-deficit/hyperactivity disorder,0.0,2026-08-31_11-15-46_,n_labels
+287,Urinary diseases and male infertility,0.96,2026-08-31_11-15-46_,accuracy
+287,Urinary diseases and male infertility,0.0,2026-08-31_11-15-46_,recall
+287,Urinary diseases and male infertility,0.0,2026-08-31_11-15-46_,precision
+287,Urinary diseases and male infertility,0.0,2026-08-31_11-15-46_,f1_score
+287,Urinary diseases and male infertility,1.0,2026-08-31_11-15-46_,n_labels
+136,Neglected tropical diseases and malaria,1.0,2026-08-31_11-15-46_,accuracy
+136,Neglected tropical diseases and malaria,0.0,2026-08-31_11-15-46_,recall
+136,Neglected tropical diseases and malaria,0.0,2026-08-31_11-15-46_,precision
+136,Neglected tropical diseases and malaria,0.0,2026-08-31_11-15-46_,f1_score
+136,Neglected tropical diseases and malaria,0.0,2026-08-31_11-15-46_,n_labels
+281,Congenital birth defects,1.0,2026-08-31_11-15-46_,accuracy
+281,Congenital birth defects,0.0,2026-08-31_11-15-46_,recall
+281,Congenital birth defects,0.0,2026-08-31_11-15-46_,precision
+281,Congenital birth defects,0.0,2026-08-31_11-15-46_,f1_score
+281,Congenital birth defects,0.0,2026-08-31_11-15-46_,n_labels
+298,Electrocution,1.0,2026-08-31_11-15-46_,accuracy
+298,Electrocution,0.0,2026-08-31_11-15-46_,recall
+298,Electrocution,0.0,2026-08-31_11-15-46_,precision
+298,Electrocution,0.0,2026-08-31_11-15-46_,f1_score
+298,Electrocution,0.0,2026-08-31_11-15-46_,n_labels
+285,Oral disorders,1.0,2026-08-31_11-15-46_,accuracy
+285,Oral disorders,0.0,2026-08-31_11-15-46_,recall
+285,Oral disorders,0.0,2026-08-31_11-15-46_,precision
+285,Oral disorders,0.0,2026-08-31_11-15-46_,f1_score
+285,Oral disorders,0.0,2026-08-31_11-15-46_,n_labels
+165,Lymphatic filariasis,1.0,2026-08-31_11-15-46_,accuracy
+165,Lymphatic filariasis,0.0,2026-08-31_11-15-46_,recall
+165,Lymphatic filariasis,0.0,2026-08-31_11-15-46_,precision
+165,Lymphatic filariasis,0.0,2026-08-31_11-15-46_,f1_score
+165,Lymphatic filariasis,0.0,2026-08-31_11-15-46_,n_labels
+237,Upper digestive system diseases,1.0,2026-08-31_11-15-46_,accuracy
+237,Upper digestive system diseases,0.0,2026-08-31_11-15-46_,recall
+237,Upper digestive system diseases,0.0,2026-08-31_11-15-46_,precision
+237,Upper digestive system diseases,0.0,2026-08-31_11-15-46_,f1_score
+237,Upper digestive system diseases,0.0,2026-08-31_11-15-46_,n_labels
+231,Cirrhosis and other chronic liver diseases,1.0,2026-08-31_11-15-46_,accuracy
+231,Cirrhosis and other chronic liver diseases,0.0,2026-08-31_11-15-46_,recall
+231,Cirrhosis and other chronic liver diseases,0.0,2026-08-31_11-15-46_,precision
+231,Cirrhosis and other chronic liver diseases,0.0,2026-08-31_11-15-46_,f1_score
+231,Cirrhosis and other chronic liver diseases,0.0,2026-08-31_11-15-46_,n_labels
+293,Police conflict and executions,1.0,2026-08-31_11-15-46_,accuracy
+293,Police conflict and executions,0.0,2026-08-31_11-15-46_,recall
+293,Police conflict and executions,0.0,2026-08-31_11-15-46_,precision
+293,Police conflict and executions,0.0,2026-08-31_11-15-46_,f1_score
+293,Police conflict and executions,0.0,2026-08-31_11-15-46_,n_labels

@@ -29,8 +29,9 @@ import asyncio
 import logging
 from typing import Annotated
 from rich.logging import RichHandler
-
+import json
 import typer
+from pathlib import Path
 
 
 from nacsos_data.db.connection import get_engine_async
@@ -74,6 +75,13 @@ def main(
     async def _main() -> None:
         db_engine = get_engine_async(settings=settings.DB)
 
+        manual_resolved_ids = []
+
+        if task.name.lower()=="taxonomy":
+            resolved_id_path = Path("data/private/taxonomy_resolved_ids.json")
+            if resolved_id_path.exists():
+                manual_resolved_ids = json.loads(resolved_id_path.read_text())
+
         async with db_engine.session() as session:
             project_id, labels, label_options, label_cols, scope_ids, resolved_ids = await get_task_infos(
                 task=task,
@@ -91,18 +99,36 @@ def main(
                 columns=KEEP_BASE_COLS,
             )
 
+        df['item_id'] = df['item_id'].astype(str)
+        df_pseudo['item_id'] = df_pseudo['item_id'].astype(str)
+
         logger.info(f'[bold]Rows:[/bold] {df.shape[0]}  [bold]Total columns:[/bold] {df.shape[1]}')
         logger.info(f'[bold]Concept (label) columns:[/bold] {label_cols[:10]}{" ..." if len(label_cols) > 10 else ""}')
 
         df.to_csv(task.sensitive_path, index=False)
         logger.info(f'[green]Wrote raw export ({df.shape[0]:,} rows x {df.shape[1]:,} cols) to {task.sensitive_path}[/green]')
 
-        df[df['username'] == 'RESOLVED'].to_csv(task.resolved_path, index=False)
-        shape = df[df['username'] == 'RESOLVED'].shape
-        logger.info(f'[green]Wrote resolved export ({shape[0]:,} rows x {shape[1]:,} cols) to {task.resolved_path}[/green]')
+        resolved_id_filter = manual_resolved_ids or df['item_id']
 
-        df_pseudo.drop(columns=['user_id'], errors='ignore').to_csv(task.shareable_path, index=False)
+        logger.info(resolved_id_filter)
+
+        df[
+            (df['username'] == 'RESOLVED') &
+            (df['item_id'].isin(resolved_id_filter))
+        ].to_csv(task.sensitive_resolved_path, index=False)
+        shape = df[df['username'] == 'RESOLVED'].shape
+        logger.info(f'[green]Wrote resolved export ({shape[0]:,} rows x {shape[1]:,} cols) to {task.sensitive_resolved_path}[/green]')
+
+        drop_cols = ['user_id', 'text']
+
+        df_pseudo.drop(columns=drop_cols, errors='ignore').to_csv(task.shareable_path, index=False)
         logger.info(f'[green]Wrote resolved export ({df_pseudo.shape[0]:,} rows x {df_pseudo.shape[1]:,} cols) to {task.shareable_path}[/green]')
+
+        df_pseudo[
+            (df_pseudo['username'] == 'RESOLVED') &
+            (df_pseudo['item_id'].isin(resolved_id_filter))
+        ].drop(columns=drop_cols, errors='ignore').to_csv(task.shareable_resolved_path, index=False)
+        logger.info(f'[green]Wrote resolved export ({df_pseudo.shape[0]:,} rows x {df_pseudo.shape[1]:,} cols) to {task.shareable_resolved_path}[/green]')
 
     asyncio.run(_main())
 

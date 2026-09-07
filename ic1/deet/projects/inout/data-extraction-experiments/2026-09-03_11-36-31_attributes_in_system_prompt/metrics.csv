@@ -1,0 +1,16 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+0,include - high precision,0.895,2026-09-03_11-36-31_attributes_in_system_prompt,accuracy
+0,include - high precision,0.20833333333333334,2026-09-03_11-36-31_attributes_in_system_prompt,recall
+0,include - high precision,0.7142857142857143,2026-09-03_11-36-31_attributes_in_system_prompt,precision
+0,include - high precision,0.3225806451612903,2026-09-03_11-36-31_attributes_in_system_prompt,f1_score
+0,include - high precision,24.0,2026-09-03_11-36-31_attributes_in_system_prompt,n_labels
+5,include - best balance,0.935,2026-09-03_11-36-31_attributes_in_system_prompt,accuracy
+5,include - best balance,0.7083333333333334,2026-09-03_11-36-31_attributes_in_system_prompt,recall
+5,include - best balance,0.7391304347826086,2026-09-03_11-36-31_attributes_in_system_prompt,precision
+5,include - best balance,0.723404255319149,2026-09-03_11-36-31_attributes_in_system_prompt,f1_score
+5,include - best balance,24.0,2026-09-03_11-36-31_attributes_in_system_prompt,n_labels
+6,include - high recall,0.875,2026-09-03_11-36-31_attributes_in_system_prompt,accuracy
+6,include - high recall,0.875,2026-09-03_11-36-31_attributes_in_system_prompt,recall
+6,include - high recall,0.4883720930232558,2026-09-03_11-36-31_attributes_in_system_prompt,precision
+6,include - high recall,0.6268656716417911,2026-09-03_11-36-31_attributes_in_system_prompt,f1_score
+6,include - high recall,24.0,2026-09-03_11-36-31_attributes_in_system_prompt,n_labels

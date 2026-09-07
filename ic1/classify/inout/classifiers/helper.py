@@ -16,6 +16,11 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 
+# Hard floor so an unattended run can never spin forever: Optuna's optimize(n_trials=None)
+# runs until it receives a termination signal, which on a cluster means burning the whole
+# walltime and (since results are only written after optimize returns) saving nothing.
+DEFAULT_TUNING_TRIALS = 50
+
 
 class ClassifierHelper:
     def __init__(
@@ -65,11 +70,12 @@ class ClassifierHelper:
         import optuna
 
         # TODO: Check which sampler makes most sense: https://optuna.readthedocs.io/en/stable/reference/samplers/index.html
-        sampler = optuna.samplers.TPESampler(n_startup_trials=int((self.tuning_trials or 100) * 0.5))
+        n_trials = self.tuning_trials or DEFAULT_TUNING_TRIALS
+        sampler = optuna.samplers.TPESampler(n_startup_trials=int(n_trials * 0.5))
         study = optuna.create_study(direction='maximize', sampler=sampler)
         study.optimize(
             lambda trial: self._run_trial(trial=trial, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, scoring=scoring, threshold=threshold),
-            n_trials=self.tuning_trials,
+            n_trials=n_trials,
             n_jobs=self.tuning_jobs,
             # Degenerate param combos (e.g. min_df/max_df that prune the whole vocabulary) raise
             # ValueError; mark the trial failed and keep searching instead of aborting the study.
@@ -119,7 +125,7 @@ class ClassifierHelper:
         trial.set_user_attr('scores_self', scores_self)
         trial.set_user_attr('model_params', model_params_)
 
-        objective = scores_val[scoring]
+        objective = scores_val.get(scoring, 0.0)
         return 0 if np.isnan(objective) else objective
 
     def best_from_study(self, study: 'Study', X: list[str], y: list[int]) -> 'Classifier':

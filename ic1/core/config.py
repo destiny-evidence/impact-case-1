@@ -26,7 +26,7 @@ class TaskName(str, Enum):
 
 class SchemeFilesConfig(BaseSettings):
     BASE: Path = Path('data/scheme')
-    VOCAB: Path = Field(default_factory=lambda data: data['BASE'] / 'destiny-1-4-version-1-4-of-the-destiny-taxonomy.ttl')
+    VOCAB: Path = Field(default_factory=lambda data: data['BASE'] / 'destiny-1-5-version-1-4-of-the-destiny-taxonomy.ttl')
     CSV: Path = Field(default_factory=lambda data: data['BASE'] / 'destiny_taxonomy_nacsos_mapping.csv')
     JSON: Path = Field(default_factory=lambda data: data['BASE'] / 'destiny_taxonomy_nacsos_mapping.json')
 
@@ -44,8 +44,8 @@ class Config(BaseSettings):
     SCHEME: SchemeFilesConfig = Field(default_factory=SchemeFilesConfig)
 
     DATASETS_DIR: Path = Path('ic1/annotation/datasets')
-    SCHEME_DIR: Path = Path('ic1/annotation/scheme')
-    VOCAB_FILE: Path = SCHEME_DIR / 'destiny-1-4-version-1-4-of-the-destiny-taxonomy.ttl'
+    SCHEME_DIR: Path = Path('data/scheme')
+    VOCAB_FILE: Path = SCHEME_DIR / 'destiny-1-5-version-1-4-of-the-destiny-taxonomy.ttl'
     MAPPING_CSV: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.csv'
     MAPPING_JSON: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.json'
     MODELS_ROOT: Path = Path('data/models')
@@ -81,8 +81,12 @@ class TaskConfig:
         return settings.SENSITIVE_ROOT / f'{self.name}.csv'
 
     @property
-    def resolved_path(self) -> Path:
+    def shareable_resolved_path(self) -> Path:
         return settings.SHAREABLE_ROOT / f'{self.name}_resolved.csv'
+
+    @property
+    def sensitive_resolved_path(self) -> Path:
+        return settings.SENSITIVE_ROOT / f'{self.name}_resolved.csv'
 
     @property
     def deet_data_path(self) -> Path:
@@ -129,6 +133,10 @@ class TaskConfig:
     @property
     def ml_model_predictions_path(self) -> Path:
         return self.classifier_results_path / 'ml_predictions.csv'
+
+    @property
+    def frequencies_path(self) -> Path:
+        return settings.SHAREABLE_ROOT / f'{self.name}_frequencies.csv'
 
 
 TASKS: dict[TaskName, TaskConfig] = {

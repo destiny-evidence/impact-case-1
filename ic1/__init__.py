@@ -18,11 +18,9 @@ def main():
     logging.getLogger('httpx').setLevel(logging.WARNING)
 
     from ic1.classify.inout import app as inout_app
-    from ic1.evaluation_splits import create_split
 
     app = typer.Typer()
 
-    app.command('split-data', help='Split data into train, validation, and test sets')(create_split)
     app.add_typer(inout_app, name='classify-inout', help='Inclusion classification model tuning and training')
 
     # Commands that need nacsos_data (DB access) are registered only if it imports. This keeps the
@@ -39,6 +37,12 @@ def main():
             f'nacsos_data unavailable ({exc}); "export" and "import-taxonomy" commands disabled. '
             'Install with the "nacsos" extra to enable them.'
         )
+
+    try:
+        from ic1.deet import app as deet_app
+        app.add_typer(deet_app, name='deet', help='Create and manage deet projects')
+    except ImportError as e:
+        logging.getLogger('ic1').warning('deet extra not installed')
 
     def tree_command(ctx: typer.Context):
         """Show a tree view of all commands and sub-apps."""

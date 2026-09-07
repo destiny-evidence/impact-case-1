@@ -1,0 +1,16 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+0,include - high precision,0.905,2026-09-02_08-41-17_water_scarcity,accuracy
+0,include - high precision,0.2916666666666667,2026-09-02_08-41-17_water_scarcity,recall
+0,include - high precision,0.7777777777777778,2026-09-02_08-41-17_water_scarcity,precision
+0,include - high precision,0.42424242424242425,2026-09-02_08-41-17_water_scarcity,f1_score
+0,include - high precision,24.0,2026-09-02_08-41-17_water_scarcity,n_labels
+5,include - best balance,0.94,2026-09-02_08-41-17_water_scarcity,accuracy
+5,include - best balance,0.75,2026-09-02_08-41-17_water_scarcity,recall
+5,include - best balance,0.75,2026-09-02_08-41-17_water_scarcity,precision
+5,include - best balance,0.75,2026-09-02_08-41-17_water_scarcity,f1_score
+5,include - best balance,24.0,2026-09-02_08-41-17_water_scarcity,n_labels
+6,include - high recall,0.89,2026-09-02_08-41-17_water_scarcity,accuracy
+6,include - high recall,0.9166666666666666,2026-09-02_08-41-17_water_scarcity,recall
+6,include - high recall,0.5238095238095238,2026-09-02_08-41-17_water_scarcity,precision
+6,include - high recall,0.6666666666666666,2026-09-02_08-41-17_water_scarcity,f1_score
+6,include - high recall,24.0,2026-09-02_08-41-17_water_scarcity,n_labels
