@@ -33,8 +33,11 @@ from ic1.reporting.loaders import (
     load_inout_prompts,
     load_inout_runs,
     load_inout_test_metrics,
+    load_taxonomy_concept_tree,
+    load_taxonomy_level_scores,
     load_taxonomy_prompt_churn,
     load_taxonomy_runs,
+    load_taxonomy_scheme_scores,
 )
 from ic1.reporting.plots import (
     plot_agreement_by_set,
@@ -46,7 +49,9 @@ from ic1.reporting.plots import (
     plot_cost_performance,
     plot_iteration_timeline,
     plot_pairwise_kappa,
+    plot_scheme_scores,
     plot_screening_raster,
+    plot_taxonomy_level_scores,
     plot_unanimous_funnel,
 )
 from ic1.reporting.style import MODE_COLORS, apply_style
@@ -56,6 +61,7 @@ from ic1.reporting.tables import (
     comparison_markdown,
     metrics_markdown,
     prompts_markdown,
+    taxonomy_drilldown_html,
 )
 
 _REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -89,6 +95,22 @@ def build_taxonomy(formats: tuple[str, ...]) -> None:
     _save(
         plot_iteration_timeline(runs, churn=churn),
         "taxonomy", "iteration_timeline", formats,
+    )
+
+    chosen = runs.loc[runs.micro.idxmax(), "run"]
+    print(f"  per-scheme scores for {chosen}")
+    scheme_scores = load_taxonomy_scheme_scores(chosen)
+    _save(
+        plot_scheme_scores(scheme_scores),
+        "taxonomy", "scheme_scores", formats,
+    )
+    _save(
+        plot_taxonomy_level_scores(load_taxonomy_level_scores(chosen), scheme_scores),
+        "taxonomy", "level_scores", formats,
+    )
+    _write_table(
+        taxonomy_drilldown_html(load_taxonomy_concept_tree(chosen)),
+        "taxonomy_drilldown",
     )
 
 

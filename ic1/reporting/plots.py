@@ -260,6 +260,103 @@ def _churn_handles() -> list[Patch]:
     ]
 
 
+def plot_scheme_scores(
+    scores: pd.DataFrame,
+    *,
+    metric: str = "micro",
+    title: str | None = None,
+    figsize: tuple[float, float] | None = None,
+) -> Figure:
+    """Per-scheme F1 for one run: horizontal bars, sorted worst -> best.
+
+    ``n`` is the number of scoreable concepts (>=1 gold positive) in the scheme.
+    """
+    s = scores.sort_values(metric, ascending=True).reset_index(drop=True)
+    y = list(range(len(s)))
+    bar_c = METHOD_COLORS.get("Flat", "#4c72b0")
+    fig, ax = plt.subplots(
+        figsize=figsize or (9.0, 0.42 * len(s) + 1.6), layout="constrained"
+    )
+    ax.barh(y, s[metric], height=0.6, color=bar_c, zorder=2)
+    for yi, (v, n) in enumerate(zip(s[metric], s.n_concepts_scoreable)):
+        ax.text(min(v + 0.01, 0.98), yi, f"{v:.2f} (n={n})",
+                va="center", fontsize=8)
+    ax.set_yticks(y)
+    ax.set_yticklabels(s.scheme_title)
+    ax.set_xlim(0, 1)
+    ax.set_xlabel(_metric_ylabel(metric))
+    ax.set_title(title or f"Per-scheme {_metric_ylabel(metric)} — {s.run.iloc[0]}")
+    return fig
+
+
+def plot_taxonomy_level_scores(
+    scores: pd.DataFrame,
+    scheme: pd.DataFrame | None = None,
+    *,
+    metric: str = "micro",
+    title: str | None = None,
+    figsize: tuple[float, float] | None = None,
+) -> Figure:
+    """Hierarchy-respecting F1 for one run, one lane per scheme.
+
+    Grey bar = the scheme's rolled-up F1 over ALL its scoreable concepts (from
+    ``scheme``, ``load_taxonomy_scheme_scores``). Dots = each internal node's
+    LOCAL F1 over its DIRECT children only (``load_taxonomy_level_scores``),
+    coloured by depth and sized by scoreable-child count. A dot far left of a
+    tall bar is a weak deep branch the rolled-up score would have hidden.
+    """
+    shades = ["#2f5597", "#6f93c6", "#9db9dc", "#c9d8ee"]
+
+    def shade(lv: int) -> str:
+        return shades[min(int(lv), len(shades) - 1)]
+
+    # Order lanes by the rolled-up scheme score if given, else the root group.
+    if scheme is not None:
+        agg = scheme.set_index("scheme_title")[metric]
+    else:
+        agg = scores[scores.level == 0].set_index("scheme_title")[metric]
+    lanes = list(agg.sort_values().index)
+    row = {name: i for i, name in enumerate(lanes)}
+
+    bar_fill, bar_edge = "#d6d6d6", "#a8a8a8"
+    fig, ax = plt.subplots(
+        figsize=figsize or (9.5, 0.46 * len(lanes) + 1.6), layout="constrained"
+    )
+    for name in lanes:
+        ax.barh(row[name], float(agg[name]), height=0.72, color=bar_fill,
+                edgecolor=bar_edge, linewidth=0.8, zorder=1)
+
+    for name in lanes:
+        g = scores[scores.scheme_title == name].sort_values(["level", metric])
+        k = len(g)
+        offs = np.linspace(-0.3, 0.3, k) if k > 1 else np.array([0.0])
+        ax.scatter(
+            g[metric], row[name] + offs,
+            s=24 + 34 * np.sqrt(g.n_concepts_scoreable.to_numpy()),
+            c=[shade(lv) for lv in g.level],
+            edgecolor="white", linewidth=0.6, zorder=3,
+        )
+
+    ax.set_yticks(range(len(lanes)))
+    ax.set_yticklabels(lanes, fontsize=9)
+    ax.set_ylim(-0.6, len(lanes) - 0.4)
+    ax.set_xlim(0, 1)
+    ax.set_xlabel(_metric_ylabel(metric))
+    ax.set_title(title or f"Per-node {_metric_ylabel(metric)} — {scores.run.iloc[0]}")
+
+    max_lv = int(scores.level.max())
+    color_handles = [
+        Line2D([0], [0], marker="o", linestyle="none", markerfacecolor=shade(lv),
+               markeredgecolor="white", markersize=8, label=f"level {lv}")
+        for lv in range(max_lv + 1)
+    ]
+    color_handles.append(Patch(facecolor=bar_fill, edgecolor=bar_edge,
+                               label="scheme F1\n(all concepts)"))
+    fig.legend(handles=color_handles, title="node depth",
+               loc="outside upper right", fontsize=8, title_fontsize=8)
+    return fig
+
+
 def plot_prompt_churn(
     churn: pd.DataFrame,
     *,
