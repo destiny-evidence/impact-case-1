@@ -317,7 +317,7 @@ def plot_coder_counts(
     ax.set_yticks(list(y))
     ax.set_yticklabels(counts.username.str.replace("coder_", "c"))
     ax.set_xlabel("decided annotations")
-    for yi, total, inc in zip(y, counts.n_decided, counts.n_include):
+    for yi, total, inc in zip(y, counts.n_decided, counts.n_include, strict=True):
         ratio = inc / total if total else 0.0
         ax.text(total + left.max() * 0.006, yi,
                 f"{int(total):,}  ({ratio:.0%} incl)", va="center",
@@ -349,7 +349,7 @@ def plot_coderset_composition(
     ax.set_yticks(list(y))
     ax.set_yticklabels(comp.label, fontsize=8)
     ax.set_xlabel("documents")
-    for yi, n in zip(y, comp.n_items):
+    for yi, n in zip(y, comp.n_items, strict=True):
         ax.text(n + comp.n_items.max() * 0.006, yi, f"{int(n):,}", va="center",
                 fontsize=8, color="#333333")
     total = int(comp.n_items.sum())
@@ -400,7 +400,7 @@ def plot_agreement_by_set(
     ax.barh(y, by_set.fleiss, color=colors, zorder=2)
     # Resolved inclusion rate for each set, printed just past the bar end.
     if "resolved_incl_rate" in by_set:
-        for yi, k, rate in zip(y, by_set.fleiss, by_set.resolved_incl_rate):
+        for yi, k, rate in zip(y, by_set.fleiss, by_set.resolved_incl_rate, strict=True):
             if np.isnan(rate):
                 continue
             ax.text(k + 0.015, yi, f"{rate:.0%} incl", va="center", ha="left",
@@ -408,7 +408,8 @@ def plot_agreement_by_set(
     ax.set_ylim(-0.6, len(by_set) - 0.4)  # trim matplotlib's default y-margin
     ax.set_yticks(list(y))
     ax.set_yticklabels(
-        [f"{lbl}  (n={int(n)})" for lbl, n in zip(by_set.label, by_set.n_complete)],
+        [f"{lbl}  (n={int(n)})"
+         for lbl, n in zip(by_set.label, by_set.n_complete, strict=True)],
         fontsize=8,
     )
     ax.set_xlabel("Fleiss' κ")
@@ -511,7 +512,7 @@ def plot_unanimous_funnel(
                    edgecolors="#2f5d86", linewidths=1.2, zorder=4)
 
     colors = ["#d62728" if abs(z) > 3.09 else SETSIZE_COLORS.get(s, "#888888")
-              for z, s in zip(df.z, df["size"])]
+              for z, s in zip(df.z, df["size"], strict=True)]
     ax.scatter(df.n_unan, df.rate, s=75, c=colors, edgecolors="white",
                linewidths=1.0, zorder=5)
     for _, r in df.iterrows():
@@ -576,10 +577,12 @@ def plot_screening_raster(
     )
     ax_s.imshow(split[None, :], aspect="auto", cmap=RASTER_SPLIT_CMAP,
                 vmin=0, vmax=1, interpolation="nearest")
-    ax_s.set_yticks([0]); ax_s.set_yticklabels(["split vote"], fontsize=8)
+    ax_s.set_yticks([0])
+    ax_s.set_yticklabels(["split vote"], fontsize=8)
     ax_g.imshow(gold[None, :], aspect="auto", cmap=cmap, vmin=0, vmax=1,
                 interpolation="nearest")
-    ax_g.set_yticks([0]); ax_g.set_yticklabels(["RESOLVED"], fontsize=8)
+    ax_g.set_yticks([0])
+    ax_g.set_yticklabels(["RESOLVED"], fontsize=8)
     ax_m.imshow(matrix, aspect="auto", cmap=cmap, vmin=0, vmax=1,
                 interpolation="nearest")
     ax_m.set_yticks(range(len(coders)))
@@ -676,7 +679,8 @@ def plot_coder_pr(
                                        linestyle="none", markersize=11 if mk == "*"
                                        else 8, label=lbl))
 
-    ax.set_xlim(-0.03, 1.03); ax.set_ylim(-0.03, 1.05)
+    ax.set_xlim(-0.03, 1.03)
+    ax.set_ylim(-0.03, 1.05)
     ax.set_xlabel("recall  (of the relevant papers, how many the coder caught)")
     ax.set_ylabel("precision  (of the coder's includes, how many were relevant)")
     ax.set_aspect("equal")
@@ -733,7 +737,8 @@ def plot_coder_model_pr(
         ax.scatter(r["recall"], r["precision"], marker=marker, s=150,
                    facecolors=color, edgecolors="black", linewidths=1.0, zorder=6)
 
-    ax.set_xlim(-0.03, 1.03); ax.set_ylim(-0.03, 1.05)
+    ax.set_xlim(-0.03, 1.03)
+    ax.set_ylim(-0.03, 1.05)
     ax.set_xlabel("recall  (of the relevant papers, how many were caught)")
     ax.set_ylabel("precision  (of the includes, how many were relevant)")
     ax.set_aspect("equal")
@@ -758,6 +763,7 @@ def plot_coder_model_pr(
     ]
     leg1 = fig.legend(handles=human_handles, loc="outside right upper", fontsize=8,
                       title="Humans (& contours)")
+    fig.add_artist(leg1)  # else the second fig.legend replaces this one
     fig.legend(handles=system_handles, loc="outside right lower", fontsize=8,
                title="Systems\n(shape = method,\ncolour = operating point)")
     return fig

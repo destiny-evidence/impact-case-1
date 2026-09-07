@@ -72,6 +72,8 @@ def _collect_states(root: Path, models: tuple[str, ...]) -> list[dict]:
     """
     runs = []
     for d in sorted(root.iterdir()):
+        if "MODELCMP" in d.name:
+            continue  # model-selection bake-off, not a prompt iteration
         comp = d / "goldstandard_llm_comparison.csv"
         cfg = d / "config.yaml"
         prompts = d / "prompts_used.csv"
@@ -203,77 +205,77 @@ _PRICING_USD_PER_MTOK = {
     "Kimi-K2.6": (0.95, 4.00),
 }
 
-# Representative run(s) per model for the cost/performance comparison. luna,
-# opus, deepseek and kimi come from the 2026-09-01 bakeoff — identical prompts,
-# 130 docs, one vote — so their F2 is a controlled comparison. terra and sol are
-# each at their own representative config (the figure notes this).
-_MODEL_COMPARISON_RUNS = {
-    "luna": ["_08-25-12_luna", "_luna_s1", "_luna_s2"],
-    "opus": ["_opus"],
-    "deepseek": ["_deepseek"],
-    "kimi": ["_kimi26"],
-    "terra": ["_20-22-45_terra"],
-    "sol": ["_all_modes_resample"],
-}
+# Scope prompts in cascade order. They are near-identical in length (prompt and
+# reasoning tokens within ~5%), so per-call cost is split evenly across them.
+_CASCADE = ["include - high recall", "include - best balance", "include - high precision"]
 
 
 def load_inout_model_costs(exp_dir: Path | str | None = None) -> pd.DataFrame:
-    """Per-model best-balance F2 vs cost per document for model selection.
+    """Per-model best-balance F2 vs realistic cascade cost, for model selection.
 
-    Cost is deet's recorded ``total_cost_usd`` where available; for models deet
-    does not price (DeepSeek, Kimi) it is estimated from recorded token counts x
-    published list prices (``_PRICING_USD_PER_MTOK``), flagged via ``estimated``.
-    F2 (recall-weighted) is over the best-balance operating point. Resample
-    siblings are averaged. One row per model.
+    Reads the ``MODELCMP_<model>`` runs — each a single-pass (no voting), same-
+    splits validation run of all three scope prompts, so models are directly
+    comparable.
+
+    **Cost** models the production cascade: high recall runs on every document,
+    best balance only on high-recall includes, high precision only on those.
+    Measuring the pass-through fractions p1 = P(HR⁺) and p2 = P(bal⁺ | HR⁺), the
+    expected calls per document are ``1 + p1 + p1·p2`` instead of 3. The three
+    prompts cost the same per call, so per-doc cost = (run cost / docs / 3) ×
+    (1 + p1 + p1·p2). deet's ``total_cost_usd`` is used where available; DeepSeek/
+    Kimi are estimated from tokens × published prices (``estimated`` flag).
+
+    **F2** is the cascade's best-balance output — the gated decision HR⁺ ∩ bal⁺
+    (a doc high recall drops never reaches the balance prompt). One row per model.
     """
     root = Path(exp_dir) if exp_dir is not None else DEFAULT_EXP_DIR
-    per_run = []
+    rows = []
     for d in sorted(root.iterdir()):
+        if "MODELCMP_" not in d.name:
+            continue
         comp = d / "goldstandard_llm_comparison.csv"
         cfg = d / "config.yaml"
         meta = d / "extraction_metadata.json"
         if not (comp.exists() and cfg.exists() and meta.exists()):
             continue
-        model_short = next(
-            (m for m, pats in _MODEL_COMPARISON_RUNS.items()
-             if any(p in d.name for p in pats)),
-            None,
-        )
-        if model_short is None:
-            continue
         c = yaml.safe_load(cfg.read_text()) or {}
-        m = json.loads(meta.read_text())
-        df = pd.read_csv(comp)
-        bb = df[df.attribute_label == "include - best balance"]
-        if bb.empty:
-            continue
-        f2 = fbeta_score(
-            bb.human_extraction.fillna(False).astype(int),
-            bb.llm_extraction.fillna(False).astype(int),
-            beta=2, zero_division=0,
-        )
-        cost = m.get("total_cost_usd")
-        estimated = False
         model = c.get("model", "?")
-        if cost is None and model in _PRICING_USD_PER_MTOK:
-            pin, pout = _PRICING_USD_PER_MTOK[model]
-            cost = (m["total_input_tokens"] * pin + m["total_output_tokens"] * pout) / 1e6
-            estimated = True
-        if cost is None:
-            continue
+        df = pd.read_csv(comp)
         n_docs = df.document_id.nunique()
-        per_run.append({
-            "model_short": model_short, "model": model,
-            "cost_per_doc": cost / n_docs, "f2": float(f2),
-            "estimated": estimated,
-        })
 
-    df = pd.DataFrame(per_run)
-    return (
-        df.groupby("model_short", as_index=False)
-        .agg(model=("model", "first"), cost_per_doc=("cost_per_doc", "mean"),
-             f2=("f2", "mean"), estimated=("estimated", "first"))
-    )
+        # Per-scope decisions and the (mode-invariant) gold.
+        wide = df.pivot_table(index="document_id", columns="attribute_label",
+                              values="llm_extraction", aggfunc="first")
+        gold = df.groupby("document_id").human_extraction.first().fillna(False).astype(bool)
+        hr = wide[_CASCADE[0]].reindex(gold.index).fillna(False).astype(bool)
+        bal = wide[_CASCADE[1]].reindex(gold.index).fillna(False).astype(bool)
+
+        # Cascade routing fractions and the gated best-balance decision.
+        p1 = float(hr.mean())
+        p2 = float((bal & hr).sum() / hr.sum()) if hr.sum() else 0.0
+        cascade_calls = 1 + p1 + p1 * p2
+        f2 = fbeta_score(gold.astype(int), (hr & bal).astype(int),
+                         beta=2, zero_division=0)
+
+        # Total run cost (all three prompts, one pass); split evenly per prompt.
+        m = json.loads(meta.read_text())
+        total_cost = m.get("total_cost_usd")
+        estimated = False
+        if total_cost is None and model in _PRICING_USD_PER_MTOK:
+            pin, pout = _PRICING_USD_PER_MTOK[model]
+            total_cost = (m["total_input_tokens"] * pin
+                          + m["total_output_tokens"] * pout) / 1e6
+            estimated = True
+        if total_cost is None:
+            continue
+        cost_per_doc = (total_cost / n_docs / len(_CASCADE)) * cascade_calls
+
+        rows.append({
+            "model_short": _model_short(model), "model": model,
+            "cost_per_doc": cost_per_doc, "f2": float(f2),
+            "estimated": estimated, "p1": p1, "p2": p2,
+        })
+    return pd.DataFrame(rows).sort_values("cost_per_doc").reset_index(drop=True)
 
 
 def load_inout_test_metrics(exp_dir: Path | str | None = None) -> pd.DataFrame:
