@@ -17,3 +17,5 @@ __marimo__
 docs/_build/
 docs/node_modules/
 docs/exports/
+# Private figures rendered with real coder names (never commit)
+docs/figures/**/*_private.*

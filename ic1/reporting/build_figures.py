@@ -38,7 +38,8 @@ from ic1.reporting.loaders import (
 from ic1.reporting.plots import (
     plot_agreement_by_set,
     plot_coder_counts,
-    plot_coder_f1,
+    plot_coder_model_pr,
+    plot_coder_pr,
     plot_coderset_composition,
     plot_comparison,
     plot_cost_performance,
@@ -142,7 +143,12 @@ def build_inout_annotation(formats: tuple[str, ...]) -> None:
     _save(plot_agreement_by_set(by_set, overall), "inout", "annotation_agreement", formats)
     _save(plot_pairwise_kappa(inout_pairwise_kappa(ann)),
           "inout", "annotation_pairwise_kappa", formats)
-    _save(plot_coder_f1(f1), "inout", "annotation_coder_f1", formats)
+    _save(plot_coder_pr(f1), "inout", "annotation_coder_pr", formats)
+    try:
+        _save(plot_coder_model_pr(f1, load_inout_comparison()),
+              "inout", "annotation_coder_model_pr", formats)
+    except (FileNotFoundError, ValueError) as e:
+        print(f"  skipping coder-vs-model PR: {e}")
     _write_table(annotation_agreement_markdown(by_set, overall), "inout_annotation_agreement")
     _write_table(annotation_f1_markdown(f1), "inout_annotation_f1")
 

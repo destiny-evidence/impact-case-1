@@ -362,7 +362,7 @@ def plot_coderset_composition(
 
 def _kappa_band_shading(ax: Axes) -> None:
     """Shade the Landis & Koch agreement bands along the κ (x) axis as vertical
-    alternating light-grey spans, labelled (rotated) along the top."""
+    alternating light-grey spans, labelled just above the plot area."""
     lo = 0.0
     for i, (hi, name) in enumerate(KAPPA_BANDS):
         if i == 0:
@@ -370,8 +370,8 @@ def _kappa_band_shading(ax: Axes) -> None:
             continue
         hi_c = min(hi, 1.0)
         ax.axvspan(lo, hi_c, color="#000000", alpha=0.03 if i % 2 else 0.06, zorder=0)
-        ax.text((lo + hi_c) / 2, 0.995, name, ha="center", va="top", fontsize=7,
-                rotation=90, color="#888888", zorder=1,
+        ax.text((lo + hi_c) / 2, 1.008, name, ha="center", va="bottom", fontsize=9.5,
+                color="#888888", zorder=1, clip_on=False,
                 transform=ax.get_xaxis_transform())
         lo = hi
 
@@ -398,6 +398,7 @@ def plot_agreement_by_set(
     y = range(len(by_set))
     colors = [SETSIZE_COLORS.get(s, "#7f7f7f") for s in by_set["size"]]
     ax.barh(y, by_set.fleiss, color=colors, zorder=2)
+    ax.set_ylim(-0.6, len(by_set) - 0.4)  # trim matplotlib's default y-margin
     ax.set_yticks(list(y))
     ax.set_yticklabels(
         [f"{lbl}  (n={int(n)})" for lbl, n in zip(by_set.label, by_set.n_complete)],
@@ -413,7 +414,8 @@ def plot_agreement_by_set(
         handles.append(Line2D([0], [0], color="#333333", linestyle="--",
                               label=f"overall κ = {overall['fleiss']:.2f}"))
     ax.legend(handles=handles, loc="lower right", title="Set size")
-    ax.set_title(title or "Inter-coder agreement by coder-set — in/out screen")
+    ax.set_title(title or "Inter-coder agreement by coder-set — in/out screen",
+                 pad=30)
     return fig
 
 
@@ -454,44 +456,6 @@ def plot_pairwise_kappa(
                         color="#222222")
     fig.colorbar(im, ax=ax, shrink=0.7, label="Cohen's κ")
     ax.set_title(title or "Pairwise coder agreement (Cohen's κ) — in/out screen")
-    return fig
-
-
-def plot_coder_f1(
-    f1df: pd.DataFrame,
-    *,
-    figsize: tuple[float, float] | None = None,
-    title: str | None = None,
-) -> Figure:
-    """Per-coder F1 against the adjudicated value, with average/pooled markers.
-
-    Consumes ``inout_coder_f1`` (per-coder rows plus ``average coder`` / ``pooled``
-    summaries). Bars are per coder (ordered by F1); precision and recall ride as
-    small markers on each bar, and the two summaries are drawn as reference lines.
-    """
-    summ = f1df[f1df.coder.isin(["average coder", "pooled"])].set_index("coder")
-    per = f1df[~f1df.coder.isin(["average coder", "pooled"])].sort_values("f1")
-    fig, ax = plt.subplots(
-        figsize=figsize or (7.5, 0.32 * len(per) + 1.6), layout="constrained"
-    )
-    y = range(len(per))
-    ax.barh(y, per.f1, color="#4c78a8", zorder=2, label="F1")
-    ax.scatter(per.precision, y, marker="|", s=90, color="#d62728", zorder=3,
-               label="precision")
-    ax.scatter(per.recall, y, marker="|", s=90, color="#2ca02c", zorder=3,
-               label="recall")
-    ax.set_yticks(list(y))
-    ax.set_yticklabels([f"{c.replace('coder_', 'c')}  (n={int(n)})"
-                        for c, n in zip(per.coder, per.n)], fontsize=8)
-    ax.set_xlabel("score vs adjudicated value")
-    ax.set_xlim(0, 1)
-    for name, style in (("pooled", "--"), ("average coder", ":")):
-        if name in summ.index:
-            ax.axvline(summ.loc[name, "f1"], color="#333333", linestyle=style,
-                       linewidth=1.4, zorder=4,
-                       label=f"{name} F1 = {summ.loc[name, 'f1']:.2f}")
-    ax.set_title(title or "Coder F1 vs adjudicated value — in/out screen")
-    ax.legend(loc="lower right", fontsize=8)
     return fig
 
 
@@ -549,6 +513,167 @@ def plot_screening_raster(
     ax_m.legend(handles=handles, loc="upper right", ncol=3, fontsize=8,
                 framealpha=0.9)
     ax_s.set_title(title or "Human screening raster — in/out relevance")
+    return fig
+
+
+# Iso-Fβ contour styling shared by the coder PR charts.
+_FBETA_STYLE = ((1, "#bbbbbb", "dashed"), (2, "#b07aa1", "dotted"))
+
+
+def _draw_fbeta_contours(ax: Axes, levels: tuple[float, ...] = (0.2, 0.4, 0.6, 0.8)) -> None:
+    """Iso-Fβ contours: Fβ = (1+β²)PR / (β²P + R). F1 (grey) is symmetric in P/R;
+    F2 (mauve) weights recall higher, so its curves bow toward the recall axis —
+    a high-recall / low-precision point sits on a much higher F2 than F1."""
+    grid = np.linspace(0.001, 1, 300)
+    R, P = np.meshgrid(grid, grid)
+    for beta, color, style in _FBETA_STYLE:
+        Fb = (1 + beta**2) * P * R / (beta**2 * P + R)
+        cs = ax.contour(R, P, Fb, levels=list(levels), colors=color, linewidths=0.9,
+                        linestyles=style, zorder=1)
+        ax.clabel(cs, fmt=lambda v, b=beta: f"F{b}={v:.1f}", fontsize=7, colors=color)
+
+
+def _fbeta_contour_handles() -> list[Line2D]:
+    return [
+        Line2D([0], [0], color="#bbbbbb", linestyle="dashed", label="iso-F1"),
+        Line2D([0], [0], color="#b07aa1", linestyle="dotted",
+               label="iso-F2 (recall-weighted)"),
+    ]
+
+
+def plot_coder_pr(
+    f1df: pd.DataFrame,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Precision–recall scatter of coders vs the adjudicated value, over iso-F1
+    contours.
+
+    Consumes ``inout_coder_f1``. One point per coder (recall x, precision y),
+    sized by the number of documents screened; the ``pooled`` and ``average
+    coder`` summaries are drawn as distinct markers. Faint curves of constant F1
+    let you read each coder's F1 off its position, so no separate F1 encoding is
+    needed. Geometry tells the calibration story: over-includers sit bottom-right
+    (high recall, low precision), under-includers top-left.
+    """
+    summ = f1df[f1df.coder.isin(["average coder", "pooled"])].set_index("coder")
+    per = f1df[~f1df.coder.isin(["average coder", "pooled"])]
+    fig, ax = plt.subplots(figsize=figsize or FIGSIZE["square"], layout="constrained")
+
+    _draw_fbeta_contours(ax)
+
+    # Marker size ∝ documents screened (sqrt so area reads proportionally);
+    # floored so the 2-char coder label always fits inside.
+    nmax = per.n.max()
+    def size(n: float) -> float:
+        return 90 + 230 * (n / nmax) ** 0.5
+
+    ax.scatter(per.recall, per.precision, s=[size(n) for n in per.n],
+               facecolors="#4c78a8", edgecolors="white", linewidths=1.0,
+               alpha=0.85, zorder=3)
+    for _, r in per.iterrows():
+        ax.annotate(r.coder.split("_")[-1][-2:], (r.recall, r.precision),
+                    textcoords="offset points", xytext=(0, 0), ha="center",
+                    va="center", fontsize=6, color="white", zorder=4,
+                    fontweight="bold")
+
+    marks = {"pooled": ("*", "#d62728", "pooled"),
+             "average coder": ("D", "#333333", "average coder")}
+    mark_handles = []
+    for name, (mk, col, lbl) in marks.items():
+        if name in summ.index:
+            s = summ.loc[name]
+            ax.scatter(s.recall, s.precision, marker=mk, s=260 if mk == "*" else 120,
+                       facecolors=col, edgecolors="white", linewidths=1.2, zorder=5)
+            mark_handles.append(Line2D([0], [0], marker=mk, color=col,
+                                       linestyle="none", markersize=11 if mk == "*"
+                                       else 8, label=lbl))
+
+    ax.set_xlim(-0.03, 1.03); ax.set_ylim(-0.03, 1.05)
+    ax.set_xlabel("recall  (of the relevant papers, how many the coder caught)")
+    ax.set_ylabel("precision  (of the coder's includes, how many were relevant)")
+    ax.set_aspect("equal")
+    ax.set_title(title or "Coder precision vs recall against adjudicated value")
+    ax.legend(handles=_fbeta_contour_handles() + mark_handles, loc="lower left",
+              fontsize=8.5)
+    ax.annotate("marker size ∝ documents screened", (0.98, 0.02),
+                xycoords="axes fraction", ha="right", va="bottom",
+                fontsize=8, color="#666666")
+    return fig
+
+
+def plot_coder_model_pr(
+    f1df: pd.DataFrame,
+    comparison: pd.DataFrame,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Coders and the automated systems together in precision–recall space.
+
+    Overlays the head-to-head systems (``load_inout_comparison`` — LLM only /
+    ML only / ML→LLM / ML or LLM at each operating point; marker = family,
+    colour = operating point) on the human coders (faded blue circles, from
+    ``inout_coder_f1``), over the same iso-F1/F2 contours. Lets you read where the
+    pipelines land relative to the human cloud. Note the two are scored against
+    the same adjudicated gold but over *different* document sets (coders over
+    their assignments; systems over the 648-doc held-out test set).
+    """
+    summ = f1df[f1df.coder.isin(["average coder", "pooled"])].set_index("coder")
+    per = f1df[~f1df.coder.isin(["average coder", "pooled"])]
+    fig, ax = plt.subplots(figsize=figsize or (10.6, 7.4), layout="constrained")
+
+    _draw_fbeta_contours(ax)
+
+    # Human coders: a faded reference cloud (numbered), plus the two summaries.
+    ax.scatter(per.recall, per.precision, s=90, facecolors="#4c78a8",
+               edgecolors="white", linewidths=0.8, alpha=0.45, zorder=3)
+    for _, r in per.iterrows():
+        ax.annotate(r.coder.split("_")[-1][-2:], (r.recall, r.precision),
+                    textcoords="offset points", xytext=(0, 0), ha="center",
+                    va="center", fontsize=5.5, color="white", zorder=4)
+    for name, mk, col in (("pooled", "*", "#d62728"), ("average coder", "D", "#333333")):
+        if name in summ.index:
+            s = summ.loc[name]
+            ax.scatter(s.recall, s.precision, marker=mk, s=260 if mk == "*" else 110,
+                       facecolors=col, edgecolors="white", linewidths=1.2, zorder=5,
+                       alpha=0.55)
+
+    # Automated systems: marker = family, colour = operating point.
+    for _, r in comparison.iterrows():
+        color = MODE_COLORS.get(r["mode"], _NO_MODE_COLOR)
+        marker = _FAMILY_MARKERS.get(r["family"], "o")
+        ax.scatter(r["recall"], r["precision"], marker=marker, s=150,
+                   facecolors=color, edgecolors="black", linewidths=1.0, zorder=6)
+
+    ax.set_xlim(-0.03, 1.03); ax.set_ylim(-0.03, 1.05)
+    ax.set_xlabel("recall  (of the relevant papers, how many were caught)")
+    ax.set_ylabel("precision  (of the includes, how many were relevant)")
+    ax.set_aspect("equal")
+    ax.set_title(title or "Coders vs automated systems — precision/recall")
+
+    # Legends outside on the right so the data area stays clean.
+    human_handles = _fbeta_contour_handles() + [
+        Line2D([0], [0], marker="o", color="#4c78a8", linestyle="none", alpha=0.5,
+               markersize=8, label="individual coder"),
+        Line2D([0], [0], marker="*", color="#d62728", linestyle="none",
+               markersize=12, label="pooled coder"),
+        Line2D([0], [0], marker="D", color="#333333", linestyle="none",
+               markersize=7, label="average coder"),
+    ]
+    system_handles = [
+        Line2D([0], [0], marker=mk, color="#555555", linestyle="none", markersize=8,
+               label=f)
+        for f, mk in _FAMILY_MARKERS.items() if (comparison["family"] == f).any()
+    ] + [
+        Line2D([0], [0], marker="s", color=c, linestyle="none", markersize=8, label=m)
+        for m, c in MODE_COLORS.items() if (comparison["mode"] == m).any()
+    ]
+    leg1 = fig.legend(handles=human_handles, loc="outside right upper", fontsize=8,
+                      title="Humans (& contours)")
+    fig.legend(handles=system_handles, loc="outside right lower", fontsize=8,
+               title="Systems\n(shape = method,\ncolour = operating point)")
     return fig
 
 
