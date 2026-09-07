@@ -8,10 +8,34 @@ resources that belong to it via ``skos:inScheme``.
 from pathlib import Path
 
 import typer
-from rdflib import Graph
+from rdflib import Graph, URIRef
 from rdflib.namespace import DCTERMS, RDF, SKOS
 
 app = typer.Typer(add_completion=False)
+
+REMOVALS = set({
+    "Population - Vulnerability",
+    "Health - Metrics",
+    "Governance scale",
+    "Actors",
+    "Geographic features and biomes",
+    "Interventions / responses / solutions",
+    "Climate zones",
+    "Health - Exposure",
+    "Human settlements",
+    "Population - Age",
+    "Population - Gender/sex",
+})
+print(REMOVALS)
+
+def _depth(graph: Graph, concept: "URIRef", cache: dict) -> int:
+    """Depth of a concept: 1 for top concepts (no broader), else 1 + shallowest parent."""
+    if concept in cache:
+        return cache[concept]
+    cache[concept] = 1  # provisional value breaks any broader-cycles
+    parents = list(graph.objects(concept, SKOS.broader))
+    cache[concept] = 1 if not parents else 1 + min(_depth(graph, p, cache) for p in parents)
+    return cache[concept]
 
 
 @app.command()
@@ -26,6 +50,10 @@ def prune(
     marker: str = typer.Option(
         "automation planned",
         help="Case-insensitive substring in dct:title that flags a scheme for removal.",
+    ),
+    max_depth: int | None = typer.Option(
+        None,
+        help="Remove concepts deeper than this level"
     ),
     output: Path = typer.Option(
         None,
@@ -44,17 +72,29 @@ def prune(
         for scheme in graph.subjects(RDF.type, SKOS.ConceptScheme)
         if any(
             marker_lower in str(title).lower()
+            or str(title) in REMOVALS
             for title in graph.objects(scheme, DCTERMS.title)
         )
     }
 
-    if not schemes_to_remove:
-        typer.echo(f"No concept schemes matched marker {marker!r}; nothing to do.")
+    deep_concepts = set()
+    if max_depth is not None:
+        cache: dict = {}
+        deep_concepts = {
+            c
+            for c in graph.subjects(RDF.type, SKOS.Concept)
+            if _depth(graph, c, cache) > max_depth
+        }
+
+    if not schemes_to_remove and not deep_concepts:
+        typer.echo("Nothing to remove; check --marker / --max-depth.")
         raise typer.Exit()
 
     subjects_to_remove = set(schemes_to_remove)
     for scheme in schemes_to_remove:
         subjects_to_remove.update(graph.subjects(SKOS.inScheme, scheme))
+    subjects_to_remove.update(deep_concepts)
+
 
     for subject in subjects_to_remove:
         graph.remove((subject, None, None))
