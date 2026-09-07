@@ -27,3 +27,22 @@ lowest. Performance climbs as each named intervention lands — clarifying the
 population scope notes, the topic and intervention definitions, broadening the
 technology/infrastructure and institutional concepts — with each climb sitting
 directly above the prompt edit that produced it in the bottom panel.
+
+## Classifier performance by scheme
+
+
+
+```{figure} figures/taxonomy/level_scores.svg
+:name: taxonomy-level-scores
+:width: 100%
+
+F1 in schemes and sub-concepts. Each **grey bar** is a scheme's rolled-up F1 over all
+its concepts; each **dot** is one internal node's F1 over its direct children
+only, coloured by depth and sized by child count.
+```
+
+### Detailed performance by scheme, and sub-concepts
+
+
+:::{include} tables/taxonomy_drilldown.md
+:::
