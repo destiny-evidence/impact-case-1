@@ -30,6 +30,7 @@ project:
     - file: index.md
     - file: inout/index.md
       children:
+        - file: inout/annotation.md
         - file: inout/ml.md
         - file: inout/llm.md
         - file: inout/combination.md

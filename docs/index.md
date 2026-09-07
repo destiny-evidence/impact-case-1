@@ -9,13 +9,6 @@ documents how we use machine learning (ML) and large language models (LLMs) to t
 
 - **Relevance screening (in/out)** — deciding whether a bibliographic record
   belongs in the repository at all, at several precision/recall operating points.
-  See [](./inout.md).
+  See [](./inout/index.md).
 - **Taxonomy classification** — coding the included records against a controlled
   vocabulary of climate-and-health concepts. See [](./taxonomy.md).
-
-For both, the LLM pipeline is build and evaluated with same evaluation pipeline (`deet`). 
-Here we use the the same working method: treating prompt engineering as an empirical, 
-measured activity, iterating
-against a held-out gold standard, and recording every step. 
-The [method chapter](./method.md) describes that shared machinery; the two task
-chapters describe the iterative process for each task.

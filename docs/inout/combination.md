@@ -4,7 +4,9 @@ title: Combining ML + LLMs
 
 ## Summary
 
-We pick the ML-filter -> LLM option, which reduces costs by 50% compared to LLM alone.
+We pick the ML-filter -> LLM option, which achieves an F2 score of 0.78 [0.70–0.85].
+
+This option reduces costs by 50% compared to LLM alone.
 
 In order to achieve these cost savings, we sacrifice ~2 points of F2 (well within the margin of error), 
 but achieve the highest F1 score (also well within the margin of error).
@@ -16,7 +18,7 @@ that are each explainable, and implemented in prose ([see prompts](#llm-prompts)
 
 
 ```{figure} ../figures/inout/comparison.svg
-:name: inout-timeline
+:name: inout-comparison
 :width: 100%
 **Head-to-head on the held-out test set (648 documents, 83 relevant).** 
 Point estimates and 95% highest-density intervals for precision, recall, F1 and F2,
@@ -69,3 +71,11 @@ only 1 was shared between both.
 :::{include} ../tables/inout_comparison.md
 :::
 ::::
+
+## Comparing classifier results to human coders
+
+```{figure} ../figures/inout/annotation_coder_model_pr.svg
+:name: inout-human-classifier
+:width: 100%
+
+```
