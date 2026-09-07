@@ -398,6 +398,13 @@ def plot_agreement_by_set(
     y = range(len(by_set))
     colors = [SETSIZE_COLORS.get(s, "#7f7f7f") for s in by_set["size"]]
     ax.barh(y, by_set.fleiss, color=colors, zorder=2)
+    # Resolved inclusion rate for each set, printed just past the bar end.
+    if "resolved_incl_rate" in by_set:
+        for yi, k, rate in zip(y, by_set.fleiss, by_set.resolved_incl_rate):
+            if np.isnan(rate):
+                continue
+            ax.text(k + 0.015, yi, f"{rate:.0%} incl", va="center", ha="left",
+                    fontsize=7, color="#666666", zorder=3)
     ax.set_ylim(-0.6, len(by_set) - 0.4)  # trim matplotlib's default y-margin
     ax.set_yticks(list(y))
     ax.set_yticklabels(
@@ -456,6 +463,85 @@ def plot_pairwise_kappa(
                         color="#222222")
     fig.colorbar(im, ax=ax, shrink=0.7, label="Cohen's κ")
     ax.set_title(title or "Pairwise coder agreement (Cohen's κ) — in/out screen")
+    return fig
+
+
+def plot_unanimous_funnel(
+    disp: dict,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Funnel plot: each coder-set's unanimous inclusion rate vs its n, with
+    binomial control limits around the pooled rate.
+
+    Consumes ``inout_unanimous_dispersion``. Points outside the funnel vary more
+    than sampling chance allows — candidate block-level include/exclude biases
+    baked into the (unchecked) unanimous documents. Sets beyond the 99.8% limit
+    are red; sets beyond 2 SE are labelled. The dispersion statistics are printed
+    in-panel.
+    """
+    df = disp["sets"]
+    p = disp["pooled"]
+    pr = disp.get("pooled_resolved")
+    fig, ax = plt.subplots(figsize=figsize or (8.6, 6.2), layout="constrained")
+
+    def _funnel(center: float, nmin: float, nmax: float, color: str, name: str) -> None:
+        nn = np.linspace(nmin * 0.9, nmax * 1.05, 200)
+        for z, style in ((1.96, "--"), (3.09, ":")):
+            se = np.sqrt(center * (1 - center) / nn)
+            ax.plot(nn, center + z * se, color=color, linestyle=style, linewidth=1,
+                    zorder=1)
+            ax.plot(nn, np.clip(center - z * se, 0, 1), color=color, linestyle=style,
+                    linewidth=1, zorder=1)
+        ax.axhline(center, color=color, linewidth=1.3, zorder=1,
+                   label=f"pooled {name} {center:.1%}")
+
+    # Consensus funnel (grey) around the unanimous rate; resolved funnel (blue)
+    # around the truth rate — each uses its own denominator (n_unan vs n_all).
+    _funnel(p, df.n_unan.min(), df.n_unan.max(), "#999999", "unanimous")
+    has_res = "resolved_rate" in df and pr is not None
+    if has_res:
+        _funnel(pr, df.n_all.min(), df.n_all.max(), "#6f9fc8", "resolved")
+        # Link each set's two rates; hollow dot = resolved (truth) at its n_all.
+        for _, r in df.iterrows():
+            ax.plot([r.n_unan, r.n_all], [r.rate, r.resolved_rate],
+                    color="#cccccc", linewidth=0.7, zorder=2)
+        ax.scatter(df.n_all, df.resolved_rate, s=46, facecolors="white",
+                   edgecolors="#2f5d86", linewidths=1.2, zorder=4)
+
+    colors = ["#d62728" if abs(z) > 3.09 else SETSIZE_COLORS.get(s, "#888888")
+              for z, s in zip(df.z, df["size"])]
+    ax.scatter(df.n_unan, df.rate, s=75, c=colors, edgecolors="white",
+               linewidths=1.0, zorder=5)
+    for _, r in df.iterrows():
+        if abs(r.z) > 2:
+            ax.annotate(r.label, (r.n_unan, r.rate), xytext=(7, 4),
+                        textcoords="offset points", fontsize=7, color="#333333")
+
+    ax.set_xlabel("documents in set (n)  ·  ● at unanimous-doc count, ○ at all-doc count")
+    ax.set_ylabel("inclusion rate  (● unanimous consensus / ○ resolved truth)")
+    ax.set_ylim(bottom=min(-0.005, df.rate.min() - 0.01))
+    ax.set_title(title or "Unanimous consensus vs resolved truth by coder-set")
+    handles = [
+        Line2D([0], [0], color="#999999", lw=1.3, label=f"unanimous funnel ({p:.1%})"),
+    ]
+    if has_res:
+        handles.append(Line2D([0], [0], color="#6f9fc8", lw=1.3,
+                              label=f"resolved funnel ({pr:.1%})"))
+    handles += [
+        Line2D([0], [0], color="#777777", ls="--", lw=1, label="95% limits"),
+        Line2D([0], [0], color="#777777", ls=":", lw=1, label="99.8% limits"),
+    ]
+    ax.legend(handles=handles, fontsize=8, loc="upper right")
+    disp_txt = f"dispersion φ:  consensus {disp['phi']:.2f} (p={disp['pval']:.1e})"
+    if has_res and "resolved_phi" in disp:
+        disp_txt += f"   ·   resolved {disp['resolved_phi']:.2f} (p={disp['resolved_pval']:.2f})"
+    ax.annotate(
+        disp_txt + "\nred ● = beyond 99.8% consensus limits",
+        (0.02, 0.97), xycoords="axes fraction", ha="left", va="top",
+        fontsize=8, color="#555555",
+    )
     return fig
 
 

@@ -12,6 +12,7 @@ from ic1.reporting.loaders.annotation import (
     inout_overall_agreement,
     inout_pairwise_kappa,
     inout_screening_raster,
+    inout_unanimous_dispersion,
     load_inout_annotations,
 )
 from ic1.reporting.loaders.inout import (
@@ -46,4 +47,5 @@ __all__ = [
     "inout_pairwise_kappa",
     "inout_coder_f1",
     "inout_screening_raster",
+    "inout_unanimous_dispersion",
 ]

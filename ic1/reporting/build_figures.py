@@ -25,6 +25,7 @@ from ic1.reporting.loaders import (
     inout_overall_agreement,
     inout_pairwise_kappa,
     inout_screening_raster,
+    inout_unanimous_dispersion,
     load_inout_annotations,
     load_inout_comparison,
     load_inout_model_costs,
@@ -46,6 +47,7 @@ from ic1.reporting.plots import (
     plot_iteration_timeline,
     plot_pairwise_kappa,
     plot_screening_raster,
+    plot_unanimous_funnel,
 )
 from ic1.reporting.style import MODE_COLORS, apply_style
 from ic1.reporting.tables import (
@@ -143,6 +145,8 @@ def build_inout_annotation(formats: tuple[str, ...]) -> None:
     _save(plot_agreement_by_set(by_set, overall), "inout", "annotation_agreement", formats)
     _save(plot_pairwise_kappa(inout_pairwise_kappa(ann)),
           "inout", "annotation_pairwise_kappa", formats)
+    _save(plot_unanimous_funnel(inout_unanimous_dispersion(ann)),
+          "inout", "annotation_unanimous_funnel", formats)
     _save(plot_coder_pr(f1), "inout", "annotation_coder_pr", formats)
     try:
         _save(plot_coder_model_pr(f1, load_inout_comparison()),
@@ -151,6 +155,17 @@ def build_inout_annotation(formats: tuple[str, ...]) -> None:
         print(f"  skipping coder-vs-model PR: {e}")
     _write_table(annotation_agreement_markdown(by_set, overall), "inout_annotation_agreement")
     _write_table(annotation_f1_markdown(f1), "inout_annotation_f1")
+
+    # Private real-name renders of the identity-revealing figures. Written under
+    # a *_private.* filename, which .gitignore keeps out of the repo.
+    priv_csv = _REPO_ROOT / "data" / "private" / "exports" / "inout.csv"
+    if priv_csv.exists():
+        pann = load_inout_annotations(priv_csv)
+        _save(plot_screening_raster(inout_screening_raster(pann)),
+              "inout", "annotation_raster_private", formats)
+        _save(plot_unanimous_funnel(inout_unanimous_dispersion(pann)),
+              "inout", "annotation_unanimous_funnel_private", formats)
+        print("  (rendered private real-name versions — gitignored)")
 
 
 def main() -> None:

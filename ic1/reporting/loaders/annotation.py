@@ -249,12 +249,15 @@ def inout_agreement_by_set(ann: pd.DataFrame | None = None) -> pd.DataFrame:
     """Per nominal coder-set agreement: Fleiss' kappa on complete-case items.
 
     One row per set (>=2 coders) with ``label``, ``size``, ``n_items``
-    (nominal), ``n_complete`` (items where every set member answered), ``fleiss``
-    and ``pct_agreement``. Sets whose complete-case items are single-category
-    yield NaN kappa (kept, flagged by the NaN). Sorted by ``n_items`` desc.
+    (nominal), ``n_complete`` (items where every set member answered), ``fleiss``,
+    ``pct_agreement`` and ``resolved_incl_rate`` (share of the set's documents
+    the adjudicated value included). Sets whose complete-case items are
+    single-category yield NaN kappa (kept, flagged by the NaN). Sorted by
+    ``n_items`` desc.
     """
     ann = load_inout_annotations() if ann is None else ann
     cod = _coders(ann)
+    gold = _gold(ann)
     comp = inout_coderset_composition(ann)
     sets = _nominal_sets(cod)
     nm = cod.dropna(subset=["decision"])
@@ -269,13 +272,103 @@ def inout_agreement_by_set(ann: pd.DataFrame | None = None) -> pd.DataFrame:
         counts = _count_matrix(sub, size=len(cs))
         n_complete = len(counts)
         pct = float((counts.max(1) == counts.sum(1)).mean()) if n_complete else float("nan")
+        g = gold.reindex(items).dropna()
         rows.append({
             "label": r.label, "size": len(cs), "n_items": r.n_items,
             "n_complete": n_complete,
             "fleiss": _fleiss(counts) if n_complete else float("nan"),
             "pct_agreement": pct,
+            "resolved_incl_rate": float(g.mean()) if len(g) else float("nan"),
         })
     return pd.DataFrame(rows).reset_index(drop=True)
+
+
+def inout_unanimous_dispersion(
+    ann: pd.DataFrame | None = None, min_unan: int = 30
+) -> dict:
+    """Test whether coder-sets over-/under-include *as a block* on the documents
+    they screened unanimously.
+
+    On unanimous documents the adjudicated value just equals the set's consensus
+    (never independently checked — see the annotation docs), so a set that shares
+    a directional bias bakes it into the gold undetected. Under the null that
+    every set drew from a common pool and screened without bias, each set's
+    unanimous *inclusion* rate (unanimous-include ÷ unanimous docs) should scatter
+    around a pooled rate with only binomial noise. Between-set spread beyond that
+    is over-dispersion — the fingerprint of block-level bias (or, if documents
+    were not randomly allocated, of genuinely different batch prevalence).
+
+    Each set also carries ``resolved_rate`` — the adjudicated inclusion rate over
+    *all* the set's documents (the best truth proxy; independent of the set on
+    its contested documents). Comparing ``rate`` (unanimous consensus) to
+    ``resolved_rate`` separates *bias* from *agreement-on-positives*: a set whose
+    unanimous rate is high but whose resolved rate is ordinary is well-aligned,
+    not over-including.
+
+    Returns ``{"sets", "pooled", "pooled_resolved", "chi2", "df", "pval", "phi",
+    "i2"}`` where ``sets`` is a DataFrame (``label``, ``size``, ``n_unan``,
+    ``n_all``, ``k_incl``, ``rate``, ``resolved_rate``, ``z``) sorted by ``rate``
+    desc, ``phi`` = χ²/df (1 = chance), and ``i2`` the heterogeneity fraction.
+    Only sets with >= ``min_unan`` unanimous documents are included.
+    """
+    from scipy import stats
+
+    ann = load_inout_annotations() if ann is None else ann
+    cod = _coders(ann).dropna(subset=["decision"])
+    gold = _gold(ann)
+    sets = _nominal_sets(cod)
+    labels = {r.coders: r.label for _, r in inout_coderset_composition(ann).iterrows()}
+
+    g = cod.groupby("item_id").decision
+    n = g.size()
+    ninc = g.apply(lambda s: int((s == 1).sum()))
+    item = pd.DataFrame({"n": n, "ninc": ninc})
+    item["unan_inc"] = item.ninc == item.n
+    item["unanimous"] = (item.ninc == 0) | (item.ninc == item.n)
+    item["set"] = sets.reindex(item.index)
+    item["gold"] = gold.reindex(item.index)
+
+    rows = []
+    for cs, grp in item.groupby(item["set"]):
+        if not isinstance(cs, tuple) or len(cs) < 3:
+            continue
+        u = grp[grp.unanimous]
+        if len(u) < min_unan:
+            continue
+        g_all = grp.gold.dropna()
+        rows.append({
+            "label": labels.get(cs, ",".join(cs)), "size": len(cs),
+            "n_unan": int(len(u)), "n_all": int(len(grp)),
+            "k_incl": int(u.unan_inc.sum()),
+            "resolved_rate": float(g_all.mean()) if len(g_all) else float("nan"),
+        })
+    df = pd.DataFrame(rows)
+    df["rate"] = df.k_incl / df.n_unan
+
+    dof = len(df) - 1
+
+    def _dispersion(k: pd.Series, nrows: pd.Series) -> dict:
+        """χ² heterogeneity of a set of proportions k/nrows around their pool."""
+        pool = float(k.sum() / nrows.sum())
+        chi2 = float((((k - nrows * pool) ** 2) / (nrows * pool * (1 - pool))).sum())
+        return {
+            "pooled": pool, "chi2": chi2,
+            "pval": float(1 - stats.chi2.cdf(chi2, dof)),
+            "phi": chi2 / dof if dof else float("nan"),
+            "i2": max(0.0, (chi2 - dof) / chi2) if chi2 > 0 else 0.0,
+        }
+
+    un = _dispersion(df.k_incl, df.n_unan)
+    df["z"] = (df.rate - un["pooled"]) / np.sqrt(
+        un["pooled"] * (1 - un["pooled"]) / df.n_unan)
+    res = _dispersion((df.resolved_rate * df.n_all).round(), df.n_all)
+    return {
+        "sets": df.sort_values("rate", ascending=False).reset_index(drop=True),
+        "pooled": un["pooled"], "pooled_resolved": res["pooled"], "df": dof,
+        "chi2": un["chi2"], "pval": un["pval"], "phi": un["phi"], "i2": un["i2"],
+        "resolved_chi2": res["chi2"], "resolved_pval": res["pval"],
+        "resolved_phi": res["phi"], "resolved_i2": res["i2"],
+    }
 
 
 def inout_pairwise_kappa(
