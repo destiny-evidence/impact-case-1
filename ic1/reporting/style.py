@@ -14,6 +14,7 @@ METHOD_COLORS = {
     "Flat": "#1f77b4",       # blue
     "Top-down": "#d62728",   # red
     "Semantic": "#7f7f7f",   # grey (baseline comparator)
+    "keyword": "#ff7f0e",    # orange (keyword baseline comparator)
 }
 
 # Model encoded as marker shape (works for non-consecutive / single runs, where
@@ -52,10 +53,10 @@ BASELINE_SHADE = {"color": "#cccccc", "alpha": 0.18}
 
 # Shading tints for dev/validation/test cycle spans (in/out figure).
 CYCLE_SHADE = {
-    "dev": {"color": "#cccccc", "alpha": 0.12},
-    "validation": {"color": "#e8a33d", "alpha": 0.22},   # orange — go/no-go gate
-    "test": {"color": "#9b8fd4", "alpha": 0.22},         # lavender — final measurement
-    "baseline": {"color": "#cccccc", "alpha": 0.18},
+    "dev": {"color": "#b0b0b0", "alpha": 0.22},
+    "validation": {"color": "#e0951f", "alpha": 0.34},   # orange — go/no-go gate
+    "test": {"color": "#6a5acd", "alpha": 0.34},         # purple — final measurement
+    "baseline": {"color": "#b0b0b0", "alpha": 0.26},
 }
 
 # Human-annotation decisions (counts figures).
