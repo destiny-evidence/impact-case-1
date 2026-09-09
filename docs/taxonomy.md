@@ -31,6 +31,18 @@ between different models  and approaches. The 4 approaches tested were
 - keyword: where deet returns concepts where any of the phrases contained in a concept's alt_labels field are contained in the document text
 - semantic: where deet returns concepts where any of the phrases contained in a concept's alt_labels field have a semantic similarity (using a specified embedding model) to any of the document's sentences greater than a specified threshold.
 
+## Cost vs performance trade-off
+
+
+```{figure} ../figures/taxonomy/cost_performance.svg
+:name: taxonomy-pareto
+:width: 100%
+
+Cost performance trade-off. Dotted line shows the pareto frontier.
+```
+
+{ref}`taxonomy-pareto`
+
 
 ## Classifier performance by scheme
 

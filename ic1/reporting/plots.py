@@ -159,6 +159,86 @@ def plot_cost_performance(
     return fig
 
 
+def plot_taxonomy_cost_performance(
+    df: pd.DataFrame,
+    *,
+    metric: str = "micro",
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Accuracy vs per-document cost for the final prompt set — method × model.
+
+    Consumes ``load_taxonomy_cost_performance``. Colour = classification method
+    (``METHOD_COLORS``), marker = model (``MODEL_MARKERS``). Log cost axis;
+    keyword/embedding methods make no metered LLM call and are drawn at a
+    left-edge "free" position. The Pareto frontier (best accuracy reachable at or
+    below each cost) is dashed; hollow markers are priced from list estimates.
+    """
+    fig, ax = plt.subplots(figsize=figsize or FIGSIZE["square"], layout="constrained")
+
+    paid = df.cost_per_doc[(~df.local) & (df.cost_per_doc > 0)]
+    floor = (paid.min() / 4) if len(paid) else 1e-4
+    df = df.assign(x=df.cost_per_doc.where(~df.local, floor))
+
+    # Pareto frontier on true cost (local == 0) vs accuracy: cheapest run at each
+    # accuracy ceiling, walking from cheap to dear.
+    order = df.sort_values(["cost_per_doc", metric], ascending=[True, False])
+    front, best = [], -1.0
+    for _, r in order.iterrows():
+        if r[metric] > best:
+            front.append(r)
+            best = r[metric]
+    frontier = pd.DataFrame(front)
+    ax.plot(frontier.x, frontier[metric], color="#999999", linestyle="--",
+            linewidth=1.2, zorder=1, label="Pareto frontier")
+
+    for _, r in df.iterrows():
+        color = METHOD_COLORS.get(r.method_label, "#333333")
+        marker = MODEL_MARKERS.get(r.model_short, "o")
+        face = "white" if r.estimated else color
+        ax.scatter(r.x, r[metric], s=150, marker=marker, facecolors=face,
+                   edgecolors=color, linewidths=1.8, zorder=3)
+        cost_lbl = ("free" if r.local
+                    else f"${r.cost_per_doc:.3f}{'*' if r.estimated else ''}")
+        # Same model appears once per method at near-identical (x, F1); drop the
+        # Top-down label below its marker so the pair doesn't overprint.
+        dy = -13 if r.method_label == "Top-down" else 6
+        ax.annotate(f"{r.model_short} ({cost_lbl})", (r.x, r[metric]),
+                    textcoords="offset points", xytext=(9, dy), fontsize=9,
+                    color=color, fontweight="bold",
+                    va="top" if dy < 0 else "bottom")
+
+    ax.set_xscale("log")
+    ax.set_xlim(floor / 1.6, df.x.max() * 2.6)
+    ax.set_xlabel("cost per document (USD, log scale)")
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"${v:.3f}"))
+    ax.set_ylabel(_metric_ylabel(metric))
+    ax.set_ylim(0, 1)
+    ax.set_title(title or "Taxonomy classification — accuracy vs cost (latest prompts)")
+
+    ax.axvline(floor, color="#cccccc", linewidth=0.8, linestyle=":", zorder=0)
+    ax.annotate("≈ free\n(local)", (floor, 0.02), fontsize=8, color="#888888",
+                ha="center", va="bottom")
+
+    method_handles = [
+        Line2D([0], [0], marker="s", color=c, linestyle="none", markersize=9,
+               label=m)
+        for m, c in METHOD_COLORS.items() if (df.method_label == m).any()
+    ]
+    model_handles = [
+        Line2D([0], [0], marker=mk, color="#333333", linestyle="none",
+               markersize=8, label=m)
+        for m, mk in MODEL_MARKERS.items() if (df.model_short == m).any()
+    ]
+    leg1 = ax.legend(handles=method_handles, title="Method", loc="lower right")
+    ax.add_artist(leg1)
+    ax.legend(handles=model_handles, title="Model", loc="lower right",
+              bbox_to_anchor=(1.0, 0.32))
+    ax.annotate("* cost estimated from published API list prices",
+                (0, -0.16), xycoords="axes fraction", fontsize=8, color="#666666")
+    return fig
+
+
 # System families encoded as marker shape; operating point as colour (MODE_COLORS).
 # ML-only has no operating point, so it gets a neutral grey.
 _FAMILY_MARKERS = {"LLM only": "o", "ML only": "D", "ML → LLM": "s", "ML or LLM": "^"}

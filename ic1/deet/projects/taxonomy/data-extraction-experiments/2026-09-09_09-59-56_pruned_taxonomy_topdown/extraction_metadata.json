@@ -1,192 +1,192 @@
 {
   "model": "gpt-5.6-luna",
-  "total_input_tokens": 699264,
-  "total_output_tokens": 189590,
-  "total_cost_usd": 0.36736,
+  "total_input_tokens": 331815,
+  "total_output_tokens": 88449,
+  "total_cost_usd": 0.172501,
   "per_document": {
     "2936": {
-      "input_tokens": 22113,
-      "output_tokens": 5624,
+      "input_tokens": 10270,
+      "output_tokens": 2556,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "1102967171": {
-      "input_tokens": 26206,
-      "output_tokens": 7219,
+      "input_tokens": 13103,
+      "output_tokens": 3671,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "4595111": {
-      "input_tokens": 24160,
-      "output_tokens": 5730,
+      "input_tokens": 12080,
+      "output_tokens": 2926,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "747982": {
-      "input_tokens": 27759,
-      "output_tokens": 7541,
+      "input_tokens": 13403,
+      "output_tokens": 3516,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "10988066": {
-      "input_tokens": 28623,
-      "output_tokens": 7914,
+      "input_tokens": 13603,
+      "output_tokens": 3554,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "207894680": {
-      "input_tokens": 37022,
-      "output_tokens": 9890,
+      "input_tokens": 14813,
+      "output_tokens": 3624,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "9392410": {
-      "input_tokens": 21100,
-      "output_tokens": 5177,
+      "input_tokens": 10550,
+      "output_tokens": 2599,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "22339": {
-      "input_tokens": 21954,
-      "output_tokens": 5586,
+      "input_tokens": 10977,
+      "output_tokens": 2917,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "45858": {
-      "input_tokens": 22772,
-      "output_tokens": 6282,
+      "input_tokens": 12303,
+      "output_tokens": 3400,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "1743198": {
-      "input_tokens": 30312,
-      "output_tokens": 7301,
+      "input_tokens": 14221,
+      "output_tokens": 3107,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "93858": {
-      "input_tokens": 29784,
-      "output_tokens": 7438,
+      "input_tokens": 14892,
+      "output_tokens": 3613,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "3169228412": {
-      "input_tokens": 30219,
-      "output_tokens": 8105,
+      "input_tokens": 14363,
+      "output_tokens": 3991,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "6572": {
-      "input_tokens": 23828,
-      "output_tokens": 6328,
+      "input_tokens": 11914,
+      "output_tokens": 3388,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "2313805": {
-      "input_tokens": 24878,
-      "output_tokens": 5843,
+      "input_tokens": 12439,
+      "output_tokens": 2949,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "58762": {
-      "input_tokens": 27026,
-      "output_tokens": 7779,
+      "input_tokens": 13513,
+      "output_tokens": 3625,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "97493682": {
-      "input_tokens": 32325,
-      "output_tokens": 9254,
+      "input_tokens": 13247,
+      "output_tokens": 3908,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "388257": {
-      "input_tokens": 30683,
-      "output_tokens": 8407,
+      "input_tokens": 14653,
+      "output_tokens": 3843,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "6292633": {
-      "input_tokens": 27746,
-      "output_tokens": 7387,
+      "input_tokens": 13873,
+      "output_tokens": 3744,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "731154288": {
-      "input_tokens": 27993,
-      "output_tokens": 7748,
+      "input_tokens": 13503,
+      "output_tokens": 4088,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "395594": {
-      "input_tokens": 31869,
-      "output_tokens": 9813,
+      "input_tokens": 13575,
+      "output_tokens": 4297,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "347011": {
-      "input_tokens": 27138,
-      "output_tokens": 7405,
+      "input_tokens": 13016,
+      "output_tokens": 3175,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "4049454059": {
-      "input_tokens": 26170,
-      "output_tokens": 6708,
+      "input_tokens": 13085,
+      "output_tokens": 3380,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "315068": {
-      "input_tokens": 36986,
-      "output_tokens": 12255,
+      "input_tokens": 15814,
+      "output_tokens": 4911,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "603894": {
-      "input_tokens": 33552,
-      "output_tokens": 9074,
+      "input_tokens": 15332,
+      "output_tokens": 4183,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     },
     "417545": {
-      "input_tokens": 27046,
-      "output_tokens": 7782,
+      "input_tokens": 13273,
+      "output_tokens": 3484,
       "parsing_seconds": null,
       "parsing_skipped": true,
       "llm_call_seconds": 0.0
     }
   },
-  "total_pipeline_duration_seconds": 144.186,
+  "total_pipeline_duration_seconds": 56.52,
   "stage_durations_seconds": {
-    "annotation_conversion": 0.076,
-    "prompt_population": 0.06,
+    "annotation_conversion": 0.075,
+    "prompt_population": 0.03,
     "document_preparation": 0.0,
-    "llm_extraction": 144.02,
-    "artifact_export": 0.011
+    "llm_extraction": 56.387,
+    "artifact_export": 0.01
   },
   "notes": {
     "total_pipeline_duration_seconds": "Wall-clock time for the extraction run, from loading project data through export of experiment snapshots. Includes time spent answering the interactive config wizard when no config file is provided.",
@@ -203,5 +203,5 @@
       "llm_call_seconds": "Wall-clock time for the LLM request, including local prompt setup."
     }
   },
-  "timestamp": "2026-09-08T09:39:19.534792Z"
+  "timestamp": "2026-09-09T10:00:55.443660Z"
 }

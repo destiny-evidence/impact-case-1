@@ -34,6 +34,7 @@ from ic1.reporting.loaders import (
     load_inout_runs,
     load_inout_test_metrics,
     load_taxonomy_concept_tree,
+    load_taxonomy_cost_performance,
     load_taxonomy_level_scores,
     load_taxonomy_prompt_churn,
     load_taxonomy_runs,
@@ -51,6 +52,7 @@ from ic1.reporting.plots import (
     plot_pairwise_kappa,
     plot_scheme_scores,
     plot_screening_raster,
+    plot_taxonomy_cost_performance,
     plot_taxonomy_level_scores,
     plot_unanimous_funnel,
 )
@@ -95,6 +97,10 @@ def build_taxonomy(formats: tuple[str, ...]) -> None:
     _save(
         plot_iteration_timeline(runs, churn=churn),
         "taxonomy", "iteration_timeline", formats,
+    )
+    _save(
+        plot_taxonomy_cost_performance(load_taxonomy_cost_performance()),
+        "taxonomy", "cost_performance", formats,
     )
 
     chosen = runs.loc[runs.micro.idxmax(), "run"]

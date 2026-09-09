@@ -26,6 +26,7 @@ from ic1.reporting.loaders.inout import (
 )
 from ic1.reporting.loaders.taxonomy import (
     load_taxonomy_concept_tree,
+    load_taxonomy_cost_performance,
     load_taxonomy_level_scores,
     load_taxonomy_prompt_churn,
     load_taxonomy_runs,
@@ -34,6 +35,7 @@ from ic1.reporting.loaders.taxonomy import (
 
 __all__ = [
     "load_taxonomy_runs",
+    "load_taxonomy_cost_performance",
     "load_taxonomy_prompt_churn",
     "load_taxonomy_scheme_scores",
     "load_taxonomy_level_scores",
