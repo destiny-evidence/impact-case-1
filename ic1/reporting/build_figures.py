@@ -123,7 +123,7 @@ def build_inout(formats: tuple[str, ...]) -> None:
             runs, churn=churn,
             metrics=("precision", "recall"),
             color_map=MODE_COLORS, color_title="Operating mode",
-            spans=inout_cycle_spans(runs), churn_yscale="symlog",
+            spans=inout_cycle_spans(runs), churn_yscale="linear",
             title="Prompt-engineering iterations — in/out relevance screen",
         ),
         "inout", "iteration_timeline", formats,
@@ -187,6 +187,8 @@ def build_inout_annotation(formats: tuple[str, ...]) -> None:
               "inout", "annotation_raster_private", formats)
         _save(plot_unanimous_funnel(inout_unanimous_dispersion(pann)),
               "inout", "annotation_unanimous_funnel_private", formats)
+        _save(plot_coder_pr(inout_coder_f1(pann), label="name"),
+              "inout", "annotation_coder_pr_private", formats)
         print("  (rendered private real-name versions — gitignored)")
 
 

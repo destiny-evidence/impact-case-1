@@ -35,7 +35,6 @@ project:
         - file: inout/llm.md
         - file: inout/combination.md
     - file: taxonomy.md
-    - file: method.md
 site:
   template: book-theme
   options:

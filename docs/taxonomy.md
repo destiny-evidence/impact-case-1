@@ -22,11 +22,15 @@ per-step prompt edits — words added (up) or removed (down) to the concept prom
 (teal) and the system prompt (purple).
 ```
 
-Reading left to right: the baseline runs on the unedited (pruned) taxonomy sit
-lowest. Performance climbs as each named intervention lands — clarifying the
-population scope notes, the topic and intervention definitions, broadening the
-technology/infrastructure and institutional concepts — with each climb sitting
-directly above the prompt edit that produced it in the bottom panel.
+{ref}`taxonomy-timeline` shows the gradual improvement in performance 
+as edits were made to the taxonomy, as well as the variation in performance
+between different models  and approaches. The 4 approaches tested were
+
+- flat: the default deet mode where all prompts are sent to an llm in one call, along with the document
+- top-down: instead of one call, deet classifies in stages that follow the concept hierarchy, with top level concpets first, followed by the children of only those concepts which were returned as relevant from the previous iteration.
+- keyword: where deet returns concepts where any of the phrases contained in a concept's alt_labels field are contained in the document text
+- semantic: where deet returns concepts where any of the phrases contained in a concept's alt_labels field have a semantic similarity (using a specified embedding model) to any of the document's sentences greater than a specified threshold.
+
 
 ## Classifier performance by scheme
 

@@ -255,7 +255,7 @@ def _draw_churn(ax: Axes, churn: pd.DataFrame) -> None:
 
 def _churn_handles() -> list[Patch]:
     return [
-        Patch(facecolor=CHURN_COLORS["taxonomy"], label="taxonomy prompts"),
+        Patch(facecolor=CHURN_COLORS["taxonomy"], label="attribute prompts"),
         Patch(facecolor=CHURN_COLORS["system"], label="system prompt"),
     ]
 
@@ -732,9 +732,14 @@ def plot_coder_pr(
     *,
     figsize: tuple[float, float] | None = None,
     title: str | None = None,
+    label: str = "code",
 ) -> Figure:
     """Precision–recall scatter of coders vs the adjudicated value, over iso-F1
     contours.
+
+    ``label`` controls the in-marker text: ``"code"`` (default) shows the last
+    two characters of the anonymised ``coder_NN`` id; ``"name"`` shows the
+    coder's initials from a ``firstname.surname`` username (for private renders).
 
     Consumes ``inout_coder_f1``. One point per coder (recall x, precision y),
     sized by the number of documents screened; the ``pooled`` and ``average
@@ -758,8 +763,12 @@ def plot_coder_pr(
     ax.scatter(per.recall, per.precision, s=[size(n) for n in per.n],
                facecolors="#4c78a8", edgecolors="white", linewidths=1.0,
                alpha=0.85, zorder=3)
+    def _mark(coder: str) -> str:
+        if label == "name":
+            return "".join(p[0] for p in coder.split(".") if p)[:2].upper()
+        return coder.split("_")[-1][-2:]
     for _, r in per.iterrows():
-        ax.annotate(r.coder.split("_")[-1][-2:], (r.recall, r.precision),
+        ax.annotate(_mark(r.coder), (r.recall, r.precision),
                     textcoords="offset points", xytext=(0, 0), ha="center",
                     va="center", fontsize=6, color="white", zorder=4,
                     fontweight="bold")

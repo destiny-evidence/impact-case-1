@@ -39,14 +39,16 @@ def _check(v: bool) -> str:
 def _disagreement_table(disagreements: list[dict], max_reasoning: int) -> str:
     """The FN/FP documents for one concept: what the model got wrong and why."""
     rows = [
-        "<tr><th>document</th><th>human</th><th>LLM</th><th>LLM reasoning</th></tr>"
+        "<tr><th>document</th><th>human</th><th>LLM</th>"
+        "<th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>"
     ]
     for d in disagreements:
         doc = html.escape(d["document"][:70])
+        verbatim = html.escape((d.get("verbatim") or "")[:max_reasoning])
         reason = html.escape((d["reasoning"] or "")[:max_reasoning])
         rows.append(
             f"<tr><td>{doc}</td><td>{_check(d['human'])}</td>"
-            f"<td>{_check(d['llm'])}</td><td>{reason}</td></tr>"
+            f"<td>{_check(d['llm'])}</td><td>{verbatim}</td><td>{reason}</td></tr>"
         )
     return "<table class='drilldown-fails'>\n" + "\n".join(rows) + "\n</table>"
 
