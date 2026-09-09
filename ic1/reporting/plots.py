@@ -15,7 +15,7 @@ from matplotlib.figure import Figure
 from matplotlib.lines import Line2D
 from matplotlib.ticker import FuncFormatter
 
-from matplotlib.patches import Patch
+from matplotlib.patches import Patch, Rectangle
 
 from matplotlib.colors import ListedColormap
 
@@ -32,6 +32,7 @@ from ic1.reporting.style import (
     RASTER_COLORS,
     RASTER_SPLIT_CMAP,
     SETSIZE_COLORS,
+    SPLIT_COLORS,
 )
 
 
@@ -720,6 +721,65 @@ def plot_unanimous_funnel(
         (0.02, 0.97), xycoords="axes fraction", ha="left", va="top",
         fontsize=8, color="#555555",
     )
+    return fig
+
+
+def plot_data_splits(
+    splits: dict,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Swimlane of which annotated documents each pipeline stage used.
+
+    Consumes ``load_inout_splits``. A header bar shows the disjoint train /
+    validation / test partition (widths ∝ counts); below it one lane per
+    consumer (ML classifier, LLM screening, head-to-head) draws boxes over the
+    splits it drew from. The LLM prompt-development set is a subset of validation
+    and is placed at validation's right edge, adjacent to the held-out test.
+    """
+    tr, va, te, dev = splits["train"], splits["validation"], splits["test"], splits["llm_dev"]
+    b0, b1, b2, b3 = 0, tr, tr + va, tr + va + te
+    fig, ax = plt.subplots(figsize=figsize or (12.0, 4.8), layout="constrained")
+
+    def box(x0: float, x1: float, y: float, h: float, key: str, txt: str,
+            *, header: bool = False) -> None:
+        ax.add_patch(Rectangle((x0, y), x1 - x0, h, facecolor=SPLIT_COLORS[key],
+                               edgecolor="white", alpha=1.0 if header else 0.9))
+        ax.text((x0 + x1) / 2, y + h / 2, txt, ha="center", va="center",
+                color="white", fontsize=10 if header else 8.5,
+                fontweight="bold" if header else "normal")
+
+    # Header partition bar.
+    hy, hh = 3.15, 0.7
+    box(b0, b1, hy, hh, "train", f"Train\n{tr:,}", header=True)
+    box(b1, b2, hy, hh, "validation", f"Validation\n{va:,}", header=True)
+    box(b2, b3, hy, hh, "test", f"Test (held out)\n{te:,}", header=True)
+
+    def lane(y: float, label: str, boxes: list[tuple]) -> None:
+        ax.text(-b3 * 0.015, y + 0.3, label, ha="right", va="center",
+                fontsize=10, fontweight="bold")
+        for x0, x1, key, txt in boxes:
+            box(x0, x1, y, 0.6, key, txt)
+
+    lane(2.1, "ML classifier", [
+        (b0, b1, "train", "fit"),
+        (b1, b2, "validation", "select / threshold"),
+        (b2, b3, "test", "evaluate"),
+    ])
+    lane(1.2, "LLM screening", [
+        (b2 - dev, b2, "validation", f"prompt dev\n{dev}"),
+        (b2, b3, "test", "evaluate"),
+    ])
+    lane(0.3, "Head-to-head", [(b2, b3, "test", "benchmark")])
+
+    ax.axvline(b2, color="#333333", linewidth=0.8, linestyle=":")
+    ax.set_xlim(-b3 * 0.16, b3 + b3 * 0.01)
+    ax.set_ylim(-0.25, 4.05)
+    ax.axis("off")
+    ax.set_title(title or "What each stage used which annotated documents for — in/out screen",
+                 fontweight="bold")
+
     return fig
 
 
