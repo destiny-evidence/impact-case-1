@@ -155,7 +155,8 @@ def load_taxonomy_runs(exp_dir: Path | str | None = None) -> pd.DataFrame:
         c = yaml.safe_load(cfg.read_text()) or {}
         method = c.get("method", "llm")
         model = c.get("model", "?")
-        vocab = "edited" if "edited" in str(c.get("vocabulary_path", "")) else "pruned"
+        vocab_path = str(c.get("vocabulary_path", "") or "")
+        vocab = "edited" if "edited" in vocab_path else "pruned"
         ts, label = _parse_run_name(d.name)
         rows.append({
             "run": d.name,
@@ -167,11 +168,74 @@ def load_taxonomy_runs(exp_dir: Path | str | None = None) -> pd.DataFrame:
             "model_short": _model_short(model),
             "votes": c.get("votes", 1),
             "vocab": vocab,
+            "vocab_file": Path(vocab_path).name,  # basename distinguishes 1.5 vs 1.6
             **_scores(comp),
             **_cost(d / "extraction_metadata.json"),
         })
     df = pd.DataFrame(rows).sort_values("ts").reset_index(drop=True)
     return df
+
+
+# Published list prices (USD per 1M tokens, input/output) for models whose deet
+# metadata carries no cost (accessed via Azure Foundry). Kimi K2.6 official rate
+# as of 2026-09; actual Foundry cost may differ, so those points are flagged
+# ``estimated``.
+_PRICING_USD_PER_MTOK = {"kimi": (0.95, 4.00)}
+
+# The single taxonomy vocabulary every cost-comparison point must share, so the
+# methods/models are scored over the identical concept set.
+_COST_VOCAB_FILE = "destiny-1-6-core-evidence-repository-classes_pruned_edited.ttl"
+
+
+def load_taxonomy_cost_performance(
+    exp_dir: Path | str | None = None, *, vocab_file: str = _COST_VOCAB_FILE
+) -> pd.DataFrame:
+    """Accuracy vs per-document cost, one row per (method, model).
+
+    Only runs on ``vocab_file`` are considered, so every point is scored over the
+    same concept set. Voting is held at a single pass: runs must be ``votes == 1``
+    — except the flat (``llm``) method, whose voting is a no-op on cost, so any
+    vote count is accepted for it. For each (method, model) pair the most recent
+    qualifying run is taken.
+
+    Columns: ``method_label``, ``model_short``, ``label``, ``micro``, ``macro``,
+    ``cost_per_doc``, ``estimated`` (cost from list prices, not metered) and
+    ``local`` (keyword/embedding methods — no metered LLM call, treated as free).
+    Rows whose cost can be neither metered nor estimated are dropped.
+    """
+    runs = load_taxonomy_runs(exp_dir)
+    runs = runs[runs.vocab_file == vocab_file]
+    # One pass per document — flat's voting is a no-op, so accept any votes there.
+    runs = runs[(runs.votes == 1) | (runs.method == "llm")]
+    sel = (
+        runs.sort_values("ts")
+        .groupby(["method_label", "model_short"], as_index=False)
+        .tail(1)
+    )
+    rows = []
+    for _, r in sel.iterrows():
+        toks = 0 if pd.isna(r.input_tokens) else int(r.input_tokens)
+        local = toks == 0  # keyword / embedding methods make no metered LLM call
+        cost, estimated = r.cost_usd, False
+        if not local and pd.isna(cost):
+            price = _PRICING_USD_PER_MTOK.get(r.model_short)
+            if price is not None:
+                pin, pout = price
+                cost = (r.input_tokens * pin + r.output_tokens * pout) / 1e6
+                estimated = True
+        rows.append({
+            "method_label": r.method_label,
+            "model_short": r.model_short,
+            "label": r.label,
+            "micro": r.micro,
+            "macro": r.macro,
+            "cost_per_doc": 0.0 if local else (
+                None if pd.isna(cost) else cost / r.n_docs),
+            "estimated": estimated,
+            "local": local,
+        })
+    out = pd.DataFrame(rows)
+    return out[out.cost_per_doc.notna()].reset_index(drop=True)
 
 
 def load_taxonomy_scheme_scores(

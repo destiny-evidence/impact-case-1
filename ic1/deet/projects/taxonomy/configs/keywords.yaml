@@ -47,7 +47,7 @@ prompt_config:
 dynamic_json_schema: true
 include_reasoning: true
 include_additional_text: true
-vocabulary_path: ../../../../data/scheme/destiny-1-5-version-1-4-of-the-destiny-taxonomy_edited.ttl
+vocabulary_path: ../../../../data/scheme/destiny-1-6-core-evidence-repository-classes_pruned_edited.ttl
 vocabulary_mapping_path: ../../../../data/scheme/destiny_taxonomy_nacsos_mapping.json
 vocab_prompt_locations:
 - alt_labels

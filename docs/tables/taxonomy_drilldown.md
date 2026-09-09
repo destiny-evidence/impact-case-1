@@ -4,79 +4,12 @@
 <details><summary>(Unspecified) fossil fuels · <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> · TP0 FP0 FN1 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>(untitled)</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-Although the study examines energy utilisation, it does not explicitly refer to fossil-fuel use or combustion in general; the specific energy sources are not identified.</td></tr>
+<tr><td>(untitled)</td><td>✓</td><td>✗</td><td>cause and effect relationship between energy utilisation and environmental health</td><td>The study concerns energy utilization and associated urban air pollutants, but it does not explicitly or clearly characterize the energy source as fossil fuel use or combustion.</td></tr>
 </table>
 </details>
 <div class='drilldown-leaf'>Coal · no gold · TP0 FP0 FN0</div>
 <div class='drilldown-leaf'>Natural gas · no gold · TP0 FP0 FN0</div>
 <div class='drilldown-leaf'>Oil · no gold · TP0 FP0 FN0</div>
-</details>
-
-<details><summary><b>Climate factors - Climate drivers / variability</b> · direct-children <span class='f1-badge' style='background-color:#e0f3f8;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.60</span> (n=7)</summary>
-<div class='drilldown-leaf'>(Unspecified) changes in weather · no gold · TP0 FP0 FN0</div>
-<details><summary>(Unspecified) climate change · <span class='f1-badge' style='background-color:#8ec2dc;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.75</span> · TP3 FP2 FN0</summary>
-<table class='drilldown-fails'>
-<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✗</td><td>✓</td><td>an IoT-based ensemble framework that enables early disaster prediction for efficient monitoring of climate changes</td><td>[self-consistency: 2/2 present]
-The study addresses climate changes in general without identifying a specific climate-change driver or mechanism as its main focus.</td></tr>
-<tr><td>Reply on RC2</td><td>✗</td><td>✓</td><td>Coastal vegetated ecosystems are key-nature based solutions for climate change mitigation.</td><td>[self-consistency: 2/2 present]
-Climate change is referenced generally as the motivation and mitigation context, without identifying a specific climate driver or mechanism.</td></tr>
-</table>
-</details>
-<div class='drilldown-leaf'>Changes in glacier / snow melt · no gold · TP0 FP0 FN0</div>
-<details><summary>Changes in humidity · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP1 FP0 FN1</summary>
-<table class='drilldown-fails'>
-<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-Humidity is recorded by sensors, but the study does not investigate shifts in atmospheric moisture or their health-related consequences.</td></tr>
-</table>
-</details>
-<div class='drilldown-leaf'>Changes in inland water bodies · no gold · TP0 FP0 FN0</div>
-<details><summary>Changes in precipitation · <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> · TP0 FP1 FN1 ⚠</summary>
-<table class='drilldown-fails'>
-<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Antibiotic Resistant Escherichia coli (E. coli) in Minneopa Creek Coll</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-Rainfall amounts are reported to characterize sampling storms, but altered precipitation patterns are not an exposure or focus of the study.</td></tr>
-<tr><td>Uncertain climate futures - on optimality and robustness of climate ad</td><td>✗</td><td>✓</td><td>increasing intensity and variability of environmental hazards such as flooding, extreme precipitation, and storm surges</td><td>[self-consistency: 2/2 present]
-Extreme precipitation is an explicit climate-related hazard considered in the study.</td></tr>
-</table>
-</details>
-<details><summary>Changes in sea level · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP1 FP0 FN1</summary>
-<table class='drilldown-fails'>
-<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study monitors sea levels as one environmental variable, but does not address rising mean sea level caused by thermal expansion or melting ice.</td></tr>
-</table>
-</details>
-<div class='drilldown-leaf'>Changes in season length · no gold · TP0 FP0 FN0</div>
-<details><summary>Changes in temperature · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP2 FP0 FN2</summary>
-<table class='drilldown-fails'>
-<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>A Hybrid Convolutional Neural Network-Temporal Attention Mechanism App</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The model predicts crop soil temperature, but the study does not examine long-term or extreme atmospheric temperature trends.</td></tr>
-<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-Temperature is monitored, but the study does not focus on long-term or extreme temperature shifts as an exposure or outcome.</td></tr>
-</table>
-</details>
-<details><summary>Changes in wind speed · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP1 FP0 FN1</summary>
-<table class='drilldown-fails'>
-<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-Wind speed is monitored as an environmental variable, but the study does not examine alterations in wind patterns or velocity as a climate-related exposure.</td></tr>
-</table>
-</details>
-<details><summary>Climate variability · <span class='f1-badge' style='background-color:#fee090;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.40</span> · TP1 FP3 FN0 ⚠</summary>
-<table class='drilldown-fails'>
-<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>A Systematic Literature Review of the Contribution of Past Climate Inf</td><td>✗</td><td>✓</td><td>ways in which these past pilot projects have contributed to climate risk management</td><td>[self-consistency: 2/3 present]
-Climate information services for smallholder farmers generally support planning around climate variability and associated risks, although the review does not isolate a specific meteorological variable.</td></tr>
-<tr><td>Uncertain climate futures - on optimality and robustness of climate ad</td><td>✗</td><td>✓</td><td>These hazards are subject to significant uncertainty, not only due to natural variability (aleatory uncertainty)</td><td>[self-consistency: 2/2 present]
-The study explicitly addresses natural climate variability as a source of uncertainty in environmental hazards and infrastructure decision-making.</td></tr>
-<tr><td>Machine learning to characterize and explain the fine-scale temporal v</td><td>✗</td><td>✓</td><td>the temporal variability of their signal hints at significant meso-to-synoptic scale dynamics over periods ranging from hours to days</td><td>[self-consistency: 2/2 present]
-Climate variability is a central focus, with analysis of fluctuations in the urban heat-island signal across hourly, daily, and multi-day scales.</td></tr>
-</table>
-</details>
 </details>
 
 <details><summary><b>Climate factors - Climate forcing agents</b> · direct-children <span class='f1-badge' style='background-color:#a3d3e6;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.71</span> (n=3)</summary>
@@ -89,137 +22,86 @@ Climate variability is a central focus, with analysis of fluctuations in the urb
 <details><summary>Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols · <span class='f1-badge' style='background-color:#e0f3f8;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.60</span> · TP3 FP2 FN2</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>TRANSPORTATION AND QUALITY OF LIFE</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-Particulate matter or airborne particles are not specifically identified or studied; the reference to environmental pollution is general.</td></tr>
-<tr><td>(untitled)</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study mentions total suspended particles (TSP), but does not specifically address PM10 or PM2.5 as defined by this concept.</td></tr>
-<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>studies show that indoor pollution of particulate matter (PM) ... might also be serious in China.</td><td>[self-consistency: 2/2 present]
-Particulate matter is explicitly identified as a major indoor air pollutant considered in the review.</td></tr>
-<tr><td>PM10 Time Series Forecasting Using Variational Mode Decomposition Info</td><td>✗</td><td>✓</td><td>forecast PM concentrations with an aerodynamic diameter of less than 10 µm (PM10)</td><td>[self-consistency: 2/2 present]
-Particulate matter is the central subject of the study, specifically forecasting PM10 concentrations and incorporating PM2.5 as an additional predictive factor.</td></tr>
+<tr><td>TRANSPORTATION AND QUALITY OF LIFE</td><td>✓</td><td>✗</td><td></td><td>Particulate matter, including PM10 or PM2.5, is not discussed.</td></tr>
+<tr><td>(untitled)</td><td>✓</td><td>✗</td><td>SO2, NOx, CO, TSP exposure</td><td>The study measures total suspended particulates (TSP), not specifically PM10 or PM2.5 as defined by this concept.</td></tr>
+<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>Besides, studies show that indoor pollution of particulate matter (PM), biological pollutants, and semi-volatile organic compounds (SVOCs) might also be serious in China.</td><td>Indoor particulate matter pollution is explicitly identified as a potentially serious air-quality problem in China.</td></tr>
+<tr><td>PM10 Time Series Forecasting Using Variational Mode Decomposition Info</td><td>✗</td><td>✓</td><td>forecast PM concentrations with an aerodynamic diameter of less than 10 µ m (PM10)</td><td>The study is fundamentally about forecasting PM10 concentrations and also incorporates PM2.5 as a predictor.</td></tr>
 </table>
 </details>
 <div class='drilldown-leaf'>Tropospheric ozone (O₃) · no gold · TP0 FP0 FN0</div>
 </details>
 
-<details><summary><b>Topic</b> · direct-children <span class='f1-badge' style='background-color:#a1d1e5;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.72</span> (n=3)</summary>
-<details><summary><b>Adaptation</b> · <span class='f1-badge' style='background-color:#588cc0;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.86</span> · TP9 FP0 FN3 · children <span class='f1-badge' style='background-color:#9fd0e4;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.72</span> (n=2)</summary>
+<details><summary><b>Climate factors - Climate drivers / variability</b> · direct-children <span class='f1-badge' style='background-color:#99cae1;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.73</span> (n=7)</summary>
+<div class='drilldown-leaf'>(Unspecified) changes in weather · no gold · TP0 FP0 FN0</div>
+<details><summary>(Unspecified) climate change · <span class='f1-badge' style='background-color:#e9f6e8;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.57</span> · TP2 FP2 FN1</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Setting the table – a story of food policy innovation</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The guide discusses policymaking and food-system solutions generally, but it does not concern adjustments, forecasting, risk management, preparedness, or coping in response to climate variables or climate-rel</td></tr>
-<tr><td>Constructed Wetlands Lessons from Three Middle East Countries : The Ef</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study describes constructing and testing wetlands to improve wastewater reuse and alleviate water scarcity, but it does not frame this as adjustment or coping in response to climate change, climate variab</td></tr>
-<tr><td>Risk assessment of the Sedongpu high-altitude and ultra-long-runout la</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study develops prediction and risk-assessment methods for a geological disaster, but does not concern adaptation, preparedness, monitoring, or resilience in response to climate-related hazards.</td></tr>
-</table>
-<div class='drilldown-leaf'>Maladaptation · no gold · TP0 FP0 FN0</div>
-<details><summary>Preparedness · <span class='f1-badge' style='background-color:#9bcce2;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.73</span> · TP4 FP3 FN0</summary>
-<table class='drilldown-fails'>
-<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Assessment of Future Flood Hazards for Southeastern Texas: Synthesizin</td><td>✗</td><td>✓</td><td>These models enable communities to improve flood resiliency plans.</td><td>[self-consistency: 2/2 present]
-The study supports advance planning for future flood hazards by modeling inundation scenarios for 2030, 2050, and 2100 to inform improved resilience plans.</td></tr>
-<tr><td>A Systematic Literature Review of the Contribution of Past Climate Inf</td><td>✗</td><td>✓</td><td>embedding pre-seasonal workshops in the activities of local institutions for sustainability</td><td>[self-consistency: 3/3 present]
-The initiatives build capacities and support advance planning and decision-making to manage climate risks, including through pre-seasonal workshops and climate information services.</td></tr>
-<tr><td>Adaptation to climate change and climate variability: The importance o</td><td>✗</td><td>✓</td><td>The first example explores how technical aspects of climate adaptation in Mali... The second example shows how farmers in southeastern United States approach climate variability and climate forecasts as risk management tools.</td><td>[self-consistency: 2/2 present]
-The study concerns adaptation strategies and the use of climate forecasts for risk management, which involve planning and implementing measures in anticipation of climate-related risks.</td></tr>
+<tr><td>A Systematic Literature Review of the Contribution of Past Climate Inf</td><td>✓</td><td>✗</td><td></td><td>The review focuses on the adoption and implementation of climate information services rather than climate change itself as a general, unspecified driver.</td></tr>
+<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✗</td><td>✓</td><td>an IoT-based ensemble framework that enables early disaster prediction for efficient monitoring of climate changes</td><td>The study broadly frames its system as monitoring climate changes without identifying a particular climate-change mechanism or driver.</td></tr>
+<tr><td>Reply on RC2</td><td>✗</td><td>✓</td><td>Coastal vegetated ecosystems are key-nature based solutions for climate change mitigation.</td><td>Climate change is a central general framing of the study because it assesses carbon sequestration by coastal ecosystems as a mitigation solution, without examining a specific meteorological climate-change driver.</td></tr>
 </table>
 </details>
-<details><summary>Resilience · <span class='f1-badge' style='background-color:#a3d3e6;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.71</span> · TP5 FP0 FN4</summary>
+<div class='drilldown-leaf'>Changes in glacier / snow melt · no gold · TP0 FP0 FN0</div>
+<div class='drilldown-leaf'>Changes in humidity · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP2 FP0 FN0</div>
+<div class='drilldown-leaf'>Changes in inland water bodies · no gold · TP0 FP0 FN0</div>
+<details><summary>Changes in precipitation · <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> · TP0 FP1 FN1 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Setting the table – a story of food policy innovation</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
-<tr><td>Constructed Wetlands Lessons from Three Middle East Countries : The Ef</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
-<tr><td>Disaster and Emergency Crisis Management Communication</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-Although the context concerns protecting vulnerable communities, it does not specifically focus on resilience as a capacity or adaptation outcome involving anticipating, withstanding, recovering from, or adap</td></tr>
-<tr><td>Adaptation to climate change and climate variability: The importance o</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study discusses adaptation as a socially embedded process and risk management, but does not fundamentally assess resilience as the capacity to withstand, recover from, or adapt to climate-related shocks.</td></tr>
+<tr><td>Antibiotic Resistant Escherichia coli (E. coli) in Minneopa Creek Coll</td><td>✓</td><td>✗</td><td>E. coli levels were monitored at several sites along Minneopa Creek during storms on June 28 and August 9, 2017 where rainfall was 0.68 and 1.56 inches, respectively.</td><td>Rainfall amounts for two storms describe sampling conditions; the study does not examine an alteration or climate-driven shift in rainfall amount, timing, or intensity.</td></tr>
+<tr><td>Uncertain climate futures - on optimality and robustness of climate ad</td><td>✗</td><td>✓</td><td>environmental hazards such as flooding, extreme precipitation, and storm surges</td><td>Extreme precipitation is explicitly identified as a climate-related environmental hazard relevant to infrastructure planning and adaptation.</td></tr>
 </table>
 </details>
-</details>
-<details><summary><b>Impact</b> · <span class='f1-badge' style='background-color:#e5f5ef;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.58</span> · TP7 FP6 FN4 · children <span class='f1-badge' style='background-color:#74add1;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.80</span> (n=1)</summary>
+<details><summary>Changes in sea level · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP1 FP0 FN1</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Acute effects of air pollution on respiratory health of 50-70 yr old a</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study assesses associations between air pollution and respiratory health during winter, with no climate variable, climate-related extreme event, or climate-change effect in the causal pathway.</td></tr>
-<tr><td>Risk assessment of the Sedongpu high-altitude and ultra-long-runout la</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-Although the study addresses a natural hazard, it does not identify a climate variable or climate-related extreme event as a driver of the Sedongpu landslide risk.</td></tr>
-<tr><td>(untitled)</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study assesses health effects of air pollutants associated with energy use, but it does not identify a climate variable or climate-related extreme event as the driver of exposure or harm.</td></tr>
-<tr><td>Information mining and comparison analysis of PM2.5 periodical paper b</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study concerns the distribution and trends of PM2.5 literature, but does not assess health or environmental effects driven by climate variables or climate-related extreme events.</td></tr>
-<tr><td>Evaluating the Impact of the Spatial Resolution of Digital Elevation M</td><td>✗</td><td>✓</td><td>These results highlight the critical importance of using high-resolution DEMs ... for accurate flood modelling and effective flood risk management</td><td>[self-consistency: 2/3 present]
-The study characterises and models flood hazards and risks, which are climate-related extreme-event impacts. It evaluates predicted flood levels and flood risk within the Shiroro floodplain.</td></tr>
-<tr><td>A Hybrid Convolutional Neural Network-Temporal Attention Mechanism App</td><td>✗</td><td>✓</td><td>Experimental outcome confirms enhanced real-time prediction capability allowing farmers to optimize irrigation schedules, reduce resource waste, and improve crop resilience against extreme weather conditions.</td><td>[self-consistency: 2/3 present]
-The study models environmental climate-related variables (soil temperature and moisture) and explicitly addresses crop resilience to extreme weather. This concerns agricultural risks and impacts associated wi</td></tr>
-<tr><td>Disaster and Emergency Crisis Management Communication</td><td>✗</td><td>✓</td><td>Thus, through monitoring, a vulnerable community can be alerted to a pending hurricane.</td><td>[self-consistency: 2/2 present]
-The study concerns harms and risks associated with a hurricane, a climate-related extreme event, including potential property damage, loss of life, and impacts on vulnerable communities.</td></tr>
-<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✗</td><td>✓</td><td>enables early disaster prediction for efficient monitoring of climate changes</td><td>[self-consistency: 2/2 present]
-The study examines climate-related environmental variables, including temperature, humidity, wind speed, atmospheric pressure, and sea level, to predict disaster risk and associated threats to people and prop</td></tr>
-<tr><td>A Systematic Literature Review of the Contribution of Past Climate Inf</td><td>✗</td><td>✓</td><td>these past pilot projects have contributed to climate risk management in the context of smallholder farming</td><td>[self-consistency: 2/3 present]
-The review concerns climate-related risks affecting smallholder farming and the use of climate information to understand and manage those risks, which arise from climate variability and change.</td></tr>
-<tr><td>Adaptation to climate change and climate variability: The importance o</td><td>✗</td><td>✓</td><td>adaptive processes and technologies, whether short term or long term, are more than simple technical responses to biophysical conditions</td><td>[self-consistency: 2/2 present]
-The study examines adaptation in response to changing climate conditions and climate variability, including how farmers use climate forecasts and manage associated risks in agricultural and social systems.</td></tr>
-</table>
-<div class='drilldown-leaf'>Attribution · no gold · TP0 FP0 FN0</div>
-<details><summary>Future impact · <span class='f1-badge' style='background-color:#74add1;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.80</span> · TP2 FP1 FN0</summary>
-<table class='drilldown-fails'>
-<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Adaptation to climate change and climate variability: The importance o</td><td>✗</td><td>✓</td><td>Most climate change studies that address potential impacts and potential adaptation strategies are largely based on modelling technologies.</td><td>[self-consistency: 2/2 present]
-The study focuses on modelled potential future outcomes, anticipated future conditions, and climate forecasts used to consider climate adaptation.</td></tr>
+<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✓</td><td>✗</td><td>environmental conditions such as atmospheric pressure, humidity, temperature, wind speed, and sea levels</td><td>Sea level is monitored, but the abstract does not identify an increase in mean sea level, sea-level rise, or its climatic drivers.</td></tr>
 </table>
 </details>
-<div class='drilldown-leaf'>Loss and damage · no gold · TP0 FP0 FN0</div>
-</details>
-<details><summary><b>Mitigation</b> · <span class='f1-badge' style='background-color:#8ec2dc;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.75</span> · TP3 FP0 FN2 · children <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> (n=1)</summary>
+<div class='drilldown-leaf'>Changes in season length · no gold · TP0 FP0 FN0</div>
+<details><summary>Changes in temperature · <span class='f1-badge' style='background-color:#588cc0;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.86</span> · TP3 FP0 FN1</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Setting the table – a story of food policy innovation</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The guide concerns policies and methods for transitioning to a healthier and more sustainable food system, but it does not specifically address greenhouse-gas emissions, fossil fuels, or emission-reduction st</td></tr>
-<tr><td>TRANSPORTATION AND QUALITY OF LIFE</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study concerns urban transportation, automobile dependency, congestion, accidents, pollution, and quality of life, but it does not specifically address greenhouse-gas emissions, fossil-fuel combustion, or</td></tr>
-</table>
-<details><summary>Co-Benefits · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP1 FP0 FN1</summary>
-<table class='drilldown-fails'>
-<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Setting the table – a story of food policy innovation</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
+<tr><td>A Hybrid Convolutional Neural Network-Temporal Attention Mechanism App</td><td>✓</td><td>✗</td><td>real time crop soil temperature and Soil Moisture prognosis</td><td>The study predicts crop-soil temperature but does not examine long-term shifts in atmospheric temperature, warming trends, or temperature extremes.</td></tr>
 </table>
 </details>
+<div class='drilldown-leaf'>Changes in wind speed · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP2 FP0 FN0</div>
+<details><summary>Climate variability · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP1 FP1 FN0</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>Uncertain climate futures - on optimality and robustness of climate ad</td><td>✗</td><td>✓</td><td>These hazards are subject to significant uncertainty, not only due to natural variability (aleatory uncertainty)</td><td>Natural variability and the variability of climate-related environmental hazards are material to the study&#x27;s treatment of uncertain future climate scenarios.</td></tr>
+</table>
 </details>
 </details>
 
 <details><summary><b>Health - Outcomes</b> · direct-children <span class='f1-badge' style='background-color:#8ec2dc;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.75</span> (n=4)</summary>
-<details><summary><b>1. Mortality (Outcome)</b> · <span class='f1-badge' style='background-color:#feffc0;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.50</span> · TP1 FP2 FN0 · children <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> (n=1)</summary>
+<details><summary><b>1. Mortality (Outcome)</b> · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP1 FP1 FN0 · children <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> (n=1)</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Analysis of transported pollution and haze-related diseases via HYSPLI</td><td>✗</td><td>✓</td><td>“mortality for the worst-case scenarios”</td><td>[self-consistency: 2/2 present]
-Mortality is explicitly identified as a potential health outcome of severe haze pollutant exposure.</td></tr>
-<tr><td>Heat stress in goat (Capra hircus): Impacts on physiological responses</td><td>✗</td><td>✓</td><td>Transport under HS exacerbates mortality risks</td><td>[self-consistency: 2/3 present]
-Mortality is explicitly identified as an outcome associated with heat stress during transport, indicating an occurrence-of-death health outcome in the studied goat population.</td></tr>
+<tr><td>Heat stress in goat (Capra hircus): Impacts on physiological responses</td><td>✗</td><td>✓</td><td>Transport under HS exacerbates mortality risks</td><td>Mortality is explicitly described as an adverse outcome of transporting goats under heat-stress conditions; embryonic mortality is also discussed.</td></tr>
 </table>
-<details><summary>1.1. Total / all-cause mortality (Outcome) · no gold · TP0 FP2 FN0 ⚠</summary>
+<details><summary>1.1. Total / all-cause mortality (Outcome) · no gold · TP0 FP1 FN0 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>the related increase in respiratory diseases and mortality</td><td>[self-consistency: 3/3 present]
-Mortality is explicitly included as an outcome, and no specific cause of death is stated in the abstract, supporting classification as deaths from any cause combined.</td></tr>
-<tr><td>Analysis of transported pollution and haze-related diseases via HYSPLI</td><td>✗</td><td>✓</td><td>mortality for the worst-case scenarios</td><td>[self-consistency: 2/3 present]
-Mortality is explicitly included among the potential health impacts of haze exposure, representing an all-cause fatal outcome rather than a specified disease category.</td></tr>
+<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>the related increase in respiratory diseases and mortality</td><td>Mortality is evaluated as a general fatal health outcome without a stated cause-of-death category.</td></tr>
 </table>
 </details>
 <div class='drilldown-leaf'>1.2. Communicable, maternal, neonatal, and nutritional mortality · no gold · TP0 FP0 FN0</div>
-<div class='drilldown-leaf'>1.3. Non-communicable mortality · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP1 FP0 FN0</div>
+<details><summary>1.3. Non-communicable mortality · <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> · TP0 FP0 FN1 ⚠</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>(untitled)</td><td>✓</td><td>✗</td><td></td><td>Although respiratory disease and mortality are assessed, the abstract does not specifically identify deaths attributable to non-communicable diseases.</td></tr>
+</table>
+</details>
 </details>
 <details><summary><b>2. Communicable, maternal, neonatal, and nutritional diseases</b> · <span class='f1-badge' style='background-color:#74add1;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.80</span> · TP2 FP1 FN0 · children <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> (n=2)</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Antibiotic Resistant Escherichia coli (E. coli) in Minneopa Creek Coll</td><td>✗</td><td>✓</td><td>E. coli is used to indicate the potential presence of waterborne pathogens that can be harmful to human health.</td><td>[self-consistency: 2/3 present]
-The study focuses on E. coli, a bacterial infectious agent and indicator of waterborne pathogens, including its antibiotic resistance. This falls within the broad infectious-disease category even though human</td></tr>
+<tr><td>Antibiotic Resistant Escherichia coli (E. coli) in Minneopa Creek Coll</td><td>✗</td><td>✓</td><td>E. coli is used to indicate the potential presence of waterborne pathogens that can be harmful to human health.</td><td>The study focuses on E. coli contamination, potential waterborne pathogens, and antimicrobial resistance, placing it within infectious disease-related conditions.</td></tr>
 </table>
 <details><summary>Enteric infections · no gold · TP0 FP1 FN0 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Antibiotic Resistant Escherichia coli (E. coli) in Minneopa Creek Coll</td><td>✗</td><td>✓</td><td>E. coli is used to indicate the potential presence of waterborne pathogens that can be harmful to human health.</td><td>[self-consistency: 2/2 present]
-The study focuses on E. coli contamination in streams following storms, explicitly addressing potential waterborne pathogens. E. coli is an enteric pathogen associated with gastrointestinal infection and cont</td></tr>
+<tr><td>Antibiotic Resistant Escherichia coli (E. coli) in Minneopa Creek Coll</td><td>✗</td><td>✓</td><td>E. coli is used to indicate the potential presence of waterborne pathogens that can be harmful to human health.</td><td>The study focuses on fecal E. coli contamination and antibiotic resistance in streams, representing potential exposure to enteric pathogens through contaminated water.</td></tr>
 </table>
 </details>
 <div class='drilldown-leaf'>HIV/AIDS and sexually transmitted infections · no gold · TP0 FP0 FN0</div>
@@ -229,7 +111,11 @@ The study focuses on E. coli contamination in streams following storms, explicit
 <div class='drilldown-leaf'>Respiratory infections and tuberculosis · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP1 FP0 FN0</div>
 <div class='drilldown-leaf'>Z_Other infectious diseases · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP1 FP0 FN0</div>
 </details>
-<details><summary><b>3. Non-communicable diseases</b> · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP3 FP0 FN0 · children <span class='f1-badge' style='background-color:#4a7ab7;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.89</span> (n=3)</summary>
+<details><summary><b>3. Non-communicable diseases</b> · <span class='f1-badge' style='background-color:#588cc0;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.86</span> · TP3 FP1 FN0 · children <span class='f1-badge' style='background-color:#4a7ab7;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.89</span> (n=3)</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>塑化建材、2-乙基己醇及微生物共存環境與病態大樓症候群的關係</td><td>✗</td><td>✓</td><td>This study aims at disclosing sick building syndrome associated with 2-ethyl-1-hexanol, microorganisms and other factors</td><td>The principal health outcome is sick building syndrome, a non-infectious condition associated with indoor environmental exposures and manifested by symptoms such as mucous membrane irritation.</td></tr>
+</table>
 <div class='drilldown-leaf'>Cardiovascular diseases · no gold · TP0 FP0 FN0</div>
 <div class='drilldown-leaf'>Chronic respiratory diseases · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP3 FP0 FN0</div>
 <div class='drilldown-leaf'>Diabetes and kidney diseases · no gold · TP0 FP0 FN0</div>
@@ -244,16 +130,14 @@ The study focuses on E. coli contamination in streams following storms, explicit
 <details><summary>Z_Other non-communicable diseases · <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> · TP0 FP0 FN1 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Analysis of transported pollution and haze-related diseases via HYSPLI</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/3 present]
-No miscellaneous non-communicable diseases such as congenital, genitourinary, or haematological conditions are examined.</td></tr>
+<tr><td>Analysis of transported pollution and haze-related diseases via HYSPLI</td><td>✓</td><td>✗</td><td></td><td>The reported outcomes are respiratory and ocular conditions rather than miscellaneous non-communicable diseases in this grouping.</td></tr>
 </table>
 </details>
 </details>
 <details><summary><b>4. Injuries</b> · <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> · TP0 FP0 FN1 · children <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> (n=1) ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>TRANSPORTATION AND QUALITY OF LIFE</td><td>✓</td><td>✗</td><td>Automobile dependency ... contributes to the increase in traffic congestion, higher accidents rate</td><td>[self-consistency: 0/2 present]
-Accidents are mentioned as one of several general negative impacts of automobile dependency, but physical injury is not a subject, outcome, or focus of the study.</td></tr>
+<tr><td>TRANSPORTATION AND QUALITY OF LIFE</td><td>✓</td><td>✗</td><td>Automobile dependency has always been viewed as a potential threat to Malaysia’s urban areas, as it contributes to the increase in traffic congestion, higher accidents rate</td><td>Although higher accident rates are listed among the negative effects of automobile dependency, bodily injury is not examined as a substantive outcome; the chapter broadly concerns transportation and urban quality of life.</td></tr>
 </table>
 <div class='drilldown-leaf'>Self-harm and interpersonal violence · no gold · TP0 FP0 FN0</div>
 <details><summary>Transport injuries · <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> · TP0 FP0 FN1 ⚠</summary>
@@ -266,80 +150,132 @@ Accidents are mentioned as one of several general negative impacts of automobile
 </details>
 </details>
 
-<details><summary><b>Methods</b> · direct-children <span class='f1-badge' style='background-color:#83b9d8;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.77</span> (n=2)</summary>
-<details><summary><b>1. Primary research</b> · <span class='f1-badge' style='background-color:#4f81ba;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.88</span> · TP14 FP3 FN1 · children <span class='f1-badge' style='background-color:#87bdd9;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.76</span> (n=5)</summary>
+<details><summary><b>Topic</b> · direct-children <span class='f1-badge' style='background-color:#8cc0db;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.75</span> (n=3)</summary>
+<details><summary><b>Adaptation</b> · <span class='f1-badge' style='background-color:#5385bd;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.87</span> · TP10 FP1 FN2 · children <span class='f1-badge' style='background-color:#b0dcea;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.69</span> (n=2)</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Meningococcal Meningitis in Sub-Saharan Africa: A Model for the Epidem</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-No original data collection, study population, analytic methods, or newly analysed dataset is described; the text summarizes existing epidemiological evidence.</td></tr>
-<tr><td>PM10 Time Series Forecasting Using Variational Mode Decomposition Info</td><td>✗</td><td>✓</td><td>The effectiveness of the model was confirmed using data from a CBP associated with a national highway.</td><td>[self-consistency: 2/2 present]
-The study collects and analyses PM10 and related environmental data to develop and validate a forecasting model, making it original research.</td></tr>
-<tr><td>塑化建材、2-乙基己醇及微生物共存環境與病態大樓症候群的關係</td><td>✗</td><td>✓</td><td>A questionnaire survey was administrated for investigating prevalence of sick building syndrome; 2-ethyl-1-hexanol and microorganisms (bacteria, fungi) were sampled and analyzed.</td><td>[self-consistency: 2/2 present]
-The study is original primary research that directly collects and analyzes data on sick building syndrome and indoor environmental exposures.</td></tr>
-<tr><td>Information mining and comparison analysis of PM2.5 periodical paper b</td><td>✗</td><td>✓</td><td>Comprehensive analysis result was made based on the overall output of literature ... using high-volume database, data mining, clustering analysis and visualization technology.</td><td>[self-consistency: 2/2 present]
-The study directly collects and analyzes bibliographic data from a high-volume database using data-mining, clustering, and visualization methods. Although the data concern existing publications, the bibliomet</td></tr>
+<tr><td>Setting the table – a story of food policy innovation</td><td>✓</td><td>✗</td><td></td><td>The guide concerns policymaking and dialogue for healthier, more sustainable food systems, but it does not specifically address adjustment to climate variables, climate-related hazards, disaster preparedness, or resilience.</td></tr>
+<tr><td>Risk assessment of the Sedongpu high-altitude and ultra-long-runout la</td><td>✓</td><td>✗</td><td></td><td>The study develops methods for geological landslide risk assessment and prediction, but it does not link the landslides or risk-management measures to climate variables, climate change, or climate-related extreme events.</td></tr>
+<tr><td>Machine learning to characterize and explain the fine-scale temporal v</td><td>✗</td><td>✓</td><td>mitigation of these impacts thus also needs to focus on their hot spots and spells, rather than climatic averages.</td><td>The study analyzes fine-scale urban heat variability to support targeted management of heat-related impacts, which constitutes climate adaptation and risk management.</td></tr>
 </table>
-<div class='drilldown-leaf'>(Quasi-)Experimental / group comparison designs · no gold · TP0 FP0 FN0</div>
-<details><summary>(Quasi-)Experimental / single-group designs · no gold · TP0 FP1 FN0 ⚠</summary>
+<div class='drilldown-leaf'>Maladaptation · no gold · TP0 FP0 FN0</div>
+<details><summary>Preparedness · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP4 FP4 FN0</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Constructed Wetlands Lessons from Three Middle East Countries : The Ef</td><td>✗</td><td>✓</td><td>This chapter describes the building, testing and adaptation of constructed wetlands in Israel, Jordan and Palestine.</td><td>[self-consistency: 2/2 present]
-Constructed wetlands are implemented and tested as an intervention or applied system, with no concurrent control group described.</td></tr>
+<tr><td>Assessment of Future Flood Hazards for Southeastern Texas: Synthesizin</td><td>✗</td><td>✓</td><td>These models enable communities to improve flood resiliency plans.</td><td>The study supports advance planning for future sea-level rise, subsidence, and storm-surge hazards, which constitutes preparedness.</td></tr>
+<tr><td>A Hybrid Convolutional Neural Network-Temporal Attention Mechanism App</td><td>✗</td><td>✓</td><td>real time crop soil temperature and Soil Moisture prognosis</td><td>The predictive monitoring and decision-support system helps farmers anticipate environmental conditions and optimize irrigation in advance, thereby supporting preparedness for extreme weather and related agricultural impacts.</td></tr>
+<tr><td>A Systematic Literature Review of the Contribution of Past Climate Inf</td><td>✗</td><td>✓</td><td>embedding pre-seasonal workshops in the activities of local institutions for sustainability</td><td>Climate information, pre-seasonal workshops, and improved farm-level decision-making enable farmers and institutions to plan in advance for climate-related risks, fitting preparedness.</td></tr>
+<tr><td>Adaptation to climate change and climate variability: The importance o</td><td>✗</td><td>✓</td><td>farmers in southeastern United States approach climate variability and climate forecasts as risk management tools</td><td>The use of climate forecasts and adaptation strategies as risk-management tools concerns anticipatory planning and action to reduce climate-related impacts.</td></tr>
 </table>
 </details>
-<details><summary>Descriptive / single-group designs · <span class='f1-badge' style='background-color:#e9f6e8;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.57</span> · TP2 FP0 FN3</summary>
+<details><summary>Resilience · <span class='f1-badge' style='background-color:#a8d6e8;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.71</span> · TP6 FP2 FN3</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Constructed Wetlands Lessons from Three Middle East Countries : The Ef</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study reports building, testing, and adapting constructed wetlands rather than merely describing outcome characteristics in a single group.</td></tr>
-<tr><td>Uncertain climate futures - on optimality and robustness of climate ad</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study does not describe the frequency or distribution of outcomes in a single group; it develops and evaluates a decision-support approach.</td></tr>
+<tr><td>Setting the table – a story of food policy innovation</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
+<tr><td>Disaster and Emergency Crisis Management Communication</td><td>✓</td><td>✗</td><td></td><td>Although the measures could strengthen community capacity, resilience as the capacity to withstand, recover from, and adapt to climate shocks is not an explicit or central subject.</td></tr>
+<tr><td>Adaptation to climate change and climate variability: The importance o</td><td>✓</td><td>✗</td><td></td><td>Although adaptive processes and risk management are discussed, resilience—the capacity to withstand, recover from, and adapt to climate shocks—is not a substantive outcome or explicit focus.</td></tr>
+<tr><td>Evaluating the Impact of the Spatial Resolution of Digital Elevation M</td><td>✗</td><td>✓</td><td>ultimately enhancing disaster preparedness and response within the Shiroro floodplain and beyond</td><td>The study aims to strengthen the capacity to anticipate and respond to flooding through improved forecasting, hazard mapping, and risk management, which supports resilience.</td></tr>
+<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✗</td><td>✓</td><td>an IoT-based ensemble framework that enables early disaster prediction for efficient monitoring of climate changes</td><td>The framework enhances the capacity to anticipate climate-related disasters and protect lives and property, which contributes to resilience.</td></tr>
+</table>
+</details>
+</details>
+<details><summary><b>Impact</b> · <span class='f1-badge' style='background-color:#cdeaf3;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.64</span> · TP7 FP4 FN4 · children <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> (n=1)</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>Acute effects of air pollution on respiratory health of 50-70 yr old a</td><td>✓</td><td>✗</td><td></td><td>The study assesses respiratory effects of ambient air pollutants, but no climate variable or climate-related extreme event is identified as a driver or modifier of exposure.</td></tr>
+<tr><td>Risk assessment of the Sedongpu high-altitude and ultra-long-runout la</td><td>✓</td><td>✗</td><td></td><td>The study assesses landslide hazards and potential dam formation, but no climatic driver—such as precipitation, warming, flooding, or drought—is identified in the causal pathway.</td></tr>
+<tr><td>(untitled)</td><td>✓</td><td>✗</td><td></td><td>The health effects studied arise from air pollutants associated with energy use, with no climate variable or climate-related event identified as a causal driver.</td></tr>
+<tr><td>Information mining and comparison analysis of PM2.5 periodical paper b</td><td>✓</td><td>✗</td><td></td><td>Although PM2.5 air pollution and haze are discussed, the study does not examine their effects or risks as driven or modified by a climate variable or climate-related event.</td></tr>
+<tr><td>Evaluating the Impact of the Spatial Resolution of Digital Elevation M</td><td>✗</td><td>✓</td><td>This study investigated the impact of different Digital Elevation Model (DEM) resolutions (1 m UAV, 10 m InSAR, and 30 m SRTM) on flood modelling within the Shiroro floodplain, Nigeria.</td><td>The study characterizes and predicts flood levels and flood risk, addressing a climate-related extreme-event hazard affecting a human and natural system.</td></tr>
+<tr><td>Disaster and Emergency Crisis Management Communication</td><td>✗</td><td>✓</td><td>Disaster and emergency crisis management communication refers to the sorts of crisis, often called disaster because of the amount of property damage and loss of life that can occur.</td><td>The study addresses risks of a climate-related extreme event (a hurricane), including property damage, loss of life, and vulnerability, as well as management of those impacts.</td></tr>
+<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✗</td><td>✓</td><td>monitor environmental changes and forecast the occurrence of disasters to save property and lives of the people</td><td>The study assesses and predicts disaster risks using climate and environmental variables, with potential consequences for human lives and property.</td></tr>
+<tr><td>Adaptation to climate change and climate variability: The importance o</td><td>✗</td><td>✓</td><td>Most climate change studies that address potential impacts and potential adaptation strategies are largely based on modelling technologies.</td><td>The paper concerns the challenges and risks posed by climate variability and anticipated climate change for agricultural and social systems, although its main emphasis is adaptation.</td></tr>
+</table>
+<div class='drilldown-leaf'>Attribution · no gold · TP0 FP0 FN0</div>
+<div class='drilldown-leaf'>Future impact · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP2 FP0 FN0</div>
+<div class='drilldown-leaf'>Loss and damage · no gold · TP0 FP0 FN0</div>
+</details>
+<details><summary><b>Mitigation</b> · <span class='f1-badge' style='background-color:#8ec2dc;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.75</span> · TP3 FP0 FN2 · children <span class='f1-badge' style='background-color:#feffc0;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.50</span> (n=1)</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>Setting the table – a story of food policy innovation</td><td>✓</td><td>✗</td><td></td><td>Although sustainable food-system policy is discussed, the context does not identify greenhouse-gas emissions, fossil fuels, emission sources, or measures intended to reduce emissions.</td></tr>
+<tr><td>TRANSPORTATION AND QUALITY OF LIFE</td><td>✓</td><td>✗</td><td></td><td>Although private vehicle use and environmental pollution are discussed, the study does not specifically concern greenhouse-gas emissions, fossil fuels, or strategies framed as reducing such emissions.</td></tr>
+</table>
+<details><summary>Co-Benefits · <span class='f1-badge' style='background-color:#feffc0;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.50</span> · TP1 FP1 FN1</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>Setting the table – a story of food policy innovation</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
+<tr><td>Significance of dietary sulphur and sulphate reducing bacteria in lact</td><td>✗</td><td>✓</td><td>Controlled amount of sulphur in dairy cattle can improve their performance in context of milk, digestion with the help of sulphate reducing bacteria, methane gas emission</td><td>Controlled sulphur supplementation is described as affecting methane emissions while also improving dairy cattle performance, milk production, and digestion. These productivity and animal-health benefits are additional benefits associated w</td></tr>
+</table>
+</details>
+</details>
+</details>
+
+<details><summary><b>Methods</b> · direct-children <span class='f1-badge' style='background-color:#74add1;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.80</span> (n=2)</summary>
+<details><summary><b>1. Primary research</b> · <span class='f1-badge' style='background-color:#5588be;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.87</span> · TP13 FP2 FN2 · children <span class='f1-badge' style='background-color:#d1ecf4;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.63</span> (n=5)</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>Meningococcal Meningitis in Sub-Saharan Africa: A Model for the Epidem</td><td>✓</td><td>✗</td><td></td><td>No original data collection, study sample, analytic procedure, or new primary results are described; the article instead summarizes existing epidemiological evidence.</td></tr>
+<tr><td>Adaptation to climate change and climate variability: The importance o</td><td>✓</td><td>✗</td><td></td><td>No direct collection or analysis of original data is reported; the paper appears to develop a conceptual argument from existing examples.</td></tr>
+<tr><td>PM10 Time Series Forecasting Using Variational Mode Decomposition Info</td><td>✗</td><td>✓</td><td>The effectiveness of the model was confirmed using data from a CBP associated with a national highway.</td><td>This is original research that directly analyzes particulate-matter and related environmental data to develop and evaluate a hybrid forecasting model.</td></tr>
+<tr><td>塑化建材、2-乙基己醇及微生物共存環境與病態大樓症候群的關係</td><td>✗</td><td>✓</td><td>A questionnaire survey was administrated for investigating prevalence of sick building syndrome; 2-ethyl-1-hexanol and microorganisms (bacteria, fungi) were sampled and analyzed; other environmental factors such as temperature, humidity, to</td><td>This is original primary research involving participant questionnaires, biological and chemical sampling, direct environmental measurements, and statistical analysis.</td></tr>
+</table>
+<details><summary>(Quasi-)Experimental / group comparison designs · no gold · TP0 FP1 FN0 ⚠</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>Constructed Wetlands Lessons from Three Middle East Countries : The Ef</td><td>✗</td><td>✓</td><td>This chapter describes the building, testing and adaptation of constructed wetlands in Israel, Jordan and Palestine. We describe and discuss different types of CWs, the use of different media, and the importance of plants vs water loss thro</td><td>The study builds and tests constructed wetland interventions while examining alternative wetland types, media, and plant-related configurations, indicating an experimental design with comparison conditions.</td></tr>
+</table>
+</details>
+<div class='drilldown-leaf'>(Quasi-)Experimental / single-group designs · no gold · TP0 FP0 FN0</div>
+<details><summary>Descriptive / single-group designs · <span class='f1-badge' style='background-color:#fca55d;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.29</span> · TP1 FP1 FN4 ⚠</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>Constructed Wetlands Lessons from Three Middle East Countries : The Ef</td><td>✓</td><td>✗</td><td></td><td>The work goes beyond describing a single unmanipulated group by building and testing wastewater-treatment interventions.</td></tr>
+<tr><td>Uncertain climate futures - on optimality and robustness of climate ad</td><td>✓</td><td>✗</td><td></td><td>This is not a descriptive study characterizing outcomes in a single group; it develops and compares decision-modelling approaches.</td></tr>
 <tr><td>Meningococcal Meningitis in Sub-Saharan Africa: A Model for the Epidem</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
+<tr><td>Reply on RC2</td><td>✓</td><td>✗</td><td></td><td>Although the study characterizes sediment samples, it spans different coastal vegetated ecosystems and regions rather than describing outcomes solely within one undifferentiated group.</td></tr>
+<tr><td>Machine learning to characterize and explain the fine-scale temporal v</td><td>✗</td><td>✓</td><td>The probability density function of the UHI signal shows significant variability around the mean, with peaks around 12ºC while the mean is only around 2ºC.</td><td>The study describes the distribution and temporal characteristics of the urban heat-island signal in Phoenix without manipulating an exposure or intervention.</td></tr>
 </table>
 </details>
 <div class='drilldown-leaf'>Mixed-methods · no gold · TP0 FP0 FN0</div>
-<details><summary>Modelling / simulation · <span class='f1-badge' style='background-color:#4f81ba;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.88</span> · TP7 FP1 FN1</summary>
+<details><summary>Modelling / simulation · <span class='f1-badge' style='background-color:#69a0ca;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.82</span> · TP7 FP2 FN1</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
 <tr><td>Meningococcal Meningitis in Sub-Saharan Africa: A Model for the Epidem</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
-<tr><td>PM10 Time Series Forecasting Using Variational Mode Decomposition Info</td><td>✗</td><td>✓</td><td>This study proposes a hybrid prediction model to forecast PM concentrations</td><td>[self-consistency: 2/2 present]
-The study uses computational and statistical time-series modelling to forecast PM10 concentrations from environmental predictors.</td></tr>
+<tr><td>PM10 Time Series Forecasting Using Variational Mode Decomposition Info</td><td>✗</td><td>✓</td><td>This study proposes a hybrid prediction model to forecast PM concentrations with an aerodynamic diameter of less than 10 µ m (PM10) at a concrete batching plant (CBP) involved in highway construction.</td><td>The study develops and validates a computational time-series model for forecasting PM10 concentrations.</td></tr>
+<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>the prediction and evaluation of existing and potential human health effects due to energy sources and usage</td><td>The study applies risk-assessment methods to predict and estimate health impacts associated with pollutant exposures, fitting a modelling-based design.</td></tr>
 </table>
 </details>
-<details><summary>Observational / group comparison designs · <span class='f1-badge' style='background-color:#feffc0;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.50</span> · TP1 FP2 FN0</summary>
+<details><summary>Observational / group comparison designs · <span class='f1-badge' style='background-color:#fee090;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.40</span> · TP1 FP3 FN0 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>塑化建材、2-乙基己醇及微生物共存環境與病態大樓症候群的關係</td><td>✗</td><td>✓</td><td>The mean concentration of 2-ethyl-1-hexanol in room installed with carpet was 65.1 μg/m3 that was significantly higher than in room without plastic carpet (p&lt;0.01).</td><td>[self-consistency: 2/2 present]
-This is an observational study comparing health-related outcomes and environmental exposures between groups defined by existing exposure status, such as rooms with versus without plastic carpet, without rando</td></tr>
-<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>an analysis of the relationship between SO2, NOx, CO, TSP exposure and the related increase in respiratory diseases and mortality</td><td>[self-consistency: 2/3 present]
-The study is an ecological observational analysis comparing or relating health outcomes across differing levels of environmental pollutant exposure, without random allocation.</td></tr>
+<tr><td>塑化建材、2-乙基己醇及微生物共存環境與病態大樓症候群的關係</td><td>✗</td><td>✓</td><td>The mean concentration of 2-ethyl-1-hexanol in room installed with carpet was 65.1 μg/m3 that was significantly higher than in room without plastic carpet (p&lt;0.01).</td><td>This is an observational comparative study assessing outcomes and environmental measurements across naturally occurring exposure conditions, such as rooms with versus without plastic carpet.</td></tr>
+<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>an analysis of the relationship between SO2, NOx, CO, TSP exposure and the related increase in respiratory diseases and mortality</td><td>This is an ecological observational analysis relating differences in air-pollution exposure to health outcomes without random allocation.</td></tr>
+<tr><td>Reply on RC2</td><td>✗</td><td>✓</td><td>found those molecules in 93 sediment cores across different coastal vegetated ecosystems from temperate to tropical regions</td><td>This is an observational field study sampling naturally occurring ecosystem groups without random allocation or manipulation.</td></tr>
 </table>
 </details>
 <details><summary>Observational / single-group designs · <span class='f1-badge' style='background-color:#74add1;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.80</span> · TP2 FP0 FN1</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>(untitled)</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/3 present]
-The abstract does not indicate that outcomes were tracked over time in a single group without a concurrent comparison group.</td></tr>
+<tr><td>(untitled)</td><td>✓</td><td>✗</td><td></td><td>The abstract does not describe longitudinal tracking of a single group or analysis of within-group temporal outcome patterns.</td></tr>
 </table>
 </details>
-<div class='drilldown-leaf'>Qualitative designs · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP1 FP0 FN0</div>
-<div class='drilldown-leaf'>Z_Other study design · no gold · TP0 FP0 FN0</div>
-</details>
-<details><summary><b>2. Evidence synthesis</b> · <span class='f1-badge' style='background-color:#feffc0;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.50</span> · TP3 FP2 FN4 · children <span class='f1-badge' style='background-color:#feffc0;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.50</span> (n=4)</summary>
+<details><summary>Qualitative designs · <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> · TP0 FP0 FN1 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Setting the table – a story of food policy innovation</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The document is a policy guide presenting methods and insights from the Nordic Food Policy Lab, not a review or synthesis that aggregates existing studies or literature.</td></tr>
-<tr><td>TRANSPORTATION AND QUALITY OF LIFE</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The chapter discusses urban transportation, automobile dependency, quality of life, and possible strategies in Malaysia, but it is not presented as a review or synthesis of existing studies or literature.</td></tr>
-<tr><td>Significance of dietary sulphur and sulphate reducing bacteria in lact</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The context provides a general overview of sulphur&#x27;s nutritional roles and effects in dairy cattle but does not state that the study systematically reviews, synthesizes, or maps existing literature.</td></tr>
-<tr><td>Disaster and Emergency Crisis Management Communication</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The context is a general conceptual discussion of disaster and emergency crisis-management communication, not a review or synthesis of existing studies or literature.</td></tr>
-<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>The status of indoor air pollution and its control in China are reviewed by introducing the pollution characteristics of major indoor air pollutants, the strategies and measures adopted to control indoor air pollution, as well as the major </td><td>[self-consistency: 2/2 present]
-The study is explicitly a review of indoor air pollution and control in China, synthesizing existing knowledge, strategies, and problems rather than reporting newly collected primary data.</td></tr>
-<tr><td>Meningococcal Meningitis in Sub-Saharan Africa: A Model for the Epidem</td><td>✗</td><td>✓</td><td>&quot;Advances in molecular and field epidemiology have begun to elucidate the mechanisms of meningococcal meningitis epidemics.&quot;</td><td>[self-consistency: 2/2 present]
-The passage synthesizes and discusses findings from recent studies and established knowledge about epidemic mechanisms, rather than reporting newly collected primary data.</td></tr>
+<tr><td>Adaptation to climate change and climate variability: The importance o</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
+</table>
+</details>
+<div class='drilldown-leaf'>Z_Other study design · no gold · TP0 FP0 FN0</div>
+</details>
+<details><summary><b>2. Evidence synthesis</b> · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP5 FP3 FN2 · children <span class='f1-badge' style='background-color:#fff3ad;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.46</span> (n=4)</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>Setting the table – a story of food policy innovation</td><td>✓</td><td>✗</td><td></td><td>The document is a practical policy guide presenting methods and project-derived insights, not a review or synthesis of existing studies or literature.</td></tr>
+<tr><td>Disaster and Emergency Crisis Management Communication</td><td>✓</td><td>✗</td><td></td><td>The context is an expository discussion of disaster communication and management practices, but it does not indicate that the work reviews, maps, or synthesizes existing studies or literature.</td></tr>
+<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>The status of indoor air pollution and its control in China are reviewed by introducing the pollution characteristics of major indoor air pollutants, the strategies and measures adopted to control indoor air pollution, as well as the major </td><td>The article is a narrative review that synthesizes existing evidence on indoor air pollution, control measures, and regulatory gaps in China.</td></tr>
+<tr><td>Meningococcal Meningitis in Sub-Saharan Africa: A Model for the Epidem</td><td>✗</td><td>✓</td><td>Advances in molecular and field epidemiology have begun to elucidate the mechanisms of meningococcal meningitis epidemics. Epidemics result from a complex combination of host, organism, and environmental risk factors. Recent studies suggest</td><td>The abstract synthesizes findings and proposed mechanisms from recent epidemiological studies without describing collection or analysis of a new dataset, indicating a narrative review or literature synthesis.</td></tr>
+<tr><td>Adaptation to climate change and climate variability: The importance o</td><td>✗</td><td>✓</td><td>This examination of agriculture as performance in the context of climate adaptation draws on two different examples.</td><td>The study is a conceptual/narrative synthesis that uses two examples to examine adaptation approaches; the abstract does not describe collection of new primary data.</td></tr>
 </table>
 <details><summary>Guideline (clinical or public health) · <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> · TP0 FP0 FN1 ⚠</summary>
 <table class='drilldown-fails'>
@@ -349,28 +285,27 @@ The passage synthesizes and discusses findings from recent studies and establish
 </details>
 <div class='drilldown-leaf'>Health technology assessment (HTA) · no gold · TP0 FP0 FN0</div>
 <div class='drilldown-leaf'>Meta-analysis (unsystematic) · no gold · TP0 FP0 FN0</div>
-<details><summary>Narrative review · <span class='f1-badge' style='background-color:#fee090;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.40</span> · TP1 FP2 FN1 ⚠</summary>
+<details><summary>Narrative review · <span class='f1-badge' style='background-color:#e9f6e8;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.57</span> · TP2 FP3 FN0</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Significance of dietary sulphur and sulphate reducing bacteria in lact</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
-<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>The status of indoor air pollution and its control in China are reviewed by introducing the pollution characteristics of major indoor air pollutants, the strategies and measures adopted to control indoor air pollution, as well as the major </td><td>[self-consistency: 2/2 present]
-The abstract presents a non-systematic overview that summarizes and interprets the literature and current control measures on indoor air pollution in China without describing exhaustive or reproducible review</td></tr>
-<tr><td>Meningococcal Meningitis in Sub-Saharan Africa: A Model for the Epidem</td><td>✗</td><td>✓</td><td>Recent studies suggest that &quot;antigenic shifts&quot; in group A meningococcal clones may trigger an outbreak of disease</td><td>[self-consistency: 2/2 present]
-The context synthesizes and interprets findings from prior epidemiological studies in a non-systematic narrative format, without describing reproducible review methods.</td></tr>
+<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>The status of indoor air pollution and its control in China are reviewed by introducing the pollution characteristics of major indoor air pollutants, the strategies and measures adopted to control indoor air pollution, as well as the major </td><td>The article broadly reviews and interprets the status, control measures, and unresolved problems of indoor air pollution in China, with no indication of an explicit, reproducible literature-search or study-selection method; it is therefore </td></tr>
+<tr><td>TRANSPORTATION AND QUALITY OF LIFE</td><td>✗</td><td>✓</td><td>This chapter will discuss Malaysia&#x27;s urban transportation in general, focusing on the struggle between private and public transportation usage and the impacts of automobile dependency towards the urban dwellers’ Quality of Life; as well as </td><td>The chapter provides a broad, interpretive discussion of urban transportation, automobile dependency, and possible strategies without reporting explicit, reproducible review methods, making it a narrative/non-systematic review.</td></tr>
+<tr><td>Meningococcal Meningitis in Sub-Saharan Africa: A Model for the Epidem</td><td>✗</td><td>✓</td><td>Advances in molecular and field epidemiology have begun to elucidate the mechanisms of meningococcal meningitis epidemics.</td><td>The article provides an interpretive overview of epidemiological findings and proposed mechanisms without reporting explicit, reproducible review methods, consistent with a narrative review.</td></tr>
 </table>
 </details>
 <div class='drilldown-leaf'>Systematic reviews · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP1 FP0 FN0</div>
-<details><summary>Z_Other evidence synthesis type · <span class='f1-badge' style='background-color:#feffc0;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.50</span> · TP1 FP0 FN2</summary>
+<details><summary>Z_Other evidence synthesis type · <span class='f1-badge' style='background-color:#a50026;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.00</span> · TP0 FP0 FN3 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>TRANSPORTATION AND QUALITY OF LIFE</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
+<tr><td>TRANSPORTATION AND QUALITY OF LIFE</td><td>✓</td><td>✗</td><td></td><td>The work is best classified as a narrative discussion/review rather than an otherwise uncategorised evidence-synthesis type.</td></tr>
 <tr><td>Disaster and Emergency Crisis Management Communication</td><td>✓</td><td>✗</td><td></td><td>No annotation with this attribute found: reverting to default</td></tr>
+<tr><td>Information mining and comparison analysis of PM2.5 periodical paper b</td><td>✓</td><td>✗</td><td></td><td>This is a bibliometric analysis of publication output and distribution rather than an evidence synthesis of study findings.</td></tr>
 </table>
 </details>
 </details>
 </details>
 
-<details><summary><b>Climate factors - Extreme weather events</b> · direct-children <span class='f1-badge' style='background-color:#7db4d5;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.78</span> (n=6)</summary>
+<details><summary><b>Climate factors - Extreme weather events</b> · direct-children <span class='f1-badge' style='background-color:#6399c7;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.83</span> (n=6)</summary>
 <div class='drilldown-leaf'>Droughts · no gold · TP0 FP0 FN0</div>
 <div class='drilldown-leaf'>Extreme cold · no gold · TP0 FP0 FN0</div>
 <div class='drilldown-leaf'>Extreme heat · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP2 FP0 FN0</div>
@@ -378,82 +313,77 @@ The context synthesizes and interprets findings from prior epidemiological studi
 <div class='drilldown-leaf'>Extreme snow/ice events · no gold · TP0 FP0 FN0</div>
 <div class='drilldown-leaf'>Floods · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP3 FP0 FN0</div>
 <div class='drilldown-leaf'>Sand and dust storms · no gold · TP0 FP0 FN0</div>
-<details><summary>Storms and severe wind · <span class='f1-badge' style='background-color:#fee090;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.40</span> · TP1 FP0 FN3 ⚠</summary>
+<details><summary>Storms and severe wind · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP2 FP0 FN2</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Antibiotic Resistant Escherichia coli (E. coli) in Minneopa Creek Coll</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/3 present]
-The context mentions storms but does not identify tropical cyclones, hurricanes, typhoons, severe thunderstorms, or hailstorms as the study focus.</td></tr>
-<tr><td>Disaster and Emergency Crisis Management Communication</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-A pending hurricane is mentioned only as an illustrative example within a general discussion of emergency communication, not as the genuine focus of the study.</td></tr>
-<tr><td>Uncertain climate futures - on optimality and robustness of climate ad</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-Although storm surges are mentioned, the study does not identify tropical cyclones, hurricanes, typhoons, severe thunderstorms, or hailstorms as its event focus.</td></tr>
+<tr><td>Antibiotic Resistant Escherichia coli (E. coli) in Minneopa Creek Coll</td><td>✓</td><td>✗</td><td>E. coli levels were monitored at several sites along Minneopa Creek during storms on June 28 and August 9, 2017</td><td>The referenced storms are not identified as intense or severe meteorological events such as cyclones or severe thunderstorms.</td></tr>
+<tr><td>Uncertain climate futures - on optimality and robustness of climate ad</td><td>✓</td><td>✗</td><td></td><td>Although storm surges are mentioned, the study does not identify tropical cyclones, hurricanes, typhoons, severe thunderstorms, or hailstorms as its subject.</td></tr>
 </table>
 </details>
 <div class='drilldown-leaf'>Wildfires · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP1 FP0 FN0</div>
 <details><summary>Z_(Unspecified) extreme weather events · <span class='f1-badge' style='background-color:#feffc0;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.50</span> · TP1 FP0 FN2</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>A Hybrid Convolutional Neural Network-Temporal Attention Mechanism App</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The study mentions improving crop resilience against extreme weather conditions, but extreme weather is not a studied exposure or event type; the main focus is AI-based prediction of soil temperature and mois</td></tr>
-<tr><td>Disaster and Emergency Crisis Management Communication</td><td>✓</td><td>✗</td><td></td><td>[self-consistency: 0/2 present]
-The context discusses disaster and emergency crisis communication in general, without focusing on unspecified climate extremes as an exposure or event category.</td></tr>
+<tr><td>A Hybrid Convolutional Neural Network-Temporal Attention Mechanism App</td><td>✓</td><td>✗</td><td>improve crop resilience against extreme weather conditions</td><td>Extreme weather is mentioned only as a general potential benefit of the system; unidentified extreme events are not a substantive exposure or focus of the study.</td></tr>
+<tr><td>Disaster and Emergency Crisis Management Communication</td><td>✓</td><td>✗</td><td></td><td>Although disasters are discussed generally, the relevant weather hazard is specifically identified as a hurricane rather than an unspecified climate extreme.</td></tr>
 </table>
 </details>
 </details>
 
-<details><summary><b>Sectors</b> · direct-children <span class='f1-badge' style='background-color:#394fa1;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.96</span> (n=5)</summary>
-<div class='drilldown-leaf'>Agriculture, fishing, and forestry (Sector) · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP7 FP0 FN0</div>
-<details><summary>Buildings / housing (Sector) · no gold · TP0 FP2 FN0 ⚠</summary>
+<details><summary><b>Sectors</b> · direct-children <span class='f1-badge' style='background-color:#4a7ab7;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.89</span> (n=5)</summary>
+<details><summary>Agriculture, fishing, and forestry (Sector) · <span class='f1-badge' style='background-color:#3e60aa;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.93</span> · TP7 FP1 FN0</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>The status of indoor air pollution and its control in China are reviewed</td><td>[self-consistency: 2/2 present]
-The study fundamentally concerns indoor environmental conditions and their control, which falls within the buildings sector, including residential and commercial indoor spaces.</td></tr>
-<tr><td>塑化建材、2-乙基己醇及微生物共存環境與病態大樓症候群的關係</td><td>✗</td><td>✓</td><td>&quot;indoor environment&quot;</td><td>[self-consistency: 2/3 present]
-The study directly examines indoor rooms, classrooms, plastic building materials, ventilation, and building-related environmental exposures, fitting the buildings sector.</td></tr>
+<tr><td>Antibiotic Resistant Escherichia coli (E. coli) in Minneopa Creek Coll</td><td>✗</td><td>✓</td><td>Potential sources of E. coli contamination include wildlife, failing septic systems, feedlots, wastewater treatment plant effluents, and agricultural application of manure and treated biosolids to fields.</td><td>Agricultural activities, including feedlots and manure or biosolids application to fields, are identified as relevant sources of the contamination investigated.</td></tr>
+</table>
+</details>
+<details><summary>Buildings / housing (Sector) · no gold · TP0 FP4 FN0 ⚠</summary>
+<table class='drilldown-fails'>
+<tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
+<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>lack of regulation and labeling of pollutant emissions from indoor decorating and refurbishing materials</td><td>The study focuses on indoor air quality and pollution associated with indoor environments, decorating and refurbishing materials, and building-related air-cleaning measures, making the buildings sector directly relevant.</td></tr>
+<tr><td>PM10 Time Series Forecasting Using Variational Mode Decomposition Info</td><td>✗</td><td>✓</td><td>at a concrete batching plant (CBP) involved in highway construction</td><td>The study is situated in a concrete batching plant engaged in construction and specifically examines pollution forecasting in that construction setting.</td></tr>
+<tr><td>塑化建材、2-乙基己醇及微生物共存環境與病態大樓症候群的關係</td><td>✗</td><td>✓</td><td>The possible health effect caused by plastic building materials that are getting popular in indoor environment, have been noticed.</td><td>The study focuses on indoor building conditions and materials—including plastic carpet, room characteristics, and ventilation—as determinants of sick building syndrome.</td></tr>
+<tr><td>Uncertain climate futures - on optimality and robustness of climate ad</td><td>✗</td><td>✓</td><td>planning, design, and assessment/adaptation of civil infrastructure systems</td><td>The study is centrally concerned with decision support for the planning, design, and adaptation of civil infrastructure, which falls within the construction and built-infrastructure sector.</td></tr>
 </table>
 </details>
 <details><summary>Education (Sector) · no gold · TP0 FP1 FN0 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>塑化建材、2-乙基己醇及微生物共存環境與病態大樓症候群的關係</td><td>✗</td><td>✓</td><td>&quot;schooling time and winter vacation&quot;; &quot;small classrooms&quot;</td><td>[self-consistency: 3/3 present]
-The study investigates indoor environmental exposures and sick building syndrome in school classrooms, making the education sector a genuine study setting.</td></tr>
+<tr><td>塑化建材、2-乙基己醇及微生物共存環境與病態大樓症候群的關係</td><td>✗</td><td>✓</td><td>concentrations of 2-ethyl-1-hexanol in small classrooms significantly high</td><td>The investigation is situated in educational facilities, specifically classrooms, and compares conditions during schooling time and winter vacation.</td></tr>
 </table>
 </details>
 <div class='drilldown-leaf'>Energy and extractives (Sector) · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP1 FP0 FN0</div>
 <div class='drilldown-leaf'>Finance (Sector) · no gold · TP0 FP0 FN0</div>
-<details><summary>Healthcare (Sector) · no gold · TP0 FP3 FN0 ⚠</summary>
+<details><summary>Healthcare (Sector) · no gold · TP0 FP1 FN0 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Meningococcal Meningitis in Sub-Saharan Africa: A Model for the Epidem</td><td>✗</td><td>✓</td><td>Epidemic group A meningococcal meningitis follows a unique and distinctive pattern in sub-Saharan Africa.</td><td>[self-consistency: 2/2 present]
-The study is fundamentally about a human infectious disease, epidemic processes, and epidemiological analysis, which falls within the public health sector.</td></tr>
-<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>the related increase in respiratory diseases and mortality</td><td>[self-consistency: 2/2 present]
-The study fundamentally concerns human health effects, specifically respiratory disease and mortality, in relation to environmental exposures.</td></tr>
-<tr><td>Analysis of transported pollution and haze-related diseases via HYSPLI</td><td>✗</td><td>✓</td><td>Exposure to the haze pollutants may cause a diverse range of health impacts including symptoms that lead to treatment-seeking behavior, outpatient and emergency department visits, and hospitalization</td><td>[self-consistency: 2/3 present]
-Health impacts and health-service utilization are central outcomes of the study, including conjunctivitis, upper respiratory tract infections, asthma, outpatient and emergency visits, hospitalization, and mor</td></tr>
+<tr><td>Meningococcal Meningitis in Sub-Saharan Africa: A Model for the Epidem</td><td>✗</td><td>✓</td><td>Advances in molecular and field epidemiology have begun to elucidate the mechanisms of meningococcal meningitis epidemics.</td><td>The study concerns infectious-disease epidemiology and understanding epidemic processes, which are core public health subjects.</td></tr>
 </table>
 </details>
-<details><summary>Industry, trade, and services (Sector) · no gold · TP0 FP1 FN0 ⚠</summary>
+<details><summary>Industry, trade, and services (Sector) · no gold · TP0 FP2 FN0 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>PM10 Time Series Forecasting Using Variational Mode Decomposition Info</td><td>✗</td><td>✓</td><td>a concrete batching plant (CBP) involved in highway construction</td><td>[self-consistency: 3/3 present]
-The study focuses on particulate-matter forecasting at a concrete batching plant, which is an industrial manufacturing and commercial production setting.</td></tr>
+<tr><td>(untitled)</td><td>✗</td><td>✓</td><td>the development of indoor environmental monitoring and cleaning industry have played significant roles in preventing and controlling indoor air pollution in China</td><td>Commercial and manufacturing-related products and services are a meaningful part of the review, including the indoor environmental monitoring and cleaning industry, air-cleaning products, and pollutant-emitting decorating materials.</td></tr>
+<tr><td>PM10 Time Series Forecasting Using Variational Mode Decomposition Info</td><td>✗</td><td>✓</td><td>at a concrete batching plant (CBP) involved in highway construction</td><td>A concrete batching plant is an industrial manufacturing facility, and its particulate pollution is the study&#x27;s direct operational setting.</td></tr>
 </table>
 </details>
-<details><summary>Information and communications technologies (Sector) · no gold · TP0 FP1 FN0 ⚠</summary>
+<details><summary>Information and communications technologies (Sector) · no gold · TP0 FP4 FN0 ⚠</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>A Hybrid Convolutional Neural Network-Temporal Attention Mechanism App</td><td>✗</td><td>✓</td><td>Precision Agriculture is a combination of Artificial Intelligence (AI) and the Internet of Things (IoT) ...</td><td>[self-consistency: 2/2 present]
-Telecommunications and information technology are a genuine focus through the development and deployment of an AI, IoT, and edge-computing decision-support system.</td></tr>
+<tr><td>Evaluating the Impact of the Spatial Resolution of Digital Elevation M</td><td>✗</td><td>✓</td><td>Using the Shallow Water Equations (SWE) implemented in MATLAB</td><td>Digital geospatial datasets, UAV imagery, satellite-derived elevation models, and modelling software are central methods and subjects of comparison in the study, making information technology applicable.</td></tr>
+<tr><td>A Hybrid Convolutional Neural Network-Temporal Attention Mechanism App</td><td>✗</td><td>✓</td><td>This work presents hybrid CNN-TAM (Convolutional Neural Network–Temporal Attention Mechanism) model running on Edge AI devices for real time crop soil temperature and Soil Moisture prognosis.</td><td>Digital technology is a central component of the study: it develops an AI and IoT system using sensors, software models, edge hardware, and connectivity for real-time agricultural decision support.</td></tr>
+<tr><td>An IoT-based ensemble framework for climate change monitoring and fore</td><td>✗</td><td>✓</td><td>the given paper introduces an IoT-based ensemble framework that enables early disaster prediction for efficient monitoring of climate changes</td><td>The study centrally concerns an Internet of Things sensor and data-processing framework, including digital hardware, software, and machine-learning systems for environmental monitoring and disaster prediction.</td></tr>
+<tr><td>A Systematic Literature Review of the Contribution of Past Climate Inf</td><td>✗</td><td>✓</td><td>using diversity of communication channels to enhance reach</td><td>The review substantially examines the communication and delivery of climate-information services, including communication channels used to reach farmers, making information and communications systems relevant.</td></tr>
 </table>
 </details>
 <div class='drilldown-leaf'>Military (Sector) · no gold · TP0 FP0 FN0</div>
 <div class='drilldown-leaf'>Public administration (Sector) · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP1 FP0 FN0</div>
 <div class='drilldown-leaf'>Social protection (Sector) · no gold · TP0 FP0 FN0</div>
-<details><summary>Transportation (Sector) · <span class='f1-badge' style='background-color:#bde2ee;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.67</span> · TP1 FP1 FN0</summary>
+<details><summary>Transportation (Sector) · <span class='f1-badge' style='background-color:#feffc0;color:#000;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 0.50</span> · TP1 FP2 FN0</summary>
 <table class='drilldown-fails'>
 <tr><th>document</th><th>human</th><th>LLM</th><th>LLM quotation (if provided)</th><th>LLM reasoning</th></tr>
-<tr><td>Heat stress in goat (Capra hircus): Impacts on physiological responses</td><td>✗</td><td>✓</td><td>Transport under HS exacerbates mortality risks and declines in meat quality, necessitating improved handling protocols.</td><td>[self-consistency: 2/3 present]
-Transport under heat stress and related handling protocols are explicitly evaluated as part of the review&#x27;s mitigation and livestock-production focus, engaging the transport sector.</td></tr>
+<tr><td>PM10 Time Series Forecasting Using Variational Mode Decomposition Info</td><td>✗</td><td>✓</td><td>The effectiveness of the model was confirmed using data from a CBP associated with a national highway.</td><td>The concrete batching plant supports national highway construction, making road transport infrastructure a substantive sectoral setting.</td></tr>
+<tr><td>Heat stress in goat (Capra hircus): Impacts on physiological responses</td><td>✗</td><td>✓</td><td>Transport under HS exacerbates mortality risks and declines in meat quality, necessitating improved handling protocols.</td><td>Livestock transport operations under heat stress and associated handling protocols are explicitly examined as a source of mortality and quality risks.</td></tr>
 </table>
 </details>
 <div class='drilldown-leaf'>Water, sanitation, and waste management (Sector) · <span class='f1-badge' style='background-color:#313695;color:#fff;padding:0 .35em;border-radius:.35em;font-weight:600'>F1 1.00</span> · TP2 FP0 FN0</div>
