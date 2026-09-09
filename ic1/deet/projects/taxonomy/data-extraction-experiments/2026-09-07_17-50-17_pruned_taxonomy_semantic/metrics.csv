@@ -1,0 +1,511 @@
+attribute_id,attribute_label,value,extraction_run_id,metric_name
+35,(Unspecified) fossil fuels,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+35,(Unspecified) fossil fuels,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+35,(Unspecified) fossil fuels,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+35,(Unspecified) fossil fuels,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+35,(Unspecified) fossil fuels,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+36,Coal,0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+36,Coal,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+36,Coal,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+36,Coal,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+36,Coal,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+37,Natural gas,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+37,Natural gas,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+37,Natural gas,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+37,Natural gas,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+37,Natural gas,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+38,Oil,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+38,Oil,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+38,Oil,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+38,Oil,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+38,Oil,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+17,(Unspecified) greenhouse gases,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+17,(Unspecified) greenhouse gases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+17,(Unspecified) greenhouse gases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+17,(Unspecified) greenhouse gases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+17,(Unspecified) greenhouse gases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+24,Tropospheric ozone (O₃),0.64,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+24,Tropospheric ozone (O₃),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+24,Tropospheric ozone (O₃),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+24,Tropospheric ozone (O₃),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+24,Tropospheric ozone (O₃),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.84,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.5555555555555556,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,0.7142857142857143,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,5.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.64,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+21,Nitrous oxide (N₂O),0.56,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+21,Nitrous oxide (N₂O),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+21,Nitrous oxide (N₂O),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+21,Nitrous oxide (N₂O),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+21,Nitrous oxide (N₂O),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+20,Methane (CH₄),0.72,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+20,Methane (CH₄),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+20,Methane (CH₄),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+20,Methane (CH₄),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+20,Methane (CH₄),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+18,Carbon dioxide (CO₂),0.68,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+18,Carbon dioxide (CO₂),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+18,Carbon dioxide (CO₂),0.1111111111111111,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+18,Carbon dioxide (CO₂),0.2,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+18,Carbon dioxide (CO₂),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+33,Wildfires,0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+33,Wildfires,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+33,Wildfires,0.5,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+33,Wildfires,0.6666666666666666,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+33,Wildfires,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+26,Extreme cold,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+26,Extreme cold,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+26,Extreme cold,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+26,Extreme cold,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+26,Extreme cold,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+29,Extreme snow/ice events,0.84,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+29,Extreme snow/ice events,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+29,Extreme snow/ice events,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+29,Extreme snow/ice events,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+29,Extreme snow/ice events,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+34,Z_(Unspecified) extreme weather events,0.72,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+34,Z_(Unspecified) extreme weather events,0.6666666666666666,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+34,Z_(Unspecified) extreme weather events,0.25,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+34,Z_(Unspecified) extreme weather events,0.36363636363636365,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+34,Z_(Unspecified) extreme weather events,3.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+32,Storms and severe wind,0.76,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+32,Storms and severe wind,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+32,Storms and severe wind,0.4,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+32,Storms and severe wind,0.5714285714285714,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+32,Storms and severe wind,4.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+25,Droughts,0.68,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+25,Droughts,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+25,Droughts,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+25,Droughts,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+25,Droughts,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+30,Floods,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+30,Floods,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+30,Floods,0.375,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+30,Floods,0.5454545454545454,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+30,Floods,3.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+27,Extreme heat,0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+27,Extreme heat,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+27,Extreme heat,0.5,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+27,Extreme heat,0.6666666666666666,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+27,Extreme heat,2.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+31,Sand and dust storms,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+31,Sand and dust storms,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+31,Sand and dust storms,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+31,Sand and dust storms,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+31,Sand and dust storms,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+28,Extreme precipitation,0.76,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+28,Extreme precipitation,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+28,Extreme precipitation,0.14285714285714285,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+28,Extreme precipitation,0.25,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+28,Extreme precipitation,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+493,Attribution,0.72,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+493,Attribution,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+493,Attribution,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+493,Attribution,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+493,Attribution,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+495,Loss and damage,0.56,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+495,Loss and damage,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+495,Loss and damage,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+495,Loss and damage,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+495,Loss and damage,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+491,Preparedness,0.76,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+491,Preparedness,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+491,Preparedness,0.4,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+491,Preparedness,0.5714285714285714,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+491,Preparedness,4.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+490,Maladaptation,0.84,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+490,Maladaptation,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+490,Maladaptation,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+490,Maladaptation,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+490,Maladaptation,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+494,Future impact,0.64,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+494,Future impact,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+494,Future impact,0.18181818181818182,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+494,Future impact,0.3076923076923077,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+494,Future impact,2.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+492,Resilience,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+492,Resilience,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+492,Resilience,0.6428571428571429,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+492,Resilience,0.782608695652174,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+492,Resilience,9.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+487,Adaptation,0.84,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+487,Adaptation,0.8333333333333334,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+487,Adaptation,0.8333333333333334,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+487,Adaptation,0.8333333333333334,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+487,Adaptation,12.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+496,Co-Benefits,0.68,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+496,Co-Benefits,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+496,Co-Benefits,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+496,Co-Benefits,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+496,Co-Benefits,2.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+488,Impact,0.68,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+488,Impact,0.6363636363636364,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+488,Impact,0.6363636363636364,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+488,Impact,0.6363636363636364,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+488,Impact,11.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+489,Mitigation,0.52,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+489,Mitigation,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+489,Mitigation,0.26666666666666666,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+489,Mitigation,0.4,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+489,Mitigation,5.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+6,(Unspecified) changes in weather,0.72,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+6,(Unspecified) changes in weather,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+6,(Unspecified) changes in weather,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+6,(Unspecified) changes in weather,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+6,(Unspecified) changes in weather,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+12,Changes in sea level,0.76,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+12,Changes in sea level,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+12,Changes in sea level,0.25,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+12,Changes in sea level,0.4,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+12,Changes in sea level,2.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+9,Changes in humidity,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+9,Changes in humidity,0.5,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+9,Changes in humidity,0.2,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+9,Changes in humidity,0.2857142857142857,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+9,Changes in humidity,2.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+14,Changes in temperature,0.88,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+14,Changes in temperature,0.5,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+14,Changes in temperature,0.6666666666666666,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+14,Changes in temperature,0.5714285714285714,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+14,Changes in temperature,4.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+13,Changes in season length,0.68,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+13,Changes in season length,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+13,Changes in season length,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+13,Changes in season length,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+13,Changes in season length,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+8,Changes in glacier / snow melt,0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+8,Changes in glacier / snow melt,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+8,Changes in glacier / snow melt,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+8,Changes in glacier / snow melt,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+8,Changes in glacier / snow melt,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+10,Changes in inland water bodies,0.72,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+10,Changes in inland water bodies,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+10,Changes in inland water bodies,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+10,Changes in inland water bodies,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+10,Changes in inland water bodies,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+7,(Unspecified) climate change,0.56,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+7,(Unspecified) climate change,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+7,(Unspecified) climate change,0.21428571428571427,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+7,(Unspecified) climate change,0.35294117647058826,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+7,(Unspecified) climate change,3.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+11,Changes in precipitation,0.68,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+11,Changes in precipitation,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+11,Changes in precipitation,0.1111111111111111,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+11,Changes in precipitation,0.2,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+11,Changes in precipitation,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+16,Climate variability,0.6,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+16,Climate variability,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+16,Climate variability,0.09090909090909091,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+16,Climate variability,0.16666666666666666,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+16,Climate variability,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+15,Changes in wind speed,0.84,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+15,Changes in wind speed,0.5,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+15,Changes in wind speed,0.25,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+15,Changes in wind speed,0.3333333333333333,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+15,Changes in wind speed,2.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+482,Military (Sector),0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+482,Military (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+482,Military (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+482,Military (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+482,Military (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+476,Education (Sector),0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+476,Education (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+476,Education (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+476,Education (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+476,Education (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+481,Information and communications technologies (Sector),0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+481,Information and communications technologies (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+481,Information and communications technologies (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+481,Information and communications technologies (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+481,Information and communications technologies (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+479,Healthcare (Sector),0.88,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+479,Healthcare (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+479,Healthcare (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+479,Healthcare (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+479,Healthcare (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+485,Transportation (Sector),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+485,Transportation (Sector),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+485,Transportation (Sector),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+485,Transportation (Sector),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+485,Transportation (Sector),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+475,Buildings / housing (Sector),0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+475,Buildings / housing (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+475,Buildings / housing (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+475,Buildings / housing (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+475,Buildings / housing (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+486,"Water, sanitation, and waste management (Sector)",0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+486,"Water, sanitation, and waste management (Sector)",1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+486,"Water, sanitation, and waste management (Sector)",0.2857142857142857,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+486,"Water, sanitation, and waste management (Sector)",0.4444444444444444,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+486,"Water, sanitation, and waste management (Sector)",2.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+483,Public administration (Sector),0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+483,Public administration (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+483,Public administration (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+483,Public administration (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+483,Public administration (Sector),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+484,Social protection (Sector),0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+484,Social protection (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+484,Social protection (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+484,Social protection (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+484,Social protection (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+478,Finance (Sector),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+478,Finance (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+478,Finance (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+478,Finance (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+478,Finance (Sector),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+474,"Agriculture, fishing, and forestry (Sector)",0.88,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+474,"Agriculture, fishing, and forestry (Sector)",0.7142857142857143,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+474,"Agriculture, fishing, and forestry (Sector)",0.8333333333333334,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+474,"Agriculture, fishing, and forestry (Sector)",0.7692307692307693,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+474,"Agriculture, fishing, and forestry (Sector)",7.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+480,"Industry, trade, and services (Sector)",1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+480,"Industry, trade, and services (Sector)",0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+480,"Industry, trade, and services (Sector)",0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+480,"Industry, trade, and services (Sector)",0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+480,"Industry, trade, and services (Sector)",0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+477,Energy and extractives (Sector),0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+477,Energy and extractives (Sector),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+477,Energy and extractives (Sector),0.3333333333333333,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+477,Energy and extractives (Sector),0.5,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+477,Energy and extractives (Sector),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+426,Guideline (clinical or public health),0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+426,Guideline (clinical or public health),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+426,Guideline (clinical or public health),0.16666666666666666,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+426,Guideline (clinical or public health),0.2857142857142857,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+426,Guideline (clinical or public health),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+428,Meta-analysis (unsystematic),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+428,Meta-analysis (unsystematic),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+428,Meta-analysis (unsystematic),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+428,Meta-analysis (unsystematic),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+428,Meta-analysis (unsystematic),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+390,(Quasi-)Experimental / single-group designs,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+390,(Quasi-)Experimental / single-group designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+390,(Quasi-)Experimental / single-group designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+390,(Quasi-)Experimental / single-group designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+390,(Quasi-)Experimental / single-group designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+391,Descriptive / single-group designs,0.76,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+391,Descriptive / single-group designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+391,Descriptive / single-group designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+391,Descriptive / single-group designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+391,Descriptive / single-group designs,5.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+394,Observational / group comparison designs,0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+394,Observational / group comparison designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+394,Observational / group comparison designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+394,Observational / group comparison designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+394,Observational / group comparison designs,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+429,Narrative review,0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+429,Narrative review,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+429,Narrative review,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+429,Narrative review,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+429,Narrative review,2.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+392,Mixed-methods,0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+392,Mixed-methods,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+392,Mixed-methods,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+392,Mixed-methods,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+392,Mixed-methods,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+397,Z_Other study design,0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+397,Z_Other study design,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+397,Z_Other study design,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+397,Z_Other study design,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+397,Z_Other study design,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+393,Modelling / simulation,0.68,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+393,Modelling / simulation,0.125,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+393,Modelling / simulation,0.5,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+393,Modelling / simulation,0.2,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+393,Modelling / simulation,8.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+389,(Quasi-)Experimental / group comparison designs,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+389,(Quasi-)Experimental / group comparison designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+395,Observational / single-group designs,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+395,Observational / single-group designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+395,Observational / single-group designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+395,Observational / single-group designs,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+395,Observational / single-group designs,3.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+430,Systematic reviews,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+430,Systematic reviews,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+430,Systematic reviews,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+430,Systematic reviews,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+430,Systematic reviews,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+388,2. Evidence synthesis,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+388,2. Evidence synthesis,0.2857142857142857,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+388,2. Evidence synthesis,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+388,2. Evidence synthesis,0.4444444444444444,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+388,2. Evidence synthesis,7.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+431,Z_Other evidence synthesis type,0.84,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+431,Z_Other evidence synthesis type,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+431,Z_Other evidence synthesis type,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+431,Z_Other evidence synthesis type,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+431,Z_Other evidence synthesis type,3.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+387,1. Primary research,0.36,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+387,1. Primary research,0.06666666666666667,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+387,1. Primary research,0.3333333333333333,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+387,1. Primary research,0.1111111111111111,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+387,1. Primary research,15.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+427,Health technology assessment (HTA),0.88,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+427,Health technology assessment (HTA),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+427,Health technology assessment (HTA),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+427,Health technology assessment (HTA),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+427,Health technology assessment (HTA),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+396,Qualitative designs,0.88,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+396,Qualitative designs,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+396,Qualitative designs,0.25,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+396,Qualitative designs,0.4,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+396,Qualitative designs,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+197,Diabetes and kidney diseases,0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+197,Diabetes and kidney diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+197,Diabetes and kidney diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+197,Diabetes and kidney diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+197,Diabetes and kidney diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+114,3. Non-communicable diseases,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+114,3. Non-communicable diseases,0.3333333333333333,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+114,3. Non-communicable diseases,0.25,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+114,3. Non-communicable diseases,0.2857142857142857,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+114,3. Non-communicable diseases,3.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+112,1. Mortality (Outcome),0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+112,1. Mortality (Outcome),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+112,1. Mortality (Outcome),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+112,1. Mortality (Outcome),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+112,1. Mortality (Outcome),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+199,Mental disorders,0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+199,Mental disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+199,Mental disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+199,Mental disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+199,Mental disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+115,4. Injuries,0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+115,4. Injuries,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+115,4. Injuries,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+115,4. Injuries,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+115,4. Injuries,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+118,1.3. Non-communicable mortality,0.84,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+118,1.3. Non-communicable mortality,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+118,1.3. Non-communicable mortality,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+118,1.3. Non-communicable mortality,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+118,1.3. Non-communicable mortality,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+195,Cardiovascular diseases,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+195,Cardiovascular diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+195,Cardiovascular diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+195,Cardiovascular diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+195,Cardiovascular diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+135,Maternal and neonatal disorders,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+135,Maternal and neonatal disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+135,Maternal and neonatal disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+135,Maternal and neonatal disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+135,Maternal and neonatal disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+201,Neoplasms,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+201,Neoplasms,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+201,Neoplasms,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+201,Neoplasms,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+201,Neoplasms,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+196,Chronic respiratory diseases,0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+196,Chronic respiratory diseases,0.6666666666666666,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+196,Chronic respiratory diseases,0.6666666666666666,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+196,Chronic respiratory diseases,0.6666666666666666,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+196,Chronic respiratory diseases,3.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+288,Self-harm and interpersonal violence,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+288,Self-harm and interpersonal violence,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+288,Self-harm and interpersonal violence,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+288,Self-harm and interpersonal violence,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+288,Self-harm and interpersonal violence,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+136,Neglected tropical diseases and malaria,0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+136,Neglected tropical diseases and malaria,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+136,Neglected tropical diseases and malaria,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+136,Neglected tropical diseases and malaria,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+136,Neglected tropical diseases and malaria,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+139,Z_Other infectious diseases,0.88,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+139,Z_Other infectious diseases,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+139,Z_Other infectious diseases,0.25,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+139,Z_Other infectious diseases,0.4,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+139,Z_Other infectious diseases,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+290,Unintentional injuries,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+290,Unintentional injuries,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+290,Unintentional injuries,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+290,Unintentional injuries,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+290,Unintentional injuries,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+205,Substance use disorders,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+205,Substance use disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+205,Substance use disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+205,Substance use disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+205,Substance use disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+137,Nutritional deficiencies,0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+137,Nutritional deficiencies,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+137,Nutritional deficiencies,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+137,Nutritional deficiencies,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+137,Nutritional deficiencies,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+116,1.1. Total / all-cause mortality (Outcome),1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+116,1.1. Total / all-cause mortality (Outcome),0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.84,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.5,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.25,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",0.3333333333333333,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+113,"2. Communicable, maternal, neonatal, and nutritional diseases",2.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+206,Z_Other non-communicable diseases,0.88,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+206,Z_Other non-communicable diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+206,Z_Other non-communicable diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+206,Z_Other non-communicable diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+206,Z_Other non-communicable diseases,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+133,Enteric infections,0.8,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+133,Enteric infections,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+133,Enteric infections,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+133,Enteric infections,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+133,Enteric infections,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+200,Musculoskeletal disorders,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+200,Musculoskeletal disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+200,Musculoskeletal disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+200,Musculoskeletal disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+200,Musculoskeletal disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+289,Transport injuries,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+289,Transport injuries,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+289,Transport injuries,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+289,Transport injuries,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+289,Transport injuries,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+203,Sense organ diseases,0.92,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+203,Sense organ diseases,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+203,Sense organ diseases,0.3333333333333333,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+203,Sense organ diseases,0.5,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+203,Sense organ diseases,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+134,HIV/AIDS and sexually transmitted infections,0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+134,HIV/AIDS and sexually transmitted infections,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+202,Neurological disorders,0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+202,Neurological disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+202,Neurological disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+202,Neurological disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+202,Neurological disorders,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+198,Digestive diseases,0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+198,Digestive diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+198,Digestive diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+198,Digestive diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+198,Digestive diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+204,Skin and subcutaneous diseases,0.96,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+204,Skin and subcutaneous diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+204,Skin and subcutaneous diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+204,Skin and subcutaneous diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+204,Skin and subcutaneous diseases,0.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
+138,Respiratory infections and tuberculosis,0.88,2026-09-07_17-50-17_pruned_taxonomy_semantic,accuracy
+138,Respiratory infections and tuberculosis,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,recall
+138,Respiratory infections and tuberculosis,0.25,2026-09-07_17-50-17_pruned_taxonomy_semantic,precision
+138,Respiratory infections and tuberculosis,0.4,2026-09-07_17-50-17_pruned_taxonomy_semantic,f1_score
+138,Respiratory infections and tuberculosis,1.0,2026-09-07_17-50-17_pruned_taxonomy_semantic,n_labels
