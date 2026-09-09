@@ -349,10 +349,11 @@ def load_taxonomy_concept_tree(run: str, exp_dir: Path | str | None = None) -> l
             "gold": gold,
             "disagreements": [
                 {
-                    "document": str(r.document_name),
+                    "document": "(untitled)" if pd.isna(r.document_name) else str(r.document_name),
                     "human": bool(r.human_extraction),
                     "llm": bool(r.llm_extraction),
                     "reasoning": "" if pd.isna(r.llm_reasoning) else str(r.llm_reasoning),
+                    "verbatim": "" if pd.isna(r.llm_verbatim_text) else str(r.llm_verbatim_text),
                 }
                 for r in disagree.itertuples()
             ],
