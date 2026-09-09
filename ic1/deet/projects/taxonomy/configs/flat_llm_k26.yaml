@@ -1,7 +1,7 @@
 provider: azure
 model: Kimi-K2.6
 temperature: 1
-max_tokens: null
+max_tokens: 16000
 max_context_tokens: 32000
 default_context_type: abstract_only
 truncate_on_overflow: false

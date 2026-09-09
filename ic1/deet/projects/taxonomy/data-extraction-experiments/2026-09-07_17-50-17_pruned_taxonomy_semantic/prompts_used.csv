@@ -1,0 +1,103 @@
+prompt,output_data_type,attribute_id,attribute_label,concept_id
+Carbon fuels; General fossil fuels; Unspecified fossil fuels; carbon-based fuels; conventional fuels; fossil energy sources; mineral fuels; solid fuels,bool,35,(Unspecified) fossil fuels,DSNY000619
+Anthracite; Brown coal; Hard coal; Lignite; Thermal coal,bool,36,Coal,DSNY000620
+CNG; Fossil gas; Gas; LNG; LPG; Methane gas; Methane-based fuel; fracking gas; fuel gas,bool,37,Natural gas,DSNY000621
+Crude oil; Petrol; Petroleum; diesel; gasoline; kerosene,bool,38,Oil,DSNY000622
+CO2-equivalent emissions; GHGs; Heat-trapping gases; Unspecified greenhouse gases,bool,17,(Unspecified) greenhouse gases,DSNY000611
+Ground-level ozone; O3; Ozone pollution; Smog-forming ozone; Surface Ozone,bool,24,Tropospheric ozone (O₃),DSNY000618
+Aerosols; Air pollutant particulates; Black carbon; Fine particles; PM10; PM2.5; Particulate air pollution; Soot,bool,23,Particulate matter (PM10) / fine particulate matter (PM2.5) / black/organic carbon / sulfate/nitrate aerosols,DSNY000613
+CFCs; HCFCs; Halons; ODSs; Ozone-depleting chemicals; Stratospheric ozone depleters,bool,22,Ozone-depleting substances / chlorofluorocarbons / hydrochlorofluorocarbons / halons / carbon tetrachloride / methyl chloroform,DSNY000617
+Agricultural greenhouse gas; N2O; Nitrous oxide emissions,bool,21,Nitrous oxide (N₂O),DSNY000616
+F-gases; Fluorinated greenhouse gases; HFCs; NF3; PFCs; SF6; Synthetic greenhouse gases,bool,19,Fluorinated gases / hydrofluorocarbons / perfluorocarbons / sulfur hexafluoride / nitrogen trifluoride,DSNY000614
+CH4; Methane emissions; Natural gas emissions,bool,20,Methane (CH₄),DSNY000615
+CO2; CO2 emissions; Carbon dioxide emissions; Carbon emissions; Fossil carbon dioxide,bool,18,Carbon dioxide (CO₂),DSNY000612
+Bushfires; Fire events; Forest fires; Landscape fires,bool,33,Wildfires,DSNY000610
+Cold snaps; Cold spells; Cold waves; Extreme low temperture events; Freezing events; Severe cold events,bool,26,Extreme cold,DSNY000606
+Blizzards; Extreme icing; Freezing rain; Heavy snowfall; Ice storms; Severe snow storms,bool,29,Extreme snow/ice events,DSNY000634
+General climate extremes; Non-specific extreme weather; Unspecified extreme weather,bool,34,Z_(Unspecified) extreme weather events,DSNY000604
+Cyclones; Hailstorms; High wind events; Hurricanes; Severe storms; Thunderstorms; Tornadoes; Tropical cyclones; Typhoons; Windstorms,bool,32,Storms and severe wind,DSNY000609
+Arid conditions; Drought conditions; Water scarcity events,bool,25,Droughts,DSNY000605
+Coastal floods; Flash floods; Flood events; Flooding; Inundation; Riverine floods,bool,30,Floods,DSNY000608
+Heat events; Heat waves; Heatwaves; High temperature extremes; Severe heat events,bool,27,Extreme heat,DSNY000607
+Dust aerosol events; Dust events; Dust storms; Sand storms; Sandstorms,bool,31,Sand and dust storms,DSNY000635
+Extreme precipitation events; Extreme rainfall; Heavy rainfall,bool,28,Extreme precipitation,DSNY000633
+Causal attribution; Climate attribution; Event attribution,bool,493,Attribution,DSNY000054
+Climate-related losses; Irreversible impacts; L&D; NELD; Non-economic loss and damage; Residual impact; Unavoidable impacts,bool,495,Loss and damage,DSNY000492
+Adaptation strategy; Anticipatory action; Disaster preparedness; Emergency preparedness; Emergency response plans; Readiness; Risk preparedness; Warning systems,bool,491,Preparedness,DSNY000639
+Adaptive failure; Counterproductive adaptation; Failed adaptation; Mal-adaptation; Maladaptive action; Negative adaptation outcomes; Unintended adaptation consequences,bool,490,Maladaptation,DSNY000490
+Anticipated impact; Climate projections; Future climate impact; Future risk; Projected climate effects; Projected impact; Scenario-based impact,bool,494,Future impact,DSNY000493
+Ability to recover; Adaptive capacity; Bounce-back capability; Climate-readiness; Coping capacity; Robustness; Transformative capacity,bool,492,Resilience,DSNY000638
+Adaptation action; Adaptive capacity; Adaptive response; Climate adaptation; Climate adjustment; Coping capacity; Preparedness; Resilience; Vulnerability reduction,bool,487,Adaptation,DSNY000052
+Ancillary benefits; Co-benefits of mitigation; Health co-benefits; Mitigation co-benefits; Side benefits; Triple wins,bool,496,Co-Benefits,DSNY000491
+Climate consequences; Climate effects; Climate impact; Effects of climate change,bool,488,Impact,DSNY000053
+Climate mitigation; Emissions reduction; GHG mitigation; GHG reduction,bool,489,Mitigation,DSNY000051
+Unspecified weather change; Weather pattern shifts; Weather variability,bool,6,(Unspecified) changes in weather,DSNY000596
+Coastal inundation; Ocean level rise; Sea level change; Sea level rise; Sea level variability,bool,12,Changes in sea level,DSNY000600
+Atmospheric moisture change; Humidity change; Humidity variability; Relative humidity shifts,bool,9,Changes in humidity,DSNY000598
+Temperature anomalies; Temperature change; Temperature shift; Temperature trends; Temperature variability; Warming,bool,14,Changes in temperature,DSNY000602
+Phenological change; Season length change; Seasonal shift,bool,13,Changes in season length,DSNY000601
+Cryosphere change; Glacial mass loss; Glacier melt; Glacier retreat; Snow cover changes; Snowmelt,bool,8,Changes in glacier / snow melt,DSNY000597
+Changes in freshwater systems; Changes in inland hydrology; Freshwater systems change; Inland water dynamics,bool,10,Changes in inland water bodies,DSNY000632
+Atmospheric warming; Climate breakdown; Climate crisis; Climate disruption; Climate emergency; Earth warming; General climate change; Global heating; Global warming; Planetary warming; Rising global temperatures; Unspecified climate change,bool,7,(Unspecified) climate change,DSNY000595
+Altered precipitation patterns; Changes in rainfall; Precipitation anomalies; Precipitation variability; Rainfall change,bool,11,Changes in precipitation,DSNY000599
+Cimate trends; Climate alteration; Climate anomalies; Climate fluctuations; Climate instability; Climate shifts; Climate variation; Climatic oscillations; Climatic variation; El Niño ((Southern Oscillation/ENSO); La Niña; North Atlantic Oscillation,bool,16,Climate variability,DSNY000623
+Wind pattern change; Wind regime changes; Wind variability,bool,15,Changes in wind speed,DSNY000603
+Armed forces; Army; Defense industry; Defense infrastructure; Defense sector; Security sector,bool,482,Military (Sector),DSNY000224
+Academic institutions; Learning sector; Schools,bool,476,Education (Sector),DSNY000117
+Digital infrastructure; Digital sector; ICT sector; Tech sector; Technology sector; Telecommunications,bool,481,Information and communications technologies (Sector),DSNY000123
+Care facilities; Health sector; Health services; Health systems; Hospitals; Medical services,bool,479,Healthcare (Sector),DSNY000120
+Logistics; Mobility; Transport,bool,485,Transportation (Sector),DSNY000125
+Built environment; Construction; Housing; Residential sector,bool,475,Buildings / housing (Sector),DSNY000116
+Sanitation; WASH sector; Waste management; Water sector,bool,486,"Water, sanitation, and waste management (Sector)",DSNY000126
+Civil service; Government; Public sector; Public services,bool,483,Public administration (Sector),DSNY000124
+Safety nets; Social security; Social services; Social welfare; Welfare; Welfare systems,bool,484,Social protection (Sector),DSNY000121
+Banking; Financial sector; Financial services; Investment,bool,478,Finance (Sector),DSNY000119
+Farming; Food production; Forestry and fisheries,bool,474,"Agriculture, fishing, and forestry (Sector)",DSNY000115
+Commerce; Industry; Manufacturing; Trade,bool,480,"Industry, trade, and services (Sector)",DSNY000122
+Energy sector; Extractive industries; Mining; Power and resource extraction; Power generation,bool,477,Energy and extractives (Sector),DSNY000118
+Clinical guideline; Clinical practice guideline (CPG); Evidence-based guideline; Health guideline; Public health guideline,bool,426,Guideline (clinical or public health),DSNY000207
+Meta-analysis without systematic review,bool,428,Meta-analysis (unsystematic),DSNY000637
+Single-arm experimental design; Uncontrolled experimental design,bool,390,(Quasi-)Experimental / single-group designs,DSNY000527
+Descriptive designs; Descriptive study design; Single-group study,bool,391,Descriptive / single-group designs,DSNY000515
+Analytic observational design; Comparative observational design; Observational comparative study,bool,394,Observational / group comparison designs,DSNY000522
+Literature review; Non-systematic review; Review; Traditional review,bool,429,Narrative review,DSNY000206
+Mixed-methods study; Multi-method study; Quantitative and qualitative combined,bool,392,Mixed-methods,DSNY000544
+Other design; Other primary study design; Unclassified study design,bool,397,Z_Other study design,DSNY000551
+Computational modelling; Mathematical modelling; Modelling study; Simulation study,bool,393,Modelling / simulation,DSNY000545
+Comparative experimental design; Controlled experimental design; Group comparison experiment,bool,389,(Quasi-)Experimental / group comparison designs,DSNY000529
+Observational single-group study; Single-group observational study; Uncontrolled observational design,bool,395,Observational / single-group designs,DSNY000519
+SR; Systematic literature review,bool,430,Systematic reviews,DSNY000201
+Research synthesis; Review; Secondary research,bool,388,2. Evidence synthesis,DSNY000198
+Other review type; Other synthesis type; Unclassified evidence synthesis,bool,431,Z_Other evidence synthesis type,DSNY000555
+Empirical research; Original research; Primary study,bool,387,1. Primary research,DSNY000167
+HTA; Health technology assessment,bool,427,Health technology assessment (HTA),DSNY000208
+Mixed-methods design; Qualitative design; Qualitative research; Qualitative study,bool,396,Qualitative designs,DSNY000541
+Cardiometabolic disease; Diabetes and renal disease; Metabolic and kidney disease,bool,197,Diabetes and kidney diseases,DSNY000438
+Chronic conditions; Chronic diseases; NCDs; Non-infectious diseases,bool,114,3. Non-communicable diseases,DSNY000377
+Death; Fatal outcomes; Mortality outcomes,bool,112,1. Mortality (Outcome),DSNY000296
+Mental health conditions; Psychiatric conditions; Psychiatric disorders; Psychological disorders,bool,199,Mental disorders,DSNY000423
+Harm; Physical injury; Trauma; Wounds,bool,115,4. Injuries,DSNY000470
+NCD mortality; Non-communicable disease deaths,bool,118,1.3. Non-communicable mortality,DSNY000298
+CVD; Cardiac diseases; Circulatory diseases; Heart disease; Vascular disease,bool,195,Cardiovascular diseases,DSNY000384
+Maternal and neonatal conditions; Perinatal conditions; Pregnancy complications,bool,135,Maternal and neonatal disorders,DSNY000364
+Cancer; Malignancies; Oncological conditions; Tumours,bool,201,Neoplasms,DSNY000378
+Chronic lung disease; Obstructive lung disease; Respiratory disease,bool,196,Chronic respiratory diseases,DSNY000397
+Intentional injury; Interpersonal violence; Self-inflicted injury; Violence,bool,288,Self-harm and interpersonal violence,DSNY000485
+CMNN mortality; Communicable disease mortality; Infectious disease mortality,bool,117,"1.2. Communicable, maternal, neonatal, and nutritional mortality",DSNY000305
+NTDs; Neglected tropical diseases; Tropical diseases; Vector-borne diseases,bool,136,Neglected tropical diseases and malaria,DSNY000330
+Miscellaneous infections; Other infections; Other infectious diseases,bool,139,Z_Other infectious diseases,DSNY000353
+Accidental harm; Accidental injuries; Unintentional harm,bool,290,Unintentional injuries,DSNY000472
+Addiction; Drug and alcohol disorders; Substance abuse,bool,205,Substance use disorders,DSNY000435
+Hunger; Malnutrition; Micronutrient deficiency; Undernutrition,bool,137,Nutritional deficiencies,DSNY000370
+All-cause death; Overall mortality; Total deaths,bool,116,1.1. Total / all-cause mortality (Outcome),DSNY000297
+CMNN diseases; Communicable diseases; Infectious and nutritional diseases,bool,113,"2. Communicable, maternal, neonatal, and nutritional diseases",DSNY000314
+Other NCDs; Other chronic diseases; Residual NCDs,bool,206,Z_Other non-communicable diseases,DSNY000462
+Foodborne infections; Gastrointestinal infections; Gut infections; Waterborne infections,bool,133,Enteric infections,DSNY000324
+Arthritis; Back pain; Bone and joint disease; Osteoarthritis; Osteoporosis; Rheumatic disease,bool,200,Musculoskeletal disorders,DSNY000461
+MVA; Motor vehicle accidents; RTI; Road traffic accidents; Road traffic injuries,bool,289,Transport injuries,DSNY000471
+Eye and ear diseases; Sensory diseases; Visual and hearing disorders,bool,203,Sense organ diseases,DSNY000457
+HIV; HIV and STIs; STDs; STIs; Sexually transmitted diseases,bool,134,HIV/AIDS and sexually transmitted infections,DSNY000315
+Brain diseases; Nervous system disorders; Neurodegenerative diseases,bool,202,Neurological disorders,DSNY000415
+Bowel diseases; GI diseases; Gastrointestinal diseases; Gut diseases,bool,198,Digestive diseases,DSNY000404
+Cutaneous disease; Dermatological conditions; Skin conditions; Skin diseases,bool,204,Skin and subcutaneous diseases,DSNY000444
+Airway infections; Lung infections; Respiratory infections; Tuberculosis,bool,138,Respiratory infections and tuberculosis,DSNY000318
