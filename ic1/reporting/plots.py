@@ -15,7 +15,7 @@ from matplotlib.figure import Figure
 from matplotlib.lines import Line2D
 from matplotlib.ticker import FuncFormatter
 
-from matplotlib.patches import Patch
+from matplotlib.patches import Patch, Rectangle
 
 from matplotlib.colors import ListedColormap
 
@@ -32,6 +32,7 @@ from ic1.reporting.style import (
     RASTER_COLORS,
     RASTER_SPLIT_CMAP,
     SETSIZE_COLORS,
+    SPLIT_COLORS,
 )
 
 
@@ -274,29 +275,31 @@ def plot_comparison(
             ax.errorbar(
                 r[metric], base + offsets[si],
                 xerr=[[r[metric] - r[f"{metric}_lo"]], [r[f"{metric}_hi"] - r[metric]]],
-                fmt=marker, color=color, ecolor=color, elinewidth=1.6, capsize=2.5,
-                markersize=6, zorder=3,
+                fmt=marker, color=color, ecolor=color, elinewidth=2.0, capsize=3.5,
+                markersize=9, zorder=3,
             )
     ax.set_yticks(yticks)
-    ax.set_yticklabels(yticklabels)
+    ax.set_yticklabels(yticklabels, fontsize=16)
+    ax.tick_params(axis="x", labelsize=13)
     ax.invert_yaxis()
     ax.set_xlim(0, 1)
-    ax.set_xlabel("score (95% HDI)")
-    ax.set_title(title or "In/out screen — system comparison on held-out test")
+    ax.set_xlabel("score (95% HDI)", fontsize=15)
+    ax.set_title(title or "In/out screen — system comparison on held-out test",
+                 fontsize=17)
 
     mode_handles = [
-        Line2D([0], [0], marker="o", color=c, linestyle="none", markersize=8, label=m)
+        Line2D([0], [0], marker="o", color=c, linestyle="none", markersize=11, label=m)
         for m, c in MODE_COLORS.items() if (df["mode"] == m).any()
     ]
     family_handles = [
         Line2D([0], [0], marker=mk, color="#333333", linestyle="none",
-               markersize=8, label=f)
+               markersize=11, label=f)
         for f, mk in _FAMILY_MARKERS.items() if (df["family"] == f).any()
     ]
-    leg1 = ax.legend(handles=mode_handles, title="Operating point", loc="lower right")
-    ax.add_artist(leg1)
-    ax.legend(handles=family_handles, title="System", loc="lower right",
-              bbox_to_anchor=(1.0, 0.32))
+    fig.legend(handles=mode_handles, title="Operating point",
+               loc="outside right upper", fontsize=13, title_fontsize=13)
+    fig.legend(handles=family_handles, title="System",
+               loc="outside right lower", fontsize=13, title_fontsize=13)
     return fig
 
 
@@ -720,6 +723,75 @@ def plot_unanimous_funnel(
         (0.02, 0.97), xycoords="axes fraction", ha="left", va="top",
         fontsize=8, color="#555555",
     )
+    return fig
+
+
+def plot_data_splits(
+    splits: dict,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """Swimlane of which annotated documents each pipeline stage used.
+
+    Consumes ``load_inout_splits``. A header bar shows the disjoint train /
+    validation / test partition (widths ∝ counts); below it one lane per consumer
+    (ML classifier, LLM screening) draws boxes over the splits it drew from. Every
+    box label sits *above* its box (coloured by split) so it can run wider than a
+    narrow box without clipping. The LLM prompt-development set is a subset of
+    validation, placed at validation's right edge next to the held-out test.
+    """
+    tr, va, te, dev = splits["train"], splits["validation"], splits["test"], splits["llm_dev"]
+    b0, b1, b2, b3 = 0, tr, tr + va, tr + va + te
+    fig, ax = plt.subplots(figsize=figsize or (8.0, 3.9), layout="constrained")
+
+    def bar(x0: float, x1: float, y: float, h: float, key: str) -> None:
+        ax.add_patch(Rectangle((x0, y), x1 - x0, h, facecolor=SPLIT_COLORS[key],
+                               edgecolor="white"))
+
+    def label_above(x0: float, x1: float, ytop: float, txt: str, key: str,
+                    *, ha: str = "center", bold: bool = False) -> None:
+        x = {"center": (x0 + x1) / 2, "right": x1, "left": x0}[ha]
+        ax.text(x, ytop + 0.07, txt, ha=ha, va="bottom", clip_on=False,
+                fontsize=9.5 if bold else 8.5, color=SPLIT_COLORS[key],
+                fontweight="bold" if bold else "normal")
+
+    # Header partition bar. Labels above, name over count on two lines so the
+    # narrow validation/test segments' labels stay narrow enough not to collide.
+    hy, hh = 3.1, 0.55
+    for x0, x1, key, name, n in [
+        (b0, b1, "train", "Train", tr),
+        (b1, b2, "validation", "Validation", va),
+        (b2, b3, "test", "Test — held out", te),
+    ]:
+        bar(x0, x1, hy, hh, key)
+        label_above(x0, x1, hy + hh, f"{name}\n({n:,})", key, bold=True)
+
+    def lane(y: float, label: str, boxes: list[tuple]) -> None:
+        h = 0.5
+        ax.text(-b3 * 0.015, y + h / 2, label, ha="right", va="center",
+                fontsize=10, fontweight="bold")
+        for x0, x1, key, txt, ha in boxes:
+            bar(x0, x1, y, h, key)
+            label_above(x0, x1, y + h, txt, key, ha=ha)
+
+    lane(1.95, "ML classifier", [
+        (b0, b1, "train", "fit", "center"),
+        (b1, b2, "validation", "select / threshold", "center"),
+        (b2, b3, "test", "evaluate", "center"),
+    ])
+    lane(0.85, "LLM screening", [
+        (b2 - dev, b2, "validation", f"prompt dev ({dev})", "right"),
+        (b2, b3, "test", "evaluate", "center"),
+    ])
+
+    ax.axvline(b2, color="#333333", linewidth=0.8, linestyle=":")
+    ax.set_xlim(-b3 * 0.16, b3 + b3 * 0.01)
+    ax.set_ylim(0.7, 4.0)
+    ax.axis("off")
+    ax.set_title(title or "Train / test / validation splits for ML and LLM pipelines",
+                 fontweight="bold", pad=24)
+
     return fig
 
 

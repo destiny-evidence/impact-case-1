@@ -27,6 +27,37 @@ _REPO_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_EXP_DIR = (
     _REPO_ROOT / "ic1" / "deet" / "projects" / "inout" / "data-extraction-experiments"
 )
+DEFAULT_SPLITS_JSON = _REPO_ROOT / "data" / "exports" / "inout_splits.json"
+DEFAULT_DEET_SPLITS_JSON = (
+    _REPO_ROOT / "ic1" / "deet" / "projects" / "inout" / "evaluation_splits.json"
+)
+
+
+def load_inout_splits(
+    splits_json: Path | str | None = None,
+    deet_splits_json: Path | str | None = None,
+) -> dict:
+    """Sizes of the evaluation splits and how many docs each stage drew.
+
+    Reads the canonical ``inout_splits.json`` (the deterministic, recorded
+    ``item_id -> split`` assignment) for the disjoint train/validation/test
+    partition, and the deet project's ``evaluation_splits.json`` for the LLM's
+    prompt-development subset (``development_ids``, a subset of validation).
+
+    Returns ``{"train", "validation", "test", "total", "llm_dev"}`` (counts).
+    """
+    sp = Path(splits_json) if splits_json is not None else DEFAULT_SPLITS_JSON
+    s = json.loads(sp.read_text())
+    train, val, test = len(s["train"]), len(s["validation"]), len(s["test"])
+
+    dp = Path(deet_splits_json) if deet_splits_json is not None else DEFAULT_DEET_SPLITS_JSON
+    llm_dev = 0
+    if dp.exists():
+        llm_dev = len(json.loads(dp.read_text()).get("development_ids", []))
+    return {
+        "train": train, "validation": val, "test": test,
+        "total": train + val + test, "llm_dev": llm_dev,
+    }
 
 # Operating points kept (short label + colour key). "max precision" was dropped
 # (collapsed) in the final design, so it is excluded here.

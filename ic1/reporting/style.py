@@ -69,6 +69,9 @@ DECISION_COLORS = {
 # Coder-set size -> colour (composition figure: what the 5,000 is made of).
 SETSIZE_COLORS = {3: "#1f77b4", 4: "#ff7f0e"}
 
+# Dataset splits (data-use swimlane): train / validation / test.
+SPLIT_COLORS = {"train": "#4c78a8", "validation": "#f2a63b", "test": "#59a14f"}
+
 # Screening raster: exclude / include cell colours and the unassigned background.
 RASTER_COLORS = {"exclude": "#d62728", "include": "#2ca02c", "empty": "#f2f2f2"}
 # Vote-split strip colormap name (white = unanimous, saturated = evenly split).
@@ -99,6 +102,10 @@ FIGSIZE = {
 def apply_style() -> None:
     """Set global rcParams. Idempotent; call at the top of build_figures."""
     mpl.rcParams.update({
+        # Fixed salt -> deterministic SVG element ids across runs (default is a
+        # per-process uuid4, which churns the diff even when the data is
+        # unchanged). Pair with metadata={"Date": None} at savefig time.
+        "svg.hashsalt": "destiny-ic1",
         "figure.dpi": 120,
         "savefig.dpi": 200,
         "savefig.bbox": "tight",

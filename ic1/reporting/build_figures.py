@@ -32,6 +32,7 @@ from ic1.reporting.loaders import (
     load_inout_prompt_churn,
     load_inout_prompts,
     load_inout_runs,
+    load_inout_splits,
     load_inout_test_metrics,
     load_taxonomy_concept_tree,
     load_taxonomy_cost_performance,
@@ -48,6 +49,7 @@ from ic1.reporting.plots import (
     plot_coderset_composition,
     plot_comparison,
     plot_cost_performance,
+    plot_data_splits,
     plot_iteration_timeline,
     plot_pairwise_kappa,
     plot_scheme_scores,
@@ -86,7 +88,10 @@ def _save(fig: Figure, domain: str, name: str, formats: tuple[str, ...]) -> None
     out_dir.mkdir(parents=True, exist_ok=True)
     for fmt in formats:
         path = out_dir / f"{name}.{fmt}"
-        fig.savefig(path, format=fmt)
+        # Drop the SVG creation-date metadata so identical data -> identical bytes
+        # (no timestamp churn in git). PNGs carry no timestamp by default.
+        metadata = {"Date": None} if fmt == "svg" else None
+        fig.savefig(path, format=fmt, metadata=metadata)
         print(f"  wrote {path.relative_to(_REPO_ROOT)}")
 
 
@@ -121,6 +126,13 @@ def build_taxonomy(formats: tuple[str, ...]) -> None:
 
 
 def build_inout(formats: tuple[str, ...]) -> None:
+    splits = load_inout_splits()
+    print(
+        f"inout splits: train {splits['train']:,} / val {splits['validation']:,} "
+        f"/ test {splits['test']:,} (LLM dev {splits['llm_dev']})"
+    )
+    _save(plot_data_splits(splits), "inout", "data_splits", formats)
+
     runs = load_inout_runs()
     churn = load_inout_prompt_churn()
     print(f"inout: {runs.run.nunique()} prompt states ({len(runs)} state x mode rows)")
