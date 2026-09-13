@@ -12,6 +12,8 @@ project:
       email: tim.repke@pik-potsdam.de
     - name: Maria-Inti Metzendorf
       email: maria-inti.metzendorf@pik-potsdam.de
+    - name: Nadia Soliman
+      email: n.soliman@ucl.ac.uk
   abstract: >-
     We document an ML+LLM pipeline for the DESTINY climate-and-health evidence base,
     covering relevance screening at several precision/recall operating points and
