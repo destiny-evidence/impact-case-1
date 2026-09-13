@@ -34,14 +34,14 @@ between different models  and approaches. The 4 approaches tested were
 ## Cost vs performance trade-off
 
 
-```{figure} ../figures/taxonomy/cost_performance.svg
+```{figure} figures/taxonomy/cost_performance.svg
 :name: taxonomy-pareto
 :width: 100%
 
 Cost performance trade-off. Dotted line shows the pareto frontier.
 ```
 
-{ref}`taxonomy-pareto`
+{ref}`taxonomy-pareto` shows each considered model or approach to classification in terms of its cost and performance. We select the Luna model with the top-down approach to classification, as the vast increases in costs that moving to the larger sol model would not justify the very moderate increase in performance.
 
 
 ## Classifier performance by scheme
