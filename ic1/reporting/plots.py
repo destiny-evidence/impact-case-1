@@ -1027,6 +1027,94 @@ def plot_coder_model_pr(
     return fig
 
 
+_CROWD_COLOR = "#f58518"  # orange — distinct from the mode colours and coder blue
+_CROWD_MARKER = "P"       # filled plus
+
+
+def plot_crowd_pr(
+    crowd: pd.DataFrame,
+    f1df: pd.DataFrame | None = None,
+    comparison: pd.DataFrame | None = None,
+    *,
+    figsize: tuple[float, float] | None = None,
+    title: str | None = None,
+) -> Figure:
+    """The crowd in precision–recall space, over the same iso-F1/F2 contours.
+
+    Consumes ``load_inout_crowd`` (one bold orange point per scoring scope, with
+    95% HDI whiskers on recall and precision). When ``f1df`` (``inout_coder_f1``)
+    and/or ``comparison`` (``load_inout_comparison``) are supplied they are drawn
+    as a faded reference cloud — the human coders and the automated systems — so
+    the crowd can be read against both. Note the scopes are scored over different
+    document sets (the crowd over the 1,000 it saw; systems over the 648-doc test
+    set), so relative positions are indicative.
+    """
+    overlay = f1df is not None or comparison is not None
+    fig, ax = plt.subplots(
+        figsize=figsize or ((10.6, 7.4) if overlay else FIGSIZE["square"]),
+        layout="constrained",
+    )
+    _draw_fbeta_contours(ax)
+
+    if f1df is not None:
+        summ = f1df[f1df.coder.isin(["average coder", "pooled"])].set_index("coder")
+        per = f1df[~f1df.coder.isin(["average coder", "pooled"])]
+        ax.scatter(per.recall, per.precision, s=80, facecolors="#4c78a8",
+                   edgecolors="white", linewidths=0.7, alpha=0.35, zorder=3)
+        for name, mk, col in (("pooled", "*", "#d62728"), ("average coder", "D", "#333333")):
+            if name in summ.index:
+                s = summ.loc[name]
+                ax.scatter(s.recall, s.precision, marker=mk, s=220 if mk == "*" else 90,
+                           facecolors=col, edgecolors="white", linewidths=1.0,
+                           zorder=4, alpha=0.4)
+
+    if comparison is not None:
+        for _, r in comparison.iterrows():
+            color = MODE_COLORS.get(r["mode"], _NO_MODE_COLOR)
+            marker = _FAMILY_MARKERS.get(r["family"], "o")
+            ax.scatter(r["recall"], r["precision"], marker=marker, s=110,
+                       facecolors=color, edgecolors="black", linewidths=0.7,
+                       alpha=0.45, zorder=5)
+
+    for _, r in crowd.iterrows():
+        xerr = [[r.recall - r.recall_lo], [r.recall_hi - r.recall]]
+        yerr = [[r.precision - r.precision_lo], [r.precision_hi - r.precision]]
+        ax.errorbar(r.recall, r.precision, xerr=xerr, yerr=yerr, fmt="none",
+                    ecolor=_CROWD_COLOR, elinewidth=1.3, capsize=3, alpha=0.9, zorder=6)
+        ax.scatter(r.recall, r.precision, marker=_CROWD_MARKER, s=240,
+                   facecolors=_CROWD_COLOR, edgecolors="black", linewidths=1.1, zorder=7)
+        ax.annotate(r.label, (r.recall, r.precision), textcoords="offset points",
+                    xytext=(8, 8), fontsize=8.5, fontweight="bold",
+                    color="#5a3200", zorder=8)
+
+    ax.set_xlim(-0.03, 1.03)
+    ax.set_ylim(-0.03, 1.05)
+    ax.set_xlabel("recall  (of the relevant papers, how many the crowd caught)")
+    ax.set_ylabel("precision  (of the crowd's includes, how many were relevant)")
+    ax.set_aspect("equal")
+    ax.set_title(title or "Crowd precision vs recall against adjudicated value")
+
+    handles = _fbeta_contour_handles() + [
+        Line2D([0], [0], marker=_CROWD_MARKER, color=_CROWD_COLOR, linestyle="none",
+               markersize=11, label="crowd (95% HDI)"),
+    ]
+    if f1df is not None:
+        handles += [
+            Line2D([0], [0], marker="o", color="#4c78a8", linestyle="none", alpha=0.5,
+                   markersize=8, label="individual coder"),
+            Line2D([0], [0], marker="*", color="#d62728", linestyle="none",
+                   markersize=11, label="pooled coder"),
+        ]
+    if comparison is not None:
+        handles += [
+            Line2D([0], [0], marker=mk, color="#777777", linestyle="none", markersize=8,
+                   label=f)
+            for f, mk in _FAMILY_MARKERS.items() if (comparison["family"] == f).any()
+        ]
+    ax.legend(handles=handles, loc="lower left", fontsize=8)
+    return fig
+
+
 def _baseline_spans(sub: pd.DataFrame) -> list[dict]:
     """Taxonomy default: shade the contiguous leading pruned-vocab block."""
     if "vocab" not in sub or not (sub.vocab == "pruned").any():

@@ -15,6 +15,7 @@ from ic1.reporting.loaders.annotation import (
     inout_unanimous_dispersion,
     load_inout_annotations,
 )
+from ic1.reporting.loaders.crowd import load_inout_crowd
 from ic1.reporting.loaders.inout import (
     inout_cycle_spans,
     load_inout_comparison,
@@ -58,4 +59,5 @@ __all__ = [
     "inout_coder_f1",
     "inout_screening_raster",
     "inout_unanimous_dispersion",
+    "load_inout_crowd",
 ]
