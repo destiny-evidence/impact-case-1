@@ -173,6 +173,31 @@ def comparison_markdown(df: pd.DataFrame, *, decimals: int = 2) -> str:
     return "\n".join(lines) + "\n"
 
 
+def crowd_markdown(crowd: pd.DataFrame, *, decimals: int = 2) -> str:
+    """Crowd precision/recall/F1/F2 (point + 95% HDI) per scoring scope.
+
+    Consumes ``load_inout_crowd``. One row per scope (all crowd items / test
+    subset); metric cells read ``0.64 [0.56–0.72]``.
+    """
+    def ci(r: pd.Series, m: str) -> str:
+        return (
+            f"{r[m]:.{decimals}f} "
+            f"[{r[f'{m}_lo']:.{decimals}f}–{r[f'{m}_hi']:.{decimals}f}]"
+        )
+
+    cols = ["Scope", "n", "Precision", "Recall", "F1", "F2"]
+    lines = [
+        "| " + " | ".join(cols) + " |",
+        "|" + "|".join(["---"] * len(cols)) + "|",
+    ]
+    for _, r in crowd.iterrows():
+        lines.append("| " + " | ".join([
+            str(r.label), f"{int(r.n):,}",
+            ci(r, "precision"), ci(r, "recall"), ci(r, "f1"), ci(r, "f2"),
+        ]) + " |")
+    return "\n".join(lines) + "\n"
+
+
 def annotation_agreement_markdown(
     by_set: pd.DataFrame, overall: dict, *, decimals: int = 2
 ) -> str:

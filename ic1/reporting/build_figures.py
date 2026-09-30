@@ -28,6 +28,7 @@ from ic1.reporting.loaders import (
     inout_unanimous_dispersion,
     load_inout_annotations,
     load_inout_comparison,
+    load_inout_crowd,
     load_inout_model_costs,
     load_inout_prompt_churn,
     load_inout_prompts,
@@ -49,6 +50,7 @@ from ic1.reporting.plots import (
     plot_coderset_composition,
     plot_comparison,
     plot_cost_performance,
+    plot_crowd_pr,
     plot_data_splits,
     plot_iteration_timeline,
     plot_pairwise_kappa,
@@ -63,6 +65,7 @@ from ic1.reporting.tables import (
     annotation_agreement_markdown,
     annotation_f1_markdown,
     comparison_markdown,
+    crowd_markdown,
     metrics_markdown,
     prompts_markdown,
     taxonomy_drilldown_html,
@@ -195,6 +198,25 @@ def build_inout_annotation(formats: tuple[str, ...]) -> None:
         print(f"  skipping coder-vs-model PR: {e}")
     _write_table(annotation_agreement_markdown(by_set, overall), "inout_annotation_agreement")
     _write_table(annotation_f1_markdown(f1), "inout_annotation_f1")
+
+    # Crowd screening vs the adjudicated gold, overlaid on the coder cloud and
+    # the automated systems. Guarded: the crowd RIS export is private/optional,
+    # so a clean checkout without it just skips this figure/table.
+    try:
+        crowd = load_inout_crowd()
+    except FileNotFoundError as e:
+        print(f"  skipping crowd: {e}")
+    else:
+        try:
+            comp = load_inout_comparison()
+        except (FileNotFoundError, ValueError):
+            comp = None
+        _save(plot_crowd_pr(crowd, f1df=f1, comparison=comp), "inout", "crowd_pr", formats)
+        _write_table(crowd_markdown(crowd), "inout_crowd")
+        print(
+            f"  crowd: {int(crowd.loc[crowd.label == 'all crowd items', 'n'].iloc[0]):,} "
+            f"items scored (P={crowd.iloc[0].precision:.2f} R={crowd.iloc[0].recall:.2f})"
+        )
 
     # Private real-name renders of the identity-revealing figures. Written under
     # a *_private.* filename, which .gitignore keeps out of the repo.
