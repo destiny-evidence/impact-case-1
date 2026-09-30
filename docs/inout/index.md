@@ -5,7 +5,7 @@ title: Relevance screening
 ## Human annotation
 
 After defining the system boundaries for inclusion in the Destiny Repository,
-we annotated 5,000 documents from the ~12m results of our search query: [](annotation.md)
+we annotated 5,000 documents from the ~12m results of our search query: [](annotation.md).
 
 ## Automated screening
 
@@ -15,6 +15,10 @@ machine learning and LLMs.
 - [Machine-learning](./ml.md)
 - [LLM screening](./llm.md)
 - [Combining ML + LLM](./combination.md)
+
+## Crowd screening
+
+We also evaluated crowd-sourced annotations on a subset of 1,000 annotated documents [Crowd annotations](./crowd.md)
 
 ## Balancing precision and recall
 
