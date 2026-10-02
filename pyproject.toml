@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13,<3.14"
 dependencies = [
     "rdflib>=7.6.0",
-    "dvc>=3.67.1",
+    "dvc[azure]>=3.67.1",
     "dvc-ssh>=4.3.0",
     "frictionless[pandas]>=5.19.0",
     "rispy==0.10.0",
