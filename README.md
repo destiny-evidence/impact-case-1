@@ -26,10 +26,25 @@ data/
 
 ## Setup
 
+Sync the environment
+
 ```bash
 uv sync
-dvc pull
 ```
+
+If you have a PIK account and are a member of the ecs group, run the following to pull data from the PIK shared drive
+
+```bash
+uv run dvc remote modify --local origin user [YOUR-USERNAME]
+uv run dvc pull
+``` 
+
+If you do not have a PIK account, but have an access token to azure storage then run
+```
+uv run dvc remote modify --local destiny sas_token "[YOUR-TOKEN]"
+uv run dvc pull -r destiny
+```
+
 
 Environment: create `.conf/secret.env` with database credentials (see `.conf/example.env`).
 
