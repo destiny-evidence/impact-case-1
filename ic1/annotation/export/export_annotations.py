@@ -37,7 +37,7 @@ from pathlib import Path
 from nacsos_data.db.connection import get_engine_async
 from nacsos_data.models.nql import AnnotationFilter
 
-from ic1.annotation.export.utils import get_task_infos, read_dataframes
+from ic1.annotation.export.utils import get_item_scopes, get_task_infos, read_dataframes
 
 # Single source of truth: the scheme id is defined by the import script.
 from ic1.core.config import settings, TaskName, TASKS
@@ -49,6 +49,7 @@ logging.basicConfig(level=logging.INFO, handlers=[RichHandler(markup=True, rich_
 # MB. None of that is needed to link an annotation back to an item or the taxonomy.
 KEEP_BASE_COLS = [
     'item_id',
+    'assignment_scope_id',
     'doi',
     'wos_id',
     'scopus_id',
@@ -88,6 +89,7 @@ def main(
                 session=session,
                 fetch_all_ids=export_all_annotated,
             )
+            item_scopes = await get_item_scopes(session, task.scheme_id)
             label_cols, df, df_pseudo = await read_dataframes(
                 session=session,
                 project_id=project_id,
@@ -97,6 +99,7 @@ def main(
                 labels=label_options,
                 nql_filter=AnnotationFilter(incl=True, scopes=scope_ids),
                 columns=KEEP_BASE_COLS,
+                item_scopes=item_scopes,
             )
 
         df['item_id'] = df['item_id'].astype(str)

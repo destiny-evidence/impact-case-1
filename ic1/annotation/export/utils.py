@@ -8,7 +8,9 @@ from nacsos_data.db.schemas import BotAnnotationMetaData
 from nacsos_data.db.schemas.annotations import AnnotationScheme, AssignmentScope
 from nacsos_data.models.annotations import AnnotationSchemeLabel
 from nacsos_data.models.nql import NQLFilter
+from nacsos_data.util.annotations import get_ordering, read_bot_annotations
 from nacsos_data.util.annotations.export import LabelOptions, prepare_export_table
+from nacsos_data.util.annotations.resolve import read_scopes_for_scheme
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from ic1.core.config import settings, TaskConfig
@@ -132,6 +134,32 @@ async def get_task_infos(
     return project_id, labels, label_options, label_cols, scope_ids, resolved_ids
 
 
+async def get_item_scopes(session: AsyncSession, scheme_id: str) -> pd.DataFrame:
+    """Map each (item_id, username) of the scheme to its assignment scope id.
+
+    Resolutions have username 'RESOLVED' and take the scope of their bot annotation metadata.
+    Raises if one (item_id, username) falls in more than one scope.
+    """
+    rows = []
+    for scope_id in await read_scopes_for_scheme(session=session, scheme_id=scheme_id, order_by_name=True):
+        for entry in await get_ordering(session=session, assignment_scope_id=scope_id):
+            rows += [{'item_id': str(entry.item_id), 'username': a.username, 'assignment_scope_id': str(scope_id)} for a in entry.assignments]
+
+    bots = (await session.execute(sa.select(BotAnnotationMetaData).where(BotAnnotationMetaData.annotation_scheme_id == scheme_id))).scalars().all()
+    for bot in bots:
+        if bot.assignment_scope_id is None:
+            logger.warning(f'Resolution {bot.bot_annotation_metadata_id} has no assignment scope; its items get no scope.')
+            continue
+        for ann in await read_bot_annotations(session=session, bot_annotation_metadata_id=str(bot.bot_annotation_metadata_id)):
+            rows.append({'item_id': str(ann.item_id), 'username': 'RESOLVED', 'assignment_scope_id': str(bot.assignment_scope_id)})
+
+    df = pd.DataFrame(rows, columns=['item_id', 'username', 'assignment_scope_id']).drop_duplicates()
+    clash = df[df.duplicated(['item_id', 'username'], keep=False)]
+    if not clash.empty:
+        raise SystemExit(f'{clash[["item_id", "username"]].drop_duplicates().shape[0]} (item, username) pairs fall in more than one assignment scope.')
+    return df
+
+
 async def read_dataframes(
     session: AsyncSession,
     project_id: str,
@@ -141,6 +169,7 @@ async def read_dataframes(
     labels: list[LabelOptions] | None = None,
     nql_filter: NQLFilter | None = None,
     columns: list[str] | None = None,
+    item_scopes: pd.DataFrame | None = None,
 ) -> tuple[list[str], pd.DataFrame, pd.DataFrame]:
 
     if not scope_ids:
@@ -168,6 +197,11 @@ async def read_dataframes(
     df['publication_year'] = df['publication_year'].astype('Int16')
     # df['item_order'] = df['item_order'].astype('Int64').astype('Int32')
     # df['scope_order'] = df['scope_order'].astype('Int64').astype('Int16')
+
+    if item_scopes is not None:
+        df['item_id'] = df['item_id'].astype(str)
+        df = df.merge(item_scopes, on=['item_id', 'username'], how='left')
+        logger.info(f'[bold]Rows without an assignment scope:[/bold] {df["assignment_scope_id"].isna().sum()}', extra={'markup': True})
 
     if columns is not None:
         base_cols = [c for c in columns if c in df.columns]
