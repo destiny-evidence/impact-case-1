@@ -157,7 +157,9 @@ def main(
     dev_mode: Annotated[bool, typer.Option(help='Run in development mode')] = False,
     num_folds: Annotated[int, typer.Option(help='Number of folds for cross-validation')] = 3,
     random_seed: Annotated[int | None, typer.Option(help='Random seed for cross-validation')] = None,
-    num_trials_gpu: Annotated[int, typer.Option(help='Number of trials for GPU hyperparameter tuning (transformer fine-tunes, see convergence in prior runs)')] = 75,
+    num_trials_gpu: Annotated[
+        int, typer.Option(help='Number of trials for GPU hyperparameter tuning (transformer fine-tunes, see convergence in prior runs)')
+    ] = 75,
     num_trials_cpu: Annotated[int, typer.Option(help='Number of trials for CPU hyperparameter tuning (cheap per trial, scales well)')] = 300,
     num_jobs: Annotated[int, typer.Option(help='Number of tuning jobs for parallel processing')] = 1,
     scoring: Annotated[str, typer.Option(help='Scoring metric for hyperparameter tuning')] = 'AveragePrecision',
@@ -166,9 +168,11 @@ def main(
     run_finalise: Annotated[bool, typer.Option('--finalise/--no-finalise', help='Append a finalise job that runs after the tuning arrays complete')] = True,
     recall_floor: Annotated[float, typer.Option(help='Min validation recall the filtering model must clear (finalise)')] = 0.95,
     beta: Annotated[float, typer.Option(help='Beta for F-beta selection of the ML-only model (finalise)')] = 1.0,
-    run_learning_curve: Annotated[bool, typer.Option('--learning-curve/--no-learning-curve', help='Append learning-curve jobs (per model) after tuning')] = False,
+    run_learning_curve: Annotated[
+        bool, typer.Option('--learning-curve/--no-learning-curve', help='Append learning-curve jobs (per model) after tuning')
+    ] = False,
     lc_n_seeds: Annotated[int, typer.Option(help='Learning-curve subsamples per fraction')] = 3,
-    lc_fractions: Annotated[list[float], typer.Option(help='Learning-curve train fractions (default: 0.1..1.0)')] = None,
+    lc_fractions: Annotated[list[float] | None, typer.Option(help='Learning-curve train fractions (default: 0.1..1.0)')] = None,
 ) -> None:
     logger.info('Preparing slurm script and submitting job!')
 
@@ -241,13 +245,17 @@ def main(
     if run_finalise:
         # If any transformer models are in play, the winning model might be a transformer, so
         # finalise needs a GPU to refit it; otherwise a CPU node suffices.
-        finalise_sbatch = sbatch_args | {
-            'output': f'{slurm_log}/finalise_%j.out',
-            'error': f'{slurm_log}/finalise_%j.err',
-        } | (
-            {'gres': 'gpu:1', 'partition': 'gpu', 'qos': slurm_gpu_qos, 'cpus-per-task': 5}
-            if configs_gpu
-            else {'cpus-per-task': 12, 'partition': 'standard', 'qos': slurm_cpu_qos}
+        finalise_sbatch = (
+            sbatch_args
+            | {
+                'output': f'{slurm_log}/finalise_%j.out',
+                'error': f'{slurm_log}/finalise_%j.err',
+            }
+            | (
+                {'gres': 'gpu:1', 'partition': 'gpu', 'qos': slurm_gpu_qos, 'cpus-per-task': 5}
+                if configs_gpu
+                else {'cpus-per-task': 12, 'partition': 'standard', 'qos': slurm_cpu_qos}
+            )
         )
         logger.info('Writing finalise slurm file')
         _write_finalise_file(

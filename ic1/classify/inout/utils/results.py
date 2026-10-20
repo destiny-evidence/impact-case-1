@@ -6,6 +6,7 @@ from typing import Any, TYPE_CHECKING
 from datetime import datetime, timezone
 
 import numpy as np
+import numpy.typing as npt
 import pandas as pd
 from pydantic import BaseModel, Field
 
@@ -18,9 +19,10 @@ logger = logging.getLogger(__name__)
 DEFAULT_THRESHOLDS = [round(t, 2) for t in np.arange(0.05, 1.0, 0.05)]  # 0.05 .. 0.95
 
 
-def threshold_scores(y_true, y_prob, thresholds=DEFAULT_THRESHOLDS, beta: float = 1.0) -> list['Result']:
+def threshold_scores(y_true: 'npt.ArrayLike', y_prob: 'npt.ArrayLike', thresholds: list[float] = DEFAULT_THRESHOLDS, beta: float = 1.0) -> list['Result']:
     """Metrics at each threshold, computed from stored predictions (replaces the tune-time sweep)."""
     from .metrics import evaluate
+
     yt, yp = np.asarray(y_true), np.asarray(y_prob)
     return [Result.model_validate(evaluate(yt, yp, threshold=float(t), beta=beta)) for t in thresholds]
 
@@ -40,6 +42,7 @@ class Result(BaseModel):
 
 class TrialRecord(BaseModel):
     """One Optuna trial's outcome — enough to reconstruct the search trajectory."""
+
     number: int
     value: float | None = None  # objective; None for failed/pruned trials
     state: str

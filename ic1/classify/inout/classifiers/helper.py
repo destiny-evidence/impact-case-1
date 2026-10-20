@@ -61,9 +61,9 @@ class ClassifierHelper:
     def tune(
         self,
         X_train: list[str],
-        y_train: list[int],
+        y_train: np.ndarray,
         X_test: list[str],
-        y_test: list[int],
+        y_test: np.ndarray,
         scoring: str = 'F1',
         threshold: float = 0.5,
     ) -> 'Study':
@@ -89,9 +89,9 @@ class ClassifierHelper:
         self,
         trial: 'Trial',
         X_train: list[str],
-        y_train: list[int],
+        y_train: np.ndarray,
         X_test: list[str],
-        y_test: list[int],
+        y_test: np.ndarray,
         scoring: str = 'F1',
         threshold: float = 0.5,
     ) -> float:

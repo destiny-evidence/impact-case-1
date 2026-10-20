@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Annotated
 
 import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 import numpy as np
 import pandas as pd
 import typer
@@ -26,7 +27,7 @@ from ic1.classify.inout.classifiers import ClassifierHelper
 logger = logging.getLogger(__name__)
 
 
-def plot_learning_curves(df: pd.DataFrame, metric: str = 'AveragePrecision'):
+def plot_learning_curves(df: pd.DataFrame, metric: str = 'AveragePrecision') -> Figure:
     """One axes, one line (+/- std band over seeds) per model. Returns the figure."""
     fig, ax = plt.subplots(figsize=(8, 5))
     for name, g in df.groupby('model'):
@@ -53,8 +54,8 @@ def _stratified_subsample(y: np.ndarray, frac: float, seed: int) -> np.ndarray:
 
 def learning_curve(
     dev_mode: Annotated[bool, typer.Option(help='Use the testing dir / fabricated splits')] = False,
-    models: Annotated[list[str], typer.Option(help='Models to curve (default: all tuned)')] = None,
-    fractions: Annotated[list[float], typer.Option(help='Train fractions to evaluate')] = None,
+    models: Annotated[list[str] | None, typer.Option(help='Models to curve (default: all tuned)')] = None,
+    fractions: Annotated[list[float] | None, typer.Option(help='Train fractions to evaluate')] = None,
     n_seeds: Annotated[int, typer.Option(help='Random subsamples per fraction (error bands)')] = 3,
     beta: Annotated[float, typer.Option()] = 1.0,
     tuning_dir: Annotated[Path | None, typer.Option()] = None,
@@ -82,10 +83,16 @@ def learning_curve(
                 helper = ClassifierHelper.from_run(folds[name])
                 model = helper.train(X=[X_train[i] for i in idx], y=y_train[idx].tolist())
                 m = evaluate(y_val, model.predict_proba(X_val), beta=beta)
-                rows.append({
-                    'model': name, 'frac': frac, 'n_train': len(idx), 'seed': seed,
-                    'AveragePrecision': m.get('AveragePrecision'), 'ROC_AUC': m.get('ROC_AUC'),
-                })
+                rows.append(
+                    {
+                        'model': name,
+                        'frac': frac,
+                        'n_train': len(idx),
+                        'seed': seed,
+                        'AveragePrecision': m.get('AveragePrecision'),
+                        'ROC_AUC': m.get('ROC_AUC'),
+                    }
+                )
                 logger.info(f'{name} frac={frac} seed={seed} n={len(idx)} AP={m.get("AveragePrecision"):.3f}')
 
     df = pd.DataFrame(rows)

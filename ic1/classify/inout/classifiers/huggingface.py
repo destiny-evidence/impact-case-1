@@ -112,14 +112,14 @@ class HuggingfaceClassifier(ClassifierBase):
             raise RuntimeError('Model not initialised')
         return len(self.classes_)
 
-    def fit(self, X: list[str], y: list[int]) -> 'HuggingfaceClassifier':
+    def fit(self, X: list[str], y: np.ndarray) -> 'HuggingfaceClassifier':
         self.train(x=X, y=y)
         return self
 
     def train(
         self,
         x: list[str] | None = None,
-        y: list[int] | None = None,
+        y: np.ndarray | None = None,
         dataset: Dataset | None = None,
     ) -> None:
         import torch

@@ -154,6 +154,13 @@ incremental = false
 # for strict mypy: (this is the tricky one :-))
 disallow_untyped_defs = true
 
+# huggingface.py subclasses transformers.Trainer/TrainingArguments, which are Any when the
+# `classify` extra is not installed; its inline type: ignore codes target the installed-extra env.
+[[tool.mypy.overrides]]
+module = "ic1.classify.inout.classifiers.huggingface"
+warn_unused_ignores = false
+disable_error_code = ["misc", "unreachable", "no-any-return"]
+
 [tool.pydantic-mypy]
 init_forbid_extra = true
 init_typed = true
