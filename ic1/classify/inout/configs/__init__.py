@@ -24,7 +24,7 @@ type ClassifierConfig = (
 )
 
 MODEL_CONFIGS: dict[str, Type[ClassifierConfig]] = {
-    config.name.upper(): config  # type: ignore[attr-defined, misc]
+    config.name.upper(): config  # type: ignore[misc]
     for config in [
         RegressionClassifierConfig,
         SVMClassifierConfig,

@@ -42,7 +42,7 @@ class ClassifierHelper:
     def _train_params(self, trial: 'Trial | None' = None) -> dict[str, Any]:
         params = self.config.get_params(trial=trial) | self.model_params
         if trial:
-            params |= self.hp_space(trial=trial)  # type: ignore[call-arg]
+            params |= self.hp_space(trial)
         return params
 
     def train(self, X: list[str], y: list[int], model_params: dict[str, Any] | None = None) -> 'Classifier':

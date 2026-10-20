@@ -11,9 +11,16 @@ repos:
 
   - repo: local
     hooks:
+      - id: ty
+        name: ty
+        entry: uv run --all-extras ty check
+        language: system
+        types: [python]
+        pass_filenames: false
+
       - id: dvc-pushed
         name: DVC data is pushed to remote
-        entry: uv run python hooks/check_dvc_pushed.py
+        entry: uv run --all-extras python hooks/check_dvc_pushed.py
         language: system
         files: '(\.dvc|dvc\.lock|dvc\.yaml)$'
         pass_filenames: false

@@ -3,7 +3,7 @@ import os
 import subprocess
 import sys
 from pathlib import Path
-from typing import Annotated, Any
+from typing import Annotated, Any, cast
 
 import typer
 
@@ -186,12 +186,15 @@ def main(
     result_dir.mkdir(parents=True, exist_ok=True)
 
     configs_cpu = [MODEL_CONFIGS[model.upper()] for model in models if issubclass(MODEL_CONFIGS[model.upper()], _SklearnClassifierConfig)]
-    configs_gpu = [MODEL_CONFIGS[model.upper()] for model in models if issubclass(MODEL_CONFIGS[model.upper()], _HuggingfaceClassifierConfig)]
+    configs_gpu = cast(
+        'list[type[_HuggingfaceClassifierConfig]]',
+        [MODEL_CONFIGS[model.upper()] for model in models if issubclass(MODEL_CONFIGS[model.upper()], _HuggingfaceClassifierConfig)],
+    )
     logger.info(f'Found {len(configs_cpu)} CPU model configs and {len(configs_gpu)} GPU model configs')
 
     # Ensure models are downloaded
     logger.info('Making sure all models are available offline!')
-    ensure_offline_models([config.model_name for config in configs_gpu])  # type: ignore[union-attr]
+    ensure_offline_models([config.model_name for config in configs_gpu])
 
     script_args = {
         'dev-mode': dev_mode,

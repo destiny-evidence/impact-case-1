@@ -62,7 +62,7 @@ def _select_abstract_doc_ids(project: DeetProject, min_chars: int) -> list[int]:
 
     strategy = project.load_evaluation_strategy()
     excluded: set[int] = set()
-    for field in ("development_ids", "validation_ids", "test_ids"):
+    for field in ('development_ids', 'validation_ids', 'test_ids'):
         excluded.update(getattr(strategy.splits, field, []))
 
     selected: list[int] = []
@@ -79,10 +79,10 @@ def _select_abstract_doc_ids(project: DeetProject, min_chars: int) -> list[int]:
         selected.append(doc_id)
 
     notify(
-        f"Documents: {len(processed.documents)} total | "
-        f"{n_no_abstract} below {min_chars} chars (excluded) | "
-        f"{len(excluded)} already assigned (excluded) | "
-        f"{len(selected)} never-seen selected for test"
+        f'Documents: {len(processed.documents)} total | '
+        f'{n_no_abstract} below {min_chars} chars (excluded) | '
+        f'{len(excluded)} already assigned (excluded) | '
+        f'{len(selected)} never-seen selected for test'
     )
     return selected
 
@@ -91,33 +91,33 @@ def _select_abstract_doc_ids(project: DeetProject, min_chars: int) -> list[int]:
 def run(
     min_chars: Annotated[
         int,
-        typer.Option(help="Minimum abstract length (chars) to be testable."),
+        typer.Option(help='Minimum abstract length (chars) to be testable.'),
     ] = DEFAULT_MIN_ABSTRACT_CHARS,
     config: Annotated[
         Path,
-        typer.Option(help="Extractor config YAML."),
-    ] = Path("configs/luna.yaml"),
+        typer.Option(help='Extractor config YAML.'),
+    ] = Path('configs/luna.yaml'),
     prompts: Annotated[
         Path,
-        typer.Option(help="Prompt definitions CSV."),
-    ] = Path("prompts/prompt_definitions.csv"),
+        typer.Option(help='Prompt definitions CSV.'),
+    ] = Path('prompts/prompt_definitions.csv'),
     run_name: Annotated[
         str,
-        typer.Option(help="Name for the experiment run directory."),
-    ] = "FULL_ABSTRACT_TEST",
+        typer.Option(help='Name for the experiment run directory.'),
+    ] = 'FULL_ABSTRACT_TEST',
     dry_run: Annotated[
         bool,
-        typer.Option(help="Report selection counts and exit without running."),
+        typer.Option(help='Report selection counts and exit without running.'),
     ] = False,
 ) -> None:
     """Select never-seen abstract-bearing docs into TEST and run the pipeline."""
     project = DeetProject.load()
     selected = _select_abstract_doc_ids(project, min_chars)
     if not selected:
-        notify("No documents selected -- nothing to run.", level=LogLevel.WARNING)
+        notify('No documents selected -- nothing to run.', level=LogLevel.WARNING)
         raise typer.Exit(code=1)
     if dry_run:
-        notify("Dry run -- splits untouched, pipeline not run.")
+        notify('Dry run -- splits untouched, pipeline not run.')
         raise typer.Exit(code=0)
 
     # Overwrite splits: put the selected docs in TEST.
@@ -126,7 +126,7 @@ def run(
     strategy.splits.test_ids = selected
     strategy.splits.current_stage = DevValTestEvaluationStage.TEST
     strategy.splits.dump_to_json(splits_path)
-    notify(f"Wrote {len(selected)} ids to TEST stage in {splits_path}")
+    notify(f'Wrote {len(selected)} ids to TEST stage in {splits_path}')
 
     run_output, processed_run, artefacts, _config = run_extraction_pipeline(
         deet_project=project,
@@ -140,10 +140,10 @@ def run(
         experiment_artefacts=artefacts,
     )
     notify(
-        f"Done. Metrics + comparison written under {artefacts.base_dir}",
+        f'Done. Metrics + comparison written under {artefacts.base_dir}',
         level=LogLevel.SUCCESS,
     )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app()

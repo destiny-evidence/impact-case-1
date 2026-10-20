@@ -1,5 +1,4 @@
-"""Frequency of taxonomy concepts in the taxonomy export.
-"""
+"""Frequency of taxonomy concepts in the taxonomy export."""
 
 from __future__ import annotations
 
@@ -46,7 +45,6 @@ def with_concepts(counts: pd.DataFrame, mapping_csv: Path) -> pd.DataFrame:
     out['n_children'] = out['concept_uri'].map(n_children).fillna(0).astype(int)
     out['is_leaf'] = out['n_children'].eq(0)
 
-
     return out.drop(columns='col_pipe').sort_values('selected', ascending=False, ignore_index=True)
 
 
@@ -58,10 +56,7 @@ def main(
     export_csv = TASKS[task].shareable_resolved_path
     target = target or TASKS[task].frequencies_path  # add this property, mirroring difficulty_path
 
-    counts = with_concepts(
-        column_counts(pd.read_csv(export_csv)),
-        settings.MAPPING_CSV
-    )
+    counts = with_concepts(column_counts(pd.read_csv(export_csv)), settings.MAPPING_CSV)
     logger.info(f'{len(counts)} concept columns; top: {counts.head(5)[["column", "selected"]].to_dict("records")}')
     counts.to_csv(target, index=False)
     logger.info(f'Wrote frequency table to {target}')

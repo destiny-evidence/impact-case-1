@@ -40,13 +40,13 @@ console = Console()
 
 
 def main(
-    experiment: Annotated[str, typer.Option(
-        help="Existing experiment run (name under the project's experiments dir, or a full "
-             "path); its config and prompt snapshots are reused")],
-    task: Annotated[TaskName, typer.Option(help="Annotation task")] = TaskName.INOUT,
+    experiment: Annotated[
+        str, typer.Option(help="Existing experiment run (name under the project's experiments dir, or a full path); its config and prompt snapshots are reused")
+    ],
+    task: Annotated[TaskName, typer.Option(help='Annotation task')] = TaskName.INOUT,
     size: Annotated[int, typer.Option(help="Docs to sample into validation if it's empty")] = 130,
-    n_runs: Annotated[int, typer.Option(help="Number of passes to vote over")] = 3,
-    reset: Annotated[bool, typer.Option(help="Clear the current validation split and resample")] = False,
+    n_runs: Annotated[int, typer.Option(help='Number of passes to vote over')] = 3,
+    reset: Annotated[bool, typer.Option(help='Clear the current validation split and resample')] = False,
 ) -> None:
     project = DeetProject.load(project_dir=TASKS[task].deet_project_path)
     strategy = project.load_evaluation_strategy()
@@ -56,28 +56,23 @@ def main(
     if not exp_path.exists():
         exp_path = project.experiments_dir / experiment
     exp = ExperimentArtefacts(base_dir=exp_path)
-    console.print(f"Reproducing config + prompts from experiment: [bold]{exp_path.name}[/]")
+    console.print(f'Reproducing config + prompts from experiment: [bold]{exp_path.name}[/]')
 
     if reset:
         strategy.splits.validation_ids = []
 
     # Populate the validation stage ONCE; reuse it on re-runs so the docs stay fixed.
     if not strategy.splits.validation_ids:
-        n_added = strategy.splits.add_to_stage(
-            DevValTestEvaluationStage.VALIDATION, project_doc_ids, size
-        )
-        console.print(f"[green]Added {n_added} docs to the validation split.[/]")
+        n_added = strategy.splits.add_to_stage(DevValTestEvaluationStage.VALIDATION, project_doc_ids, size)
+        console.print(f'[green]Added {n_added} docs to the validation split.[/]')
     else:
-        console.print(
-            f"[yellow]Reusing existing validation split "
-            f"({len(strategy.splits.validation_ids)} docs). Use --reset to resample.[/]"
-        )
+        console.print(f'[yellow]Reusing existing validation split ({len(strategy.splits.validation_ids)} docs). Use --reset to resample.[/]')
 
     strategy.splits.current_stage = DevValTestEvaluationStage.VALIDATION
     # Persist BEFORE running: the pipeline reloads splits from disk to pick active docs.
     strategy.splits.dump_to_json(project.evaluation_splits_path)
     val_ids = list(strategy.splits.validation_ids)
-    console.print(f"Validation set: {len(val_ids)} documents; running {n_runs} passes.\n")
+    console.print(f'Validation set: {len(val_ids)} documents; running {n_runs} passes.\n')
 
     run_dirs: list[Path] = []
     for i in range(n_runs):
@@ -85,7 +80,7 @@ def main(
             deet_project=project,
             prompt_csv_path=exp.prompts_snapshot,
             config_path=exp.config_snapshot,
-            run_name=f"VALIDATION_vote{i + 1}",
+            run_name=f'VALIDATION_vote{i + 1}',
         )
         evaluate_extraction_pipeline(
             processed_annotation_data=processed,
@@ -93,39 +88,33 @@ def main(
             experiment_artefacts=artefacts,
         )
         run_dirs.append(artefacts.base_dir)
-        console.print(f"  pass {i + 1}/{n_runs} -> {artefacts.base_dir.name}")
+        console.print(f'  pass {i + 1}/{n_runs} -> {artefacts.base_dir.name}')
 
     _report(run_dirs)
-    console.print(
-        "\n[dim]Project left in VALIDATION mode; accept/reject via the normal CLI when ready.[/]"
-    )
+    console.print('\n[dim]Project left in VALIDATION mode; accept/reject via the normal CLI when ready.[/]')
 
 
 def _report(run_dirs: list[Path]) -> None:
-    dfs = [pd.read_csv(d / "goldstandard_llm_comparison.csv") for d in run_dirs]
+    dfs = [pd.read_csv(d / 'goldstandard_llm_comparison.csv') for d in run_dirs]
     n = len(dfs)
     thr = n // 2 + 1  # strict majority
-    console.print(f"\n[bold cyan]Majority vote over {n} passes (>= {thr}/{n}):[/]")
+    console.print(f'\n[bold cyan]Majority vote over {n} passes (>= {thr}/{n}):[/]')
     for mode in dfs[0].attribute_label.unique():
         subs = [d[d.attribute_label == mode] for d in dfs]
-        yt = subs[0].set_index("document_id")["human_extraction"].astype(int)
-        votes = sum(s.set_index("document_id")["llm_extraction"].astype(int) for s in subs)
+        yt = subs[0].set_index('document_id')['human_extraction'].astype(int)
+        votes = sum(s.set_index('document_id')['llm_extraction'].astype(int) for s in subs)
         votes = votes.reindex(yt.index)
         yp = (votes >= thr).astype(int)
         ties = int((votes == n / 2).sum()) if n % 2 == 0 else 0
-        Ps = [precision_score(s.human_extraction.astype(int), s.llm_extraction.astype(int),
-                              zero_division=0) for s in subs]
-        Rs = [recall_score(s.human_extraction.astype(int), s.llm_extraction.astype(int),
-                           zero_division=0) for s in subs]
+        Ps = [precision_score(s.human_extraction.astype(int), s.llm_extraction.astype(int), zero_division=0) for s in subs]
+        Rs = [recall_score(s.human_extraction.astype(int), s.llm_extraction.astype(int), zero_division=0) for s in subs]
         P = precision_score(yt, yp, zero_division=0)
         R = recall_score(yt, yp, zero_division=0)
-        tie_note = f"  ties={ties}" if ties else ""
+        tie_note = f'  ties={ties}' if ties else ''
         console.print(
-            f"  {mode[10:]:16s} voted P={P:.2f} R={R:.2f}   "
-            f"(per-pass P={np.mean(Ps):.2f}±{np.std(Ps):.2f} "
-            f"R={np.mean(Rs):.2f}±{np.std(Rs):.2f}){tie_note}"
+            f'  {mode[10:]:16s} voted P={P:.2f} R={R:.2f}   (per-pass P={np.mean(Ps):.2f}±{np.std(Ps):.2f} R={np.mean(Rs):.2f}±{np.std(Rs):.2f}){tie_note}'
         )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     typer.run(main)

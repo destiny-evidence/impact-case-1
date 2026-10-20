@@ -8,11 +8,7 @@ from ic1.core.config import TASKS, TaskName, TaskConfig
 from typing import Annotated
 import pandas as pd
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(message)s',
-    handlers=[RichHandler(markup=True, rich_tracebacks=True)]
-)
+logging.basicConfig(level=logging.INFO, format='%(message)s', handlers=[RichHandler(markup=True, rich_tracebacks=True)])
 logger = logging.getLogger(__name__)
 
 

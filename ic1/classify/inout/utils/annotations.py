@@ -14,9 +14,8 @@ logger = logging.getLogger(__name__)
 
 TASK = TASKS[TaskName.INOUT]
 
-def _fabricate_dev_splits(
-    train_df: pd.DataFrame
-) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+
+def _fabricate_dev_splits(train_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Deterministically split the train pool into 70/15/15 train/val/test.
 
     Used only to run the pipeline without touching the real test set.
@@ -35,6 +34,7 @@ def _fabricate_dev_splits(
         train_df[train_df['item_id'].isin(test_ids)].reset_index(drop=True),
     )
 
+
 def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
     Load train, val, and test data.
@@ -46,11 +46,7 @@ def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
 
     splits = EvaluationSplits.load(TASK.splits_path)
 
-    df = (
-        df.rename(columns={'incl|1': 'label'})[['item_id', 'title', 'text', 'label']]
-        .dropna(subset='label')
-        .astype({'label': int})
-    )
+    df = df.rename(columns={'incl|1': 'label'})[['item_id', 'title', 'text', 'label']].dropna(subset='label').astype({'label': int})
 
     train_df = df[df['item_id'].isin(splits.train)].reset_index(drop=True)
 
@@ -61,10 +57,7 @@ def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
         val_df = df[df['item_id'].isin(splits.validation)].reset_index(drop=True)
         test_df = df[df['item_id'].isin(splits.test)].reset_index(drop=True)
         if val_df.empty:
-            raise ValueError(
-                'No validation split found. Run deet sync to populate validation/test, '
-                'or pass --dev-mode to fabricate splits from train.'
-            )
+            raise ValueError('No validation split found. Run deet sync to populate validation/test, or pass --dev-mode to fabricate splits from train.')
 
     logger.info(
         f'train_df: {train_df.shape} - {train_df["label"].sum() / train_df.shape[0]} relevant\n'
