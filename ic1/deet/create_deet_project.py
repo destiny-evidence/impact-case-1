@@ -3,7 +3,6 @@
 from typing import Annotated
 import typer
 import pandas as pd
-import json
 import yaml
 
 from ic1.core.config import TASKS, TaskName, settings
@@ -50,13 +49,9 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
             }
         )
         if task == TaskName.INOUT:
-            deet_df = deet_df.rename(
-                columns={
-                    'incl|1': 'include - high precision'
-                }
-            )
-            deet_df["include - best balance"] = deet_df['include - high precision'].copy()
-            deet_df["include - high recall"] = deet_df['include - high precision'].copy()
+            deet_df = deet_df.rename(columns={'incl|1': 'include - high precision'})
+            deet_df['include - best balance'] = deet_df['include - high precision'].copy()
+            deet_df['include - high recall'] = deet_df['include - high precision'].copy()
 
         deet_df.to_csv(task_config.deet_data_path, index=False)
 
@@ -67,24 +62,16 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
             data_path=task_config.deet_data_path,
             pdf_dir=None,
         )
-        PROJECT_YAML = task_config.deet_project_path / "project.yaml"
-        project = DeetProject.model_validate(
-            yaml.safe_load(
-                (PROJECT_YAML).read_bytes()
-            )["project"]
-        )
+        PROJECT_YAML = task_config.deet_project_path / 'project.yaml'
+        project = DeetProject.model_validate(yaml.safe_load((PROJECT_YAML).read_bytes())['project'])
         project.evaluation_strategy = EvaluationStrategyName.DEV_VAL_TEST
-        data = {"project": project.model_dump(mode="json")}
-        with PROJECT_YAML.open("w", encoding="utf-8") as f:
+        data = {'project': project.model_dump(mode='json')}
+        with PROJECT_YAML.open('w', encoding='utf-8') as f:
             yaml.safe_dump(data, f)
 
         config = DataExtractionConfig(default_context_type=ContextType.ABSTRACT_ONLY)
-        (task_config.deet_project_path / "default_extraction_config.yaml").write_text(
-            yaml.safe_dump(
-                config.model_dump(mode="json"),
-                sort_keys=False
-            ),
-            encoding="utf-8"
+        (task_config.deet_project_path / 'default_extraction_config.yaml').write_text(
+            yaml.safe_dump(config.model_dump(mode='json'), sort_keys=False), encoding='utf-8'
         )
 
 

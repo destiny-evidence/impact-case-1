@@ -7,15 +7,24 @@ from dataclasses import dataclass
 
 try:
     from nacsos_data.util.conf import DatabaseConfig
-except:
+except ImportError:
     from pydantic import BaseModel
+
     class DatabaseConfig(BaseModel):
         pass
+
 
 from pydantic import Field
 from pydantic_settings import SettingsConfigDict, BaseSettings
 
-from ic1.core.ids import INOUT_SCHEME_ID, TAXONOMY_SCHEME_ID, TAXONOMY_SCOPE_IDS, TAXONOMY_SCOPE_IDS_RESOLVED, INOUT_SCOPE_IDS_ANNOTATE, INOUT_SCOPE_IDS_RESOLVED
+from ic1.core.ids import (
+    INOUT_SCHEME_ID,
+    TAXONOMY_SCHEME_ID,
+    TAXONOMY_SCOPE_IDS,
+    TAXONOMY_SCOPE_IDS_RESOLVED,
+    INOUT_SCOPE_IDS_ANNOTATE,
+    INOUT_SCOPE_IDS_RESOLVED,
+)
 
 
 class TaskName(str, Enum):

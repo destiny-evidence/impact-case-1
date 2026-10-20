@@ -19,10 +19,8 @@ Usage (CLI):
 
 import argparse
 import csv
-import os
 import sys
 from pathlib import Path
-from typing import Optional
 
 from deet.extractors.base_extractor import DataExtractionConfig
 from deet.extractors.llm_data_extractor import LLMDataExtractor
@@ -35,10 +33,10 @@ class PromptTester:
 
     def __init__(
         self,
-        base_label: str = "include - best balance",
-        config_path: str = "configs/luna.yaml",
-        prompt_csv: str = "prompts/prompt_definitions.csv",
-        gold_path: str = "../../../../data/private/exports/inout_deet.csv",
+        base_label: str = 'include - best balance',
+        config_path: str = 'configs/luna.yaml',
+        prompt_csv: str = 'prompts/prompt_definitions.csv',
+        gold_path: str = '../../../../data/private/exports/inout_deet.csv',
     ):
         """Initialize the tester.
 
@@ -57,9 +55,9 @@ class PromptTester:
         self.base_prompt = None
         self.aid = None
         for r in csv.DictReader(open(self.prompt_csv)):
-            if r["attribute_label"].strip() == base_label:
-                self.base_prompt = r["prompt"]
-                self.aid = int(r["attribute_id"])
+            if r['attribute_label'].strip() == base_label:
+                self.base_prompt = r['prompt']
+                self.aid = int(r['attribute_id'])
                 break
         if self.base_prompt is None:
             raise ValueError(f"Prompt label '{base_label}' not found in {self.prompt_csv}")
@@ -73,8 +71,8 @@ class PromptTester:
         self.gold = {}
         self.gold_by_id = {}
         for r in csv.DictReader(open(self.gold_path)):
-            self.gold[r["name"].strip().lower()] = r
-            self.gold_by_id[r["document_id"].strip()] = r
+            self.gold[r['name'].strip().lower()] = r
+            self.gold_by_id[r['document_id'].strip()] = r
 
     def test(
         self,
@@ -104,7 +102,7 @@ class PromptTester:
         modified = self.base_prompt
         for old, new in changes:
             if old not in modified:
-                raise ValueError(f"Change anchor not found: {old[:50]!r}")
+                raise ValueError(f'Change anchor not found: {old[:50]!r}')
             modified = modified.replace(old, new)
 
         # Create attribute with modified prompt
@@ -121,19 +119,19 @@ class PromptTester:
             doc = self.gold_by_id.get(substring.strip())
             if doc is None:
                 for d in self.gold.values():
-                    if substring.lower() in d["name"].lower():
+                    if substring.lower() in d['name'].lower():
                         doc = d
                         break
             if doc is None:
                 if verbose:
-                    print(f"⚠ {label:18} doc not found (substring: {substring[:30]!r})")
+                    print(f'⚠ {label:18} doc not found (substring: {substring[:30]!r})')
                 results.append(
                     {
-                        "label": label,
-                        "human": expected,
-                        "votes": "?/?",
-                        "verdict": "?",
-                        "match": False,
+                        'label': label,
+                        'human': expected,
+                        'votes': '?/?',
+                        'verdict': '?',
+                        'match': False,
                     }
                 )
                 continue
@@ -143,30 +141,27 @@ class PromptTester:
             for _ in range(n_samples):
                 result = self.ex.extract_from_document(
                     attributes=[attr],
-                    payload=doc["abstract"],
+                    payload=doc['abstract'],
                     context_type=ContextType.ABSTRACT_ONLY,
                 )
                 if result.annotations[0].output_data:
                     include_count += 1
 
-            verdict = "INCL" if include_count > n_samples / 2 else "EXCL"
+            verdict = 'INCL' if include_count > n_samples / 2 else 'EXCL'
             human_verdict = expected
             match = verdict == human_verdict
 
             if verbose:
-                status = "✓" if match else "✗"
-                print(
-                    f"{status} {label:18} {include_count}/{n_samples:2} "
-                    f"human={human_verdict:4} verdict={verdict:4}"
-                )
+                status = '✓' if match else '✗'
+                print(f'{status} {label:18} {include_count}/{n_samples:2} human={human_verdict:4} verdict={verdict:4}')
 
             results.append(
                 {
-                    "label": label,
-                    "human": human_verdict,
-                    "votes": f"{include_count}/{n_samples}",
-                    "verdict": verdict,
-                    "match": match,
+                    'label': label,
+                    'human': human_verdict,
+                    'votes': f'{include_count}/{n_samples}',
+                    'verdict': verdict,
+                    'match': match,
                 }
             )
 
@@ -175,7 +170,7 @@ class PromptTester:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Spot-test prompt changes before committing",
+        description='Spot-test prompt changes before committing',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -198,59 +193,59 @@ Examples:
         """,
     )
     parser.add_argument(
-        "--base-label",
-        default="include - best balance",
+        '--base-label',
+        default='include - best balance',
         help="Prompt label to test (default: 'include - best balance')",
     )
     parser.add_argument(
-        "--config",
-        default="configs/luna.yaml",
-        help="Extractor config YAML (default: configs/luna.yaml)",
+        '--config',
+        default='configs/luna.yaml',
+        help='Extractor config YAML (default: configs/luna.yaml)',
     )
     parser.add_argument(
-        "--prompt-csv",
-        default="prompts/prompt_definitions.csv",
-        help="Prompt definitions CSV",
+        '--prompt-csv',
+        default='prompts/prompt_definitions.csv',
+        help='Prompt definitions CSV',
     )
     parser.add_argument(
-        "--gold",
-        default="../../../../data/private/exports/inout_deet.csv",
-        help="Gold standard CSV",
+        '--gold',
+        default='../../../../data/private/exports/inout_deet.csv',
+        help='Gold standard CSV',
     )
     parser.add_argument(
-        "--change",
+        '--change',
         nargs=2,
-        action="append",
-        dest="changes",
-        metavar=("OLD", "NEW"),
-        help="Change to apply (old_text, new_text); can repeat",
+        action='append',
+        dest='changes',
+        metavar=('OLD', 'NEW'),
+        help='Change to apply (old_text, new_text); can repeat',
     )
     parser.add_argument(
-        "--old",
-        help="Old text (shorthand for single --change)",
+        '--old',
+        help='Old text (shorthand for single --change)',
     )
     parser.add_argument(
-        "--new",
-        help="New text (shorthand for single --change)",
+        '--new',
+        help='New text (shorthand for single --change)',
     )
     parser.add_argument(
-        "--test-case",
-        action="append",
-        dest="test_cases_str",
-        metavar="LABEL=SUBSTRING:VERDICT",
-        help="Test case: label=substring:INCL or label=substring:EXCL; can repeat",
+        '--test-case',
+        action='append',
+        dest='test_cases_str',
+        metavar='LABEL=SUBSTRING:VERDICT',
+        help='Test case: label=substring:INCL or label=substring:EXCL; can repeat',
     )
     parser.add_argument(
-        "--samples",
+        '--samples',
         type=int,
         default=4,
-        help="Samples per test case (default: 4)",
+        help='Samples per test case (default: 4)',
     )
     parser.add_argument(
-        "--verbose",
-        "-v",
-        action="store_true",
-        help="Print per-test output",
+        '--verbose',
+        '-v',
+        action='store_true',
+        help='Print per-test output',
     )
 
     args = parser.parse_args()
@@ -260,23 +255,23 @@ Examples:
     if args.old and args.new:
         changes.insert(0, (args.old, args.new))
     if not changes:
-        parser.error("Must provide --old/--new or --change")
+        parser.error('Must provide --old/--new or --change')
 
     # Parse test cases
     test_cases = []
     for tc_str in args.test_cases_str or []:
-        parts = tc_str.split("=")
+        parts = tc_str.split('=')
         if len(parts) != 2:
-            parser.error(f"Invalid test case format: {tc_str!r} (use LABEL=SUBSTRING:VERDICT)")
+            parser.error(f'Invalid test case format: {tc_str!r} (use LABEL=SUBSTRING:VERDICT)')
         label = parts[0]
-        sub_verdict = parts[1].split(":")
+        sub_verdict = parts[1].split(':')
         if len(sub_verdict) != 2:
-            parser.error(f"Invalid test case format: {tc_str!r} (use LABEL=SUBSTRING:VERDICT)")
+            parser.error(f'Invalid test case format: {tc_str!r} (use LABEL=SUBSTRING:VERDICT)')
         substring, verdict = sub_verdict
         test_cases.append((label, substring, verdict))
 
     if not test_cases:
-        parser.error("Must provide --test-case")
+        parser.error('Must provide --test-case')
 
     # Run
     tester = PromptTester(
@@ -289,11 +284,11 @@ Examples:
     results = tester.test(changes=changes, test_cases=test_cases, n_samples=args.samples, verbose=args.verbose)
 
     # Summary
-    passed = sum(1 for r in results if r["match"])
+    passed = sum(1 for r in results if r['match'])
     total = len(results)
-    print(f"\n{passed}/{total} tests passed")
+    print(f'\n{passed}/{total} tests passed')
     sys.exit(0 if passed == total else 1)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
