@@ -3,15 +3,19 @@
 import os
 from pathlib import Path
 from enum import Enum
+from typing import TYPE_CHECKING
 from dataclasses import dataclass
 
-try:
+if TYPE_CHECKING:
     from nacsos_data.util.conf import DatabaseConfig
-except ImportError:
-    from pydantic import BaseModel
+else:
+    try:
+        from nacsos_data.util.conf import DatabaseConfig
+    except ImportError:
+        from pydantic import BaseModel
 
-    class DatabaseConfig(BaseModel):
-        pass
+        class DatabaseConfig(BaseModel):
+            pass
 
 
 from pydantic import Field

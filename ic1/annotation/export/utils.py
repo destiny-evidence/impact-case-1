@@ -1,5 +1,6 @@
 import json
 import logging
+from typing import Any
 
 import pandas as pd
 import sqlalchemy as sa
@@ -7,7 +8,6 @@ from nacsos_data.db.schemas import BotAnnotationMetaData
 
 from nacsos_data.db.schemas.annotations import AnnotationScheme, AssignmentScope
 from nacsos_data.models.annotations import AnnotationSchemeLabel
-from nacsos_data.models.nql import NQLFilter
 from nacsos_data.util.annotations import get_ordering, read_bot_annotations
 from nacsos_data.util.annotations.export import LabelOptions, prepare_export_table
 from nacsos_data.util.annotations.resolve import read_scopes_for_scheme
@@ -167,7 +167,7 @@ async def read_dataframes(
     resolved_ids: list[str] | None = None,
     scope_ids: list[str] | None = None,
     labels: list[LabelOptions] | None = None,
-    nql_filter: NQLFilter | None = None,
+    nql_filter: Any = None,  # nacsos_data NQLFilter; its Annotated alias embeds ForwardRefs ty cannot resolve
     columns: list[str] | None = None,
     item_scopes: pd.DataFrame | None = None,
 ) -> tuple[list[str], pd.DataFrame, pd.DataFrame]:

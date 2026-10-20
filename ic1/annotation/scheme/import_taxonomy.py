@@ -25,7 +25,8 @@ import csv
 import json
 import re
 from datetime import datetime, timezone
-from pathlib import Path
+from pathlib import Path, PurePath
+from typing import TypedDict
 
 from rdflib import Graph
 from rdflib.namespace import SKOS, RDF, DCTERMS
@@ -92,14 +93,30 @@ class KeyRegistry:
         return self.make_key(f'k_{code}')
 
 
-def parse_vocabulary_to_nacsos(ttl_filepath: str, project_id: str, scheme_id: str):
+class Scheme(TypedDict):
+    uri: str
+    name: str
+    description: str | None
+
+
+class Concept(TypedDict):
+    uri: str
+    code: str
+    name: str
+    hint: str | None
+    in_scheme: str | None
+    broader: str | None
+    children: list['Concept']
+
+
+def parse_vocabulary_to_nacsos(ttl_filepath: str | PurePath, project_id: str, scheme_id: str):
     g = Graph()
     g.parse(ttl_filepath, format='turtle')
 
     registry = KeyRegistry()
 
     # 1. Concept schemes (top-level annotation dimensions)
-    schemes = []
+    schemes: list[Scheme] = []
     for s, _p, _o in g.triples((None, RDF.type, SKOS.ConceptScheme)):
         title = g.value(s, DCTERMS.title) or g.value(s, SKOS.prefLabel)
         desc = g.value(s, DCTERMS.description) or g.value(s, SKOS.definition)
@@ -112,7 +129,7 @@ def parse_vocabulary_to_nacsos(ttl_filepath: str, project_id: str, scheme_id: st
         )
 
     # 2. Concepts
-    concepts = {}
+    concepts: dict[str, Concept] = {}
     for s, _p, _o in g.triples((None, RDF.type, SKOS.Concept)):
         uri = str(s)
         pref_label = g.value(s, SKOS.prefLabel)
@@ -130,19 +147,19 @@ def parse_vocabulary_to_nacsos(ttl_filepath: str, project_id: str, scheme_id: st
         }
 
     # 3. Reconstruct the concept tree
-    top_level_concepts_by_scheme = {s['uri']: [] for s in schemes}
+    top_level_concepts_by_scheme: dict[str, list[Concept]] = {s['uri']: [] for s in schemes}
     for _uri, concept in concepts.items():
         parent_uri = concept['broader']
         scheme_uri = concept['in_scheme']
         if parent_uri and parent_uri in concepts:
             concepts[parent_uri]['children'].append(concept)
-        elif scheme_uri in top_level_concepts_by_scheme:
+        elif scheme_uri and scheme_uri in top_level_concepts_by_scheme:
             top_level_concepts_by_scheme[scheme_uri].append(concept)
 
     # 4. Build choices, capturing the (label_key, value) -> concept mapping as we go.
     mapping: list[dict] = []
 
-    def build_choices(concept_list: list, label_key: str, depth: int, scheme_uri: str, scheme_name: str) -> list[AnnotationSchemeLabelChoice]:
+    def build_choices(concept_list: list[Concept], label_key: str, depth: int, scheme_uri: str, scheme_name: str) -> list[AnnotationSchemeLabelChoice]:
         choices_output = []
         # Order concepts alphabetically by prefLabel at every level. local_idx (the choice
         # `value`) follows this order -> 0..n contiguous (UI requirement) and deterministic.
