@@ -28,6 +28,7 @@ from ic1.reporting.loaders import (
     inout_unanimous_dispersion,
     load_inout_annotations,
     load_inout_comparison,
+    load_crowd_screeners,
     load_inout_crowd,
     load_inout_model_costs,
     load_inout_prompt_churn,
@@ -211,7 +212,12 @@ def build_inout_annotation(formats: tuple[str, ...]) -> None:
             comp = load_inout_comparison()
         except (FileNotFoundError, ValueError):
             comp = None
-        _save(plot_crowd_pr(crowd, f1df=f1, comparison=comp), "inout", "crowd_pr", formats)
+        try:
+            screeners = load_crowd_screeners()
+        except FileNotFoundError:
+            screeners = None
+        _save(plot_crowd_pr(crowd, f1df=f1, comparison=comp, screeners=screeners),
+              "inout", "crowd_pr", formats)
         _write_table(crowd_markdown(crowd), "inout_crowd")
         print(
             f"  crowd: {int(crowd.loc[crowd.label == 'all crowd items', 'n'].iloc[0]):,} "

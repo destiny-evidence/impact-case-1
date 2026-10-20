@@ -11,7 +11,9 @@ title: Crowd screening
 :width: 100%
 **Crowd screening in precision–recall space.** The crowd (orange) with 95% highest-density intervals
 from a Dirichlet–multinomial confusion-matrix posterior, over iso-F1 (grey) and iso-F2 (mauve,
-recall-weighted) contours. Faded blue circles are the individual human coders and the faded markers
+recall-weighted) contours. Each small orange point is one crowd screener, sized by the number of
+votes they cast and filled if they have screened 1,000 RCTs (open if not); screeners with fewer than
+20 votes are omitted. Faded blue circles are the individual human coders and the faded markers
 the automated systems (from {numref}`the head-to-head <inout-comparison>`), shown for context. The
 crowd is scored over the 1,000 documents it saw — which span every split — whereas the systems are
 scored on the 648-document held-out test set, so positions are indicative rather than strictly
