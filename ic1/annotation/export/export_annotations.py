@@ -1,9 +1,11 @@
-"""Export annotations for a NACSOS annotation scheme to CSV.
+"""Export the annotations of an annotation scheme (in/out or taxonomy) to CSV.
 
-Companion to ``import_taxonomy.py``: use this to inspect the *exact* column naming
-NACSOS produces for an export, so we can confirm the concept<->scheme mapping joins
-on the right keys.
+The scheme, assignment scopes and resolution ids come from the task configuration in
+``ic1.core.config``; ``--export-all-annotated`` instead exports every scope and
+resolution of the scheme in the database.
 
+Rows are long-format: one row per (item, annotator), with a ``username`` column
+('RESOLVED' for resolved labels) and the ``assignment_scope_id`` of each row.
 NACSOS names each annotation column by the label ``key`` and the choice ``value``.
 There are two export code paths in nacsos_data:
 
@@ -15,14 +17,22 @@ There are two export code paths in nacsos_data:
   * ``prepare_export_table`` (used here) takes an explicit ``labels`` list. Its
     ``_get_label_selects`` emits one column *per declared value*, used or not, so we
     get the complete, stable column set: exactly one ``<label_key>|<value>`` column
-    per concept. Rows are long-format: one row per (item, annotator), with a
-    ``username`` column ('RESOLVED' for resolved labels).
+    per concept.
 
 We build that complete ``labels`` list by reading the scheme back from the database
 (the authoritative definition) and walking every label / nested child label.
 
-The scheme id (SCHEME_ID) is imported from import_taxonomy.py so there is a single
-source of truth; run the import there first.
+Four files are written per task (paths in ``TaskConfig``):
+
+  * the sensitive export, with real usernames, ``user_id`` and document ``text``
+    (``data/private/exports/<task>.csv``);
+  * its RESOLVED rows (``<task>_resolved.csv``);
+  * the shareable export, with usernames replaced by stable pseudonyms and ``user_id``
+    and ``text`` dropped (``data/exports/<task>.csv``);
+  * its RESOLVED rows (``<task>_resolved.csv``).
+
+For the taxonomy, ``data/private/taxonomy_resolved_ids.json`` (if present) restricts the
+two ``*_resolved.csv`` files to the listed item ids; the full exports are unaffected.
 """
 
 import asyncio

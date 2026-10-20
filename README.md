@@ -73,15 +73,13 @@ Scripts are run from the repo root.
 ### 2. Export annotations and resolve
 
 ```bash
-python ic1/annotation/export/export_annotations.py --task inout
+uv run ic1 export csv --kind inout
 ```
 
 Writes `data/exports/inout.csv` (shareable) and `data/private/exports/inout.csv`
 (sensitive, DVC-tracked). Also writes/updates `datapackage.json` describing all resources.
 
-This calls `ic1.annotation.export.resolve_annotations.resolve_annotations()`, but this can also be called as a separate script.
-
-Resolving filters the sensitive export to RESOLVED rows only → `data/private/exports/inout_resolved.csv`.
+The same command writes the RESOLVED rows only to `data/private/exports/inout_resolved.csv` (sensitive) and `data/exports/inout_resolved.csv` (shareable).
 
 ### 3. Create deet project
 
