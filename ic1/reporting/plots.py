@@ -1035,6 +1035,7 @@ def plot_crowd_pr(
     crowd: pd.DataFrame,
     f1df: pd.DataFrame | None = None,
     comparison: pd.DataFrame | None = None,
+    screeners: pd.DataFrame | None = None,
     *,
     figsize: tuple[float, float] | None = None,
     title: str | None = None,
@@ -1045,7 +1046,10 @@ def plot_crowd_pr(
     95% HDI whiskers on recall and precision). When ``f1df`` (``inout_coder_f1``)
     and/or ``comparison`` (``load_inout_comparison``) are supplied they are drawn
     as a faded reference cloud — the human coders and the automated systems — so
-    the crowd can be read against both. Note the scopes are scored over different
+    the crowd can be read against both. When ``screeners``
+    (``load_crowd_screeners``) is supplied each crowd screener is drawn as an
+    orange point sized by vote count; filled points have screened 1,000 RCTs,
+    open points have not. Note the scopes are scored over different
     document sets (the crowd over the 1,000 it saw; systems over the 648-doc test
     set), so relative positions are indicative.
     """
@@ -1075,6 +1079,13 @@ def plot_crowd_pr(
             ax.scatter(r["recall"], r["precision"], marker=marker, s=110,
                        facecolors=color, edgecolors="black", linewidths=0.7,
                        alpha=0.45, zorder=5)
+
+    if screeners is not None:
+        for flag, face in ((True, _CROWD_COLOR), (False, "white")):
+            s = screeners[screeners.screened_1000 == flag]
+            ax.scatter(s.recall, s.precision, s=25 + 200 * np.sqrt(s.n / screeners.n.max()),
+                       facecolors=face, edgecolors=_CROWD_COLOR, linewidths=1.0,
+                       alpha=0.55, zorder=4.5)
 
     for _, r in crowd.iterrows():
         xerr = [[r.recall - r.recall_lo], [r.recall_hi - r.recall]]
@@ -1110,6 +1121,13 @@ def plot_crowd_pr(
             Line2D([0], [0], marker=mk, color="#777777", linestyle="none", markersize=8,
                    label=f)
             for f, mk in _FAMILY_MARKERS.items() if (comparison["family"] == f).any()
+        ]
+    if screeners is not None:
+        handles += [
+            Line2D([0], [0], marker="o", color=_CROWD_COLOR, linestyle="none", alpha=0.55,
+                   markersize=8, markerfacecolor=face, label=label)
+            for face, label in ((_CROWD_COLOR, "crowd screener (has screened 1,000 RCTs)"),
+                                ("white", "crowd screener (has not)"))
         ]
     ax.legend(handles=handles, loc="lower left", fontsize=8)
     return fig

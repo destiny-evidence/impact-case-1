@@ -32,6 +32,7 @@ DEFAULT_SPLITS_PATH = _REPO_ROOT / "data" / "exports" / "inout_splits.json"
 
 _INCLUDE_FILE = "DESTINY_Crowd_possibly_relevant.txt"
 _EXCLUDE_FILE = "DESTINY_Crowd_exclude.txt"
+_SCREENER_XLSX = "Climate_quest_test_august_results_anonymised_SHARED.xlsx"
 
 GOLD_USER = "RESOLVED"
 
@@ -135,4 +136,48 @@ def load_inout_crowd(
     test = dec[dec.in_test]
     if len(test):
         rows.append(_score(test, "test subset", seed=seed))
+    return pd.DataFrame(rows)
+
+
+def load_crowd_screeners(
+    crowd_dir: Path | str | None = None,
+    resolved_csv: Path | str | None = None,
+    *,
+    min_n: int = 20,
+) -> pd.DataFrame:
+    """Point precision/recall of each crowd screener against the adjudicated gold.
+
+    Reads the crowd workbook, keeping ``Screener`` rows only (resolver rows are
+    excluded). One row per screener: ``n`` scored votes, ``precision``, ``recall``
+    and ``screened_1000`` (the self-reported "has screened 1000 RCT records" flag).
+    Screeners with fewer than ``min_n`` votes, or no include votes, are dropped
+    because their precision or recall is too noisy to plot. Raises
+    ``FileNotFoundError`` when the private workbook is absent.
+    """
+    d = Path(crowd_dir) if crowd_dir is not None else DEFAULT_CROWD_DIR
+    item_of = {r["AN"]: r["MISC3"] for r in _parse_ris(d / _INCLUDE_FILE) + _parse_ris(d / _EXCLUDE_FILE)}
+
+    res = pd.read_csv(Path(resolved_csv) if resolved_csv is not None else DEFAULT_RESOLVED_CSV)
+    gold = res[res.username == GOLD_USER].set_index("item_id")["incl|1"]
+
+    wb = pd.read_excel(d / _SCREENER_XLSX, sheet_name=0, dtype=str)
+    wb = wb[wb["Screener Type"] == "Screener"].copy()
+    wb["item_id"] = wb["Record/CRSD ID"].map(item_of)
+    wb["gold"] = wb.item_id.map(gold)
+    wb = wb.dropna(subset=["gold"])
+    wb["gold"] = wb.gold.astype(int)
+    wb["decision"] = (wb["User Decision"] == "Possibly relevant").astype(int)
+
+    rows = []
+    for user, g in wb.groupby("User ID"):
+        yt, yp = g.gold.to_numpy(), g.decision.to_numpy()
+        if len(yt) < min_n or yp.sum() == 0:
+            continue
+        rows.append({
+            "user": user,
+            "n": int(len(yt)),
+            "precision": precision_score(yt, yp, zero_division=0),
+            "recall": recall_score(yt, yp, zero_division=0),
+            "screened_1000": g["Has Screened 1000 rct records"].iloc[0] == "Yes",
+        })
     return pd.DataFrame(rows)
