@@ -9,10 +9,11 @@ from ic1.evaluation_splits.splits_model import EvaluationSplits
 
 def main(task: Annotated[TaskName, typer.Option(help='The annotation task task to be exported')] = TaskName.ALL):
     from deet.data_models.evaluation_strategies.dev_val_test import DevValTestSplits, DeetProject
+
     if task == TaskName.ALL:
         selected = TASKS
     else:
-        selected = {task.value: TASKS[task.value]}
+        selected = {task: TASKS[task]}
 
     for task_config in selected.values():
         deet_project = DeetProject.load(project_dir=task_config.deet_project_path)

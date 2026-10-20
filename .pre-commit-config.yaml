@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: 2700fd5671c633760d912769c041bfcde2b9a01b # v0.15.22
+    hooks:
+      - id: ruff
+        args:
+          - --config=pyproject.toml
+          - --fix
+      - id: ruff-format
+        args:
+          - --config=pyproject.toml
+
+  - repo: local
+    hooks:
+      - id: ty
+        name: ty
+        entry: uv run --all-extras ty check
+        language: system
+        types: [python]
+        pass_filenames: false
+
+      - id: dvc-pushed
+        name: DVC data is pushed to remote
+        entry: uv run --all-extras python hooks/check_dvc_pushed.py
+        language: system
+        files: '(\.dvc|dvc\.lock|dvc\.yaml)$'
+        pass_filenames: false

@@ -7,7 +7,7 @@ from __future__ import annotations
 import logging
 import warnings
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, cast
 from pathlib import Path
 import json
 import numpy as np
@@ -20,7 +20,7 @@ from ._abc import ClassifierBase
 
 if TYPE_CHECKING:
     from datasets import Dataset
-    from transformers import TokenizersBackend
+    from transformers import SentencePieceBackend, TokenizersBackend
     from transformers.trainer_utils import PredictionOutput
 
 
@@ -62,13 +62,15 @@ def _get_custom_classes():  # type: ignore[no-untyped-def]
             outputs = model(**inputs)
             y_pred = self.activation(outputs.logits)
 
-            criterion = self.loss(weight=self.args.class_weights if self.args.use_class_weights else None)  # type: ignore[arg-type]
+            # class_weights arrives as a Tensor from fit and as a list after get_params round-trip; CrossEntropyLoss accepts both paths via tensor coercion
+            criterion = self.loss(weight=cast('torch.Tensor | None', self.args.class_weights if self.args.use_class_weights else None))
             loss = criterion(y_pred, y_true)
 
             return (loss, outputs) if return_outputs else loss
 
         def predict_proba(self, test_dataset: Dataset) -> np.ndarray:
-            predictions = self.predict(test_dataset).predictions
+            # transformers' Trainer.predict accepts an HF datasets.Dataset; its stub only names the torch one
+            predictions = self.predict(cast('torch.utils.data.dataset.Dataset[Any]', test_dataset)).predictions
             # Encoder-decoder models (e.g. T5ForSequenceClassification) return a tuple of outputs
             # (logits first, then hidden states etc.); classification logits are element 0.
             if isinstance(predictions, (tuple, list)):
@@ -103,7 +105,7 @@ class HuggingfaceClassifier(ClassifierBase):
         CustomTrainingArguments, CustomTrainer = _get_custom_classes()  # type: ignore[no-untyped-call]
 
         self.model_: CustomTrainer | None = None  # type: ignore[valid-type] # noqa: F821
-        self.tokenizer_: TokenizersBackend | None = None
+        self.tokenizer_: TokenizersBackend | SentencePieceBackend | None = None
         self.classes_: np.ndarray | None = None
 
     @property
@@ -112,14 +114,14 @@ class HuggingfaceClassifier(ClassifierBase):
             raise RuntimeError('Model not initialised')
         return len(self.classes_)
 
-    def fit(self, X: list[str], y: list[int]) -> 'HuggingfaceClassifier':
+    def fit(self, X: list[str], y: np.ndarray) -> 'HuggingfaceClassifier':
         self.train(x=X, y=y)
         return self
 
     def train(
         self,
         x: list[str] | None = None,
-        y: list[int] | None = None,
+        y: np.ndarray | None = None,
         dataset: Dataset | None = None,
     ) -> None:
         import torch
@@ -169,7 +171,7 @@ class HuggingfaceClassifier(ClassifierBase):
         from torch import tensor, long
 
         if self.tokenizer_ is None:
-            self.tokenizer_ = AutoTokenizer.from_pretrained(  # type: ignore[assignment]
+            self.tokenizer_ = AutoTokenizer.from_pretrained(
                 self.model_name,
                 model_max_length=self.model_max_length,
                 cache_dir=settings.OFFLINE_MODELS_DIR,
@@ -180,7 +182,9 @@ class HuggingfaceClassifier(ClassifierBase):
             params['labels'] = tensor(labels, dtype=long)
         dataset = Dataset.from_dict(params)
 
-        dataset = dataset.map(lambda x: self.tokenizer_(x['text'], padding='max_length', truncation=True), batched=True)  # type: ignore[misc]
+        tokenizer = self.tokenizer_
+        assert tokenizer is not None  # set above; re-narrows the attribute across the intervening calls
+        dataset = dataset.map(lambda x: tokenizer(x['text'], padding='max_length', truncation=True), batched=True)  # type: ignore[misc]
         dataset.set_format('torch')
 
         return dataset.remove_columns('text')

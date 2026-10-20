@@ -5,6 +5,7 @@ from typing import Callable, Any, TYPE_CHECKING
 
 import joblib
 import numpy as np
+import numpy.typing as npt
 
 from ._abc import ClassifierBase
 
@@ -30,7 +31,7 @@ class SklearnClassifier(ClassifierBase):
         self.model_: 'Pipeline | None' = None
         self.classes_: np.ndarray | None = None
 
-    def fit(self, X: list[str], y: list[int]) -> 'SklearnClassifier':
+    def fit(self, X: list[str], y: 'npt.ArrayLike') -> 'SklearnClassifier':
         params = {k: v for k, v in self.model_params_.items() if k not in {'downsampling', 'ngram_range_max'}}
         # Optuna JSON-serialises user_attrs, so tuple params (e.g. ngram_range) return as lists;
         # sklearn requires tuples, so coerce them back.

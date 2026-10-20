@@ -59,7 +59,7 @@ def main(
         db_engine = get_engine_async(settings=settings.DB)
 
         row: pd.Series
-        df: pd.Series
+        df: pd.DataFrame
 
         async with db_engine.session() as session:
             project_id, labels, label_options, label_cols, scope_ids, resolved_ids = await get_task_infos(

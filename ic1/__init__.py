@@ -34,14 +34,14 @@ def main():
         app.command('import-taxonomy', help='Import *.ttl as annotation scheme into NACSOS')(import_taxonomy)
     except ImportError as exc:
         logging.getLogger('ic1').warning(
-            f'nacsos_data unavailable ({exc}); "export" and "import-taxonomy" commands disabled. '
-            'Install with the "nacsos" extra to enable them.'
+            f'nacsos_data unavailable ({exc}); "export" and "import-taxonomy" commands disabled. Install with the "nacsos" extra to enable them.'
         )
 
     try:
         from ic1.deet import app as deet_app
+
         app.add_typer(deet_app, name='deet', help='Create and manage deet projects')
-    except ImportError as e:
+    except ImportError:
         logging.getLogger('ic1').warning('deet extra not installed')
 
     def tree_command(ctx: typer.Context):
@@ -49,6 +49,7 @@ def main():
         click_root = get_command(app)  # resolve Typer -> Click command tree
         print('Tree of available commands:')
         root_context = Context(click_root, parent=ctx.parent)
+        assert isinstance(click_root, TyperGroup)  # a Typer app always resolves to a TyperGroup
         _print_tree(click_root, root_context)
 
     def _print_tree(group: TyperGroup, context: Context, prefix: str = ''):

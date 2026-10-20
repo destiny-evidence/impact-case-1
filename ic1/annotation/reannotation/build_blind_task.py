@@ -62,13 +62,16 @@ async def create_task(plan: dict[str, pd.DataFrame], write: bool) -> None:
 
     async with db_engine.session() as session:
         original = await read_annotation_scheme(session=session, annotation_scheme_id=scheme_id)
-        user_ids = dict(
-            (
+        if original is None:
+            raise SystemExit(f'Annotation scheme {scheme_id} not found.')
+        user_ids = {
+            row.username: row.user_id
+            for row in (
                 await session.execute(
                     sa.select(User.username, User.user_id).where(User.username.in_(REVIEWER_USERNAMES.values())),
                 )
-            ).all(),
-        )
+            ).all()
+        }
         existing = (await session.execute(sa.select(AnnotationScheme.name).where(AnnotationScheme.name.like('%re-screen%')))).scalars().all()
 
     if len(user_ids) != len(REVIEWER_USERNAMES):
@@ -77,9 +80,10 @@ async def create_task(plan: dict[str, pd.DataFrame], write: bool) -> None:
         raise SystemExit(f'Re-screen schemes already exist: {existing}. Remove them before creating new ones.')
 
     for code, rows in plan.items():
+        new_scheme_id = uuid.uuid4()
         scheme = original.model_copy(
             update={
-                'annotation_scheme_id': uuid.uuid4(),
+                'annotation_scheme_id': new_scheme_id,
                 'name': f'{original.name} | re-screen {code}',
                 'time_created': None,
             },
@@ -90,13 +94,13 @@ async def create_task(plan: dict[str, pd.DataFrame], write: bool) -> None:
             AssignmentModel(
                 assignment_id=uuid.uuid4(),
                 assignment_scope_id=scope_id,
-                annotation_scheme_id=scheme.annotation_scheme_id,
-                order=int(row.order),
-                item_id=row.item_id,
+                annotation_scheme_id=new_scheme_id,
+                order=int(order),
+                item_id=item_id,
                 user_id=user_id,
                 status=AssignmentStatus.OPEN,
             )
-            for row in rows.itertuples()
+            for order, item_id in zip(rows['order'], rows['item_id'], strict=True)
         ]
 
         arms = rows.arm.value_counts().to_dict()

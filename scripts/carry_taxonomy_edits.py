@@ -13,34 +13,35 @@ from rdflib.namespace import RDF, SKOS
 
 FIELDS = (SKOS.definition, SKOS.scopeNote)
 
+
 def main(
     target: Path = typer.Argument(
         ...,
         exists=True,
         dir_okay=False,
         readable=True,
-        help="Taxonomy (Turtle) file to write definitions/scope notes onto.",
+        help='Taxonomy (Turtle) file to write definitions/scope notes onto.',
     ),
     source: Path = typer.Option(
         ...,
-        "--source",
-        "-s",
+        '--source',
+        '-s',
         exists=True,
         dir_okay=False,
-        help="Taxonomy file to take definitions/scope notes from.",
+        help='Taxonomy file to take definitions/scope notes from.',
     ),
-    suffix: str = typer.Option("_edited", help="Suffix for the output filename."),
+    suffix: str = typer.Option('_edited', help='Suffix for the output filename.'),
     output: Path = typer.Option(
         None,
-        "--output",
-        "-o",
-        help="Explicit output path. Defaults to the target name plus the suffix.",
+        '--output',
+        '-o',
+        help='Explicit output path. Defaults to the target name plus the suffix.',
     ),
 ) -> None:
     """Overlay SOURCE's definitions and scope notes onto TARGET's concepts."""
     src_g, tgt_g = Graph(), Graph()
-    src_g.parse(source, format="turtle")
-    tgt_g.parse(target, format="turtle")
+    src_g.parse(source, format='turtle')
+    tgt_g.parse(target, format='turtle')
 
     target_concepts = set(tgt_g.subjects(RDF.type, SKOS.Concept))
     updated = 0
@@ -53,12 +54,12 @@ def main(
                 tgt_g.add((concept, field, value))
         updated += 1
 
-    destination = output or target.with_name(f"{target.stem}{suffix}{target.suffix}")
-    tgt_g.serialize(destination=destination, format="turtle")
+    destination = output or target.with_name(f'{target.stem}{suffix}{target.suffix}')
+    tgt_g.serialize(destination=destination, format='turtle')
 
-    typer.echo(f"Overlaid definitions/scope notes onto {updated} shared concept(s).")
-    typer.echo(f"Wrote {destination}")
+    typer.echo(f'Overlaid definitions/scope notes onto {updated} shared concept(s).')
+    typer.echo(f'Wrote {destination}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     typer.run(main)

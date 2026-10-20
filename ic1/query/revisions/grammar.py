@@ -166,7 +166,7 @@ def parse(query, expansions: dict[str, list[str]] | None = None, parent: str | N
             )
 
         if subtree.data == 'near':
-            near = int(subtree.children[1].value) + NEAR_OFFSET
+            near = int(str(subtree.children[1])) + NEAR_OFFSET
             near_str = 'W' if near < 2 else f'{near}W'
             return (
                 '(\n'
@@ -180,20 +180,20 @@ def parse(query, expansions: dict[str, list[str]] | None = None, parent: str | N
             return f'({" W ".join([recurse(child) for child in subtree.children])})'
 
         if subtree.data == 'wild_pre':
-            return expand_wildcard(subtree.children[0].value, prefix='', postfix='*', expansions=expansions)
+            return expand_wildcard(str(subtree.children[0]), prefix='', postfix='*', expansions=expansions)
         if subtree.data == 'wild_post':
-            return expand_wildcard(subtree.children[0].value, prefix='', postfix='', expansions=expansions)  # FIXME: postfix not available in surround
+            return expand_wildcard(str(subtree.children[0]), prefix='', postfix='', expansions=expansions)  # FIXME: postfix not available in surround
         if subtree.data == 'wild_prepost':
             # FIXME: postfix not available in surround
             # return ('('
             #         f'{expand_wildcard(subtree.children[0].value, prefix='', postfix='*', expansions=expansions)} OR '
             #         f'{expand_wildcard(subtree.children[0].value, prefix='*', postfix='', expansions=expansions)}'
             #         ')')
-            return expand_wildcard(subtree.children[0].value, prefix='', postfix='', expansions=expansions)
+            return expand_wildcard(str(subtree.children[0]), prefix='', postfix='', expansions=expansions)
         if subtree.data == 'wild_in':
-            return f'{subtree.children[0].value}?{subtree.children[1].value}'
+            return f'{subtree.children[0]}?{subtree.children[1]}'
         if subtree.data == 'wild_one':
-            return f'{subtree.children[0].value}?'
+            return f'{subtree.children[0]}?'
 
         raise SyntaxError("You shouldn't end up here.")
 

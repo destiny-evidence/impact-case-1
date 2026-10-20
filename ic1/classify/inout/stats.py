@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 def stats(
     tuning_dir: Annotated[Path, typer.Option(help='Directory to write tuning results to')] = TASK.tuning_results_path,
-):
+) -> None:
     results = read_tuning_results(tuning_dir)
     df_results = results_to_pd(results)
     logger.info(f'Found {df_results.shape} tuning results')

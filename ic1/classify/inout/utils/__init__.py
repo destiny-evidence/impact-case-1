@@ -1,6 +1,7 @@
 import hashlib
 import json
 import logging
+from typing import cast
 
 import numpy as np
 
@@ -21,9 +22,8 @@ def hash_ids(ids: list[str]) -> str:
 
 
 def compute_class_weights(labels: np.ndarray | list[int]) -> np.ndarray:
-    if type(labels) is list:
-        labels = np.array(labels)
-    return labels.shape[0] / (2 * np.unique_counts(labels).counts)  # type: ignore[no-any-return, union-attr]
+    labels = np.asarray(labels)
+    return cast('np.ndarray', labels.shape[0] / (2 * np.unique_counts(labels).counts))
 
 
 __all__ = [
@@ -39,5 +39,5 @@ __all__ = [
     'evaluate',
     'compute_class_weights',
     'ensure_offline_models',
-    'threshold_scores'
+    'threshold_scores',
 ]

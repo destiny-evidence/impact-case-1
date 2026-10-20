@@ -58,8 +58,10 @@ def hyperparameter_tuning(
         )
         start_time = time.time()
         study = helper.tune(
-            X_train=x_train, y_train=y_train,
-            X_test=x_val, y_test=y_val,
+            X_train=x_train,
+            y_train=y_train,
+            X_test=x_val,
+            y_test=y_val,
             scoring=scoring,
         )
         tune_time = time.time() - start_time
