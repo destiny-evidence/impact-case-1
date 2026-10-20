@@ -7,9 +7,12 @@ PowerPoint.
 
 from __future__ import annotations
 
+from typing import cast
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.artist import Artist
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
 from matplotlib.lines import Line2D
@@ -78,10 +81,11 @@ def _plot_broken_series(ax: Axes, g: pd.DataFrame, metric: str, *, color: str, m
 def _draw_spans(ax: Axes, spans: list[dict], *, label: bool = False) -> None:
     """Shade x-regions (baseline / dev / validation cycles); optionally label."""
     for s in spans:
-        ax.axvspan(s['x0'], s['x1'], zorder=0, **CYCLE_SHADE.get(s['kind'], {}))
+        x0, x1 = float(s['x0']), float(s['x1'])
+        ax.axvspan(x0, x1, zorder=0, **CYCLE_SHADE.get(s['kind'], {}))
         if not label:
             continue
-        mid = (s['x0'] + s['x1']) / 2
+        mid = (x0 + x1) / 2
         if s['kind'] == 'baseline':
             ax.text(mid, 0.04, s['label'], ha='center', va='bottom', fontsize=8, color='#555555', transform=ax.get_xaxis_transform())
         else:
@@ -146,7 +150,7 @@ def plot_cost_performance(
     ax.set_title(title or 'Model selection — accuracy vs cost, in/out screen')
 
     # Secondary axis: the same thing expressed per document.
-    secax = ax.secondary_xaxis('top', functions=(lambda x: x / corpus_size, lambda x: x * corpus_size))
+    secax = ax.secondary_xaxis('top', functions=(lambda x: np.asarray(x) / corpus_size, lambda x: np.asarray(x) * corpus_size))
     secax.set_xlabel('cost per document (USD)')
     secax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f'${v:.3f}'))
 
@@ -303,7 +307,8 @@ def _draw_metric_panel(
 ) -> None:
     """Draw one metric panel: shaded spans + per-(colour, model) series."""
     _draw_spans(ax, spans, label=label_spans)
-    for (color_key, model_short), g in sub.groupby(['method_label', 'model_short'], sort=False):
+    for key_pair, g in sub.groupby(['method_label', 'model_short'], sort=False):
+        color_key, model_short = cast('tuple[str, str]', key_pair)
         _plot_broken_series(
             ax,
             g.sort_values('x'),
@@ -418,7 +423,7 @@ def plot_taxonomy_level_scores(
     ax.set_title(title or f'Per-node {_metric_ylabel(metric)} — {scores.run.iloc[0]}')
 
     max_lv = int(scores.level.max())
-    color_handles = [
+    color_handles: list[Artist] = [
         Line2D([0], [0], marker='o', linestyle='none', markerfacecolor=shade(lv), markeredgecolor='white', markersize=8, label=f'level {lv}')
         for lv in range(max_lv + 1)
     ]
@@ -570,7 +575,7 @@ def plot_agreement_by_set(
     )
     ax.set_xlabel("Fleiss' κ")
     ax.set_xlim(min(0.0, by_set.fleiss.min() - 0.02), 1.0)
-    handles = [Patch(facecolor=SETSIZE_COLORS[s], label=f'{s} coders') for s in sorted(SETSIZE_COLORS) if (by_set['size'] == s).any()]
+    handles: list[Artist] = [Patch(facecolor=SETSIZE_COLORS[s], label=f'{s} coders') for s in sorted(SETSIZE_COLORS) if (by_set['size'] == s).any()]
     if overall is not None and not np.isnan(overall.get('fleiss', np.nan)):
         ax.axvline(overall['fleiss'], color='#333333', linestyle='--', linewidth=1.4, zorder=3)
         handles.append(Line2D([0], [0], color='#333333', linestyle='--', label=f'overall κ = {overall["fleiss"]:.2f}'))
@@ -1185,7 +1190,7 @@ def plot_iteration_timeline(
     axes[0].set_title(title or 'Prompt-engineering iterations — taxonomy classification')
 
     # Legends (right margin): colour dimension + model marker.
-    color_handles = [Line2D([0], [0], color=c, linewidth=2.5, label=m) for m, c in color_map.items() if m in sub.method_label.values]
+    color_handles: list[Artist] = [Line2D([0], [0], color=c, linewidth=2.5, label=m) for m, c in color_map.items() if m in sub.method_label.values]
     model_handles = [
         Line2D([0], [0], color='#333333', marker=mk, linestyle='none', markersize=8, label=m) for m, mk in MODEL_MARKERS.items() if m in sub.model_short.values
     ]

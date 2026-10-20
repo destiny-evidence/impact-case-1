@@ -7,6 +7,8 @@ internally consistent.
 
 from __future__ import annotations
 
+from typing import Any
+
 import matplotlib as mpl
 
 # Method lanes (used across timeline / matrix / cost figures).
@@ -52,7 +54,7 @@ MODEL_COLORS = {
 BASELINE_SHADE = {'color': '#cccccc', 'alpha': 0.18}
 
 # Shading tints for dev/validation/test cycle spans (in/out figure).
-CYCLE_SHADE = {
+CYCLE_SHADE: dict[str, dict[str, Any]] = {  # Any values: spread as **kwargs into axvspan
     'dev': {'color': '#b0b0b0', 'alpha': 0.22},
     'validation': {'color': '#e0951f', 'alpha': 0.34},  # orange — go/no-go gate
     'test': {'color': '#6a5acd', 'alpha': 0.34},  # purple — final measurement

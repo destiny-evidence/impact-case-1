@@ -13,6 +13,7 @@ micro (extra FP) and macro (forced zeros), so they are excluded.
 from __future__ import annotations
 
 import json
+from typing import Any, cast, TypedDict
 from pathlib import Path
 
 import pandas as pd
@@ -71,16 +72,15 @@ def _score_df(df: pd.DataFrame) -> dict:
     yt = df.human_extraction.fillna(False).astype(int)
     yp = df.llm_extraction.fillna(False).astype(int)
     macro = (
-        df.groupby('attribute_label')
-        .apply(
-            lambda a: f1_score(
-                a.human_extraction.fillna(False).astype(int),
-                a.llm_extraction.fillna(False).astype(int),
+        sum(
+            f1_score(
+                g.human_extraction.fillna(False).astype(int),
+                g.llm_extraction.fillna(False).astype(int),
                 zero_division=0,
-            ),
-            include_groups=False,
+            )
+            for _, g in df.groupby('attribute_label')
         )
-        .mean()
+        / df['attribute_label'].nunique()
     )
     return {
         'micro': f1_score(yt, yp, zero_division=0),
@@ -250,7 +250,8 @@ def load_taxonomy_scheme_scores(run: str, exp_dir: Path | str | None = None) -> 
     smap = _scheme_map((root.parent / c.get('vocabulary_path', '')).resolve())
     df = pd.read_csv(d / 'goldstandard_llm_comparison.csv').merge(smap, on='attribute_label', how='left')
     rows = []
-    for (scheme, title), grp in df.groupby(['scheme', 'scheme_title']):
+    for key_pair, grp in df.groupby(['scheme', 'scheme_title']):
+        scheme, title = cast('tuple[str, str]', key_pair)
         s = _score_df(grp)
         if s:
             rows.append({'run': run, 'scheme': scheme, 'scheme_title': title, **s})
@@ -301,7 +302,7 @@ def load_taxonomy_level_scores(run: str, exp_dir: Path | str | None = None) -> p
     label_group = {pref[c]: gkey(c) for c in pref if c in scheme}
     df = pd.read_csv(d / 'goldstandard_llm_comparison.csv')
     df['group_key'] = df.attribute_label.map(label_group)
-    scored = {k: s for k, grp in df.groupby('group_key') if (s := _score_df(grp))}
+    scored: dict[str, Any] = {str(k): s for k, grp in df.groupby('group_key') if (s := _score_df(grp))}
 
     def is_scheme(k: str) -> bool:
         return k.startswith('scheme:')
@@ -309,7 +310,14 @@ def load_taxonomy_level_scores(run: str, exp_dir: Path | str | None = None) -> p
     def group_scheme_uri(k: str) -> str:
         return k[len('scheme:') :] if is_scheme(k) else scheme[k]
 
-    def group_meta(k: str) -> dict:
+    class GroupMeta(TypedDict):
+        scheme: str
+        scheme_title: str
+        group_label: str
+        level: int
+        parent_group: str | None
+
+    def group_meta(k: str) -> GroupMeta:
         s_uri = group_scheme_uri(k)
         s_key = s_uri.rsplit('/', 1)[-1]
         s_title = titles.get(s_uri, s_key)
@@ -375,7 +383,8 @@ def load_taxonomy_concept_tree(run: str, exp_dir: Path | str | None = None) -> l
         (kids.setdefault(parent, []) if parent else top.setdefault(scheme[c], [])).append(c)
 
     df = pd.read_csv(d / 'goldstandard_llm_comparison.csv')
-    by_label = dict(df.groupby('attribute_label'))
+    # noqa C416: dict(groupby) is not equivalent -- GroupBy has .keys(), so dict() takes the mapping protocol and raises
+    by_label = {lab: sub for lab, sub in df.groupby('attribute_label')}  # noqa: C416
 
     def confusion(label: str) -> dict | None:
         sub = by_label.get(label)
@@ -445,7 +454,16 @@ def load_taxonomy_prompt_churn(exp_dir: Path | str | None = None) -> pd.DataFram
     ``load_taxonomy_runs``. The first run of each family has all-zero churn.
     """
     root = Path(exp_dir) if exp_dir is not None else DEFAULT_EXP_DIR
-    runs = []
+
+    class TaxRun(TypedDict):
+        run: str
+        ts: str
+        label: str
+        family: str
+        system_prompt: str
+        prompts: dict[str, str]
+
+    runs: list[TaxRun] = []
     for d in sorted(root.iterdir()):
         comp = d / 'goldstandard_llm_comparison.csv'
         cfg = d / 'config.yaml'
@@ -468,7 +486,7 @@ def load_taxonomy_prompt_churn(exp_dir: Path | str | None = None) -> pd.DataFram
     runs.sort(key=lambda r: r['ts'])
 
     rows = []
-    prev_by_family: dict[str, dict] = {}
+    prev_by_family: dict[str, TaxRun] = {}
     for r in runs:
         prev = prev_by_family.get(r['family'])
         if prev is None:

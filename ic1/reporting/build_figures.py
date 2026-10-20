@@ -113,7 +113,7 @@ def build_taxonomy(formats: tuple[str, ...]) -> None:
         formats,
     )
 
-    chosen = runs.loc[runs.micro.idxmax(), 'run']
+    chosen = str(runs.loc[runs.micro.idxmax(), 'run'])
     print(f'  per-scheme scores for {chosen}')
     scheme_scores = load_taxonomy_scheme_scores(chosen)
     _save(

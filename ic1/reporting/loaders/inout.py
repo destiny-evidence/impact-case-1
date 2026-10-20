@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import re
+from typing import Any, TypedDict
 from pathlib import Path
 
 import numpy as np
@@ -101,7 +102,21 @@ def _collect_states(root: Path, models: tuple[str, ...]) -> list[dict]:
     prompts/model/phase/docs collapse into one, so the timeline shows prompt
     states rather than repeated draws. Returned in chronological order.
     """
-    runs = []
+
+    class RunRow(TypedDict):
+        run: str
+        ts: str
+        label: str
+        model: str
+        model_short: str
+        votes: Any
+        phase: str
+        n_docs: int
+        system_prompt: str
+        prompts: dict[str, str]
+        modes: dict[str, dict[str, float]]
+
+    runs: list[RunRow] = []
     for d in sorted(root.iterdir()):
         if 'MODELCMP' in d.name:
             continue  # model-selection bake-off, not a prompt iteration
@@ -117,7 +132,7 @@ def _collect_states(root: Path, models: tuple[str, ...]) -> list[dict]:
         df = pd.read_csv(comp)
         ts, label = _parse_run_name(d.name)
         pdf = pd.read_csv(prompts)
-        modes = {MODE_LABELS[m]: _mode_scores(g) for m, g in df.groupby('attribute_label') if m in MODE_LABELS}
+        modes = {MODE_LABELS[lbl]: _mode_scores(g) for m, g in df.groupby('attribute_label') if (lbl := str(m)) in MODE_LABELS}
         runs.append(
             {
                 'run': d.name,
@@ -135,7 +150,7 @@ def _collect_states(root: Path, models: tuple[str, ...]) -> list[dict]:
         )
 
     # Fold resample siblings: same model / phase / docs / prompts -> one state.
-    groups: dict[tuple, list[dict]] = {}
+    groups: dict[tuple, list[RunRow]] = {}
     order: list[tuple] = []
     for r in runs:
         # Fold only true resample siblings: same cleaned label AND same config/
@@ -155,11 +170,11 @@ def _collect_states(root: Path, models: tuple[str, ...]) -> list[dict]:
             order.append(sig)
         groups[sig].append(r)
 
-    states = []
+    states: list[dict[str, Any]] = []
     for sig in order:
         grp = sorted(groups[sig], key=lambda r: r['ts'])
         rep = grp[0]
-        mode_names = {m for r in grp for m in r['modes']}
+        mode_names = sorted({m for r in grp for m in r['modes']})  # sorted: set order varies per process and leaks into draw order
         folded_modes = {
             m: {k: float(pd.Series([r['modes'][m][k] for r in grp if m in r['modes']]).mean()) for k in ('precision', 'recall', 'f1')} for m in mode_names
         }

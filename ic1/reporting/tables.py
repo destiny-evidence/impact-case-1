@@ -8,6 +8,7 @@ lives) and commit it, so the mystmd build needs no data or Python — it just
 from __future__ import annotations
 
 import html
+from typing import cast
 
 import matplotlib as mpl
 import pandas as pd
@@ -251,7 +252,7 @@ def annotation_f1_markdown(f1df: pd.DataFrame, *, decimals: int = 2) -> str:
     lines.append('|' + '|'.join([' '] * len(cols)) + '|')
     for name in ('average coder', 'pooled'):
         if name in summ.index:
-            lines.append(row(name, summ.loc[name], bold=True))
+            lines.append(row(name, cast('pd.Series', summ.loc[name]), bold=True))
     return '\n'.join(lines) + '\n'
 
 
