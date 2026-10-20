@@ -52,15 +52,17 @@ class PromptTester:
         self.gold_path = Path(gold_path)
 
         # Load base prompt and attribute_id
-        self.base_prompt = None
-        self.aid = None
+        base_prompt = None
+        aid = None
         for r in csv.DictReader(open(self.prompt_csv)):
             if r['attribute_label'].strip() == base_label:
-                self.base_prompt = r['prompt']
-                self.aid = int(r['attribute_id'])
+                base_prompt = r['prompt']
+                aid = int(r['attribute_id'])
                 break
-        if self.base_prompt is None:
+        if base_prompt is None or aid is None:
             raise ValueError(f"Prompt label '{base_label}' not found in {self.prompt_csv}")
+        self.base_prompt = base_prompt
+        self.aid = aid
 
         # Load extractor config
         self.config = DataExtractionConfig.from_yaml(self.config_path)

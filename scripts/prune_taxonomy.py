@@ -8,7 +8,8 @@ resources that belong to it via ``skos:inScheme``.
 from pathlib import Path
 
 import typer
-from rdflib import Graph, URIRef
+from rdflib import Graph
+from rdflib.term import Node
 from rdflib.namespace import DCTERMS, RDF, SKOS
 
 app = typer.Typer(add_completion=False)
@@ -31,7 +32,7 @@ REMOVALS = set(
 print(REMOVALS)
 
 
-def _depth(graph: Graph, concept: 'URIRef', cache: dict) -> int:
+def _depth(graph: Graph, concept: Node, cache: dict[Node, int]) -> int:
     """Depth of a concept: 1 for top concepts (no broader), else 1 + shallowest parent."""
     if concept in cache:
         return cache[concept]
@@ -75,7 +76,7 @@ def prune(
 
     deep_concepts = set()
     if max_depth is not None:
-        cache: dict = {}
+        cache: dict[Node, int] = {}
         deep_concepts = {c for c in graph.subjects(RDF.type, SKOS.Concept) if _depth(graph, c, cache) > max_depth}
 
     if not schemes_to_remove and not deep_concepts:

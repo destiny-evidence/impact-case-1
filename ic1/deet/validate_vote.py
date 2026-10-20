@@ -20,7 +20,7 @@ reject via the normal CLI. Usage:
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, cast
 
 import numpy as np
 import pandas as pd
@@ -30,7 +30,7 @@ from sklearn.metrics import precision_score, recall_score
 
 from ic1.core.config import TASKS, TaskName
 from deet.data_models.project import DeetProject, ExperimentArtefacts
-from deet.data_models.evaluation_strategies.dev_val_test import DevValTestEvaluationStage
+from deet.data_models.evaluation_strategies.dev_val_test import DevValTestEvaluationStage, DevValTestEvaluationStrategy
 from deet.extractors.cli_helpers import (
     evaluate_extraction_pipeline,
     run_extraction_pipeline,
@@ -49,7 +49,7 @@ def main(
     reset: Annotated[bool, typer.Option(help='Clear the current validation split and resample')] = False,
 ) -> None:
     project = DeetProject.load(project_dir=TASKS[task].deet_project_path)
-    strategy = project.load_evaluation_strategy()
+    strategy = cast(DevValTestEvaluationStrategy, project.load_evaluation_strategy())
     project_doc_ids = project.get_all_doc_ids()
 
     exp_path = Path(experiment)

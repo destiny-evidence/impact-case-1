@@ -24,7 +24,7 @@ classify = [
     "scikit-learn>=1.6",
 ]
 deet = [
-    "destiny-deet",
+    "destiny-deet[semantic]",
 ]
 nacsos = [
     "nacsos_data[utils,scripts]",
@@ -118,7 +118,7 @@ docstring-code-line-length = "dynamic"
 [tool.ruff.lint.flake8-quotes]
 docstring-quotes = "double"
 
-# Scope gate: widen `include` as each family is triaged; families outside it are unchecked.
 # Run in the full environment (`uv run --all-extras ty check`) so every extra's imports resolve.
+# data/, ignore/ and docs/ are not Python code and stay out of scope.
 [tool.ty.src]
-include = ["ic1/core", "ic1/classify", "ic1/evaluation_splits", "ic1/reporting", "ic1/annotation"]
+include = ["ic1", "scripts", "hooks", "notebooks"]

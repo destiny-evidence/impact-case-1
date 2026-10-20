@@ -5,6 +5,7 @@ repos:
       - id: ruff
         args:
           - --config=pyproject.toml
+          - --fix
       - id: ruff-format
         args:
           - --config=pyproject.toml

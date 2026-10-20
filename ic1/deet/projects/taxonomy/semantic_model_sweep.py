@@ -1,7 +1,7 @@
 from pathlib import Path
 import numpy as np
 import pandas as pd
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 from deet.data_models.enums import CustomPromptPopulationMethod
 from deet.data_models.project import DeetProject
 from deet.extractors.base_extractor import DataExtractionConfig
@@ -30,22 +30,30 @@ for i, ph in enumerate(phrases_per):
     owner.append(i)
 owner = np.array(owner)
 gold = pd.read_csv('data-extraction-experiments/2026-09-03_09-50-22_semantic/goldstandard_llm_comparison.csv')
-goldmap = {(r.attribute_id, r.document_id): bool(r.human_extraction) for r in gold.itertuples()}
+goldmap = {(aid, did): bool(human) for aid, did, human in zip(gold['attribute_id'], gold['document_id'], gold['human_extraction'], strict=True)}
 doc_sents = []
 for doc in docs:
     doc.set_abstract_context()
-    s = ex._split_into_sentences(doc.context)
-    doc_sents.append((int(doc.safe_identity.document_id), s))
+    did = doc.safe_identity.document_id
+    if did is None:
+        continue
+    s = ex._split_into_sentences(doc.context or '')
+    doc_sents.append((did, s))
 
 
 def sweep(model_name):
-    m = SentenceTransformer(model_name)
-    pe = m.encode(flat, show_progress_bar=False, convert_to_numpy=True, normalize_embeddings=True)
+    m = TextEmbedding(model_name)
+
+    def enc(texts: list[str]) -> np.ndarray:
+        v = np.array(list(m.embed(texts)), dtype=np.float32)
+        return v / np.linalg.norm(v, axis=1, keepdims=True)
+
+    pe = enc(flat)
     rows = []
     for did, sents in doc_sents:
         if not sents:
             continue
-        se = m.encode(sents, show_progress_bar=False, convert_to_numpy=True, normalize_embeddings=True)
+        se = enc(sents)
         sim = pe @ se.T
         best = sim.max(axis=1)
         for i, a in enumerate(attrs):

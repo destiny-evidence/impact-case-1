@@ -78,7 +78,7 @@ def run_topdown(scheme_query: str, config_path: Path, n_samples: int) -> pd.Data
 
     extractor = TopDownLLMExtractor(config=config)
     _orig_load = extractor.load_schemes
-    extractor.load_schemes = lambda: [s for s in _orig_load() if scheme_query.lower() in s.title.lower()]
+    extractor.load_schemes = lambda: [s for s in _orig_load() if scheme_query.lower() in s.title.lower()]  # type: ignore  # instance-attr monkeypatch, not called with self
     schemes = extractor.load_schemes()
     if not schemes:
         raise SystemExit(f"No scheme matching '{scheme_query}'")
@@ -157,15 +157,16 @@ def main() -> None:
     print(f'\nscheme micro: P {P:.3f}  R {R:.3f}  F1 {2 * tp / (2 * tp + fp + fn):.3f}  (tp{tp} fp{fp} fn{fn})')
 
     # Cascade breakdown of FN.
-    verdict_pos = {(r.attribute_label, r.document_id) for r in df.itertuples() if r.verdict}
+    pos = df[df['verdict'] != 0]
+    verdict_pos = set(zip(pos['attribute_label'], pos['document_id'], strict=True))
     root_fn = pruned = leaf = 0
-    for r in df.itertuples():
-        if not (r.gold and not r.verdict):
+    for gold_v, verdict, lbl, did in zip(df['gold'], df['verdict'], df['attribute_label'], df['document_id'], strict=True):
+        if not (gold_v and not verdict):
             continue
-        par = parent.get(r.attribute_label)
+        par = parent.get(lbl)
         if par is None:
             root_fn += 1
-        elif (par, r.document_id) not in verdict_pos:
+        elif (par, did) not in verdict_pos:
             pruned += 1
         else:
             leaf += 1

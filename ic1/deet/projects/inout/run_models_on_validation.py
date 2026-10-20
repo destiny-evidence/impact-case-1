@@ -26,12 +26,13 @@ from __future__ import annotations
 import json
 import tempfile
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, cast
 
 import typer
 import yaml
 from deet.data_models.evaluation_strategies.dev_val_test import (
     DevValTestEvaluationStage,
+    DevValTestEvaluationStrategy,
 )
 from deet.data_models.project import DeetProject
 from deet.extractors.cli_helpers import (
@@ -49,7 +50,7 @@ EXP_DIR = Path('data-extraction-experiments')
 app = typer.Typer(help=__doc__)
 
 
-def _validation_ids(strategy) -> list[int]:
+def _validation_ids(strategy: DevValTestEvaluationStrategy) -> list[int]:
     """Recover the validation document ids from the validation run's snapshot.
 
     The live project splits may have an empty ``validation_ids`` (a later test
@@ -112,7 +113,7 @@ def run(
     """Run each candidate model single-pass over the existing validation split."""
     project = DeetProject.load()
     splits_path = project.evaluation_splits_path
-    strategy = project.load_evaluation_strategy()
+    strategy = cast(DevValTestEvaluationStrategy, project.load_evaluation_strategy())
     # The live splits' validation_ids may be empty (a later test run overwrote
     # the file); recover them from the validation run's own snapshot.
     val_ids = _validation_ids(strategy)

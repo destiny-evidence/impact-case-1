@@ -49,6 +49,7 @@ def main():
         click_root = get_command(app)  # resolve Typer -> Click command tree
         print('Tree of available commands:')
         root_context = Context(click_root, parent=ctx.parent)
+        assert isinstance(click_root, TyperGroup)  # a Typer app always resolves to a TyperGroup
         _print_tree(click_root, root_context)
 
     def _print_tree(group: TyperGroup, context: Context, prefix: str = ''):

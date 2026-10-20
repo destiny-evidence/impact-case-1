@@ -20,7 +20,7 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
     if task == TaskName.ALL:
         selected = TASKS
     else:
-        selected = {task.value: TASKS[task.value]}
+        selected = {task: TASKS[task]}
 
     for task_config in selected.values():
         resolved = pd.read_csv(task_config.sensitive_resolved_path)

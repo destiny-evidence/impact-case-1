@@ -13,7 +13,7 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
     if task == TaskName.ALL:
         selected = TASKS
     else:
-        selected = {task.value: TASKS[task.value]}
+        selected = {task: TASKS[task]}
 
     for task_config in selected.values():
         deet_project = DeetProject.load(project_dir=task_config.deet_project_path)

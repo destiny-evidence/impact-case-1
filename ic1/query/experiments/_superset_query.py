@@ -41,7 +41,7 @@ with open(FILE, 'w') as f:
                 'cursor': cursor,
                 'per-page': 200,
             },
-            headers={'api_key': os.getenv('API_KEY')},
+            headers={'api_key': os.environ['API_KEY']},
             timeout=None,
         )
         page = res.json()

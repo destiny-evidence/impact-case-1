@@ -24,13 +24,14 @@ evaluation_splits.json.bak before it is overwritten.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, cast
 
 import typer
 from destiny_sdk.labs.references import LabsReference
 
 from deet.data_models.evaluation_strategies.dev_val_test import (
     DevValTestEvaluationStage,
+    DevValTestEvaluationStrategy,
 )
 from deet.data_models.project import DeetProject
 from deet.extractors.cli_helpers import (
@@ -122,7 +123,7 @@ def run(
 
     # Overwrite splits: put the selected docs in TEST.
     splits_path = project.evaluation_splits_path
-    strategy = project.load_evaluation_strategy()
+    strategy = cast(DevValTestEvaluationStrategy, project.load_evaluation_strategy())
     strategy.splits.test_ids = selected
     strategy.splits.current_stage = DevValTestEvaluationStage.TEST
     strategy.splits.dump_to_json(splits_path)

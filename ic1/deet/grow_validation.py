@@ -51,7 +51,7 @@ def main(
     task: Annotated[TaskName, typer.Option(help="Which task's splits to modify")] = TaskName.INOUT,
     dry_run: Annotated[bool, typer.Option(help='Report the move without writing')] = False,
 ) -> None:
-    task_config = TASKS[task.value]
+    task_config = TASKS[task]
     splits = EvaluationSplits.load(task_config.splits_path)
     labels = _positive_lookup(task_config)
 
