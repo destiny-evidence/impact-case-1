@@ -75,7 +75,7 @@ module-root = ""
 line-length = 160
 indent-width = 4
 target-version = "py313"
-include = ["pyproject.toml", "ic1/**/*.py"]
+include = ["pyproject.toml", "ic1/**/*.py", "notebooks/**/*.py"]
 exclude = []
 
 [tool.ruff.lint]
@@ -88,6 +88,10 @@ unfixable = []
 
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Marimo idioms: bare expressions render cell output (B018); imports live in the cell that needs them (E402).
+[tool.ruff.lint.per-file-ignores]
+"notebooks/*.py" = ["B018", "E402"]
 
 [tool.ruff.lint.mccabe]
 # Flag errors (`C901`) whenever the complexity level exceeds 5.
