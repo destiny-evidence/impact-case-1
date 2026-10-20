@@ -1,3 +1,4 @@
+import os
 import re
 import logging
 import httpx
@@ -5,7 +6,6 @@ from httpx import HTTPStatusError
 
 # from nacsos_data.util.academic.apis import OpenAlexAPI, OpenAlexSolrAPI
 from nacsos_data.util.conf import load_settings
-from ic1.core.config import CONF_FILE
 from ic1.query.revisions import CLIMATE, HEALTH, MERGED
 
 logging.basicConfig(format='%(asctime)s [%(levelname)s] %(name)s (%(process)d): %(message)s', level='INFO')
@@ -17,7 +17,11 @@ logging.getLogger('root').setLevel(logging.WARNING)
 logger = logging.getLogger('query')
 logger.setLevel(600)
 
-conf = load_settings(CONF_FILE)
+conf = load_settings(os.getenv('CONF_FILE', '.conf/secret.env'))
+_api_key = conf.OPENALEX.API_KEY
+if _api_key is None:
+    raise SystemExit('OPENALEX.API_KEY is not configured')
+API_KEY: str = _api_key
 # print(conf.OPENALEX)
 
 comm = re.compile(r'# .*\n')
@@ -69,7 +73,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
                     'include_xpac': False,
                 },
                 timeout=120,
-                headers={'api_key': conf.OPENALEX.API_KEY},
+                headers={'api_key': API_KEY},
             ),
             'title_abstract (+xpac)': lambda: httpx.get(
                 'https://api.openalex.org/works',
@@ -80,7 +84,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
                     'include_xpac': True,
                 },
                 timeout=120,
-                headers={'api_key': conf.OPENALEX.API_KEY},
+                headers={'api_key': API_KEY},
             ),
             'search (+xpac)': lambda: httpx.get(
                 'https://api.openalex.org/works',
@@ -89,7 +93,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
                     'select': 'id',
                     'per-page': 1,
                     'include_xpac': True,
-                    'api_key': conf.OPENALEX.API_KEY,
+                    'api_key': API_KEY,
                 },
                 timeout=120,
             ),
@@ -100,7 +104,7 @@ for QUERIES in [MERGED, CLIMATE, HEALTH]:
                     'select': 'id',
                     'per-page': 1,
                     'include_xpac': True,
-                    'api_key': conf.OPENALEX.API_KEY,
+                    'api_key': API_KEY,
                 },
                 timeout=120,
             ),

@@ -15,7 +15,7 @@ def evaluate(
     y_true: 'np.ndarray | Tensor',
     y_pred: 'np.ndarray | Tensor',
     threshold: float = 0.5,
-    beta: float = 0.5
+    beta: float = 0.5,
 ) -> dict[str, Any]:
     y_pred_binary = np.where(y_pred > threshold, 1, 0)
 
@@ -25,7 +25,7 @@ def evaluate(
         'Precision': precision_score(y_true, y_pred_binary, zero_division=0),
         'Recall': recall_score(y_true, y_pred_binary, zero_division=0),
         'Accuracy': accuracy_score(y_true, y_pred_binary),
-        'prop_included': float(y_pred_binary.mean()), # share passed on to LLM
+        'prop_included': float(y_pred_binary.mean()),  # share passed on to LLM
         'threshold': threshold,
         'n_samples': y_true.shape[0],
     }
@@ -38,6 +38,7 @@ def evaluate(
 
     logger.debug(' | '.join([f'{key}: {score:.1%}' for key, score in results.items()]))
     return results
+
 
 def posterior_metric_summaries(
     y_true: np.ndarray,
@@ -64,7 +65,7 @@ def posterior_metric_summaries(
 
     Returns {metric: {'median': float, 'hdi_lo': float, 'hdi_hi': float}}.
     """
-    from prob_conf_mat import Study
+    from prob_conf_mat.study import Study
     from prob_conf_mat.stats.summary import summarize_posterior
 
     study = Study(seed=seed, num_samples=num_samples, ci_probability=ci_probability)

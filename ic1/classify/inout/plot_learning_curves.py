@@ -38,10 +38,12 @@ def combine(
     # Summary: full-data value + slope over the top two fractions (the "still rising?" read).
     means = df.groupby(['model', 'frac'])[metric].mean().unstack()
     fracs = sorted(df['frac'].unique())
-    summary = pd.DataFrame({
-        f'{metric}@full': means[fracs[-1]].round(3),
-        f'slope_{fracs[-2]}->{fracs[-1]}': (means[fracs[-1]] - means[fracs[-2]]).round(3),
-    }).sort_values(f'{metric}@full', ascending=False)
+    summary = pd.DataFrame(
+        {
+            f'{metric}@full': means[fracs[-1]].round(3),
+            f'slope_{fracs[-2]}->{fracs[-1]}': (means[fracs[-1]] - means[fracs[-2]]).round(3),
+        }
+    ).sort_values(f'{metric}@full', ascending=False)
     print(summary.to_string())
     logger.info(f'Wrote {out} ({len(files)} models)')
 

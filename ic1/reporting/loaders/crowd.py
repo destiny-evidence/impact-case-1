@@ -26,15 +26,15 @@ from sklearn.metrics import f1_score, fbeta_score, precision_score, recall_score
 from ic1.evaluation_splits.splits_model import EvaluationSplits
 
 _REPO_ROOT = Path(__file__).resolve().parents[3]
-DEFAULT_CROWD_DIR = _REPO_ROOT / "data" / "private" / "crowd"
-DEFAULT_RESOLVED_CSV = _REPO_ROOT / "data" / "exports" / "inout_resolved.csv"
-DEFAULT_SPLITS_PATH = _REPO_ROOT / "data" / "exports" / "inout_splits.json"
+DEFAULT_CROWD_DIR = _REPO_ROOT / 'data' / 'private' / 'crowd'
+DEFAULT_RESOLVED_CSV = _REPO_ROOT / 'data' / 'exports' / 'inout_resolved.csv'
+DEFAULT_SPLITS_PATH = _REPO_ROOT / 'data' / 'exports' / 'inout_splits.json'
 
-_INCLUDE_FILE = "DESTINY_Crowd_possibly_relevant.txt"
-_EXCLUDE_FILE = "DESTINY_Crowd_exclude.txt"
-_SCREENER_XLSX = "Climate_quest_test_august_results_anonymised_SHARED.xlsx"
+_INCLUDE_FILE = 'DESTINY_Crowd_possibly_relevant.txt'
+_EXCLUDE_FILE = 'DESTINY_Crowd_exclude.txt'
+_SCREENER_XLSX = 'Climate_quest_test_august_results_anonymised_SHARED.xlsx'
 
-GOLD_USER = "RESOLVED"
+GOLD_USER = 'RESOLVED'
 
 
 def _parse_ris(path: Path) -> list[dict[str, str]]:
@@ -47,13 +47,13 @@ def _parse_ris(path: Path) -> list[dict[str, str]]:
     records: list[dict[str, str]] = []
     cur: dict[str, str] = {}
     for line in path.read_text().splitlines():
-        if line.startswith("ER  -"):
+        if line.startswith('ER  -'):
             if cur:
                 records.append(cur)
                 cur = {}
             continue
-        if "  - " in line:
-            tag, val = line.split("  - ", 1)
+        if '  - ' in line:
+            tag, val = line.split('  - ', 1)
             cur[tag.strip()] = val.strip()
     if cur:
         records.append(cur)
@@ -67,14 +67,10 @@ def load_crowd_decisions(crowd_dir: Path | str | None = None) -> pd.DataFrame:
     *both* files, include wins (matches the coder ``_decision`` convention).
     """
     d = Path(crowd_dir) if crowd_dir is not None else DEFAULT_CROWD_DIR
-    rows = [{"item_id": r["MISC3"], "decision": 1} for r in _parse_ris(d / _INCLUDE_FILE)]
-    rows += [{"item_id": r["MISC3"], "decision": 0} for r in _parse_ris(d / _EXCLUDE_FILE)]
+    rows = [{'item_id': r['MISC3'], 'decision': 1} for r in _parse_ris(d / _INCLUDE_FILE)]
+    rows += [{'item_id': r['MISC3'], 'decision': 0} for r in _parse_ris(d / _EXCLUDE_FILE)]
     df = pd.DataFrame(rows)
-    return (
-        df.sort_values("decision", ascending=False)
-        .drop_duplicates("item_id", keep="first")
-        .reset_index(drop=True)
-    )
+    return df.sort_values('decision', ascending=False).drop_duplicates('item_id', keep='first').reset_index(drop=True)
 
 
 def _score(dec: pd.DataFrame, label: str, *, seed: int) -> dict:
@@ -89,19 +85,18 @@ def _score(dec: pd.DataFrame, label: str, *, seed: int) -> dict:
     yt = dec.gold.to_numpy().astype(int)
     yp = dec.decision.to_numpy().astype(int)
     row = {
-        "label": label,
-        "n": int(len(yt)),
-        "n_pos": int(yt.sum()),
-        "precision": precision_score(yt, yp, zero_division=0),
-        "recall": recall_score(yt, yp, zero_division=0),
-        "f1": f1_score(yt, yp, zero_division=0),
-        "f2": fbeta_score(yt, yp, beta=2, zero_division=0),
+        'label': label,
+        'n': int(len(yt)),
+        'n_pos': int(yt.sum()),
+        'precision': precision_score(yt, yp, zero_division=0),
+        'recall': recall_score(yt, yp, zero_division=0),
+        'f1': f1_score(yt, yp, zero_division=0),
+        'f2': fbeta_score(yt, yp, beta=2, zero_division=0),
     }
     s1 = posterior_metric_summaries(yt, yp, beta=1, seed=seed)
     s2 = posterior_metric_summaries(yt, yp, beta=2, seed=seed)
-    for key, m in (("precision", s1["Precision"]), ("recall", s1["Recall"]),
-                   ("f1", s1["Fbeta"]), ("f2", s2["Fbeta"])):
-        row[f"{key}_lo"], row[f"{key}_hi"] = m["hdi_lo"], m["hdi_hi"]
+    for key, m in (('precision', s1['Precision']), ('recall', s1['Recall']), ('f1', s1['Fbeta']), ('f2', s2['Fbeta'])):
+        row[f'{key}_lo'], row[f'{key}_hi'] = m['hdi_lo'], m['hdi_hi']
     return row
 
 
@@ -123,19 +118,17 @@ def load_inout_crowd(
     dec = load_crowd_decisions(crowd_dir)
 
     res = pd.read_csv(Path(resolved_csv) if resolved_csv is not None else DEFAULT_RESOLVED_CSV)
-    gold = res[res.username == GOLD_USER].set_index("item_id")["incl|1"]
-    dec["gold"] = dec.item_id.map(gold)
-    dec = dec.dropna(subset=["gold"]).reset_index(drop=True)
+    gold = res[res.username == GOLD_USER].set_index('item_id')['incl|1']
+    dec['gold'] = dec.item_id.map(gold)
+    dec = dec.dropna(subset=['gold']).reset_index(drop=True)
 
-    splits = EvaluationSplits.load(
-        Path(splits_path) if splits_path is not None else DEFAULT_SPLITS_PATH
-    )
-    dec["in_test"] = dec.item_id.isin(set(splits.test))
+    splits = EvaluationSplits.load(Path(splits_path) if splits_path is not None else DEFAULT_SPLITS_PATH)
+    dec['in_test'] = dec.item_id.isin(set(splits.test))
 
-    rows = [_score(dec, "all crowd items", seed=seed)]
+    rows = [_score(dec, 'all crowd items', seed=seed)]
     test = dec[dec.in_test]
     if len(test):
-        rows.append(_score(test, "test subset", seed=seed))
+        rows.append(_score(test, 'test subset', seed=seed))
     return pd.DataFrame(rows)
 
 
@@ -155,29 +148,31 @@ def load_crowd_screeners(
     ``FileNotFoundError`` when the private workbook is absent.
     """
     d = Path(crowd_dir) if crowd_dir is not None else DEFAULT_CROWD_DIR
-    item_of = {r["AN"]: r["MISC3"] for r in _parse_ris(d / _INCLUDE_FILE) + _parse_ris(d / _EXCLUDE_FILE)}
+    item_of = {r['AN']: r['MISC3'] for r in _parse_ris(d / _INCLUDE_FILE) + _parse_ris(d / _EXCLUDE_FILE)}
 
     res = pd.read_csv(Path(resolved_csv) if resolved_csv is not None else DEFAULT_RESOLVED_CSV)
-    gold = res[res.username == GOLD_USER].set_index("item_id")["incl|1"]
+    gold = res[res.username == GOLD_USER].set_index('item_id')['incl|1']
 
     wb = pd.read_excel(d / _SCREENER_XLSX, sheet_name=0, dtype=str)
-    wb = wb[wb["Screener Type"] == "Screener"].copy()
-    wb["item_id"] = wb["Record/CRSD ID"].map(item_of)
-    wb["gold"] = wb.item_id.map(gold)
-    wb = wb.dropna(subset=["gold"])
-    wb["gold"] = wb.gold.astype(int)
-    wb["decision"] = (wb["User Decision"] == "Possibly relevant").astype(int)
+    wb = wb[wb['Screener Type'] == 'Screener'].copy()
+    wb['item_id'] = wb['Record/CRSD ID'].map(item_of)
+    wb['gold'] = wb.item_id.map(gold)
+    wb = wb.dropna(subset=['gold'])
+    wb['gold'] = wb.gold.astype(int)
+    wb['decision'] = (wb['User Decision'] == 'Possibly relevant').astype(int)
 
     rows = []
-    for user, g in wb.groupby("User ID"):
+    for user, g in wb.groupby('User ID'):
         yt, yp = g.gold.to_numpy(), g.decision.to_numpy()
         if len(yt) < min_n or yp.sum() == 0:
             continue
-        rows.append({
-            "user": user,
-            "n": int(len(yt)),
-            "precision": precision_score(yt, yp, zero_division=0),
-            "recall": recall_score(yt, yp, zero_division=0),
-            "screened_1000": g["Has Screened 1000 rct records"].iloc[0] == "Yes",
-        })
+        rows.append(
+            {
+                'user': user,
+                'n': int(len(yt)),
+                'precision': precision_score(yt, yp, zero_division=0),
+                'recall': recall_score(yt, yp, zero_division=0),
+                'screened_1000': g['Has Screened 1000 rct records'].iloc[0] == 'Yes',
+            }
+        )
     return pd.DataFrame(rows)

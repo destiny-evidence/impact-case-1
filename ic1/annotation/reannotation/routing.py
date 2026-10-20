@@ -65,10 +65,14 @@ def load_original_labels() -> pd.DataFrame:
     export = pd.read_csv(EXPORT_CSV, dtype=str, keep_default_na=False)
     export['label'] = pd.to_numeric(export['incl|1'], errors='coerce')
 
-    coders = export[export.username != 'RESOLVED'].groupby('item_id').agg(
-        distinct=('label', 'nunique'),
-        coder_label=('label', 'first'),
-        scope=('assignment_scope_id', 'first'),
+    coders = (
+        export[export.username != 'RESOLVED']
+        .groupby('item_id')
+        .agg(
+            distinct=('label', 'nunique'),
+            coder_label=('label', 'first'),
+            scope=('assignment_scope_id', 'first'),
+        )
     )
     resolutions = export[export.username == 'RESOLVED'].set_index('item_id')[['label']]
 
@@ -82,7 +86,7 @@ def load_scope_resolvers() -> dict[str, str]:
     """Map assignment scope id to the resolver who resolved it, from the round-1 resolver sheet."""
     counts = pd.read_excel(ROUND_1_XLSX, sheet_name='Counting_Resolutions_Inclusion', dtype=str)
     counts = counts[counts.Resolver.isin(AVAILABLE + ['EM', 'AM/MIM'])]
-    return dict(zip(counts.ID, counts.Resolver))
+    return dict(zip(counts.ID, counts.Resolver, strict=True))
 
 
 async def load_resolver_sources() -> tuple[dict[str, str], dict[str, str]]:
@@ -110,9 +114,7 @@ async def load_resolver_sources() -> tuple[dict[str, str], dict[str, str]]:
             continue
         name_resolvers[str(scope_id)] = NAME_TO_RESOLVER[match.group(1).strip()]
 
-    split_items = {
-        str(entry.item_id): ('AM' if position < SPLIT_POSITION else 'AM/MIM') for position, entry in enumerate(order)
-    }
+    split_items = {str(entry.item_id): ('AM' if position < SPLIT_POSITION else 'AM/MIM') for position, entry in enumerate(order)}
     return name_resolvers, split_items
 
 
@@ -169,9 +171,7 @@ def route_records(name_resolvers: dict[str, str], split_items: dict[str, str], s
     candidates = df.index[(df.arm == 'unanimous') & (df.reviewer == heavy)]
     df.loc[rng.choice(candidates, size=move, replace=False), 'reviewer'] = light
 
-    return df[
-        ['item_id', 'cell', 'label_type', 'llm_agrees', 'label', 'scope', 'original_resolver', 'in_task', 'sampling_fraction', 'arm', 'reviewer']
-    ]
+    return df[['item_id', 'cell', 'label_type', 'llm_agrees', 'label', 'scope', 'original_resolver', 'in_task', 'sampling_fraction', 'arm', 'reviewer']]
 
 
 def main() -> None:

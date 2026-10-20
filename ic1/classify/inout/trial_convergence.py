@@ -15,12 +15,12 @@ import numpy as np
 import pandas as pd
 import typer
 
-from ic1.classify.inout.utils import TASK, read_tuning_results
+from ic1.classify.inout.utils import TASK, TuningFold, read_tuning_results
 
 logger = logging.getLogger(__name__)
 
 
-def _best_so_far(fold) -> tuple[np.ndarray, np.ndarray] | None:
+def _best_so_far(fold: TuningFold) -> tuple[np.ndarray, np.ndarray] | None:
     vals = sorted((t.number, t.value) for t in fold.trials if t.value is not None)
     if not vals:
         return None
@@ -50,15 +50,17 @@ def trial_convergence(
         at_75 = float(best[max(0, int(0.75 * n) - 1)])
         first_best = int(numbers[np.argmax(best >= final)])  # trial that first reached the best
         n_failed = sum(1 for t in fold.trials if t.value is None)
-        rows.append({
-            'model': fold.model,
-            'n_trials': n,
-            'n_failed': n_failed,
-            'best': round(final, 3),
-            'best_at_trial': first_best,
-            'frac_to_best': round(first_best / max(1, int(numbers[-1])), 2),
-            'gain_last_25%': round(final - at_75, 3),
-        })
+        rows.append(
+            {
+                'model': fold.model,
+                'n_trials': n,
+                'n_failed': n_failed,
+                'best': round(final, 3),
+                'best_at_trial': first_best,
+                'frac_to_best': round(first_best / max(1, int(numbers[-1])), 2),
+                'gain_last_25%': round(final - at_75, 3),
+            }
+        )
         ax.plot(numbers, best, label=fold.model)
 
     if not rows:

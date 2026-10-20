@@ -24,7 +24,7 @@ classify = [
     "scikit-learn>=1.6",
 ]
 deet = [
-    "destiny-deet",
+    "destiny-deet[semantic]",
 ]
 nacsos = [
     "nacsos_data[utils,scripts]",
@@ -34,10 +34,9 @@ querying = [
 ]
 [dependency-groups]
 dev = [
-    "mypy>=2.2.0",
     "ruff>=0.16.0",
-    "pandas-stubs~=3.0.3",
     "marimo>=0.24.0",
+    "ty>=0.0.90",
 ]
 
 [tool.uv.sources]
@@ -45,14 +44,6 @@ nacsos_data = [
     { git = "git+ssh://git@gitlab.pik-potsdam.de/mcc-apsis/nacsos/nacsos-data.git", tag = "v0.24.53" },
 ]
 destiny-deet = { git = "https://github.com/destiny-evidence/data-extraction-evaluation-toolkit.git", branch = "feature/316-hierarchical-attribute-taxonomy" }
-
-[tool.uv]
-conflicts = [
-    [
-        { extra = "classify" },
-        { extra = "deet" },
-    ],
-]
 
 [project.scripts]
 ic1 = "ic1:main"
@@ -75,7 +66,7 @@ module-root = ""
 line-length = 160
 indent-width = 4
 target-version = "py313"
-include = ["pyproject.toml", "ic1/**/*.py"]
+include = ["pyproject.toml", "ic1/**/*.py", "notebooks/**/*.py"]
 exclude = []
 
 [tool.ruff.lint]
@@ -88,6 +79,10 @@ unfixable = []
 
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Marimo idioms: bare expressions render cell output (B018); imports live in the cell that needs them (E402).
+[tool.ruff.lint.per-file-ignores]
+"notebooks/*.py" = ["B018", "E402"]
 
 [tool.ruff.lint.mccabe]
 # Flag errors (`C901`) whenever the complexity level exceeds 5.
@@ -123,35 +118,7 @@ docstring-code-line-length = "dynamic"
 [tool.ruff.lint.flake8-quotes]
 docstring-quotes = "double"
 
-[tool.mypy]
-plugins = ["pydantic.mypy", "sqlalchemy.ext.mypy.plugin"]
-strict = true
-follow_imports = "silent"
-
-files = ["ic1/classify"]
-exclude = []
-
-check_untyped_defs = true
-disallow_any_generics = true
-ignore_missing_imports = true
-no_implicit_optional = true
-show_error_codes = true
-strict_equality = true
-warn_redundant_casts = true
-warn_return_any = true
-warn_unreachable = true
-warn_unused_configs = true
-no_implicit_reexport = true
-strict_optional = true
-explicit_package_bases = false
-show_traceback = true
-incremental = false
-
-# for strict mypy: (this is the tricky one :-))
-disallow_untyped_defs = true
-
-[tool.pydantic-mypy]
-init_forbid_extra = true
-init_typed = true
-warn_required_dynamic_aliases = true
-warn_untyped_fields = true
+# Run in the full environment (`uv run --all-extras ty check`) so every extra's imports resolve.
+# data/, ignore/ and docs/ are not Python code and stay out of scope.
+[tool.ty.src]
+include = ["ic1", "scripts", "hooks", "notebooks"]

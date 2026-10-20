@@ -8,11 +8,7 @@ from ic1.core.config import TASKS, TaskName, TaskConfig
 from typing import Annotated
 import pandas as pd
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(message)s',
-    handlers=[RichHandler(markup=True, rich_tracebacks=True)]
-)
+logging.basicConfig(level=logging.INFO, format='%(message)s', handlers=[RichHandler(markup=True, rich_tracebacks=True)])
 logger = logging.getLogger(__name__)
 
 
@@ -27,7 +23,7 @@ def main(task: Annotated[TaskName, typer.Option(help='The annotation task task t
     if task == TaskName.ALL:
         selected = TASKS
     else:
-        selected = {task.value: TASKS[task.value]}
+        selected = {task: TASKS[task]}
 
     for task_config in selected.values():
         resolve_annotations(task_config)

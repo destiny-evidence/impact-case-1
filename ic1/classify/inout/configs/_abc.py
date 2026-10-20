@@ -1,4 +1,4 @@
-from typing import Any, TYPE_CHECKING
+from typing import Any, ClassVar, TYPE_CHECKING
 from abc import abstractmethod, ABC
 
 from ic1.core.config import settings
@@ -11,11 +11,7 @@ if TYPE_CHECKING:
 
 
 class _ClassifierConfig(ABC):
-    @property  # type:ignore [misc]
-    @classmethod
-    @abstractmethod
-    def name(cls) -> str:
-        raise NotImplementedError
+    name: ClassVar[str]  # each concrete config sets this to its literal name
 
     @classmethod
     @abstractmethod
@@ -67,11 +63,7 @@ class _SklearnClassifierConfig(_ClassifierConfig, ABC):
 
 
 class _HuggingfaceClassifierConfig(_ClassifierConfig, ABC):
-    @property  # type:ignore [misc]
-    @classmethod
-    @abstractmethod
-    def model_name(cls) -> str:
-        raise NotImplementedError()
+    model_name: ClassVar[str]  # each concrete config sets this to its HF repo id
 
     @classmethod
     def get_model(cls, **kwargs: Any) -> 'HuggingfaceClassifier':

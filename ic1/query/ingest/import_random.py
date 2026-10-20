@@ -74,7 +74,7 @@ def main(
                 params={'fq': ['is_xpac:false'], 'rows': batch_size, 'sort': f'random_{random_seed + it} asc', 'cursorMark': None},
             ):
                 n_sampled += 1
-                if item.openalex_id in known_ids:
+                if item.openalex_id is None or item.openalex_id in known_ids:
                     continue
                 known_ids.add(item.openalex_id)
                 f_target.write(item.model_dump_json() + '\n')

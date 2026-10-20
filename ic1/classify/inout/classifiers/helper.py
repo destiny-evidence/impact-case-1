@@ -42,7 +42,7 @@ class ClassifierHelper:
     def _train_params(self, trial: 'Trial | None' = None) -> dict[str, Any]:
         params = self.config.get_params(trial=trial) | self.model_params
         if trial:
-            params |= self.hp_space(trial=trial)  # type: ignore[call-arg]
+            params |= self.hp_space(trial)
         return params
 
     def train(self, X: list[str], y: list[int], model_params: dict[str, Any] | None = None) -> 'Classifier':
@@ -61,9 +61,9 @@ class ClassifierHelper:
     def tune(
         self,
         X_train: list[str],
-        y_train: list[int],
+        y_train: np.ndarray,
         X_test: list[str],
-        y_test: list[int],
+        y_test: np.ndarray,
         scoring: str = 'F1',
         threshold: float = 0.5,
     ) -> 'Study':
@@ -89,9 +89,9 @@ class ClassifierHelper:
         self,
         trial: 'Trial',
         X_train: list[str],
-        y_train: list[int],
+        y_train: np.ndarray,
         X_test: list[str],
-        y_test: list[int],
+        y_test: np.ndarray,
         scoring: str = 'F1',
         threshold: float = 0.5,
     ) -> float:
