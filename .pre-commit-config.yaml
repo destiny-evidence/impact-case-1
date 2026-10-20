@@ -8,3 +8,12 @@ repos:
       - id: ruff-format
         args:
           - --config=pyproject.toml
+
+  - repo: local
+    hooks:
+      - id: dvc-pushed
+        name: DVC data is pushed to remote
+        entry: uv run python hooks/check_dvc_pushed.py
+        language: system
+        files: '(\.dvc|dvc\.lock|dvc\.yaml)$'
+        pass_filenames: false
