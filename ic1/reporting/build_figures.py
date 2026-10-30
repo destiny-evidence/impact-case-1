@@ -36,6 +36,7 @@ from ic1.reporting.loaders import (
     load_inout_runs,
     load_inout_splits,
     load_inout_test_metrics,
+    load_label_noise,
     load_taxonomy_concept_tree,
     load_taxonomy_cost_performance,
     load_taxonomy_level_scores,
@@ -54,6 +55,7 @@ from ic1.reporting.plots import (
     plot_crowd_pr,
     plot_data_splits,
     plot_iteration_timeline,
+    plot_label_noise,
     plot_pairwise_kappa,
     plot_scheme_scores,
     plot_screening_raster,
@@ -61,12 +63,25 @@ from ic1.reporting.plots import (
     plot_taxonomy_level_scores,
     plot_unanimous_funnel,
 )
+from ic1.reporting.slides import render_label_noise_slides
 from ic1.reporting.style import MODE_COLORS, apply_style
 from ic1.reporting.tables import (
     annotation_agreement_markdown,
     annotation_f1_markdown,
     comparison_markdown,
     crowd_markdown,
+    label_noise_arms_markdown,
+    label_noise_composition_markdown,
+    label_noise_metrics_markdown,
+    label_noise_overturn_markdown,
+    label_noise_slide_composition_markdown,
+    label_noise_slide_cell_sizes_markdown,
+    label_noise_slide_errors_markdown,
+    label_noise_slide_overturned_markdown,
+    label_noise_slide_rescreened_markdown,
+    label_noise_slide_routing_markdown,
+    label_noise_slide_scores_markdown,
+    label_noise_slide_total_markdown,
     metrics_markdown,
     prompts_markdown,
     taxonomy_drilldown_html,
@@ -239,6 +254,31 @@ def build_inout_annotation(formats: tuple[str, ...]) -> None:
         print('  (rendered private real-name versions — gitignored)')
 
 
+def build_label_noise(formats: tuple[str, ...]) -> None:
+    """Blind re-screen results (#28). The export is private, so a checkout without it skips them."""
+    try:
+        noise = load_label_noise()
+    except FileNotFoundError as e:
+        print(f'  skipping label noise: {e}')
+        return
+    print(f'label noise: {noise.n_answered} re-screened records, {noise.n_scored} test records scored')
+    _save(plot_label_noise(noise.metrics), 'inout', 'label_noise', formats)
+    _write_table(label_noise_overturn_markdown(noise.overturns), 'inout_label_noise_overturns')
+    _write_table(label_noise_arms_markdown(noise.arms), 'inout_label_noise_arms')
+    _write_table(label_noise_metrics_markdown(noise.metrics), 'inout_label_noise_metrics')
+    _write_table(label_noise_composition_markdown(noise.composition), 'inout_label_noise_composition')
+    _write_table(label_noise_slide_errors_markdown(noise.composition), 'slides_label_noise_errors')
+    _write_table(label_noise_slide_cell_sizes_markdown(noise.overturns), 'slides_label_noise_cells')
+    _write_table(label_noise_slide_rescreened_markdown(noise.overturns), 'slides_label_noise_rescreened')
+    _write_table(label_noise_slide_overturned_markdown(noise.overturns, 'unanimous'), 'slides_label_noise_overturned_unanimous')
+    _write_table(label_noise_slide_overturned_markdown(noise.overturns, 'resolved'), 'slides_label_noise_overturned_resolved')
+    _write_table(label_noise_slide_routing_markdown(noise.arms), 'slides_label_noise_routing')
+    _write_table(label_noise_slide_total_markdown(noise.overturns), 'slides_label_noise_total')
+    _write_table(label_noise_slide_scores_markdown(noise.metrics), 'slides_label_noise_scores')
+    _write_table(label_noise_slide_composition_markdown(noise.composition), 'slides_label_noise_composition')
+    render_label_noise_slides(noise)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--domain', choices=['taxonomy', 'inout', 'all'], default='all')
@@ -252,6 +292,7 @@ def main() -> None:
     if args.domain in ('inout', 'all'):
         build_inout(formats)
         build_inout_annotation(formats)
+        build_label_noise(formats)
 
 
 if __name__ == '__main__':
