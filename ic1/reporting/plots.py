@@ -1199,3 +1199,77 @@ def plot_iteration_timeline(
     if churn_ax is not None:
         churn_ax.legend(handles=_churn_handles(), title='Edited', loc='upper left', fontsize=8, title_fontsize=9)
     return fig
+
+
+def plot_label_noise(
+    df: pd.DataFrame,
+    *,
+    metrics: tuple[str, ...] = ('precision', 'recall', 'f1', 'f2'),
+    figsize: tuple[float, float] | None = None,
+) -> Figure:
+    """Each system's score against the original labels, the naive correction and the full correction.
+
+    Consumes ``load_label_noise()['metrics']`` (columns ``system``, ``reference``, ``family``, ``mode`` and
+    the metric columns with ``_lo``/``_hi`` HDIs on the corrected rows). One panel per metric, one row per
+    system: hollow marker = original labels, cross = naive (only the disagreements re-screened), filled marker
+    with bar = corrected, with its 95% HDI. Operating point = colour, system family = marker shape.
+    """
+    labels = {'precision': 'Precision', 'recall': 'Recall', 'f1': 'F1', 'f2': 'F2'}
+    systems = list(dict.fromkeys(df.system))
+    wide = df.set_index(['system', 'reference'])
+    ncols = 2
+    nrows = int(np.ceil(len(metrics) / ncols))
+    fig, axes = plt.subplots(nrows, ncols, figsize=figsize or (12.0, 7.5), sharey=True, layout='constrained', squeeze=False)
+    for ax, metric in zip(axes.flat, metrics, strict=False):
+        values = []
+        for y, system in enumerate(systems):
+            original, naive, corrected = (wide.loc[(system, ref)] for ref in ('original', 'naive', 'corrected'))
+            color = MODE_COLORS.get(corrected['mode'], _NO_MODE_COLOR)
+            marker = _FAMILY_MARKERS.get(corrected['family'], 'o')
+            lo, hi = corrected[f'{metric}_lo'], corrected[f'{metric}_hi']
+            ax.plot([lo, hi], [y, y], color=color, linewidth=2.0, solid_capstyle='round', zorder=2)
+            ax.plot(
+                original[metric],
+                y,
+                marker=marker,
+                markersize=9,
+                markerfacecolor='white',
+                markeredgecolor=color,
+                markeredgewidth=1.6,
+                linestyle='none',
+                zorder=3,
+            )
+            ax.plot(naive[metric], y, marker='x', markersize=8, color='#555555', markeredgewidth=1.6, linestyle='none', zorder=4)
+            ax.plot(corrected[metric], y, marker=marker, markersize=9, color=color, markeredgecolor='white', markeredgewidth=1.0, linestyle='none', zorder=5)
+            values += [lo, hi, original[metric], naive[metric], corrected[metric]]
+        span = max(values) - min(values)
+        ax.set_xlim(max(0.0, min(values) - 0.08 * span), min(1.02, max(values) + 0.08 * span))
+        ax.set_title(labels.get(metric, metric), fontsize=14)
+        ax.grid(axis='x', color='#e5e5e5', linewidth=0.8)
+        ax.set_axisbelow(True)
+        ax.tick_params(axis='x', labelsize=11)
+    for ax in axes.flat[len(metrics) :]:
+        ax.set_visible(False)
+    axes[0, 0].set_yticks(range(len(systems)))
+    axes[0, 0].set_yticklabels(systems)
+    for ax in axes[:, 0]:
+        ax.tick_params(axis='y', labelsize=11)
+    axes[0, 0].invert_yaxis()
+
+    handles = [
+        Line2D(
+            [0],
+            [0],
+            marker='o',
+            markerfacecolor='white',
+            markeredgecolor='#333333',
+            markeredgewidth=1.6,
+            linestyle='none',
+            markersize=9,
+            label='original labels',
+        ),
+        Line2D([0], [0], marker='x', color='#555555', markeredgewidth=1.6, linestyle='none', markersize=8, label='naive (disagreements only)'),
+        Line2D([0], [0], marker='o', color='#333333', linestyle='-', linewidth=2.0, markersize=9, label='corrected, 95% HDI'),
+    ]
+    fig.legend(handles=handles, loc='outside lower center', ncols=3, fontsize=11, frameon=False)
+    return fig

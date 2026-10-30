@@ -1,0 +1,17 @@
+jtex: v1
+kind: typst
+title: Plain slides
+description: 16:9 slide deck where each level-2 heading starts a slide
+template: template.typ
+
+files:
+  - template.typ
+
+doc:
+  - id: title
+    required: true
+  - id: authors
+  - id: date
+
+options: []
+parts: []

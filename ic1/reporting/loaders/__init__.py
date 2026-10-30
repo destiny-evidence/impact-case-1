@@ -26,6 +26,7 @@ from ic1.reporting.loaders.inout import (
     load_inout_splits,
     load_inout_test_metrics,
 )
+from ic1.reporting.loaders.label_noise import load_label_noise
 from ic1.reporting.loaders.taxonomy import (
     load_taxonomy_concept_tree,
     load_taxonomy_cost_performance,
@@ -61,4 +62,5 @@ __all__ = [
     'inout_unanimous_dispersion',
     'load_inout_crowd',
     'load_crowd_screeners',
+    'load_label_noise',
 ]
