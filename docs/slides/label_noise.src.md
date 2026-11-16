@@ -5,7 +5,7 @@ authors:
 exports:
   - format: typst
     template: ./template
-    output: ../exports/label_noise_slides.pdf
+    output: ./label_noise_slides.pdf
 ---
 
 # 1. Classifying relevance to climate and health
