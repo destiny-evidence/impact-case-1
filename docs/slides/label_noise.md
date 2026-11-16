@@ -5,7 +5,7 @@ authors:
 exports:
   - format: typst
     template: ./template
-    output: ../exports/label_noise_slides.pdf
+    output: ./label_noise_slides.pdf
 ---
 <!-- generated from label_noise.src.md by `python -m ic1.reporting.build_figures` — do not edit -->
 
