@@ -17,6 +17,7 @@ logger = logging.getLogger(__name__)
 def hyperparameter_tuning(
     models: Annotated[list[str], typer.Option(help='List of models to tune', default_factory=lambda: list(MODEL_CONFIGS.keys()))],
     dev_mode: Annotated[bool, typer.Option(help='Run in development mode')] = False,
+    crowd: Annotated[bool, typer.Option(help='Also train on the crowd-labelled items (train split only); outputs go to the *_crowd directories')] = False,
     num_folds: Annotated[int, typer.Option(help='Number of folds for cross-validation')] = 3,
     random_seed: Annotated[int | None, typer.Option(help='Random seed for cross-validation')] = None,
     num_trials: Annotated[int | None, typer.Option(help='Number of trials for hyperparameter tuning')] = None,
@@ -27,6 +28,7 @@ def hyperparameter_tuning(
 ) -> None:
     """Run all models and find the best hyperparameter setting for each and store results"""
     TASK.dev_mode = dev_mode
+    TASK.crowd = crowd
     result_dir = result_dir or TASK.tuning_results_path
     logger.info(f'Going to write tuning results to {result_dir}')
     result_dir.mkdir(parents=True, exist_ok=True)

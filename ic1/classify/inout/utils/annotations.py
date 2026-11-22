@@ -35,14 +35,33 @@ def _fabricate_dev_splits(train_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.Data
     )
 
 
-def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def _load_crowd(splits: EvaluationSplits) -> pd.DataFrame:
+    """Crowd-labelled items (hard 0/1 label) to append to the train split.
+
+    Fails if any item is already assigned to a split, so crowd rows can never reach validation or test.
+    """
+    crowd = pd.read_csv(TASK.crowd_train_path)[['item_id', 'title', 'text', 'label']]
+    if crowd['item_id'].duplicated().any():
+        raise ValueError(f'Duplicate item_ids in {TASK.crowd_train_path}')
+    if not crowd['label'].isin([0, 1]).all():
+        raise ValueError(f'Labels in {TASK.crowd_train_path} must be 0/1')
+    assigned = set(splits.deet + splits.train + splits.validation + splits.test)
+    clash = crowd['item_id'].isin(assigned)
+    if clash.any():
+        raise ValueError(f'{int(clash.sum())} crowd items are already assigned to an evaluation split')
+    return crowd.astype({'label': int}).reset_index(drop=True)
+
+
+def load_data(dev: bool = True, crowd: bool | None = None) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
     Load train, val, and test data.
 
     if dev==True, split train into sub-train,val,test splits, that are safe to play with.
+    if crowd (default: TASK.crowd), the crowd-labelled items are appended to the train split only.
     """
-    logger.info(f'Loading data from {TASK.shareable_resolved_path}')
-    df = pd.read_csv(TASK.shareable_resolved_path)
+    crowd = TASK.crowd if crowd is None else crowd
+    logger.info(f'Loading data from {TASK.sensitive_resolved_path}')
+    df = pd.read_csv(TASK.sensitive_resolved_path)  # the shareable export carries no text
 
     splits = EvaluationSplits.load(TASK.splits_path)
 
@@ -58,6 +77,11 @@ def load_data(dev: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
         test_df = df[df['item_id'].isin(splits.test)].reset_index(drop=True)
         if val_df.empty:
             raise ValueError('No validation split found. Run deet sync to populate validation/test, or pass --dev-mode to fabricate splits from train.')
+
+    if crowd:
+        crowd_df = _load_crowd(splits)
+        logger.info(f'Adding {len(crowd_df)} crowd-labelled items ({crowd_df["label"].mean():.1%} relevant) to train')
+        train_df = pd.concat([train_df, crowd_df], ignore_index=True)
 
     logger.info(
         f'train_df: {train_df.shape} - {train_df["label"].sum() / train_df.shape[0]} relevant\n'

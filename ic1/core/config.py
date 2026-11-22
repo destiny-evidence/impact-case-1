@@ -63,6 +63,7 @@ class Config(BaseSettings):
     MAPPING_JSON: Path = SCHEME_DIR / 'destiny_taxonomy_nacsos_mapping.json'
     MODELS_ROOT: Path = Path('data/models')
     SENSITIVE_ROOT: Path = Path('data/private/exports')  # gitignored; never committed
+    CROWD_ROOT: Path = Path('data/private/crowd')  # gitignored; crowd platform exports and derived training items
     SHAREABLE_ROOT: Path = Path('data/exports')  # git-tracked; Frictionless-described
     PSEUDONYM_MAP: Path = Field(default_factory=lambda data: data['SENSITIVE_ROOT'] / 'coder_pseudonyms.json')  # gitignored; sensitive, stable
     LOGGING_DIR: Path = Path('data/logs')
@@ -80,10 +81,15 @@ class TaskConfig:
     resolved_ids: list[str]
 
     dev_mode: bool = False
+    crowd: bool = False  # train on the crowd-labelled items in addition to the expert-labelled train split
 
     @property
     def name(self) -> str:
         return self.task.value
+
+    @property
+    def model_dir_name(self) -> str:
+        return f'{self.name}_crowd' if self.crowd else self.name
 
     @property
     def shareable_path(self) -> Path:
@@ -114,20 +120,30 @@ class TaskConfig:
         return settings.SHAREABLE_ROOT / f'{self.name}_splits.json'
 
     @property
+    def crowd_train_path(self) -> Path:
+        """Crowd-labelled training items with title and text (sensitive)."""
+        return settings.CROWD_ROOT / f'{self.name}_crowd_train.csv'
+
+    @property
+    def crowd_ids_path(self) -> Path:
+        """Item ids and labels of the crowd-labelled training items (shareable)."""
+        return settings.SHAREABLE_ROOT / f'{self.name}_crowd.csv'
+
+    @property
     def classifier_results_path(self) -> Path:
         """The place where classifier results are stored."""
         if self.dev_mode:
-            return settings.MODELS_ROOT / 'testing' / self.name / 'results'
+            return settings.MODELS_ROOT / 'testing' / self.model_dir_name / 'results'
         else:
-            return settings.MODELS_ROOT / self.name / 'results'
+            return settings.MODELS_ROOT / self.model_dir_name / 'results'
 
     @property
     def tuning_results_path(self) -> Path:
         """The place where tuning results are stored."""
         if self.dev_mode:
-            return settings.MODELS_ROOT / 'testing' / self.name / 'tuning'
+            return settings.MODELS_ROOT / 'testing' / self.model_dir_name / 'tuning'
         else:
-            return settings.MODELS_ROOT / self.name / 'tuning'
+            return settings.MODELS_ROOT / self.model_dir_name / 'tuning'
 
     @property
     def ml_model_runs_path(self) -> Path:
