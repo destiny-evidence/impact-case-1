@@ -8,8 +8,9 @@ from typing import Annotated, Any, cast
 import typer
 
 from ic1.core.config import settings
+
 from .configs import MODEL_CONFIGS
-from .configs._abc import _SklearnClassifierConfig, _HuggingfaceClassifierConfig
+from .configs._abc import _HuggingfaceClassifierConfig, _SklearnClassifierConfig
 from .utils import TASK, ensure_offline_models
 
 logger = logging.getLogger(__name__)
@@ -152,7 +153,7 @@ def main(
             help='Slurm partition QoS to use for GPU tasks [gpushort, gpumedium, ...]\n'
             'GPU QoS has different MaxJobsPU with different priority, see `$ sacctmgr show qos`'
         ),
-    ] = 'gpumedium',
+    ] = 'gpushort',
     slurm_cpu_qos: Annotated[str, typer.Option(help='Slurm partition QoS to use for GPU tasks [short, ...]')] = 'short',
     dev_mode: Annotated[bool, typer.Option(help='Run in development mode')] = False,
     crowd: Annotated[bool, typer.Option(help='Also train on the crowd-labelled items (train split only); outputs go to the *_crowd directories')] = False,
