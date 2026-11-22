@@ -28,6 +28,8 @@ logger = logging.getLogger('classify.inout.transformer')
 logging.getLogger('urllib3').setLevel(logging.ERROR)
 warnings.filterwarnings('ignore', category=UndefinedMetricWarning)
 
+CHARS_PER_TOKEN_CAP = 32  # texts are cut to this many characters per token of the length limit before tokenising
+
 _custom_classes = None
 
 
@@ -60,24 +62,12 @@ def _get_custom_classes():  # type: ignore[no-untyped-def]
         def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None) -> tuple[torch.Tensor, PredictionOutput] | torch.Tensor:  # type: ignore[no-untyped-def]
             y_true = inputs.pop('labels')
             outputs = model(**inputs)
-            y_pred = self.activation(outputs.logits)
 
             # class_weights arrives as a Tensor from fit and as a list after get_params round-trip; CrossEntropyLoss accepts both paths via tensor coercion
             criterion = self.loss(weight=cast('torch.Tensor | None', self.args.class_weights if self.args.use_class_weights else None))
-            loss = criterion(y_pred, y_true)
+            loss = criterion(outputs.logits, y_true)  # CrossEntropyLoss applies the log-softmax itself, so it takes raw logits
 
             return (loss, outputs) if return_outputs else loss
-
-        def predict_proba(self, test_dataset: Dataset) -> np.ndarray:
-            # transformers' Trainer.predict accepts an HF datasets.Dataset; its stub only names the torch one
-            predictions = self.predict(cast('torch.utils.data.dataset.Dataset[Any]', test_dataset)).predictions
-            # Encoder-decoder models (e.g. T5ForSequenceClassification) return a tuple of outputs
-            # (logits first, then hidden states etc.); classification logits are element 0.
-            if isinstance(predictions, (tuple, list)):
-                predictions = predictions[0]
-            logits = predictions if torch.is_tensor(predictions) else torch.tensor(predictions)
-            return self.activation(logits).numpy()
-            # return logits.numpy()  # FIXME: does this still work? returning unscaled logits should be better for ranking. Note: No it shouldn't
 
     _custom_classes = (CustomTrainingArguments, CustomTrainer)
     return _custom_classes
@@ -159,35 +149,44 @@ class HuggingfaceClassifier(ClassifierBase):
             cache_dir=settings.OFFLINE_MODELS_DIR,
         )
 
-        self.model_ = CustomTrainer(model=model, args=train_args, train_dataset=dataset)
+        from transformers import DataCollatorWithPadding
+
+        self.model_ = CustomTrainer(model=model, args=train_args, train_dataset=dataset, data_collator=DataCollatorWithPadding(tokenizer=self._get_tokenizer()))
         result = self.model_.train(resume_from_checkpoint=None)
 
         logger.debug(f'Time: {result.metrics["train_runtime"]:.2f}')
         logger.debug(f'Samples/second: {result.metrics["train_samples_per_second"]:.2f}')
 
-    def tokenize(self, texts: list[str], labels: np.ndarray | None) -> Dataset:
-        from datasets import Dataset
-        from transformers import AutoTokenizer
-        from torch import tensor, long
-
+    def _get_tokenizer(self) -> TokenizersBackend | SentencePieceBackend:
         if self.tokenizer_ is None:
+            from transformers import AutoTokenizer
+
             self.tokenizer_ = AutoTokenizer.from_pretrained(
                 self.model_name,
                 model_max_length=self.model_max_length,
                 cache_dir=settings.OFFLINE_MODELS_DIR,
             )
-
-        params: dict[str, Any] = {'text': texts}
-        if labels is not None:
-            params['labels'] = tensor(labels, dtype=long)
-        dataset = Dataset.from_dict(params)
-
         tokenizer = self.tokenizer_
-        assert tokenizer is not None  # set above; re-narrows the attribute across the intervening calls
-        dataset = dataset.map(lambda x: tokenizer(x['text'], padding='max_length', truncation=True), batched=True)  # type: ignore[misc]
-        dataset.set_format('torch')
+        assert tokenizer is not None  # set above; re-narrows the attribute after the call
+        return tokenizer
 
-        return dataset.remove_columns('text')
+    def _encode(self, texts: list[str]) -> Any:
+        """Tokenise without padding. Every text is truncated to `model_max_length` tokens, however long it is.
+
+        The text is cut to a multiple of the token limit in characters first, which bounds the tokeniser's work on pathological inputs.
+        """
+        cap = self.model_max_length * CHARS_PER_TOKEN_CAP
+        cleaned = [t[:cap] if isinstance(t, str) else '' for t in texts]
+        return self._get_tokenizer()(cleaned, truncation=True, max_length=self.model_max_length)
+
+    def tokenize(self, texts: list[str], labels: np.ndarray | None) -> Dataset:
+        from datasets import Dataset
+
+        encoded = self._encode(texts)
+        data: dict[str, Any] = {key: encoded[key] for key in encoded.keys()}
+        if labels is not None:
+            data['labels'] = np.asarray(labels).astype(int).tolist()
+        return Dataset.from_dict(data)  # padding happens per batch, in the data collator
 
     def get_params(self, deep: bool = True) -> dict[str, Any]:
         if self.model_ is None or self.classes_ is None:  # type: ignore[unreachable]
@@ -200,30 +199,42 @@ class HuggingfaceClassifier(ClassifierBase):
             'classes_': self.classes_.tolist(),
         }
 
-    def predict_proba(self, X: list[str]) -> np.ndarray:
+    def predict_proba(self, X: list[str], batch_size: int | None = None) -> np.ndarray:
+        """Probability of the positive class. Works on a freshly trained and on a loaded model, for texts of any length."""
         import torch
 
         if self.model_ is None:
             raise RuntimeError('Model must be trained before predicting!')
 
-        logger.debug(f'Tokenising {len(X):,} texts')
+        # A fresh model is wrapped in a Trainer; a loaded one is the bare model
+        model = self.model_.model if hasattr(self.model_, 'args') else self.model_
+        device = next(model.parameters()).device
+        if device.type == 'cpu' and torch.cuda.is_available():
+            model.to('cuda')
+            device = torch.device('cuda')
+        model.eval()
 
-        dataset = self.tokenize(texts=X, labels=None)
-        logger.debug('Predicting on texts')
-        # self.model_.eval()
+        batch_size = batch_size or int(self.model_params_.get('per_device_eval_batch_size', 16))
+        tokenizer = self._get_tokenizer()
+        encoded = self._encode(X)
+        n = len(encoded['input_ids'])
+        order = np.argsort([len(ids) for ids in encoded['input_ids']])  # similar lengths per batch keeps padding small
+        probs = np.zeros(n)
+        logger.debug(f'Predicting on {n:,} texts')
         with torch.no_grad():
-            y_pred = self.model_.predict_proba(dataset)
-            if type(y_pred) is torch.Tensor:
-                y_pred = y_pred.numpy()
-            if len(y_pred.shape) > 1:
-                y_pred = y_pred[:, 1]
-        logger.debug(f'  > Predictions include {(y_pred > 0.5).sum():,} records at threshold >0.5')
-        return y_pred
+            for start in range(0, n, batch_size):
+                idx = order[start : start + batch_size]
+                features = [{key: encoded[key][i] for key in encoded.keys()} for i in idx]
+                batch = {key: value.to(device) for key, value in tokenizer.pad(features, return_tensors='pt').items()}
+                logits = model(**batch).logits
+                probs[idx] = torch.softmax(logits.float(), dim=-1)[:, 1].cpu().numpy()
+        logger.debug(f'  > Predictions include {(probs > 0.5).sum():,} records at threshold >0.5')
+        return probs
 
     def predict(self, X: list[str]) -> np.ndarray:
         if self.classes_ is None:
             raise RuntimeError('Model must be trained before predicting!')
-        return self.classes_[np.argmax(self.predict_proba(X), axis=1)]
+        return self.classes_[(self.predict_proba(X) > 0.5).astype(int)]
 
     def save(self, path: Path) -> None:
         target = str(path.resolve())
@@ -234,6 +245,7 @@ class HuggingfaceClassifier(ClassifierBase):
         # which also torch.saves self.args -- an instance of the locally-defined CustomTrainingArguments
         # that pickle cannot serialise. load() only needs the model + model_info.json, not training args.
         self.model_.model.save_pretrained(target)  # type: ignore[attr-defined]
+        self._get_tokenizer().save_pretrained(target)  # so the saved model needs no hub access to run
         with open(path / 'model_info.json', 'w') as fp:
             # default=str guards against any residual non-JSON values (e.g. a torch tensor
             # class_weights in model_params); those fields are inert on reload.
@@ -251,6 +263,10 @@ class HuggingfaceClassifier(ClassifierBase):
         model = cls(**info)
         model.classes_ = np.asarray(classes)
         model.model_ = AutoModelForSequenceClassification.from_pretrained(source)
+        if (path / 'tokenizer_config.json').exists():
+            from transformers import AutoTokenizer
+
+            model.tokenizer_ = AutoTokenizer.from_pretrained(source, model_max_length=model.model_max_length)
         return model
 
     # def best_from_study(self, study: Study) -> 'TransformerClassifier':

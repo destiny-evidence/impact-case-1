@@ -7,7 +7,7 @@ from .randforest import RandomForestClassifierConfig
 from .regression import RegressionClassifierConfig
 from .sgd import SGDClassifierConfig
 from .svm import SVMClassifierConfig
-from .transformers import SciBertConfig, T5Config, SciNCLBertConfig, ClimateBertConfig
+from .transformers import SciBertConfig, T5Config, SciNCLBertConfig, ClimateBertConfig, ModernBertConfig, ClimateModernBertConfig
 
 type ClassifierConfig = (
     IsolationForestClassifierConfig
@@ -21,6 +21,8 @@ type ClassifierConfig = (
     | T5Config
     | SciNCLBertConfig
     | ClimateBertConfig
+    | ModernBertConfig
+    | ClimateModernBertConfig
 )
 
 MODEL_CONFIGS: dict[str, Type[ClassifierConfig]] = {
@@ -37,6 +39,8 @@ MODEL_CONFIGS: dict[str, Type[ClassifierConfig]] = {
         T5Config,
         SciNCLBertConfig,
         ClimateBertConfig,
+        ModernBertConfig,
+        ClimateModernBertConfig,
     ]
 }
 
@@ -53,5 +57,7 @@ __all__ = [
     'T5Config',
     'SciNCLBertConfig',
     'ClimateBertConfig',
+    'ModernBertConfig',
+    'ClimateModernBertConfig',
     'ClassifierConfig',
 ]

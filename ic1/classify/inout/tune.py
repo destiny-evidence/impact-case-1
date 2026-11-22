@@ -57,6 +57,7 @@ def hyperparameter_tuning(
             config=config,
             tuning_jobs=num_jobs,
             tuning_trials=num_trials,
+            random_seed=random_seed,
         )
         start_time = time.time()
         study = helper.tune(
