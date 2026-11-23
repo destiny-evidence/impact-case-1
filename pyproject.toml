@@ -43,7 +43,7 @@ dev = [
 nacsos_data = [
     { git = "git+ssh://git@gitlab.pik-potsdam.de/mcc-apsis/nacsos/nacsos-data.git", tag = "v0.24.53" },
 ]
-destiny-deet = { git = "https://github.com/destiny-evidence/data-extraction-evaluation-toolkit.git", branch = "feature/316-hierarchical-attribute-taxonomy" }
+destiny-deet = { path = "../data-extraction-evaluation-toolkit", editable = true }
 
 [project.scripts]
 ic1 = "ic1:main"

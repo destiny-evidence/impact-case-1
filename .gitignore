@@ -6,6 +6,7 @@ data/private/
 .mypy_cache/
 .conf/
 *.env
+CLAUDE.md
 .venv/
 .vscode/
 Documents/
