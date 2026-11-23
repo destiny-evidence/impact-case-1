@@ -94,7 +94,17 @@ def _unique_map(df: pd.DataFrame, key: str) -> tuple[dict[str, str], set[str]]:
 
 
 def match_records(crowd: pd.DataFrame, ref: pd.DataFrame, prefix: str) -> tuple[list[str | None], list[str]]:
-    """Match crowd records to reference rows (columns item_id, doi_n, ty, title_n) on DOI, title+year, then title."""
+    """Match crowd records to reference rows (columns item_id, doi_n, ty, title_n) on DOI, title+year, then title.
+
+    A title-based match is rejected when both sides have a DOI and the DOIs conflict (neither is a prefix of the other,
+    which tolerates the suffixes the crowd platform truncates), so generic titles cannot link different papers.
+    """
+    ref_doi = ref.set_index('item_id')['doi_n'].to_dict()
+
+    def conflict(doi: str | None, iid: str) -> bool:
+        other = ref_doi.get(iid)
+        return bool(isinstance(doi, str) and isinstance(other, str) and not (doi.startswith(other) or other.startswith(doi)))
+
     doi_map, doi_amb = _unique_map(ref, 'doi_n')
     ty_map, ty_amb = _unique_map(ref, 'ty')
     title_map, title_amb = _unique_map(ref, 'title_n')
@@ -104,9 +114,9 @@ def match_records(crowd: pd.DataFrame, ref: pd.DataFrame, prefix: str) -> tuple[
         iid, m = None, 'unmatched'
         if r['doi_n'] in doi_map:
             iid, m = doi_map[r['doi_n']], 'doi'
-        elif pd.notna(r['ty']) and r['ty'] in ty_map:
+        elif pd.notna(r['ty']) and r['ty'] in ty_map and not conflict(r['doi_n'], ty_map[r['ty']]):
             iid, m = ty_map[r['ty']], 'title+year'
-        elif pd.notna(r['title_n']) and r['title_n'] in title_map:
+        elif pd.notna(r['title_n']) and r['title_n'] in title_map and not conflict(r['doi_n'], title_map[r['title_n']]):
             iid, m = title_map[r['title_n']], 'title'
         elif r['doi_n'] in doi_amb or r['ty'] in ty_amb or r['title_n'] in title_amb:
             m = 'ambiguous'
