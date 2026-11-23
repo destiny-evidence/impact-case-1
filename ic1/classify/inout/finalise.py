@@ -14,6 +14,16 @@ from ic1.classify.inout.utils.metrics import evaluate, posterior_metric_summarie
 logger = logging.getLogger(__name__)
 
 
+def _threshold_grid(step: float) -> np.ndarray:
+    """Candidate decision thresholds: a linear grid from 0.02, preceded by a geometric range down to 1e-5.
+
+    Fine-tuned transformers put a tenth or more of the positives at probabilities below 0.02, so a linear grid
+    alone cannot reach a high recall floor for them.
+    """
+    low = np.geomspace(1e-5, 0.02, 31)[:-1]
+    return np.unique(np.concatenate([low, np.round(np.arange(0.02, 0.99, step), 2)]))
+
+
 def _select_filtering(val: pd.DataFrame, recall_floor: float) -> pd.Series:
     """Pick the filtering model: the config that forwards the fewest documents to the LLM
     (lowest `onward_fraction`) while still catching at least `recall_floor` of the includes
@@ -43,7 +53,7 @@ def finalise_models(
     target_dir = target_dir or TASK.ml_model_path
 
     results = read_tuning_results(tuning_dir)
-    grid = np.round(np.arange(0.02, 0.99, threshold_step), 2)
+    grid = _threshold_grid(threshold_step)
     rows = []
     for i, r in enumerate(results):
         yv, pv = np.asarray(r.val_labels), np.asarray(r.val_probs)

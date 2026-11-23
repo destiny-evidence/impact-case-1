@@ -65,7 +65,7 @@ def _get_custom_classes():  # type: ignore[no-untyped-def]
 
             # class_weights arrives as a Tensor from fit and as a list after get_params round-trip; CrossEntropyLoss accepts both paths via tensor coercion
             criterion = self.loss(weight=cast('torch.Tensor | None', self.args.class_weights if self.args.use_class_weights else None))
-            loss = criterion(outputs.logits, y_true)  # CrossEntropyLoss applies the log-softmax itself, so it takes raw logits
+            loss = criterion(outputs.logits.float(), y_true)  # CrossEntropyLoss applies the log-softmax itself, so it takes raw logits
 
             return (loss, outputs) if return_outputs else loss
 
@@ -147,6 +147,7 @@ class HuggingfaceClassifier(ClassifierBase):
             num_labels=self.num_labels,
             ignore_mismatched_sizes=True,
             cache_dir=settings.OFFLINE_MODELS_DIR,
+            dtype=torch.float32,  # checkpoints stored in bfloat16 would otherwise train in bfloat16
         )
 
         from transformers import DataCollatorWithPadding
@@ -253,6 +254,7 @@ class HuggingfaceClassifier(ClassifierBase):
 
     @classmethod
     def load(cls, path: Path) -> 'HuggingfaceClassifier':
+        import torch
         from transformers import AutoModelForSequenceClassification
 
         source = str(path.resolve())
@@ -262,7 +264,7 @@ class HuggingfaceClassifier(ClassifierBase):
         classes = info.pop('classes_')
         model = cls(**info)
         model.classes_ = np.asarray(classes)
-        model.model_ = AutoModelForSequenceClassification.from_pretrained(source)
+        model.model_ = AutoModelForSequenceClassification.from_pretrained(source, dtype=torch.float32)
         if (path / 'tokenizer_config.json').exists():
             from transformers import AutoTokenizer
 
