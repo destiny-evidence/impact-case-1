@@ -1,0 +1,29 @@
+{
+  "criterion": "ml_only",
+  "model": "climatemodernbert",
+  "params": {
+    "model_name": "CMB-ClimateModernBERT/Merge_Soup_LRD",
+    "output_dir": "data/.cache/models",
+    "optim": "adamw_torch",
+    "save_strategy": "no",
+    "use_class_weights": 1,
+    "learning_rate": 3.881377387436989e-05,
+    "per_device_train_batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "per_device_eval_batch_size": 8,
+    "num_train_epochs": 2,
+    "weight_decay": 0.11112125136034001,
+    "warmup_steps": 0.1,
+    "seed": 42,
+    "data_seed": 42,
+    "downsampling": 0.18285620634824534
+  },
+  "threshold": 0.43,
+  "beta": 2.0,
+  "crowd": true,
+  "n_fit": 8896,
+  "fit_hash": "d5e84f7d5fb9a6bf",
+  "train_hash": "35844cb19164cded",
+  "val_hash": "929c45a6a7579000",
+  "test_hash": "847bbcf27d84706e"
+}
