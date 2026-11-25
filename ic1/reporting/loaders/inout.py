@@ -397,6 +397,8 @@ def inout_cycle_spans(runs: pd.DataFrame) -> list[dict]:
 # Real (non-dev) finalised ML models. Dev-mode runs land under models/testing
 # with a test set fabricated from train — unusable for the head-to-head.
 _ML_MODEL_DIR = _REPO_ROOT / 'data' / 'models' / 'inout' / 'results' / 'model'
+# Same selection rules, but the two models were fit on train + the crowd labels.
+_ML_CROWD_MODEL_DIR = _REPO_ROOT / 'data' / 'models' / 'inout_crowd' / 'results' / 'model'
 
 
 def _latest_test_run(root: Path | None = None) -> Path:
@@ -461,9 +463,19 @@ def load_inout_prompts(llm_run: Path | str | None = None, headline: str = 'best 
     return {'run': root.name, 'system': system, 'headline': headline, 'modes': modes}
 
 
+def _ml_pair(mld: Path) -> tuple[pd.DataFrame, pd.DataFrame, float, float]:
+    """Test predictions (ml_only, filtering) and their finalised thresholds for one model dir."""
+    ml_only = pd.read_csv(mld / 'ml_only' / 'test_predictions.csv')
+    filt = pd.read_csv(mld / 'filtering' / 'test_predictions.csv')
+    t_ml = json.loads((mld / 'ml_only' / 'train_info.json').read_text())['threshold']
+    t_filt = json.loads((mld / 'filtering' / 'train_info.json').read_text())['threshold']
+    return ml_only, filt, t_ml, t_filt
+
+
 def load_inout_comparison(
     llm_run: Path | str | None = None,
     ml_model_dir: Path | str | None = None,
+    crowd_model_dir: Path | str | None = None,
     corpus_size: int = 6_000_000,
     seed: int = 42,
 ) -> pd.DataFrame:
@@ -482,6 +494,11 @@ def load_inout_comparison(
                           are excluded — simulated by reusing the LLM's decisions
                           on the passed docs.
 
+    When crowd-trained predictions exist under ``crowd_model_dir`` (default
+    ``data/models/inout_crowd/results/model``), extra family ``ML (crowd)``
+    rows mirror the ML-only system and every cascade operating point,
+    substituting the crowd models' probabilities and thresholds.
+
     Intervals use the same Dirichlet-multinomial confusion-matrix posterior as
     ``classify``'s finalise (``posterior_metric_summaries``). Cost is the LLM
     run's recorded USD/doc extrapolated to ``corpus_size``; the cascade pays it
@@ -491,6 +508,7 @@ def load_inout_comparison(
     """
     root = Path(llm_run) if llm_run is not None else _latest_test_run()
     mld = Path(ml_model_dir) if ml_model_dir is not None else _ML_MODEL_DIR
+    crowdd = Path(crowd_model_dir) if crowd_model_dir is not None else _ML_CROWD_MODEL_DIR
 
     comp = pd.read_csv(root / 'goldstandard_llm_comparison.csv')
     comp = comp[comp.attribute_label.isin(MODE_LABELS)].copy()
@@ -500,10 +518,7 @@ def load_inout_comparison(
     llm_wide = comp.pivot_table(index='external_id', columns='mode', values='llm_extraction', aggfunc='first')
     base = pd.DataFrame({'human_extraction': hum}).join(llm_wide).reset_index()
 
-    ml_only = pd.read_csv(mld / 'ml_only' / 'test_predictions.csv')
-    filt = pd.read_csv(mld / 'filtering' / 'test_predictions.csv')
-    t_ml = json.loads((mld / 'ml_only' / 'train_info.json').read_text())['threshold']
-    t_filt = json.loads((mld / 'filtering' / 'train_info.json').read_text())['threshold']
+    ml_only, filt, t_ml, t_filt = _ml_pair(mld)
 
     df = base.merge(ml_only.rename(columns={'y_prob': 'ml_prob'}), left_on='external_id', right_on='item_id').merge(
         filt[['item_id', 'y_prob']].rename(columns={'y_prob': 'filt_prob'}), on='item_id'
@@ -521,6 +536,16 @@ def load_inout_comparison(
     ml_pred = (df.ml_prob.to_numpy() > t_ml).astype(int)
     llm_inc = {m: df[m].fillna(False).astype(int).to_numpy() for m in _MODE_ORDER if m in df.columns}
 
+    has_crowd = (crowdd / 'ml_only' / 'test_predictions.csv').exists()
+    if has_crowd:
+        c_ml, c_filt, t_c_ml, t_c_filt = _ml_pair(crowdd)
+        ml_prob_crowd = df.external_id.map(c_ml.set_index('item_id')['y_prob'])
+        filt_prob_crowd = df.external_id.map(c_filt.set_index('item_id')['y_prob'])
+        if ml_prob_crowd.isna().any() or filt_prob_crowd.isna().any():
+            raise ValueError(f'Crowd test predictions in {crowdd} do not cover all {len(df)} LLM test docs.')
+        ml_pred_crowd = (ml_prob_crowd.to_numpy() > t_c_ml).astype(int)
+        crowd_pass = (filt_prob_crowd.to_numpy() > t_c_filt).astype(int)
+
     meta = json.loads((root / 'extraction_metadata.json').read_text())
     llm_cost_doc = meta['total_cost_usd'] / comp.external_id.nunique()
     prop_pass = float(filt_pass.mean())  # cascade: LLM runs on forwarded docs
@@ -531,8 +556,13 @@ def load_inout_comparison(
     for m in llm_inc:
         systems.append((f'LLM only ({m})', 'LLM only', m, llm_inc[m], 1.0))
     systems.append(('ML only', 'ML only', None, ml_pred, 0.0))
+    if has_crowd:
+        systems.append(('ML only (crowd)', 'ML (crowd)', None, ml_pred_crowd, 0.0))
+    prop_pass_crowd = float(crowd_pass.mean()) if has_crowd else 0.0
     for m in llm_inc:
         systems.append((f'ML → LLM ({m})', 'ML → LLM', m, filt_pass & llm_inc[m], prop_pass))
+        if has_crowd:
+            systems.append((f'ML → LLM ({m}, crowd)', 'ML (crowd)', m, crowd_pass & llm_inc[m], prop_pass_crowd))
     # OR-ensemble: include if ML *or* the LLM includes. Uses the balanced ml_only
     # model (OR-ing with the high-recall filter would collapse precision). The
     # prediction equals a full OR, but you only need the LLM on docs ML rejected —

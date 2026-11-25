@@ -14,6 +14,16 @@ from ic1.classify.inout.utils.metrics import evaluate, posterior_metric_summarie
 logger = logging.getLogger(__name__)
 
 
+def _threshold_grid(step: float) -> np.ndarray:
+    """Candidate decision thresholds: a linear grid from 0.02, preceded by a geometric range down to 1e-5.
+
+    Fine-tuned transformers put a tenth or more of the positives at probabilities below 0.02, so a linear grid
+    alone cannot reach a high recall floor for them.
+    """
+    low = np.geomspace(1e-5, 0.02, 31)[:-1]
+    return np.unique(np.concatenate([low, np.round(np.arange(0.02, 0.99, step), 2)]))
+
+
 def _select_filtering(val: pd.DataFrame, recall_floor: float) -> pd.Series:
     """Pick the filtering model: the config that forwards the fewest documents to the LLM
     (lowest `onward_fraction`) while still catching at least `recall_floor` of the includes
@@ -27,6 +37,7 @@ def _select_filtering(val: pd.DataFrame, recall_floor: float) -> pd.Series:
 
 def finalise_models(
     dev_mode: Annotated[bool, typer.Option(help='Fabricate splits from train; never read real test')] = False,
+    crowd: Annotated[bool, typer.Option(help='Also train on the crowd-labelled items (train split only); outputs go to the *_crowd directories')] = False,
     beta: Annotated[float, typer.Option(help='Beta for F-beta selection of the ML-only model')] = 1.0,
     recall_floor: Annotated[float, typer.Option(help='Min validation recall the filtering model must clear')] = 0.95,
     n_boot: Annotated[int, typer.Option(help='Bootstrap resamples for test-set CIs')] = 1000,
@@ -37,11 +48,12 @@ def finalise_models(
     """Select the ML-only and filtering models on validation, fit each on train+val,
     then evaluate both once on the sealed test set with bootstrap CIs and cost proxy."""
     TASK.dev_mode = dev_mode
+    TASK.crowd = crowd
     tuning_dir = tuning_dir or TASK.tuning_results_path
     target_dir = target_dir or TASK.ml_model_path
 
     results = read_tuning_results(tuning_dir)
-    grid = np.round(np.arange(0.02, 0.99, threshold_step), 2)
+    grid = _threshold_grid(threshold_step)
     rows = []
     for i, r in enumerate(results):
         yv, pv = np.asarray(r.val_labels), np.asarray(r.val_probs)
@@ -86,6 +98,8 @@ def finalise_models(
                         'params': run.params,
                         'threshold': threshold,
                         'beta': beta,
+                        'crowd': crowd,
+                        'n_fit': len(fit_df),
                         'fit_hash': hash_ids(fit_df['item_id'].tolist()),
                         'train_hash': hash_ids(train['item_id'].tolist()),
                         'val_hash': hash_ids(val_df['item_id'].tolist()),

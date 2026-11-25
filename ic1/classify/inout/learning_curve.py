@@ -54,6 +54,7 @@ def _stratified_subsample(y: np.ndarray, frac: float, seed: int) -> np.ndarray:
 
 def learning_curve(
     dev_mode: Annotated[bool, typer.Option(help='Use the testing dir / fabricated splits')] = False,
+    crowd: Annotated[bool, typer.Option(help='Also train on the crowd-labelled items (train split only); outputs go to the *_crowd directories')] = False,
     models: Annotated[list[str] | None, typer.Option(help='Models to curve (default: all tuned)')] = None,
     fractions: Annotated[list[float] | None, typer.Option(help='Train fractions to evaluate')] = None,
     n_seeds: Annotated[int, typer.Option(help='Random subsamples per fraction (error bands)')] = 3,
@@ -61,6 +62,7 @@ def learning_curve(
     tuning_dir: Annotated[Path | None, typer.Option()] = None,
 ) -> None:
     TASK.dev_mode = dev_mode
+    TASK.crowd = crowd
     tuning_dir = tuning_dir or TASK.tuning_results_path
     folds = {f.model: f for f in read_tuning_results(tuning_dir)}
     models = models or sorted(folds)

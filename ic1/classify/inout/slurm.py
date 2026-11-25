@@ -8,8 +8,9 @@ from typing import Annotated, Any, cast
 import typer
 
 from ic1.core.config import settings
+
 from .configs import MODEL_CONFIGS
-from .configs._abc import _SklearnClassifierConfig, _HuggingfaceClassifierConfig
+from .configs._abc import _HuggingfaceClassifierConfig, _SklearnClassifierConfig
 from .utils import TASK, ensure_offline_models
 
 logger = logging.getLogger(__name__)
@@ -152,9 +153,10 @@ def main(
             help='Slurm partition QoS to use for GPU tasks [gpushort, gpumedium, ...]\n'
             'GPU QoS has different MaxJobsPU with different priority, see `$ sacctmgr show qos`'
         ),
-    ] = 'gpumedium',
+    ] = 'gpushort',
     slurm_cpu_qos: Annotated[str, typer.Option(help='Slurm partition QoS to use for GPU tasks [short, ...]')] = 'short',
     dev_mode: Annotated[bool, typer.Option(help='Run in development mode')] = False,
+    crowd: Annotated[bool, typer.Option(help='Also train on the crowd-labelled items (train split only); outputs go to the *_crowd directories')] = False,
     num_folds: Annotated[int, typer.Option(help='Number of folds for cross-validation')] = 3,
     random_seed: Annotated[int | None, typer.Option(help='Random seed for cross-validation')] = None,
     num_trials_gpu: Annotated[
@@ -178,7 +180,9 @@ def main(
 
     # Route outputs to the testing/ dir in dev mode, production dir otherwise.
     TASK.dev_mode = dev_mode
+    TASK.crowd = crowd
     result_dir = result_dir or TASK.tuning_results_path
+    stem = 'classify.crowd' if crowd else 'classify'  # keeps the crowd run's scripts apart from the baseline ones
 
     # Ensure directories are ready
     venv_path = Path(sys.executable).parent.parent.resolve()
@@ -198,6 +202,7 @@ def main(
 
     script_args = {
         'dev-mode': dev_mode,
+        'crowd': crowd,
         'result-dir': result_dir,
         'num-folds': num_folds,
         'random-seed': random_seed,
@@ -218,7 +223,7 @@ def main(
 
     logger.info(f'Writing CPU slurm file for {[config.name for config in configs_cpu]}')
     _write_file(
-        target=Path('classify.cpu.slurm'),
+        target=Path(f'{stem}.cpu.slurm'),
         models=[config.name for config in configs_cpu],
         script_args=script_args | {'num-trials': num_trials_cpu},
         venv_path=venv_path,
@@ -232,7 +237,7 @@ def main(
 
     logger.info(f'Writing GPU slurm file for {[config.name for config in configs_gpu]}')
     _write_file(
-        target=Path('classify.gpu.slurm'),
+        target=Path(f'{stem}.gpu.slurm'),
         models=[config.name for config in configs_gpu],
         script_args=script_args | {'num-trials': num_trials_gpu},
         venv_path=venv_path,
@@ -262,10 +267,11 @@ def main(
         )
         logger.info('Writing finalise slurm file')
         _write_finalise_file(
-            target=Path('classify.finalise.slurm'),
+            target=Path(f'{stem}.finalise.slurm'),
             sbatch_args=finalise_sbatch,
             script_args={
                 'dev-mode': dev_mode,
+                'crowd': crowd,
                 'tuning-dir': result_dir,
                 'recall-floor': recall_floor,
                 'beta': beta,
@@ -274,13 +280,13 @@ def main(
         )
 
     if run_learning_curve:
-        lc_args = {'dev-mode': dev_mode, 'tuning-dir': result_dir, 'n-seeds': lc_n_seeds, 'fractions': lc_fractions}
+        lc_args = {'dev-mode': dev_mode, 'crowd': crowd, 'tuning-dir': result_dir, 'n-seeds': lc_n_seeds, 'fractions': lc_fractions}
         lc_command = 'python ic1/classify/inout/learning_curve.py'
         lc_log = {'output': f'{slurm_log}/lc_%A_%a.out', 'error': f'{slurm_log}/lc_%A_%a.err'}
         if configs_cpu:
             logger.info('Writing learning-curve CPU slurm file')
             _write_file(
-                target=Path('classify.lc.cpu.slurm'),
+                target=Path(f'{stem}.lc.cpu.slurm'),
                 models=[config.name for config in configs_cpu],
                 script_args=lc_args,
                 venv_path=venv_path,
@@ -290,7 +296,7 @@ def main(
         if configs_gpu:
             logger.info('Writing learning-curve GPU slurm file')
             _write_file(
-                target=Path('classify.lc.gpu.slurm'),
+                target=Path(f'{stem}.lc.gpu.slurm'),
                 models=[config.name for config in configs_gpu],
                 script_args=lc_args,
                 venv_path=venv_path,
@@ -301,7 +307,7 @@ def main(
     if schedule_jobs:
         logger.info('Scheduling jobs to slurm queue')
         dep_ids: list[str] = []
-        for target, configs in [('classify.gpu.slurm', configs_gpu), ('classify.cpu.slurm', configs_cpu)]:
+        for target, configs in [(f'{stem}.gpu.slurm', configs_gpu), (f'{stem}.cpu.slurm', configs_cpu)]:
             if not configs:
                 continue
             res = subprocess.run(['sbatch', '--parsable', target], capture_output=True, text=True, check=True)
@@ -314,11 +320,11 @@ def main(
         dep = ['--dependency=afterany:' + ':'.join(dep_ids)] if dep_ids else []
 
         if run_finalise:
-            subprocess.run(['sbatch', *dep, 'classify.finalise.slurm'], check=True)
+            subprocess.run(['sbatch', *dep, f'{stem}.finalise.slurm'], check=True)
             logger.info(f'Submitted finalise{" depending on " + ":".join(dep_ids) if dep_ids else ""}')
 
         if run_learning_curve:
-            for target, configs in [('classify.lc.gpu.slurm', configs_gpu), ('classify.lc.cpu.slurm', configs_cpu)]:
+            for target, configs in [(f'{stem}.lc.gpu.slurm', configs_gpu), (f'{stem}.lc.cpu.slurm', configs_cpu)]:
                 if not configs:
                     continue
                 subprocess.run(['sbatch', *dep, target], check=True)

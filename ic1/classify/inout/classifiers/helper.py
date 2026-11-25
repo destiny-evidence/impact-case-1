@@ -31,8 +31,10 @@ class ClassifierHelper:
         thresholds: list[float] | None = None,
         hp_space: Callable[['Trial'], dict[str, Any]] | None = None,
         model_params: dict[str, Any] | None = None,
+        random_seed: int | None = None,
     ):
         self.config = config
+        self.random_seed = random_seed
         self.hp_space = hp_space or (lambda trial: {})
         self.model_params = model_params or {}
         self.thresholds = thresholds or [0.1, 0.2, 0.3, 0.4, 0.5]
@@ -71,7 +73,7 @@ class ClassifierHelper:
 
         # TODO: Check which sampler makes most sense: https://optuna.readthedocs.io/en/stable/reference/samplers/index.html
         n_trials = self.tuning_trials or DEFAULT_TUNING_TRIALS
-        sampler = optuna.samplers.TPESampler(n_startup_trials=int(n_trials * 0.5))
+        sampler = optuna.samplers.TPESampler(n_startup_trials=int(n_trials * 0.5), seed=self.random_seed)
         study = optuna.create_study(direction='maximize', sampler=sampler)
         study.optimize(
             lambda trial: self._run_trial(trial=trial, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, scoring=scoring, threshold=threshold),
