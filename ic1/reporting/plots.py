@@ -237,7 +237,7 @@ def plot_taxonomy_cost_performance(
 
 # System families encoded as marker shape; operating point as colour (MODE_COLORS).
 # ML-only has no operating point, so it gets a neutral grey.
-_FAMILY_MARKERS = {'LLM only': 'o', 'ML only': 'D', 'ML → LLM': 's', 'ML or LLM': '^'}
+_FAMILY_MARKERS = {'LLM only': 'o', 'ML only': 'D', 'ML → LLM': 's', 'ML or LLM': '^', 'ML (crowd)': 'P'}
 _NO_MODE_COLOR = '#7f7f7f'
 
 

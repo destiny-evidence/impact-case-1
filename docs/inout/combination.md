@@ -27,8 +27,9 @@ computed from a Dirichlet–multinomial confusion-matrix posterior.
 **marker shape** = system family: 
 *LLM only* (the LLM decision on every document), 
 *ML only* (the F-β–selected classifier, thresholded), 
-*ML → LLM* (high-recall SVM filter gates the corpus, forwarded documents take the LLM decision — a cascade), and 
-*ML or LLM* (include if the ML-only model *or* the LLM includes — an ensemble). 
+*ML → LLM* (high-recall filtering model gates the corpus, forwarded documents take the LLM decision — a cascade), 
+*ML or LLM* (include if the ML-only model *or* the LLM includes — an ensemble), and 
+*ML (crowd)* (the ML-only and cascade systems with the ML model retrained on the 4,547 crowd labels added to training; see [crowd screening](./crowd.md)). 
 ML-only carries no operating point and is shown in grey. 
 Intervals overlap widely on precision (small positive count) but are tighter on recall; 
 Cost is
